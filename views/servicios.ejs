@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <%- include('partials/head') %>
+</head>
+<body>
+  <%- include('partials/header') %>
+
+  <section class="page-hero">
+    <div class="container">
+      <h1>Servicios</h1>
+      <p>Precios orientativos. El presupuesto final se confirma tras la visita técnica gratuita.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="services-grid services-grid-full">
+        <a href="/servicios/ia-monitorizacion" class="service-card service-card-ai">
+          <div class="service-badge">Servicio exclusivo</div>
+          <div class="service-icon"><svg viewBox="0 0 24 24"><%- icons.ai %></svg></div>
+          <h3><%= iaService.nombre %></h3>
+          <p><%= iaService.resumen %></p>
+          <div class="service-card-footer">
+            <span class="price-tag">Desde <%= fmt(iaService.desde) %> €</span>
+            <span class="link-arrow">Ver detalle →</span>
+          </div>
+        </a>
+
+        <% services.forEach(function(s){ %>
+          <a href="/servicios/<%= s.slug %>" class="service-card">
+            <div class="service-icon"><svg viewBox="0 0 24 24"><%- icons[s.icono] %></svg></div>
+            <h3><%= s.numero %>. <%= s.nombre %></h3>
+            <p><%= s.resumen %></p>
+            <div class="service-meta">
+              <span class="meta-chip"><%= s.tiempo %></span>
+            </div>
+            <div class="service-card-footer">
+              <span class="price-tag">Desde <%= fmt(s.desde) %> €<%= s.desdeUnidad || '' %></span>
+              <span class="link-arrow">Ver detalle →</span>
+            </div>
+          </a>
+        <% }) %>
+      </div>
+    </div>
+  </section>
+
+  <section class="section final-cta">
+    <div class="container final-cta-inner">
+      <h2>¿No encuentras el servicio?</h2>
+      <p>También realizamos electricidad, averías, domótica, WiFi y redes, CCTV e IA, pintura, pladur, fontanería, reformas, automatización — para empresas, comunidades, chalets y viviendas.</p>
+      <a href="https://wa.me/34<%= empresa.whatsapp %>?text=Hola%2C%20tengo%20una%20consulta" target="_blank" rel="noopener" class="btn btn-whatsapp btn-lg">Consultar por WhatsApp</a>
+    </div>
+  </section>
+
+  <%- include('partials/footer') %>
+</body>
+</html>

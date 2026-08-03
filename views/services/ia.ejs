@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <%- include('../partials/head') %>
+</head>
+<body>
+  <%- include('../partials/header') %>
+
+  <section class="service-hero service-hero-ai">
+    <div class="container service-hero-inner">
+      <div class="service-hero-icon"><svg viewBox="0 0 24 24"><%- icons.ai %></svg></div>
+      <div>
+        <span class="eyebrow"><%= iaService.destacado %></span>
+        <h1><%= iaService.nombre %></h1>
+        <p><%= iaService.resumen %></p>
+        <div class="service-meta">
+          <span class="meta-chip"><%= iaService.tiempo %></span>
+          <span class="meta-chip meta-chip-price">Desde <%= fmt(iaService.desde) %> €</span>
+          <span class="meta-chip">Ideal para: <%= iaService.idealPara %></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <% iaService.ejemplos.forEach(function(ej){ %>
+        <div class="ia-example-block">
+          <h2 class="sub-heading">Ejemplo — <%= ej.titulo %></h2>
+          <p class="example-client"><%= ej.subtitulo %></p>
+
+          <div class="options-stack options-stack-3">
+            <% ej.opciones.forEach(function(op){ %>
+              <div class="option-card <%= op.destacada ? 'option-card-featured' : '' %>">
+                <% if (op.destacada) { %><span class="option-star">⭐ Recomendada</span><% } %>
+                <h3><%= op.nombre %></h3>
+                <table class="option-table">
+                  <tbody>
+                    <% op.items.forEach(function(item){ %>
+                      <tr>
+                        <td><%= item[0] %></td>
+                        <td class="option-price"><%= fmt(item[1]) %> €</td>
+                      </tr>
+                    <% }) %>
+                  </tbody>
+                  <tfoot>
+                    <tr>
+                      <td>TOTAL</td>
+                      <td class="option-price option-total"><%= fmt(op.total) %> €</td>
+                    </tr>
+                  </tfoot>
+                </table>
+              </div>
+            <% }) %>
+          </div>
+
+          <% if (ej.nota) { %><p class="example-note"><%= ej.nota %></p><% } %>
+        </div>
+      <% }) %>
+
+      <div class="two-col two-col-top">
+        <div>
+          <h2 class="sub-heading">Extras habituales</h2>
+          <ul class="plus-list">
+            <% iaService.extras.forEach(function(item){ %>
+              <li><%= item %></li>
+            <% }) %>
+          </ul>
+        </div>
+        <div>
+          <h2 class="sub-heading">Clientes que contrataron este servicio también instalaron</h2>
+          <ul class="dot-list">
+            <% iaService.tambienInstalaron.forEach(function(item){ %>
+              <li><%= item %></li>
+            <% }) %>
+          </ul>
+        </div>
+      </div>
+
+      <p class="orientative-note">Todos los importes son orientativos. El precio definitivo se confirma tras la visita técnica gratuita.</p>
+    </div>
+  </section>
+
+  <section class="section final-cta">
+    <div class="container final-cta-inner">
+      <h2>¿Hablamos de tu proyecto de vigilancia inteligente?</h2>
+      <p>Primera visita gratuita. Presupuesto sin compromiso.</p>
+      <a href="https://wa.me/34<%= empresa.whatsapp %>?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20IA%20y%20monitorizaci%C3%B3n" target="_blank" rel="noopener" class="btn btn-whatsapp btn-lg">
+        <%= empresa.whatsappDisplay %>
+      </a>
+    </div>
+  </section>
+
+  <%- include('../partials/footer') %>
+</body>
+</html>

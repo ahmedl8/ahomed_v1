@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <%- include('partials/head') %>
+</head>
+<body>
+  <%- include('partials/header') %>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="hero-copy">
+        <h1>Soluciones integrales <span>para tu hogar</span></h1>
+        <p class="hero-sub">Electricidad, domótica, seguridad con IA, energía solar y pequeños arreglos. Instalación profesional con más de <%= empresa.anosExperiencia %> de experiencia.</p>
+
+        <div class="hero-badges">
+          <div class="hero-badge"><svg viewBox="0 0 24 24"><path d="M12 2l8 3.5v6c0 5.2-3.4 9.8-8 10.5-4.6-.7-8-5.3-8-10.5v-6L12 2z"/></svg>Profesional cualificado</div>
+          <div class="hero-badge"><svg viewBox="0 0 24 24"><path d="M12 1l3 6 6.5.9-4.7 4.6 1.1 6.5L12 15.9 6.1 19l1.1-6.5L2.5 7.9 9 7z"/></svg>Más de <%= empresa.anosExperiencia %></div>
+          <div class="hero-badge"><svg viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>Instalaciones rápidas y limpias</div>
+          <div class="hero-badge"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12.001 2C6.478 2 2 6.478 2 12c0 1.85.502 3.657 1.454 5.235L2 22l4.897-1.415A9.955 9.955 0 0 0 12.001 22C17.523 22 22 17.523 22 12S17.523 2 12.001 2z"/></svg>Atención directa por WhatsApp</div>
+        </div>
+
+        <div class="hero-ctas">
+          <a href="https://wa.me/34<%= empresa.whatsapp %>?text=Hola%2C%20quiero%20pedir%20presupuesto%20gratuito" target="_blank" rel="noopener" class="btn btn-whatsapp btn-lg">
+            <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12.001 2C6.478 2 2 6.478 2 12c0 1.85.502 3.657 1.454 5.235L2 22l4.897-1.415A9.955 9.955 0 0 0 12.001 22C17.523 22 22 17.523 22 12S17.523 2 12.001 2z"/></svg>
+            Pedir presupuesto por WhatsApp
+          </a>
+          <a href="/trabajos-reales" class="btn btn-outline-light btn-lg">Ver trabajos reales</a>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <img src="/img/hero-tecnico.jpg" alt="Técnico AHOMED con cámaras IP, sensores y detección de matrículas por IA" class="hero-photo" />
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICIOS -->
+  <section class="section services-strip" id="servicios">
+    <div class="container">
+      <div class="section-head">
+        <h2>¿Qué necesitas?</h2>
+        <p>Servicios profesionales adaptados a tu hogar</p>
+      </div>
+
+      <div class="services-grid">
+        <% services.forEach(function(s){ %>
+          <a href="/servicios/<%= s.slug %>" class="service-card">
+            <h3><%= s.nombre %></h3>
+            <p><%= s.resumen %></p>
+            <div class="service-card-footer">
+              <span class="price-tag">Desde <%= fmt(s.desde) %> €<%= s.desdeUnidad || '' %></span>
+              <span class="link-arrow">Ver detalle →</span>
+            </div>
+          </a>
+        <% }) %>
+
+        <a href="/servicios/ia-monitorizacion" class="service-card service-card-ai">
+          <div class="service-badge">Servicio exclusivo</div>
+          <h3><%= iaService.nombre %></h3>
+          <p><%= iaService.destacado %></p>
+          <div class="service-card-footer">
+            <span class="price-tag">Desde <%= fmt(iaService.desde) %> €</span>
+            <span class="link-arrow">Ver detalle →</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- IA DESTACADA -->
+  <section class="section ai-highlight">
+    <div class="container ai-highlight-inner">
+      <div class="ai-highlight-copy">
+        <span class="eyebrow">El gran diferenciador de AHOMED</span>
+        <h2>IA y Monitorización Inteligente</h2>
+        <p><%= iaService.resumen %></p>
+        <ul class="check-list">
+          <li>Ideal para: <%= iaService.idealPara %></li>
+          <li>Configuración del modelo de detección entrenado con imágenes reales de tu local o vivienda</li>
+          <li>Notificaciones por WhatsApp solo cuando de verdad importa</li>
+        </ul>
+        <a href="/servicios/ia-monitorizacion" class="btn btn-primary">Ver ejemplos y precios</a>
+      </div>
+      <div class="ai-highlight-visual">
+        <img src="/img/trabajos/monitor-ia-despues.jpg" alt="Sistema de videovigilancia con detección de personas y vehículos por IA y alertas por WhatsApp" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- PACKS -->
+  <section class="section packs-section">
+    <div class="container">
+      <div class="section-head">
+        <h2>Packs AHOMED</h2>
+        <p>No vendemos solo servicios sueltos: resolvemos la instalación completa.</p>
+      </div>
+      <div class="packs-grid">
+        <% packs.forEach(function(p){ %>
+          <div class="pack-card">
+            <h3><%= p.nombre %></h3>
+            <p class="pack-desc"><%= p.descripcion %></p>
+            <ul class="check-list">
+              <% p.incluye.forEach(function(item){ %>
+                <li><%= item %></li>
+              <% }) %>
+            </ul>
+            <div class="pack-footer">
+              <span class="price-tag price-tag-lg">Desde <%= fmt(p.desde) %> €</span>
+              <a href="https://wa.me/34<%= empresa.whatsapp %>?text=Hola%2C%20me%20interesa%20el%20<%= encodeURIComponent(p.nombre) %>" target="_blank" rel="noopener" class="btn btn-outline">Consultar</a>
+            </div>
+            <% if (p.nota) { %><p class="pack-note"><%= p.nota %></p><% } %>
+          </div>
+        <% }) %>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMO FUNCIONA -->
+  <section class="section how-it-works">
+    <div class="container">
+      <div class="section-head">
+        <h2>Cómo funciona un presupuesto AHOMED</h2>
+      </div>
+      <div class="steps-grid">
+        <% comoFunciona.forEach(function(paso, i){ %>
+          <div class="step-card">
+            <div class="step-number"><%= i + 1 %></div>
+            <p><%= paso %></p>
+          </div>
+        <% }) %>
+      </div>
+    </div>
+  </section>
+
+  <!-- VENTAJAS -->
+  <section class="section advantages-section">
+    <div class="container">
+      <div class="section-head">
+        <h2>¿Por qué elegir AHOMED?</h2>
+      </div>
+      <div class="advantages-grid">
+        <% ventajas.forEach(function(v){ %>
+          <div class="advantage-item">
+            <svg viewBox="0 0 24 24"><path d="M9 16.2l-3.5-3.5L4 14.2 9 19.2 20 8.2l-1.5-1.5z"/></svg>
+            <span><%= v %></span>
+          </div>
+        <% }) %>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRABAJOS REALES -->
+  <section class="section works-section">
+    <div class="container">
+      <div class="section-head">
+        <h2>Trabajos reales</h2>
+        <p>Instalaciones reales de AHOMED: energía solar, seguridad, domótica y mucho más.</p>
+      </div>
+      <div class="works-grid">
+        <% trabajos.slice(0,4).forEach(function(t){ %>
+          <a href="/trabajos-reales/<%= t.slug %>" class="work-item">
+            <img src="<%= t.imagen %>" alt="<%= t.titulo %>" loading="lazy">
+            <% if (t.video) { %><span class="video-play video-play-sm">▶</span><% } %>
+            <div class="work-caption">
+              <span class="work-cat"><%= t.categoria %></span>
+              <div class="work-title"><%= t.titulo %></div>
+            </div>
+          </a>
+        <% }); %>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="section final-cta">
+    <div class="container final-cta-inner">
+      <h2>¿Hablamos de tu proyecto?</h2>
+      <p>Primera visita gratuita. Presupuesto sin compromiso.</p>
+      <a href="https://wa.me/34<%= empresa.whatsapp %>?text=Hola%2C%20quiero%20pedir%20presupuesto%20gratuito" target="_blank" rel="noopener" class="btn btn-whatsapp btn-lg">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12.001 2C6.478 2 2 6.478 2 12c0 1.85.502 3.657 1.454 5.235L2 22l4.897-1.415A9.955 9.955 0 0 0 12.001 22C17.523 22 22 17.523 22 12S17.523 2 12.001 2z"/></svg>
+        <%= empresa.whatsappDisplay %>
+      </a>
+    </div>
+  </section>
+
+  <%- include('partials/footer') %>
+</body>
+</html>

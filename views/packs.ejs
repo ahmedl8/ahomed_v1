@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <%- include('partials/head') %>
+</head>
+<body>
+  <%- include('partials/header') %>
+
+  <section class="page-hero">
+    <div class="container">
+      <h1>Packs AHOMED</h1>
+      <p>No vendemos solo servicios sueltos: te resolvemos la instalación completa. Precio orientativo = suma de las opciones básicas de cada componente; se ajusta y puede mejorar tras la visita técnica.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="packs-grid packs-grid-page">
+        <% packs.forEach(function(p){ %>
+          <div class="pack-card pack-card-lg">
+            <h3><%= p.nombre %></h3>
+            <p class="pack-desc"><%= p.descripcion %></p>
+            <ul class="check-list check-list-lg">
+              <% p.incluye.forEach(function(item){ %>
+                <li><%= item %></li>
+              <% }) %>
+            </ul>
+            <div class="pack-footer">
+              <span class="price-tag price-tag-lg">Desde <%= fmt(p.desde) %> €</span>
+              <a href="https://wa.me/34<%= empresa.whatsapp %>?text=<%= encodeURIComponent('Hola, me interesa el ' + p.nombre) %>" target="_blank" rel="noopener" class="btn btn-whatsapp">Consultar por WhatsApp</a>
+            </div>
+            <% if (p.nota) { %><p class="pack-note"><%= p.nota %></p><% } %>
+          </div>
+        <% }) %>
+      </div>
+    </div>
+  </section>
+
+  <%- include('partials/footer') %>
+</body>
+</html>

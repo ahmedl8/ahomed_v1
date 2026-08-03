@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <%- include('partials/head') %>
+</head>
+<body>
+  <%- include('partials/header') %>
+
+  <section class="page-hero">
+    <div class="container">
+      <h1>Trabajos reales</h1>
+      <p>Una muestra de instalaciones reales de AHOMED: energía solar, electricidad, cámaras con IA, domótica, videoporteros y cerraduras inteligentes. Sigo documentando cada trabajo nuevo con fotos y, en algunos casos, vídeo del antes y el después.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="works-grid works-grid-page">
+        <% trabajos.forEach(function(t){ %>
+          <a href="/trabajos-reales/<%= t.slug %>" class="work-item">
+            <img src="<%= t.imagen %>" alt="<%= t.titulo %>" loading="lazy">
+            <% if (t.video) { %><span class="video-play video-play-sm">▶</span><% } %>
+            <div class="work-caption">
+              <span class="work-cat"><%= t.categoria %></span>
+              <div class="work-title"><%= t.titulo %></div>
+            </div>
+          </a>
+        <% }); %>
+      </div>
+    </div>
+  </section>
+
+  <section class="section final-cta">
+    <div class="container final-cta-inner">
+      <h2>¿Quieres ser uno de los primeros casos documentados?</h2>
+      <p>Primera visita gratuita. Presupuesto sin compromiso.</p>
+      <a href="https://wa.me/34<%= empresa.whatsapp %>?text=Hola%2C%20quiero%20pedir%20presupuesto%20gratuito" target="_blank" rel="noopener" class="btn btn-whatsapp btn-lg">
+        <%= empresa.whatsappDisplay %>
+      </a>
+    </div>
+  </section>
+
+  <%- include('partials/footer') %>
+</body>
+</html>

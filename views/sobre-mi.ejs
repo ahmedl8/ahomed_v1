@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <%- include('partials/head') %>
+</head>
+<body>
+  <%- include('partials/header') %>
+
+  <section class="page-hero about-hero">
+    <div class="container about-hero-inner">
+      <div class="about-photo">
+        <svg viewBox="0 0 200 200"><circle cx="100" cy="70" r="45" fill="#2a2f36"/><path d="M30 190c0-45 30-75 70-75s70 30 70 75" fill="#2a2f36"/></svg>
+      </div>
+      <div>
+        <h1>Sobre mí</h1>
+        <p class="about-lead">Más de 10 años de experiencia técnica multidisciplinar: desde programación e inteligencia artificial hasta instalación eléctrica, domótica y sistemas de seguridad, con trabajo de campo en entornos exigentes.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container two-col">
+      <div>
+        <h2 class="sub-heading">Mi experiencia</h2>
+        <p>Soy técnico multidisciplinar especializado en electricidad, domótica, redes, seguridad y sistemas de inteligencia artificial aplicados al hogar y a los negocios. Durante más de una década he combinado el desarrollo de software con la instalación y el mantenimiento en campo: cuadros eléctricos, redes domésticas, cámaras y sensores, sistemas de detección con IA, y automatización completa de viviendas.</p>
+        <p>Esa base técnica es lo que diferencia a AHOMED: no solo instalo cámaras o domótica, también sé configurar y entrenar los modelos de inteligencia artificial que hay detrás, para que tu sistema de seguridad distinga de verdad a una persona de un gato o una sombra, y solo te avise cuando importa.</p>
+
+        <h2 class="sub-heading">Áreas técnicas</h2>
+        <ul class="dot-list dot-list-cols">
+          <li>Electricidad e instalaciones de cuadros eléctricos</li>
+          <li>Domótica: luces, persianas, climatización, riego</li>
+          <li>Cámaras IP y sistemas de detección con IA</li>
+          <li>Redes WiFi y configuración de redes domésticas</li>
+          <li>Integración con WhatsApp Business (API Meta) para alertas</li>
+          <li>Energía solar de autoconsumo</li>
+          <li>Reparaciones, fontanería y pequeñas reformas</li>
+          <li>Electrónica de campo y montaje de dispositivos IoT</li>
+        </ul>
+      </div>
+
+      <div class="about-side">
+        <div class="about-card">
+          <h3>Por qué AHOMED</h3>
+          <ul class="check-list check-list-lg">
+            <% ["Primera visita gratuita","Presupuesto sin compromiso","Instalación profesional","Material de primeras marcas","Garantía en todas las instalaciones","Atención directa por WhatsApp"].forEach(function(v){ %>
+              <li><%= v %></li>
+            <% }) %>
+          </ul>
+        </div>
+        <div class="about-card">
+          <h3>Zona de servicio</h3>
+          <p><%= empresa.zona %></p>
+          <a href="https://wa.me/34<%= empresa.whatsapp %>" target="_blank" rel="noopener" class="btn btn-whatsapp cta-block">WhatsApp <%= empresa.whatsappDisplay %></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <%- include('partials/footer') %>
+</body>
+</html>

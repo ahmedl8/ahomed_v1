@@ -18,7 +18,6 @@
       <div class="services-grid services-grid-full">
         <a href="/servicios/ia-monitorizacion" class="service-card service-card-ai">
           <div class="service-badge">Servicio exclusivo</div>
-          <div class="service-icon"><svg viewBox="0 0 24 24"><%- icons.ai %></svg></div>
           <h3><%= iaService.nombre %></h3>
           <p><%= iaService.resumen %></p>
           <div class="service-card-footer">
@@ -29,7 +28,6 @@
 
         <% services.forEach(function(s){ %>
           <a href="/servicios/<%= s.slug %>" class="service-card">
-            <div class="service-icon"><svg viewBox="0 0 24 24"><%- icons[s.icono] %></svg></div>
             <h3><%= s.numero %>. <%= s.nombre %></h3>
             <p><%= s.resumen %></p>
             <div class="service-meta">

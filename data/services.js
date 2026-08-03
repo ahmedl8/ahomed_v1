@@ -100,9 +100,137 @@ const services = [
     extras: [
       "Domótica completa de vivienda (desde 1.610 €)",
       "Persianas motorizadas (desde 345 €)",
-      "Riego automático de jardín (desde 500 €)"
+      "Riego automático de jardín (desde 420 €)",
+      "Toldo motorizado con control por app (desde 620 €)",
+      "Automatización de piscina (desde 460 €)"
     ],
-    tambienInstalaron: ["Persianas motorizadas", "Cerradura inteligente", "Red WiFi mesh con red de domótica separada"]
+    tambienInstalaron: ["Persianas motorizadas", "Cerradura inteligente", "Red WiFi mesh con red de domótica separada"],
+    ejemplosAdicionales: [
+      {
+        titulo: "Riego automático de jardín por zonas",
+        cliente: "Familia Ortega · jardín de 80 m² en 3 zonas",
+        opciones: [
+          {
+            nombre: "Básica — programador + 1 zona",
+            destacada: false,
+            items: [
+              ["Instalación y conexionado (1 zona, electroválvula)", 140],
+              ["Programador de riego WiFi", 160],
+              ["Electroválvula y material de zanja", 90],
+              ["Material y conectores", 30]
+            ],
+            total: 420
+          },
+          {
+            nombre: "Recomendada — 3 zonas + sensor de humedad",
+            destacada: true,
+            items: [
+              ["Instalación y conexionado (3 zonas, electroválvulas)", 230],
+              ["Programador de riego WiFi multizona", 220],
+              ["3 electroválvulas y material de zanja", 210],
+              ["Sensor de humedad del suelo", 90],
+              ["Material y conectores", 40]
+            ],
+            total: 790
+          },
+          {
+            nombre: "Premium — riego por goteo + ajuste automático por lluvia",
+            destacada: false,
+            items: [
+              ["Instalación y conexionado (3 zonas + goteo)", 290],
+              ["Programador de riego WiFi multizona", 220],
+              ["3 electroválvulas y material de zanja", 210],
+              ["Kit de riego por goteo para parterres", 140],
+              ["Sensor de humedad del suelo + integración de previsión de lluvia", 130],
+              ["Material y conectores", 45]
+            ],
+            total: 1035
+          }
+        ],
+        nota: "El programador se integra con la app de domótica de la vivienda, permitiendo crear escenas conjuntas con iluminación exterior."
+      },
+      {
+        titulo: "Toldo motorizado con control por app",
+        cliente: "Terraza de 4 x 3 m",
+        opciones: [
+          {
+            nombre: "Básica — motorizado con mando",
+            destacada: false,
+            items: [
+              ["Instalación y fijación (toldo de 4 x 3 m)", 180],
+              ["Toldo con motor tubular y mando a distancia", 420],
+              ["Material de fijación", 20]
+            ],
+            total: 620
+          },
+          {
+            nombre: "Recomendada — con control por app ⭐",
+            destacada: true,
+            items: [
+              ["Instalación y fijación", 200],
+              ["Toldo con motor tubular WiFi", 520],
+              ["Módulo de control por app", 60],
+              ["Material de fijación", 25]
+            ],
+            total: 805
+          },
+          {
+            nombre: "Premium — con sensor de viento y LED integrado",
+            destacada: false,
+            items: [
+              ["Instalación y fijación", 220],
+              ["Toldo con motor tubular WiFi", 520],
+              ["Módulo de control por app", 60],
+              ["Sensor de viento (cierre automático ante ráfagas fuertes)", 110],
+              ["Tira LED integrada en el brazo del toldo", 80],
+              ["Material de fijación", 30]
+            ],
+            total: 1020
+          }
+        ],
+        nota: "El sensor de viento protege el toldo cerrándolo automáticamente antes de que una ráfaga fuerte pueda dañar la lona o los brazos."
+      },
+      {
+        titulo: "Automatización de piscina (filtración, luz y monitorización)",
+        cliente: "Piscina de vivienda unifamiliar",
+        opciones: [
+          {
+            nombre: "Básica — programador de filtración",
+            destacada: false,
+            items: [
+              ["Instalación y conexionado eléctrico", 180],
+              ["Programador WiFi para bomba de filtración", 220],
+              ["Material y protección eléctrica (caja estanca)", 60]
+            ],
+            total: 460
+          },
+          {
+            nombre: "Recomendada — filtración + iluminación LED ⭐",
+            destacada: true,
+            items: [
+              ["Instalación y conexionado eléctrico", 220],
+              ["Programador WiFi para bomba de filtración", 220],
+              ["Foco LED de piscina RGB con control por app", 180],
+              ["Material y protección eléctrica", 70]
+            ],
+            total: 690
+          },
+          {
+            nombre: "Premium — con sonda de calidad del agua",
+            destacada: false,
+            items: [
+              ["Instalación y conexionado eléctrico", 260],
+              ["Programador WiFi para bomba de filtración", 220],
+              ["Foco LED de piscina RGB con control por app", 180],
+              ["Sonda de pH y cloro con monitorización desde el móvil", 340],
+              ["Material y protección eléctrica", 80]
+            ],
+            total: 1080
+          }
+        ],
+        nota: "La sonda de calidad del agua avisa por app cuando el pH o el nivel de cloro se salen del rango recomendado, antes de que el agua se vea afectada."
+      }
+    ]
   },
   {
     slug: "energia-solar",
@@ -220,7 +348,7 @@ const services = [
     extras: [
       "Monitor adicional",
       "Cerradura eléctrica con apertura desde el móvil (desde 195 €)",
-      "Grabación en NVR (CCTV cableado, desde 840 €)"
+      "Grabación en mini-PC local (CCTV cableado, desde 840 €)"
     ],
     tambienInstalaron: ["Cerradura inteligente", "Cámara WiFi adicional", "Sistema de seguridad completo para chalet"]
   },
@@ -275,8 +403,59 @@ const services = [
       ],
       nota: "Revisión y mantenimiento anual (opcional): 35 €/año — actualización de firmware y comprobación de cobertura."
     },
-    extras: ["Ampliación de puntos mesh adicionales", "Red separada para domótica/IA", "Copia de seguridad automática"],
-    tambienInstalaron: ["Domótica", "Cámaras con IA", "Panel de monitorización a medida"]
+    extras: [
+      "Ampliación de puntos mesh adicionales",
+      "Red separada para domótica/IA",
+      "Copia de seguridad automática",
+      "Armario de comunicaciones y rack de red (desde 380 €)"
+    ],
+    tambienInstalaron: ["Domótica", "Cámaras con IA", "Panel de monitorización a medida"],
+    ejemplosAdicionales: [
+      {
+        titulo: "Armario de comunicaciones y rack de red",
+        cliente: "Vivienda con router y cableado a la vista, 4 tomas de red",
+        opciones: [
+          {
+            nombre: "Básica — armario compacto de superficie",
+            destacada: false,
+            items: [
+              ["Instalación de armario y orden de cableado existente", 140],
+              ["Armario de comunicaciones compacto (superficie)", 110],
+              ["Switch de 8 puertos", 45],
+              ["Material y regletas de conexión", 25]
+            ],
+            total: 320
+          },
+          {
+            nombre: "Recomendada — rack empotrado + 4 tomas nuevas ⭐",
+            destacada: true,
+            items: [
+              ["Instalación de armario empotrado y cableado a 4 tomas", 260],
+              ["Armario de comunicaciones empotrado con rack", 160],
+              ["Switch gestionable de 8 puertos", 70],
+              ["Cable de red y 4 tomas RJ45", 100],
+              ["Material y regletas de conexión", 30]
+            ],
+            total: 620
+          },
+          {
+            nombre: "Premium — con ONT, patch panel y router en rack",
+            destacada: false,
+            items: [
+              ["Instalación de armario empotrado y cableado a 6 tomas", 320],
+              ["Armario de comunicaciones empotrado con rack", 160],
+              ["Patch panel de 12 puertos", 65],
+              ["Switch gestionable de 8 puertos", 70],
+              ["Cable de red y 6 tomas RJ45", 140],
+              ["Reubicación de ONT y router dentro del rack", 55],
+              ["Material y regletas de conexión", 35]
+            ],
+            total: 845
+          }
+        ],
+        nota: "Centralizar ONT, router y switch en un único armario facilita el mantenimiento y evita que el router quede a la vista en el salón."
+      }
+    ]
   },
   {
     slug: "climatizacion",
@@ -419,9 +598,58 @@ const services = [
     extras: [
       "Pintura de piso completo, 80 m² (desde 970 €)",
       "Alicatado completo de baño, 12 m² (desde 670 €)",
-      "Montaje de cocina modular (desde 395 €)"
+      "Montaje de cocina modular (desde 395 €)",
+      "Reforma integral de cocina (desde 3.200 €)"
     ],
-    tambienInstalaron: ["Sustitución de sanitarios y grifería", "Falso techo de pladur con LED"]
+    tambienInstalaron: ["Sustitución de sanitarios y grifería", "Falso techo de pladur con LED"],
+    ejemplosAdicionales: [
+      {
+        titulo: "Reforma integral de cocina",
+        cliente: "Cocina de 9 m², con cambio de distribución",
+        opciones: [
+          {
+            nombre: "Básica — muebles y encimera, sin cambiar distribución",
+            destacada: false,
+            items: [
+              ["Mano de obra (desmontaje, instalación de muebles y encimera)", 780],
+              ["Muebles de cocina, gama básica (9 m²)", 1400],
+              ["Encimera laminada", 320],
+              ["Fontanería y electricidad (adaptación de puntos existentes)", 380],
+              ["Material y remates", 120]
+            ],
+            total: 3000
+          },
+          {
+            nombre: "Recomendada — con cambio de distribución e isla ⭐",
+            destacada: true,
+            items: [
+              ["Mano de obra (demolición parcial, nueva distribución, isla)", 1350],
+              ["Muebles de cocina, gama media (9 m²) + isla central", 2200],
+              ["Encimera de cuarzo compacto", 620],
+              ["Fontanería y electricidad (nuevos puntos para isla)", 650],
+              ["Iluminación LED integrada", 220],
+              ["Material y remates", 180]
+            ],
+            total: 5220
+          },
+          {
+            nombre: "Premium — con electrodomésticos integrados",
+            destacada: false,
+            items: [
+              ["Mano de obra (demolición parcial, nueva distribución, isla)", 1450],
+              ["Muebles de cocina, gama media-alta (9 m²) + isla central", 2600],
+              ["Encimera de cuarzo compacto", 620],
+              ["Electrodomésticos integrados (horno, placa, campana, frigorífico)", 2100],
+              ["Fontanería y electricidad (nuevos puntos para isla)", 650],
+              ["Iluminación LED integrada", 220],
+              ["Material y remates", 200]
+            ],
+            total: 7840
+          }
+        ],
+        nota: "El cambio de distribución (mover fontanería o electricidad de sitio) requiere visita técnica previa para confirmar la viabilidad según la instalación existente del edificio."
+      }
+    ]
   },
   {
     slug: "fontaneria",
@@ -600,7 +828,7 @@ const iaService = {
           items: [
             ["Instalación y cableado (4 cámaras, nave de hasta 500 m²)", 450],
             ["4 cámaras IP con visión nocturna", 480],
-            ["Grabador NVR 8 canales + disco duro", 220],
+            ["Mini-PC de grabación y disco duro", 220],
             ["Configuración del modelo de detección IA (persona/vehículo, descarta falsos positivos)", 380],
             ["Notificaciones por WhatsApp ante alarma real", 90],
             ["Material y conectorizado", 60]
@@ -613,7 +841,7 @@ const iaService = {
           items: [
             ["Instalación y cableado (8 cámaras)", 780],
             ["8 cámaras IP con visión nocturna", 960],
-            ["Grabador NVR 16 canales + disco duro ampliado", 340],
+            ["Mini-PC de grabación y disco duro ampliado", 340],
             ["Configuración del modelo de detección IA (persona/vehículo/matrícula)", 480],
             ["Notificaciones por WhatsApp ante alarma real", 90],
             ["Material y conectorizado", 90]
@@ -627,7 +855,7 @@ const iaService = {
             ["Instalación y cableado (8 cámaras + 2 térmicas perimetrales)", 950],
             ["8 cámaras IP con visión nocturna", 960],
             ["2 cámaras térmicas para detección perimetral (reducen falsos positivos por fauna o vegetación)", 1600],
-            ["Grabador NVR 16 canales + disco duro ampliado", 340],
+            ["Mini-PC de grabación y disco duro ampliado", 340],
             ["Configuración del modelo de detección IA (persona/vehículo/matrícula)", 480],
             ["Reanálisis automático de alarmas con IA (descarta falsos positivos antes de avisar)", 380],
             ["Notificaciones por WhatsApp ante alarma real", 90],
@@ -701,7 +929,7 @@ const packs = [
     nombre: "Pack Chalet Seguro",
     descripcion: "Ideal para chalets y segundas residencias.",
     incluye: [
-      "Sistema de seguridad con 4 cámaras IP + NVR (sin cuota mensual)",
+      "Sistema de seguridad con 4 cámaras IP + mini-PC de grabación (sin cuota mensual)",
       "Cerradura inteligente",
       "Videoportero inteligente"
     ],

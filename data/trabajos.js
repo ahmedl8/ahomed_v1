@@ -46,7 +46,7 @@ const trabajos = [
     imagenAntes: "/img/trabajos/monitor-ia-antes.jpg",
     titulo: "Videovigilancia con detección de personas y vehículos por IA",
     categoria: "IA y Monitorización Inteligente",
-    descripcion: "Sustitución de un sistema de videovigilancia antiguo, con imagen granulada y sin analítica, por un sistema de 9 cámaras con grabador NVR y detección de personas, vehículos y paquetes por IA, con acceso desde el móvil."
+    descripcion: "Sustitución de un sistema de videovigilancia antiguo, con imagen granulada y sin analítica, por un sistema de 9 cámaras con mini-PC de grabación y detección de personas, vehículos y paquetes por IA, con acceso desde el móvil."
   },
   {
     slug: "camara-exterior",

@@ -90,6 +90,49 @@
         <p class="orientative-note">Todos los importes son orientativos. El precio definitivo se confirma tras la visita técnica gratuita.</p>
       </div>
     </div>
+
+    <% if (service.ejemplosAdicionales && service.ejemplosAdicionales.length) { %>
+      <% service.ejemplosAdicionales.forEach(function(ejemploExtra){ %>
+        <div class="container two-col">
+          <div></div>
+          <div class="example-panel">
+            <h2 class="sub-heading">Ejemplo real — <%= ejemploExtra.titulo %></h2>
+            <% if (ejemploExtra.cliente) { %><p class="example-client"><%= ejemploExtra.cliente %></p><% } %>
+
+            <div class="options-stack">
+              <% ejemploExtra.opciones.forEach(function(op){ %>
+                <div class="option-card <%= op.destacada ? 'option-card-featured' : '' %>">
+                  <% if (op.destacada) { %><span class="option-star">⭐ Recomendada</span><% } %>
+                  <h3><%= op.nombre %></h3>
+                  <table class="option-table">
+                    <tbody>
+                      <% op.items.forEach(function(item){ %>
+                        <tr>
+                          <td><%= item[0] %></td>
+                          <td class="option-price"><%= fmt(item[1]) %> €</td>
+                        </tr>
+                      <% }) %>
+                    </tbody>
+                    <tfoot>
+                      <tr>
+                        <td>TOTAL</td>
+                        <td class="option-price option-total"><%= fmt(op.total) %> <%= op.totalUnidad || '€' %></td>
+                      </tr>
+                    </tfoot>
+                  </table>
+                </div>
+              <% }) %>
+            </div>
+
+            <% if (ejemploExtra.nota) { %>
+              <p class="example-note"><%= ejemploExtra.nota %></p>
+            <% } %>
+
+            <p class="orientative-note">Todos los importes son orientativos. El precio definitivo se confirma tras la visita técnica gratuita.</p>
+          </div>
+        </div>
+      <% }) %>
+    <% } %>
   </section>
 
   <section class="section final-cta">

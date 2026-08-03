@@ -10,6 +10,17 @@ document.addEventListener("DOMContentLoaded", function () {
   const dropdown = document.querySelector(".nav-dropdown");
   const dropdownLink = dropdown ? dropdown.querySelector("a") : null;
 
+  // Bloquea el scroll de la página de fondo mientras el panel móvil está abierto,
+  // así el scroll táctil se queda dentro del panel lateral.
+  const syncBodyScroll = function () {
+    if (isMobile() && navToggle.checked) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+  };
+  navToggle.addEventListener("change", syncBodyScroll);
+
   document.querySelectorAll(".main-nav a").forEach(function (link) {
     link.addEventListener("click", function (e) {
       if (isMobile() && link === dropdownLink) {
@@ -21,6 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
       navToggle.checked = false;
       if (dropdown) dropdown.classList.remove("open");
+      syncBodyScroll();
     });
   });
 });

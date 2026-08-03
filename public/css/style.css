@@ -515,6 +515,8 @@ p { margin: 0; }
     transition: transform 0.25s ease;
     box-shadow: -10px 0 40px rgba(0,0,0,0.15);
     z-index: 55;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
   }
   .nav-toggle:checked ~ .main-nav { transform: translateX(0); }
   .nav-dropdown { position: static; width: 100%; }

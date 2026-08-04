@@ -54,85 +54,95 @@
         </a>
       </div>
 
+      <% var allExamples = [service.ejemplo].concat(service.ejemplosAdicionales || []); %>
       <div class="example-panel">
-        <h2 class="sub-heading">Ejemplo real — <%= service.ejemplo.titulo %></h2>
-        <% if (service.ejemplo.cliente) { %><p class="example-client"><%= service.ejemplo.cliente %></p><% } %>
+        <% if (allExamples.length > 1) { %>
+          <div class="example-tabs">
+            <% allExamples.forEach(function(ex, i){ %>
+              <input type="radio" name="example-tab-<%= service.slug %>" id="example-tab-<%= service.slug %>-<%= i %>" class="example-tab-input" <%= i === 0 ? 'checked' : '' %>>
+            <% }) %>
 
-        <div class="options-stack">
-          <% service.ejemplo.opciones.forEach(function(op){ %>
-            <div class="option-card <%= op.destacada ? 'option-card-featured' : '' %>">
-              <% if (op.destacada) { %><span class="option-star">⭐ Recomendada</span><% } %>
-              <h3><%= op.nombre %></h3>
-              <table class="option-table">
-                <tbody>
-                  <% op.items.forEach(function(item){ %>
-                    <tr>
-                      <td><%= item[0] %></td>
-                      <td class="option-price"><%= fmt(item[1]) %> €</td>
-                    </tr>
-                  <% }) %>
-                </tbody>
-                <tfoot>
-                  <tr>
-                    <td>TOTAL</td>
-                    <td class="option-price option-total"><%= fmt(op.total) %> <%= op.totalUnidad || '€' %></td>
-                  </tr>
-                </tfoot>
-              </table>
+            <div class="example-tab-nav">
+              <% allExamples.forEach(function(ex, i){ %>
+                <label for="example-tab-<%= service.slug %>-<%= i %>" class="example-tab-btn"><%= ex.titulo %></label>
+              <% }) %>
             </div>
-          <% }) %>
-        </div>
 
-        <% if (service.ejemplo.nota) { %>
-          <p class="example-note"><%= service.ejemplo.nota %></p>
+            <div class="example-tab-panels">
+              <% allExamples.forEach(function(ex, i){ %>
+                <div class="example-tab-panel" id="panel-<%= service.slug %>-<%= i %>">
+                  <h2 class="sub-heading">Ejemplo real — <%= ex.titulo %></h2>
+                  <% if (ex.cliente) { %><p class="example-client"><%= ex.cliente %></p><% } %>
+
+                  <div class="options-stack">
+                    <% ex.opciones.forEach(function(op){ %>
+                      <div class="option-card <%= op.destacada ? 'option-card-featured' : '' %>">
+                        <% if (op.destacada) { %><span class="option-star">⭐ Recomendada</span><% } %>
+                        <h3><%= op.nombre %></h3>
+                        <table class="option-table">
+                          <tbody>
+                            <% op.items.forEach(function(item){ %>
+                              <tr>
+                                <td><%= item[0] %></td>
+                                <td class="option-price"><%= fmt(item[1]) %> €</td>
+                              </tr>
+                            <% }) %>
+                          </tbody>
+                          <tfoot>
+                            <tr>
+                              <td>TOTAL</td>
+                              <td class="option-price option-total"><%= fmt(op.total) %> <%= op.totalUnidad || '€' %></td>
+                            </tr>
+                          </tfoot>
+                        </table>
+                      </div>
+                    <% }) %>
+                  </div>
+
+                  <% if (ex.nota) { %>
+                    <p class="example-note"><%= ex.nota %></p>
+                  <% } %>
+                </div>
+              <% }) %>
+            </div>
+          </div>
+        <% } else { %>
+          <h2 class="sub-heading">Ejemplo real — <%= service.ejemplo.titulo %></h2>
+          <% if (service.ejemplo.cliente) { %><p class="example-client"><%= service.ejemplo.cliente %></p><% } %>
+
+          <div class="options-stack">
+            <% service.ejemplo.opciones.forEach(function(op){ %>
+              <div class="option-card <%= op.destacada ? 'option-card-featured' : '' %>">
+                <% if (op.destacada) { %><span class="option-star">⭐ Recomendada</span><% } %>
+                <h3><%= op.nombre %></h3>
+                <table class="option-table">
+                  <tbody>
+                    <% op.items.forEach(function(item){ %>
+                      <tr>
+                        <td><%= item[0] %></td>
+                        <td class="option-price"><%= fmt(item[1]) %> €</td>
+                      </tr>
+                    <% }) %>
+                  </tbody>
+                  <tfoot>
+                    <tr>
+                      <td>TOTAL</td>
+                      <td class="option-price option-total"><%= fmt(op.total) %> <%= op.totalUnidad || '€' %></td>
+                    </tr>
+                  </tfoot>
+                </table>
+              </div>
+            <% }) %>
+          </div>
+
+          <% if (service.ejemplo.nota) { %>
+            <p class="example-note"><%= service.ejemplo.nota %></p>
+          <% } %>
         <% } %>
 
         <p class="orientative-note">Todos los importes son orientativos. El precio definitivo se confirma tras la visita técnica gratuita.</p>
       </div>
     </div>
-
-    <% if (service.ejemplosAdicionales && service.ejemplosAdicionales.length) { %>
-      <% service.ejemplosAdicionales.forEach(function(ejemploExtra){ %>
-        <div class="container two-col">
-          <div></div>
-          <div class="example-panel">
-            <h2 class="sub-heading">Ejemplo real — <%= ejemploExtra.titulo %></h2>
-            <% if (ejemploExtra.cliente) { %><p class="example-client"><%= ejemploExtra.cliente %></p><% } %>
-
-            <div class="options-stack">
-              <% ejemploExtra.opciones.forEach(function(op){ %>
-                <div class="option-card <%= op.destacada ? 'option-card-featured' : '' %>">
-                  <% if (op.destacada) { %><span class="option-star">⭐ Recomendada</span><% } %>
-                  <h3><%= op.nombre %></h3>
-                  <table class="option-table">
-                    <tbody>
-                      <% op.items.forEach(function(item){ %>
-                        <tr>
-                          <td><%= item[0] %></td>
-                          <td class="option-price"><%= fmt(item[1]) %> €</td>
-                        </tr>
-                      <% }) %>
-                    </tbody>
-                    <tfoot>
-                      <tr>
-                        <td>TOTAL</td>
-                        <td class="option-price option-total"><%= fmt(op.total) %> <%= op.totalUnidad || '€' %></td>
-                      </tr>
-                    </tfoot>
-                  </table>
-                </div>
-              <% }) %>
-            </div>
-
-            <% if (ejemploExtra.nota) { %>
-              <p class="example-note"><%= ejemploExtra.nota %></p>
-            <% } %>
-
-            <p class="orientative-note">Todos los importes son orientativos. El precio definitivo se confirma tras la visita técnica gratuita.</p>
-          </div>
-        </div>
-      <% }) %>
-    <% } %>
   </section>
 
   <section class="section final-cta">

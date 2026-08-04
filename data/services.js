@@ -63,7 +63,52 @@ const services = [
       "Iluminación LED (desde 235 €)",
       "Diagnóstico de avería eléctrica (desde 100 €)"
     ],
-    tambienInstalaron: ["Iluminación LED", "Red WiFi mesh", "Domótica básica"]
+    tambienInstalaron: ["Iluminación LED", "Red WiFi mesh", "Domótica básica", "Energía solar (autoconsumo)"],
+    ejemplosAdicionales: [
+      {
+        titulo: "Punto de recarga para coche eléctrico (wallbox)",
+        cliente: "Instalación de wallbox doméstica, desde el cuadro eléctrico hasta el garaje o plaza de parking",
+        opciones: [
+          {
+            nombre: "Básica — wallbox 7,4 kW, instalación corta (hasta 5 m)",
+            destacada: false,
+            items: [
+              ["Mano de obra e instalación (hasta 5 m desde el cuadro)", 280],
+              ["Wallbox 7,4 kW monofásica", 480],
+              ["Línea eléctrica dedicada + protecciones (magnetotérmico y diferencial)", 165],
+              ["Material (canaleta, cableado)", 70]
+            ],
+            total: 995
+          },
+          {
+            nombre: "Recomendada — wallbox conectada + gestión de carga ⭐",
+            destacada: true,
+            items: [
+              ["Mano de obra e instalación (hasta 8 m)", 340],
+              ["Wallbox 7,4 kW con conexión WiFi y app de control", 620],
+              ["Línea eléctrica dedicada + protecciones", 165],
+              ["Material", 85],
+              ["Boletín eléctrico (CIE) de la nueva línea", 165]
+            ],
+            total: 1375
+          },
+          {
+            nombre: "Premium — wallbox trifásica 22 kW + gestión dinámica de potencia",
+            destacada: false,
+            items: [
+              ["Mano de obra e instalación (hasta 10 m, línea trifásica)", 420],
+              ["Wallbox trifásica 22 kW con app y programación horaria", 1150],
+              ["Línea eléctrica dedicada + protecciones reforzadas", 220],
+              ["Gestor de carga dinámico (evita saltos del ICP si hay otros consumos altos)", 180],
+              ["Material", 100],
+              ["Boletín eléctrico (CIE)", 165]
+            ],
+            total: 2235
+          }
+        ],
+        nota: "Si el cuadro eléctrico no tiene capacidad disponible o hay que llevar línea nueva desde el contador, se presupuesta aparte tras la visita técnica."
+      }
+    ]
   },
   {
     slug: "domotica",
@@ -104,50 +149,133 @@ const services = [
       "Toldo motorizado con control por app (desde 620 €)",
       "Automatización de piscina (desde 460 €)"
     ],
-    tambienInstalaron: ["Persianas motorizadas", "Cerradura inteligente", "Red WiFi mesh con red de domótica separada"],
+    tambienInstalaron: ["Persianas motorizadas", "Cerradura inteligente", "Red WiFi mesh con red de domótica separada", "Iluminación de exterior", "Placas solares (para autoabastecer el sistema de riego)"],
     ejemplosAdicionales: [
       {
-        titulo: "Riego automático de jardín por zonas",
-        cliente: "Familia Ortega · jardín de 80 m² en 3 zonas",
+        titulo: "Domótica completa de vivienda",
+        cliente: "Control integral de luces, persianas, clima y escenas en todas las estancias, no solo una habitación",
         opciones: [
           {
-            nombre: "Básica — programador + 1 zona",
+            nombre: "Básica — piso de 3 habitaciones",
             destacada: false,
             items: [
-              ["Instalación y conexionado (1 zona, electroválvula)", 140],
-              ["Programador de riego WiFi", 160],
-              ["Electroválvula y material de zanja", 90],
-              ["Material y conectores", 30]
+              ["Mano de obra (instalación y configuración, 3 hab. + salón + cocina)", 480],
+              ["10 interruptores WiFi", 300],
+              ["4 enchufes inteligentes", 80],
+              ["Hub central de domótica", 150],
+              ["Material eléctrico", 60]
             ],
-            total: 420
+            total: 1070
           },
           {
-            nombre: "Recomendada — 3 zonas + sensor de humedad",
+            nombre: "Recomendada — con persianas y escenas ⭐",
             destacada: true,
             items: [
-              ["Instalación y conexionado (3 zonas, electroválvulas)", 230],
-              ["Programador de riego WiFi multizona", 220],
-              ["3 electroválvulas y material de zanja", 210],
-              ["Sensor de humedad del suelo", 90],
-              ["Material y conectores", 40]
+              ["Mano de obra (instalación y configuración avanzada)", 620],
+              ["10 interruptores WiFi", 300],
+              ["4 enchufes inteligentes", 80],
+              ["4 motores de persiana con control WiFi", 480],
+              ["Hub central de domótica", 150],
+              ["Configuración de escenas (\"buenas noches\", \"salir de casa\")", 120],
+              ["Material", 70]
             ],
-            total: 790
+            total: 1820
           },
           {
-            nombre: "Premium — riego por goteo + ajuste automático por lluvia",
+            nombre: "Premium — control por voz + clima integrado",
             destacada: false,
             items: [
-              ["Instalación y conexionado (3 zonas + goteo)", 290],
-              ["Programador de riego WiFi multizona", 220],
-              ["3 electroválvulas y material de zanja", 210],
-              ["Kit de riego por goteo para parterres", 140],
-              ["Sensor de humedad del suelo + integración de previsión de lluvia", 130],
-              ["Material y conectores", 45]
+              ["Mano de obra (instalación y configuración completa)", 780],
+              ["12 interruptores WiFi", 360],
+              ["6 enchufes inteligentes", 120],
+              ["5 motores de persiana con control WiFi", 600],
+              ["Termostato inteligente integrado", 180],
+              ["Hub central + altavoz de control por voz", 220],
+              ["Configuración de escenas y automatizaciones por horario/presencia", 180],
+              ["Material", 90]
             ],
-            total: 1035
+            total: 2530
           }
         ],
-        nota: "El programador se integra con la app de domótica de la vivienda, permitiendo crear escenas conjuntas con iluminación exterior."
+        nota: "El alcance final depende del número de estancias y puntos de luz/persiana reales; se ajusta tras la visita técnica."
+      },
+      {
+        titulo: "Persianas motorizadas",
+        cliente: "Motorización de persianas existentes con control por app, mando o integración con domótica",
+        opciones: [
+          {
+            nombre: "Básica — 1 persiana, motor con mando",
+            destacada: false,
+            items: [
+              ["Mano de obra (desmontaje persiana manual + instalación motor)", 120],
+              ["Motor tubular con mando a distancia", 185],
+              ["Material de fijación", 40]
+            ],
+            total: 345
+          },
+          {
+            nombre: "Recomendada — 1 persiana con control WiFi ⭐",
+            destacada: true,
+            items: [
+              ["Mano de obra", 140],
+              ["Motor tubular con módulo WiFi y control por app", 280],
+              ["Material de fijación", 45]
+            ],
+            total: 465
+          },
+          {
+            nombre: "Premium — pack 4 persianas con escenas automáticas",
+            destacada: false,
+            items: [
+              ["Mano de obra (4 persianas)", 480],
+              ["4 motores tubulares con módulo WiFi", 1120],
+              ["Configuración de escenas automáticas (apertura al amanecer, cierre por temperatura)", 150],
+              ["Material de fijación", 120]
+            ],
+            total: 1870
+          }
+        ],
+        nota: "Precio por persiana estándar (hasta 3 m² de superficie); persianas grandes o de material reforzado se valoran aparte."
+      },
+      {
+        titulo: "Riego automático de jardín",
+        cliente: "Sistema de riego programado por zonas, con control por app y sensor de lluvia",
+        opciones: [
+          {
+            nombre: "Básica — 2 zonas de riego",
+            destacada: false,
+            items: [
+              ["Mano de obra e instalación (2 zonas, hasta 100 m²)", 220],
+              ["Programador de riego con 2 electroválvulas", 180],
+              ["Tubería, goteros/difusores y material de zanja", 100]
+            ],
+            total: 500
+          },
+          {
+            nombre: "Recomendada — 4 zonas con control WiFi ⭐",
+            destacada: true,
+            items: [
+              ["Mano de obra e instalación (4 zonas, hasta 250 m²)", 380],
+              ["Programador de riego WiFi con 4 electroválvulas", 320],
+              ["Sensor de lluvia (evita riego innecesario)", 60],
+              ["Tubería, goteros/difusores y material de zanja", 180]
+            ],
+            total: 940
+          },
+          {
+            nombre: "Premium — 6 zonas + sensor de humedad de suelo",
+            destacada: false,
+            items: [
+              ["Mano de obra e instalación (6 zonas, hasta 500 m²)", 520],
+              ["Programador de riego WiFi con 6 electroválvulas", 420],
+              ["Sensor de lluvia y sensor de humedad de suelo", 150],
+              ["Tubería, goteros/difusores y material de zanja", 260],
+              ["Integración con domótica (escenas y automatizaciones)", 90]
+            ],
+            total: 1440
+          }
+        ],
+        nota: "El precio depende de la superficie real de jardín y del tipo de riego (goteo, difusión o aspersión); se ajusta tras la visita técnica."
       },
       {
         titulo: "Toldo motorizado con control por app",
@@ -292,7 +420,56 @@ const services = [
       "Placas solares en tejado, autoconsumo (desde 2.830 €)",
       "Revisión y mantenimiento anual (30 €/año)"
     ],
-    tambienInstalaron: ["Panel de monitorización a medida", "Punto de recarga para coche eléctrico"]
+    tambienInstalaron: ["Panel de monitorización a medida", "Punto de recarga para coche eléctrico", "Batería portátil adicional"],
+    ejemplosAdicionales: [
+      {
+        titulo: "Placas solares en tejado, autoconsumo",
+        cliente: "Instalación de autoconsumo fotovoltaico sobre tejado, para reducir de forma significativa la factura eléctrica",
+        opciones: [
+          {
+            nombre: "Básica — 4 paneles (1.600 W)",
+            destacada: false,
+            items: [
+              ["Instalación, estructura de tejado y cableado", 780],
+              ["4 paneles solares 400 W (1.600 W total)", 560],
+              ["Inversor 1.600 W", 480],
+              ["Estructura de fijación para tejado", 310],
+              ["Legalización (memoria técnica, si aplica según potencia)", 350],
+              ["Material y protecciones", 350]
+            ],
+            total: 2830
+          },
+          {
+            nombre: "Recomendada — 6 paneles (2.400 W) + monitorización ⭐",
+            destacada: true,
+            items: [
+              ["Instalación, estructura de tejado y cableado", 980],
+              ["6 paneles solares 400 W (2.400 W total)", 840],
+              ["Inversor 2.400 W con monitorización por app", 650],
+              ["Estructura de fijación para tejado", 420],
+              ["Legalización (memoria técnica)", 350],
+              ["Material y protecciones", 420]
+            ],
+            total: 3660
+          },
+          {
+            nombre: "Premium — 8 paneles (3.200 W) + batería",
+            destacada: false,
+            items: [
+              ["Instalación, estructura de tejado y cableado", 1180],
+              ["8 paneles solares 400 W (3.200 W total)", 1120],
+              ["Inversor 3.200 W con monitorización por app", 780],
+              ["Batería de almacenamiento 5 kWh", 2400],
+              ["Estructura de fijación para tejado", 520],
+              ["Legalización (memoria técnica) y alta como productor si hay excedentes", 480],
+              ["Material y protecciones", 500]
+            ],
+            total: 6980
+          }
+        ],
+        nota: "Instalaciones con vertido de excedentes a red requieren alta como productor ante la compañía eléctrica; se gestiona como parte de la legalización. El número de paneles y orientación óptima se confirma con la visita técnica y el estudio de sombras."
+      }
+    ]
   },
   {
     slug: "seguridad",
@@ -350,7 +527,91 @@ const services = [
       "Cerradura eléctrica con apertura desde el móvil (desde 195 €)",
       "Grabación en mini-PC local (CCTV cableado, desde 840 €)"
     ],
-    tambienInstalaron: ["Cerradura inteligente", "Cámara WiFi adicional", "Sistema de seguridad completo para chalet"]
+    tambienInstalaron: ["Cerradura inteligente", "Cámara WiFi adicional", "Sistema de seguridad completo para chalet", "Detección YOLO + Alertas WhatsApp", "Red WiFi mesh", "Panel de monitorización a medida"],
+    ejemplosAdicionales: [
+      {
+        titulo: "Cerradura inteligente",
+        cliente: "Apertura por app, huella, tarjeta o código, manteniendo la llave física como respaldo",
+        opciones: [
+          {
+            nombre: "Básica — cerradura con teclado y app",
+            destacada: false,
+            items: [
+              ["Instalación y configuración", 80],
+              ["Cerradura inteligente con teclado numérico + app", 195],
+              ["Material", 15]
+            ],
+            total: 290
+          },
+          {
+            nombre: "Recomendada — con huella digital ⭐",
+            destacada: true,
+            items: [
+              ["Instalación y configuración", 90],
+              ["Cerradura inteligente con huella, teclado y app", 310],
+              ["Material", 20]
+            ],
+            total: 420
+          },
+          {
+            nombre: "Premium — integrada con videoportero y accesos temporales",
+            destacada: false,
+            items: [
+              ["Instalación y configuración avanzada", 110],
+              ["Cerradura inteligente con huella, teclado, app y NFC", 380],
+              ["Integración con videoportero (apertura remota desde la app del portero)", 90],
+              ["Configuración de accesos temporales (códigos de un solo uso para huéspedes/limpieza)", 60],
+              ["Material", 25]
+            ],
+            total: 665
+          }
+        ],
+        nota: "Compatible con la mayoría de puertas europeas estándar; en puertas acorazadas o con cerradura especial se valora aparte tras revisión."
+      },
+      {
+        titulo: "CCTV cableado con grabación en mini-PC",
+        cliente: "Sistema de cámaras con cableado fijo (más fiable que WiFi) y grabación local, sin cuota mensual",
+        opciones: [
+          {
+            nombre: "Básica — 4 cámaras cableadas",
+            destacada: false,
+            items: [
+              ["Instalación y cableado (4 cámaras, hasta 30 m de tirada por cámara)", 380],
+              ["4 cámaras IP cableadas con visión nocturna", 340],
+              ["Mini-PC de grabación (NVR) con disco duro", 220],
+              ["Material y conectorizado", 80]
+            ],
+            total: 1020
+          },
+          {
+            nombre: "Recomendada — 6 cámaras + acceso remoto ⭐",
+            destacada: true,
+            items: [
+              ["Instalación y cableado (6 cámaras)", 540],
+              ["6 cámaras IP cableadas con visión nocturna", 510],
+              ["Mini-PC de grabación con disco duro ampliado", 320],
+              ["Configuración de acceso remoto por app", 90],
+              ["Material y conectorizado", 110]
+            ],
+            total: 1570
+          },
+          {
+            nombre: "Premium — 8 cámaras + detección IA",
+            destacada: false,
+            items: [
+              ["Instalación y cableado (8 cámaras)", 720],
+              ["8 cámaras IP cableadas con visión nocturna", 680],
+              ["Mini-PC de grabación con disco duro ampliado", 320],
+              ["Configuración de detección IA (persona/vehículo)", 380],
+              ["Notificaciones por WhatsApp ante alarma real", 90],
+              ["Material y conectorizado", 140]
+            ],
+            total: 2330
+          }
+        ],
+        nota: "El precio depende de la distancia real de cableado entre cámaras y el punto de grabación; se confirma en la visita técnica."
+      }
+    ]
   },
   {
     slug: "redes-informatica",
@@ -509,7 +770,52 @@ const services = [
       nota: "Revisión y mantenimiento anual (opcional): 45 €/año — limpieza de filtros, revisión de gas y rendimiento."
     },
     extras: ["Climatización multisplit para toda la vivienda (desde 2.950 €)", "Control WiFi", "Certificado RITE"],
-    tambienInstalaron: ["Domótica (control por escenas)", "Iluminación LED"]
+    tambienInstalaron: ["Domótica (control por escenas)", "Iluminación LED", "Energía solar (para compensar el consumo)"],
+    ejemplosAdicionales: [
+      {
+        titulo: "Climatización multisplit para toda la vivienda",
+        cliente: "Una sola unidad exterior dando servicio a varias estancias, con control independiente por habitación",
+        opciones: [
+          {
+            nombre: "Básica — multisplit 2x1 (2 estancias)",
+            destacada: false,
+            items: [
+              ["Mano de obra e instalación (unidad exterior + 2 interiores)", 620],
+              ["Unidad exterior 2x1 (gama básica)", 780],
+              ["2 unidades interiores 2.500 frigorías", 760],
+              ["Material (tubería, soportes, canaleta)", 160],
+              ["Certificado RITE", 60]
+            ],
+            total: 2380
+          },
+          {
+            nombre: "Recomendada — multisplit 3x1 (3 estancias) ⭐",
+            destacada: true,
+            items: [
+              ["Mano de obra e instalación (unidad exterior + 3 interiores)", 850],
+              ["Unidad exterior 3x1 (gama media, Daikin/Mitsubishi)", 1180],
+              ["3 unidades interiores 2.500-3.000 frigorías", 1320],
+              ["Material", 220],
+              ["Certificado RITE", 60]
+            ],
+            total: 3630
+          },
+          {
+            nombre: "Premium — multisplit 4x1 con control WiFi por zona",
+            destacada: false,
+            items: [
+              ["Mano de obra e instalación (unidad exterior + 4 interiores)", 1080],
+              ["Unidad exterior 4x1 alta eficiencia (A+++)", 1850],
+              ["4 unidades interiores 3.000 frigorías con control WiFi", 1980],
+              ["Material", 280],
+              ["Certificado RITE", 60]
+            ],
+            total: 5250
+          }
+        ],
+        nota: "El presupuesto final depende del número de estancias, distancias entre unidad exterior e interiores, y accesibilidad de la fachada. La opción Premium usa equipo A+++ de gama alta con control WiFi por zona; se recomienda confirmar el margen con el proveedor de equipos antes de publicitar el precio cerrado."
+      }
+    ]
   },
   {
     slug: "antenas",
@@ -548,7 +854,52 @@ const services = [
       ]
     },
     extras: ["Antena TDT comunitaria de edificio (desde 860 €)", "Tomas adicionales de TV"],
-    tambienInstalaron: ["Red WiFi mesh", "Instalación eléctrica de la vivienda"]
+    tambienInstalaron: ["Red WiFi mesh", "Instalación eléctrica de la vivienda", "Antena parabólica individual", "Red WiFi mesh comunitaria", "Videoportero para el portal"],
+    ejemplosAdicionales: [
+      {
+        titulo: "Antena TDT comunitaria de edificio",
+        cliente: "Instalación colectiva de recepción TDT para todo un edificio o comunidad de propietarios",
+        opciones: [
+          {
+            nombre: "Básica — hasta 8 viviendas",
+            destacada: false,
+            items: [
+              ["Mano de obra (instalación en cubierta y revisión de bajantes)", 320],
+              ["Antena TDT de alta ganancia", 180],
+              ["Central amplificadora multibanda", 220],
+              ["Material y conectorizado", 140]
+            ],
+            total: 860
+          },
+          {
+            nombre: "Recomendada — hasta 15 viviendas, con refuerzo de señal ⭐",
+            destacada: true,
+            items: [
+              ["Mano de obra (instalación y revisión completa de bajantes)", 420],
+              ["Antena TDT de alta ganancia", 180],
+              ["Central amplificadora multibanda de mayor potencia", 320],
+              ["Repartidores y refuerzo en plantas intermedias", 180],
+              ["Material y conectorizado", 180]
+            ],
+            total: 1280
+          },
+          {
+            nombre: "Premium — más de 15 viviendas, con certificado de instalación",
+            destacada: false,
+            items: [
+              ["Mano de obra (instalación y revisión completa)", 560],
+              ["Antena TDT de alta ganancia + antena satélite comunitaria", 420],
+              ["Central amplificadora multibanda de mayor potencia", 320],
+              ["Repartidores y refuerzo en todas las plantas", 260],
+              ["Certificado de instalación para la comunidad", 120],
+              ["Material y conectorizado", 220]
+            ],
+            total: 1900
+          }
+        ],
+        nota: "El número de tomas y el estado de las bajantes existentes se confirma en la visita técnica; puede requerir sustitución parcial de cableado antiguo."
+      }
+    ]
   },
   {
     slug: "reparaciones-reformas",
@@ -601,8 +952,132 @@ const services = [
       "Montaje de cocina modular (desde 395 €)",
       "Reforma integral de cocina (desde 3.200 €)"
     ],
-    tambienInstalaron: ["Sustitución de sanitarios y grifería", "Falso techo de pladur con LED"],
+    tambienInstalaron: ["Sustitución de sanitarios y grifería", "Falso techo de pladur con LED", "Fontanería (grifería y sanitarios)", "Electricidad (nuevos circuitos para electrodomésticos)"],
     ejemplosAdicionales: [
+      {
+        titulo: "Pintura de piso completo",
+        cliente: "Pintura integral de vivienda, paredes y techos, lista para entrar a vivir o para alquilar/vender",
+        opciones: [
+          {
+            nombre: "Básica — piso de 80 m², un solo color",
+            destacada: false,
+            items: [
+              ["Mano de obra (paredes y techos, 80 m² aprox.)", 620],
+              ["Pintura plástica lisa (blanco o color único)", 280],
+              ["Material (cinta, plásticos protectores, masilla)", 70]
+            ],
+            total: 970
+          },
+          {
+            nombre: "Recomendada — con reparación de grietas y varios colores ⭐",
+            destacada: true,
+            items: [
+              ["Mano de obra (paredes y techos, incluye preparación de superficie)", 760],
+              ["Pintura plástica lisa, hasta 3 colores distintos por estancia", 320],
+              ["Reparación de grietas y desconchones puntuales", 150],
+              ["Material", 90]
+            ],
+            total: 1320
+          },
+          {
+            nombre: "Premium — pintura antihumedad + techos con acabado especial",
+            destacada: false,
+            items: [
+              ["Mano de obra completa (paredes, techos y reparaciones)", 920],
+              ["Pintura plástica antihumedad en baños y cocina", 180],
+              ["Pintura lisa gama media en el resto de estancias", 320],
+              ["Reparación de grietas y desconchones", 180],
+              ["Acabado especial en techos (plano de luz, mate profesional)", 150],
+              ["Material", 110]
+            ],
+            total: 1860
+          }
+        ],
+        nota: "Precio orientativo para 80 m² en buen estado de base; humedades, gotelé a alisar o alturas especiales se valoran aparte."
+      },
+      {
+        titulo: "Alicatado completo de baño",
+        cliente: "Retirada de azulejo antiguo y alicatado completo de un baño, listo para sanitarios y grifería",
+        opciones: [
+          {
+            nombre: "Básica — 12 m², azulejo estándar",
+            destacada: false,
+            items: [
+              ["Mano de obra (retirada de azulejo antiguo + alicatado, 12 m²)", 420],
+              ["Azulejo básico (12 m²)", 180],
+              ["Material de agarre y juntas", 70]
+            ],
+            total: 670
+          },
+          {
+            nombre: "Recomendada — con rodapié y juntas antimoho ⭐",
+            destacada: true,
+            items: [
+              ["Mano de obra (retirada + alicatado, 12 m²)", 480],
+              ["Azulejo de gama media (12 m²)", 260],
+              ["Rodapié cerámico", 50],
+              ["Sellado de juntas con silicona antimoho", 40],
+              ["Material", 80]
+            ],
+            total: 910
+          },
+          {
+            nombre: "Premium — con nivelación de suelo y azulejo gran formato",
+            destacada: false,
+            items: [
+              ["Mano de obra (retirada, nivelación y alicatado, 12 m²)", 580],
+              ["Azulejo gran formato, gama alta (12 m²)", 420],
+              ["Nivelación de suelo antes del alicatado", 150],
+              ["Rodapié y perfiles de acabado", 80],
+              ["Sellado de juntas con silicona antimoho", 40],
+              ["Material", 100]
+            ],
+            total: 1370
+          }
+        ],
+        nota: "Incluye retirada y gestión de escombros del alicatado antiguo. No incluye fontanería ni sanitarios (ver categoría Fontanería)."
+      },
+      {
+        titulo: "Montaje de cocina modular",
+        cliente: "Montaje de muebles de cocina modular (comprados en tienda) e instalación de electrodomésticos de encimera",
+        opciones: [
+          {
+            nombre: "Básica — módulos bajos y altos (hasta 4 m lineales)",
+            destacada: false,
+            items: [
+              ["Mano de obra (montaje de muebles bajos y altos)", 280],
+              ["Material de fijación y nivelación", 45],
+              ["Ajuste de puertas y cajones", 70]
+            ],
+            total: 395
+          },
+          {
+            nombre: "Recomendada — con encimera y conexión de fregadero ⭐",
+            destacada: true,
+            items: [
+              ["Mano de obra (montaje completo)", 340],
+              ["Colocación e instalación de encimera", 130],
+              ["Conexión de fregadero (grifo y desagüe)", 90],
+              ["Material de fijación y sellado", 60]
+            ],
+            total: 620
+          },
+          {
+            nombre: "Premium — con instalación de electrodomésticos",
+            destacada: false,
+            items: [
+              ["Mano de obra (montaje completo)", 380],
+              ["Colocación e instalación de encimera", 130],
+              ["Conexión de fregadero", 90],
+              ["Instalación de placa de inducción/vitro y horno (conexión eléctrica)", 160],
+              ["Instalación de campana extractora", 110],
+              ["Material de fijación y sellado", 70]
+            ],
+            total: 940
+          }
+        ],
+        nota: "No incluye el precio de los muebles ni electrodomésticos, solo mano de obra de montaje e instalación. Si hace falta mover puntos de agua, luz o gas, se presupuesta aparte."
+      },
       {
         titulo: "Reforma integral de cocina",
         cliente: "Cocina de 9 m², con cambio de distribución",
@@ -758,7 +1233,52 @@ const services = [
       nota: "El cableado eléctrico de los puntos de luz se incluye en la mano de obra; la conexión al cuadro eléctrico general se presupuesta aparte si no hay un circuito ya disponible cerca."
     },
     extras: ["Tabique de pladur, 10 m² (desde 435 €)", "Regulación por app (domótica)"],
-    tambienInstalaron: ["Iluminación LED", "Domótica de escenas"]
+    tambienInstalaron: ["Iluminación LED", "Domótica de escenas", "Pintura de piso completo", "Electricidad (nuevos puntos de luz)"],
+    ejemplosAdicionales: [
+      {
+        titulo: "Tabique de pladur",
+        cliente: "División de una estancia o cerramiento con tabique de pladur, con o sin aislamiento acústico",
+        opciones: [
+          {
+            nombre: "Básica — tabique simple, 10 m²",
+            destacada: false,
+            items: [
+              ["Mano de obra (estructura y placas, 10 m²)", 240],
+              ["Placas de pladur (10 m², una cara doble)", 130],
+              ["Perfilería y tornillería", 40],
+              ["Masilla y cinta de juntas", 25]
+            ],
+            total: 435
+          },
+          {
+            nombre: "Recomendada — con aislamiento acústico ⭐",
+            destacada: true,
+            items: [
+              ["Mano de obra (estructura y placas, 10 m²)", 280],
+              ["Placas de pladur (10 m²)", 130],
+              ["Lana de roca para aislamiento acústico", 80],
+              ["Perfilería y tornillería", 45],
+              ["Masilla y cinta de juntas", 25]
+            ],
+            total: 560
+          },
+          {
+            nombre: "Premium — con puerta integrada y acabado listo para pintar",
+            destacada: false,
+            items: [
+              ["Mano de obra (estructura, placas y hueco de puerta, 10 m²)", 340],
+              ["Placas de pladur (10 m²)", 130],
+              ["Lana de roca para aislamiento acústico", 80],
+              ["Precerco de puerta", 90],
+              ["Perfilería y tornillería", 50],
+              ["Masilla, cinta de juntas y lijado fino (listo para pintar)", 55]
+            ],
+            total: 745
+          }
+        ],
+        nota: "El cableado eléctrico dentro del tabique (si hace falta pasar algún punto de luz o enchufe) se presupuesta aparte."
+      }
+    ]
   },
   {
     slug: "mantenimiento",

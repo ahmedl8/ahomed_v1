@@ -455,6 +455,65 @@ p { margin: 0; }
 .example-note { font-size: 0.85rem; color: var(--gray-500); font-style: italic; margin-top: 18px; }
 .orientative-note { font-size: 0.82rem; color: var(--gray-500); margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--line); }
 
+/* ---------- Example tabs (varios presupuestos por servicio) ---------- */
+.example-tab-input { position: absolute; opacity: 0; pointer-events: none; }
+
+.example-tab-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--line);
+}
+.example-tab-btn {
+  display: inline-block;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 700;
+  line-height: 1.3;
+  padding: 9px 16px;
+  border-radius: 999px;
+  border: 1.5px solid var(--line);
+  background: #fff;
+  color: var(--gray-600);
+  transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
+}
+.example-tab-btn:hover { border-color: var(--gray-500); color: var(--ink); }
+
+.example-tab-panel { display: none; }
+
+/* Vincula el input radio marcado con su panel y resalta el botón activo,
+   por posición (n-ésimo input <-> n-ésimo botón/panel). Soporta hasta 8 pestañas. */
+.example-tab-input:nth-of-type(1):checked ~ .example-tab-nav .example-tab-btn:nth-child(1),
+.example-tab-input:nth-of-type(2):checked ~ .example-tab-nav .example-tab-btn:nth-child(2),
+.example-tab-input:nth-of-type(3):checked ~ .example-tab-nav .example-tab-btn:nth-child(3),
+.example-tab-input:nth-of-type(4):checked ~ .example-tab-nav .example-tab-btn:nth-child(4),
+.example-tab-input:nth-of-type(5):checked ~ .example-tab-nav .example-tab-btn:nth-child(5),
+.example-tab-input:nth-of-type(6):checked ~ .example-tab-nav .example-tab-btn:nth-child(6),
+.example-tab-input:nth-of-type(7):checked ~ .example-tab-nav .example-tab-btn:nth-child(7),
+.example-tab-input:nth-of-type(8):checked ~ .example-tab-nav .example-tab-btn:nth-child(8) {
+  background: var(--ink);
+  color: #fff;
+  border-color: var(--ink);
+}
+
+.example-tab-input:nth-of-type(1):checked ~ .example-tab-panels .example-tab-panel:nth-child(1),
+.example-tab-input:nth-of-type(2):checked ~ .example-tab-panels .example-tab-panel:nth-child(2),
+.example-tab-input:nth-of-type(3):checked ~ .example-tab-panels .example-tab-panel:nth-child(3),
+.example-tab-input:nth-of-type(4):checked ~ .example-tab-panels .example-tab-panel:nth-child(4),
+.example-tab-input:nth-of-type(5):checked ~ .example-tab-panels .example-tab-panel:nth-child(5),
+.example-tab-input:nth-of-type(6):checked ~ .example-tab-panels .example-tab-panel:nth-child(6),
+.example-tab-input:nth-of-type(7):checked ~ .example-tab-panels .example-tab-panel:nth-child(7),
+.example-tab-input:nth-of-type(8):checked ~ .example-tab-panels .example-tab-panel:nth-child(8) {
+  display: block;
+}
+
+@media (max-width: 640px) {
+  .example-tab-nav { gap: 6px; }
+  .example-tab-btn { font-size: 0.78rem; padding: 8px 12px; }
+}
+
 /* ---------- About ---------- */
 .about-hero-inner { display: flex; align-items: center; gap: 32px; }
 .about-photo { width: 120px; height: 120px; border-radius: 50%; overflow: hidden; background: var(--paper-soft); flex-shrink: 0; border: 3px solid var(--line); }

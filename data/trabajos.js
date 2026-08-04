@@ -54,9 +54,7 @@ const trabajos = [
     imagenAntes: "/img/trabajos/camara-exterior-antes.jpg",
     titulo: "Cámara IP exterior instalada",
     categoria: "Seguridad",
-    descripcion: "Cableado antiguo expuesto sustituido por una cámara IP tipo domo con instalación oculta, cableada por el interior del muro hasta la caja de conexiones.",
-    video: "/video/camara-exterior.mp4",
-    videoPoster: "/img/trabajos/camara-exterior-video-poster.jpg"
+    descripcion: "Cableado antiguo expuesto sustituido por una cámara IP tipo domo con instalación oculta, cableada por el interior del muro hasta la caja de conexiones."
   },
   {
     slug: "videoportero",
@@ -64,9 +62,7 @@ const trabajos = [
     imagenAntes: "/img/trabajos/videoportero-antes.jpg",
     titulo: "Videoportero inteligente instalado",
     categoria: "Seguridad",
-    descripcion: "Cambio de un portero automático antiguo (solo audio) por un videoportero inteligente con pantalla, visión de la entrada e imagen en tiempo real desde el móvil.",
-    video: "/video/videoportero.mp4",
-    videoPoster: "/img/trabajos/videoportero-video-poster.jpg"
+    descripcion: "Cambio de un portero automático antiguo (solo audio) por un videoportero inteligente con pantalla, visión de la entrada e imagen en tiempo real desde el móvil."
   },
   {
     slug: "cerradura",
@@ -154,9 +150,7 @@ const trabajos = [
     imagenAntes: "/img/trabajos/pintura-reforma-antes.jpg",
     titulo: "Pintura y reforma de habitación",
     categoria: "Reparaciones y reformas",
-    descripcion: "Habitación con paredes desconchadas y humedad, reformada de arriba a abajo: alisado y saneado de paredes, pintura nueva, suelo laminado e iluminación empotrada.",
-    video: "/video/pintura-reforma.mp4",
-    videoPoster: "/img/trabajos/pintura-reforma-video-poster.jpg"
+    descripcion: "Habitación con paredes desconchadas y humedad, reformada de arriba a abajo: alisado y saneado de paredes, pintura nueva, suelo laminado e iluminación empotrada."
   },
   {
     slug: "reforma-general",
@@ -164,9 +158,7 @@ const trabajos = [
     imagenAntes: "/img/trabajos/reforma-general-antes.jpg",
     titulo: "Reforma general de vivienda",
     categoria: "Reparaciones y reformas",
-    descripcion: "Reforma integral de salón y cocina en un solo espacio abierto: nueva instalación eléctrica, suelo laminado, iluminación indirecta en techo y cocina con isla.",
-    video: "/video/reforma-general.mp4",
-    videoPoster: "/img/trabajos/reforma-general-video-poster.jpg"
+    descripcion: "Reforma integral de salón y cocina en un solo espacio abierto: nueva instalación eléctrica, suelo laminado, iluminación indirecta en techo y cocina con isla."
   }
 ];
 

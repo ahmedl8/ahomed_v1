@@ -9,39 +9,81 @@
   <section class="page-hero">
     <div class="container">
       <h1>Servicios</h1>
-      <p>Precios orientativos. El presupuesto final se confirma tras la visita técnica gratuita.</p>
+      <p>Seis bloques, un mismo equipo. Precios orientativos: el presupuesto final se confirma tras la visita técnica gratuita.</p>
     </div>
   </section>
 
-  <section class="section">
+  <section class="section section-tight">
     <div class="container">
-      <div class="services-grid services-grid-full">
-        <a href="/servicios/ia-monitorizacion" class="service-card service-card-ai">
-          <div class="service-badge">Servicio exclusivo</div>
-          <h3><%= iaService.nombre %></h3>
-          <p><%= iaService.resumen %></p>
-          <div class="service-card-footer">
-            <span class="price-tag">Desde <%= fmt(iaService.desde) %> €</span>
-            <span class="link-arrow">Ver detalle →</span>
-          </div>
-        </a>
-
-        <% services.forEach(function(s){ %>
-          <a href="/servicios/<%= s.slug %>" class="service-card">
-            <h3><%= s.numero %>. <%= s.nombre %></h3>
-            <p><%= s.resumen %></p>
-            <div class="service-meta">
-              <span class="meta-chip"><%= s.tiempo %></span>
-            </div>
-            <div class="service-card-footer">
-              <span class="price-tag">Desde <%= fmt(s.desde) %> €<%= s.desdeUnidad || '' %></span>
-              <span class="link-arrow">Ver detalle →</span>
-            </div>
+      <div class="bloques-grid">
+        <% bloques.forEach(function(b){ %>
+          <a href="#bloque-<%= b.slug %>" class="bloque-chip">
+            <span class="bloque-chip-letra"><%= b.letra %></span>
+            <span><%= b.nombre %></span>
           </a>
         <% }) %>
       </div>
     </div>
   </section>
+
+  <% bloques.forEach(function(b){ %>
+    <section class="section <%= b.slug === 'ia-predictiva' ? 'section-alt' : '' %>" id="bloque-<%= b.slug %>">
+      <div class="container">
+        <div class="bloque-header">
+          <span class="bloque-letra-grande"><%= b.letra %></span>
+          <div>
+            <h2><%= b.nombre %></h2>
+            <p><%= b.resumen %></p>
+          </div>
+        </div>
+
+        <div class="services-grid services-grid-full">
+          <% if (b.slug === 'seguridad-accesos') { %>
+            <a href="/servicios/ia-monitorizacion" class="service-card service-card-ai">
+              <div class="service-badge">Servicio exclusivo</div>
+              <h3><%= iaService.nombre %></h3>
+              <p><%= iaService.resumen %></p>
+              <div class="service-card-footer">
+                <span class="price-tag">Desde <%= fmt(iaService.desde) %> €</span>
+                <span class="link-arrow">Ver detalle →</span>
+              </div>
+            </a>
+          <% } %>
+
+          <% services.filter(function(s){ return s.bloque === b.slug; }).forEach(function(s){ %>
+            <a href="/servicios/<%= s.slug %>" class="service-card">
+              <h3><%= s.numero %>. <%= s.nombre %></h3>
+              <p><%= s.resumen %></p>
+              <div class="service-meta">
+                <span class="meta-chip"><%= s.tiempo %></span>
+              </div>
+              <div class="service-card-footer">
+                <span class="price-tag">Desde <%= fmt(s.desde) %> €<%= s.desdeUnidad || '' %></span>
+                <span class="link-arrow">Ver detalle →</span>
+              </div>
+            </a>
+          <% }) %>
+
+          <% if (b.slug === 'ia-predictiva') { %>
+            <% modosIA.forEach(function(m){ %>
+              <a href="/servicios/ia-predictiva/<%= m.slug %>" class="service-card service-card-ia-modo">
+                <h3><%= m.numero %>. <%= m.nombre %></h3>
+                <p><%= m.resumen %></p>
+                <div class="service-card-footer">
+                  <span class="price-tag">+<%= fmt(m.precioIncremento) %> € con plataforma</span>
+                  <span class="link-arrow">Ver detalle →</span>
+                </div>
+              </a>
+            <% }) %>
+          <% } %>
+        </div>
+
+        <% if (b.slug === 'ia-predictiva') { %>
+          <a href="/servicios/ia-predictiva" class="bloque-cta-link">Ver cómo funciona la plataforma completa →</a>
+        <% } %>
+      </div>
+    </section>
+  <% }) %>
 
   <section class="section final-cta">
     <div class="container final-cta-inner">

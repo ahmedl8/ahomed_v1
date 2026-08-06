@@ -1,0 +1,50 @@
+// Los 6 bloques que agrupan todos los servicios AHOMED.
+// Cada servicio (en services.js) y cada modo IA (en ia-predictiva.js) declara
+// a qué bloque pertenece mediante el campo `bloque` (su slug aquí).
+
+const bloques = [
+  {
+    slug: "seguridad-accesos",
+    letra: "A",
+    nombre: "Seguridad y Accesos",
+    resumen: "Cámaras, alarmas, cerraduras, videoportero, garaje y acceso con IA.",
+    icono: "shield"
+  },
+  {
+    slug: "instalaciones-base",
+    letra: "B",
+    nombre: "Instalaciones Base",
+    resumen: "Electricidad, redes, climatización y antenas.",
+    icono: "bolt"
+  },
+  {
+    slug: "energia",
+    letra: "C",
+    nombre: "Energía",
+    resumen: "Energía solar y gestión inteligente de consumo (PVPC).",
+    icono: "solar"
+  },
+  {
+    slug: "reformas",
+    letra: "D",
+    nombre: "Reformas",
+    resumen: "Pintura, alicatado, fontanería, pladur y montaje de muebles.",
+    icono: "wrench"
+  },
+  {
+    slug: "ia-predictiva",
+    letra: "E",
+    nombre: "Plataforma IA Predictiva",
+    resumen: "El cerebro central de la vivienda y sus modos: clima, presencia, sueño, aire, mascotas, cocina, mayores, niños y paquetes.",
+    icono: "ai"
+  },
+  {
+    slug: "mantenimiento",
+    letra: "F",
+    nombre: "Mantenimiento",
+    resumen: "Contratos de revisión y reentrenamiento de IA para cualquier instalación AHOMED.",
+    icono: "maintenance"
+  }
+];
+
+module.exports = bloques;

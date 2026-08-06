@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <%- include('../partials/head') %>
+</head>
+<body>
+  <%- include('../partials/header') %>
+
+  <section class="service-hero service-hero-ai">
+    <div class="container service-hero-inner">
+      <div class="service-hero-icon"><svg viewBox="0 0 24 24"><%- icons[modo.icono] %></svg></div>
+      <div>
+        <nav class="breadcrumb" aria-label="Ruta de navegación">
+          <a href="/servicios">Servicios</a> ›
+          <a href="/servicios/ia-predictiva">E · Plataforma IA Predictiva</a>
+        </nav>
+        <span class="eyebrow">Modo <%= modo.numero %> de 9 — <%= modo.subtitulo %></span>
+        <h1><%= modo.nombre %></h1>
+        <p><%= modo.resumen %></p>
+        <div class="service-meta">
+          <span class="meta-chip meta-chip-price">Solo: <%= fmt(modo.precioSolo) %> €</span>
+          <span class="meta-chip meta-chip-price">+ Con plataforma: <%= fmt(modo.precioIncremento) %> €</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container two-col">
+      <div>
+        <h2 class="sub-heading">Ideal para</h2>
+        <ul class="check-list check-list-lg">
+          <% modo.idealPara.forEach(function(item){ %>
+            <li><%= item %></li>
+          <% }) %>
+        </ul>
+
+        <div class="ia-modo-info-box">
+          <p><strong>¿Solo o con plataforma?</strong></p>
+          <p>Si ya tienes instalada la plataforma base, este modo se añade por <strong><%= fmt(modo.precioIncremento) %> €</strong> — reutiliza el mini-PC y el motor Python ya en marcha.</p>
+          <p>Si es tu primer modo, se instala completo por <strong><%= fmt(modo.precioSolo) %> €</strong>, incluyendo tu propio mini-PC.</p>
+        </div>
+
+        <a href="https://wa.me/34<%= empresa.whatsapp %>?text=<%= encodeURIComponent('Hola, quiero pedir presupuesto para ' + modo.nombre.toLowerCase()) %>" target="_blank" rel="noopener" class="btn btn-whatsapp btn-lg cta-block">
+          Pedir presupuesto gratuito
+        </a>
+      </div>
+
+      <div class="example-panel">
+        <h2 class="sub-heading">Ejemplo real — <%= modo.ejemplo.titulo %></h2>
+
+        <div class="options-stack">
+          <% modo.ejemplo.opciones.forEach(function(op){ %>
+            <div class="option-card <%= op.destacada ? 'option-card-featured' : '' %>">
+              <% if (op.destacada) { %><span class="option-star">⭐ Recomendada</span><% } %>
+              <h3><%= op.nombre %></h3>
+              <table class="option-table">
+                <tbody>
+                  <% op.items.forEach(function(item){ %>
+                    <tr>
+                      <td><%= item[0] %></td>
+                      <td class="option-price"><%= fmt(item[1]) %> €</td>
+                    </tr>
+                  <% }) %>
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <td>TOTAL</td>
+                    <td class="option-price option-total"><%= fmt(op.total) %> €</td>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+          <% }) %>
+        </div>
+
+        <% if (modo.ejemplo.nota) { %>
+          <p class="example-note"><%= modo.ejemplo.nota %></p>
+        <% } %>
+
+        <p class="orientative-note">Todos los importes son orientativos. El precio definitivo se confirma tras la visita técnica gratuita.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section final-cta">
+    <div class="container final-cta-inner">
+      <h2>¿Empezamos con <%= modo.nombre.toLowerCase() %>?</h2>
+      <p>Primera visita gratuita. Presupuesto sin compromiso.</p>
+      <a href="https://wa.me/34<%= empresa.whatsapp %>?text=<%= encodeURIComponent('Hola, quiero pedir presupuesto para ' + modo.nombre.toLowerCase()) %>" target="_blank" rel="noopener" class="btn btn-whatsapp btn-lg">
+        <%= empresa.whatsappDisplay %>
+      </a>
+    </div>
+  </section>
+
+  <%- include('../partials/footer') %>
+</body>
+</html>

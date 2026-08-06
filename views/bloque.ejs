@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <%- include('partials/head') %>
+</head>
+<body>
+  <%- include('partials/header') %>
+
+  <section class="page-hero">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Ruta de navegación">
+        <a href="/servicios">Servicios</a> › <%= bloque.letra %> · <%= bloque.nombre %>
+      </nav>
+      <span class="eyebrow">Bloque <%= bloque.letra %></span>
+      <h1><%= bloque.nombre %></h1>
+      <p><%= bloque.resumen %></p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="services-grid services-grid-full">
+        <% if (iaService) { %>
+          <a href="/servicios/ia-monitorizacion" class="service-card service-card-ai">
+            <div class="service-badge">Servicio exclusivo</div>
+            <h3><%= iaService.nombre %></h3>
+            <p><%= iaService.resumen %></p>
+            <div class="service-card-footer">
+              <span class="price-tag">Desde <%= fmt(iaService.desde) %> €</span>
+              <span class="link-arrow">Ver detalle →</span>
+            </div>
+          </a>
+        <% } %>
+
+        <% servicios.forEach(function(s){ %>
+          <a href="/servicios/<%= s.slug %>" class="service-card">
+            <h3><%= s.numero %>. <%= s.nombre %></h3>
+            <p><%= s.resumen %></p>
+            <div class="service-meta">
+              <span class="meta-chip"><%= s.tiempo %></span>
+            </div>
+            <div class="service-card-footer">
+              <span class="price-tag">Desde <%= fmt(s.desde) %> €<%= s.desdeUnidad || '' %></span>
+              <span class="link-arrow">Ver detalle →</span>
+            </div>
+          </a>
+        <% }) %>
+
+        <% if (modosIA) { %>
+          <% modosIA.forEach(function(m){ %>
+            <a href="/servicios/ia-predictiva/<%= m.slug %>" class="service-card service-card-ia-modo">
+              <h3><%= m.numero %>. <%= m.nombre %></h3>
+              <p><%= m.resumen %></p>
+              <div class="service-card-footer">
+                <span class="price-tag">+<%= fmt(m.precioIncremento) %> € con plataforma</span>
+                <span class="link-arrow">Ver detalle →</span>
+              </div>
+            </a>
+          <% }) %>
+        <% } %>
+      </div>
+
+      <% if (modosIA) { %>
+        <a href="/servicios/ia-predictiva" class="bloque-cta-link">Ver instalación base y cómo funciona la plataforma →</a>
+      <% } %>
+    </div>
+  </section>
+
+  <section class="section final-cta">
+    <div class="container final-cta-inner">
+      <h2>¿Hablamos de tu proyecto?</h2>
+      <p>Primera visita gratuita. Presupuesto sin compromiso.</p>
+      <a href="https://wa.me/34<%= empresa.whatsapp %>?text=<%= encodeURIComponent('Hola, quiero información sobre ' + bloque.nombre.toLowerCase()) %>" target="_blank" rel="noopener" class="btn btn-whatsapp btn-lg">
+        <%= empresa.whatsappDisplay %>
+      </a>
+    </div>
+  </section>
+
+  <%- include('partials/footer') %>
+</body>
+</html>

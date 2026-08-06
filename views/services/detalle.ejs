@@ -10,6 +10,12 @@
     <div class="container service-hero-inner">
       <div class="service-hero-icon"><svg viewBox="0 0 24 24"><%- icons[service.icono] %></svg></div>
       <div>
+        <% if (bloque) { %>
+          <nav class="breadcrumb" aria-label="Ruta de navegación">
+            <a href="/servicios">Servicios</a> ›
+            <a href="/servicios/bloque/<%= bloque.slug %>"><%= bloque.letra %> · <%= bloque.nombre %></a>
+          </nav>
+        <% } %>
         <span class="eyebrow">Servicio <%= service.numero %></span>
         <h1><%= service.nombre %></h1>
         <p><%= service.resumen %></p>
@@ -74,6 +80,19 @@
                   <h2 class="sub-heading">Ejemplo real — <%= ex.titulo %></h2>
                   <% if (ex.cliente) { %><p class="example-client"><%= ex.cliente %></p><% } %>
 
+                  <% if (ex.imagen && ex.imagenAntes) { %>
+                    <div class="pack-photo-pair">
+                      <div class="pack-photo-wrap">
+                        <span class="photo-label">Antes</span>
+                        <img src="<%= ex.imagenAntes %>" alt="Antes — <%= ex.titulo %>" loading="lazy">
+                      </div>
+                      <div class="pack-photo-wrap">
+                        <span class="photo-label photo-label-after">Después</span>
+                        <img src="<%= ex.imagen %>" alt="Después — <%= ex.titulo %>" loading="lazy">
+                      </div>
+                    </div>
+                  <% } %>
+
                   <div class="options-stack">
                     <% ex.opciones.forEach(function(op){ %>
                       <div class="option-card <%= op.destacada ? 'option-card-featured' : '' %>">
@@ -109,6 +128,19 @@
         <% } else { %>
           <h2 class="sub-heading">Ejemplo real — <%= service.ejemplo.titulo %></h2>
           <% if (service.ejemplo.cliente) { %><p class="example-client"><%= service.ejemplo.cliente %></p><% } %>
+
+          <% if (service.ejemplo.imagen && service.ejemplo.imagenAntes) { %>
+            <div class="pack-photo-pair">
+              <div class="pack-photo-wrap">
+                <span class="photo-label">Antes</span>
+                <img src="<%= service.ejemplo.imagenAntes %>" alt="Antes — <%= service.ejemplo.titulo %>" loading="lazy">
+              </div>
+              <div class="pack-photo-wrap">
+                <span class="photo-label photo-label-after">Después</span>
+                <img src="<%= service.ejemplo.imagen %>" alt="Después — <%= service.ejemplo.titulo %>" loading="lazy">
+              </div>
+            </div>
+          <% } %>
 
           <div class="options-stack">
             <% service.ejemplo.opciones.forEach(function(op){ %>

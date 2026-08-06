@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <%- include('../partials/head') %>
+</head>
+<body>
+  <%- include('../partials/header') %>
+
+  <section class="service-hero service-hero-ai">
+    <div class="container service-hero-inner">
+      <div class="service-hero-icon"><svg viewBox="0 0 24 24"><%- icons.ai %></svg></div>
+      <div>
+        <nav class="breadcrumb" aria-label="Ruta de navegación">
+          <a href="/servicios">Servicios</a> ›
+          <a href="/servicios/bloque/ia-predictiva">E · Plataforma IA Predictiva</a>
+        </nav>
+        <span class="eyebrow">El cerebro de la vivienda</span>
+        <h1>Plataforma IA Predictiva</h1>
+        <p>El diferencial no está en los dispositivos — un Shelly o un Zigbee los compra cualquiera —, sino en el motor Python que vive en el mini-PC y cruza datos que nadie más mezcla: clima, precio de la luz por hora, geolocalización, calidad del aire, fases de sueño. Ellos instalan dispositivos. AHOMED instala inteligencia.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="sub-heading">1. Instalación base de la plataforma</h2>
+      <p>Antes de cualquier modo, se instala una única vez: el mini-PC compartido, el motor Python que orquesta todos los modos, el dashboard de control y la integración con WhatsApp Business API. A partir de aquí, cada modo añadido es un incremento — no una instalación nueva desde cero.</p>
+
+      <div class="options-stack options-stack-1">
+        <div class="option-card option-card-featured">
+          <span class="option-star">Instalación única</span>
+          <h3><%= instalacionBase.nombre %></h3>
+          <table class="option-table">
+            <tbody>
+              <% instalacionBase.items.forEach(function(item){ %>
+                <tr>
+                  <td><%= item[0] %></td>
+                  <td class="option-price"><%= fmt(item[1]) %> €</td>
+                </tr>
+              <% }) %>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td>TOTAL — Instalación base</td>
+                <td class="option-price option-total"><%= fmt(instalacionBase.total) %> €</td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+
+      <p class="example-note">A partir de esta instalación, cada modo se cotiza como incremento. Si solo quieres un modo y no planeas añadir más, se cotiza con su precio de catálogo completo en solitario — indicado en cada ficha.</p>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <h2 class="sub-heading">2. Los nueve modos</h2>
+      <p>Cada modo resuelve un escenario completo de la vida diaria, no un dispositivo suelto.</p>
+
+      <div class="services-grid services-grid-full">
+        <% modos.forEach(function(m){ %>
+          <a href="/servicios/ia-predictiva/<%= m.slug %>" class="service-card service-card-ia-modo">
+            <h3><%= m.numero %>. <%= m.nombre %></h3>
+            <p><%= m.resumen %></p>
+            <div class="service-card-footer">
+              <span class="price-tag">+<%= fmt(m.precioIncremento) %> € con plataforma</span>
+              <span class="link-arrow">Ver detalle →</span>
+            </div>
+          </a>
+        <% }) %>
+      </div>
+
+      <p class="orientative-note">Todos los importes son orientativos. El precio definitivo se confirma tras la visita técnica gratuita.</p>
+    </div>
+  </section>
+
+  <section class="section final-cta">
+    <div class="container final-cta-inner">
+      <h2>¿Empezamos con tu plataforma IA?</h2>
+      <p>Primera visita gratuita. Presupuesto sin compromiso.</p>
+      <a href="https://wa.me/34<%= empresa.whatsapp %>?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20la%20Plataforma%20IA%20Predictiva" target="_blank" rel="noopener" class="btn btn-whatsapp btn-lg">
+        <%= empresa.whatsappDisplay %>
+      </a>
+    </div>
+  </section>
+
+  <%- include('../partials/footer') %>
+</body>
+</html>

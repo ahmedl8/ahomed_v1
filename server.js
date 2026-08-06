@@ -4,7 +4,8 @@ const compression = require("compression");
 const helmet = require("helmet");
 
 const { services, iaService, packs, ventajas, comoFunciona, empresa } = require("./data/services");
-const { trabajos } = require("./data/trabajos");
+const bloques = require("./data/bloques");
+const { instalacionBase, modos: modosIA } = require("./data/ia-predictiva");
 const icons = require("./data/icons");
 
 const app = express();
@@ -21,6 +22,7 @@ app.use(
   })
 );
 app.use(express.static(path.join(__dirname, "public")));
+app.use(express.json());
 
 // Helper de formato de moneda (estilo español: 1.680 €)
 // Implementado a mano porque el runtime puede no incluir datos ICU completos
@@ -42,33 +44,88 @@ app.use((req, res, next) => {
   res.locals.empresa = empresa;
   res.locals.currentPath = req.path;
   res.locals.icons = icons;
+  res.locals.bloques = bloques;
+  res.locals.metaDescription = empresa.metaDescriptionDefault;
   next();
 });
+
+// Helper: adjunta el bloque completo (nombre, letra...) a un servicio a partir de su slug
+function bloqueDe(slug) {
+  return bloques.find((b) => b.slug === slug) || null;
+}
 
 // ---- Rutas ----
 app.get("/", (req, res) => {
   res.render("index", {
-    title: `${empresa.nombre} — Soluciones integrales para el hogar`,
+    title: `${empresa.nombre} — Soluciones integrales para el hogar en Madrid`,
+    metaDescription:
+      "Electricidad, domótica, seguridad con IA, energía solar, climatización y reformas en Madrid y alrededores. Equipo propiedad del cliente, sin cuotas. Primera visita técnica gratuita.",
     services,
     iaService,
     packs,
     ventajas,
-    comoFunciona,
-    trabajos
+    comoFunciona
   });
 });
 
 app.get("/servicios", (req, res) => {
   res.render("servicios", {
     title: `Servicios — ${empresa.nombre}`,
+    metaDescription:
+      "Catálogo completo de servicios AHOMED organizado en seis bloques: seguridad y accesos, instalaciones base, energía, reformas, plataforma IA predictiva y mantenimiento. Precios orientativos.",
     services,
-    iaService
+    iaService,
+    bloques,
+    modosIA
+  });
+});
+
+// Página de bloque: agrupa los servicios (y, para el bloque E, los modos IA) de esa categoría
+app.get("/servicios/bloque/:slug", (req, res, next) => {
+  const bloque = bloqueDe(req.params.slug);
+  if (!bloque) return next();
+
+  const serviciosDelBloque = services.filter((s) => s.bloque === bloque.slug);
+  const incluyeIA = bloque.slug === "ia-predictiva";
+
+  res.render("bloque", {
+    title: `${bloque.nombre} — ${empresa.nombre}`,
+    metaDescription: `${bloque.resumen} Servicios AHOMED en ${empresa.zona}, con presupuesto tras visita técnica gratuita.`,
+    bloque,
+    servicios: serviciosDelBloque,
+    iaService: bloque.slug === "seguridad-accesos" ? iaService : null,
+    modosIA: incluyeIA ? modosIA : null,
+    instalacionBase: incluyeIA ? instalacionBase : null
+  });
+});
+
+// Plataforma IA Predictiva — página general con instalación base + los 9 modos
+app.get("/servicios/ia-predictiva", (req, res) => {
+  res.render("services/ia-predictiva", {
+    title: `Plataforma IA Predictiva — ${empresa.nombre}`,
+    metaDescription:
+      "Instalación base (mini-PC + motor Python + dashboard) y nueve modos: motor meteorológico, casa presencial, sueño, calidad del aire, mascotas, cocina, personas mayores, niños y paquetes.",
+    instalacionBase,
+    modos: modosIA
+  });
+});
+
+// Ficha de un modo concreto de la Plataforma IA Predictiva
+app.get("/servicios/ia-predictiva/:modoSlug", (req, res, next) => {
+  const modo = modosIA.find((m) => m.slug === req.params.modoSlug);
+  if (!modo) return next();
+  res.render("services/ia-modo", {
+    title: `${modo.nombre} — ${empresa.nombre}`,
+    metaDescription: `${modo.resumen} Desde ${modo.precioIncremento} € instalado junto a la plataforma IA Predictiva de ${empresa.nombre}.`,
+    modo,
+    instalacionBase
   });
 });
 
 app.get("/servicios/ia-monitorizacion", (req, res) => {
   res.render("services/ia", {
     title: `${iaService.nombre} — ${empresa.nombre}`,
+    metaDescription: `${iaService.resumen} Servicio exclusivo de ${empresa.nombre} en ${empresa.zona}.`,
     iaService
   });
 });
@@ -78,50 +135,68 @@ app.get("/servicios/:slug", (req, res, next) => {
   if (!service) return next();
   res.render("services/detalle", {
     title: `${service.nombre} — ${empresa.nombre}`,
-    service
+    metaDescription: `${service.resumen} Desde ${service.desde} € en ${empresa.zona}. Presupuesto tras visita técnica gratuita.`,
+    service,
+    bloque: bloqueDe(service.bloque)
   });
 });
 
 app.get("/packs", (req, res) => {
   res.render("packs", {
     title: `Packs — ${empresa.nombre}`,
+    metaDescription:
+      "Instalación completa llave en mano: Piso Nuevo, Chalet Seguro y Negocio. Varios servicios AHOMED combinados en una sola visita técnica.",
     packs
   });
 });
 
-app.get("/trabajos-reales", (req, res) => {
-  res.render("trabajos", {
-    title: `Trabajos reales — ${empresa.nombre}`,
-    trabajos
-  });
-});
-
-app.get("/trabajos-reales/:slug", (req, res, next) => {
-  const trabajo = trabajos.find((t) => t.slug === req.params.slug);
-  if (!trabajo) return next();
-  const relacionados = trabajos.filter((t) => t.slug !== trabajo.slug && t.categoria === trabajo.categoria).slice(0, 4);
-  res.render("trabajo-detalle", {
-    title: `${trabajo.titulo} — ${empresa.nombre}`,
-    trabajo,
-    relacionados
-  });
-});
 
 app.get("/sobre-mi", (req, res) => {
   res.render("sobre-mi", {
-    title: `Sobre mí — ${empresa.nombre}`
+    title: `Sobre mí — ${empresa.nombre}`,
+    metaDescription: `Más de ${empresa.anosExperiencia} de experiencia técnica en electricidad, domótica, IA y reformas. Conoce al equipo detrás de ${empresa.nombre}.`
   });
 });
 
 app.get("/contacto", (req, res) => {
   res.render("contacto", {
-    title: `Contacto — ${empresa.nombre}`
+    title: `Contacto — ${empresa.nombre}`,
+    metaDescription: `Contacta con ${empresa.nombre} por WhatsApp, teléfono o email. Visita técnica gratuita en ${empresa.zona}.`
   });
+});
+
+// ---- SEO técnico ----
+app.get("/robots.txt", (req, res) => {
+  res.type("text/plain").send(
+    ["User-agent: *", "Allow: /", `Sitemap: https://${empresa.web}/sitemap.xml`].join("\n")
+  );
+});
+
+app.get("/sitemap.xml", (req, res) => {
+  const base = `https://${empresa.web}`;
+  const staticUrls = ["/", "/servicios", "/packs", "/sobre-mi", "/contacto"];
+  const bloqueUrls = bloques.map((b) => `/servicios/bloque/${b.slug}`);
+  const servicioUrls = services.map((s) => `/servicios/${s.slug}`);
+  const iaMonitorUrl = ["/servicios/ia-monitorizacion"];
+  const iaPredictivaUrls = ["/servicios/ia-predictiva", ...modosIA.map((m) => `/servicios/ia-predictiva/${m.slug}`)];
+
+  const urls = [...staticUrls, ...bloqueUrls, ...servicioUrls, ...iaMonitorUrl, ...iaPredictivaUrls];
+
+  const body = urls
+    .map((u) => `  <url><loc>${base}${u}</loc></url>`)
+    .join("\n");
+
+  res.type("application/xml").send(
+    `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${body}\n</urlset>`
+  );
 });
 
 // ---- 404 ----
 app.use((req, res) => {
-  res.status(404).render("404", { title: `Página no encontrada — ${empresa.nombre}` });
+  res.status(404).render("404", {
+    title: `Página no encontrada — ${empresa.nombre}`,
+    metaDescription: `La página que buscas no existe. Vuelve al inicio de ${empresa.nombre} o consulta nuestro catálogo de servicios.`
+  });
 });
 
 app.listen(PORT, () => {

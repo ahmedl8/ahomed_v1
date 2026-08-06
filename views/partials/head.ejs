@@ -1,7 +1,16 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title><%= title %></title>
-<meta name="description" content="AHOMED — Soluciones integrales para el hogar. Electricidad, domótica, seguridad con IA, energía solar, climatización y reformas en Madrid y alrededores. Primera visita gratuita." />
+<meta name="description" content="<%= metaDescription %>" />
+<link rel="canonical" href="https://<%= empresa.web %><%= currentPath %>" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="<%= empresa.nombre %>" />
+<meta property="og:title" content="<%= title %>" />
+<meta property="og:description" content="<%= metaDescription %>" />
+<meta property="og:image" content="https://<%= empresa.web %><%= typeof ogImage !== 'undefined' ? ogImage : '/img/hero-tecnico.jpg' %>" />
+<meta property="og:url" content="https://<%= empresa.web %><%= currentPath %>" />
+<meta property="og:locale" content="es_ES" />
+<meta name="twitter:card" content="summary_large_image" />
 <link rel="icon" type="image/png" href="/img/favicon.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

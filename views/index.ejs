@@ -25,7 +25,7 @@
             <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12.001 2C6.478 2 2 6.478 2 12c0 1.85.502 3.657 1.454 5.235L2 22l4.897-1.415A9.955 9.955 0 0 0 12.001 22C17.523 22 22 17.523 22 12S17.523 2 12.001 2z"/></svg>
             Pedir presupuesto por WhatsApp
           </a>
-          <a href="/trabajos-reales" class="btn btn-outline-light btn-lg">Ver trabajos reales</a>
+          <a href="/packs" class="btn btn-outline-light btn-lg">Ver packs</a>
         </div>
       </div>
 
@@ -97,20 +97,17 @@
       </div>
       <div class="packs-grid">
         <% packs.forEach(function(p){ %>
-          <div class="pack-card">
-            <h3><%= p.nombre %></h3>
-            <p class="pack-desc"><%= p.descripcion %></p>
-            <ul class="check-list">
-              <% p.incluye.forEach(function(item){ %>
-                <li><%= item %></li>
-              <% }) %>
-            </ul>
-            <div class="pack-footer">
-              <span class="price-tag price-tag-lg">Desde <%= fmt(p.desde) %> €</span>
-              <a href="https://wa.me/34<%= empresa.whatsapp %>?text=Hola%2C%20me%20interesa%20el%20<%= encodeURIComponent(p.nombre) %>" target="_blank" rel="noopener" class="btn btn-outline">Consultar</a>
+          <a href="/packs#<%= p.slug %>" class="pack-card pack-card-photo">
+            <img src="<%= p.imagen %>" alt="<%= p.imagenAlt %>" loading="lazy" class="pack-card-img">
+            <div class="pack-card-body">
+              <h3><%= p.nombre %></h3>
+              <p class="pack-desc"><%= p.descripcion %></p>
+              <div class="pack-footer">
+                <span class="price-tag price-tag-lg">Desde <%= fmt(p.opciones[0].total) %> €</span>
+                <span class="btn btn-outline">Ver desglose</span>
+              </div>
             </div>
-            <% if (p.nota) { %><p class="pack-note"><%= p.nota %></p><% } %>
-          </div>
+          </a>
         <% }) %>
       </div>
     </div>
@@ -146,28 +143,6 @@
             <span><%= v %></span>
           </div>
         <% }) %>
-      </div>
-    </div>
-  </section>
-
-  <!-- TRABAJOS REALES -->
-  <section class="section works-section">
-    <div class="container">
-      <div class="section-head">
-        <h2>Trabajos reales</h2>
-        <p>Instalaciones reales de AHOMED: energía solar, seguridad, domótica y mucho más.</p>
-      </div>
-      <div class="works-grid">
-        <% trabajos.slice(0,4).forEach(function(t){ %>
-          <a href="/trabajos-reales/<%= t.slug %>" class="work-item">
-            <img src="<%= t.imagen %>" alt="<%= t.titulo %>" loading="lazy">
-            <% if (t.video) { %><span class="video-play video-play-sm">▶</span><% } %>
-            <div class="work-caption">
-              <span class="work-cat"><%= t.categoria %></span>
-              <div class="work-title"><%= t.titulo %></div>
-            </div>
-          </a>
-        <% }); %>
       </div>
     </div>
   </section>

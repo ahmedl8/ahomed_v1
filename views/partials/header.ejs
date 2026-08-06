@@ -24,23 +24,37 @@
       <a href="/" class="<%= currentPath === '/' ? 'active' : '' %>">Inicio</a>
       <div class="nav-dropdown">
         <a href="/servicios" class="<%= currentPath.startsWith('/servicios') ? 'active' : '' %>">Servicios ▾</a>
-        <div class="dropdown-menu">
-          <a href="/servicios/electricidad">Electricidad</a>
-          <a href="/servicios/domotica">Domótica</a>
-          <a href="/servicios/energia-solar">Energía solar</a>
-          <a href="/servicios/seguridad">Seguridad</a>
-          <a href="/servicios/ia-monitorizacion">IA y monitorización</a>
-          <a href="/servicios/redes-informatica">Redes e informática</a>
-          <a href="/servicios/climatizacion">Climatización</a>
-          <a href="/servicios/antenas">Antenas</a>
-          <a href="/servicios/reparaciones-reformas">Reparaciones y reformas</a>
-          <a href="/servicios/fontaneria">Fontanería</a>
-          <a href="/servicios/pladur">Pladur</a>
-          <a href="/servicios/mantenimiento">Mantenimiento</a>
+        <div class="dropdown-menu dropdown-menu-mega">
+          <% bloques.forEach(function(b){ %>
+            <div class="dropdown-col">
+              <a href="/servicios/bloque/<%= b.slug %>" class="dropdown-col-title">
+                <span class="dropdown-col-letra"><%= b.letra %></span> <%= b.nombre %>
+              </a>
+              <% if (b.slug === 'seguridad-accesos') { %>
+                <a href="/servicios/ia-monitorizacion">IA y monitorización</a>
+                <a href="/servicios/seguridad">Seguridad</a>
+              <% } else if (b.slug === 'instalaciones-base') { %>
+                <a href="/servicios/electricidad">Electricidad</a>
+                <a href="/servicios/domotica">Domótica</a>
+                <a href="/servicios/redes-informatica">Redes e informática</a>
+                <a href="/servicios/climatizacion">Climatización</a>
+                <a href="/servicios/antenas">Antenas</a>
+              <% } else if (b.slug === 'energia') { %>
+                <a href="/servicios/energia-solar">Energía solar</a>
+              <% } else if (b.slug === 'reformas') { %>
+                <a href="/servicios/reparaciones-reformas">Reparaciones y reformas</a>
+                <a href="/servicios/fontaneria">Fontanería</a>
+                <a href="/servicios/pladur">Pladur</a>
+              <% } else if (b.slug === 'ia-predictiva') { %>
+                <a href="/servicios/ia-predictiva">Ver los 9 modos</a>
+              <% } else if (b.slug === 'mantenimiento') { %>
+                <a href="/servicios/mantenimiento">Mantenimiento</a>
+              <% } %>
+            </div>
+          <% }) %>
         </div>
       </div>
       <a href="/packs" class="<%= currentPath === '/packs' ? 'active' : '' %>">Packs</a>
-      <a href="/trabajos-reales" class="<%= currentPath === '/trabajos-reales' ? 'active' : '' %>">Trabajos reales</a>
       <a href="/sobre-mi" class="<%= currentPath === '/sobre-mi' ? 'active' : '' %>">Sobre mí</a>
       <a href="/contacto" class="<%= currentPath === '/contacto' ? 'active' : '' %>">Contacto</a>
     </nav>

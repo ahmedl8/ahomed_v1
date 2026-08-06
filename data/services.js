@@ -4,6 +4,7 @@
 const services = [
   {
     slug: "electricidad",
+    bloque: "instalaciones-base",
     numero: 1,
     nombre: "Electricidad",
     icono: "bolt",
@@ -18,6 +19,8 @@ const services = [
     ejemplo: {
       titulo: "Sustitución de cuadro eléctrico + boletín (CIE)",
       cliente: "Roberto Gómez",
+      imagen: "/img/trabajos/cuadro-electrico-despues.jpg",
+      imagenAntes: "/img/trabajos/cuadro-electrico-antes.jpg",
       opciones: [
         {
           nombre: "Básica",
@@ -112,6 +115,7 @@ const services = [
   },
   {
     slug: "domotica",
+    bloque: "instalaciones-base",
     numero: 2,
     nombre: "Domótica",
     icono: "home-wifi",
@@ -127,6 +131,8 @@ const services = [
     ejemplo: {
       titulo: "Domótica salón + cocina",
       cliente: "María Fernández",
+      imagen: "/img/trabajos/enchufes-despues.jpg",
+      imagenAntes: "/img/trabajos/enchufes-antes.jpg",
       opciones: [
         {
           nombre: "Presupuesto",
@@ -154,6 +160,8 @@ const services = [
       {
         titulo: "Domótica completa de vivienda",
         cliente: "Control integral de luces, persianas, clima y escenas en todas las estancias, no solo una habitación",
+      imagen: "/img/trabajos/persianas-despues.jpg",
+      imagenAntes: "/img/trabajos/persianas-antes.jpg",
         opciones: [
           {
             nombre: "Básica — piso de 3 habitaciones",
@@ -202,6 +210,8 @@ const services = [
       {
         titulo: "Persianas motorizadas",
         cliente: "Motorización de persianas existentes con control por app, mando o integración con domótica",
+      imagen: "/img/trabajos/persianas-despues.jpg",
+      imagenAntes: "/img/trabajos/persianas-antes.jpg",
         opciones: [
           {
             nombre: "Básica — 1 persiana, motor con mando",
@@ -240,6 +250,8 @@ const services = [
       {
         titulo: "Riego automático de jardín",
         cliente: "Sistema de riego programado por zonas, con control por app y sensor de lluvia",
+      imagen: "/img/trabajos/riego-despues.jpg",
+      imagenAntes: "/img/trabajos/riego-antes.jpg",
         opciones: [
           {
             nombre: "Básica — 2 zonas de riego",
@@ -280,6 +292,8 @@ const services = [
       {
         titulo: "Toldo motorizado con control por app",
         cliente: "Terraza de 4 x 3 m",
+      imagen: "/img/trabajos/toldo-despues.jpg",
+      imagenAntes: "/img/trabajos/toldo-antes.jpg",
         opciones: [
           {
             nombre: "Básica — motorizado con mando",
@@ -321,6 +335,8 @@ const services = [
       {
         titulo: "Automatización de piscina (filtración, luz y monitorización)",
         cliente: "Piscina de vivienda unifamiliar",
+      imagen: "/img/trabajos/piscina-despues.jpg",
+      imagenAntes: "/img/trabajos/piscina-antes.jpg",
         opciones: [
           {
             nombre: "Básica — programador de filtración",
@@ -362,6 +378,7 @@ const services = [
   },
   {
     slug: "energia-solar",
+    bloque: "energia",
     numero: 3,
     nombre: "Energía solar",
     icono: "solar",
@@ -425,6 +442,8 @@ const services = [
       {
         titulo: "Placas solares en tejado, autoconsumo",
         cliente: "Instalación de autoconsumo fotovoltaico sobre tejado, para reducir de forma significativa la factura eléctrica",
+      imagen: "/img/trabajos/solar-tejado-despues.jpg",
+      imagenAntes: "/img/trabajos/solar-tejado-antes.jpg",
         opciones: [
           {
             nombre: "Básica — 4 paneles (1.600 W)",
@@ -473,6 +492,7 @@ const services = [
   },
   {
     slug: "seguridad",
+    bloque: "seguridad-accesos",
     numero: 4,
     nombre: "Seguridad",
     icono: "shield",
@@ -487,6 +507,8 @@ const services = [
     ejemplo: {
       titulo: "Videoportero inteligente",
       cliente: "Sonia Navarro",
+      imagen: "/img/trabajos/videoportero-despues.jpg",
+      imagenAntes: "/img/trabajos/videoportero-antes.jpg",
       opciones: [
         {
           nombre: "Básica — inalámbrico, sin obra",
@@ -532,6 +554,8 @@ const services = [
       {
         titulo: "Cerradura inteligente",
         cliente: "Apertura por app, huella, tarjeta o código, manteniendo la llave física como respaldo",
+      imagen: "/img/trabajos/cerradura-despues.jpg",
+      imagenAntes: "/img/trabajos/cerradura-antes.jpg",
         opciones: [
           {
             nombre: "Básica — cerradura con teclado y app",
@@ -571,6 +595,8 @@ const services = [
       {
         titulo: "CCTV cableado con grabación en mini-PC",
         cliente: "Sistema de cámaras con cableado fijo (más fiable que WiFi) y grabación local, sin cuota mensual",
+      imagen: "/img/trabajos/camara-exterior-despues.jpg",
+      imagenAntes: "/img/trabajos/camara-exterior-antes.jpg",
         opciones: [
           {
             nombre: "Básica — 4 cámaras cableadas",
@@ -615,6 +641,7 @@ const services = [
   },
   {
     slug: "redes-informatica",
+    bloque: "instalaciones-base",
     numero: 5,
     nombre: "Redes e informática",
     icono: "network",
@@ -629,6 +656,8 @@ const services = [
     ejemplo: {
       titulo: "Red WiFi mesh + configuración de red doméstica",
       cliente: "Elena Castro",
+      imagen: "/img/trabajos/rack-comunicaciones-despues.jpg",
+      imagenAntes: "/img/trabajos/rack-comunicaciones-antes.jpg",
       opciones: [
         {
           nombre: "Básica",
@@ -675,6 +704,8 @@ const services = [
       {
         titulo: "Armario de comunicaciones y rack de red",
         cliente: "Vivienda con router y cableado a la vista, 4 tomas de red",
+      imagen: "/img/trabajos/rack-comunicaciones-despues.jpg",
+      imagenAntes: "/img/trabajos/rack-comunicaciones-antes.jpg",
         opciones: [
           {
             nombre: "Básica — armario compacto de superficie",
@@ -720,6 +751,7 @@ const services = [
   },
   {
     slug: "climatizacion",
+    bloque: "instalaciones-base",
     numero: 6,
     nombre: "Climatización",
     icono: "climate",
@@ -734,6 +766,8 @@ const services = [
     ejemplo: {
       titulo: "Aire acondicionado split 1x1 (habitación de 20-25 m²)",
       cliente: "Rocío Delgado",
+      imagen: "/img/trabajos/aire-acondicionado-despues.jpg",
+      imagenAntes: "/img/trabajos/aire-acondicionado-antes.jpg",
       opciones: [
         {
           nombre: "Básica",
@@ -775,6 +809,8 @@ const services = [
       {
         titulo: "Climatización multisplit para toda la vivienda",
         cliente: "Una sola unidad exterior dando servicio a varias estancias, con control independiente por habitación",
+      imagen: "/img/trabajos/aire-acondicionado-despues.jpg",
+      imagenAntes: "/img/trabajos/aire-acondicionado-antes.jpg",
         opciones: [
           {
             nombre: "Básica — multisplit 2x1 (2 estancias)",
@@ -819,6 +855,7 @@ const services = [
   },
   {
     slug: "antenas",
+    bloque: "instalaciones-base",
     numero: 7,
     nombre: "Antenas",
     icono: "antenna",
@@ -903,6 +940,7 @@ const services = [
   },
   {
     slug: "reparaciones-reformas",
+    bloque: "reformas",
     numero: 8,
     nombre: "Reparaciones y reformas",
     icono: "wrench",
@@ -917,6 +955,8 @@ const services = [
     ejemplo: {
       titulo: "Renovación de baño pequeño (pintura + alicatado parcial, 6 m² de pared)",
       cliente: "Miguel Santos",
+      imagen: "/img/trabajos/bano-reforma-despues.jpg",
+      imagenAntes: "/img/trabajos/bano-reforma-antes.jpg",
       opciones: [
         {
           nombre: "Básica",
@@ -957,6 +997,8 @@ const services = [
       {
         titulo: "Pintura de piso completo",
         cliente: "Pintura integral de vivienda, paredes y techos, lista para entrar a vivir o para alquilar/vender",
+      imagen: "/img/trabajos/pintura-reforma-despues.jpg",
+      imagenAntes: "/img/trabajos/pintura-reforma-antes.jpg",
         opciones: [
           {
             nombre: "Básica — piso de 80 m², un solo color",
@@ -998,6 +1040,8 @@ const services = [
       {
         titulo: "Alicatado completo de baño",
         cliente: "Retirada de azulejo antiguo y alicatado completo de un baño, listo para sanitarios y grifería",
+      imagen: "/img/trabajos/bano-reforma-despues.jpg",
+      imagenAntes: "/img/trabajos/bano-reforma-antes.jpg",
         opciones: [
           {
             nombre: "Básica — 12 m², azulejo estándar",
@@ -1040,6 +1084,8 @@ const services = [
       {
         titulo: "Montaje de cocina modular",
         cliente: "Montaje de muebles de cocina modular (comprados en tienda) e instalación de electrodomésticos de encimera",
+      imagen: "/img/trabajos/cocina-reforma-despues.jpg",
+      imagenAntes: "/img/trabajos/cocina-reforma-antes.jpg",
         opciones: [
           {
             nombre: "Básica — módulos bajos y altos (hasta 4 m lineales)",
@@ -1081,6 +1127,8 @@ const services = [
       {
         titulo: "Reforma integral de cocina",
         cliente: "Cocina de 9 m², con cambio de distribución",
+      imagen: "/img/trabajos/cocina-reforma-despues.jpg",
+      imagenAntes: "/img/trabajos/cocina-reforma-antes.jpg",
         opciones: [
           {
             nombre: "Básica — muebles y encimera, sin cambiar distribución",
@@ -1128,6 +1176,7 @@ const services = [
   },
   {
     slug: "fontaneria",
+    bloque: "reformas",
     numero: 9,
     nombre: "Fontanería",
     icono: "plumbing",
@@ -1138,6 +1187,8 @@ const services = [
     ejemplo: {
       titulo: "Sustitución de sanitarios y grifería de baño",
       cliente: "Raúl Ibáñez",
+      imagen: "/img/trabajos/bano-reforma-despues.jpg",
+      imagenAntes: "/img/trabajos/bano-reforma-antes.jpg",
       opciones: [
         {
           nombre: "Básica — grifería",
@@ -1182,6 +1233,7 @@ const services = [
   },
   {
     slug: "pladur",
+    bloque: "reformas",
     numero: 10,
     nombre: "Pladur",
     icono: "pladur",
@@ -1192,6 +1244,8 @@ const services = [
     ejemplo: {
       titulo: "Falso techo de pladur con iluminación empotrada (salón, 18 m²)",
       cliente: "Nuria Campos",
+      imagen: "/img/trabajos/reforma-general-despues.jpg",
+      imagenAntes: "/img/trabajos/reforma-general-antes.jpg",
       opciones: [
         {
           nombre: "Básica — techo liso",
@@ -1238,6 +1292,8 @@ const services = [
       {
         titulo: "Tabique de pladur",
         cliente: "División de una estancia o cerramiento con tabique de pladur, con o sin aislamiento acústico",
+      imagen: "/img/trabajos/reforma-general-despues.jpg",
+      imagenAntes: "/img/trabajos/reforma-general-antes.jpg",
         opciones: [
           {
             nombre: "Básica — tabique simple, 10 m²",
@@ -1282,6 +1338,7 @@ const services = [
   },
   {
     slug: "mantenimiento",
+    bloque: "mantenimiento",
     numero: 11,
     nombre: "Mantenimiento y contratos",
     icono: "maintenance",
@@ -1329,6 +1386,7 @@ const services = [
 // Servicio destacado: IA y Monitorización Inteligente (el gran diferenciador)
 const iaService = {
   slug: "ia-monitorizacion",
+  bloque: "seguridad-accesos",
   nombre: "IA y Monitorización Inteligente",
   icono: "ai",
   resumen:
@@ -1341,7 +1399,9 @@ const iaService = {
     {
       titulo: "Negocio: cámaras IA para nave o almacén",
       subtitulo: "Talleres Bravo, S.L. · nave industrial de 450 m²",
-      opciones: [
+            imagen: "/img/trabajos/naves-seguridad-ia-despues.jpg",
+      imagenAntes: "/img/trabajos/naves-seguridad-ia-antes.jpg",
+opciones: [
         {
           nombre: "Básica — perímetro con 4 cámaras",
           destacada: false,
@@ -1389,7 +1449,9 @@ const iaService = {
     {
       titulo: "Vivienda: kit de vigilancia con alertas por WhatsApp",
       subtitulo: "Familia Reyes · 2 a 6 cámaras según opción",
-      opciones: [
+            imagen: "/img/trabajos/monitor-ia-despues.jpg",
+      imagenAntes: "/img/trabajos/monitor-ia-antes.jpg",
+opciones: [
         {
           nombre: "Básica — 2 cámaras",
           destacada: false,
@@ -1436,34 +1498,147 @@ const iaService = {
 const packs = [
   {
     nombre: "Pack Piso Nuevo",
-    descripcion: "Ideal para estrenar piso o preparar un alquiler.",
-    incluye: [
-      "Cuadro eléctrico + boletín eléctrico (CIE)",
-      "Red WiFi mesh + configuración",
-      "Videoportero inteligente",
-      "Iluminación LED (salón)"
+    slug: "piso-nuevo",
+    descripcion: "Ideal para estrenar piso o preparar un alquiler. Todo lo que necesitas para que funcione desde el primer día.",
+    imagen: "/img/trabajos/cuadro-electrico-despues.jpg",
+    imagenAntes: "/img/trabajos/cuadro-electrico-antes.jpg",
+    imagenAlt: "Cuadro eléctrico renovado — Pack Piso Nuevo AHOMED",
+    opciones: [
+      {
+        nombre: "Básica",
+        destacada: false,
+        items: [
+          ["Cuadro eléctrico nuevo + boletín eléctrico (CIE)", 520],
+          ["Red WiFi mesh 2 puntos de acceso + configuración", 285],
+          ["Videoportero inteligente (instalación incluida)", 300]
+        ],
+        total: 1105
+      },
+      {
+        nombre: "Recomendada — con domótica y LED ⭐",
+        destacada: true,
+        items: [
+          ["Cuadro eléctrico nuevo + boletín eléctrico (CIE)", 520],
+          ["Red WiFi mesh 3 puntos de acceso + configuración", 380],
+          ["Videoportero inteligente (instalación incluida)", 300],
+          ["Iluminación LED en salón y pasillo (8 puntos de luz)", 280],
+          ["2 interruptores WiFi para control desde el móvil", 80]
+        ],
+        total: 1560
+      },
+      {
+        nombre: "Premium — con cerradura y cámara exterior",
+        destacada: false,
+        items: [
+          ["Cuadro eléctrico nuevo + boletín eléctrico (CIE)", 520],
+          ["Red WiFi mesh 3 puntos de acceso + configuración", 380],
+          ["Videoportero inteligente", 300],
+          ["Iluminación LED en salón y pasillo", 280],
+          ["Cerradura inteligente con huella digital y app", 420],
+          ["Cámara IP exterior (entrada/puerta principal)", 280]
+        ],
+        total: 2180
+      }
     ],
-    desde: 1105
+    nota: "Precio orientativo; se ajusta tras la visita técnica gratuita según el estado del cuadro actual y la superficie de la vivienda."
   },
   {
     nombre: "Pack Chalet Seguro",
-    descripcion: "Ideal para chalets y segundas residencias.",
-    incluye: [
-      "Sistema de seguridad con 4 cámaras IP + mini-PC de grabación (sin cuota mensual)",
-      "Cerradura inteligente",
-      "Videoportero inteligente"
+    slug: "chalet-seguro",
+    descripcion: "Ideal para chalets y segundas residencias. Tranquilidad total: sabrás en todo momento lo que pasa en tu propiedad.",
+    imagen: "/img/trabajos/camara-exterior-despues.jpg",
+    imagenAntes: "/img/trabajos/camara-exterior-antes.jpg",
+    imagenAlt: "Cámara IP exterior instalada — Pack Chalet Seguro AHOMED",
+    opciones: [
+      {
+        nombre: "Básica — 4 cámaras + cerradura",
+        destacada: false,
+        items: [
+          ["4 cámaras IP cableadas con visión nocturna", 340],
+          ["Instalación y cableado (4 cámaras)", 380],
+          ["Mini-PC de grabación con disco duro (sin cuota mensual)", 220],
+          ["Cerradura inteligente con teclado y app", 290],
+          ["Videoportero inteligente (instalación incluida)", 300]
+        ],
+        total: 1530
+      },
+      {
+        nombre: "Recomendada — con detección de movimiento y alertas ⭐",
+        destacada: true,
+        items: [
+          ["6 cámaras IP cableadas con visión nocturna", 510],
+          ["Instalación y cableado (6 cámaras)", 540],
+          ["Mini-PC de grabación con disco duro ampliado", 320],
+          ["Cerradura inteligente con huella digital y app", 420],
+          ["Videoportero inteligente", 300],
+          ["Configuración de acceso remoto y alertas de movimiento", 90]
+        ],
+        total: 2180
+      },
+      {
+        nombre: "Premium — con IA local: alertas solo cuando importa",
+        destacada: false,
+        items: [
+          ["6 cámaras IP cableadas con visión nocturna", 510],
+          ["Instalación y cableado (6 cámaras)", 540],
+          ["Mini-PC con IA local (detección de personas y vehículos, descarta falsas alarmas)", 680],
+          ["Cerradura inteligente con huella digital y app", 420],
+          ["Videoportero inteligente", 300],
+          ["Alertas por WhatsApp con imagen del momento", 150]
+        ],
+        total: 2600
+      }
     ],
-    desde: 1500
+    nota: "Sin cuota mensual ni contrato con central de alarmas. El sistema funciona de forma autónoma en tu propiedad."
   },
   {
     nombre: "Pack Negocio",
-    descripcion: "Ideal para naves, almacenes, talleres y locales.",
-    incluye: [
-      "Cámaras con detección inteligente por IA (perímetro, 4 cámaras)",
-      "Panel de monitorización a medida (dashboard propio)"
+    slug: "negocio",
+    descripcion: "Ideal para naves, almacenes, talleres y locales. IA que descarta falsas alarmas y te avisa por WhatsApp solo cuando hay algo real.",
+    imagen: "/img/trabajos/naves-seguridad-ia-despues.jpg",
+    imagenAntes: "/img/trabajos/naves-seguridad-ia-antes.jpg",
+    imagenAlt: "Seguridad con IA en nave industrial — Pack Negocio AHOMED",
+    opciones: [
+      {
+        nombre: "Básica — 4 cámaras con detección IA",
+        destacada: false,
+        items: [
+          ["4 cámaras IP (perímetro y accesos)", 340],
+          ["Instalación y cableado", 380],
+          ["Mini-PC con IA local (detección de personas y vehículos)", 480],
+          ["Configuración de alertas por WhatsApp con imagen del momento", 150],
+          ["Zonas de detección personalizadas (horario de negocio vs. fuera de horario)", 120]
+        ],
+        total: 1470
+      },
+      {
+        nombre: "Recomendada — 6 cámaras + dashboard ⭐",
+        destacada: true,
+        items: [
+          ["6 cámaras IP (perímetro, accesos y zona de carga)", 510],
+          ["Instalación y cableado (6 cámaras)", 540],
+          ["Mini-PC con IA local de mayor potencia", 680],
+          ["Configuración de alertas por WhatsApp", 150],
+          ["Panel de monitorización a medida (dashboard propio en navegador)", 380],
+          ["Zonas de detección personalizadas y horarios", 150]
+        ],
+        total: 2410
+      },
+      {
+        nombre: "Premium — 8 cámaras + CCTV cableado + IA avanzada",
+        destacada: false,
+        items: [
+          ["8 cámaras IP (cobertura total del perímetro)", 680],
+          ["Instalación y cableado (8 cámaras)", 720],
+          ["Mini-PC con IA avanzada (detección de placas, reconocimiento de vehículos recurrentes)", 950],
+          ["Panel de monitorización a medida", 380],
+          ["Alertas WhatsApp por tipo de evento (persona / vehículo / acceso fuera de horario)", 200],
+          ["Integración con sistema de iluminación de seguridad perimetral", 280]
+        ],
+        total: 3210
+      }
     ],
-    desde: 2470,
-    nota: "Ampliable con notificaciones WhatsApp y CCTV cableado adicional."
+    nota: "Ampliable con CCTV cableado adicional, integración con acceso de empleados o control de presencia. Sin cuota mensual."
   }
 ];
 
@@ -1488,7 +1663,9 @@ const empresa = {
   whatsappDisplay: "671 176 482",
   web: "ahomed.com",
   email: "info@ahomed.com",
-  anosExperiencia: "10 años"
+  anosExperiencia: "10 años",
+  metaDescriptionDefault:
+    "AHOMED — Soluciones integrales para el hogar. Electricidad, domótica, seguridad con IA, energía solar, climatización y reformas en Madrid y alrededores. Primera visita gratuita."
 };
 
 module.exports = { services, iaService, packs, ventajas, comoFunciona, empresa };

@@ -5,6 +5,7 @@ const services = [
   {
     slug: "electricidad",
     bloque: "instalaciones-base",
+    heroImagen: "/img/hero-bloques/electricidad.jpg",
     numero: 1,
     nombre: "Electricidad",
     icono: "bolt",
@@ -71,6 +72,7 @@ const services = [
       {
         titulo: "Punto de recarga para coche eléctrico (wallbox)",
         cliente: "Instalación de wallbox doméstica, desde el cuadro eléctrico hasta el garaje o plaza de parking",
+        imagen: "/img/trabajos/wallbox-despues.jpg",
         opciones: [
           {
             nombre: "Básica — wallbox 7,4 kW, instalación corta (hasta 5 m)",
@@ -380,6 +382,7 @@ const services = [
   {
     slug: "energia-solar",
     bloque: "energia",
+    heroImagen: "/img/hero-bloques/energia-solar.jpg",
     numero: 3,
     nombre: "Energía solar",
     icono: "solar",
@@ -645,6 +648,7 @@ const services = [
   {
     slug: "redes-informatica",
     bloque: "instalaciones-base",
+    heroImagen: "/img/hero-bloques/redes-informatica.jpg",
     numero: 5,
     nombre: "Redes e informática",
     icono: "network",
@@ -755,6 +759,7 @@ const services = [
   {
     slug: "climatizacion",
     bloque: "instalaciones-base",
+    heroImagen: "/img/hero-bloques/climatizacion.jpg",
     numero: 6,
     nombre: "Climatización",
     icono: "climate",
@@ -858,6 +863,7 @@ const services = [
   {
     slug: "antenas",
     bloque: "instalaciones-base",
+    heroImagen: "/img/hero-bloques/antenas.jpg",
     numero: 7,
     nombre: "Antenas",
     icono: "antenna",
@@ -899,6 +905,7 @@ const services = [
       {
         titulo: "Antena TDT comunitaria de edificio",
         cliente: "Instalación colectiva de recepción TDT para todo un edificio o comunidad de propietarios",
+        imagen: "/img/trabajos/antena-tdt-comunitaria-despues.jpg",
         opciones: [
           {
             nombre: "Básica — hasta 8 viviendas",
@@ -1181,6 +1188,7 @@ const services = [
   {
     slug: "fontaneria",
     bloque: "reformas",
+    heroImagen: "/img/hero-bloques/fontaneria.jpg",
     numero: 9,
     nombre: "Fontanería",
     icono: "plumbing",
@@ -1238,6 +1246,7 @@ const services = [
   {
     slug: "pladur",
     bloque: "reformas",
+    heroImagen: "/img/hero-bloques/pladur.jpg",
     numero: 10,
     nombre: "Pladur",
     icono: "pladur",
@@ -1342,6 +1351,7 @@ const services = [
   {
     slug: "mantenimiento",
     bloque: "mantenimiento",
+    heroImagen: "/img/hero-bloques/mantenimiento.jpg",
     numero: 11,
     nombre: "Mantenimiento y contratos",
     icono: "maintenance",
@@ -1356,6 +1366,7 @@ const services = [
     ejemplo: {
       titulo: "Contrato de mantenimiento",
       cliente: null,
+      imagen: "/img/trabajos/mantenimiento-despues.jpg",
       opciones: [
         {
           nombre: "Básica — revisión anual",

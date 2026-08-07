@@ -166,6 +166,7 @@ const modos = [
   },
   {
     slug: "calidad-aire",
+    imagen: "/img/ia-predictiva/calidad-aire.jpg",
     numero: 4,
     nombre: "Panel de Calidad del Aire",
     subtitulo: "CO₂, VOC y ventilación con IA",

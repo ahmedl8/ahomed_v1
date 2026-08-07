@@ -18,7 +18,6 @@
       <div class="bloques-grid">
         <% bloques.forEach(function(b){ %>
           <a href="#bloque-<%= b.slug %>" class="bloque-chip">
-            <span class="bloque-chip-letra"><%= b.letra %></span>
             <span><%= b.nombre %></span>
           </a>
         <% }) %>
@@ -30,7 +29,6 @@
     <section class="section <%= b.slug === 'ia-predictiva' ? 'section-alt' : '' %>" id="bloque-<%= b.slug %>">
       <div class="container">
         <div class="bloque-header">
-          <span class="bloque-letra-grande"><%= b.letra %></span>
           <div>
             <h2><%= b.nombre %></h2>
             <p><%= b.resumen %></p>

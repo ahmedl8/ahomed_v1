@@ -18,7 +18,7 @@ const services = [
     ],
     ejemplo: {
       titulo: "Sustitución de cuadro eléctrico + boletín (CIE)",
-      cliente: "Roberto Gómez",
+      cliente: "Vivienda con cuadro eléctrico antiguo, sin diferencial ni protección por circuitos.",
       imagen: "/img/trabajos/cuadro-electrico-despues.jpg",
       imagenAntes: "/img/trabajos/cuadro-electrico-antes.jpg",
       opciones: [
@@ -131,7 +131,7 @@ const services = [
     ],
     ejemplo: {
       titulo: "Domótica salón + cocina",
-      cliente: "María Fernández",
+      cliente: "Salón y cocina de un piso, con interruptores y enchufes convencionales.",
       imagen: "/img/trabajos/enchufes-despues.jpg",
       imagenAntes: "/img/trabajos/enchufes-antes.jpg",
       opciones: [
@@ -393,7 +393,7 @@ const services = [
     ],
     ejemplo: {
       titulo: "Kit solar de autoconsumo para balcón/terraza (\"solar de enchufar\")",
-      cliente: "Fernando Ruiz",
+      cliente: "Piso con terraza orientada al sur, sin instalación solar previa.",
       imagen: "/img/ia-predictiva/gestion-energia.jpg",
       opciones: [
         {
@@ -509,7 +509,7 @@ const services = [
     ],
     ejemplo: {
       titulo: "Videoportero inteligente",
-      cliente: "Sonia Navarro",
+      cliente: "Vivienda unifamiliar con portero automático antiguo, sin cámara ni app.",
       imagen: "/img/trabajos/videoportero-despues.jpg",
       imagenAntes: "/img/trabajos/videoportero-antes.jpg",
       opciones: [
@@ -658,7 +658,7 @@ const services = [
     ],
     ejemplo: {
       titulo: "Red WiFi mesh + configuración de red doméstica",
-      cliente: "Elena Castro",
+      cliente: "Piso con router de la operadora y cobertura WiFi irregular por estancias.",
       imagen: "/img/trabajos/rack-comunicaciones-despues.jpg",
       imagenAntes: "/img/trabajos/rack-comunicaciones-antes.jpg",
       opciones: [
@@ -768,7 +768,7 @@ const services = [
     ],
     ejemplo: {
       titulo: "Aire acondicionado split 1x1 (habitación de 20-25 m²)",
-      cliente: "Rocío Delgado",
+      cliente: "Dormitorio sin climatización, con ventana orientada al oeste.",
       imagen: "/img/trabajos/aire-acondicionado-despues.jpg",
       imagenAntes: "/img/trabajos/aire-acondicionado-antes.jpg",
       opciones: [
@@ -867,7 +867,7 @@ const services = [
     idealPara: ["Viviendas sin señal de TV o antena antigua", "Comunidades de propietarios (instalación colectiva)"],
     ejemplo: {
       titulo: "Antena parabólica + toma de TV",
-      cliente: "Isabel Prado",
+      cliente: "Vivienda sin señal de televisión o con antena antigua deteriorada.",
       imagen: "/img/trabajos/antenas-despues.jpg",
       opciones: [
         {
@@ -958,7 +958,7 @@ const services = [
     ],
     ejemplo: {
       titulo: "Renovación de baño pequeño (pintura + alicatado parcial, 6 m² de pared)",
-      cliente: "Miguel Santos",
+      cliente: "Baño con azulejo y pintura deteriorados, previo a la venta del piso.",
       imagen: "/img/trabajos/bano-reforma-despues.jpg",
       imagenAntes: "/img/trabajos/bano-reforma-antes.jpg",
       opciones: [
@@ -1190,7 +1190,7 @@ const services = [
     idealPara: ["Baños que necesitan actualizar grifería o inodoro", "Fugas de agua detectadas o sospechadas"],
     ejemplo: {
       titulo: "Sustitución de sanitarios y grifería de baño",
-      cliente: "Raúl Ibáñez",
+      cliente: "Baño con sanitarios y grifería antiguos, con fugas puntuales.",
       imagen: "/img/trabajos/bano-reforma-despues.jpg",
       imagenAntes: "/img/trabajos/bano-reforma-antes.jpg",
       opciones: [
@@ -1247,7 +1247,7 @@ const services = [
     idealPara: ["Dividir una habitación", "Salones que quieren un techo con iluminación indirecta"],
     ejemplo: {
       titulo: "Falso techo de pladur con iluminación empotrada (salón, 18 m²)",
-      cliente: "Nuria Campos",
+      cliente: "Salón sin iluminación indirecta, con techo liso convencional.",
       imagen: "/img/trabajos/pladur-techo-despues.jpg",
       opciones: [
         {
@@ -1401,7 +1401,7 @@ const iaService = {
   ejemplos: [
     {
       titulo: "Negocio: cámaras IA para nave o almacén",
-      subtitulo: "Talleres Bravo, S.L. · nave industrial de 450 m²",
+      subtitulo: "Nave industrial de 450 m²",
             imagen: "/img/trabajos/naves-seguridad-ia-despues.jpg",
       imagenAntes: "/img/trabajos/naves-seguridad-ia-antes.jpg",
 opciones: [
@@ -1451,7 +1451,7 @@ opciones: [
     },
     {
       titulo: "Vivienda: kit de vigilancia con alertas por WhatsApp",
-      subtitulo: "Familia Reyes · 2 a 6 cámaras según opción",
+      subtitulo: "Vivienda unifamiliar · 2 a 6 cámaras según opción",
             imagen: "/img/trabajos/monitor-ia-despues.jpg",
       imagenAntes: "/img/trabajos/monitor-ia-antes.jpg",
 opciones: [

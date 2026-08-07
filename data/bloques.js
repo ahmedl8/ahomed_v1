@@ -8,7 +8,7 @@ const bloques = [
     heroImagen: "/img/hero-bloques/bloque-a.jpg",
     letra: "A",
     nombre: "Seguridad y Accesos",
-    resumen: "Cámaras, alarmas, cerraduras, videoportero, garaje y acceso con IA.",
+    resumen: "Cámaras, alarmas, videoportero, cerraduras inteligentes y monitorización con IA.",
     icono: "shield"
   },
   {
@@ -16,7 +16,7 @@ const bloques = [
     heroImagen: "/img/hero-bloques/bloque-b.jpg",
     letra: "B",
     nombre: "Instalaciones Base",
-    resumen: "Electricidad, redes, climatización y antenas.",
+    resumen: "Electricidad, domótica, redes, climatización y antenas.",
     icono: "bolt"
   },
   {
@@ -24,7 +24,7 @@ const bloques = [
     heroImagen: "/img/hero-bloques/bloque-c.jpg",
     letra: "C",
     nombre: "Energía",
-    resumen: "Energía solar y gestión inteligente de consumo (PVPC).",
+    resumen: "Energía solar de autoconsumo, con monitorización del ahorro desde el móvil.",
     icono: "solar"
   },
   {

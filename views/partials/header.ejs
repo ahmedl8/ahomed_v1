@@ -28,7 +28,7 @@
           <% bloques.forEach(function(b){ %>
             <div class="dropdown-col">
               <a href="/servicios/bloque/<%= b.slug %>" class="dropdown-col-title">
-                <span class="dropdown-col-letra"><%= b.letra %></span> <%= b.nombre %>
+                <%= b.nombre %>
               </a>
               <% if (b.slug === 'seguridad-accesos') { %>
                 <a href="/servicios/ia-monitorizacion">IA y monitorización</a>

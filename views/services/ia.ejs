@@ -6,10 +6,16 @@
 <body>
   <%- include('../partials/header') %>
 
-  <section class="service-hero service-hero-ai">
+  <section class="service-hero service-hero-ai service-hero-photo">
+    <img class="service-hero-bg" src="/img/hero-bloques/ia-monitorizacion.jpg" alt="" loading="eager">
+    <div class="service-hero-overlay"></div>
     <div class="container service-hero-inner">
       <div class="service-hero-icon"><svg viewBox="0 0 24 24"><%- icons.ai %></svg></div>
       <div>
+        <nav class="breadcrumb" aria-label="Ruta de navegación">
+          <a href="/servicios">Servicios</a> ›
+          <a href="/servicios/bloque/seguridad-accesos">A · Seguridad y Accesos</a>
+        </nav>
         <span class="eyebrow"><%= iaService.destacado %></span>
         <h1><%= iaService.nombre %></h1>
         <p><%= iaService.resumen %></p>

@@ -25,6 +25,7 @@ const instalacionBase = {
 const modos = [
   {
     slug: "motor-meteorologico",
+    imagen: "/img/ia-predictiva/motor-meteorologico.jpg",
     numero: 1,
     nombre: "Motor Meteorológico",
     subtitulo: "Riego y persianas con IA climática",
@@ -71,6 +72,7 @@ const modos = [
   },
   {
     slug: "casa-presencial",
+    imagen: "/img/ia-predictiva/casa-presencial.jpg",
     numero: 2,
     nombre: "Casa Presencial",
     subtitulo: "Geolocalización y escenas automáticas",
@@ -117,6 +119,7 @@ const modos = [
   },
   {
     slug: "ia-sueno",
+    imagen: "/img/ia-predictiva/ia-sueno.jpg",
     numero: 3,
     nombre: "IA de Sueño",
     subtitulo: "Entorno adaptativo para descanso óptimo",
@@ -206,6 +209,7 @@ const modos = [
   },
   {
     slug: "cuidado-mascotas",
+    imagen: "/img/ia-predictiva/cuidado-mascotas.jpg",
     numero: 5,
     nombre: "Cuidado de Mascotas",
     subtitulo: "IA de bienestar animal",
@@ -252,6 +256,7 @@ const modos = [
   },
   {
     slug: "cocina-inteligente",
+    imagen: "/img/ia-predictiva/cocina-inteligente.jpg",
     numero: 6,
     nombre: "Cocina Inteligente",
     subtitulo: "Detección de humo y aviso de horno",
@@ -296,6 +301,7 @@ const modos = [
   },
   {
     slug: "personas-mayores",
+    imagen: "/img/ia-predictiva/personas-mayores.jpg",
     numero: 7,
     nombre: "Personas Mayores",
     subtitulo: "Teleasistencia inteligente sin cuota",
@@ -342,6 +348,7 @@ const modos = [
   },
   {
     slug: "modo-ninos",
+    imagen: "/img/ia-predictiva/modo-ninos.jpg",
     numero: 8,
     nombre: "Modo Niños",
     subtitulo: "Llegada del colegio automatizada",
@@ -385,6 +392,7 @@ const modos = [
   },
   {
     slug: "gestion-paquetes",
+    imagen: "/img/ia-predictiva/gestion-paquetes.jpg",
     numero: 9,
     nombre: "Gestión de Paquetes",
     subtitulo: "Detección de repartidores con IA",

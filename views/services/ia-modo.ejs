@@ -6,7 +6,11 @@
 <body>
   <%- include('../partials/header') %>
 
-  <section class="service-hero service-hero-ai">
+  <section class="service-hero service-hero-ai<%= modo.imagen ? ' service-hero-photo' : '' %>">
+    <% if (modo.imagen) { %>
+      <img class="service-hero-bg" src="<%= modo.imagen %>" alt="" loading="eager">
+      <div class="service-hero-overlay"></div>
+    <% } %>
     <div class="container service-hero-inner">
       <div class="service-hero-icon"><svg viewBox="0 0 24 24"><%- icons[modo.icono] %></svg></div>
       <div>

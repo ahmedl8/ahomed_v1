@@ -512,9 +512,24 @@ p { margin: 0; }
 .page-hero h1 { font-size: 2.3rem; margin-bottom: 10px; }
 .page-hero p { color: var(--gray-600); font-size: 1.05rem; max-width: 640px; }
 
+.page-hero-photo { position: relative; overflow: hidden; border-bottom: none; color: #fff; }
+.page-hero-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.page-hero-overlay { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(13,14,17,0.92) 0%, rgba(13,14,17,0.8) 50%, rgba(13,14,17,0.45) 100%); }
+.page-hero-content { position: relative; z-index: 1; }
+.page-hero-photo h1 { color: #fff; }
+.page-hero-photo p { color: #c7cbd1; }
+.page-hero-photo .breadcrumb, .page-hero-photo .breadcrumb a { color: #9aa0ab; }
+.page-hero-photo .breadcrumb a:hover { color: #7dd3fc; }
+.page-hero-photo .breadcrumb a:last-of-type { color: #fff; }
+.page-hero-photo .eyebrow { color: #7dd3fc; }
+
 /* ---------- Service detail ---------- */
 .service-hero { background: var(--ink); color: #fff; padding: 56px 0; }
 .service-hero-ai { background: linear-gradient(135deg, #0d0e11, #1c2030); }
+.service-hero-photo { position: relative; overflow: hidden; }
+.service-hero-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.service-hero-overlay { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(13,14,17,0.94) 0%, rgba(13,14,17,0.86) 45%, rgba(13,14,17,0.55) 100%); }
+.service-hero-photo .service-hero-inner { position: relative; z-index: 1; }
 .service-hero-inner { display: flex; align-items: center; gap: 26px; }
 .service-hero-icon {
   width: 74px; height: 74px; flex-shrink: 0;
@@ -599,6 +614,16 @@ p { margin: 0; }
   border: 1px solid var(--line);
 }
 .pack-photo-wrap img { width: 100%; height: 100%; object-fit: cover; }
+
+.pack-photo-single {
+  max-width: 780px;
+  margin: 0 auto 36px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  aspect-ratio: 16 / 9;
+}
+.pack-photo-single img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .photo-label {
   position: absolute; top: 10px; left: 10px;
   background: rgba(18,20,26,0.75); color: #fff;

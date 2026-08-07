@@ -116,6 +116,7 @@ const services = [
   {
     slug: "domotica",
     bloque: "instalaciones-base",
+    heroImagen: "/img/hero-bloques/domotica.jpg",
     numero: 2,
     nombre: "Domótica",
     icono: "home-wifi",
@@ -393,6 +394,7 @@ const services = [
     ejemplo: {
       titulo: "Kit solar de autoconsumo para balcón/terraza (\"solar de enchufar\")",
       cliente: "Fernando Ruiz",
+      imagen: "/img/ia-predictiva/gestion-energia.jpg",
       opciones: [
         {
           nombre: "Básica",
@@ -493,6 +495,7 @@ const services = [
   {
     slug: "seguridad",
     bloque: "seguridad-accesos",
+    heroImagen: "/img/hero-bloques/seguridad.jpg",
     numero: 4,
     nombre: "Seguridad",
     icono: "shield",
@@ -809,8 +812,7 @@ const services = [
       {
         titulo: "Climatización multisplit para toda la vivienda",
         cliente: "Una sola unidad exterior dando servicio a varias estancias, con control independiente por habitación",
-      imagen: "/img/trabajos/aire-acondicionado-despues.jpg",
-      imagenAntes: "/img/trabajos/aire-acondicionado-antes.jpg",
+      imagen: "/img/trabajos/climatizacion-multisplit-despues.jpg",
         opciones: [
           {
             nombre: "Básica — multisplit 2x1 (2 estancias)",
@@ -866,6 +868,7 @@ const services = [
     ejemplo: {
       titulo: "Antena parabólica + toma de TV",
       cliente: "Isabel Prado",
+      imagen: "/img/trabajos/antenas-despues.jpg",
       opciones: [
         {
           nombre: "Básica — 1 toma de TV",
@@ -941,6 +944,7 @@ const services = [
   {
     slug: "reparaciones-reformas",
     bloque: "reformas",
+    heroImagen: "/img/hero-bloques/reparaciones-reformas.jpg",
     numero: 8,
     nombre: "Reparaciones y reformas",
     icono: "wrench",
@@ -1244,8 +1248,7 @@ const services = [
     ejemplo: {
       titulo: "Falso techo de pladur con iluminación empotrada (salón, 18 m²)",
       cliente: "Nuria Campos",
-      imagen: "/img/trabajos/reforma-general-despues.jpg",
-      imagenAntes: "/img/trabajos/reforma-general-antes.jpg",
+      imagen: "/img/trabajos/pladur-techo-despues.jpg",
       opciones: [
         {
           nombre: "Básica — techo liso",

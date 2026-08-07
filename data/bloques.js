@@ -5,6 +5,7 @@
 const bloques = [
   {
     slug: "seguridad-accesos",
+    heroImagen: "/img/hero-bloques/bloque-a.jpg",
     letra: "A",
     nombre: "Seguridad y Accesos",
     resumen: "Cámaras, alarmas, cerraduras, videoportero, garaje y acceso con IA.",
@@ -12,6 +13,7 @@ const bloques = [
   },
   {
     slug: "instalaciones-base",
+    heroImagen: "/img/hero-bloques/bloque-b.jpg",
     letra: "B",
     nombre: "Instalaciones Base",
     resumen: "Electricidad, redes, climatización y antenas.",
@@ -19,6 +21,7 @@ const bloques = [
   },
   {
     slug: "energia",
+    heroImagen: "/img/hero-bloques/bloque-c.jpg",
     letra: "C",
     nombre: "Energía",
     resumen: "Energía solar y gestión inteligente de consumo (PVPC).",
@@ -26,6 +29,7 @@ const bloques = [
   },
   {
     slug: "reformas",
+    heroImagen: "/img/hero-bloques/bloque-d.jpg",
     letra: "D",
     nombre: "Reformas",
     resumen: "Pintura, alicatado, fontanería, pladur y montaje de muebles.",

@@ -24,18 +24,6 @@
   <section class="section">
     <div class="container">
       <div class="services-grid services-grid-full">
-        <% if (iaService) { %>
-          <a href="/servicios/ia-monitorizacion" class="service-card service-card-ai">
-            <div class="service-badge">Servicio exclusivo</div>
-            <h3><%= iaService.nombre %></h3>
-            <p><%= iaService.resumen %></p>
-            <div class="service-card-footer">
-              <span class="price-tag">Desde <%= fmt(iaService.desde) %> €</span>
-              <span class="link-arrow">Ver detalle →</span>
-            </div>
-          </a>
-        <% } %>
-
         <% servicios.forEach(function(s){ %>
           <a href="/servicios/<%= s.slug %>" class="service-card">
             <h3><%= s.numero %>. <%= s.nombre %></h3>
@@ -52,11 +40,12 @@
 
         <% if (modosIA) { %>
           <% modosIA.forEach(function(m){ %>
-            <a href="/servicios/ia-predictiva/<%= m.slug %>" class="service-card service-card-ia-modo">
+            <a href="/servicios/ia-predictiva/<%= m.slug %>" class="service-card service-card-ia-modo<%= m.esProyecto ? ' service-card-ai' : '' %>">
+              <% if (m.esProyecto) { %><div class="service-badge">Servicio exclusivo</div><% } %>
               <h3><%= m.numero %>. <%= m.nombre %></h3>
-              <p><%= m.resumen %></p>
+              <p><%= m.esProyecto ? m.subtitulo : m.resumen %></p>
               <div class="service-card-footer">
-                <span class="price-tag">+<%= fmt(m.precioIncremento) %> € con plataforma</span>
+                <span class="price-tag"><%= m.esProyecto ? 'Proyecto a medida' : '+' + fmt(m.precioIncremento) + ' € con plataforma' %></span>
                 <span class="link-arrow">Ver detalle →</span>
               </div>
             </a>

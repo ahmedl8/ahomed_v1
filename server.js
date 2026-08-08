@@ -3,7 +3,7 @@ const path = require("path");
 const compression = require("compression");
 const helmet = require("helmet");
 
-const { services, iaService, packs, ventajas, comoFunciona, empresa } = require("./data/services");
+const { services, packs, ventajas, comoFunciona, empresa } = require("./data/services");
 const bloques = require("./data/bloques");
 const { instalacionBase, modos: modosIA } = require("./data/ia-predictiva");
 const icons = require("./data/icons");
@@ -61,7 +61,7 @@ app.get("/", (req, res) => {
     metaDescription:
       "Electricidad, domótica, seguridad con IA, energía solar, climatización y reformas en Madrid y alrededores. Equipo propiedad del cliente, sin cuotas. Primera visita técnica gratuita.",
     services,
-    iaService,
+    seguridadIA: modosIA.find((m) => m.slug === "seguridad-ia"),
     packs,
     ventajas,
     comoFunciona
@@ -74,7 +74,6 @@ app.get("/servicios", (req, res) => {
     metaDescription:
       "Catálogo completo de servicios AHOMED organizado en seis bloques: seguridad y accesos, instalaciones base, energía, reformas, plataforma IA predictiva y mantenimiento. Precios orientativos.",
     services,
-    iaService,
     bloques,
     modosIA
   });
@@ -93,18 +92,17 @@ app.get("/servicios/bloque/:slug", (req, res, next) => {
     metaDescription: `${bloque.resumen} Servicios AHOMED en ${empresa.zona}, con presupuesto tras visita técnica gratuita.`,
     bloque,
     servicios: serviciosDelBloque,
-    iaService: bloque.slug === "seguridad-accesos" ? iaService : null,
     modosIA: incluyeIA ? modosIA : null,
     instalacionBase: incluyeIA ? instalacionBase : null
   });
 });
 
-// Plataforma IA Predictiva — página general con instalación base + los 9 modos
+// Plataforma IA Predictiva — página general con instalación base + los 10 modos
 app.get("/servicios/ia-predictiva", (req, res) => {
   res.render("services/ia-predictiva", {
     title: `Plataforma IA Predictiva — ${empresa.nombre}`,
     metaDescription:
-      "Instalación base (mini-PC + motor Python + dashboard) y nueve modos: motor meteorológico, casa presencial, sueño, calidad del aire, mascotas, cocina, personas mayores, niños y paquetes.",
+      "Instalación base (mini-PC de gama media + motor Python con YOLO + dashboard) y diez modos: seguridad IA, motor meteorológico, casa presencial, sueño, calidad del aire, mascotas, cocina, personas mayores, niños y paquetes.",
     instalacionBase,
     modos: modosIA
   });
@@ -114,20 +112,20 @@ app.get("/servicios/ia-predictiva", (req, res) => {
 app.get("/servicios/ia-predictiva/:modoSlug", (req, res, next) => {
   const modo = modosIA.find((m) => m.slug === req.params.modoSlug);
   if (!modo) return next();
-  res.render("services/ia-modo", {
+  const template = modo.esProyecto ? "services/ia-modo-proyecto" : "services/ia-modo";
+  res.render(template, {
     title: `${modo.nombre} — ${empresa.nombre}`,
-    metaDescription: `${modo.resumen} Desde ${modo.precioIncremento} € instalado junto a la plataforma IA Predictiva de ${empresa.nombre}.`,
+    metaDescription: modo.esProyecto
+      ? `${modo.resumen} Servicio exclusivo de ${empresa.nombre} en ${empresa.zona}.`
+      : `${modo.resumen} Desde ${modo.precioIncremento} € instalado junto a la plataforma IA Predictiva de ${empresa.nombre}.`,
     modo,
     instalacionBase
   });
 });
 
+// La antigua "IA y Monitorización Inteligente" vive ahora dentro de la Plataforma IA Predictiva (modo 10)
 app.get("/servicios/ia-monitorizacion", (req, res) => {
-  res.render("services/ia", {
-    title: `${iaService.nombre} — ${empresa.nombre}`,
-    metaDescription: `${iaService.resumen} Servicio exclusivo de ${empresa.nombre} en ${empresa.zona}.`,
-    iaService
-  });
+  res.redirect(301, "/servicios/ia-predictiva/seguridad-ia");
 });
 
 app.get("/servicios/:slug", (req, res, next) => {
@@ -177,10 +175,9 @@ app.get("/sitemap.xml", (req, res) => {
   const staticUrls = ["/", "/servicios", "/packs", "/sobre-mi", "/contacto"];
   const bloqueUrls = bloques.map((b) => `/servicios/bloque/${b.slug}`);
   const servicioUrls = services.map((s) => `/servicios/${s.slug}`);
-  const iaMonitorUrl = ["/servicios/ia-monitorizacion"];
   const iaPredictivaUrls = ["/servicios/ia-predictiva", ...modosIA.map((m) => `/servicios/ia-predictiva/${m.slug}`)];
 
-  const urls = [...staticUrls, ...bloqueUrls, ...servicioUrls, ...iaMonitorUrl, ...iaPredictivaUrls];
+  const urls = [...staticUrls, ...bloqueUrls, ...servicioUrls, ...iaPredictivaUrls];
 
   const body = urls
     .map((u) => `  <url><loc>${base}${u}</loc></url>`)

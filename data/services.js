@@ -502,7 +502,7 @@ const services = [
     numero: 4,
     nombre: "Seguridad",
     icono: "shield",
-    resumen: "Cámaras, alarmas, videoportero y cerraduras inteligentes. Equipo propiedad del cliente desde el primer día, sin cuota de por vida.",
+    resumen: "Cámaras, alarmas, videoportero y cerraduras inteligentes. Grabación local sin análisis por IA. Equipo propiedad del cliente desde el primer día, sin cuota de por vida.",
     tiempo: "Trabajo rápido",
     desde: 120,
     idealPara: [
@@ -1397,117 +1397,6 @@ const services = [
   }
 ];
 
-// Servicio destacado: IA y Monitorización Inteligente (el gran diferenciador)
-const iaService = {
-  slug: "ia-monitorizacion",
-  bloque: "seguridad-accesos",
-  nombre: "IA y Monitorización Inteligente",
-  icono: "ai",
-  resumen:
-    "El sistema aprenderá a distinguir personas y vehículos reales de falsas alarmas (un gato, una sombra, una bolsa moviéndose con el viento), y solo avisa por WhatsApp cuando de verdad importa.",
-  destacado: "El gran diferenciador de AHOMED. Servicio exclusivo — la mayoría de instaladores no lo ofrecen.",
-  tiempo: "Proyecto completo",
-  desde: 790,
-  idealPara: "Negocios, naves, fincas rurales y viviendas con vigilancia avanzada",
-  ejemplos: [
-    {
-      titulo: "Negocio: cámaras IA para nave o almacén",
-      subtitulo: "Nave industrial de 450 m²",
-            imagen: "/img/trabajos/naves-seguridad-ia-despues.jpg",
-      imagenAntes: "/img/trabajos/naves-seguridad-ia-antes.jpg",
-opciones: [
-        {
-          nombre: "Básica — perímetro con 4 cámaras",
-          destacada: false,
-          items: [
-            ["Instalación y cableado (4 cámaras, nave de hasta 500 m²)", 450],
-            ["4 cámaras IP con visión nocturna", 480],
-            ["Mini-PC de grabación y disco duro", 220],
-            ["Configuración del modelo de detección IA (persona/vehículo, descarta falsos positivos)", 380],
-            ["Notificaciones por WhatsApp ante alarma real", 90],
-            ["Material y conectorizado", 60]
-          ],
-          total: 1680
-        },
-        {
-          nombre: "Recomendada — 8 cámaras, cubre accesos y muelles",
-          destacada: true,
-          items: [
-            ["Instalación y cableado (8 cámaras)", 780],
-            ["8 cámaras IP con visión nocturna", 960],
-            ["Mini-PC de grabación y disco duro ampliado", 340],
-            ["Configuración del modelo de detección IA (persona/vehículo/matrícula)", 480],
-            ["Notificaciones por WhatsApp ante alarma real", 90],
-            ["Material y conectorizado", 90]
-          ],
-          total: 2740
-        },
-        {
-          nombre: "Premium — con reanálisis de alarmas por IA",
-          destacada: false,
-          items: [
-            ["Instalación y cableado (8 cámaras + 2 térmicas perimetrales)", 950],
-            ["8 cámaras IP con visión nocturna", 960],
-            ["2 cámaras térmicas para detección perimetral (reducen falsos positivos por fauna o vegetación)", 1600],
-            ["Mini-PC de grabación y disco duro ampliado", 340],
-            ["Configuración del modelo de detección IA (persona/vehículo/matrícula)", 480],
-            ["Reanálisis automático de alarmas con IA (descarta falsos positivos antes de avisar)", 380],
-            ["Notificaciones por WhatsApp ante alarma real", 90],
-            ["Material y conectorizado", 100]
-          ],
-          total: 4900
-        }
-      ],
-      nota: "El modelo de detección se entrena y ajusta con imágenes reales del propio local (iluminación, maquinaria, tránsito habitual), lo que reduce avisos falsos frente a un sistema genérico de fábrica."
-    },
-    {
-      titulo: "Vivienda: kit de vigilancia con alertas por WhatsApp",
-      subtitulo: "Vivienda unifamiliar · 2 a 6 cámaras según opción",
-            imagen: "/img/trabajos/monitor-ia-despues.jpg",
-      imagenAntes: "/img/trabajos/monitor-ia-antes.jpg",
-opciones: [
-        {
-          nombre: "Básica — 2 cámaras",
-          destacada: false,
-          items: [
-            ["Mano de obra y configuración del modelo de detección", 320],
-            ["2 cámaras IP compatibles + procesamiento local", 480],
-            ["Configuración de alertas por WhatsApp (API Meta) y app", 150]
-          ],
-          total: 950
-        },
-        {
-          nombre: "Recomendada — 4 cámaras + zonas personalizadas",
-          destacada: true,
-          items: [
-            ["Mano de obra y configuración", 420],
-            ["4 cámaras IP + mini-PC de procesamiento", 890],
-            ["Configuración de alertas WhatsApp y zonas de detección personalizadas", 200]
-          ],
-          total: 1510
-        },
-        {
-          nombre: "Premium — 6 cámaras + reconocimiento de personas habituales",
-          destacada: false,
-          items: [
-            ["Mano de obra y configuración avanzada", 520],
-            ["6 cámaras IP", 900],
-            ["Servidor de procesamiento con IA (GPU local, para reconocimiento facial en tiempo real)", 950],
-            ["Entrenamiento de reconocimiento de personas habituales y alertas WhatsApp", 350]
-          ],
-          total: 2720
-        }
-      ]
-    }
-  ],
-  extras: [
-    "Reentrenamiento del modelo (ver bono de mantenimiento)",
-    "Ampliación a panel de monitorización a medida (dashboard propio)",
-    "Integración con CCTV cableado ya instalado"
-  ],
-  tambienInstalaron: ["Cerradura inteligente", "Videoportero inteligente", "Red WiFi mesh (conexión estable, imprescindible para la IA)"]
-};
-
 // Packs combinados
 const packs = [
   {
@@ -1682,4 +1571,4 @@ const empresa = {
     "AHOMED — Soluciones integrales para el hogar. Electricidad, domótica, seguridad con IA, energía solar, climatización y reformas en Madrid y alrededores. Primera visita gratuita."
 };
 
-module.exports = { services, iaService, packs, ventajas, comoFunciona, empresa };
+module.exports = { services, packs, ventajas, comoFunciona, empresa };

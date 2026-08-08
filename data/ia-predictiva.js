@@ -2,24 +2,35 @@
 // El diferencial no está en los dispositivos (un Shelly o un Zigbee los compra
 // cualquiera), sino en el motor Python que vive en el mini-PC y cruza datos que
 // nadie más mezcla: clima, precio de la luz por hora, geolocalización, calidad
-// del aire, fases de sueño. Ellos instalan dispositivos. AHOMED instala inteligencia.
+// del aire, fases de sueño, presencia humana y de vehículos. Ellos instalan
+// dispositivos. AHOMED instala inteligencia.
 //
-// Modelo de precio: una instalación base única (mini-PC + motor + dashboard +
-// WhatsApp) y luego cada modo se cotiza como incremento sobre esa base. Quien
-// solo quiere un modo, sin plataforma previa, paga el precio de catálogo
-// completo (columna "solo").
+// Modelo de precio: una instalación base única (mini-PC de gama media con CPU
+// multinúcleo + motor Python con YOLO + dashboard + WhatsApp) y luego cada modo
+// se cotiza como incremento sobre esa base. Quien solo quiere un modo, sin
+// plataforma previa, paga el precio de catálogo completo (columna "solo"), que
+// incluye su propio mini-PC económico dedicado a ese único modo.
+//
+// Por qué un mini-PC de gama media y no una Raspberry Pi ni un equipo de gama
+// alta: el análisis de vídeo con YOLO no se hace sobre el streaming RTSP
+// continuo, sino sobre un frame cada 1-2 segundos — eso reduce muchísimo la
+// carga de cómputo frente a un análisis en tiempo real a 25-30 fps. Una
+// Raspberry se queda corta en cuanto el mini-PC pasa a ser el cerebro de
+// varios servicios IA a la vez (múltiples cámaras + varios modos corriendo
+// en paralelo), pero tampoco hace falta pagar de más por NPU dedicada o gama
+// alta: un Ryzen 5 de gama media con varios núcleos es de sobra.
 
 const instalacionBase = {
   nombre: "Instalación base de la plataforma",
   resumen:
-    "Antes de cualquier modo, se instala una única vez: el mini-PC compartido, el motor Python que orquesta todos los modos, el dashboard de control y la integración con WhatsApp Business API. A partir de aquí, cada modo añadido es un incremento — no una instalación nueva desde cero.",
+    "Antes de cualquier modo, se instala una única vez: el mini-PC de gama media compartido (con potencia de sobra para correr YOLO sobre un frame cada 1-2 segundos de varias cámaras a la vez), el motor Python que orquesta todos los modos, el dashboard de control y la integración con WhatsApp Business API. A partir de aquí, cada modo añadido es un incremento — no una instalación nueva desde cero.",
   items: [
-    ["Mini-PC (4 GB) con SSD, uso compartido por todos los modos", 110],
-    ["Instalación del motor Python (orquestador de modos)", 90],
-    ["Dashboard de control unificado", 50],
-    ["Integración WhatsApp Business API", 30]
+    ["Mini-PC gama media (Ryzen 5, 16 GB RAM, SSD), uso compartido por todos los modos", 210],
+    ["Instalación del motor Python + modelo YOLO (orquestador de modos e IA de visión)", 110],
+    ["Dashboard de control unificado", 40],
+    ["Integración WhatsApp Business API", 20]
   ],
-  total: 280
+  total: 380
 };
 
 const modos = [
@@ -432,6 +443,185 @@ const modos = [
       ],
       nota: "Precio \"Solo, sin plataforma\": 395 € (incluye mini-PC propio). Precio \"+ instalado junto a la plataforma\" (si ya existe la instalación base): 320 €."
     }
+  },
+  {
+    slug: "seguridad-ia",
+    imagen: "/img/hero-bloques/ia-monitorizacion.jpg",
+    numero: 10,
+    nombre: "Seguridad IA",
+    subtitulo: "Detección de personas y vehículos, sin falsas alarmas",
+    icono: "ai",
+    resumen:
+      "El mini-PC central analiza un frame cada 1-2 segundos de cada cámara con YOLO y aprende a distinguir personas y vehículos reales de falsas alarmas (un gato, una sombra, una bolsa moviéndose con el viento). Solo avisa por WhatsApp cuando de verdad importa.",
+    idealPara: ["Negocios, naves y fincas rurales con vigilancia perimetral", "Viviendas que quieren dejar de recibir alertas falsas", "Quien ya tiene cámaras y quiere añadirles análisis IA"],
+    extras: ["Reentrenamiento del modelo (ver bono de mantenimiento)", "Ampliación a panel de monitorización a medida (dashboard propio)", "Integración con CCTV cableado ya instalado"],
+    tambienInstalaron: ["Cerradura inteligente", "Videoportero inteligente", "Red WiFi mesh (conexión estable, imprescindible para la IA)"],
+    esProyecto: true,
+    ejemplos: [
+      {
+        titulo: "Negocio: cámaras IA para nave o almacén",
+        subtitulo: "Nave industrial de 450 m²",
+        imagen: "/img/trabajos/naves-seguridad-ia-despues.jpg",
+        imagenAntes: "/img/trabajos/naves-seguridad-ia-antes.jpg",
+        opcionesSolo: [
+        {
+          nombre: "Básica — perímetro con 4 cámaras",
+          destacada: false,
+          items: [
+            ["Instalación y cableado (4 cámaras, nave de hasta 500 m²)", 450],
+            ["4 cámaras IP con visión nocturna", 480],
+            ["Mini-PC de grabación y disco duro", 220],
+            ["Configuración del modelo de detección IA (persona/vehículo, descarta falsos positivos)", 380],
+            ["Notificaciones por WhatsApp ante alarma real", 90],
+            ["Material y conectorizado", 60]
+          ],
+          total: 1680
+        },
+        {
+          nombre: "Recomendada — 8 cámaras, cubre accesos y muelles",
+          destacada: true,
+          items: [
+            ["Instalación y cableado (8 cámaras)", 780],
+            ["8 cámaras IP con visión nocturna", 960],
+            ["Mini-PC de grabación y disco duro ampliado", 340],
+            ["Configuración del modelo de detección IA (persona/vehículo/matrícula)", 480],
+            ["Notificaciones por WhatsApp ante alarma real", 90],
+            ["Material y conectorizado", 90]
+          ],
+          total: 2740
+        },
+        {
+          nombre: "Premium — con reanálisis de alarmas por IA",
+          destacada: false,
+          items: [
+            ["Instalación y cableado (8 cámaras + 2 térmicas perimetrales)", 950],
+            ["8 cámaras IP con visión nocturna", 960],
+            ["2 cámaras térmicas para detección perimetral (reducen falsos positivos por fauna o vegetación)", 1600],
+            ["Mini-PC de grabación y disco duro ampliado", 340],
+            ["Configuración del modelo de detección IA (persona/vehículo/matrícula)", 480],
+            ["Reanálisis automático de alarmas con IA (descarta falsos positivos antes de avisar)", 380],
+            ["Notificaciones por WhatsApp ante alarma real", 90],
+            ["Material y conectorizado", 100]
+          ],
+          total: 4900
+        }
+        ],
+        opcionesIncremento: [
+        {
+          nombre: "Básica — perímetro con 4 cámaras",
+          destacada: false,
+          items: [
+            ["Instalación y cableado (4 cámaras, nave de hasta 500 m²)", 450],
+            ["4 cámaras IP con visión nocturna", 480],
+            ["Configuración del modelo de detección IA (persona/vehículo, descarta falsos positivos)", 380],
+            ["Notificaciones por WhatsApp ante alarma real", 90],
+            ["Material y conectorizado", 60]
+          ],
+          total: 1460
+        },
+        {
+          nombre: "Recomendada — 8 cámaras, cubre accesos y muelles",
+          destacada: true,
+          items: [
+            ["Instalación y cableado (8 cámaras)", 780],
+            ["8 cámaras IP con visión nocturna", 960],
+            ["Configuración del modelo de detección IA (persona/vehículo/matrícula)", 480],
+            ["Notificaciones por WhatsApp ante alarma real", 90],
+            ["Material y conectorizado", 90]
+          ],
+          total: 2400
+        },
+        {
+          nombre: "Premium — con reanálisis de alarmas por IA",
+          destacada: false,
+          items: [
+            ["Instalación y cableado (8 cámaras + 2 térmicas perimetrales)", 950],
+            ["8 cámaras IP con visión nocturna", 960],
+            ["2 cámaras térmicas para detección perimetral (reducen falsos positivos por fauna o vegetación)", 1600],
+            ["Configuración del modelo de detección IA (persona/vehículo/matrícula)", 480],
+            ["Reanálisis automático de alarmas con IA (descarta falsos positivos antes de avisar)", 380],
+            ["Notificaciones por WhatsApp ante alarma real", 90],
+            ["Material y conectorizado", 100]
+          ],
+          total: 4560
+        }
+        ]
+      },
+      {
+        titulo: "Vivienda: kit de vigilancia con alertas por WhatsApp",
+        subtitulo: "Vivienda unifamiliar · 2 a 6 cámaras según opción",
+        imagen: "/img/trabajos/monitor-ia-despues.jpg",
+        imagenAntes: "/img/trabajos/monitor-ia-antes.jpg",
+        opcionesSolo: [
+        {
+          nombre: "Básica — 2 cámaras",
+          destacada: false,
+          items: [
+            ["Mano de obra y configuración del modelo de detección", 320],
+            ["2 cámaras IP compatibles + procesamiento local", 480],
+            ["Configuración de alertas por WhatsApp (API Meta) y app", 150]
+          ],
+          total: 950
+        },
+        {
+          nombre: "Recomendada — 4 cámaras + zonas personalizadas",
+          destacada: true,
+          items: [
+            ["Mano de obra y configuración", 420],
+            ["4 cámaras IP + mini-PC de procesamiento", 890],
+            ["Configuración de alertas WhatsApp y zonas de detección personalizadas", 200]
+          ],
+          total: 1510
+        },
+        {
+          nombre: "Premium — 6 cámaras + reconocimiento de personas habituales",
+          destacada: false,
+          items: [
+            ["Mano de obra y configuración avanzada", 520],
+            ["6 cámaras IP", 900],
+            ["Servidor de procesamiento con IA (GPU local, para reconocimiento facial en tiempo real)", 950],
+            ["Entrenamiento de reconocimiento de personas habituales y alertas WhatsApp", 350]
+          ],
+          total: 2720
+        }
+        ],
+        opcionesIncremento: [
+        {
+          nombre: "Básica — 2 cámaras",
+          destacada: false,
+          items: [
+            ["Mano de obra y configuración del modelo de detección", 320],
+            ["2 cámaras IP compatibles", 390],
+            ["Configuración de alertas por WhatsApp (API Meta) y app", 150]
+          ],
+          total: 860
+        },
+        {
+          nombre: "Recomendada — 4 cámaras + zonas personalizadas",
+          destacada: true,
+          items: [
+            ["Mano de obra y configuración", 420],
+            ["4 cámaras IP", 710],
+            ["Configuración de alertas WhatsApp y zonas de detección personalizadas", 200]
+          ],
+          total: 1330
+        },
+        {
+          nombre: "Premium — 6 cámaras + reconocimiento de personas habituales",
+          destacada: false,
+          items: [
+            ["Mano de obra y configuración avanzada", 520],
+            ["6 cámaras IP", 900],
+            ["Servidor de procesamiento con IA (GPU local, para reconocimiento facial en tiempo real)", 950],
+            ["Entrenamiento de reconocimiento de personas habituales y alertas WhatsApp", 350]
+          ],
+          total: 2720
+        }
+        ]
+      }
+    ],
+    nota:
+      "Precio \"Solo, sin plataforma\": incluye su propio mini-PC de grabación dedicado. Precio \"+ instalado junto a la plataforma\": reutiliza el mini-PC central en vez de instalar uno de grabación aparte. Excepción: la opción Premium de vivienda (reconocimiento facial) usa un servidor con GPU dedicada que el mini-PC central no cubre, así que no varía entre ambas columnas — cifras orientativas, revisar antes de publicar."
   }
 ];
 

@@ -674,6 +674,36 @@ p { margin: 0; }
   .example-tab-btn { font-size: 0.78rem; padding: 8px 12px; }
 }
 
+/* ---------- Toggle Solo / Con plataforma (dentro de un ejemplo del modo 10) ---------- */
+.solo-incr-tab-input { position: absolute; opacity: 0; pointer-events: none; }
+.solo-incr-tab-nav {
+  display: inline-flex;
+  gap: 4px;
+  padding: 4px;
+  background: var(--paper-soft);
+  border-radius: 999px;
+  margin-bottom: 20px;
+}
+.solo-incr-tab-btn {
+  cursor: pointer;
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 8px 16px;
+  border-radius: 999px;
+  color: var(--gray-600);
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.solo-incr-tab-panel { display: none; }
+.solo-incr-tab-input:nth-of-type(1):checked ~ .solo-incr-tab-nav .solo-incr-tab-btn:nth-child(1),
+.solo-incr-tab-input:nth-of-type(2):checked ~ .solo-incr-tab-nav .solo-incr-tab-btn:nth-child(2) {
+  background: var(--ink);
+  color: #fff;
+}
+.solo-incr-tab-input:nth-of-type(1):checked ~ .solo-incr-tab-panels .solo-incr-tab-panel:nth-child(1),
+.solo-incr-tab-input:nth-of-type(2):checked ~ .solo-incr-tab-panels .solo-incr-tab-panel:nth-child(2) {
+  display: block;
+}
+
 /* ---------- About ---------- */
 .about-hero-inner { display: flex; align-items: center; gap: 32px; }
 .about-photo { width: 120px; height: 120px; border-radius: 50%; overflow: hidden; background: var(--paper-soft); flex-shrink: 0; border: 3px solid var(--line); }

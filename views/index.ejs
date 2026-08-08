@@ -55,12 +55,12 @@
           </a>
         <% }) %>
 
-        <a href="/servicios/ia-monitorizacion" class="service-card service-card-ai">
+        <a href="/servicios/ia-predictiva/seguridad-ia" class="service-card service-card-ai">
           <div class="service-badge">Servicio exclusivo</div>
-          <h3><%= iaService.nombre %></h3>
-          <p><%= iaService.destacado %></p>
+          <h3><%= seguridadIA.nombre %></h3>
+          <p><%= seguridadIA.subtitulo %></p>
           <div class="service-card-footer">
-            <span class="price-tag">Desde <%= fmt(iaService.desde) %> €</span>
+            <span class="price-tag">Proyecto a medida</span>
             <span class="link-arrow">Ver detalle →</span>
           </div>
         </a>
@@ -73,14 +73,14 @@
     <div class="container ai-highlight-inner">
       <div class="ai-highlight-copy">
         <span class="eyebrow">El gran diferenciador de AHOMED</span>
-        <h2>IA y Monitorización Inteligente</h2>
-        <p><%= iaService.resumen %></p>
+        <h2>Seguridad IA</h2>
+        <p><%= seguridadIA.resumen %></p>
         <ul class="check-list">
-          <li>Ideal para: <%= iaService.idealPara %></li>
+          <li>Ideal para: <%= seguridadIA.idealPara.join(', ') %></li>
           <li>Configuración del modelo de detección entrenado con imágenes reales de tu local o vivienda</li>
           <li>Notificaciones por WhatsApp solo cuando de verdad importa</li>
         </ul>
-        <a href="/servicios/ia-monitorizacion" class="btn btn-primary">Ver ejemplos y precios</a>
+        <a href="/servicios/ia-predictiva/seguridad-ia" class="btn btn-primary">Ver ejemplos y precios</a>
       </div>
       <div class="ai-highlight-visual">
         <img src="/img/trabajos/monitor-ia-despues.jpg" alt="Sistema de videovigilancia con detección de personas y vehículos por IA y alertas por WhatsApp" loading="lazy">

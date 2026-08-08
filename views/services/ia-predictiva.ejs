@@ -57,16 +57,17 @@
 
   <section class="section section-alt">
     <div class="container">
-      <h2 class="sub-heading">2. Los nueve modos</h2>
+      <h2 class="sub-heading">2. Los diez modos</h2>
       <p>Cada modo resuelve un escenario completo de la vida diaria, no un dispositivo suelto.</p>
 
       <div class="services-grid services-grid-full">
         <% modos.forEach(function(m){ %>
-          <a href="/servicios/ia-predictiva/<%= m.slug %>" class="service-card service-card-ia-modo">
+          <a href="/servicios/ia-predictiva/<%= m.slug %>" class="service-card service-card-ia-modo<%= m.esProyecto ? ' service-card-ai' : '' %>">
+            <% if (m.esProyecto) { %><div class="service-badge">Servicio exclusivo</div><% } %>
             <h3><%= m.numero %>. <%= m.nombre %></h3>
-            <p><%= m.resumen %></p>
+            <p><%= m.esProyecto ? m.subtitulo : m.resumen %></p>
             <div class="service-card-footer">
-              <span class="price-tag">+<%= fmt(m.precioIncremento) %> € con plataforma</span>
+              <span class="price-tag"><%= m.esProyecto ? 'Proyecto a medida' : '+' + fmt(m.precioIncremento) + ' € con plataforma' %></span>
               <span class="link-arrow">Ver detalle →</span>
             </div>
           </a>

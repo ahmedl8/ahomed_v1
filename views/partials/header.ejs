@@ -25,33 +25,55 @@
       <div class="nav-dropdown">
         <a href="/servicios" class="<%= currentPath.startsWith('/servicios') ? 'active' : '' %>">Servicios ▾</a>
         <div class="dropdown-menu dropdown-menu-mega">
-          <% bloques.forEach(function(b){ %>
-            <div class="dropdown-col">
-              <a href="/servicios/bloque/<%= b.slug %>" class="dropdown-col-title">
-                <%= b.nombre %>
-              </a>
-              <% if (b.slug === 'seguridad-accesos') { %>
-                <a href="/servicios/seguridad">Seguridad</a>
-              <% } else if (b.slug === 'instalaciones-base') { %>
-                <a href="/servicios/electricidad">Electricidad</a>
-                <a href="/servicios/domotica">Domótica</a>
-                <a href="/servicios/redes-informatica">Redes e informática</a>
-                <a href="/servicios/climatizacion">Climatización</a>
-                <a href="/servicios/antenas">Antenas</a>
-              <% } else if (b.slug === 'energia') { %>
-                <a href="/servicios/energia-solar">Energía solar</a>
-              <% } else if (b.slug === 'reformas') { %>
-                <a href="/servicios/reparaciones-reformas">Reparaciones y reformas</a>
-                <a href="/servicios/fontaneria">Fontanería</a>
-                <a href="/servicios/pladur">Pladur</a>
-              <% } else if (b.slug === 'ia-predictiva') { %>
-                <a href="/servicios/ia-predictiva/seguridad-ia">Seguridad IA</a>
-                <a href="/servicios/ia-predictiva">Ver los 10 modos</a>
-              <% } else if (b.slug === 'mantenimiento') { %>
-                <a href="/servicios/mantenimiento">Mantenimiento</a>
-              <% } %>
+          <div class="dropdown-group dropdown-group-basico">
+            <span class="dropdown-group-title">Básicos — sin IA</span>
+            <div class="dropdown-group-cols">
+              <% bloques.filter(function(b){ return b.grupo === 'basico'; }).forEach(function(b){ %>
+                <div class="dropdown-col">
+                  <a href="/servicios/bloque/<%= b.slug %>" class="dropdown-col-title">
+                    <%= b.nombre %>
+                  </a>
+                  <% if (b.slug === 'seguridad-accesos') { %>
+                    <a href="/servicios/seguridad">Seguridad</a>
+                  <% } else if (b.slug === 'instalaciones-base') { %>
+                    <a href="/servicios/electricidad">Electricidad</a>
+                    <a href="/servicios/domotica">Domótica</a>
+                    <a href="/servicios/redes-informatica">Redes e informática</a>
+                    <a href="/servicios/climatizacion">Climatización</a>
+                    <a href="/servicios/antenas">Antenas</a>
+                  <% } else if (b.slug === 'energia') { %>
+                    <a href="/servicios/energia-solar">Energía solar</a>
+                  <% } else if (b.slug === 'reformas') { %>
+                    <a href="/servicios/reparaciones-reformas">Reparaciones y reformas</a>
+                    <a href="/servicios/fontaneria">Fontanería</a>
+                    <a href="/servicios/pladur">Pladur</a>
+                  <% } %>
+                </div>
+              <% }) %>
             </div>
-          <% }) %>
+          </div>
+
+          <div class="dropdown-group dropdown-group-exclusivo">
+            <span class="dropdown-group-title">Exclusivos — con IA <em>(requieren el Mini-PC IA Central)</em></span>
+            <div class="dropdown-group-cols">
+              <% bloques.filter(function(b){ return b.grupo === 'exclusivo'; }).forEach(function(b){ %>
+                <div class="dropdown-col">
+                  <a href="/servicios/bloque/<%= b.slug %>" class="dropdown-col-title">
+                    <%= b.nombre %>
+                  </a>
+                  <a href="/servicios/ia-predictiva">Mini-PC IA Central (base)</a>
+                  <a href="/servicios/ia-predictiva/seguridad-ia">Seguridad IA</a>
+                  <a href="/servicios/ia-predictiva">Ver los 10 modos →</a>
+                </div>
+              <% }) %>
+              <div class="dropdown-col">
+                <% bloques.filter(function(b){ return b.grupo === 'general'; }).forEach(function(b){ %>
+                  <a href="/servicios/bloque/<%= b.slug %>" class="dropdown-col-title"><%= b.nombre %></a>
+                  <a href="/servicios/mantenimiento">Mantenimiento</a>
+                <% }) %>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <a href="/packs" class="<%= currentPath === '/packs' ? 'active' : '' %>">Packs</a>

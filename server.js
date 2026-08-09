@@ -61,7 +61,10 @@ app.get("/", (req, res) => {
     metaDescription:
       "Electricidad, domótica, seguridad con IA, energía solar, climatización y reformas en Madrid y alrededores. Equipo propiedad del cliente, sin cuotas. Primera visita técnica gratuita.",
     services,
+    bloques,
     seguridadIA: modosIA.find((m) => m.slug === "seguridad-ia"),
+    modosIA: modosIA.filter((m) => !m.esProyecto),
+    instalacionBase,
     packs,
     ventajas,
     comoFunciona
@@ -102,7 +105,7 @@ app.get("/servicios/ia-predictiva", (req, res) => {
   res.render("services/ia-predictiva", {
     title: `Plataforma IA Predictiva — ${empresa.nombre}`,
     metaDescription:
-      "Instalación base (mini-PC de gama media + motor Python con YOLO + dashboard) y diez modos: seguridad IA, motor meteorológico, casa presencial, sueño, calidad del aire, mascotas, cocina, personas mayores, niños y paquetes.",
+      "Mini-PC IA Central obligatorio (Ryzen 7, YOLO26, motor Python + dashboard) y diez modos: seguridad IA, motor meteorológico, casa presencial, sueño, calidad del aire, mascotas, cocina, personas mayores, niños y paquetes. Configura tu presupuesto.",
     instalacionBase,
     modos: modosIA
   });

@@ -5,32 +5,25 @@
 // del aire, fases de sueño, presencia humana y de vehículos. Ellos instalan
 // dispositivos. AHOMED instala inteligencia.
 //
-// Modelo de precio: una instalación base única (mini-PC de gama media con CPU
-// multinúcleo + motor Python con YOLO + dashboard + WhatsApp) y luego cada modo
-// se cotiza como incremento sobre esa base. Quien solo quiere un modo, sin
-// plataforma previa, paga el precio de catálogo completo (columna "solo"), que
-// incluye su propio mini-PC económico dedicado a ese único modo.
-//
-// Por qué un mini-PC de gama media y no una Raspberry Pi ni un equipo de gama
-// alta: el análisis de vídeo con YOLO no se hace sobre el streaming RTSP
-// continuo, sino sobre un frame cada 1-2 segundos — eso reduce muchísimo la
-// carga de cómputo frente a un análisis en tiempo real a 25-30 fps. Una
-// Raspberry se queda corta en cuanto el mini-PC pasa a ser el cerebro de
-// varios servicios IA a la vez (múltiples cámaras + varios modos corriendo
-// en paralelo), pero tampoco hace falta pagar de más por NPU dedicada o gama
-// alta: un Ryzen 5 de gama media con varios núcleos es de sobra.
+// Modelo de precio (revisado agosto 2026): el Mini-PC IA Central es OBLIGATORIO
+// y se compra una única vez — ya no existe la opción de instalar un modo "solo,
+// con equipo propio" ni Raspberry Pi como cerebro central. Para ser el único
+// punto de análisis de IA de toda la casa (varias cámaras + varios modos a la
+// vez con YOLO26) hace falta más capacidad de la que da una Raspberry. Cada modo
+// de la lista de abajo es un coste adicional puro sobre esa base.
 
 const instalacionBase = {
-  nombre: "Instalación base de la plataforma",
+  nombre: "Mini-PC IA Central — instalación base obligatoria",
   resumen:
-    "Antes de cualquier modo, se instala una única vez: el mini-PC de gama media compartido (con potencia de sobra para correr YOLO sobre un frame cada 1-2 segundos de varias cámaras a la vez), el motor Python que orquesta todos los modos, el dashboard de control y la integración con WhatsApp Business API. A partir de aquí, cada modo añadido es un incremento — no una instalación nueva desde cero.",
+    "Antes de cualquier modo se instala una única vez: el Mini-PC IA (Ryzen 7 8845HS o equivalente, 32 GB RAM, 1 TB SSD, con NPU), que corre YOLO26 en CPU/NPU sin GPU dedicada, el motor Python que orquesta todos los modos, el dashboard de control y la integración con WhatsApp Business API. Ya no se ofrece Raspberry Pi como cerebro central. A partir de aquí, cada modo añadido es un coste adicional — no una instalación nueva desde cero.",
   items: [
-    ["Mini-PC gama media (Ryzen 5, 16 GB RAM, SSD), uso compartido por todos los modos", 210],
-    ["Instalación del motor Python + modelo YOLO (orquestador de modos e IA de visión)", 110],
-    ["Dashboard de control unificado", 40],
-    ["Integración WhatsApp Business API", 20]
+    ["Mini-PC IA (Ryzen 7 8845HS o equivalente, 32 GB RAM, 1 TB SSD, NPU ~16 TOPS)", 700],
+    ["Instalación del motor Python + modelos YOLO26 (orquestador de modos)", 130],
+    ["Dashboard de control unificado", 50],
+    ["Integración WhatsApp Business API", 30],
+    ["UPS de protección (evita corrupción de datos ante cortes de luz)", 40]
   ],
-  total: 380
+  total: 950
 };
 
 const modos = [
@@ -44,8 +37,7 @@ const modos = [
     resumen:
       "El mini-PC consulta la API meteorológica cada hora, anticipa lluvia, viento y temperatura, y actúa sobre el riego y las persianas sin intervención del usuario. Si va a llover en 3 horas, el riego no arranca. Si el viento supera 40 km/h, las persianas suben automáticamente.",
     idealPara: ["Jardines y terrazas con riego automático", "Viviendas con persianas motorizadas", "Segundas residencias que se visitan poco"],
-    precioSolo: 675,
-    precioIncremento: 520,
+    precioIncremento: 510,
     ejemplo: {
       titulo: "Motor clima + riego + persianas",
       opciones: [
@@ -53,20 +45,18 @@ const modos = [
           nombre: "Básica — motor clima + riego (4 zonas)",
           destacada: false,
           items: [
-            ["Raspberry Pi 4 (2 GB) o mini-PC equivalente", 75],
             ["Controlador de riego WiFi 4 zonas (Shelly o similar)", 55],
             ["Sensores de temperatura/humedad exterior (x2)", 30],
             ["Cableado y material de instalación", 25],
             ["Configuración del motor Python (API clima + lógica de riego)", 280],
             ["Puesta en marcha y formación (2 h)", 120]
           ],
-          total: 675
+          total: 510
         },
         {
           nombre: "Recomendada — motor clima + riego + persianas",
           destacada: true,
           items: [
-            ["Mini-PC (4 GB RAM, SSD 64 GB) para mayor fiabilidad", 110],
             ["Controlador de riego WiFi 4 zonas", 55],
             ["4 motores de persiana WiFi (Shelly 2.5 o equivalente)", 220],
             ["Sensores exterior temperatura/humedad/lluvia", 45],
@@ -75,10 +65,10 @@ const modos = [
             ["Dashboard web personalizado (consulta desde móvil)", 180],
             ["Puesta en marcha y formación (3 h)", 130]
           ],
-          total: 1180
+          total: 1070
         }
       ],
-      nota: "Precio \"Solo, sin plataforma\": 675 € (incluye mini-PC propio y puesta en marcha completa). Precio \"+ instalado junto a la plataforma\" (si ya existe la instalación base): 520 €."
+      nota: "Coste adicional sobre el Mini-PC IA Central (950 €, obligatorio): 510 €. Ya no se ofrece este modo con equipo propio independiente."
     }
   },
   {
@@ -91,8 +81,7 @@ const modos = [
     resumen:
       "El móvil avisa al mini-PC cuando sales o llegas a casa. Al salir: luces apagadas, clima en modo ahorro, simulación de presencia si vas a tardar en volver. Al llegar: escena de bienvenida con luces, música y clima ya en marcha.",
     idealPara: ["Viviendas donde todos salen a trabajar", "Segundas residencias (simulación de presencia)", "Quien quiere llegar a casa con todo listo"],
-    precioSolo: 695,
-    precioIncremento: 570,
+    precioIncremento: 455,
     ejemplo: {
       titulo: "Geofencing + 3 escenas + simulación de presencia",
       opciones: [
@@ -100,20 +89,18 @@ const modos = [
           nombre: "Básica — geofencing + 2 escenas",
           destacada: false,
           items: [
-            ["Mini-PC o Raspberry Pi 4", 75],
             ["2 enchufes inteligentes WiFi (Shelly Plug)", 40],
             ["1 tira LED salón con controlador WiFi", 55],
             ["Cableado y material", 20],
             ["Configuración del motor de geofencing (GPS móvil → escenas)", 240],
             ["Puesta en marcha y ajuste de perímetros GPS (2 h)", 100]
           ],
-          total: 530
+          total: 455
         },
         {
           nombre: "Recomendada — 3 escenas + simulación de presencia",
           destacada: true,
           items: [
-            ["Mini-PC (4 GB) con SSD", 110],
             ["2 enchufes inteligentes WiFi", 40],
             ["1 tira LED salón con controlador WiFi", 55],
             ["Termostato WiFi inteligente", 75],
@@ -122,10 +109,10 @@ const modos = [
             ["3 escenas configuradas + simulación de presencia + app de control", 240],
             ["Puesta en marcha y ajuste de perímetros GPS (2 h)", 90]
           ],
-          total: 695
+          total: 595
         }
       ],
-      nota: "Precio \"Solo, sin plataforma\": 695 € (incluye mini-PC propio y puesta en marcha completa). Precio \"+ instalado junto a la plataforma\" (si ya existe la instalación base): 570 €."
+      nota: "Coste adicional sobre el Mini-PC IA Central (950 €, obligatorio): 455 €. Ya no se ofrece este modo con equipo propio independiente."
     }
   },
   {
@@ -138,8 +125,7 @@ const modos = [
     resumen:
       "Persianas y luz se ajustan automáticamente según tu horario de sueño: amanecer gradual por la mañana, temperatura de color cálida por la noche, integración con la alarma del móvil.",
     idealPara: ["Personas con horarios de sueño irregulares", "Dormitorios con persianas motorizadas", "Quien quiere despertar sin alarma brusca"],
-    precioSolo: 693,
-    precioIncremento: 568,
+    precioIncremento: 510,
     ejemplo: {
       titulo: "Persianas + luz adaptativa + integración con alarma",
       opciones: [
@@ -147,20 +133,18 @@ const modos = [
           nombre: "Básica — persianas + amanecer gradual",
           destacada: false,
           items: [
-            ["Raspberry Pi 4 o mini-PC", 75],
             ["2 motores de persiana WiFi (dormitorio principal)", 110],
             ["Sensor de luminosidad exterior", 65],
             ["Cableado y material", 25],
             ["Configuración del motor de sueño: horarios + amanecer gradual", 220],
             ["Puesta en marcha y formación (2 h)", 90]
           ],
-          total: 585
+          total: 510
         },
         {
           nombre: "Recomendada — + luz cálida/fría + alarma del móvil",
           destacada: true,
           items: [
-            ["Mini-PC (4 GB) con SSD", 110],
             ["2 motores de persiana WiFi", 110],
             ["Tira LED regulable (temperatura de color cálido/frío)", 110],
             ["Sensor de luminosidad exterior", 65],
@@ -169,10 +153,10 @@ const modos = [
             ["Integración con alarma del móvil (vía API o IFTTT)", 220],
             ["Puesta en marcha y formación (2 h)", 90]
           ],
-          total: 755
+          total: 645
         }
       ],
-      nota: "Precio \"Solo, sin plataforma\": 693 € (incluye mini-PC propio y puesta en marcha completa). Precio \"+ instalado junto a la plataforma\" (si ya existe la instalación base): 568 €."
+      nota: "Coste adicional sobre el Mini-PC IA Central (950 €, obligatorio): 510 €. Ya no se ofrece este modo con equipo propio independiente."
     }
   },
   {
@@ -185,8 +169,7 @@ const modos = [
     resumen:
       "Sensores de CO₂, humedad y temperatura envían lectura continua al mini-PC, que activa ventilación o purificación automáticamente cuando se superan los umbrales saludables, con alertas por WhatsApp.",
     idealPara: ["Dormitorios y oficinas en casa", "Viviendas bien selladas con poca ventilación natural", "Familias con niños pequeños o alergias"],
-    precioSolo: 465,
-    precioIncremento: 390,
+    precioIncremento: 330,
     ejemplo: {
       titulo: "Sensor CO₂ + dashboard + alertas automáticas",
       opciones: [
@@ -195,28 +178,26 @@ const modos = [
           destacada: false,
           items: [
             ["Sensor CO₂ + temperatura + humedad (SCD40 o equivalente)", 45],
-            ["Raspberry Pi Zero 2 W o mini-PC existente", 35],
             ["Cableado y material mínimo", 15],
             ["Motor Python: lectura continua + umbrales + alertas WhatsApp", 200],
             ["Puesta en marcha y calibración (1,5 h)", 70]
           ],
-          total: 365
+          total: 330
         },
         {
           nombre: "Recomendada — + dashboard con histórico",
           destacada: true,
           items: [
             ["Sensor CO₂ + temperatura + humedad", 45],
-            ["Mini-PC (4 GB) con SSD", 110],
             ["Cableado y material", 20],
             ["Motor Python: lectura continua + umbrales + alertas WhatsApp", 200],
             ["Dashboard básico con histórico 7 días", 100],
             ["Puesta en marcha y calibración (1,5 h)", 90]
           ],
-          total: 565
+          total: 455
         }
       ],
-      nota: "Precio \"Solo, sin plataforma\": 465 € (incluye mini-PC propio y puesta en marcha completa). Precio \"+ instalado junto a la plataforma\" (si ya existe la instalación base): 390 €."
+      nota: "Coste adicional sobre el Mini-PC IA Central (950 €, obligatorio): 330 €. Ya no se ofrece este modo con equipo propio independiente."
     }
   },
   {
@@ -229,8 +210,7 @@ const modos = [
     resumen:
       "El sistema vigila el bienestar de la mascota cuando el propietario no está en casa: comprueba si ha comido, el nivel del bebedero, la temperatura del espacio y detecta ladridos prolongados o señales de estrés, con aviso inmediato por WhatsApp.",
     idealPara: ["Mascotas que se quedan solas durante la jornada laboral", "Perros con ansiedad por separación", "Quien viaja con frecuencia"],
-    precioSolo: 480,
-    precioIncremento: 370,
+    precioIncremento: 405,
     ejemplo: {
       titulo: "Monitorización + comedero + control de temperatura",
       opciones: [
@@ -240,12 +220,11 @@ const modos = [
           items: [
             ["Cámara IP con audio bidireccional", 110],
             ["Sensor de nivel de bebedero", 35],
-            ["Raspberry Pi 4 o mini-PC existente", 75],
             ["Cableado y material", 15],
             ["Motor Python: detección de ladridos prolongados + alertas WhatsApp", 180],
             ["Puesta en marcha (1,5 h)", 65]
           ],
-          total: 480
+          total: 405
         },
         {
           nombre: "Recomendada — + comedero y control de temperatura",
@@ -255,15 +234,14 @@ const modos = [
             ["Comedero automático conectado (raciones programadas)", 120],
             ["Sensor de nivel de bebedero", 35],
             ["Sensor de temperatura de la estancia", 20],
-            ["Mini-PC (4 GB) con SSD", 110],
             ["Cableado y material", 25],
             ["Motor Python: comida/agua/temperatura + detección de ladridos + alertas WhatsApp", 280],
             ["Puesta en marcha y formación (2 h)", 90]
           ],
-          total: 820
+          total: 710
         }
       ],
-      nota: "Precio \"Solo, sin plataforma\": 480 € (incluye mini-PC propio y puesta en marcha completa). Precio \"+ instalado junto a la plataforma\" (si ya existe la instalación base): 370 €."
+      nota: "Coste adicional sobre el Mini-PC IA Central (950 €, obligatorio): 405 €. Ya no se ofrece este modo con equipo propio independiente."
     }
   },
   {
@@ -276,8 +254,7 @@ const modos = [
     resumen:
       "El sistema vigila la cocina mientras el usuario está fuera de casa: si detecta humo, activa el extractor y avisa por WhatsApp; si el usuario sale de casa con el horno encendido, envía una pregunta directa por WhatsApp para confirmar si debe apagarlo.",
     idealPara: ["Quien suele olvidar el horno encendido", "Viviendas con extractor conectado", "Familias con niños o mayores en casa"],
-    precioSolo: 430,
-    precioIncremento: 295,
+    precioIncremento: 385,
     ejemplo: {
       titulo: "Detección de humo + extractor automático + aviso de horno",
       opciones: [
@@ -285,30 +262,28 @@ const modos = [
           nombre: "Básica — detección de humo + alerta WhatsApp",
           destacada: false,
           items: [
-            ["Detector de humo/CO conectado", 70],
-            ["Raspberry Pi 4 o mini-PC existente", 75],
+            ["Detector de humo/CO conectado", 100],
             ["Cableado y material", 15],
             ["Motor Python: lectura continua + alerta WhatsApp inmediata", 180],
             ["Puesta en marcha (1,5 h)", 90]
           ],
-          total: 430
+          total: 385
         },
         {
           nombre: "Recomendada — + extractor automático y aviso de horno",
           destacada: true,
           items: [
-            ["Detector de humo/CO conectado", 70],
+            ["Detector de humo/CO conectado", 100],
             ["Extractor de cocina WiFi inteligente", 80],
             ["Enchufe/relé inteligente en horno o vitro", 45],
-            ["Mini-PC (4 GB) con SSD", 110],
             ["Cableado y material", 30],
             ["Motor Python: humo → extractor + alerta; horno encendido al salir → pregunta WhatsApp", 320],
             ["Puesta en marcha y formación (2,5 h)", 120]
           ],
-          total: 775
+          total: 695
         }
       ],
-      nota: "Precio \"Solo, sin plataforma\": 430 € (incluye mini-PC propio y puesta en marcha completa). Precio \"+ instalado junto a la plataforma\" (si ya existe la instalación base): 295 €."
+      nota: "Coste adicional sobre el Mini-PC IA Central (950 €, obligatorio): 385 €. El detector de humo/CO conectado sube de 70 € a 100 € en esta revisión: es lo que cuesta de verdad un detector conectado equivalente (tipo Nest Protect) en 2026."
     }
   },
   {
@@ -321,8 +296,7 @@ const modos = [
     resumen:
       "Detecta ausencia prolongada de movimiento, posibles caídas mediante IA de visión, puertas abiertas demasiado tiempo, temperaturas extremas y consumo eléctrico anormal. Avisa automáticamente a uno o varios familiares por WhatsApp, sin cuota mensual.",
     idealPara: ["Padres o madres mayores que viven solos", "Familias que quieren tranquilidad sin cuota de teleasistencia", "Viviendas con varias generaciones"],
-    precioSolo: 650,
-    precioIncremento: 460,
+    precioIncremento: 540,
     ejemplo: {
       titulo: "Ausencia de movimiento + detección de caídas por IA",
       opciones: [
@@ -332,12 +306,11 @@ const modos = [
           items: [
             ["Sensor de movimiento por estancia (x3)", 75],
             ["Sensor de puerta/ventana (entrada principal)", 20],
-            ["Mini-PC (4 GB) con SSD", 110],
             ["Cableado y material", 25],
             ["Motor Python: ausencia prolongada + puerta abierta + alertas WhatsApp a familiares", 300],
             ["Puesta en marcha y formación (2,5 h)", 120]
           ],
-          total: 650
+          total: 540
         },
         {
           nombre: "Recomendada — + detección de caídas por IA de visión",
@@ -347,15 +320,14 @@ const modos = [
             ["Sensor de puerta/ventana (x2)", 40],
             ["Cámara IP con IA de detección de caídas (zonas comunes)", 160],
             ["Sensor de temperatura interior", 18],
-            ["Mini-PC (4 GB) con SSD", 110],
             ["Cableado y material", 35],
             ["Motor Python: caídas (IA visión) + ausencia + puerta + temperatura + alertas WhatsApp", 420],
             ["Puesta en marcha, calibración y formación (3,5 h)", 160]
           ],
-          total: 1043
+          total: 933
         }
       ],
-      nota: "Precio \"Solo, sin plataforma\": 650 € (incluye mini-PC propio y puesta en marcha completa). Precio \"+ instalado junto a la plataforma\" (si ya existe la instalación base): 460 €. No sustituye a la teleasistencia sanitaria oficial."
+      nota: "Coste adicional sobre el Mini-PC IA Central (950 €, obligatorio): 540 €. Ya no se ofrece este modo con equipo propio independiente. No sustituye a la teleasistencia sanitaria oficial."
     }
   },
   {
@@ -368,8 +340,7 @@ const modos = [
     resumen:
       "Cuando los hijos llegan a casa desde el colegio, el sistema los reconoce por geolocalización del móvil, abre automáticamente, enciende las luces necesarias, activa la calefacción o el clima, y envía una confirmación inmediata a los padres por WhatsApp.",
     idealPara: ["Familias con ambos padres trabajando", "Niños que ya vuelven solos del colegio", "Quien quiere confirmación automática de llegada"],
-    precioSolo: 460,
-    precioIncremento: 325,
+    precioIncremento: 385,
     ejemplo: {
       titulo: "Geofencing + aviso de llegada + escena de bienvenida",
       opciones: [
@@ -377,29 +348,27 @@ const modos = [
           nombre: "Básica — aviso de llegada por WhatsApp",
           destacada: false,
           items: [
-            ["Mini-PC o Raspberry Pi 4", 75],
             ["Sensor de puerta/ventana (confirmación de entrada)", 20],
             ["Cableado y material", 15],
             ["Motor Python: geofencing del móvil del menor + confirmación + WhatsApp a los padres", 260],
             ["Puesta en marcha y ajuste de perímetro GPS (2 h)", 90]
           ],
-          total: 460
+          total: 385
         },
         {
           nombre: "Recomendada — + apertura y escena de bienvenida",
           destacada: true,
           items: [
-            ["Mini-PC (4 GB) con SSD", 110],
             ["Sensor de puerta/ventana", 20],
             ["2 enchufes/interruptores inteligentes (luz de entrada y salón)", 50],
             ["Cableado y material", 25],
             ["Motor Python: geofencing + apertura (cerradura inteligente ya instalada) + escena + WhatsApp", 320],
             ["Puesta en marcha y formación (3 h)", 130]
           ],
-          total: 655
+          total: 545
         }
       ],
-      nota: "Precio \"Solo, sin plataforma\": 460 € (incluye mini-PC propio y puesta en marcha completa). Precio \"+ instalado junto a la plataforma\" (si ya existe la instalación base): 325 €. La opción Recomendada asume cerradura inteligente ya instalada (bloque Seguridad y Accesos)."
+      nota: "Coste adicional sobre el Mini-PC IA Central (950 €, obligatorio): 385 €. La opción Recomendada asume cerradura inteligente ya instalada (bloque Seguridad y Accesos)."
     }
   },
   {
@@ -412,7 +381,6 @@ const modos = [
     resumen:
       "El sistema detecta cuándo llega un repartidor mediante IA de visión, hace una foto del paquete y del momento de la entrega, y avisa por WhatsApp — todo procesado en local, sin cuota mensual.",
     idealPara: ["Quien recibe pedidos con frecuencia y no está en casa", "Viviendas con portal o entrada compartida", "Negocios con recepción de mercancía"],
-    precioSolo: 395,
     precioIncremento: 320,
     ejemplo: {
       titulo: "Detección de paquete + foto automática + alerta WhatsApp",
@@ -422,26 +390,24 @@ const modos = [
           destacada: false,
           items: [
             ["Cámara IP de entrada con visión nocturna", 110],
-            ["Raspberry Pi 4 o mini-PC existente", 75],
             ["Cableado y material", 15],
             ["Motor Python: detección IA de repartidor/paquete + foto automática + alerta WhatsApp", 195]
           ],
-          total: 395
+          total: 320
         },
         {
           nombre: "Recomendada — + histórico de entregas",
           destacada: true,
           items: [
             ["Cámara IP de entrada con visión nocturna", 140],
-            ["Mini-PC (4 GB) con SSD", 110],
             ["Cableado y material", 25],
             ["Motor Python: detección + reconocimiento de mensajería habitual + histórico", 300],
             ["Dashboard con historial de entregas (fecha, hora, foto)", 110]
           ],
-          total: 685
+          total: 575
         }
       ],
-      nota: "Precio \"Solo, sin plataforma\": 395 € (incluye mini-PC propio). Precio \"+ instalado junto a la plataforma\" (si ya existe la instalación base): 320 €."
+      nota: "Coste adicional sobre el Mini-PC IA Central (950 €, obligatorio): 320 €. Ya no se ofrece este modo con equipo propio independiente."
     }
   },
   {
@@ -452,7 +418,7 @@ const modos = [
     subtitulo: "Detección de personas y vehículos, sin falsas alarmas",
     icono: "ai",
     resumen:
-      "El mini-PC central analiza un frame cada 1-2 segundos de cada cámara con YOLO y aprende a distinguir personas y vehículos reales de falsas alarmas (un gato, una sombra, una bolsa moviéndose con el viento). Solo avisa por WhatsApp cuando de verdad importa.",
+      "El mini-PC central analiza un frame cada 1-2 segundos de cada cámara con YOLO26 y aprende a distinguir personas y vehículos reales de falsas alarmas (un gato, una sombra, una bolsa moviéndose con el viento). Solo avisa por WhatsApp cuando de verdad importa.",
     idealPara: ["Negocios, naves y fincas rurales con vigilancia perimetral", "Viviendas que quieren dejar de recibir alertas falsas", "Quien ya tiene cámaras y quiere añadirles análisis IA"],
     extras: ["Reentrenamiento del modelo (ver bono de mantenimiento)", "Ampliación a panel de monitorización a medida (dashboard propio)", "Integración con CCTV cableado ya instalado"],
     tambienInstalaron: ["Cerradura inteligente", "Videoportero inteligente", "Red WiFi mesh (conexión estable, imprescindible para la IA)"],
@@ -463,88 +429,45 @@ const modos = [
         subtitulo: "Nave industrial de 450 m²",
         imagen: "/img/trabajos/naves-seguridad-ia-despues.jpg",
         imagenAntes: "/img/trabajos/naves-seguridad-ia-antes.jpg",
-        opcionesSolo: [
-        {
-          nombre: "Básica — perímetro con 4 cámaras",
-          destacada: false,
-          items: [
-            ["Instalación y cableado (4 cámaras, nave de hasta 500 m²)", 450],
-            ["4 cámaras IP con visión nocturna", 480],
-            ["Mini-PC de grabación y disco duro", 220],
-            ["Configuración del modelo de detección IA (persona/vehículo, descarta falsos positivos)", 380],
-            ["Notificaciones por WhatsApp ante alarma real", 90],
-            ["Material y conectorizado", 60]
-          ],
-          total: 1680
-        },
-        {
-          nombre: "Recomendada — 8 cámaras, cubre accesos y muelles",
-          destacada: true,
-          items: [
-            ["Instalación y cableado (8 cámaras)", 780],
-            ["8 cámaras IP con visión nocturna", 960],
-            ["Mini-PC de grabación y disco duro ampliado", 340],
-            ["Configuración del modelo de detección IA (persona/vehículo/matrícula)", 480],
-            ["Notificaciones por WhatsApp ante alarma real", 90],
-            ["Material y conectorizado", 90]
-          ],
-          total: 2740
-        },
-        {
-          nombre: "Premium — con reanálisis de alarmas por IA",
-          destacada: false,
-          items: [
-            ["Instalación y cableado (8 cámaras + 2 térmicas perimetrales)", 950],
-            ["8 cámaras IP con visión nocturna", 960],
-            ["2 cámaras térmicas para detección perimetral (reducen falsos positivos por fauna o vegetación)", 1600],
-            ["Mini-PC de grabación y disco duro ampliado", 340],
-            ["Configuración del modelo de detección IA (persona/vehículo/matrícula)", 480],
-            ["Reanálisis automático de alarmas con IA (descarta falsos positivos antes de avisar)", 380],
-            ["Notificaciones por WhatsApp ante alarma real", 90],
-            ["Material y conectorizado", 100]
-          ],
-          total: 4900
-        }
-        ],
-        opcionesIncremento: [
-        {
-          nombre: "Básica — perímetro con 4 cámaras",
-          destacada: false,
-          items: [
-            ["Instalación y cableado (4 cámaras, nave de hasta 500 m²)", 450],
-            ["4 cámaras IP con visión nocturna", 480],
-            ["Configuración del modelo de detección IA (persona/vehículo, descarta falsos positivos)", 380],
-            ["Notificaciones por WhatsApp ante alarma real", 90],
-            ["Material y conectorizado", 60]
-          ],
-          total: 1460
-        },
-        {
-          nombre: "Recomendada — 8 cámaras, cubre accesos y muelles",
-          destacada: true,
-          items: [
-            ["Instalación y cableado (8 cámaras)", 780],
-            ["8 cámaras IP con visión nocturna", 960],
-            ["Configuración del modelo de detección IA (persona/vehículo/matrícula)", 480],
-            ["Notificaciones por WhatsApp ante alarma real", 90],
-            ["Material y conectorizado", 90]
-          ],
-          total: 2400
-        },
-        {
-          nombre: "Premium — con reanálisis de alarmas por IA",
-          destacada: false,
-          items: [
-            ["Instalación y cableado (8 cámaras + 2 térmicas perimetrales)", 950],
-            ["8 cámaras IP con visión nocturna", 960],
-            ["2 cámaras térmicas para detección perimetral (reducen falsos positivos por fauna o vegetación)", 1600],
-            ["Configuración del modelo de detección IA (persona/vehículo/matrícula)", 480],
-            ["Reanálisis automático de alarmas con IA (descarta falsos positivos antes de avisar)", 380],
-            ["Notificaciones por WhatsApp ante alarma real", 90],
-            ["Material y conectorizado", 100]
-          ],
-          total: 4560
-        }
+        opciones: [
+          {
+            nombre: "Básica — perímetro con 4 cámaras",
+            destacada: false,
+            items: [
+              ["Instalación y cableado (4 cámaras, nave de hasta 500 m²)", 450],
+              ["4 cámaras IP con visión nocturna", 480],
+              ["Configuración del modelo de detección IA (persona/vehículo, descarta falsos positivos)", 380],
+              ["Notificaciones por WhatsApp ante alarma real", 90],
+              ["Material y conectorizado", 60]
+            ],
+            total: 1460
+          },
+          {
+            nombre: "Recomendada — 8 cámaras, cubre accesos y muelles",
+            destacada: true,
+            items: [
+              ["Instalación y cableado (8 cámaras)", 780],
+              ["8 cámaras IP con visión nocturna", 960],
+              ["Configuración del modelo de detección IA (persona/vehículo/matrícula)", 480],
+              ["Notificaciones por WhatsApp ante alarma real", 90],
+              ["Material y conectorizado", 90]
+            ],
+            total: 2400
+          },
+          {
+            nombre: "Premium — con reanálisis de alarmas por IA",
+            destacada: false,
+            items: [
+              ["Instalación y cableado (8 cámaras + 2 térmicas perimetrales)", 950],
+              ["8 cámaras IP con visión nocturna", 960],
+              ["2 cámaras térmicas para detección perimetral (reducen falsos positivos por fauna o vegetación)", 2300],
+              ["Configuración del modelo de detección IA (persona/vehículo/matrícula)", 480],
+              ["Reanálisis automático de alarmas con IA (descarta falsos positivos antes de avisar)", 380],
+              ["Notificaciones por WhatsApp ante alarma real", 90],
+              ["Material y conectorizado", 100]
+            ],
+            total: 5260
+          }
         ]
       },
       {
@@ -552,76 +475,43 @@ const modos = [
         subtitulo: "Vivienda unifamiliar · 2 a 6 cámaras según opción",
         imagen: "/img/trabajos/monitor-ia-despues.jpg",
         imagenAntes: "/img/trabajos/monitor-ia-antes.jpg",
-        opcionesSolo: [
-        {
-          nombre: "Básica — 2 cámaras",
-          destacada: false,
-          items: [
-            ["Mano de obra y configuración del modelo de detección", 320],
-            ["2 cámaras IP compatibles + procesamiento local", 480],
-            ["Configuración de alertas por WhatsApp (API Meta) y app", 150]
-          ],
-          total: 950
-        },
-        {
-          nombre: "Recomendada — 4 cámaras + zonas personalizadas",
-          destacada: true,
-          items: [
-            ["Mano de obra y configuración", 420],
-            ["4 cámaras IP + mini-PC de procesamiento", 890],
-            ["Configuración de alertas WhatsApp y zonas de detección personalizadas", 200]
-          ],
-          total: 1510
-        },
-        {
-          nombre: "Premium — 6 cámaras + reconocimiento de personas habituales",
-          destacada: false,
-          items: [
-            ["Mano de obra y configuración avanzada", 520],
-            ["6 cámaras IP", 900],
-            ["Servidor de procesamiento con IA (GPU local, para reconocimiento facial en tiempo real)", 950],
-            ["Entrenamiento de reconocimiento de personas habituales y alertas WhatsApp", 350]
-          ],
-          total: 2720
-        }
-        ],
-        opcionesIncremento: [
-        {
-          nombre: "Básica — 2 cámaras",
-          destacada: false,
-          items: [
-            ["Mano de obra y configuración del modelo de detección", 320],
-            ["2 cámaras IP compatibles", 390],
-            ["Configuración de alertas por WhatsApp (API Meta) y app", 150]
-          ],
-          total: 860
-        },
-        {
-          nombre: "Recomendada — 4 cámaras + zonas personalizadas",
-          destacada: true,
-          items: [
-            ["Mano de obra y configuración", 420],
-            ["4 cámaras IP", 710],
-            ["Configuración de alertas WhatsApp y zonas de detección personalizadas", 200]
-          ],
-          total: 1330
-        },
-        {
-          nombre: "Premium — 6 cámaras + reconocimiento de personas habituales",
-          destacada: false,
-          items: [
-            ["Mano de obra y configuración avanzada", 520],
-            ["6 cámaras IP", 900],
-            ["Servidor de procesamiento con IA (GPU local, para reconocimiento facial en tiempo real)", 950],
-            ["Entrenamiento de reconocimiento de personas habituales y alertas WhatsApp", 350]
-          ],
-          total: 2720
-        }
+        opciones: [
+          {
+            nombre: "Básica — 2 cámaras",
+            destacada: false,
+            items: [
+              ["Mano de obra y configuración del modelo de detección", 320],
+              ["2 cámaras IP compatibles (usan el Mini-PC IA Central, sin equipo propio)", 390],
+              ["Configuración de alertas por WhatsApp (API Meta) y app", 150]
+            ],
+            total: 860
+          },
+          {
+            nombre: "Recomendada — 4 cámaras + zonas personalizadas",
+            destacada: true,
+            items: [
+              ["Mano de obra y configuración", 420],
+              ["4 cámaras IP (usan el Mini-PC IA Central, sin equipo propio)", 710],
+              ["Configuración de alertas WhatsApp y zonas de detección personalizadas", 200]
+            ],
+            total: 1330
+          },
+          {
+            nombre: "Premium — 6 cámaras + reconocimiento de personas habituales",
+            destacada: false,
+            items: [
+              ["Mano de obra y configuración avanzada", 520],
+              ["6 cámaras IP", 900],
+              ["Servidor con GPU dedicada para reconocimiento facial en tiempo real (el mini-PC central no cubre esta carga)", 950],
+              ["Entrenamiento de reconocimiento de personas habituales y alertas WhatsApp", 350]
+            ],
+            total: 2720
+          }
         ]
       }
     ],
     nota:
-      "Precio \"Solo, sin plataforma\": incluye su propio mini-PC de grabación dedicado. Precio \"+ instalado junto a la plataforma\": reutiliza el mini-PC central en vez de instalar uno de grabación aparte. Excepción: la opción Premium de vivienda (reconocimiento facial) usa un servidor con GPU dedicada que el mini-PC central no cubre, así que no varía entre ambas columnas — cifras orientativas, revisar antes de publicar."
+      "Todas las opciones ya asumen que tienes instalado el Mini-PC IA Central (950 €, obligatorio) — no incluyen un mini-PC de grabación aparte. Excepción: la opción Premium de vivienda añade un servidor con GPU dedicada para reconocimiento facial en tiempo real, una carga que el mini-PC central no cubre. Cifras orientativas, a confirmar en visita técnica."
   }
 ];
 

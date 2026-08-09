@@ -16,9 +16,12 @@
           <a href="/servicios">Servicios</a> ›
           <a href="/servicios/ia-predictiva">Plataforma IA Predictiva</a>
         </nav>
-        <span class="eyebrow">Modo <%= modo.numero %> de 10 — <%= modo.subtitulo %></span>
+        <span class="eyebrow">Modo 10 de 10 — <%= modo.subtitulo %></span>
         <h1><%= modo.nombre %></h1>
         <p><%= modo.resumen %></p>
+        <a href="https://wa.me/34<%= empresa.whatsapp %>?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Seguridad%20IA" target="_blank" rel="noopener" class="btn btn-whatsapp cta-block">
+          Pedir presupuesto gratuito
+        </a>
       </div>
     </div>
   </section>
@@ -26,8 +29,8 @@
   <section class="section">
     <div class="container">
       <div class="ia-modo-info-box">
-        <p><strong>¿Solo o con plataforma?</strong></p>
-        <p>Cada ejemplo de abajo tiene dos precios: <strong>Solo</strong> incluye su propio mini-PC de grabación dedicado. <strong>+ Con plataforma</strong> asume que ya tienes instalada la instalación base de la Plataforma IA Predictiva y reutiliza ese mismo mini-PC central, sin duplicar equipo.</p>
+        <p><strong>Requiere el Mini-PC IA Central</strong></p>
+        <p>Seguridad IA es el modo 10 de la Plataforma IA Predictiva: reutiliza el mismo <a href="/servicios/ia-predictiva">Mini-PC IA Central (950 €, obligatorio)</a> que el resto de modos — no necesitas comprar un mini-PC de grabación aparte. Los precios de abajo son el coste de las cámaras, la configuración del modelo de detección y la puesta en marcha.</p>
       </div>
 
       <% modo.ejemplos.forEach(function(ej, idx){ %>
@@ -48,67 +51,29 @@
             </div>
           <% } %>
 
-          <input type="radio" name="solo-incr-<%= modo.slug %>-<%= idx %>" id="solo-<%= modo.slug %>-<%= idx %>" class="solo-incr-tab-input" checked>
-          <input type="radio" name="solo-incr-<%= modo.slug %>-<%= idx %>" id="incr-<%= modo.slug %>-<%= idx %>" class="solo-incr-tab-input">
-
-          <div class="solo-incr-tab-nav">
-            <label for="solo-<%= modo.slug %>-<%= idx %>" class="solo-incr-tab-btn">Solo, sin plataforma</label>
-            <label for="incr-<%= modo.slug %>-<%= idx %>" class="solo-incr-tab-btn">+ Con plataforma ya instalada</label>
-          </div>
-
-          <div class="solo-incr-tab-panels">
-            <div class="solo-incr-tab-panel">
-              <div class="options-stack options-stack-3">
-                <% ej.opcionesSolo.forEach(function(op){ %>
-                  <div class="option-card <%= op.destacada ? 'option-card-featured' : '' %>">
-                    <% if (op.destacada) { %><span class="option-star">⭐ Recomendada</span><% } %>
-                    <h3><%= op.nombre %></h3>
-                    <table class="option-table">
-                      <tbody>
-                        <% op.items.forEach(function(item){ %>
-                          <tr>
-                            <td><%= item[0] %></td>
-                            <td class="option-price"><%= fmt(item[1]) %> €</td>
-                          </tr>
-                        <% }) %>
-                      </tbody>
-                      <tfoot>
-                        <tr>
-                          <td>TOTAL</td>
-                          <td class="option-price option-total"><%= fmt(op.total) %> €</td>
-                        </tr>
-                      </tfoot>
-                    </table>
-                  </div>
-                <% }) %>
+          <div class="options-stack options-stack-3">
+            <% ej.opciones.forEach(function(op){ %>
+              <div class="option-card <%= op.destacada ? 'option-card-featured' : '' %>">
+                <% if (op.destacada) { %><span class="option-star">⭐ Recomendada</span><% } %>
+                <h3><%= op.nombre %></h3>
+                <table class="option-table">
+                  <tbody>
+                    <% op.items.forEach(function(item){ %>
+                      <tr>
+                        <td><%= item[0] %></td>
+                        <td class="option-price"><%= fmt(item[1]) %> €</td>
+                      </tr>
+                    <% }) %>
+                  </tbody>
+                  <tfoot>
+                    <tr>
+                      <td>TOTAL</td>
+                      <td class="option-price option-total"><%= fmt(op.total) %> €</td>
+                    </tr>
+                  </tfoot>
+                </table>
               </div>
-            </div>
-            <div class="solo-incr-tab-panel">
-              <div class="options-stack options-stack-3">
-                <% ej.opcionesIncremento.forEach(function(op){ %>
-                  <div class="option-card <%= op.destacada ? 'option-card-featured' : '' %>">
-                    <% if (op.destacada) { %><span class="option-star">⭐ Recomendada</span><% } %>
-                    <h3><%= op.nombre %></h3>
-                    <table class="option-table">
-                      <tbody>
-                        <% op.items.forEach(function(item){ %>
-                          <tr>
-                            <td><%= item[0] %></td>
-                            <td class="option-price"><%= fmt(item[1]) %> €</td>
-                          </tr>
-                        <% }) %>
-                      </tbody>
-                      <tfoot>
-                        <tr>
-                          <td>TOTAL</td>
-                          <td class="option-price option-total"><%= fmt(op.total) %> €</td>
-                        </tr>
-                      </tfoot>
-                    </table>
-                  </div>
-                <% }) %>
-              </div>
-            </div>
+            <% }) %>
           </div>
         </div>
       <% }) %>

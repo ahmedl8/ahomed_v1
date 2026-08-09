@@ -35,12 +35,12 @@
     </div>
   </section>
 
-  <!-- SERVICIOS -->
+  <!-- SERVICIOS BÁSICOS -->
   <section class="section services-strip" id="servicios">
     <div class="container">
       <div class="section-head">
-        <h2>¿Qué necesitas?</h2>
-        <p>Servicios profesionales adaptados a tu hogar</p>
+        <h2>Básicos — trabajos sin IA</h2>
+        <p>Se piden sueltos, sin ningún equipo obligatorio de por medio</p>
       </div>
 
       <div class="services-grid">
@@ -54,37 +54,47 @@
             </div>
           </a>
         <% }) %>
-
-        <a href="/servicios/ia-predictiva/seguridad-ia" class="service-card service-card-ai">
-          <div class="service-badge">Servicio exclusivo</div>
-          <h3><%= seguridadIA.nombre %></h3>
-          <p><%= seguridadIA.subtitulo %></p>
-          <div class="service-card-footer">
-            <span class="price-tag">Proyecto a medida</span>
-            <span class="link-arrow">Ver detalle →</span>
-          </div>
-        </a>
       </div>
     </div>
   </section>
 
-  <!-- IA DESTACADA -->
-  <section class="section ai-highlight">
-    <div class="container ai-highlight-inner">
-      <div class="ai-highlight-copy">
+  <!-- EXCLUSIVOS · CON IA -->
+  <section class="section section-exclusivos">
+    <div class="container">
+      <div class="section-head section-head-exclusivos">
         <span class="eyebrow">El gran diferenciador de AHOMED</span>
-        <h2>Seguridad IA</h2>
-        <p><%= seguridadIA.resumen %></p>
-        <ul class="check-list">
-          <li>Ideal para: <%= seguridadIA.idealPara.join(', ') %></li>
-          <li>Configuración del modelo de detección entrenado con imágenes reales de tu local o vivienda</li>
-          <li>Notificaciones por WhatsApp solo cuando de verdad importa</li>
-        </ul>
-        <a href="/servicios/ia-predictiva/seguridad-ia" class="btn btn-primary">Ver ejemplos y precios</a>
+        <h2>Exclusivos — con Inteligencia Artificial</h2>
+        <p>Un único Mini-PC IA Central (950 €, se compra una vez) y diez modos a elegir. Cada uno es un coste adicional — no una instalación nueva desde cero.</p>
       </div>
-      <div class="ai-highlight-visual">
-        <img src="/img/trabajos/monitor-ia-despues.jpg" alt="Sistema de videovigilancia con detección de personas y vehículos por IA y alertas por WhatsApp" loading="lazy">
+
+      <div class="ai-highlight-inner">
+        <div class="ai-highlight-copy">
+          <h3>Seguridad IA — el más pedido</h3>
+          <p><%= seguridadIA.resumen %></p>
+          <ul class="check-list">
+            <li>Ideal para: <%= seguridadIA.idealPara.join(', ') %></li>
+            <li>Configuración del modelo de detección entrenado con imágenes reales de tu local o vivienda</li>
+            <li>Notificaciones por WhatsApp solo cuando de verdad importa</li>
+          </ul>
+          <a href="/servicios/ia-predictiva/seguridad-ia" class="btn btn-primary">Ver ejemplos y precios</a>
+        </div>
+        <div class="ai-highlight-visual">
+          <img src="/img/trabajos/monitor-ia-despues.jpg" alt="Sistema de videovigilancia con detección de personas y vehículos por IA y alertas por WhatsApp" loading="lazy">
+        </div>
       </div>
+
+      <h3 class="ia-modos-strip-title">Y otros nueve modos, sobre el mismo Mini-PC IA Central</h3>
+      <div class="ia-modos-strip">
+        <% modosIA.forEach(function(m){ %>
+          <a href="/servicios/ia-predictiva/<%= m.slug %>" class="ia-modo-chip">
+            <span class="ia-modo-chip-num"><%= m.numero %></span>
+            <span class="ia-modo-chip-name"><%= m.nombre %></span>
+            <span class="ia-modo-chip-price">+<%= fmt(m.precioIncremento) %> €</span>
+          </a>
+        <% }) %>
+      </div>
+
+      <a href="/servicios/ia-predictiva" class="btn btn-outline ia-modos-cta">Configura tu Plataforma IA →</a>
     </div>
   </section>
 

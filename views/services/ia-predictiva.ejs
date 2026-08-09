@@ -7,7 +7,7 @@
   <%- include('../partials/header') %>
 
   <section class="service-hero service-hero-ai service-hero-photo">
-    <img class="service-hero-bg" src="/img/ia-predictiva/plataforma-hero.jpg" alt="" loading="eager">
+    <img class="service-hero-bg" src="/img/hero-bloques/ia-monitorizacion.jpg" alt="" loading="eager">
     <div class="service-hero-overlay"></div>
     <div class="container service-hero-inner">
       <div class="service-hero-icon"><svg viewBox="0 0 24 24"><%- icons.ai %></svg></div>
@@ -25,11 +25,11 @@
 
   <section class="section">
     <div class="container">
-      <h2 class="sub-heading">1. Instalación base de la plataforma</h2>
-      <p>Antes de cualquier modo, se instala una única vez: el mini-PC compartido, el motor Python que orquesta todos los modos, el dashboard de control y la integración con WhatsApp Business API. A partir de aquí, cada modo añadido es un incremento — no una instalación nueva desde cero.</p>
+      <h2 class="sub-heading">1. Mini-PC IA Central — instalación base obligatoria</h2>
+      <p><%= instalacionBase.resumen %></p>
 
-      <div class="options-stack options-stack-1">
-        <div class="option-card option-card-featured">
+      <div class="options-stack">
+        <div class="option-card option-card-featured option-card-solo">
           <span class="option-star">Instalación única</span>
           <h3><%= instalacionBase.nombre %></h3>
           <table class="option-table">
@@ -43,7 +43,7 @@
             </tbody>
             <tfoot>
               <tr>
-                <td>TOTAL — Instalación base</td>
+                <td>TOTAL — Mini-PC IA Central</td>
                 <td class="option-price option-total"><%= fmt(instalacionBase.total) %> €</td>
               </tr>
             </tfoot>
@@ -51,13 +51,45 @@
         </div>
       </div>
 
-      <p class="example-note">A partir de esta instalación, cada modo se cotiza como incremento. Si solo quieres un modo y no planeas añadir más, se cotiza con su precio de catálogo completo en solitario — indicado en cada ficha.</p>
+      <p class="example-note">Es obligatoria para cualquier modo de esta página, incluida Seguridad IA. Ya no se ofrece la opción de instalar un modo "solo, con equipo propio" ni Raspberry Pi como cerebro central.</p>
     </div>
   </section>
 
-  <section class="section section-alt">
+  <!-- CALCULADORA -->
+  <section class="section section-alt" id="calculadora">
     <div class="container">
-      <h2 class="sub-heading">2. Los diez modos</h2>
+      <h2 class="sub-heading">2. Configura tu Plataforma IA</h2>
+      <p>Marca los modos que te interesan y mira el total en vivo. El Mini-PC IA Central (950 €) ya está incluido siempre — es la base obligatoria.</p>
+
+      <div class="calc-wrap" data-wa="<%= empresa.whatsapp %>" data-base="<%= instalacionBase.total %>">
+        <div class="calc-modos">
+          <div class="calc-item calc-item-base">
+            <span class="calc-item-name">Mini-PC IA Central <em>(obligatorio)</em></span>
+            <span class="calc-item-price"><%= fmt(instalacionBase.total) %> €</span>
+          </div>
+          <% modos.forEach(function(m){ %>
+            <label class="calc-item">
+              <span class="calc-item-check"><input type="checkbox" class="calc-check" data-precio="<%= m.esProyecto ? 860 : m.precioIncremento %>" data-nombre="<%= m.nombre %>"><span class="calc-item-name"><%= m.numero %>. <%= m.nombre %><% if (m.esProyecto) { %> <em>(desde, proyecto a medida)</em><% } %></span></span>
+              <span class="calc-item-price">+<%= fmt(m.esProyecto ? 860 : m.precioIncremento) %> €</span>
+            </label>
+          <% }) %>
+        </div>
+
+        <div class="calc-summary">
+          <h3>Tu presupuesto orientativo</h3>
+          <div class="calc-total-row"><span>Base obligatoria</span><span id="calc-base"><%= fmt(instalacionBase.total) %> €</span></div>
+          <div class="calc-total-row"><span>Modos seleccionados</span><span id="calc-extra">+0 €</span></div>
+          <div class="calc-total-row calc-total-final"><span>Total estimado</span><span id="calc-total"><%= fmt(instalacionBase.total) %> €</span></div>
+          <a href="#" id="calc-whatsapp" target="_blank" rel="noopener" class="btn btn-whatsapp btn-lg calc-cta">Enviar por WhatsApp</a>
+          <p class="calc-disclaimer">Estimación orientativa. El precio definitivo se confirma tras la visita técnica gratuita. Seguridad IA se cotiza con su ejemplo más económico — el precio real depende del número de cámaras.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="sub-heading">3. Los diez modos, uno a uno</h2>
       <p>Cada modo resuelve un escenario completo de la vida diaria, no un dispositivo suelto.</p>
 
       <div class="services-grid services-grid-full">
@@ -67,7 +99,7 @@
             <h3><%= m.numero %>. <%= m.nombre %></h3>
             <p><%= m.esProyecto ? m.subtitulo : m.resumen %></p>
             <div class="service-card-footer">
-              <span class="price-tag"><%= m.esProyecto ? 'Proyecto a medida' : '+' + fmt(m.precioIncremento) + ' € con plataforma' %></span>
+              <span class="price-tag"><%= m.esProyecto ? 'Proyecto a medida' : '+' + fmt(m.precioIncremento) + ' € sobre la base' %></span>
               <span class="link-arrow">Ver detalle →</span>
             </div>
           </a>
@@ -89,5 +121,6 @@
   </section>
 
   <%- include('../partials/footer') %>
+  <script src="/js/calculadora-ia.js" defer></script>
 </body>
 </html>

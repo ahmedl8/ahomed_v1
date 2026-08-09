@@ -15,12 +15,27 @@
 
   <section class="section section-tight">
     <div class="container">
-      <div class="bloques-grid">
-        <% bloques.forEach(function(b){ %>
-          <a href="#bloque-<%= b.slug %>" class="bloque-chip">
-            <span><%= b.nombre %></span>
-          </a>
-        <% }) %>
+      <div class="bloques-grid-wrap">
+        <div class="bloques-grid-group">
+          <span class="bloques-grid-label">Básicos</span>
+          <div class="bloques-grid">
+            <% bloques.filter(function(b){ return b.grupo === 'basico'; }).forEach(function(b){ %>
+              <a href="#bloque-<%= b.slug %>" class="bloque-chip">
+                <span><%= b.nombre %></span>
+              </a>
+            <% }) %>
+          </div>
+        </div>
+        <div class="bloques-grid-group">
+          <span class="bloques-grid-label bloques-grid-label-ia">Exclusivos · con IA</span>
+          <div class="bloques-grid">
+            <% bloques.filter(function(b){ return b.grupo !== 'basico'; }).forEach(function(b){ %>
+              <a href="#bloque-<%= b.slug %>" class="bloque-chip <%= b.grupo === 'exclusivo' ? 'bloque-chip-ia' : '' %>">
+                <span><%= b.nombre %></span>
+              </a>
+            <% }) %>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -57,7 +72,7 @@
                 <h3><%= m.numero %>. <%= m.nombre %></h3>
                 <p><%= m.esProyecto ? m.subtitulo : m.resumen %></p>
                 <div class="service-card-footer">
-                  <span class="price-tag"><%= m.esProyecto ? 'Proyecto a medida' : '+' + fmt(m.precioIncremento) + ' € con plataforma' %></span>
+                  <span class="price-tag"><%= m.esProyecto ? 'Proyecto a medida' : '+' + fmt(m.precioIncremento) + ' € sobre la base' %></span>
                   <span class="link-arrow">Ver detalle →</span>
                 </div>
               </a>

@@ -7,22 +7,55 @@
 //
 // Modelo de precio (revisado agosto 2026): el Mini-PC IA Central es OBLIGATORIO
 // y se compra una única vez — ya no existe la opción de instalar un modo "solo,
-// con equipo propio" ni Raspberry Pi como cerebro central. Para ser el único
-// punto de análisis de IA de toda la casa (varias cámaras + varios modos a la
-// vez con YOLO26) hace falta más capacidad de la que da una Raspberry. Cada modo
-// de la lista de abajo es un coste adicional puro sobre esa base.
+// con equipo propio" ni Raspberry Pi como cerebro central. Dos niveles de
+// hardware según cuántos servicios IA quiere el cliente:
+//   - IA START (Ryzen 5, sin NPU): de sobra para 1-2 modos, ya que el análisis
+//     por IA se hace sobre 1 frame cada 1-2 segundos, no sobre streaming continuo.
+//   - IA PRO (Ryzen 7 con NPU): para 3+ modos o Seguridad IA con varias cámaras
+//     en paralelo — varios modos y varias cámaras a la vez sí piden más músculo.
+// El coste adicional de cada modo NO cambia entre niveles: es el mismo trabajo
+// de sensores, cableado y configuración de software tanto si el cerebro central
+// es el START como si es el PRO. Lo único que cambia es el precio de la base.
 
+const nivelesInstalacionBase = [
+  {
+    slug: "start",
+    nombre: "IA START",
+    subtitulo: "Para 1-2 servicios IA",
+    resumen:
+      "El mini-PC IA analiza 1 frame cada 1-2 segundos por cámara y ejecuta un modo o dos sin esfuerzo — no hace falta más músculo del que da un Ryzen 5 de gama media para arrancar con la Plataforma IA Predictiva.",
+    items: [
+      ["Mini-PC IA (Ryzen 5 7530U o equivalente, 16 GB RAM, 512 GB SSD)", 430],
+      ["Instalación del motor Python + modelos YOLO26 (orquestador de modos)", 90],
+      ["Dashboard de control unificado", 40],
+      ["Integración WhatsApp Business API", 30]
+    ],
+    total: 590
+  },
+  {
+    slug: "pro",
+    nombre: "IA PRO",
+    subtitulo: "Para 3 o más servicios IA, o Seguridad IA con varias cámaras",
+    resumen:
+      "Cuando el mini-PC tiene que correr varios modos a la vez, o analizar varias cámaras en paralelo para Seguridad IA, conviene más núcleos y una NPU dedicada — el Ryzen 7 8845HS mantiene todo fluido sin cuellos de botella.",
+    items: [
+      ["Mini-PC IA (Ryzen 7 8845HS o equivalente, 32 GB RAM, 1 TB SSD, NPU ~16 TOPS)", 700],
+      ["Instalación del motor Python + modelos YOLO26 (orquestador de modos)", 130],
+      ["Dashboard de control unificado", 50],
+      ["Integración WhatsApp Business API", 30],
+      ["UPS de protección (evita corrupción de datos ante cortes de luz)", 40]
+    ],
+    total: 950
+  }
+];
+
+// Compatibilidad hacia atrás: instalacionBase apunta al nivel PRO por defecto
+// en vistas que aún no distinguen niveles.
 const instalacionBase = {
   nombre: "Mini-PC IA Central — instalación base obligatoria",
   resumen:
-    "Antes de cualquier modo se instala una única vez: el Mini-PC IA (Ryzen 7 8845HS o equivalente, 32 GB RAM, 1 TB SSD, con NPU), que corre YOLO26 en CPU/NPU sin GPU dedicada, el motor Python que orquesta todos los modos, el dashboard de control y la integración con WhatsApp Business API. Ya no se ofrece Raspberry Pi como cerebro central. A partir de aquí, cada modo añadido es un coste adicional — no una instalación nueva desde cero.",
-  items: [
-    ["Mini-PC IA (Ryzen 7 8845HS o equivalente, 32 GB RAM, 1 TB SSD, NPU ~16 TOPS)", 700],
-    ["Instalación del motor Python + modelos YOLO26 (orquestador de modos)", 130],
-    ["Dashboard de control unificado", 50],
-    ["Integración WhatsApp Business API", 30],
-    ["UPS de protección (evita corrupción de datos ante cortes de luz)", 40]
-  ],
+    "Antes de cualquier modo se instala una única vez el Mini-PC IA Central, el motor Python que orquesta todos los modos, el dashboard de control y la integración con WhatsApp Business API. Disponible en dos niveles según cuántos servicios IA quiere el cliente — ver comparativa arriba. A partir de aquí, cada modo añadido es un coste adicional fijo, igual en ambos niveles.",
+  niveles: nivelesInstalacionBase,
   total: 950
 };
 
@@ -32,19 +65,21 @@ const modos = [
     imagen: "/img/ia-predictiva/motor-meteorologico.jpg",
     numero: 1,
     nombre: "Motor Meteorológico",
+    titular: "Tu jardín decide cuándo necesita agua",
     subtitulo: "Riego y persianas con IA climática",
     icono: "clima-ia",
     resumen:
       "El mini-PC consulta la API meteorológica cada hora, anticipa lluvia, viento y temperatura, y actúa sobre el riego y las persianas sin intervención del usuario. Si va a llover en 3 horas, el riego no arranca. Si el viento supera 40 km/h, las persianas suben automáticamente.",
     idealPara: ["Jardines y terrazas con riego automático", "Viviendas con persianas motorizadas", "Segundas residencias que se visitan poco"],
-    precioIncremento: 510,
+    precioIncremento: 600,
     ejemplo: {
       titulo: "Motor clima + riego + persianas",
       opciones: [
         {
-          nombre: "Básica — motor clima + riego (4 zonas)",
+          nombre: "Esencial — motor clima + riego (4 zonas)",
           destacada: false,
           items: [
+
             ["Controlador de riego WiFi 4 zonas (Shelly o similar)", 55],
             ["Sensores de temperatura/humedad exterior (x2)", 30],
             ["Cableado y material de instalación", 25],
@@ -54,7 +89,7 @@ const modos = [
           total: 510
         },
         {
-          nombre: "Recomendada — motor clima + riego + persianas",
+          nombre: "Inteligente — motor clima + riego + persianas",
           destacada: true,
           items: [
             ["Controlador de riego WiFi 4 zonas", 55],
@@ -76,17 +111,18 @@ const modos = [
     imagen: "/img/ia-predictiva/casa-presencial.jpg",
     numero: 2,
     nombre: "Casa Presencial",
+    titular: "Tu casa sabe cuándo llegas",
     subtitulo: "Geolocalización y escenas automáticas",
     icono: "geo-casa",
     resumen:
       "El móvil avisa al mini-PC cuando sales o llegas a casa. Al salir: luces apagadas, clima en modo ahorro, simulación de presencia si vas a tardar en volver. Al llegar: escena de bienvenida con luces, música y clima ya en marcha.",
     idealPara: ["Viviendas donde todos salen a trabajar", "Segundas residencias (simulación de presencia)", "Quien quiere llegar a casa con todo listo"],
-    precioIncremento: 455,
+    precioIncremento: 620,
     ejemplo: {
       titulo: "Geofencing + 3 escenas + simulación de presencia",
       opciones: [
         {
-          nombre: "Básica — geofencing + 2 escenas",
+          nombre: "Esencial — geofencing + 2 escenas",
           destacada: false,
           items: [
             ["2 enchufes inteligentes WiFi (Shelly Plug)", 40],
@@ -98,7 +134,7 @@ const modos = [
           total: 455
         },
         {
-          nombre: "Recomendada — 3 escenas + simulación de presencia",
+          nombre: "Inteligente — 3 escenas + simulación de presencia",
           destacada: true,
           items: [
             ["2 enchufes inteligentes WiFi", 40],
@@ -120,17 +156,18 @@ const modos = [
     imagen: "/img/ia-predictiva/ia-sueno.jpg",
     numero: 3,
     nombre: "IA de Sueño",
+    titular: "Tu dormitorio se prepara para que descanses mejor",
     subtitulo: "Entorno adaptativo para descanso óptimo",
     icono: "sueno",
     resumen:
       "Persianas y luz se ajustan automáticamente según tu horario de sueño: amanecer gradual por la mañana, temperatura de color cálida por la noche, integración con la alarma del móvil.",
     idealPara: ["Personas con horarios de sueño irregulares", "Dormitorios con persianas motorizadas", "Quien quiere despertar sin alarma brusca"],
-    precioIncremento: 510,
+    precioIncremento: 618,
     ejemplo: {
       titulo: "Persianas + luz adaptativa + integración con alarma",
       opciones: [
         {
-          nombre: "Básica — persianas + amanecer gradual",
+          nombre: "Esencial — persianas + amanecer gradual",
           destacada: false,
           items: [
             ["2 motores de persiana WiFi (dormitorio principal)", 110],
@@ -142,7 +179,7 @@ const modos = [
           total: 510
         },
         {
-          nombre: "Recomendada — + luz cálida/fría + alarma del móvil",
+          nombre: "Inteligente — + luz cálida/fría + alarma del móvil",
           destacada: true,
           items: [
             ["2 motores de persiana WiFi", 110],
@@ -164,17 +201,18 @@ const modos = [
     imagen: "/img/ia-predictiva/calidad-aire.jpg",
     numero: 4,
     nombre: "Panel de Calidad del Aire",
+    titular: "Respira un aire que se controla solo",
     subtitulo: "CO₂, VOC y ventilación con IA",
     icono: "aire-calidad",
     resumen:
       "Sensores de CO₂, humedad y temperatura envían lectura continua al mini-PC, que activa ventilación o purificación automáticamente cuando se superan los umbrales saludables, con alertas por WhatsApp.",
     idealPara: ["Dormitorios y oficinas en casa", "Viviendas bien selladas con poca ventilación natural", "Familias con niños pequeños o alergias"],
-    precioIncremento: 330,
+    precioIncremento: 430,
     ejemplo: {
       titulo: "Sensor CO₂ + dashboard + alertas automáticas",
       opciones: [
         {
-          nombre: "Básica — sensor + alertas WhatsApp",
+          nombre: "Esencial — sensor + alertas WhatsApp",
           destacada: false,
           items: [
             ["Sensor CO₂ + temperatura + humedad (SCD40 o equivalente)", 45],
@@ -185,7 +223,7 @@ const modos = [
           total: 330
         },
         {
-          nombre: "Recomendada — + dashboard con histórico",
+          nombre: "Inteligente — + dashboard con histórico",
           destacada: true,
           items: [
             ["Sensor CO₂ + temperatura + humedad", 45],
@@ -205,6 +243,7 @@ const modos = [
     imagen: "/img/ia-predictiva/cuidado-mascotas.jpg",
     numero: 5,
     nombre: "Cuidado de Mascotas",
+    titular: "Tu mascota, vigilada aunque no estés",
     subtitulo: "IA de bienestar animal",
     icono: "mascota",
     resumen:
@@ -215,7 +254,7 @@ const modos = [
       titulo: "Monitorización + comedero + control de temperatura",
       opciones: [
         {
-          nombre: "Básica — monitorización + alerta de ladridos",
+          nombre: "Esencial — monitorización + alerta de ladridos",
           destacada: false,
           items: [
             ["Cámara IP con audio bidireccional", 110],
@@ -227,7 +266,7 @@ const modos = [
           total: 405
         },
         {
-          nombre: "Recomendada — + comedero y control de temperatura",
+          nombre: "Inteligente — + comedero y control de temperatura",
           destacada: true,
           items: [
             ["Cámara IP con audio bidireccional y visión nocturna", 140],
@@ -249,6 +288,7 @@ const modos = [
     imagen: "/img/ia-predictiva/cocina-inteligente.jpg",
     numero: 6,
     nombre: "Cocina Inteligente",
+    titular: "Que nunca más te preocupe si dejaste algo encendido",
     subtitulo: "Detección de humo y aviso de horno",
     icono: "cocina-ia",
     resumen:
@@ -259,7 +299,7 @@ const modos = [
       titulo: "Detección de humo + extractor automático + aviso de horno",
       opciones: [
         {
-          nombre: "Básica — detección de humo + alerta WhatsApp",
+          nombre: "Esencial — detección de humo + alerta WhatsApp",
           destacada: false,
           items: [
             ["Detector de humo/CO conectado", 100],
@@ -270,7 +310,7 @@ const modos = [
           total: 385
         },
         {
-          nombre: "Recomendada — + extractor automático y aviso de horno",
+          nombre: "Inteligente — + extractor automático y aviso de horno",
           destacada: true,
           items: [
             ["Detector de humo/CO conectado", 100],
@@ -291,6 +331,7 @@ const modos = [
     imagen: "/img/ia-predictiva/personas-mayores.jpg",
     numero: 7,
     nombre: "Personas Mayores",
+    titular: "Tranquilidad para cuidar a distancia",
     subtitulo: "Teleasistencia inteligente sin cuota",
     icono: "mayores",
     resumen:
@@ -301,7 +342,7 @@ const modos = [
       titulo: "Ausencia de movimiento + detección de caídas por IA",
       opciones: [
         {
-          nombre: "Básica — ausencia de movimiento + puerta abierta",
+          nombre: "Esencial — ausencia de movimiento + puerta abierta",
           destacada: false,
           items: [
             ["Sensor de movimiento por estancia (x3)", 75],
@@ -313,7 +354,7 @@ const modos = [
           total: 540
         },
         {
-          nombre: "Recomendada — + detección de caídas por IA de visión",
+          nombre: "Inteligente — + detección de caídas por IA de visión",
           destacada: true,
           items: [
             ["Sensor de movimiento por estancia (x4)", 100],
@@ -335,6 +376,7 @@ const modos = [
     imagen: "/img/ia-predictiva/modo-ninos.jpg",
     numero: 8,
     nombre: "Modo Niños",
+    titular: "Sabrás que han llegado bien, sin tener que preguntar",
     subtitulo: "Llegada del colegio automatizada",
     icono: "ninos",
     resumen:
@@ -345,7 +387,7 @@ const modos = [
       titulo: "Geofencing + aviso de llegada + escena de bienvenida",
       opciones: [
         {
-          nombre: "Básica — aviso de llegada por WhatsApp",
+          nombre: "Esencial — aviso de llegada por WhatsApp",
           destacada: false,
           items: [
             ["Sensor de puerta/ventana (confirmación de entrada)", 20],
@@ -356,7 +398,7 @@ const modos = [
           total: 385
         },
         {
-          nombre: "Recomendada — + apertura y escena de bienvenida",
+          nombre: "Inteligente — + apertura y escena de bienvenida",
           destacada: true,
           items: [
             ["Sensor de puerta/ventana", 20],
@@ -368,7 +410,7 @@ const modos = [
           total: 545
         }
       ],
-      nota: "Coste adicional sobre el Mini-PC IA Central (950 €, obligatorio): 385 €. La opción Recomendada asume cerradura inteligente ya instalada (bloque Seguridad y Accesos)."
+      nota: "Coste adicional sobre el Mini-PC IA Central (950 €, obligatorio): 385 €. La opción Inteligente asume cerradura inteligente ya instalada (bloque Seguridad y Accesos)."
     }
   },
   {
@@ -376,6 +418,7 @@ const modos = [
     imagen: "/img/ia-predictiva/gestion-paquetes.jpg",
     numero: 9,
     nombre: "Gestión de Paquetes",
+    titular: "No te pierdas ni un paquete otra vez",
     subtitulo: "Detección de repartidores con IA",
     icono: "paquete",
     resumen:
@@ -386,7 +429,7 @@ const modos = [
       titulo: "Detección de paquete + foto automática + alerta WhatsApp",
       opciones: [
         {
-          nombre: "Básica — detección + foto + alerta WhatsApp",
+          nombre: "Esencial — detección + foto + alerta WhatsApp",
           destacada: false,
           items: [
             ["Cámara IP de entrada con visión nocturna", 110],
@@ -396,7 +439,7 @@ const modos = [
           total: 320
         },
         {
-          nombre: "Recomendada — + histórico de entregas",
+          nombre: "Inteligente — + histórico de entregas",
           destacada: true,
           items: [
             ["Cámara IP de entrada con visión nocturna", 140],
@@ -415,6 +458,7 @@ const modos = [
     imagen: "/img/hero-bloques/ia-monitorizacion.jpg",
     numero: 10,
     nombre: "Seguridad IA",
+    titular: "Que una cámara no solo grabe: que entienda lo que ocurre",
     subtitulo: "Detección de personas y vehículos, sin falsas alarmas",
     icono: "ai",
     resumen:
@@ -431,7 +475,7 @@ const modos = [
         imagenAntes: "/img/trabajos/naves-seguridad-ia-antes.jpg",
         opciones: [
           {
-            nombre: "Básica — perímetro con 4 cámaras",
+            nombre: "Esencial — perímetro con 4 cámaras",
             destacada: false,
             items: [
               ["Instalación y cableado (4 cámaras, nave de hasta 500 m²)", 450],
@@ -443,7 +487,7 @@ const modos = [
             total: 1460
           },
           {
-            nombre: "Recomendada — 8 cámaras, cubre accesos y muelles",
+            nombre: "Inteligente — 8 cámaras, cubre accesos y muelles",
             destacada: true,
             items: [
               ["Instalación y cableado (8 cámaras)", 780],
@@ -455,7 +499,7 @@ const modos = [
             total: 2400
           },
           {
-            nombre: "Premium — con reanálisis de alarmas por IA",
+            nombre: "Completa — con reanálisis de alarmas por IA",
             destacada: false,
             items: [
               ["Instalación y cableado (8 cámaras + 2 térmicas perimetrales)", 950],
@@ -477,7 +521,7 @@ const modos = [
         imagenAntes: "/img/trabajos/monitor-ia-antes.jpg",
         opciones: [
           {
-            nombre: "Básica — 2 cámaras",
+            nombre: "Esencial — 2 cámaras",
             destacada: false,
             items: [
               ["Mano de obra y configuración del modelo de detección", 320],
@@ -487,7 +531,7 @@ const modos = [
             total: 860
           },
           {
-            nombre: "Recomendada — 4 cámaras + zonas personalizadas",
+            nombre: "Inteligente — 4 cámaras + zonas personalizadas",
             destacada: true,
             items: [
               ["Mano de obra y configuración", 420],
@@ -497,7 +541,7 @@ const modos = [
             total: 1330
           },
           {
-            nombre: "Premium — 6 cámaras + reconocimiento de personas habituales",
+            nombre: "Completa — 6 cámaras + reconocimiento de personas habituales",
             destacada: false,
             items: [
               ["Mano de obra y configuración avanzada", 520],
@@ -511,7 +555,7 @@ const modos = [
       }
     ],
     nota:
-      "Todas las opciones ya asumen que tienes instalado el Mini-PC IA Central (950 €, obligatorio) — no incluyen un mini-PC de grabación aparte. Excepción: la opción Premium de vivienda añade un servidor con GPU dedicada para reconocimiento facial en tiempo real, una carga que el mini-PC central no cubre. Cifras orientativas, a confirmar en visita técnica."
+      "Todas las opciones ya asumen que tienes instalado el Mini-PC IA Central (950 €, obligatorio) — no incluyen un mini-PC de grabación aparte. Excepción: la opción Completa de vivienda añade un servidor con GPU dedicada para reconocimiento facial en tiempo real, una carga que el mini-PC central no cubre. Cifras orientativas, a confirmar en visita técnica."
   }
 ];
 

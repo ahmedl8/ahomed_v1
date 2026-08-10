@@ -19,6 +19,7 @@
           <a href="/servicios/ia-predictiva">Plataforma IA Predictiva</a>
         </nav>
         <span class="eyebrow">Modo <%= modo.numero %> de 10 — <%= modo.subtitulo %></span>
+        <% if (modo.titular) { %><p class="hero-titular"><%= modo.titular %></p><% } %>
         <h1><%= modo.nombre %></h1>
         <p><%= modo.resumen %></p>
         <div class="service-meta">
@@ -54,7 +55,7 @@
         <div class="options-stack">
           <% modo.ejemplo.opciones.forEach(function(op){ %>
             <div class="option-card <%= op.destacada ? 'option-card-featured' : '' %>">
-              <% if (op.destacada) { %><span class="option-star">⭐ Recomendada</span><% } %>
+              <% if (op.destacada) { %><span class="option-star">⭐ Inteligente</span><% } %>
               <h3><%= op.nombre %></h3>
               <table class="option-table">
                 <tbody>

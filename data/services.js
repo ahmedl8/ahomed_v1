@@ -24,7 +24,7 @@ const services = [
       imagenAntes: "/img/trabajos/cuadro-electrico-antes.jpg",
       opciones: [
         {
-          nombre: "Básica",
+          nombre: "Esencial",
           destacada: false,
           items: [
             ["Mano de obra (aprox. 4 h)", 150],
@@ -36,7 +36,7 @@ const services = [
           total: 515
         },
         {
-          nombre: "Recomendada",
+          nombre: "Inteligente",
           destacada: true,
           items: [
             ["Mano de obra (aprox. 5 h)", 190],
@@ -48,7 +48,7 @@ const services = [
           total: 585
         },
         {
-          nombre: "Premium",
+          nombre: "Completa",
           destacada: false,
           items: [
             ["Mano de obra (aprox. 6 h)", 220],
@@ -75,7 +75,7 @@ const services = [
         imagen: "/img/trabajos/wallbox-despues.jpg",
         opciones: [
           {
-            nombre: "Básica — wallbox 7,4 kW, instalación corta (hasta 5 m)",
+            nombre: "Esencial — wallbox 7,4 kW, instalación corta (hasta 5 m)",
             destacada: false,
             items: [
               ["Mano de obra e instalación (hasta 5 m desde el cuadro)", 280],
@@ -86,7 +86,7 @@ const services = [
             total: 995
           },
           {
-            nombre: "Recomendada — wallbox conectada + gestión de carga ⭐",
+            nombre: "Inteligente — wallbox conectada + gestión de carga ⭐",
             destacada: true,
             items: [
               ["Mano de obra e instalación (hasta 8 m)", 340],
@@ -98,7 +98,7 @@ const services = [
             total: 1375
           },
           {
-            nombre: "Premium — wallbox trifásica 22 kW + gestión dinámica de potencia",
+            nombre: "Completa — wallbox trifásica 22 kW + gestión dinámica de potencia",
             destacada: false,
             items: [
               ["Mano de obra e instalación (hasta 10 m, línea trifásica)", 420],
@@ -167,7 +167,7 @@ const services = [
       imagenAntes: "/img/trabajos/persianas-antes.jpg",
         opciones: [
           {
-            nombre: "Básica — piso de 3 habitaciones",
+            nombre: "Esencial — piso de 3 habitaciones",
             destacada: false,
             items: [
               ["Mano de obra (instalación y configuración, 3 hab. + salón + cocina)", 480],
@@ -179,7 +179,7 @@ const services = [
             total: 1070
           },
           {
-            nombre: "Recomendada — con persianas y escenas ⭐",
+            nombre: "Inteligente — con persianas y escenas ⭐",
             destacada: true,
             items: [
               ["Mano de obra (instalación y configuración avanzada)", 620],
@@ -193,7 +193,7 @@ const services = [
             total: 1820
           },
           {
-            nombre: "Premium — control por voz + clima integrado",
+            nombre: "Completa — control por voz + clima integrado",
             destacada: false,
             items: [
               ["Mano de obra (instalación y configuración completa)", 780],
@@ -217,7 +217,7 @@ const services = [
       imagenAntes: "/img/trabajos/persianas-antes.jpg",
         opciones: [
           {
-            nombre: "Básica — 1 persiana, motor con mando",
+            nombre: "Esencial — 1 persiana, motor con mando",
             destacada: false,
             items: [
               ["Mano de obra (desmontaje persiana manual + instalación motor)", 120],
@@ -227,7 +227,7 @@ const services = [
             total: 345
           },
           {
-            nombre: "Recomendada — 1 persiana con control WiFi ⭐",
+            nombre: "Inteligente — 1 persiana con control WiFi ⭐",
             destacada: true,
             items: [
               ["Mano de obra", 140],
@@ -237,7 +237,7 @@ const services = [
             total: 465
           },
           {
-            nombre: "Premium — pack 4 persianas con escenas automáticas",
+            nombre: "Completa — pack 4 persianas con escenas automáticas",
             destacada: false,
             items: [
               ["Mano de obra (4 persianas)", 480],
@@ -257,7 +257,7 @@ const services = [
       imagenAntes: "/img/trabajos/riego-antes.jpg",
         opciones: [
           {
-            nombre: "Básica — 2 zonas de riego",
+            nombre: "Esencial — 2 zonas de riego",
             destacada: false,
             items: [
               ["Mano de obra e instalación (2 zonas, hasta 100 m²)", 220],
@@ -267,7 +267,7 @@ const services = [
             total: 500
           },
           {
-            nombre: "Recomendada — 4 zonas con control WiFi ⭐",
+            nombre: "Inteligente — 4 zonas con control WiFi ⭐",
             destacada: true,
             items: [
               ["Mano de obra e instalación (4 zonas, hasta 250 m²)", 380],
@@ -278,7 +278,7 @@ const services = [
             total: 940
           },
           {
-            nombre: "Premium — 6 zonas + sensor de humedad de suelo",
+            nombre: "Completa — 6 zonas + sensor de humedad de suelo",
             destacada: false,
             items: [
               ["Mano de obra e instalación (6 zonas, hasta 500 m²)", 520],
@@ -299,7 +299,7 @@ const services = [
       imagenAntes: "/img/trabajos/toldo-antes.jpg",
         opciones: [
           {
-            nombre: "Básica — motorizado con mando",
+            nombre: "Esencial — motorizado con mando",
             destacada: false,
             items: [
               ["Instalación y fijación (toldo de 4 x 3 m)", 180],
@@ -309,7 +309,7 @@ const services = [
             total: 620
           },
           {
-            nombre: "Recomendada — con control por app ⭐",
+            nombre: "Inteligente — con control por app ⭐",
             destacada: true,
             items: [
               ["Instalación y fijación", 200],
@@ -320,7 +320,7 @@ const services = [
             total: 805
           },
           {
-            nombre: "Premium — con sensor de viento y LED integrado",
+            nombre: "Completa — con sensor de viento y LED integrado",
             destacada: false,
             items: [
               ["Instalación y fijación", 220],
@@ -342,7 +342,7 @@ const services = [
       imagenAntes: "/img/trabajos/piscina-antes.jpg",
         opciones: [
           {
-            nombre: "Básica — programador de filtración",
+            nombre: "Esencial — programador de filtración",
             destacada: false,
             items: [
               ["Instalación y conexionado eléctrico", 180],
@@ -352,7 +352,7 @@ const services = [
             total: 460
           },
           {
-            nombre: "Recomendada — filtración + iluminación LED ⭐",
+            nombre: "Inteligente — filtración + iluminación LED ⭐",
             destacada: true,
             items: [
               ["Instalación y conexionado eléctrico", 220],
@@ -363,7 +363,7 @@ const services = [
             total: 690
           },
           {
-            nombre: "Premium — con sonda de calidad del agua",
+            nombre: "Completa — con sonda de calidad del agua",
             destacada: false,
             items: [
               ["Instalación y conexionado eléctrico", 260],
@@ -400,7 +400,7 @@ const services = [
       imagen: "/img/ia-predictiva/gestion-energia.jpg",
       opciones: [
         {
-          nombre: "Básica",
+          nombre: "Esencial",
           destacada: false,
           items: [
             ["Instalación y fijación", 90],
@@ -411,7 +411,7 @@ const services = [
           total: 510
         },
         {
-          nombre: "Recomendada",
+          nombre: "Inteligente",
           destacada: true,
           items: [
             ["Instalación y fijación con estructura reforzada", 110],
@@ -423,7 +423,7 @@ const services = [
           total: 605
         },
         {
-          nombre: "Premium — con batería portátil",
+          nombre: "Completa — con batería portátil",
           destacada: false,
           items: [
             ["Instalación y fijación con estructura reforzada", 130],
@@ -451,7 +451,7 @@ const services = [
       imagenAntes: "/img/trabajos/solar-tejado-antes.jpg",
         opciones: [
           {
-            nombre: "Básica — 4 paneles (1.600 W)",
+            nombre: "Esencial — 4 paneles (1.600 W)",
             destacada: false,
             items: [
               ["Instalación, estructura de tejado y cableado", 780],
@@ -464,7 +464,7 @@ const services = [
             total: 2830
           },
           {
-            nombre: "Recomendada — 6 paneles (2.400 W) + monitorización ⭐",
+            nombre: "Inteligente — 6 paneles (2.400 W) + monitorización ⭐",
             destacada: true,
             items: [
               ["Instalación, estructura de tejado y cableado", 980],
@@ -477,7 +477,7 @@ const services = [
             total: 3660
           },
           {
-            nombre: "Premium — 8 paneles (3.200 W) + batería",
+            nombre: "Completa — 8 paneles (3.200 W) + batería",
             destacada: false,
             items: [
               ["Instalación, estructura de tejado y cableado", 1180],
@@ -502,7 +502,7 @@ const services = [
     numero: 4,
     nombre: "Seguridad",
     icono: "shield",
-    resumen: "Cámaras, alarmas, videoportero y cerraduras inteligentes. Grabación local sin análisis por IA. Equipo propiedad del cliente desde el primer día, sin cuota de por vida.",
+    resumen: "Cámaras, alarmas, videoportero y cerraduras inteligentes. Graba en local, sin cuota mensual — para que además interprete lo que ve y avise por WhatsApp, añade Seguridad IA. Equipo propiedad del cliente desde el primer día.",
     tiempo: "Trabajo rápido",
     desde: 120,
     idealPara: [
@@ -517,7 +517,7 @@ const services = [
       imagenAntes: "/img/trabajos/videoportero-antes.jpg",
       opciones: [
         {
-          nombre: "Básica — inalámbrico, sin obra",
+          nombre: "Esencial — inalámbrico, sin obra",
           destacada: false,
           items: [
             ["Instalación y configuración", 45],
@@ -527,7 +527,7 @@ const services = [
           total: 145
         },
         {
-          nombre: "Recomendada — sobre cableado existente (2 hilos)",
+          nombre: "Inteligente — sobre cableado existente (2 hilos)",
           destacada: true,
           items: [
             ["Instalación y configuración", 75],
@@ -537,7 +537,7 @@ const services = [
           total: 235
         },
         {
-          nombre: "Premium — sistema IP con apertura remota",
+          nombre: "Completa — sistema IP con apertura remota",
           destacada: false,
           items: [
             ["Instalación y configuración avanzada", 100],
@@ -564,7 +564,7 @@ const services = [
       imagenAntes: "/img/trabajos/cerradura-antes.jpg",
         opciones: [
           {
-            nombre: "Básica — cerradura con teclado y app",
+            nombre: "Esencial — cerradura con teclado y app",
             destacada: false,
             items: [
               ["Instalación y configuración", 80],
@@ -574,7 +574,7 @@ const services = [
             total: 290
           },
           {
-            nombre: "Recomendada — con huella digital ⭐",
+            nombre: "Inteligente — con huella digital ⭐",
             destacada: true,
             items: [
               ["Instalación y configuración", 90],
@@ -584,7 +584,7 @@ const services = [
             total: 420
           },
           {
-            nombre: "Premium — integrada con videoportero y accesos temporales",
+            nombre: "Completa — integrada con videoportero y accesos temporales",
             destacada: false,
             items: [
               ["Instalación y configuración avanzada", 110],
@@ -599,13 +599,13 @@ const services = [
         nota: "Compatible con la mayoría de puertas europeas estándar; en puertas acorazadas o con cerradura especial se valora aparte tras revisión."
       },
       {
-        titulo: "CCTV cableado con grabación en mini-PC",
-        cliente: "Sistema de cámaras con cableado fijo (más fiable que WiFi) y grabación local, sin cuota mensual",
+        titulo: "Videovigilancia CCTV",
+        cliente: "Cámaras PoE cableadas (más fiables que WiFi) con grabación local, sin cuota mensual. Solo graba: si además quieres que la cámara entienda lo que ve y te avise por WhatsApp, mira Seguridad IA.",
       imagen: "/img/trabajos/camara-exterior-despues.jpg",
       imagenAntes: "/img/trabajos/camara-exterior-antes.jpg",
         opciones: [
           {
-            nombre: "Básica — 4 cámaras cableadas",
+            nombre: "Esencial — 4 cámaras cableadas",
             destacada: false,
             items: [
               ["Instalación y cableado (4 cámaras, hasta 30 m de tirada por cámara)", 380],
@@ -616,7 +616,7 @@ const services = [
             total: 1020
           },
           {
-            nombre: "Recomendada — 6 cámaras + acceso remoto ⭐",
+            nombre: "Inteligente — 6 cámaras + acceso remoto ⭐",
             destacada: true,
             items: [
               ["Instalación y cableado (6 cámaras)", 540],
@@ -628,7 +628,7 @@ const services = [
             total: 1570
           },
           {
-            nombre: "Premium — 8 cámaras + detección IA",
+            nombre: "Completa — 8 cámaras + detección IA",
             destacada: false,
             items: [
               ["Instalación y cableado (8 cámaras)", 720],
@@ -667,7 +667,7 @@ const services = [
       imagenAntes: "/img/trabajos/rack-comunicaciones-antes.jpg",
       opciones: [
         {
-          nombre: "Básica",
+          nombre: "Esencial",
           destacada: false,
           items: [
             ["Instalación y configuración", 60],
@@ -677,7 +677,7 @@ const services = [
           total: 210
         },
         {
-          nombre: "Recomendada — con redes separadas",
+          nombre: "Inteligente — con redes separadas",
           destacada: true,
           items: [
             ["Instalación y configuración avanzada (red de invitados y red de domótica separadas)", 85],
@@ -687,7 +687,7 @@ const services = [
           total: 310
         },
         {
-          nombre: "Premium — con copia de seguridad automática",
+          nombre: "Completa — con copia de seguridad automática",
           destacada: false,
           items: [
             ["Instalación y configuración avanzada", 110],
@@ -715,7 +715,7 @@ const services = [
       imagenAntes: "/img/trabajos/rack-comunicaciones-antes.jpg",
         opciones: [
           {
-            nombre: "Básica — armario compacto de superficie",
+            nombre: "Esencial — armario compacto de superficie",
             destacada: false,
             items: [
               ["Instalación de armario y orden de cableado existente", 140],
@@ -726,7 +726,7 @@ const services = [
             total: 320
           },
           {
-            nombre: "Recomendada — rack empotrado + 4 tomas nuevas ⭐",
+            nombre: "Inteligente — rack empotrado + 4 tomas nuevas ⭐",
             destacada: true,
             items: [
               ["Instalación de armario empotrado y cableado a 4 tomas", 260],
@@ -738,7 +738,7 @@ const services = [
             total: 620
           },
           {
-            nombre: "Premium — con ONT, patch panel y router en rack",
+            nombre: "Completa — con ONT, patch panel y router en rack",
             destacada: false,
             items: [
               ["Instalación de armario empotrado y cableado a 6 tomas", 320],
@@ -778,7 +778,7 @@ const services = [
       imagenAntes: "/img/trabajos/aire-acondicionado-antes.jpg",
       opciones: [
         {
-          nombre: "Básica",
+          nombre: "Esencial",
           destacada: false,
           items: [
             ["Mano de obra e instalación (hasta 3 m de distancia)", 220],
@@ -788,7 +788,7 @@ const services = [
           total: 640
         },
         {
-          nombre: "Recomendada",
+          nombre: "Inteligente",
           destacada: true,
           items: [
             ["Mano de obra e instalación", 250],
@@ -798,7 +798,7 @@ const services = [
           total: 945
         },
         {
-          nombre: "Premium — alta eficiencia con WiFi",
+          nombre: "Completa — alta eficiencia con WiFi",
           destacada: false,
           items: [
             ["Mano de obra e instalación", 280],
@@ -820,7 +820,7 @@ const services = [
       imagen: "/img/trabajos/climatizacion-multisplit-despues.jpg",
         opciones: [
           {
-            nombre: "Básica — multisplit 2x1 (2 estancias)",
+            nombre: "Esencial — multisplit 2x1 (2 estancias)",
             destacada: false,
             items: [
               ["Mano de obra e instalación (unidad exterior + 2 interiores)", 620],
@@ -832,7 +832,7 @@ const services = [
             total: 2380
           },
           {
-            nombre: "Recomendada — multisplit 3x1 (3 estancias) ⭐",
+            nombre: "Inteligente — multisplit 3x1 (3 estancias) ⭐",
             destacada: true,
             items: [
               ["Mano de obra e instalación (unidad exterior + 3 interiores)", 850],
@@ -844,7 +844,7 @@ const services = [
             total: 3630
           },
           {
-            nombre: "Premium — multisplit 4x1 con control WiFi por zona",
+            nombre: "Completa — multisplit 4x1 con control WiFi por zona",
             destacada: false,
             items: [
               ["Mano de obra e instalación (unidad exterior + 4 interiores)", 1080],
@@ -856,7 +856,7 @@ const services = [
             total: 5250
           }
         ],
-        nota: "El presupuesto final depende del número de estancias, distancias entre unidad exterior e interiores, y accesibilidad de la fachada. La opción Premium usa equipo A+++ de gama alta con control WiFi por zona; se recomienda confirmar el margen con el proveedor de equipos antes de publicitar el precio cerrado."
+        nota: "El presupuesto final depende del número de estancias, distancias entre unidad exterior e interiores, y accesibilidad de la fachada. La opción Completa usa equipo A+++ de gama alta con control WiFi por zona; se recomienda confirmar el margen con el proveedor de equipos antes de publicitar el precio cerrado."
       }
     ]
   },
@@ -877,7 +877,7 @@ const services = [
       imagen: "/img/trabajos/antenas-despues.jpg",
       opciones: [
         {
-          nombre: "Básica — 1 toma de TV",
+          nombre: "Esencial — 1 toma de TV",
           destacada: false,
           items: [
             ["Instalación, orientación y configuración", 70],
@@ -887,7 +887,7 @@ const services = [
           total: 150
         },
         {
-          nombre: "Recomendada — señal a varias TVs (hasta 3 tomas)",
+          nombre: "Inteligente — señal a varias TVs (hasta 3 tomas)",
           destacada: true,
           items: [
             ["Instalación, orientación y configuración", 95],
@@ -908,7 +908,7 @@ const services = [
         imagen: "/img/trabajos/antena-tdt-comunitaria-despues.jpg",
         opciones: [
           {
-            nombre: "Básica — hasta 8 viviendas",
+            nombre: "Esencial — hasta 8 viviendas",
             destacada: false,
             items: [
               ["Mano de obra (instalación en cubierta y revisión de bajantes)", 320],
@@ -919,7 +919,7 @@ const services = [
             total: 860
           },
           {
-            nombre: "Recomendada — hasta 15 viviendas, con refuerzo de señal ⭐",
+            nombre: "Inteligente — hasta 15 viviendas, con refuerzo de señal ⭐",
             destacada: true,
             items: [
               ["Mano de obra (instalación y revisión completa de bajantes)", 420],
@@ -931,7 +931,7 @@ const services = [
             total: 1280
           },
           {
-            nombre: "Premium — más de 15 viviendas, con certificado de instalación",
+            nombre: "Completa — más de 15 viviendas, con certificado de instalación",
             destacada: false,
             items: [
               ["Mano de obra (instalación y revisión completa)", 560],
@@ -970,7 +970,7 @@ const services = [
       imagenAntes: "/img/trabajos/bano-reforma-antes.jpg",
       opciones: [
         {
-          nombre: "Básica",
+          nombre: "Esencial",
           destacada: false,
           items: [
             ["Mano de obra pintura (paredes y techo, aprox. 15 m²)", 120],
@@ -982,7 +982,7 @@ const services = [
           total: 510
         },
         {
-          nombre: "Recomendada",
+          nombre: "Inteligente",
           destacada: true,
           items: [
             ["Mano de obra pintura (paredes y techo, aprox. 15 m²)", 120],
@@ -1012,7 +1012,7 @@ const services = [
       imagenAntes: "/img/trabajos/pintura-reforma-antes.jpg",
         opciones: [
           {
-            nombre: "Básica — piso de 80 m², un solo color",
+            nombre: "Esencial — piso de 80 m², un solo color",
             destacada: false,
             items: [
               ["Mano de obra (paredes y techos, 80 m² aprox.)", 620],
@@ -1022,7 +1022,7 @@ const services = [
             total: 970
           },
           {
-            nombre: "Recomendada — con reparación de grietas y varios colores ⭐",
+            nombre: "Inteligente — con reparación de grietas y varios colores ⭐",
             destacada: true,
             items: [
               ["Mano de obra (paredes y techos, incluye preparación de superficie)", 760],
@@ -1033,7 +1033,7 @@ const services = [
             total: 1320
           },
           {
-            nombre: "Premium — pintura antihumedad + techos con acabado especial",
+            nombre: "Completa — pintura antihumedad + techos con acabado especial",
             destacada: false,
             items: [
               ["Mano de obra completa (paredes, techos y reparaciones)", 920],
@@ -1055,7 +1055,7 @@ const services = [
       imagenAntes: "/img/trabajos/bano-reforma-antes.jpg",
         opciones: [
           {
-            nombre: "Básica — 12 m², azulejo estándar",
+            nombre: "Esencial — 12 m², azulejo estándar",
             destacada: false,
             items: [
               ["Mano de obra (retirada de azulejo antiguo + alicatado, 12 m²)", 420],
@@ -1065,7 +1065,7 @@ const services = [
             total: 670
           },
           {
-            nombre: "Recomendada — con rodapié y juntas antimoho ⭐",
+            nombre: "Inteligente — con rodapié y juntas antimoho ⭐",
             destacada: true,
             items: [
               ["Mano de obra (retirada + alicatado, 12 m²)", 480],
@@ -1077,7 +1077,7 @@ const services = [
             total: 910
           },
           {
-            nombre: "Premium — con nivelación de suelo y azulejo gran formato",
+            nombre: "Completa — con nivelación de suelo y azulejo gran formato",
             destacada: false,
             items: [
               ["Mano de obra (retirada, nivelación y alicatado, 12 m²)", 580],
@@ -1099,7 +1099,7 @@ const services = [
       imagenAntes: "/img/trabajos/cocina-reforma-antes.jpg",
         opciones: [
           {
-            nombre: "Básica — módulos bajos y altos (hasta 4 m lineales)",
+            nombre: "Esencial — módulos bajos y altos (hasta 4 m lineales)",
             destacada: false,
             items: [
               ["Mano de obra (montaje de muebles bajos y altos)", 280],
@@ -1109,7 +1109,7 @@ const services = [
             total: 395
           },
           {
-            nombre: "Recomendada — con encimera y conexión de fregadero ⭐",
+            nombre: "Inteligente — con encimera y conexión de fregadero ⭐",
             destacada: true,
             items: [
               ["Mano de obra (montaje completo)", 340],
@@ -1120,7 +1120,7 @@ const services = [
             total: 620
           },
           {
-            nombre: "Premium — con instalación de electrodomésticos",
+            nombre: "Completa — con instalación de electrodomésticos",
             destacada: false,
             items: [
               ["Mano de obra (montaje completo)", 380],
@@ -1142,7 +1142,7 @@ const services = [
       imagenAntes: "/img/trabajos/cocina-reforma-antes.jpg",
         opciones: [
           {
-            nombre: "Básica — muebles y encimera, sin cambiar distribución",
+            nombre: "Esencial — muebles y encimera, sin cambiar distribución",
             destacada: false,
             items: [
               ["Mano de obra (desmontaje, instalación de muebles y encimera)", 780],
@@ -1154,7 +1154,7 @@ const services = [
             total: 3000
           },
           {
-            nombre: "Recomendada — con cambio de distribución e isla ⭐",
+            nombre: "Inteligente — con cambio de distribución e isla ⭐",
             destacada: true,
             items: [
               ["Mano de obra (demolición parcial, nueva distribución, isla)", 1350],
@@ -1167,7 +1167,7 @@ const services = [
             total: 5220
           },
           {
-            nombre: "Premium — con electrodomésticos integrados",
+            nombre: "Completa — con electrodomésticos integrados",
             destacada: false,
             items: [
               ["Mano de obra (demolición parcial, nueva distribución, isla)", 1450],
@@ -1203,7 +1203,7 @@ const services = [
       imagenAntes: "/img/trabajos/bano-reforma-antes.jpg",
       opciones: [
         {
-          nombre: "Básica — grifería",
+          nombre: "Esencial — grifería",
           destacada: false,
           items: [
             ["Mano de obra (cambio de 2 grifos: lavabo y ducha)", 90],
@@ -1214,7 +1214,7 @@ const services = [
           total: 230
         },
         {
-          nombre: "Recomendada — grifería + inodoro",
+          nombre: "Inteligente — grifería + inodoro",
           destacada: true,
           items: [
             ["Mano de obra (grifería + sustitución de inodoro)", 180],
@@ -1226,7 +1226,7 @@ const services = [
           total: 510
         },
         {
-          nombre: "Premium — baño completo (sin obra de alicatado)",
+          nombre: "Completa — baño completo (sin obra de alicatado)",
           destacada: false,
           items: [
             ["Mano de obra completa (grifería, inodoro, lavabo)", 260],
@@ -1260,7 +1260,7 @@ const services = [
       imagen: "/img/trabajos/pladur-techo-despues.jpg",
       opciones: [
         {
-          nombre: "Básica — techo liso",
+          nombre: "Esencial — techo liso",
           destacada: false,
           items: [
             ["Mano de obra (estructura y placas, 18 m²)", 380],
@@ -1271,7 +1271,7 @@ const services = [
           total: 695
         },
         {
-          nombre: "Recomendada — con foseado perimetral para LED",
+          nombre: "Inteligente — con foseado perimetral para LED",
           destacada: true,
           items: [
             ["Mano de obra (estructura, foseado y placas, 18 m²)", 460],
@@ -1283,7 +1283,7 @@ const services = [
           total: 885
         },
         {
-          nombre: "Premium — con downlights y regulación por app",
+          nombre: "Completa — con downlights y regulación por app",
           destacada: false,
           items: [
             ["Mano de obra (estructura, foseado y placas, 18 m²)", 480],
@@ -1308,7 +1308,7 @@ const services = [
       imagenAntes: "/img/trabajos/reforma-general-antes.jpg",
         opciones: [
           {
-            nombre: "Básica — tabique simple, 10 m²",
+            nombre: "Esencial — tabique simple, 10 m²",
             destacada: false,
             items: [
               ["Mano de obra (estructura y placas, 10 m²)", 240],
@@ -1319,7 +1319,7 @@ const services = [
             total: 435
           },
           {
-            nombre: "Recomendada — con aislamiento acústico ⭐",
+            nombre: "Inteligente — con aislamiento acústico ⭐",
             destacada: true,
             items: [
               ["Mano de obra (estructura y placas, 10 m²)", 280],
@@ -1331,7 +1331,7 @@ const services = [
             total: 560
           },
           {
-            nombre: "Premium — con puerta integrada y acabado listo para pintar",
+            nombre: "Completa — con puerta integrada y acabado listo para pintar",
             destacada: false,
             items: [
               ["Mano de obra (estructura, placas y hueco de puerta, 10 m²)", 340],
@@ -1369,21 +1369,21 @@ const services = [
       imagen: "/img/trabajos/mantenimiento-despues.jpg",
       opciones: [
         {
-          nombre: "Básica — revisión anual",
+          nombre: "Esencial — revisión anual",
           destacada: false,
           items: [["1 visita de revisión anual (dispositivos, batería de sensores, actualización de apps)", 90]],
           total: 90,
           totalUnidad: "€/año"
         },
         {
-          nombre: "Recomendada — revisión + 2 incidencias incluidas",
+          nombre: "Inteligente — revisión + 2 incidencias incluidas",
           destacada: true,
           items: [["1 visita de revisión anual + hasta 2 incidencias menores incluidas (sin coste de desplazamiento)", 180]],
           total: 180,
           totalUnidad: "€/año"
         },
         {
-          nombre: "Premium — mensual con atención prioritaria",
+          nombre: "Completa — mensual con atención prioritaria",
           destacada: false,
           items: [["Revisión trimestral + incidencias ilimitadas (solo material aparte) + respuesta prioritaria en menos de 2 h", 35]],
           total: 35,
@@ -1408,7 +1408,7 @@ const packs = [
     imagenAlt: "Cuadro eléctrico renovado — Pack Piso Nuevo AHOMED",
     opciones: [
       {
-        nombre: "Básica",
+        nombre: "Esencial",
         destacada: false,
         items: [
           ["Cuadro eléctrico nuevo + boletín eléctrico (CIE)", 520],
@@ -1418,7 +1418,7 @@ const packs = [
         total: 1105
       },
       {
-        nombre: "Recomendada — con domótica y LED ⭐",
+        nombre: "Inteligente — con domótica y LED ⭐",
         destacada: true,
         items: [
           ["Cuadro eléctrico nuevo + boletín eléctrico (CIE)", 520],
@@ -1430,7 +1430,7 @@ const packs = [
         total: 1560
       },
       {
-        nombre: "Premium — con cerradura y cámara exterior",
+        nombre: "Completa — con cerradura y cámara exterior",
         destacada: false,
         items: [
           ["Cuadro eléctrico nuevo + boletín eléctrico (CIE)", 520],
@@ -1454,7 +1454,7 @@ const packs = [
     imagenAlt: "Cámara IP exterior instalada — Pack Chalet Seguro AHOMED",
     opciones: [
       {
-        nombre: "Básica — 4 cámaras + cerradura",
+        nombre: "Esencial — 4 cámaras + cerradura",
         destacada: false,
         items: [
           ["4 cámaras IP cableadas con visión nocturna", 340],
@@ -1466,7 +1466,7 @@ const packs = [
         total: 1530
       },
       {
-        nombre: "Recomendada — con detección de movimiento y alertas ⭐",
+        nombre: "Inteligente — con detección de movimiento y alertas ⭐",
         destacada: true,
         items: [
           ["6 cámaras IP cableadas con visión nocturna", 510],
@@ -1479,7 +1479,7 @@ const packs = [
         total: 2180
       },
       {
-        nombre: "Premium — con IA local: alertas solo cuando importa",
+        nombre: "Completa — con IA local: alertas solo cuando importa",
         destacada: false,
         items: [
           ["6 cámaras IP cableadas con visión nocturna", 510],
@@ -1503,7 +1503,7 @@ const packs = [
     imagenAlt: "Seguridad con IA en nave industrial — Pack Negocio AHOMED",
     opciones: [
       {
-        nombre: "Básica — 4 cámaras con detección IA",
+        nombre: "Esencial — 4 cámaras con detección IA",
         destacada: false,
         items: [
           ["4 cámaras IP (perímetro y accesos)", 340],
@@ -1515,7 +1515,7 @@ const packs = [
         total: 1470
       },
       {
-        nombre: "Recomendada — 6 cámaras + dashboard ⭐",
+        nombre: "Inteligente — 6 cámaras + dashboard ⭐",
         destacada: true,
         items: [
           ["6 cámaras IP (perímetro, accesos y zona de carga)", 510],
@@ -1528,7 +1528,7 @@ const packs = [
         total: 2410
       },
       {
-        nombre: "Premium — 8 cámaras + CCTV cableado + IA avanzada",
+        nombre: "Completa — 8 cámaras + CCTV cableado + IA avanzada",
         destacada: false,
         items: [
           ["8 cámaras IP (cobertura total del perímetro)", 680],
@@ -1554,7 +1554,7 @@ const ventajas = [
 
 const comoFunciona = [
   "Visita técnica gratuita en tu domicilio o negocio.",
-  "Presupuesto cerrado con opción Básica, Recomendada y Premium.",
+  "Presupuesto cerrado con opción Esencial, Inteligente y Completa.",
   "Tú eliges. Sin compromiso, sin letra pequeña."
 ];
 

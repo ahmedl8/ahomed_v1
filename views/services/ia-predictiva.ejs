@@ -28,30 +28,33 @@
       <h2 class="sub-heading">1. Mini-PC IA Central — instalación base obligatoria</h2>
       <p><%= instalacionBase.resumen %></p>
 
-      <div class="options-stack">
-        <div class="option-card option-card-featured option-card-solo">
-          <span class="option-star">Instalación única</span>
-          <h3><%= instalacionBase.nombre %></h3>
-          <table class="option-table">
-            <tbody>
-              <% instalacionBase.items.forEach(function(item){ %>
+      <div class="options-stack options-stack-2">
+        <% instalacionBase.niveles.forEach(function(nivel, i){ %>
+          <div class="option-card <%= i === 1 ? 'option-card-featured' : '' %>">
+            <% if (i === 1) { %><span class="option-star"><%= nivel.subtitulo %></span><% } else { %><span class="option-star option-star-neutral"><%= nivel.subtitulo %></span><% } %>
+            <h3><%= nivel.nombre %></h3>
+            <p class="option-card-desc"><%= nivel.resumen %></p>
+            <table class="option-table">
+              <tbody>
+                <% nivel.items.forEach(function(item){ %>
+                  <tr>
+                    <td><%= item[0] %></td>
+                    <td class="option-price"><%= fmt(item[1]) %> €</td>
+                  </tr>
+                <% }) %>
+              </tbody>
+              <tfoot>
                 <tr>
-                  <td><%= item[0] %></td>
-                  <td class="option-price"><%= fmt(item[1]) %> €</td>
+                  <td>TOTAL — <%= nivel.nombre %></td>
+                  <td class="option-price option-total"><%= fmt(nivel.total) %> €</td>
                 </tr>
-              <% }) %>
-            </tbody>
-            <tfoot>
-              <tr>
-                <td>TOTAL — Mini-PC IA Central</td>
-                <td class="option-price option-total"><%= fmt(instalacionBase.total) %> €</td>
-              </tr>
-            </tfoot>
-          </table>
-        </div>
+              </tfoot>
+            </table>
+          </div>
+        <% }) %>
       </div>
 
-      <p class="example-note">Es obligatoria para cualquier modo de esta página, incluida Seguridad IA. Ya no se ofrece la opción de instalar un modo "solo, con equipo propio" ni Raspberry Pi como cerebro central.</p>
+      <p class="example-note">Es obligatorio para cualquier modo de esta página, incluida Seguridad IA. Ya no se ofrece la opción de instalar un modo "solo, con equipo propio" ni Raspberry Pi como cerebro central. El coste adicional de cada modo es el mismo en ambos niveles — la diferencia está solo en el Mini-PC.</p>
     </div>
   </section>
 
@@ -59,14 +62,21 @@
   <section class="section section-alt" id="calculadora">
     <div class="container">
       <h2 class="sub-heading">2. Configura tu Plataforma IA</h2>
-      <p>Marca los modos que te interesan y mira el total en vivo. El Mini-PC IA Central (950 €) ya está incluido siempre — es la base obligatoria.</p>
+      <p>Elige el Mini-PC según cuántos servicios te interesan, marca los modos y mira el total en vivo.</p>
 
-      <div class="calc-wrap" data-wa="<%= empresa.whatsapp %>" data-base="<%= instalacionBase.total %>">
+      <div class="calc-wrap" data-wa="<%= empresa.whatsapp %>">
+        <div class="calc-niveles">
+          <% instalacionBase.niveles.forEach(function(nivel, i){ %>
+            <label class="calc-nivel-card">
+              <input type="radio" name="calc-nivel" class="calc-nivel-radio" value="<%= nivel.total %>" data-nombre="<%= nivel.nombre %>" <%= i === 0 ? 'checked' : '' %>>
+              <span class="calc-nivel-title"><%= nivel.nombre %> <span class="calc-nivel-price"><%= fmt(nivel.total) %> €</span></span>
+              <span class="calc-nivel-sub"><%= nivel.subtitulo %></span>
+            </label>
+          <% }) %>
+        </div>
+        <p class="calc-nivel-hint" id="calc-nivel-hint"></p>
+
         <div class="calc-modos">
-          <div class="calc-item calc-item-base">
-            <span class="calc-item-name">Mini-PC IA Central <em>(obligatorio)</em></span>
-            <span class="calc-item-price"><%= fmt(instalacionBase.total) %> €</span>
-          </div>
           <% modos.forEach(function(m){ %>
             <label class="calc-item">
               <span class="calc-item-check"><input type="checkbox" class="calc-check" data-precio="<%= m.esProyecto ? 860 : m.precioIncremento %>" data-nombre="<%= m.nombre %>"><span class="calc-item-name"><%= m.numero %>. <%= m.nombre %><% if (m.esProyecto) { %> <em>(desde, proyecto a medida)</em><% } %></span></span>
@@ -77,9 +87,9 @@
 
         <div class="calc-summary">
           <h3>Tu presupuesto orientativo</h3>
-          <div class="calc-total-row"><span>Base obligatoria</span><span id="calc-base"><%= fmt(instalacionBase.total) %> €</span></div>
+          <div class="calc-total-row"><span id="calc-base-label">Mini-PC IA Central</span><span id="calc-base"><%= fmt(instalacionBase.niveles[0].total) %> €</span></div>
           <div class="calc-total-row"><span>Modos seleccionados</span><span id="calc-extra">+0 €</span></div>
-          <div class="calc-total-row calc-total-final"><span>Total estimado</span><span id="calc-total"><%= fmt(instalacionBase.total) %> €</span></div>
+          <div class="calc-total-row calc-total-final"><span>Total estimado</span><span id="calc-total"><%= fmt(instalacionBase.niveles[0].total) %> €</span></div>
           <a href="#" id="calc-whatsapp" target="_blank" rel="noopener" class="btn btn-whatsapp btn-lg calc-cta">Enviar por WhatsApp</a>
           <p class="calc-disclaimer">Estimación orientativa. El precio definitivo se confirma tras la visita técnica gratuita. Seguridad IA se cotiza con su ejemplo más económico — el precio real depende del número de cámaras.</p>
         </div>
@@ -96,6 +106,7 @@
         <% modos.forEach(function(m){ %>
           <a href="/servicios/ia-predictiva/<%= m.slug %>" class="service-card service-card-ia-modo<%= m.esProyecto ? ' service-card-ai' : '' %>">
             <% if (m.esProyecto) { %><div class="service-badge">Servicio exclusivo</div><% } %>
+            <% if (m.titular) { %><p class="card-titular"><%= m.titular %></p><% } %>
             <h3><%= m.numero %>. <%= m.nombre %></h3>
             <p><%= m.esProyecto ? m.subtitulo : m.resumen %></p>
             <div class="service-card-footer">

@@ -42,6 +42,7 @@
           <% modosIA.forEach(function(m){ %>
             <a href="/servicios/ia-predictiva/<%= m.slug %>" class="service-card service-card-ia-modo<%= m.esProyecto ? ' service-card-ai' : '' %>">
               <% if (m.esProyecto) { %><div class="service-badge">Servicio exclusivo</div><% } %>
+              <% if (m.titular) { %><p class="card-titular"><%= m.titular %></p><% } %>
               <h3><%= m.numero %>. <%= m.nombre %></h3>
               <p><%= m.esProyecto ? m.subtitulo : m.resumen %></p>
               <div class="service-card-footer">

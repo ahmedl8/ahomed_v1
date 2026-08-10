@@ -319,6 +319,7 @@ p { margin: 0; }
 .service-icon svg { width: 24px; height: 24px; fill: #fff; }
 
 .service-card h3 { font-size: 1.12rem; }
+.card-titular { font-size: 0.82rem; font-weight: 700; color: var(--ai-accent); margin-bottom: 4px; }
 .service-card p { color: var(--gray-600); font-size: 0.9rem; flex-grow: 1; }
 
 .service-card-footer { display: flex; align-items: center; justify-content: space-between; margin-top: 8px; padding-top: 14px; border-top: 1px dashed var(--line); }
@@ -581,6 +582,7 @@ p { margin: 0; }
 }
 .service-hero-icon svg { width: 38px; height: 38px; fill: #7dd3fc; }
 .service-hero h1 { font-size: 2rem; margin: 6px 0 10px; }
+.hero-titular { font-size: 1.15rem; font-weight: 600; color: #a78bfa; margin: 4px 0 0; }
 .service-hero p { color: #c7cbd1; max-width: 620px; margin-bottom: 14px; }
 .service-hero .meta-chip { background: rgba(255,255,255,0.1); color: #fff; }
 .service-hero .meta-chip-price { background: #7dd3fc; color: var(--ink); }
@@ -625,6 +627,12 @@ p { margin: 0; }
   font-size: 0.72rem; font-weight: 800;
   padding: 4px 10px; border-radius: 999px;
 }
+.option-star-neutral { background: var(--gray-500); }
+.option-card-desc { font-size: 0.85rem; color: var(--gray-600); margin: 8px 0 14px; }
+.options-stack-2 { grid-template-columns: repeat(2, 1fr); }
+@media (max-width: 720px) {
+  .options-stack-2 { grid-template-columns: 1fr; }
+}
 .option-card h3 { font-size: 1.02rem; margin-bottom: 12px; }
 .option-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
 .option-table td { padding: 7px 0; border-bottom: 1px dashed var(--line); color: var(--charcoal); vertical-align: top; }
@@ -633,6 +641,30 @@ p { margin: 0; }
 .option-total { font-size: 1.05rem; }
 
 /* ---------- Calculadora de la Plataforma IA ---------- */
+.calc-niveles {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-bottom: 6px;
+}
+.calc-nivel-card {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 14px 16px;
+  background: #fff;
+  border: 1.5px solid var(--line);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+.calc-nivel-card:has(.calc-nivel-radio:checked) { border-color: var(--ai-accent); box-shadow: 0 0 0 3px var(--ai-accent-soft); }
+.calc-nivel-radio { position: absolute; opacity: 0; pointer-events: none; }
+.calc-nivel-title { font-weight: 800; font-size: 0.98rem; display: flex; justify-content: space-between; gap: 8px; }
+.calc-nivel-price { color: var(--ai-accent); }
+.calc-nivel-sub { font-size: 0.8rem; color: var(--gray-500); }
+.calc-nivel-hint { font-size: 0.82rem; color: var(--gray-600); font-style: italic; margin: 0 0 18px; }
+
 .calc-wrap {
   display: grid;
   grid-template-columns: 1fr 320px;
@@ -682,6 +714,7 @@ p { margin: 0; }
 @media (max-width: 860px) {
   .calc-wrap { grid-template-columns: 1fr; }
   .calc-modos { grid-template-columns: 1fr; }
+  .calc-niveles { grid-template-columns: 1fr; }
   .calc-summary { position: static; }
 }
 

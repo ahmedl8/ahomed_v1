@@ -17,6 +17,7 @@
           <a href="/servicios/ia-predictiva">Plataforma IA Predictiva</a>
         </nav>
         <span class="eyebrow">Modo 10 de 10 — <%= modo.subtitulo %></span>
+        <% if (modo.titular) { %><p class="hero-titular"><%= modo.titular %></p><% } %>
         <h1><%= modo.nombre %></h1>
         <p><%= modo.resumen %></p>
         <a href="https://wa.me/34<%= empresa.whatsapp %>?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Seguridad%20IA" target="_blank" rel="noopener" class="btn btn-whatsapp cta-block">
@@ -54,7 +55,7 @@
           <div class="options-stack options-stack-3">
             <% ej.opciones.forEach(function(op){ %>
               <div class="option-card <%= op.destacada ? 'option-card-featured' : '' %>">
-                <% if (op.destacada) { %><span class="option-star">⭐ Recomendada</span><% } %>
+                <% if (op.destacada) { %><span class="option-star">⭐ Inteligente</span><% } %>
                 <h3><%= op.nombre %></h3>
                 <table class="option-table">
                   <tbody>

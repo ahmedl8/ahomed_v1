@@ -29,8 +29,18 @@
         <div class="bloques-grid-group">
           <span class="bloques-grid-label bloques-grid-label-ia">Exclusivos · con IA</span>
           <div class="bloques-grid">
-            <% bloques.filter(function(b){ return b.grupo !== 'basico'; }).forEach(function(b){ %>
-              <a href="#bloque-<%= b.slug %>" class="bloque-chip <%= b.grupo === 'exclusivo' ? 'bloque-chip-ia' : '' %>">
+            <% bloques.filter(function(b){ return b.grupo === 'exclusivo'; }).forEach(function(b){ %>
+              <a href="#bloque-<%= b.slug %>" class="bloque-chip bloque-chip-ia">
+                <span><%= b.nombre %></span>
+              </a>
+            <% }) %>
+          </div>
+        </div>
+        <div class="bloques-grid-group">
+          <span class="bloques-grid-label">Transversal</span>
+          <div class="bloques-grid">
+            <% bloques.filter(function(b){ return b.grupo === 'general'; }).forEach(function(b){ %>
+              <a href="#bloque-<%= b.slug %>" class="bloque-chip">
                 <span><%= b.nombre %></span>
               </a>
             <% }) %>
@@ -40,7 +50,52 @@
     </div>
   </section>
 
-  <% bloques.forEach(function(b){ %>
+  <section class="section-group-header" id="grupo-basicos">
+    <div class="container">
+      <span class="section-group-eyebrow">🔧 Básicos</span>
+      <h2 class="section-group-title">Servicios sin IA</h2>
+      <p class="section-group-desc">Instalaciones tradicionales: electricidad, domótica de control por app, seguridad con grabación local, reformas y climatización. Precio cerrado, sin sorpresas.</p>
+    </div>
+  </section>
+
+  <% bloques.filter(function(b){ return b.grupo === 'basico'; }).forEach(function(b){ %>
+    <section class="section" id="bloque-<%= b.slug %>">
+      <div class="container">
+        <div class="bloque-header">
+          <div>
+            <h2><%= b.nombre %></h2>
+            <p><%= b.resumen %></p>
+          </div>
+        </div>
+
+        <div class="services-grid services-grid-full">
+          <% services.filter(function(s){ return s.bloque === b.slug; }).forEach(function(s){ %>
+            <a href="/servicios/<%= s.slug %>" class="service-card">
+              <h3><%= s.numero %>. <%= s.nombre %></h3>
+              <p><%= s.resumen %></p>
+              <div class="service-meta">
+                <span class="meta-chip"><%= s.tiempo %></span>
+              </div>
+              <div class="service-card-footer">
+                <span class="price-tag">Desde <%= fmt(s.desde) %> €<%= s.desdeUnidad || '' %></span>
+                <span class="link-arrow">Ver detalle →</span>
+              </div>
+            </a>
+          <% }) %>
+        </div>
+      </div>
+    </section>
+  <% }) %>
+
+  <section class="section-group-header section-group-header-ia" id="grupo-exclusivos">
+    <div class="container">
+      <span class="section-group-eyebrow">🧠 Exclusivos</span>
+      <h2 class="section-group-title">Con Inteligencia Artificial</h2>
+      <p class="section-group-desc">Un mismo Mini-PC IA Central hace de cerebro para todos estos servicios: analiza cámaras, cruza datos de clima y presencia, y avisa por WhatsApp solo cuando de verdad importa. Sin cuota mensual, todo el procesamiento en tu casa.</p>
+    </div>
+  </section>
+
+  <% bloques.filter(function(b){ return b.grupo === 'exclusivo'; }).forEach(function(b){ %>
     <section class="section <%= b.slug === 'ia-predictiva' ? 'section-alt' : '' %>" id="bloque-<%= b.slug %>">
       <div class="container">
         <div class="bloque-header">
@@ -88,10 +143,40 @@
     </section>
   <% }) %>
 
+  <section class="section-group-header section-group-header-neutral" id="grupo-mantenimiento">
+    <div class="container">
+      <span class="section-group-eyebrow">🔧 Transversal</span>
+      <h2 class="section-group-title">Mantenimiento</h2>
+      <p class="section-group-desc">Para cualquier instalación AHOMED, básica o con IA: revisiones, incidencias y reentrenamiento del modelo cuando aplica.</p>
+    </div>
+  </section>
+
+  <% bloques.filter(function(b){ return b.slug === 'mantenimiento'; }).forEach(function(b){ %>
+    <section class="section" id="bloque-<%= b.slug %>">
+      <div class="container">
+        <div class="services-grid services-grid-full">
+          <% services.filter(function(s){ return s.bloque === b.slug; }).forEach(function(s){ %>
+            <a href="/servicios/<%= s.slug %>" class="service-card">
+              <h3><%= s.nombre %></h3>
+              <p><%= s.resumen %></p>
+              <div class="service-meta">
+                <span class="meta-chip"><%= s.tiempo %></span>
+              </div>
+              <div class="service-card-footer">
+                <span class="price-tag">Desde <%= fmt(s.desde) %> €<%= s.desdeUnidad || '' %></span>
+                <span class="link-arrow">Ver detalle →</span>
+              </div>
+            </a>
+          <% }) %>
+        </div>
+      </div>
+    </section>
+  <% }) %>
+
   <section class="section final-cta">
     <div class="container final-cta-inner">
       <h2>¿No encuentras el servicio?</h2>
-      <p>También realizamos electricidad, averías, domótica, WiFi y redes, CCTV e IA, pintura, pladur, fontanería, reformas, automatización — para empresas, comunidades, chalets y viviendas.</p>
+      <p>También realizamos electricidad, averías, domótica, WiFi y redes, pintura, pladur, fontanería y reformas — para empresas, comunidades, chalets y viviendas. Y si lo que buscas es que algo de esto piense por sí solo, lo resolvemos con IA local, sin cuota mensual.</p>
       <a href="https://wa.me/34<%= empresa.whatsapp %>?text=Hola%2C%20tengo%20una%20consulta" target="_blank" rel="noopener" class="btn btn-whatsapp btn-lg">Consultar por WhatsApp</a>
     </div>
   </section>

@@ -1497,6 +1497,7 @@ const packs = [
   {
     nombre: "Pack Negocio",
     slug: "negocio",
+    incluyeIA: true,
     descripcion: "Ideal para naves, almacenes, talleres y locales. IA que descarta falsas alarmas y te avisa por WhatsApp solo cuando hay algo real.",
     imagen: "/img/trabajos/naves-seguridad-ia-despues.jpg",
     imagenAntes: "/img/trabajos/naves-seguridad-ia-antes.jpg",

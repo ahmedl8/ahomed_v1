@@ -39,6 +39,7 @@
   <section class="section services-strip" id="servicios">
     <div class="container">
       <div class="section-head">
+        <span class="eyebrow">Instalaciones tradicionales</span>
         <h2>Básicos — trabajos sin IA</h2>
         <p>Se piden sueltos, sin ningún equipo obligatorio de por medio</p>
       </div>
@@ -58,13 +59,20 @@
     </div>
   </section>
 
+  <!-- PUENTE VISUAL ENTRE BÁSICOS Y EXCLUSIVOS -->
+  <div class="section-bridge">
+    <div class="section-bridge-line"></div>
+    <span class="section-bridge-text">Y si quieres que todo esto piense por sí solo…</span>
+    <div class="section-bridge-line"></div>
+  </div>
+
   <!-- EXCLUSIVOS · CON IA -->
   <section class="section section-exclusivos">
     <div class="container">
       <div class="section-head section-head-exclusivos">
         <span class="eyebrow">El gran diferenciador de AHOMED</span>
         <h2>Exclusivos — con Inteligencia Artificial</h2>
-        <p>Un único Mini-PC IA Central (950 €, se compra una vez) y diez modos a elegir. Cada uno es un coste adicional — no una instalación nueva desde cero.</p>
+        <p>Un Mini-PC IA Central (desde 590 €, según cuántos servicios quieras) y diez modos a elegir. Cada uno es un coste adicional — no una instalación nueva desde cero.</p>
       </div>
 
       <div class="ai-highlight-inner">
@@ -110,6 +118,7 @@
           <a href="/packs#<%= p.slug %>" class="pack-card pack-card-photo">
             <img src="<%= p.imagen %>" alt="<%= p.imagenAlt %>" loading="lazy" class="pack-card-img">
             <div class="pack-card-body">
+              <% if (p.incluyeIA) { %><span class="pack-ia-badge pack-ia-badge-sm">🧠 Incluye IA</span><% } %>
               <h3><%= p.nombre %></h3>
               <p class="pack-desc"><%= p.descripcion %></p>
               <div class="pack-footer">

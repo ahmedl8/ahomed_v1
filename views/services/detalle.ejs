@@ -103,26 +103,7 @@
 
                   <div class="options-stack">
                     <% ex.opciones.forEach(function(op){ %>
-                      <div class="option-card <%= op.destacada ? 'option-card-featured' : '' %>">
-                        <% if (op.destacada) { %><span class="option-star">⭐ Inteligente</span><% } %>
-                        <h3><%= op.nombre %></h3>
-                        <table class="option-table">
-                          <tbody>
-                            <% op.items.forEach(function(item){ %>
-                              <tr>
-                                <td><%= item[0] %></td>
-                                <td class="option-price"><%= fmt(item[1]) %> €</td>
-                              </tr>
-                            <% }) %>
-                          </tbody>
-                          <tfoot>
-                            <tr>
-                              <td>TOTAL</td>
-                              <td class="option-price option-total"><%= fmt(op.total) %> <%= op.totalUnidad || '€' %></td>
-                            </tr>
-                          </tfoot>
-                        </table>
-                      </div>
+                      <%- include('../partials/option-card', { op: op, fmt: fmt }) %>
                     <% }) %>
                   </div>
 
@@ -156,26 +137,7 @@
 
           <div class="options-stack">
             <% service.ejemplo.opciones.forEach(function(op){ %>
-              <div class="option-card <%= op.destacada ? 'option-card-featured' : '' %>">
-                <% if (op.destacada) { %><span class="option-star">⭐ Inteligente</span><% } %>
-                <h3><%= op.nombre %></h3>
-                <table class="option-table">
-                  <tbody>
-                    <% op.items.forEach(function(item){ %>
-                      <tr>
-                        <td><%= item[0] %></td>
-                        <td class="option-price"><%= fmt(item[1]) %> €</td>
-                      </tr>
-                    <% }) %>
-                  </tbody>
-                  <tfoot>
-                    <tr>
-                      <td>TOTAL</td>
-                      <td class="option-price option-total"><%= fmt(op.total) %> <%= op.totalUnidad || '€' %></td>
-                    </tr>
-                  </tfoot>
-                </table>
-              </div>
+              <%- include('../partials/option-card', { op: op, fmt: fmt }) %>
             <% }) %>
           </div>
 

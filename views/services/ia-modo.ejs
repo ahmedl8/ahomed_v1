@@ -44,6 +44,14 @@
           <p>Este modo cuesta <strong><%= fmt(modo.precioIncremento) %> €</strong> adicionales sobre el <a href="/servicios/ia-predictiva">Mini-PC IA Central (950 €, obligatorio)</a> — reutiliza el mismo mini-PC y el mismo motor Python que el resto de modos. Ya no se instala con equipo propio independiente.</p>
         </div>
 
+        <% if (modo.video) { %>
+          <div class="modo-video-wrap">
+            <video class="modo-video" controls preload="none" poster="<%= modo.imagen %>">
+              <source src="<%= modo.video %>" type="video/mp4">
+            </video>
+          </div>
+        <% } %>
+
         <a href="https://wa.me/34<%= empresa.whatsapp %>?text=<%= encodeURIComponent('Hola, quiero pedir presupuesto para ' + modo.nombre.toLowerCase()) %>" target="_blank" rel="noopener" class="btn btn-whatsapp btn-lg cta-block">
           Pedir presupuesto gratuito
         </a>

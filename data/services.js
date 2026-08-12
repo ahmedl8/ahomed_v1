@@ -1402,6 +1402,7 @@ const packs = [
   {
     nombre: "Pack Piso Nuevo",
     slug: "piso-nuevo",
+    publico: "casa",
     descripcion: "Ideal para estrenar piso o preparar un alquiler. Todo lo que necesitas para que funcione desde el primer día.",
     imagen: "/img/trabajos/cuadro-electrico-despues.jpg",
     imagenAntes: "/img/trabajos/cuadro-electrico-antes.jpg",
@@ -1430,7 +1431,7 @@ const packs = [
         total: 1560
       },
       {
-        nombre: "Completa — con cerradura y cámara exterior",
+        nombre: "Completa — con cerradura, cámara y Seguridad IA",
         destacada: false,
         items: [
           ["Cuadro eléctrico nuevo + boletín eléctrico (CIE)", 520],
@@ -1438,65 +1439,159 @@ const packs = [
           ["Videoportero inteligente", 300],
           ["Iluminación LED en salón y pasillo", 280],
           ["Cerradura inteligente con huella digital y app", 420],
-          ["Cámara IP exterior (entrada/puerta principal)", 280]
+          ["Cámara IP exterior (entrada/puerta principal)", 280],
+          ["Mini-PC IA START + Seguridad IA sobre la cámara ya instalada (detección de personas/vehículos, alertas WhatsApp)", 780]
         ],
-        total: 2180
+        total: 2960
       }
     ],
-    nota: "Precio orientativo; se ajusta tras la visita técnica gratuita según el estado del cuadro actual y la superficie de la vivienda."
+    nota: "Precio orientativo; se ajusta tras la visita técnica gratuita según el estado del cuadro actual y la superficie de la vivienda. La opción Completa incluye ya el Mini-PC IA Central (nivel START) — puede ampliarse después con cualquiera de los otros nueve modos de la Plataforma IA Predictiva."
   },
   {
     nombre: "Pack Chalet Seguro",
     slug: "chalet-seguro",
-    descripcion: "Ideal para chalets y segundas residencias. Tranquilidad total: sabrás en todo momento lo que pasa en tu propiedad.",
+    publico: "casa",
+    incluyeIA: true,
+    descripcion: "Ideal para chalets y segundas residencias. Tranquilidad total: sabrás en todo momento lo que pasa en tu propiedad, sin falsas alarmas.",
     imagen: "/img/trabajos/camara-exterior-despues.jpg",
     imagenAntes: "/img/trabajos/camara-exterior-antes.jpg",
     imagenAlt: "Cámara IP exterior instalada — Pack Chalet Seguro AHOMED",
     opciones: [
       {
-        nombre: "Esencial — 4 cámaras + cerradura",
+        nombre: "Esencial — 4 cámaras + cerradura + IA",
         destacada: false,
         items: [
           ["4 cámaras IP cableadas con visión nocturna", 340],
           ["Instalación y cableado (4 cámaras)", 380],
-          ["Mini-PC de grabación con disco duro (sin cuota mensual)", 220],
+          ["Mini-PC con IA local (detección de personas y vehículos, descarta falsas alarmas)", 480],
           ["Cerradura inteligente con teclado y app", 290],
-          ["Videoportero inteligente (instalación incluida)", 300]
+          ["Videoportero inteligente (instalación incluida)", 300],
+          ["Alertas por WhatsApp con imagen del momento", 90]
         ],
-        total: 1530
+        total: 1880
       },
       {
-        nombre: "Inteligente — con detección de movimiento y alertas ⭐",
+        nombre: "Inteligente — con detección de movimiento y alertas IA ⭐",
         destacada: true,
         items: [
           ["6 cámaras IP cableadas con visión nocturna", 510],
           ["Instalación y cableado (6 cámaras)", 540],
-          ["Mini-PC de grabación con disco duro ampliado", 320],
+          ["Mini-PC con IA local de mayor potencia (detección de personas y vehículos)", 620],
           ["Cerradura inteligente con huella digital y app", 420],
           ["Videoportero inteligente", 300],
-          ["Configuración de acceso remoto y alertas de movimiento", 90]
+          ["Alertas por WhatsApp con imagen del momento", 120]
         ],
-        total: 2180
+        total: 2510
       },
       {
-        nombre: "Completa — con IA local: alertas solo cuando importa",
+        nombre: "Completa — con IA avanzada: reanálisis y reconocimiento de vehículos",
         destacada: false,
         items: [
           ["6 cámaras IP cableadas con visión nocturna", 510],
           ["Instalación y cableado (6 cámaras)", 540],
-          ["Mini-PC con IA local (detección de personas y vehículos, descarta falsas alarmas)", 680],
+          ["Mini-PC con IA avanzada (reanálisis automático, descarta falsos positivos antes de avisar)", 780],
           ["Cerradura inteligente con huella digital y app", 420],
           ["Videoportero inteligente", 300],
-          ["Alertas por WhatsApp con imagen del momento", 150]
+          ["Alertas WhatsApp con imagen del momento + reconocimiento de vehículos recurrentes", 200]
         ],
-        total: 2600
+        total: 2750
       }
     ],
-    nota: "Sin cuota mensual ni contrato con central de alarmas. El sistema funciona de forma autónoma en tu propiedad."
+    nota: "Sin cuota mensual ni contrato con central de alarmas. El sistema funciona de forma autónoma en tu propiedad, con IA desde la opción Esencial."
+  },
+  {
+    nombre: "Pack Hogar Inteligente",
+    slug: "hogar-inteligente",
+    publico: "casa",
+    incluyeIA: true,
+    descripcion: "El pack que reúne lo que hace diferente a AHOMED: Seguridad IA sin falsas alarmas combinada con los modos de la Plataforma IA Predictiva que más piden las familias.",
+    imagen: "/img/ia-predictiva/plataforma-hero.jpg",
+    imagenAntes: "/img/trabajos/monitor-ia-antes.jpg",
+    imagenAlt: "Plataforma IA Predictiva instalada en vivienda — Pack Hogar Inteligente AHOMED",
+    opciones: [
+      {
+        nombre: "Esencial — Seguridad IA (2 cámaras)",
+        destacada: false,
+        items: [
+          ["Mini-PC IA START — instalación base obligatoria (motor Python + dashboard + WhatsApp)", 590],
+          ["Seguridad IA — 2 cámaras con detección de personas/vehículos y alertas WhatsApp", 860]
+        ],
+        total: 1450
+      },
+      {
+        nombre: "Inteligente — + Motor Meteorológico ⭐",
+        destacada: true,
+        items: [
+          ["Mini-PC IA PRO — instalación base obligatoria (para varios modos a la vez)", 950],
+          ["Seguridad IA — 4 cámaras + zonas de detección personalizadas", 1330],
+          ["Motor Meteorológico — riego y persianas con IA climática", 1070]
+        ],
+        total: 3350
+      },
+      {
+        nombre: "Completa — + IA de Sueño y Personas Mayores",
+        destacada: false,
+        items: [
+          ["Mini-PC IA PRO — instalación base obligatoria", 950],
+          ["Seguridad IA — 6 cámaras + reconocimiento de personas habituales", 2720],
+          ["IA de Sueño — persianas y luz adaptativa + integración con alarma del móvil", 645],
+          ["Personas Mayores — ausencia prolongada + detección de caídas por IA de visión", 933]
+        ],
+        total: 5248
+      }
+    ],
+    nota: "Precio orientativo; cada modo puede ampliarse o sustituirse por cualquiera de los diez de la Plataforma IA Predictiva sin cambiar el Mini-PC IA Central ya instalado."
+  },
+  {
+    nombre: "Pack Alquiler y Segunda Residencia IA",
+    slug: "alquiler-segunda-residencia-ia",
+    publico: "casa",
+    incluyeIA: true,
+    descripcion: "Para viviendas que no se habitan todo el año: sabrás qué pasa en tu propiedad, simularás presencia y no se te pasará ni un paquete, sin tener que desplazarte.",
+    imagen: "/img/trabajos/riego-despues.jpg",
+    imagenAntes: "/img/trabajos/riego-antes.jpg",
+    imagenAlt: "Riego automático con IA climática — Pack Alquiler y Segunda Residencia AHOMED",
+    opciones: [
+      {
+        nombre: "Esencial — Casa Presencial + Seguridad IA",
+        destacada: false,
+        items: [
+          ["Mini-PC IA START — instalación base obligatoria", 590],
+          ["Casa Presencial — geofencing, 2 escenas y simulación de presencia", 455],
+          ["Seguridad IA — 2 cámaras con detección de personas/vehículos", 860]
+        ],
+        total: 1905
+      },
+      {
+        nombre: "Inteligente — + Gestión de Paquetes ⭐",
+        destacada: true,
+        items: [
+          ["Mini-PC IA START — instalación base obligatoria", 590],
+          ["Casa Presencial — 3 escenas + simulación de presencia", 595],
+          ["Seguridad IA — 4 cámaras + zonas de detección personalizadas", 1330],
+          ["Gestión de Paquetes — detección, foto y alerta WhatsApp", 320]
+        ],
+        total: 2835
+      },
+      {
+        nombre: "Completa — + Motor Meteorológico",
+        destacada: false,
+        items: [
+          ["Mini-PC IA PRO — instalación base obligatoria", 950],
+          ["Casa Presencial — 3 escenas + simulación de presencia", 595],
+          ["Seguridad IA — 6 cámaras + reconocimiento de personas habituales", 2720],
+          ["Gestión de Paquetes — + histórico de entregas", 575],
+          ["Motor Meteorológico — riego y persianas con IA climática", 1070]
+        ],
+        total: 5910
+      }
+    ],
+    nota: "Sin cuota mensual ni necesidad de desplazarte para comprobar el estado de la vivienda. Precio orientativo, se ajusta en visita técnica según distancia y accesibilidad."
   },
   {
     nombre: "Pack Negocio",
     slug: "negocio",
+    publico: "negocio",
     incluyeIA: true,
     descripcion: "Ideal para naves, almacenes, talleres y locales. IA que descarta falsas alarmas y te avisa por WhatsApp solo cuando hay algo real.",
     imagen: "/img/trabajos/naves-seguridad-ia-despues.jpg",

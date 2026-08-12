@@ -134,6 +134,19 @@
               </a>
             <% }) %>
           <% } %>
+
+          <% if (b.slug === 'seguridad-ia-naves-fincas' && typeof seguridadIANaves !== 'undefined' && seguridadIANaves) { %>
+            <a href="/servicios/naves-fincas/seguridad-ia" class="service-card service-card-ia-modo service-card-ai">
+              <div class="service-badge">Servicio exclusivo</div>
+              <p class="card-titular"><%= seguridadIANaves.titular %></p>
+              <h3><%= seguridadIANaves.nombre %></h3>
+              <p><%= seguridadIANaves.subtitulo %></p>
+              <div class="service-card-footer">
+                <span class="price-tag">Proyecto a medida</span>
+                <span class="link-arrow">Ver detalle →</span>
+              </div>
+            </a>
+          <% } %>
         </div>
 
         <% if (b.slug === 'ia-predictiva') { %>

@@ -1,4 +1,4 @@
-// Los 6 bloques que agrupan todos los servicios AHOMED.
+// Los 7 bloques que agrupan todos los servicios AHOMED.
 // Cada servicio (en services.js) y cada modo IA (en ia-predictiva.js) declara
 // a qué bloque pertenece mediante el campo `bloque` (su slug aquí).
 //
@@ -7,6 +7,14 @@
 //  - "exclusivo" → requieren o giran en torno al Mini-PC IA Central.
 // Mantenimiento no encaja en ninguna de las dos de forma exclusiva (aplica a
 // cualquier instalación, tenga IA o no), así que se muestra aparte.
+//
+// `publico` clasifica cada bloque según a quién se dirige, para poder
+// organizar el menú en dos columnas ("Para tu Casa" / "Naves y Fincas"):
+//  - "ambos"    → básicos que vende igual a viviendas que a naves/fincas.
+//  - "casa"     → solo tiene sentido en una vivienda (los 9 modos IA
+//                 residenciales + Seguridad IA vivienda).
+//  - "negocio"  → solo tiene sentido en una nave, almacén o finca
+//                 (Seguridad IA a escala industrial/perimetral).
 
 const bloques = [
   {
@@ -16,7 +24,8 @@ const bloques = [
     nombre: "Seguridad y Accesos",
     resumen: "Cámaras, alarmas, videoportero y cerraduras inteligentes — solo grabación, sin análisis IA.",
     icono: "shield",
-    grupo: "basico"
+    grupo: "basico",
+    publico: "ambos"
   },
   {
     slug: "instalaciones-base",
@@ -25,7 +34,8 @@ const bloques = [
     nombre: "Instalaciones Base",
     resumen: "Electricidad, domótica por app, redes, climatización y antenas.",
     icono: "bolt",
-    grupo: "basico"
+    grupo: "basico",
+    publico: "ambos"
   },
   {
     slug: "energia",
@@ -34,7 +44,8 @@ const bloques = [
     nombre: "Energía",
     resumen: "Energía solar de autoconsumo, con monitorización del ahorro desde el móvil.",
     icono: "solar",
-    grupo: "basico"
+    grupo: "basico",
+    publico: "ambos"
   },
   {
     slug: "reformas",
@@ -43,7 +54,8 @@ const bloques = [
     nombre: "Reformas",
     resumen: "Pintura, alicatado, fontanería, pladur y montaje de muebles.",
     icono: "wrench",
-    grupo: "basico"
+    grupo: "basico",
+    publico: "ambos"
   },
   {
     slug: "ia-predictiva",
@@ -51,7 +63,17 @@ const bloques = [
     nombre: "Plataforma IA Predictiva",
     resumen: "Un único Mini-PC IA Central y diez modos: seguridad, clima, presencia, sueño, aire, mascotas, cocina, mayores, niños y paquetes.",
     icono: "ai",
-    grupo: "exclusivo"
+    grupo: "exclusivo",
+    publico: "casa"
+  },
+  {
+    slug: "seguridad-ia-naves-fincas",
+    letra: "G",
+    nombre: "Seguridad IA — Naves y Fincas",
+    resumen: "Vigilancia perimetral con IA a escala industrial: naves, almacenes y fincas rurales, sin falsas alarmas por fauna o vegetación.",
+    icono: "ai",
+    grupo: "exclusivo",
+    publico: "negocio"
   },
   {
     slug: "mantenimiento",
@@ -59,7 +81,8 @@ const bloques = [
     nombre: "Mantenimiento",
     resumen: "Contratos de revisión y reentrenamiento de IA para cualquier instalación AHOMED.",
     icono: "maintenance",
-    grupo: "general"
+    grupo: "general",
+    publico: "ambos"
   }
 ];
 

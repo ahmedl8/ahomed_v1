@@ -63,7 +63,9 @@ const modos = [
   {
     slug: "motor-meteorologico",
     imagen: "/img/ia-predictiva/motor-meteorologico.jpg",
+    video: "/video/ia-predictiva/motor-meteorologico.mp4",
     numero: 1,
+    publico: "casa",
     nombre: "Motor Meteorológico",
     titular: "Tu jardín decide cuándo necesita agua",
     subtitulo: "Riego y persianas con IA climática",
@@ -109,7 +111,9 @@ const modos = [
   {
     slug: "casa-presencial",
     imagen: "/img/ia-predictiva/casa-presencial.jpg",
+    video: "/video/ia-predictiva/casa-presencial.mp4",
     numero: 2,
+    publico: "casa",
     nombre: "Casa Presencial",
     titular: "Tu casa sabe cuándo llegas",
     subtitulo: "Geolocalización y escenas automáticas",
@@ -154,7 +158,9 @@ const modos = [
   {
     slug: "ia-sueno",
     imagen: "/img/ia-predictiva/ia-sueno.jpg",
+    video: "/video/ia-predictiva/ia-sueno.mp4",
     numero: 3,
+    publico: "casa",
     nombre: "IA de Sueño",
     titular: "Tu dormitorio se prepara para que descanses mejor",
     subtitulo: "Entorno adaptativo para descanso óptimo",
@@ -200,6 +206,7 @@ const modos = [
     slug: "calidad-aire",
     imagen: "/img/ia-predictiva/calidad-aire.jpg",
     numero: 4,
+    publico: "casa",
     nombre: "Panel de Calidad del Aire",
     titular: "Respira un aire que se controla solo",
     subtitulo: "CO₂, VOC y ventilación con IA",
@@ -241,7 +248,9 @@ const modos = [
   {
     slug: "cuidado-mascotas",
     imagen: "/img/ia-predictiva/cuidado-mascotas.jpg",
+    video: "/video/ia-predictiva/cuidado-mascotas.mp4",
     numero: 5,
+    publico: "casa",
     nombre: "Cuidado de Mascotas",
     titular: "Tu mascota, vigilada aunque no estés",
     subtitulo: "IA de bienestar animal",
@@ -286,7 +295,9 @@ const modos = [
   {
     slug: "cocina-inteligente",
     imagen: "/img/ia-predictiva/cocina-inteligente.jpg",
+    video: "/video/ia-predictiva/cocina-inteligente.mp4",
     numero: 6,
+    publico: "casa",
     nombre: "Cocina Inteligente",
     titular: "Que nunca más te preocupe si dejaste algo encendido",
     subtitulo: "Detección de humo y aviso de horno",
@@ -329,7 +340,9 @@ const modos = [
   {
     slug: "personas-mayores",
     imagen: "/img/ia-predictiva/personas-mayores.jpg",
+    video: "/video/ia-predictiva/personas-mayores.mp4",
     numero: 7,
+    publico: "casa",
     nombre: "Personas Mayores",
     titular: "Tranquilidad para cuidar a distancia",
     subtitulo: "Teleasistencia inteligente sin cuota",
@@ -374,7 +387,9 @@ const modos = [
   {
     slug: "modo-ninos",
     imagen: "/img/ia-predictiva/modo-ninos.jpg",
+    video: "/video/ia-predictiva/modo-ninos.mp4",
     numero: 8,
+    publico: "casa",
     nombre: "Modo Niños",
     titular: "Sabrás que han llegado bien, sin tener que preguntar",
     subtitulo: "Llegada del colegio automatizada",
@@ -416,7 +431,9 @@ const modos = [
   {
     slug: "gestion-paquetes",
     imagen: "/img/ia-predictiva/gestion-paquetes.jpg",
+    video: "/video/ia-predictiva/gestion-paquetes.mp4",
     numero: 9,
+    publico: "casa",
     nombre: "Gestión de Paquetes",
     titular: "No te pierdas ni un paquete otra vez",
     subtitulo: "Detección de repartidores con IA",
@@ -456,64 +473,20 @@ const modos = [
   {
     slug: "seguridad-ia",
     imagen: "/img/hero-bloques/ia-monitorizacion.jpg",
+    video: "/video/ia-predictiva/seguridad-ia.mp4",
     numero: 10,
+    publico: "casa",
     nombre: "Seguridad IA",
     titular: "Que una cámara no solo grabe: que entienda lo que ocurre",
     subtitulo: "Detección de personas y vehículos, sin falsas alarmas",
     icono: "ai",
     resumen:
       "El mini-PC central analiza un frame cada 1-2 segundos de cada cámara con YOLO26 y aprende a distinguir personas y vehículos reales de falsas alarmas (un gato, una sombra, una bolsa moviéndose con el viento). Solo avisa por WhatsApp cuando de verdad importa.",
-    idealPara: ["Negocios, naves y fincas rurales con vigilancia perimetral", "Viviendas que quieren dejar de recibir alertas falsas", "Quien ya tiene cámaras y quiere añadirles análisis IA"],
+    idealPara: ["Viviendas que quieren dejar de recibir alertas falsas", "Quien ya tiene cámaras y quiere añadirles análisis IA", "Chalets y segundas residencias"],
     extras: ["Reentrenamiento del modelo (ver bono de mantenimiento)", "Ampliación a panel de monitorización a medida (dashboard propio)", "Integración con CCTV cableado ya instalado"],
     tambienInstalaron: ["Cerradura inteligente", "Videoportero inteligente", "Red WiFi mesh (conexión estable, imprescindible para la IA)"],
     esProyecto: true,
     ejemplos: [
-      {
-        titulo: "Negocio: cámaras IA para nave o almacén",
-        subtitulo: "Nave industrial de 450 m²",
-        imagen: "/img/trabajos/naves-seguridad-ia-despues.jpg",
-        imagenAntes: "/img/trabajos/naves-seguridad-ia-antes.jpg",
-        opciones: [
-          {
-            nombre: "Esencial — perímetro con 4 cámaras",
-            destacada: false,
-            items: [
-              ["Instalación y cableado (4 cámaras, nave de hasta 500 m²)", 450],
-              ["4 cámaras IP con visión nocturna", 480],
-              ["Configuración del modelo de detección IA (persona/vehículo, descarta falsos positivos)", 380],
-              ["Notificaciones por WhatsApp ante alarma real", 90],
-              ["Material y conectorizado", 60]
-            ],
-            total: 1460
-          },
-          {
-            nombre: "Inteligente — 8 cámaras, cubre accesos y muelles",
-            destacada: true,
-            items: [
-              ["Instalación y cableado (8 cámaras)", 780],
-              ["8 cámaras IP con visión nocturna", 960],
-              ["Configuración del modelo de detección IA (persona/vehículo/matrícula)", 480],
-              ["Notificaciones por WhatsApp ante alarma real", 90],
-              ["Material y conectorizado", 90]
-            ],
-            total: 2400
-          },
-          {
-            nombre: "Completa — con reanálisis de alarmas por IA",
-            destacada: false,
-            items: [
-              ["Instalación y cableado (8 cámaras + 2 térmicas perimetrales)", 950],
-              ["8 cámaras IP con visión nocturna", 960],
-              ["2 cámaras térmicas para detección perimetral (reducen falsos positivos por fauna o vegetación)", 2300],
-              ["Configuración del modelo de detección IA (persona/vehículo/matrícula)", 480],
-              ["Reanálisis automático de alarmas con IA (descarta falsos positivos antes de avisar)", 380],
-              ["Notificaciones por WhatsApp ante alarma real", 90],
-              ["Material y conectorizado", 100]
-            ],
-            total: 5260
-          }
-        ]
-      },
       {
         titulo: "Vivienda: kit de vigilancia con alertas por WhatsApp",
         subtitulo: "Vivienda unifamiliar · 2 a 6 cámaras según opción",
@@ -555,7 +528,7 @@ const modos = [
       }
     ],
     nota:
-      "Todas las opciones ya asumen que tienes instalado el Mini-PC IA Central (950 €, obligatorio) — no incluyen un mini-PC de grabación aparte. Excepción: la opción Completa de vivienda añade un servidor con GPU dedicada para reconocimiento facial en tiempo real, una carga que el mini-PC central no cubre. Cifras orientativas, a confirmar en visita técnica."
+      "Todas las opciones ya asumen que tienes instalado el Mini-PC IA Central (950 €, obligatorio) — no incluyen un mini-PC de grabación aparte. Excepción: la opción Completa añade un servidor con GPU dedicada para reconocimiento facial en tiempo real, una carga que el mini-PC central no cubre. Cifras orientativas, a confirmar en visita técnica. ¿Tienes una nave, almacén o finca en vez de una vivienda? Consulta Seguridad IA para Naves y Fincas."
   }
 ];
 

@@ -14,13 +14,13 @@
       <div>
         <nav class="breadcrumb" aria-label="Ruta de navegación">
           <a href="/servicios">Servicios</a> ›
-          <a href="/servicios/ia-predictiva">Plataforma IA Predictiva</a>
+          <a href="/servicios/bloque/seguridad-ia-naves-fincas">Naves y Fincas</a>
         </nav>
-        <span class="eyebrow">Modo 10 de 10 — <%= modo.subtitulo %></span>
+        <span class="eyebrow">Seguridad IA · Naves y Fincas — <%= modo.subtitulo %></span>
         <% if (modo.titular) { %><p class="hero-titular"><%= modo.titular %></p><% } %>
         <h1><%= modo.nombre %></h1>
         <p><%= modo.resumen %></p>
-        <a href="https://wa.me/34<%= empresa.whatsapp %>?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Seguridad%20IA" target="_blank" rel="noopener" class="btn btn-whatsapp cta-block">
+        <a href="https://wa.me/34<%= empresa.whatsapp %>?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Seguridad%20IA%20para%20mi%20nave%20o%20finca" target="_blank" rel="noopener" class="btn btn-whatsapp cta-block">
           Pedir presupuesto gratuito
         </a>
       </div>
@@ -29,20 +29,19 @@
 
   <section class="section">
     <div class="container">
+      <h2 class="sub-heading">Ideal para</h2>
+      <ul class="check-list check-list-lg">
+        <% modo.idealPara.forEach(function(item){ %>
+          <li><%= item %></li>
+        <% }) %>
+      </ul>
+
       <div class="ia-modo-info-box">
         <p><strong>Requiere el Mini-PC IA Central</strong></p>
-        <p>Seguridad IA es el modo 10 de la Plataforma IA Predictiva: reutiliza el mismo <a href="/servicios/ia-predictiva">Mini-PC IA Central (950 €, obligatorio)</a> que el resto de modos — no necesitas comprar un mini-PC de grabación aparte. Los precios de abajo son el coste de las cámaras, la configuración del modelo de detección y la puesta en marcha.</p>
+        <p>Seguridad IA para Naves y Fincas es un servicio independiente de la Plataforma IA Predictiva residencial, pero reutiliza el mismo Mini-PC IA Central (950 €, obligatorio) y el mismo motor Python de detección — no necesitas comprar un equipo aparte. Los precios de abajo son el coste de las cámaras, la configuración del modelo de detección y la puesta en marcha, a la escala de una nave, almacén o finca.</p>
       </div>
 
-      <% if (modo.video) { %>
-        <div class="modo-video-wrap">
-          <video class="modo-video" controls preload="none" poster="<%= modo.imagen %>">
-            <source src="<%= modo.video %>" type="video/mp4">
-          </video>
-        </div>
-      <% } %>
-
-      <% modo.ejemplos.forEach(function(ej, idx){ %>
+      <% modo.ejemplos.forEach(function(ej){ %>
         <div class="ia-example-block">
           <h2 class="sub-heading">Ejemplo — <%= ej.titulo %></h2>
           <p class="example-client"><%= ej.subtitulo %></p>
@@ -95,9 +94,9 @@
 
   <section class="section final-cta">
     <div class="container final-cta-inner">
-      <h2>¿Hablamos de tu proyecto de vigilancia inteligente?</h2>
+      <h2>¿Hablamos de la vigilancia de tu nave o finca?</h2>
       <p>Primera visita gratuita. Presupuesto sin compromiso.</p>
-      <a href="https://wa.me/34<%= empresa.whatsapp %>?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Seguridad%20IA" target="_blank" rel="noopener" class="btn btn-whatsapp btn-lg">
+      <a href="https://wa.me/34<%= empresa.whatsapp %>?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Seguridad%20IA%20para%20mi%20nave%20o%20finca" target="_blank" rel="noopener" class="btn btn-whatsapp btn-lg">
         <%= empresa.whatsappDisplay %>
       </a>
     </div>

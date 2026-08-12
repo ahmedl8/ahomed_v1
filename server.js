@@ -6,6 +6,7 @@ const helmet = require("helmet");
 const { services, packs, ventajas, comoFunciona, empresa } = require("./data/services");
 const bloques = require("./data/bloques");
 const { instalacionBase, modos: modosIA } = require("./data/ia-predictiva");
+const { seguridadIANaves } = require("./data/naves-fincas");
 const icons = require("./data/icons");
 
 const app = express();
@@ -45,6 +46,7 @@ app.use((req, res, next) => {
   res.locals.currentPath = req.path;
   res.locals.icons = icons;
   res.locals.bloques = bloques;
+  res.locals.seguridadIANaves = seguridadIANaves;
   res.locals.metaDescription = empresa.metaDescriptionDefault;
   next();
 });
@@ -65,7 +67,7 @@ app.get("/", (req, res) => {
     seguridadIA: modosIA.find((m) => m.slug === "seguridad-ia"),
     modosIA: modosIA.filter((m) => !m.esProyecto),
     instalacionBase,
-    packs,
+    packs: packs.filter((p) => p.publico !== "negocio"),
     ventajas,
     comoFunciona
   });
@@ -88,15 +90,26 @@ app.get("/servicios/bloque/:slug", (req, res, next) => {
   if (!bloque) return next();
 
   const serviciosDelBloque = services.filter((s) => s.bloque === bloque.slug);
-  const incluyeIA = bloque.slug === "ia-predictiva";
+  const esPlataformaIA = bloque.slug === "ia-predictiva";
 
   res.render("bloque", {
     title: `${bloque.nombre} — ${empresa.nombre}`,
     metaDescription: `${bloque.resumen} Servicios AHOMED en ${empresa.zona}, con presupuesto tras visita técnica gratuita.`,
     bloque,
     servicios: serviciosDelBloque,
-    modosIA: incluyeIA ? modosIA : null,
-    instalacionBase: incluyeIA ? instalacionBase : null
+    modosIA: esPlataformaIA ? modosIA : null,
+    instalacionBase: esPlataformaIA ? instalacionBase : null
+  });
+});
+
+// Seguridad IA para Naves y Fincas — servicio independiente de la Plataforma IA
+// Predictiva residencial (bloque E), a escala perimetral/industrial.
+app.get("/servicios/naves-fincas/seguridad-ia", (req, res) => {
+  res.render("services/seguridad-ia-negocio", {
+    title: `${seguridadIANaves.nombre} — ${empresa.nombre}`,
+    metaDescription: `${seguridadIANaves.resumen} Servicio exclusivo de ${empresa.nombre} en ${empresa.zona}.`,
+    modo: seguridadIANaves,
+    instalacionBase
   });
 });
 
@@ -146,8 +159,9 @@ app.get("/packs", (req, res) => {
   res.render("packs", {
     title: `Packs — ${empresa.nombre}`,
     metaDescription:
-      "Instalación completa llave en mano: Piso Nuevo, Chalet Seguro y Negocio. Varios servicios AHOMED combinados en una sola visita técnica.",
-    packs
+      "Instalación completa llave en mano para tu casa (Piso Nuevo, Chalet Seguro, Hogar Inteligente, Alquiler y Segunda Residencia IA) o para tu nave o finca (Pack Negocio). Varios servicios AHOMED combinados en una sola visita técnica.",
+    packsCasa: packs.filter((p) => p.publico !== "negocio"),
+    packsNegocio: packs.filter((p) => p.publico === "negocio")
   });
 });
 
@@ -179,8 +193,9 @@ app.get("/sitemap.xml", (req, res) => {
   const bloqueUrls = bloques.map((b) => `/servicios/bloque/${b.slug}`);
   const servicioUrls = services.map((s) => `/servicios/${s.slug}`);
   const iaPredictivaUrls = ["/servicios/ia-predictiva", ...modosIA.map((m) => `/servicios/ia-predictiva/${m.slug}`)];
+  const navesFincasUrls = ["/servicios/naves-fincas/seguridad-ia"];
 
-  const urls = [...staticUrls, ...bloqueUrls, ...servicioUrls, ...iaPredictivaUrls];
+  const urls = [...staticUrls, ...bloqueUrls, ...servicioUrls, ...iaPredictivaUrls, ...navesFincasUrls];
 
   const body = urls
     .map((u) => `  <url><loc>${base}${u}</loc></url>`)

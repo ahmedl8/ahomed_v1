@@ -1,7 +1,7 @@
 // Naves y Fincas — vertical de negocio, independiente de la Plataforma IA
-// Predictiva residencial (bloque E). De los diez modos de esa plataforma,
-// solo Seguridad IA tiene sentido fuera de una vivienda: los otros nueve
-// (sueño, mascotas, niños, cocina, mayores...) son domésticos. Por eso
+// Predictiva residencial (bloque E). De los once modos de esa plataforma,
+// solo Seguridad IA tiene sentido fuera de una vivienda: los otros diez
+// (sueño, mascotas, niños y bebés, cocina, mayores, acceso a puerta/garaje...) son domésticos. Por eso
 // Seguridad IA para Naves y Fincas vive aquí como producto propio, a escala
 // perimetral/industrial, aunque reutiliza el mismo Mini-PC IA Central y el
 // mismo motor Python que la plataforma residencial.

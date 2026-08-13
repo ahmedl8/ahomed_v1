@@ -48,6 +48,7 @@ app.use((req, res, next) => {
   res.locals.bloques = bloques;
   res.locals.services = services;
   res.locals.seguridadIANaves = seguridadIANaves;
+  res.locals.totalModos = modosIA.length;
   res.locals.metaDescription = empresa.metaDescriptionDefault;
   next();
 });
@@ -114,12 +115,12 @@ app.get("/servicios/naves-fincas/seguridad-ia", (req, res) => {
   });
 });
 
-// Plataforma IA Predictiva — página general con instalación base + los 10 modos
+// Plataforma IA Predictiva — página general con instalación base + los 11 modos
 app.get("/servicios/ia-predictiva", (req, res) => {
   res.render("services/ia-predictiva", {
     title: `Plataforma IA Predictiva — ${empresa.nombre}`,
     metaDescription:
-      "Mini-PC IA Central obligatorio (Ryzen 7, YOLO26, motor Python + dashboard) y diez modos: seguridad IA, motor meteorológico, casa presencial, sueño, calidad del aire, mascotas, cocina, personas mayores, niños y paquetes. Configura tu presupuesto.",
+      "Mini-PC IA Central obligatorio (Ryzen 7, YOLO26, motor Python + dashboard) y once modos: seguridad IA, acceso inteligente, motor meteorológico, casa presencial, sueño, calidad del aire, mascotas, cocina, personas mayores, niños y bebés, y paquetes. Configura tu presupuesto.",
     instalacionBase,
     modos: modosIA
   });

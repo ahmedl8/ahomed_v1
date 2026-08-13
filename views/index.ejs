@@ -72,7 +72,7 @@
       <div class="section-head section-head-exclusivos">
         <span class="eyebrow">El gran diferenciador de AHOMED</span>
         <h2>Exclusivos — con Inteligencia Artificial</h2>
-        <p>Un Mini-PC IA Central (desde 590 €, según cuántos servicios quieras) y diez modos a elegir. Cada uno es un coste adicional — no una instalación nueva desde cero.</p>
+        <p>Un Mini-PC IA Central (desde 590 €, según cuántos servicios quieras) y <%= totalModos %> modos a elegir. Cada uno es un coste adicional — no una instalación nueva desde cero.</p>
       </div>
 
       <div class="ai-highlight-inner">
@@ -97,7 +97,7 @@
         </div>
       </div>
 
-      <h3 class="ia-modos-strip-title">Y otros nueve modos, sobre el mismo Mini-PC IA Central</h3>
+      <h3 class="ia-modos-strip-title">Y otros <%= modosIA.length %> modos, sobre el mismo Mini-PC IA Central</h3>
       <div class="ia-modos-strip">
         <% modosIA.forEach(function(m){ %>
           <a href="/servicios/ia-predictiva/<%= m.slug %>" class="ia-modo-chip">

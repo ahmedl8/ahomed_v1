@@ -1456,7 +1456,7 @@ const packs = [
         total: 2960
       }
     ],
-    nota: "Precio orientativo; se ajusta tras la visita técnica gratuita según el estado del cuadro actual y la superficie de la vivienda. La opción Completa incluye ya el Mini-PC IA Central (nivel START) — puede ampliarse después con cualquiera de los otros nueve modos de la Plataforma IA Predictiva."
+    nota: "Precio orientativo; se ajusta tras la visita técnica gratuita según el estado del cuadro actual y la superficie de la vivienda. La opción Completa incluye ya el Mini-PC IA Central (nivel START) — puede ampliarse después con cualquiera de los otros diez modos de la Plataforma IA Predictiva."
   },
   {
     nombre: "Pack Chalet Seguro",

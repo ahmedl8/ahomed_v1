@@ -61,7 +61,7 @@ const bloques = [
     slug: "ia-predictiva",
     letra: "E",
     nombre: "Plataforma IA Predictiva",
-    resumen: "Un único Mini-PC IA Central y diez modos: seguridad, clima, presencia, sueño, aire, mascotas, cocina, mayores, niños y paquetes.",
+    resumen: "Un único Mini-PC IA Central y once modos: seguridad, acceso, clima, presencia, sueño, aire, mascotas, cocina, mayores, niños y bebés, y paquetes.",
     icono: "ai",
     grupo: "exclusivo",
     publico: "casa"

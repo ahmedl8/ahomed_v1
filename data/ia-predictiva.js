@@ -388,15 +388,16 @@ const modos = [
     slug: "modo-ninos",
     imagen: "/img/ia-predictiva/modo-ninos.jpg",
     video: "/video/ia-predictiva/modo-ninos.mp4",
+    videosExtra: [{ titulo: "Bebés", src: "/video/ia-predictiva/bebes.mp4" }],
     numero: 8,
     publico: "casa",
-    nombre: "Modo Niños",
+    nombre: "Niños y Bebés",
     titular: "Sabrás que han llegado bien, sin tener que preguntar",
     subtitulo: "Llegada del colegio automatizada",
     icono: "ninos",
     resumen:
       "Cuando los hijos llegan a casa desde el colegio, el sistema los reconoce por geolocalización del móvil, abre automáticamente, enciende las luces necesarias, activa la calefacción o el clima, y envía una confirmación inmediata a los padres por WhatsApp.",
-    idealPara: ["Familias con ambos padres trabajando", "Niños que ya vuelven solos del colegio", "Quien quiere confirmación automática de llegada"],
+    idealPara: ["Familias con ambos padres trabajando", "Niños que ya vuelven solos del colegio", "Bebés y niños pequeños al cuidado de otra persona en casa", "Quien quiere confirmación automática de llegada"],
     precioIncremento: 385,
     ejemplo: {
       titulo: "Geofencing + aviso de llegada + escena de bienvenida",
@@ -529,6 +530,67 @@ const modos = [
     ],
     nota:
       "Todas las opciones ya asumen que tienes instalado el Mini-PC IA Central (950 €, obligatorio) — no incluyen un mini-PC de grabación aparte. Excepción: la opción Completa añade un servidor con GPU dedicada para reconocimiento facial en tiempo real, una carga que el mini-PC central no cubre. Cifras orientativas, a confirmar en visita técnica. ¿Tienes una nave, almacén o finca en vez de una vivienda? Consulta Seguridad IA para Naves y Fincas."
+  },
+  {
+    slug: "acceso-inteligente",
+    imagen: "/img/trabajos/acceso-inteligente-despues.jpg",
+    video: "/video/ia-predictiva/acceso-inteligente.mp4",
+    videosExtra: [
+      { titulo: "Vehículo autorizado", src: "/video/ia-predictiva/garaje-autorizado.mp4" },
+      { titulo: "Vehículo no autorizado", src: "/video/ia-predictiva/garaje-no-autorizado.mp4" }
+    ],
+    numero: 11,
+    publico: "casa",
+    nombre: "Acceso Inteligente",
+    titular: "Que la puerta y el garaje reconozcan quién eres, sin llave ni mando",
+    subtitulo: "Reconocimiento de personas y vehículos autorizados",
+    icono: "ai",
+    resumen:
+      "El mini-PC central identifica a las personas y vehículos habituales de la casa y abre la puerta o el garaje automáticamente al reconocerlos. Si detecta a alguien o algo no autorizado, no abre y avisa por WhatsApp con una foto del momento.",
+    idealPara: ["Viviendas con puerta o cancela de acceso peatonal", "Garajes y cocheras con entrada de vehículos", "Familias que quieren dejar de usar mando o llave"],
+    precioIncremento: 620,
+    ejemplo: {
+      titulo: "Acceso a puerta principal + garaje",
+      opciones: [
+        {
+          nombre: "Esencial — reconocimiento en la puerta principal",
+          destacada: false,
+          items: [
+            ["Cámara IP en el acceso con reconocimiento facial", 180],
+            ["Configuración del modelo de reconocimiento (hasta 6 personas)", 260],
+            ["Integración con cerradura/abrepuertas ya instalado", 90],
+            ["Alertas por WhatsApp ante acceso no reconocido (con foto)", 90]
+          ],
+          total: 620
+        },
+        {
+          nombre: "Inteligente — + apertura automática de garaje ⭐",
+          destacada: true,
+          items: [
+            ["Cámara IP en el acceso con reconocimiento facial", 180],
+            ["Cámara IP en la entrada del garaje con visión nocturna", 220],
+            ["Configuración del modelo de reconocimiento de personas y matrículas (hasta 6)", 480],
+            ["Integración con cerradura y motor de garaje ya instalados", 180],
+            ["Alertas por WhatsApp ante acceso no reconocido (con foto)", 90]
+          ],
+          total: 1150
+        },
+        {
+          nombre: "Completa — + accesos temporales y registro",
+          destacada: false,
+          items: [
+            ["Cámara IP en el acceso con reconocimiento facial", 180],
+            ["Cámara IP en la entrada del garaje con visión nocturna", 220],
+            ["Configuración del modelo de reconocimiento de personas y matrículas (ilimitados)", 620],
+            ["Integración con cerradura y motor de garaje ya instalados", 180],
+            ["Accesos temporales programables (repartidores, limpieza, visitas) + histórico", 260],
+            ["Alertas por WhatsApp ante acceso no reconocido (con foto)", 90]
+          ],
+          total: 1550
+        }
+      ],
+      nota: "Coste adicional sobre el Mini-PC IA Central (950 €, obligatorio): desde 620 €. Asume cerradura inteligente y/o motor de garaje ya instalados (bloque Seguridad y Accesos)."
+    }
   }
 ];
 

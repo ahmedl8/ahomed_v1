@@ -16,7 +16,7 @@
           <a href="/servicios">Servicios</a> ›
           <a href="/servicios/ia-predictiva">Plataforma IA Predictiva</a>
         </nav>
-        <span class="eyebrow">Modo 10 de 10 — <%= modo.subtitulo %></span>
+        <span class="eyebrow">Modo <%= modo.numero %> de <%= totalModos %> — <%= modo.subtitulo %></span>
         <% if (modo.titular) { %><p class="hero-titular"><%= modo.titular %></p><% } %>
         <h1><%= modo.nombre %></h1>
         <p><%= modo.resumen %></p>

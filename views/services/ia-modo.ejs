@@ -18,7 +18,7 @@
           <a href="/servicios">Servicios</a> ›
           <a href="/servicios/ia-predictiva">Plataforma IA Predictiva</a>
         </nav>
-        <span class="eyebrow">Modo <%= modo.numero %> de 10 — <%= modo.subtitulo %></span>
+        <span class="eyebrow">Modo <%= modo.numero %> de <%= totalModos %> — <%= modo.subtitulo %></span>
         <% if (modo.titular) { %><p class="hero-titular"><%= modo.titular %></p><% } %>
         <h1><%= modo.nombre %></h1>
         <p><%= modo.resumen %></p>
@@ -49,6 +49,19 @@
             <video class="modo-video" controls preload="none" poster="<%= modo.imagen %>">
               <source src="<%= modo.video %>" type="video/mp4">
             </video>
+          </div>
+        <% } %>
+
+        <% if (modo.videosExtra && modo.videosExtra.length) { %>
+          <div class="video-extra-grid">
+            <% modo.videosExtra.forEach(function(v){ %>
+              <div class="video-extra-item">
+                <span class="photo-label"><%= v.titulo %></span>
+                <video class="modo-video" controls preload="none">
+                  <source src="<%= v.src %>" type="video/mp4">
+                </video>
+              </div>
+            <% }) %>
           </div>
         <% } %>
 

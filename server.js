@@ -46,6 +46,7 @@ app.use((req, res, next) => {
   res.locals.currentPath = req.path;
   res.locals.icons = icons;
   res.locals.bloques = bloques;
+  res.locals.services = services;
   res.locals.seguridadIANaves = seguridadIANaves;
   res.locals.metaDescription = empresa.metaDescriptionDefault;
   next();

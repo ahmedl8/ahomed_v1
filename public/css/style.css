@@ -251,8 +251,8 @@ p { margin: 0; }
 }
 .dropdown-group-exclusivo .dropdown-group-title { color: var(--ai-accent); }
 .dropdown-group-title em { font-style: normal; font-weight: 500; text-transform: none; letter-spacing: 0; opacity: 0.75; }
-.dropdown-group-cols { display: grid; grid-template-columns: repeat(4, 172px); gap: 4px 6px; }
-.dropdown-group-exclusivo .dropdown-group-cols { grid-template-columns: repeat(2, 220px); }
+.dropdown-group-cols { display: grid; grid-auto-flow: column; grid-auto-columns: 172px; justify-content: start; gap: 4px 6px; }
+.dropdown-group-exclusivo .dropdown-group-cols { grid-auto-columns: 220px; }
 .dropdown-col { display: flex; flex-direction: column; padding: 4px; }
 .dropdown-col-title {
   display: flex;

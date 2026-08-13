@@ -23,26 +23,19 @@
     <nav class="main-nav">
       <a href="/" class="<%= currentPath === '/' ? 'active' : '' %>">Inicio</a>
 
-      <% var basicosCols = function(b) { %>
+      <% var basicosCols = function(b, audiencia) {
+           var servs = services.filter(function(s){
+             return s.bloque === b.slug && (s.publico === 'ambos' || s.publico === audiencia);
+           });
+           if (servs.length === 0) return;
+      %>
         <div class="dropdown-col">
           <a href="/servicios/bloque/<%= b.slug %>" class="dropdown-col-title">
             <%= b.nombre %>
           </a>
-          <% if (b.slug === 'seguridad-accesos') { %>
-            <a href="/servicios/seguridad">Seguridad</a>
-          <% } else if (b.slug === 'instalaciones-base') { %>
-            <a href="/servicios/electricidad">Electricidad</a>
-            <a href="/servicios/domotica">Domótica</a>
-            <a href="/servicios/redes-informatica">Redes e informática</a>
-            <a href="/servicios/climatizacion">Climatización</a>
-            <a href="/servicios/antenas">Antenas</a>
-          <% } else if (b.slug === 'energia') { %>
-            <a href="/servicios/energia-solar">Energía solar</a>
-          <% } else if (b.slug === 'reformas') { %>
-            <a href="/servicios/reparaciones-reformas">Reparaciones y reformas</a>
-            <a href="/servicios/fontaneria">Fontanería</a>
-            <a href="/servicios/pladur">Pladur</a>
-          <% } %>
+          <% servs.forEach(function(s){ %>
+            <a href="/servicios/<%= s.slug %>"><%= s.nombre %></a>
+          <% }) %>
         </div>
       <% } %>
 
@@ -53,7 +46,7 @@
           <div class="dropdown-group dropdown-group-basico">
             <span class="dropdown-group-title">Básicos — sin IA</span>
             <div class="dropdown-group-cols">
-              <% bloques.filter(function(b){ return b.grupo === 'basico'; }).forEach(basicosCols) %>
+              <% bloques.filter(function(b){ return b.grupo === 'basico'; }).forEach(function(b){ basicosCols(b, 'casa'); }) %>
             </div>
           </div>
 
@@ -92,7 +85,7 @@
           <div class="dropdown-group dropdown-group-basico">
             <span class="dropdown-group-title">Básicos — sin IA</span>
             <div class="dropdown-group-cols">
-              <% bloques.filter(function(b){ return b.grupo === 'basico'; }).forEach(basicosCols) %>
+              <% bloques.filter(function(b){ return b.grupo === 'basico'; }).forEach(function(b){ basicosCols(b, 'negocio'); }) %>
             </div>
           </div>
 

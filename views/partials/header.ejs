@@ -58,8 +58,6 @@
                   <a href="/servicios/bloque/<%= b.slug %>" class="dropdown-col-title">
                     <%= b.nombre %>
                   </a>
-                  <a href="/servicios/ia-predictiva">Mini-PC IA Central (base)</a>
-                  <a href="/servicios/ia-predictiva/seguridad-ia">Seguridad IA</a>
                   <a href="/servicios/ia-predictiva">Ver los <%= totalModos %> modos →</a>
                 </div>
               <% }) %>
@@ -94,8 +92,7 @@
             <div class="dropdown-group-cols">
               <div class="dropdown-col">
                 <a href="/servicios/bloque/seguridad-ia-naves-fincas" class="dropdown-col-title">Seguridad IA</a>
-                <a href="/servicios/naves-fincas/seguridad-ia">Naves y almacenes</a>
-                <a href="/servicios/naves-fincas/seguridad-ia">Fincas rurales</a>
+                <a href="/servicios/naves-fincas/seguridad-ia">Ver el servicio →</a>
               </div>
               <div class="dropdown-col">
                 <% bloques.filter(function(b){ return b.grupo === 'general'; }).forEach(function(b){ %>
@@ -113,6 +110,7 @@
       </div>
 
       <a href="/packs" class="<%= currentPath === '/packs' ? 'active' : '' %>">Packs</a>
+      <a href="/galeria" class="<%= currentPath === '/galeria' ? 'active' : '' %>">Galería</a>
       <a href="/sobre-mi" class="<%= currentPath === '/sobre-mi' ? 'active' : '' %>">Sobre mí</a>
       <a href="/contacto" class="<%= currentPath === '/contacto' ? 'active' : '' %>">Contacto</a>
     </nav>

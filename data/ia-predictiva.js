@@ -536,7 +536,7 @@ const modos = [
     imagen: "/img/trabajos/acceso-inteligente-despues.jpg",
     video: "/video/ia-predictiva/acceso-inteligente.mp4",
     videosExtra: [
-      { titulo: "Vehículo autorizado", src: "/video/ia-predictiva/garaje-autorizado.mp4" },
+      { titulo: "Vehículo autorizado", src: "/video/ia-predictiva/garaje-autorizado.mp4", poster: "/img/trabajos/garaje-inteligente-despues.jpg" },
       { titulo: "Vehículo no autorizado", src: "/video/ia-predictiva/garaje-no-autorizado.mp4" }
     ],
     numero: 11,

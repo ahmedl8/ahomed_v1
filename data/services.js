@@ -1268,7 +1268,6 @@ const services = [
     ejemplo: {
       titulo: "Falso techo de pladur con iluminación empotrada (salón, 18 m²)",
       cliente: "Salón sin iluminación indirecta, con techo liso convencional.",
-      imagen: "/img/trabajos/pladur-techo-despues.jpg",
       opciones: [
         {
           nombre: "Esencial — techo liso",
@@ -1315,8 +1314,7 @@ const services = [
       {
         titulo: "Tabique de pladur",
         cliente: "División de una estancia o cerramiento con tabique de pladur, con o sin aislamiento acústico",
-      imagen: "/img/trabajos/reforma-general-despues.jpg",
-      imagenAntes: "/img/trabajos/reforma-general-antes.jpg",
+      imagen: "/img/trabajos/pladur-techo-despues.jpg",
         opciones: [
           {
             nombre: "Esencial — tabique simple, 10 m²",

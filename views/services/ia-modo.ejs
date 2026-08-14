@@ -57,7 +57,7 @@
             <% modo.videosExtra.forEach(function(v){ %>
               <div class="video-extra-item">
                 <span class="photo-label"><%= v.titulo %></span>
-                <video class="modo-video" controls preload="none">
+                <video class="modo-video" controls preload="none"<% if (v.poster) { %> poster="<%= v.poster %>"<% } %>>
                   <source src="<%= v.src %>" type="video/mp4">
                 </video>
               </div>

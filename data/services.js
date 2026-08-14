@@ -400,7 +400,8 @@ const services = [
     ejemplo: {
       titulo: "Kit solar de autoconsumo para balcón/terraza (\"solar de enchufar\")",
       cliente: "Piso con terraza orientada al sur, sin instalación solar previa.",
-      imagen: "/img/ia-predictiva/gestion-energia.jpg",
+      imagen: "/img/trabajos/solar-terraza-despues.jpg",
+      imagenAntes: "/img/trabajos/solar-terraza-antes.jpg",
       opciones: [
         {
           nombre: "Esencial",
@@ -1517,7 +1518,6 @@ const packs = [
     incluyeIA: true,
     descripcion: "El pack que reúne lo que hace diferente a AHOMED: Seguridad IA sin falsas alarmas combinada con los modos de la Plataforma IA Predictiva que más piden las familias.",
     imagen: "/img/ia-predictiva/plataforma-hero.jpg",
-    imagenAntes: "/img/trabajos/monitor-ia-antes.jpg",
     imagenAlt: "Plataforma IA Predictiva instalada en vivienda — Pack Hogar Inteligente AHOMED",
     opciones: [
       {
@@ -1559,9 +1559,8 @@ const packs = [
     publico: "casa",
     incluyeIA: true,
     descripcion: "Para viviendas que no se habitan todo el año: sabrás qué pasa en tu propiedad, simularás presencia y no se te pasará ni un paquete, sin tener que desplazarte.",
-    imagen: "/img/trabajos/riego-despues.jpg",
-    imagenAntes: "/img/trabajos/riego-antes.jpg",
-    imagenAlt: "Riego automático con IA climática — Pack Alquiler y Segunda Residencia AHOMED",
+    imagen: "/img/ia-predictiva/gestion-energia.jpg",
+    imagenAlt: "Panel de control de la Plataforma IA Predictiva — Pack Alquiler y Segunda Residencia AHOMED",
     opciones: [
       {
         nombre: "Esencial — Casa Presencial + Seguridad IA",

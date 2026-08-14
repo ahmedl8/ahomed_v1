@@ -7,6 +7,7 @@ const { services, packs, ventajas, comoFunciona, empresa } = require("./data/ser
 const bloques = require("./data/bloques");
 const { instalacionBase, modos: modosIA } = require("./data/ia-predictiva");
 const { seguridadIANaves } = require("./data/naves-fincas");
+const galeria = require("./data/galeria");
 const icons = require("./data/icons");
 
 const app = express();
@@ -168,6 +169,21 @@ app.get("/packs", (req, res) => {
 });
 
 
+app.get("/galeria", (req, res) => {
+  res.render("galeria", {
+    title: `Galería de trabajos — ${empresa.nombre}`,
+    metaDescription: `Trabajos reales de ${empresa.nombre} en ${empresa.zona}: antes y después de electricidad, domótica, seguridad, IA y reformas.`,
+    trabajos: galeria
+  });
+});
+
+app.get("/preguntas-frecuentes", (req, res) => {
+  res.render("faq", {
+    title: `Preguntas frecuentes — ${empresa.nombre}`,
+    metaDescription: `Resolvemos las dudas más habituales sobre presupuestos, el Mini-PC IA Central, cuotas mensuales, garantía y zona de servicio de ${empresa.nombre}.`
+  });
+});
+
 app.get("/sobre-mi", (req, res) => {
   res.render("sobre-mi", {
     title: `Sobre mí — ${empresa.nombre}`,
@@ -191,7 +207,7 @@ app.get("/robots.txt", (req, res) => {
 
 app.get("/sitemap.xml", (req, res) => {
   const base = `https://${empresa.web}`;
-  const staticUrls = ["/", "/servicios", "/packs", "/sobre-mi", "/contacto"];
+  const staticUrls = ["/", "/servicios", "/packs", "/galeria", "/preguntas-frecuentes", "/sobre-mi", "/contacto"];
   const bloqueUrls = bloques.map((b) => `/servicios/bloque/${b.slug}`);
   const servicioUrls = services.map((s) => `/servicios/${s.slug}`);
   const iaPredictivaUrls = ["/servicios/ia-predictiva", ...modosIA.map((m) => `/servicios/ia-predictiva/${m.slug}`)];

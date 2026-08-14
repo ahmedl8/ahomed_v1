@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <%- include('partials/head') %>
+</head>
+<body>
+  <%- include('partials/header') %>
+
+  <section class="page-hero">
+    <div class="container">
+      <h1>Galería de trabajos</h1>
+      <p>Instalaciones reales de <%= empresa.nombre %> en <%= empresa.zona %>. Pasa el ratón sobre cada foto para ver de qué trabajo se trata, y entra para ver el antes y el después completo con su presupuesto.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="works-grid works-grid-page">
+        <% trabajos.forEach(function(t){ %>
+          <a href="<%= t.enlace %>" class="work-item">
+            <img src="<%= t.imagenDespues %>" alt="<%= t.titulo %>" loading="lazy">
+            <div class="work-caption">
+              <span class="work-cat"><%= t.categoria %></span>
+              <span class="work-title"><%= t.titulo %></span>
+            </div>
+          </a>
+        <% }) %>
+      </div>
+      <p class="orientative-note">Todas las fotos son de instalaciones reales de AHOMED. Cada trabajo enlaza a su servicio, con el antes y el después completo y el presupuesto orientativo.</p>
+    </div>
+  </section>
+
+  <section class="section final-cta">
+    <div class="container final-cta-inner">
+      <h2>¿Quieres un resultado así en tu casa, nave o finca?</h2>
+      <p>Primera visita gratuita. Presupuesto sin compromiso.</p>
+      <a href="https://wa.me/34<%= empresa.whatsapp %>?text=Hola%2C%20he%20visto%20la%20galer%C3%ADa%20de%20trabajos%20y%20quiero%20presupuesto" target="_blank" rel="noopener" class="btn btn-whatsapp btn-lg">
+        <%= empresa.whatsappDisplay %>
+      </a>
+    </div>
+  </section>
+
+  <%- include('partials/footer') %>
+</body>
+</html>

@@ -59,4 +59,39 @@ document.addEventListener("DOMContentLoaded", function () {
       syncBodyScroll();
     });
   });
+
+  // Acordeón móvil dentro de cada dropdown: "Básicos — sin IA" / "Con IA" se
+  // pliegan/despliegan por separado para no mostrar toda la lista de golpe.
+  // En escritorio esto no hace nada (el CSS de escritorio ignora .open aquí).
+  document.querySelectorAll(".dropdown-group-title").forEach(function (title) {
+    title.addEventListener("click", function (e) {
+      if (!isMobile()) return;
+      e.preventDefault();
+      e.stopPropagation();
+      title.closest(".dropdown-group").classList.toggle("open");
+    });
+  });
+});
+
+// Overlay de "reproducir" sobre los vídeos de demostración de los modos IA,
+// para que se distingan de una foto estática en cualquier navegador.
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll("video.modo-video").forEach(function (video) {
+    const wrap = document.createElement("div");
+    wrap.className = "video-frame";
+    video.parentNode.insertBefore(wrap, video);
+    wrap.appendChild(video);
+
+    const overlay = document.createElement("button");
+    overlay.type = "button";
+    overlay.className = "video-play-overlay";
+    overlay.setAttribute("aria-label", "Reproducir vídeo");
+    overlay.innerHTML = '<svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>';
+    wrap.appendChild(overlay);
+
+    overlay.addEventListener("click", function () { video.play(); });
+    video.addEventListener("play", function () { wrap.classList.add("is-playing"); });
+    video.addEventListener("pause", function () { wrap.classList.remove("is-playing"); });
+    video.addEventListener("ended", function () { wrap.classList.remove("is-playing"); });
+  });
 });

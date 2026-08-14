@@ -32,16 +32,22 @@
         <p class="pack-detail-desc"><%= p.descripcion %></p>
       </div>
 
-      <div class="pack-photo-pair">
-        <div class="pack-photo-wrap">
-          <span class="photo-label">Antes</span>
-          <img src="<%= p.imagenAntes %>" alt="Antes — <%= p.imagenAlt %>" loading="lazy">
+      <% if (p.imagenAntes) { %>
+        <div class="pack-photo-pair">
+          <div class="pack-photo-wrap">
+            <span class="photo-label">Antes</span>
+            <img src="<%= p.imagenAntes %>" alt="Antes — <%= p.imagenAlt %>" loading="lazy">
+          </div>
+          <div class="pack-photo-wrap">
+            <span class="photo-label photo-label-after">Después</span>
+            <img src="<%= p.imagen %>" alt="<%= p.imagenAlt %>" loading="lazy">
+          </div>
         </div>
-        <div class="pack-photo-wrap">
-          <span class="photo-label photo-label-after">Después</span>
+      <% } else { %>
+        <div class="pack-photo-single">
           <img src="<%= p.imagen %>" alt="<%= p.imagenAlt %>" loading="lazy">
         </div>
-      </div>
+      <% } %>
 
       <div class="options-stack options-stack-3">
         <% p.opciones.forEach(function(op){ %>
@@ -81,16 +87,22 @@
         <p class="pack-detail-desc"><%= p.descripcion %></p>
       </div>
 
-      <div class="pack-photo-pair">
-        <div class="pack-photo-wrap">
-          <span class="photo-label">Antes</span>
-          <img src="<%= p.imagenAntes %>" alt="Antes — <%= p.imagenAlt %>" loading="lazy">
+      <% if (p.imagenAntes) { %>
+        <div class="pack-photo-pair">
+          <div class="pack-photo-wrap">
+            <span class="photo-label">Antes</span>
+            <img src="<%= p.imagenAntes %>" alt="Antes — <%= p.imagenAlt %>" loading="lazy">
+          </div>
+          <div class="pack-photo-wrap">
+            <span class="photo-label photo-label-after">Después</span>
+            <img src="<%= p.imagen %>" alt="<%= p.imagenAlt %>" loading="lazy">
+          </div>
         </div>
-        <div class="pack-photo-wrap">
-          <span class="photo-label photo-label-after">Después</span>
+      <% } else { %>
+        <div class="pack-photo-single">
           <img src="<%= p.imagen %>" alt="<%= p.imagenAlt %>" loading="lazy">
         </div>
-      </div>
+      <% } %>
 
       <div class="options-stack options-stack-3">
         <% p.opciones.forEach(function(op){ %>

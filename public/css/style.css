@@ -544,6 +544,35 @@ p { margin: 0; }
 }
 .work-caption .work-title { font-size: 0.86rem; font-weight: 600; line-height: 1.3; }
 
+/* ---------- FAQ ---------- */
+.faq-list { max-width: 780px; margin: 0 auto; display: flex; flex-direction: column; gap: 10px; }
+.faq-item {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 4px 20px;
+  background: var(--paper-soft);
+}
+.faq-item summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 16px 28px 16px 0;
+  font-weight: 700;
+  position: relative;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: "+";
+  position: absolute;
+  right: 0;
+  top: 14px;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--gray-500);
+  transition: transform 0.15s;
+}
+.faq-item[open] summary::after { content: "–"; }
+.faq-item p { padding-bottom: 18px; color: var(--gray-600); line-height: 1.55; }
+
 /* ---------- Final CTA ---------- */
 .final-cta { background: linear-gradient(135deg, #0d0e11, var(--ink)); color: #fff; text-align: center; }
 .final-cta-inner h2 { font-size: 2rem; margin-bottom: 10px; }
@@ -846,11 +875,36 @@ p { margin: 0; }
   background: #000;
 }
 .ai-highlight-visual .modo-video { width: 100%; height: 100%; min-height: 260px; max-height: none; border-radius: 14px; }
+.ai-highlight-visual .video-frame { height: 100%; }
 .video-extra-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 14px 0 22px; }
 .video-extra-item .modo-video { max-height: 220px; margin-top: 6px; }
 @media (max-width: 640px) {
   .video-extra-grid { grid-template-columns: 1fr; }
 }
+
+/* ---------- Overlay de "reproducir" sobre los vídeos ---------- */
+.video-frame { position: relative; }
+.video-play-overlay {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 60px;
+  height: 60px;
+  background: rgba(18, 20, 26, 0.62);
+  border: 2px solid #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.15s, transform 0.15s;
+}
+.video-play-overlay svg { width: 24px; height: 24px; fill: #fff; margin-left: 3px; }
+.video-play-overlay:hover { background: rgba(18, 20, 26, 0.82); transform: scale(1.06); }
+.video-frame.is-playing .video-play-overlay { display: none; }
+.video-extra-item .video-play-overlay { width: 44px; height: 44px; }
+.video-extra-item .video-play-overlay svg { width: 18px; height: 18px; }
 
 /* ---------- Example tabs (varios presupuestos por servicio) ---------- */
 .example-tab-input { position: absolute; opacity: 0; pointer-events: none; }
@@ -1010,7 +1064,23 @@ p { margin: 0; }
   .nav-dropdown:hover .dropdown-menu { display: none; transform: none; }
   .nav-dropdown.open .dropdown-menu { display: block; }
   .dropdown-menu-mega { width: 100%; max-width: none; padding: 6px 0; }
-  .dropdown-group-cols { grid-template-columns: 1fr !important; }
+  .dropdown-group-title {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 4px;
+  }
+  .dropdown-group-title::after {
+    content: "+";
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--gray-500);
+    margin-left: 8px;
+  }
+  .dropdown-group.open > .dropdown-group-title::after { content: "–"; }
+  .dropdown-group-cols { display: none; grid-template-columns: 1fr !important; }
+  .dropdown-group.open .dropdown-group-cols { display: grid; }
   .nav-burger {
     display: flex; flex-direction: column; gap: 5px; cursor: pointer; z-index: 60; padding: 8px;
   }

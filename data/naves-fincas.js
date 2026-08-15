@@ -9,6 +9,7 @@
 const seguridadIANaves = {
   slug: "seguridad-ia-naves-fincas",
   imagen: "/img/trabajos/fincas-seguridad-ia-despues.jpg",
+  video: "/video/naves-fincas/seguridad-ia.mp4",
   numero: null,
   publico: "negocio",
   nombre: "Seguridad IA para Naves y Fincas",

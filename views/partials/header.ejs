@@ -41,7 +41,7 @@
 
       <!-- PARA TU CASA -->
       <div class="nav-dropdown">
-        <a href="/servicios" class="<%= currentPath.startsWith('/servicios') && currentPath !== '/servicios/bloque/seguridad-ia-naves-fincas' && !currentPath.startsWith('/servicios/naves-fincas') ? 'active' : '' %>">Para tu Casa ▾</a>
+        <a href="/servicios" class="<%= currentPath.startsWith('/servicios') && currentPath !== '/servicios/mantenimiento' && currentPath !== '/servicios/bloque/seguridad-ia-naves-fincas' && !currentPath.startsWith('/servicios/naves-fincas') ? 'active' : '' %>">Para tu Casa ▾</a>
         <div class="dropdown-menu dropdown-menu-mega">
           <div class="dropdown-group dropdown-group-basico">
             <span class="dropdown-group-title">Básicos — sin IA</span>
@@ -53,19 +53,10 @@
           <div class="dropdown-group dropdown-group-exclusivo">
             <span class="dropdown-group-title">Con IA <em>(requiere el Mini-PC IA Central)</em></span>
             <div class="dropdown-group-cols">
-              <% bloques.filter(function(b){ return b.slug === 'ia-predictiva'; }).forEach(function(b){ %>
-                <div class="dropdown-col">
-                  <a href="/servicios/bloque/<%= b.slug %>" class="dropdown-col-title">
-                    <%= b.nombre %>
-                  </a>
-                  <a href="/servicios/ia-predictiva">Ver los <%= totalModos %> modos →</a>
-                </div>
-              <% }) %>
               <div class="dropdown-col">
-                <% bloques.filter(function(b){ return b.grupo === 'general'; }).forEach(function(b){ %>
-                  <a href="/servicios/bloque/<%= b.slug %>" class="dropdown-col-title"><%= b.nombre %></a>
-                  <a href="/servicios/mantenimiento">Mantenimiento</a>
-                <% }) %>
+                <a href="/servicios/ia-predictiva" class="dropdown-col-title">
+                  Plataforma IA Predictiva
+                </a>
               </div>
             </div>
           </div>
@@ -91,14 +82,7 @@
             <span class="dropdown-group-title">Con IA <em>(requiere el Mini-PC IA Central)</em></span>
             <div class="dropdown-group-cols">
               <div class="dropdown-col">
-                <a href="/servicios/bloque/seguridad-ia-naves-fincas" class="dropdown-col-title">Seguridad IA</a>
-                <a href="/servicios/naves-fincas/seguridad-ia">Ver el servicio →</a>
-              </div>
-              <div class="dropdown-col">
-                <% bloques.filter(function(b){ return b.grupo === 'general'; }).forEach(function(b){ %>
-                  <a href="/servicios/bloque/<%= b.slug %>" class="dropdown-col-title"><%= b.nombre %></a>
-                  <a href="/servicios/mantenimiento">Mantenimiento</a>
-                <% }) %>
+                <a href="/servicios/naves-fincas/seguridad-ia" class="dropdown-col-title">Seguridad IA</a>
               </div>
             </div>
           </div>
@@ -111,6 +95,7 @@
 
       <a href="/packs" class="<%= currentPath === '/packs' ? 'active' : '' %>">Packs</a>
       <a href="/galeria" class="<%= currentPath === '/galeria' ? 'active' : '' %>">Galería</a>
+      <a href="/servicios/mantenimiento" class="<%= currentPath === '/servicios/mantenimiento' ? 'active' : '' %>">Mantenimiento</a>
       <a href="/sobre-mi" class="<%= currentPath === '/sobre-mi' ? 'active' : '' %>">Sobre mí</a>
       <a href="/contacto" class="<%= currentPath === '/contacto' ? 'active' : '' %>">Contacto</a>
     </nav>

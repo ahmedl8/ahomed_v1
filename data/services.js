@@ -444,6 +444,7 @@ const services = [
     },
     extras: [
       "Placas solares en tejado, autoconsumo (desde 2.830 €)",
+      "Gestión energética inteligente con tarifa PVPC (desde 590 €)",
       "Revisión y mantenimiento anual (30 €/año)"
     ],
     tambienInstalaron: ["Panel de monitorización a medida", "Punto de recarga para coche eléctrico", "Batería portátil adicional"],
@@ -496,6 +497,48 @@ const services = [
           }
         ],
         nota: "Instalaciones con vertido de excedentes a red requieren alta como productor ante la compañía eléctrica; se gestiona como parte de la legalización. El número de paneles y orientación óptima se confirma con la visita técnica y el estudio de sombras."
+      },
+      {
+        titulo: "Gestión energética inteligente (tarifa PVPC)",
+        cliente: "Vivienda con cuadro antiguo y contador convencional, sin visibilidad del consumo ni aprovechamiento de las horas más baratas de la tarifa eléctrica",
+        imagen: "/img/trabajos/gestion-energetica-pvpc-despues.jpg",
+        imagenAntes: "/img/trabajos/gestion-energetica-pvpc-antes.jpg",
+        opciones: [
+          {
+            nombre: "Esencial — monitorización de consumo",
+            destacada: false,
+            items: [
+              ["Instalación y configuración", 220],
+              ["Módulo de monitorización de consumo en cuadro", 280],
+              ["App con consumo en tiempo real e histórico", 90]
+            ],
+            total: 590
+          },
+          {
+            nombre: "Inteligente — + optimización por tarifa PVPC ⭐",
+            destacada: true,
+            items: [
+              ["Instalación y configuración", 280],
+              ["Módulo de monitorización de consumo en cuadro", 280],
+              ["Integración con tarifa PVPC (precio por horas)", 260],
+              ["App con aviso de horas más baratas y consumo en tiempo real", 150]
+            ],
+            total: 970
+          },
+          {
+            nombre: "Completa — + automatización de electrodomésticos",
+            destacada: false,
+            items: [
+              ["Instalación y configuración", 280],
+              ["Módulo de monitorización de consumo en cuadro", 280],
+              ["Integración con tarifa PVPC (precio por horas)", 260],
+              ["Relés inteligentes para lavadora/termo (arranque en horas baratas)", 340],
+              ["App con automatización y aviso de horas más baratas", 150]
+            ],
+            total: 1310
+          }
+        ],
+        nota: "Compatible con cualquier instalación eléctrica existente, con o sin placas solares. Cifras orientativas, a confirmar en visita técnica."
       }
     ]
   },
@@ -824,7 +867,7 @@ const services = [
       {
         titulo: "Climatización multisplit para toda la vivienda",
         cliente: "Una sola unidad exterior dando servicio a varias estancias, con control independiente por habitación",
-      imagen: "/img/trabajos/climatizacion-multisplit-despues.jpg",
+      imagen: "/img/trabajos/climatizacion-multisplit-vivienda-despues.jpg",
         opciones: [
           {
             nombre: "Esencial — multisplit 2x1 (2 estancias)",
@@ -882,7 +925,8 @@ const services = [
     ejemplo: {
       titulo: "Antena parabólica + toma de TV",
       cliente: "Vivienda sin señal de televisión o con antena antigua deteriorada.",
-      imagen: "/img/trabajos/antenas-despues.jpg",
+      imagen: "/img/trabajos/antena-tv-despues.jpg",
+      imagenAntes: "/img/trabajos/antena-tv-antes.jpg",
       opciones: [
         {
           nombre: "Esencial — 1 toma de TV",
@@ -1268,6 +1312,8 @@ const services = [
     ejemplo: {
       titulo: "Falso techo de pladur con iluminación empotrada (salón, 18 m²)",
       cliente: "Salón sin iluminación indirecta, con techo liso convencional.",
+      imagen: "/img/trabajos/pladur-falso-techo-despues.jpg",
+      imagenAntes: "/img/trabajos/pladur-falso-techo-antes.jpg",
       opciones: [
         {
           nombre: "Esencial — techo liso",

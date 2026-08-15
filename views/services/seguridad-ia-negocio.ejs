@@ -41,6 +41,14 @@
         <p>Seguridad IA para Naves y Fincas es un servicio independiente de la Plataforma IA Predictiva residencial, pero reutiliza el mismo Mini-PC IA Central (950 €, obligatorio) y el mismo motor Python de detección — no necesitas comprar un equipo aparte. Los precios de abajo son el coste de las cámaras, la configuración del modelo de detección y la puesta en marcha, a la escala de una nave, almacén o finca.</p>
       </div>
 
+      <% if (modo.video) { %>
+        <div class="modo-video-wrap">
+          <video class="modo-video" controls preload="none" poster="<%= modo.imagen %>">
+            <source src="<%= modo.video %>" type="video/mp4">
+          </video>
+        </div>
+      <% } %>
+
       <% modo.ejemplos.forEach(function(ej){ %>
         <div class="ia-example-block">
           <h2 class="sub-heading">Ejemplo — <%= ej.titulo %></h2>

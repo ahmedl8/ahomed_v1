@@ -205,6 +205,7 @@ const modos = [
   {
     slug: "calidad-aire",
     imagen: "/img/ia-predictiva/calidad-aire.jpg",
+    video: "/video/ia-predictiva/calidad-aire.mp4",
     numero: 4,
     publico: "casa",
     nombre: "Panel de Calidad del Aire",

@@ -4,6 +4,7 @@
   <%- include('../partials/head') %>
 </head>
 <body>
+  <%- include('../partials/gtm-body') %>
   <%- include('../partials/header') %>
 
   <section class="service-hero service-hero-ai<%= modo.imagen ? ' service-hero-photo' : '' %>">
@@ -41,7 +42,7 @@
 
         <div class="ia-modo-info-box">
           <p><strong>Requiere el Mini-PC IA Central</strong></p>
-          <p>Este modo cuesta <strong><%= fmt(modo.precioIncremento) %> €</strong> adicionales sobre el <a href="/servicios/ia-predictiva">Mini-PC IA Central (950 €, obligatorio)</a> — reutiliza el mismo mini-PC y el mismo motor Python que el resto de modos. Ya no se instala con equipo propio independiente.</p>
+          <p>Este modo cuesta <strong><%= fmt(modo.precioIncremento) %> €</strong> adicionales sobre el <a href="/servicios/ia-predictiva">Mini-PC IA Central (desde 590 €, obligatorio)</a> — reutiliza el mismo mini-PC y el mismo motor Python que el resto de modos. Ya no se instala con equipo propio independiente.</p>
         </div>
 
         <% if (modo.video) { %>

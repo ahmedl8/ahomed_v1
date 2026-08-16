@@ -4,12 +4,13 @@
   <%- include('partials/head') %>
 </head>
 <body>
+  <%- include('partials/gtm-body') %>
   <%- include('partials/header') %>
 
   <section class="page-hero">
     <div class="container">
       <h1>Galería de trabajos</h1>
-      <p>Instalaciones reales de <%= empresa.nombre %> en <%= empresa.zona %>. Pasa el ratón sobre cada foto para ver de qué trabajo se trata, y entra para ver el antes y el después completo con su presupuesto.</p>
+      <p>Ejemplos ilustrativos de instalaciones de <%= empresa.nombre %> en <%= empresa.zona %>. Entra en cada trabajo para ver el detalle del servicio y un presupuesto orientativo.</p>
     </div>
   </section>
 
@@ -26,7 +27,7 @@
           </a>
         <% }) %>
       </div>
-      <p class="orientative-note">Todas las fotos son de instalaciones reales de AHOMED. Cada trabajo enlaza a su servicio, con el antes y el después completo y el presupuesto orientativo.</p>
+      <p class="orientative-note">Imágenes ilustrativas del tipo de resultado por servicio. Cada trabajo enlaza a su ficha completa, con presupuesto orientativo.</p>
     </div>
   </section>
 

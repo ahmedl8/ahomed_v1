@@ -71,7 +71,7 @@ const seguridadIANaves = {
     }
   ],
   nota:
-    "Todas las opciones ya asumen que tienes instalado el Mini-PC IA Central (950 €, obligatorio) — no incluyen un mini-PC de grabación aparte. Cifras orientativas, a confirmar en visita técnica. ¿Es para una vivienda? Consulta Seguridad IA dentro de la Plataforma IA Predictiva."
+    "Todas las opciones ya asumen que tienes instalado el Mini-PC IA Central (E1, desde 590 €, según nivel) — no incluyen un mini-PC de grabación aparte. Seguridad IA para naves con varias cámaras en paralelo suele pedir el nivel IA PRO (950 €). Cifras orientativas, a confirmar en visita técnica. ¿Es para una vivienda? Consulta Seguridad IA dentro de la Plataforma IA Predictiva."
 };
 
 module.exports = { seguridadIANaves };

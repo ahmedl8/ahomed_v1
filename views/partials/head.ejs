@@ -1,6 +1,13 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title><%= title %></title>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5D5WS88L');</script>
+<!-- End Google Tag Manager -->
 <meta name="description" content="<%= metaDescription %>" />
 <link rel="canonical" href="https://<%= empresa.web %><%= currentPath %>" />
 <meta property="og:type" content="website" />
@@ -16,3 +23,24 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="/css/style.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HomeAndConstructionBusiness",
+  "name": "<%= empresa.nombre %>",
+  "description": "<%= empresa.metaDescriptionDefault %>",
+  "url": "https://<%= empresa.web %>",
+  "telephone": "+34<%= empresa.whatsapp %>",
+  "email": "<%= empresa.email %>",
+  "areaServed": {
+    "@type": "Place",
+    "name": "<%= empresa.zona %>"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "addressRegion": "Madrid",
+    "addressCountry": "ES"
+  },
+  "priceRange": "€€"
+}
+</script>

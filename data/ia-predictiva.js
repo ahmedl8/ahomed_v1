@@ -86,9 +86,10 @@ const modos = [
             ["Sensores de temperatura/humedad exterior (x2)", 30],
             ["Cableado y material de instalación", 25],
             ["Configuración del motor Python (API clima + lógica de riego)", 280],
-            ["Puesta en marcha y formación (2 h)", 120]
+            ["Integración con app móvil y dashboard básico", 120],
+            ["Puesta en marcha y formación (2 h)", 90]
           ],
-          total: 510
+          total: 600
         },
         {
           nombre: "Inteligente — motor clima + riego + persianas",
@@ -105,7 +106,7 @@ const modos = [
           total: 1070
         }
       ],
-      nota: "Coste adicional sobre el Mini-PC IA Central (950 €, obligatorio): 510 €. Ya no se ofrece este modo con equipo propio independiente."
+      nota: "Coste adicional sobre el Mini-PC IA Central (E1, desde 590 €, según nivel): 600 €. Ya no se ofrece este modo con equipo propio independiente."
     }
   },
   {
@@ -126,16 +127,18 @@ const modos = [
       titulo: "Geofencing + 3 escenas + simulación de presencia",
       opciones: [
         {
-          nombre: "Esencial — geofencing + 2 escenas",
+          nombre: "Esencial — geofencing + 3 escenas (llegada / salida / noche)",
           destacada: false,
           items: [
             ["2 enchufes inteligentes WiFi (Shelly Plug)", 40],
             ["1 tira LED salón con controlador WiFi", 55],
+            ["Termostato WiFi inteligente", 75],
             ["Cableado y material", 20],
             ["Configuración del motor de geofencing (GPS móvil → escenas)", 240],
-            ["Puesta en marcha y ajuste de perímetros GPS (2 h)", 100]
+            ["3 escenas configuradas + app de control", 100],
+            ["Puesta en marcha y ajuste de perímetros GPS (2 h)", 90]
           ],
-          total: 455
+          total: 620
         },
         {
           nombre: "Inteligente — 3 escenas + simulación de presencia",
@@ -152,7 +155,7 @@ const modos = [
           total: 595
         }
       ],
-      nota: "Coste adicional sobre el Mini-PC IA Central (950 €, obligatorio): 455 €. Ya no se ofrece este modo con equipo propio independiente."
+      nota: "Coste adicional sobre el Mini-PC IA Central (E1, desde 590 €, según nivel): 620 €. Ya no se ofrece este modo con equipo propio independiente."
     }
   },
   {
@@ -173,16 +176,18 @@ const modos = [
       titulo: "Persianas + luz adaptativa + integración con alarma",
       opciones: [
         {
-          nombre: "Esencial — persianas + amanecer gradual",
+          nombre: "Esencial — persianas + luz nocturna adaptativa",
           destacada: false,
           items: [
             ["2 motores de persiana WiFi (dormitorio principal)", 110],
-            ["Sensor de luminosidad exterior", 65],
+            ["Tira LED regulable (temperatura de color cálido/frío)", 65],
+            ["Sensor de luminosidad exterior", 18],
             ["Cableado y material", 25],
             ["Configuración del motor de sueño: horarios + amanecer gradual", 220],
+            ["Integración con alarma del móvil (vía API o IFTTT)", 90],
             ["Puesta en marcha y formación (2 h)", 90]
           ],
-          total: 510
+          total: 618
         },
         {
           nombre: "Inteligente — + luz cálida/fría + alarma del móvil",
@@ -199,7 +204,7 @@ const modos = [
           total: 645
         }
       ],
-      nota: "Coste adicional sobre el Mini-PC IA Central (950 €, obligatorio): 510 €. Ya no se ofrece este modo con equipo propio independiente."
+      nota: "Coste adicional sobre el Mini-PC IA Central (E1, desde 590 €, según nivel): 618 €. Ya no se ofrece este modo con equipo propio independiente."
     }
   },
   {
@@ -220,30 +225,33 @@ const modos = [
       titulo: "Sensor CO₂ + dashboard + alertas automáticas",
       opciones: [
         {
-          nombre: "Esencial — sensor + alertas WhatsApp",
+          nombre: "Esencial — monitorización + alertas WhatsApp",
           destacada: false,
           items: [
             ["Sensor CO₂ + temperatura + humedad (SCD40 o equivalente)", 45],
             ["Cableado y material mínimo", 15],
             ["Motor Python: lectura continua + umbrales + alertas WhatsApp", 200],
+            ["Dashboard básico con histórico 7 días", 100],
             ["Puesta en marcha y calibración (1,5 h)", 70]
           ],
-          total: 330
+          total: 430
         },
         {
-          nombre: "Inteligente — + dashboard con histórico",
+          nombre: "Inteligente — CO₂ + VOC + ventilación automática",
           destacada: true,
           items: [
-            ["Sensor CO₂ + temperatura + humedad", 45],
-            ["Cableado y material", 20],
-            ["Motor Python: lectura continua + umbrales + alertas WhatsApp", 200],
-            ["Dashboard básico con histórico 7 días", 100],
-            ["Puesta en marcha y calibración (1,5 h)", 90]
+            ["Sensor CO₂ + VOC + temperatura + humedad (multi-sensor)", 85],
+            ["Extractor de baño/cocina WiFi inteligente (x2)", 80],
+            ["Cableado y material de instalación", 40],
+            ["Motor Python: umbrales adaptativos + control de ventilación + histórico", 280],
+            ["Dashboard en tiempo real + recomendaciones automáticas de ventilación", 140],
+            ["Alertas personalizadas por WhatsApp (alerta inmediata + resumen diario)", 80],
+            ["Puesta en marcha y calibración (2,5 h)", 120]
           ],
-          total: 455
+          total: 825
         }
       ],
-      nota: "Coste adicional sobre el Mini-PC IA Central (950 €, obligatorio): 330 €. Ya no se ofrece este modo con equipo propio independiente."
+      nota: "Coste adicional sobre el Mini-PC IA Central (E1, desde 590 €, según nivel): 430 €. Ya no se ofrece este modo con equipo propio independiente."
     }
   },
   {
@@ -290,7 +298,7 @@ const modos = [
           total: 710
         }
       ],
-      nota: "Coste adicional sobre el Mini-PC IA Central (950 €, obligatorio): 405 €. Ya no se ofrece este modo con equipo propio independiente."
+      nota: "Coste adicional sobre el Mini-PC IA Central (E1, desde 590 €, según nivel): 405 €. Ya no se ofrece este modo con equipo propio independiente."
     }
   },
   {
@@ -335,7 +343,7 @@ const modos = [
           total: 695
         }
       ],
-      nota: "Coste adicional sobre el Mini-PC IA Central (950 €, obligatorio): 385 €. El detector de humo/CO conectado sube de 70 € a 100 € en esta revisión: es lo que cuesta de verdad un detector conectado equivalente (tipo Nest Protect) en 2026."
+      nota: "Coste adicional sobre el Mini-PC IA Central (E1, desde 590 €, según nivel): 385 €. El detector de humo/CO conectado sube de 70 € a 100 € en esta revisión: es lo que cuesta de verdad un detector conectado equivalente (tipo Nest Protect) en 2026."
     }
   },
   {
@@ -382,7 +390,7 @@ const modos = [
           total: 933
         }
       ],
-      nota: "Coste adicional sobre el Mini-PC IA Central (950 €, obligatorio): 540 €. Ya no se ofrece este modo con equipo propio independiente. No sustituye a la teleasistencia sanitaria oficial."
+      nota: "Coste adicional sobre el Mini-PC IA Central (E1, desde 590 €, según nivel): 540 €. Ya no se ofrece este modo con equipo propio independiente. No sustituye a la teleasistencia sanitaria oficial."
     }
   },
   {
@@ -427,7 +435,7 @@ const modos = [
           total: 545
         }
       ],
-      nota: "Coste adicional sobre el Mini-PC IA Central (950 €, obligatorio): 385 €. La opción Inteligente asume cerradura inteligente ya instalada (bloque Seguridad y Accesos)."
+      nota: "Coste adicional sobre el Mini-PC IA Central (E1, desde 590 €, según nivel): 385 €. La opción Inteligente asume cerradura inteligente ya instalada (bloque Seguridad y Accesos)."
     }
   },
   {
@@ -469,7 +477,7 @@ const modos = [
           total: 575
         }
       ],
-      nota: "Coste adicional sobre el Mini-PC IA Central (950 €, obligatorio): 320 €. Ya no se ofrece este modo con equipo propio independiente."
+      nota: "Coste adicional sobre el Mini-PC IA Central (E1, desde 590 €, según nivel): 320 €. Ya no se ofrece este modo con equipo propio independiente."
     }
   },
   {
@@ -530,7 +538,7 @@ const modos = [
       }
     ],
     nota:
-      "Todas las opciones ya asumen que tienes instalado el Mini-PC IA Central (950 €, obligatorio) — no incluyen un mini-PC de grabación aparte. Excepción: la opción Completa añade un servidor con GPU dedicada para reconocimiento facial en tiempo real, una carga que el mini-PC central no cubre. Cifras orientativas, a confirmar en visita técnica. ¿Tienes una nave, almacén o finca en vez de una vivienda? Consulta Seguridad IA para Naves y Fincas."
+      "Todas las opciones ya asumen que tienes instalado el Mini-PC IA Central (E1, desde 590 €, según nivel) — no incluyen un mini-PC de grabación aparte. Excepción: la opción Completa añade un servidor con GPU dedicada para reconocimiento facial en tiempo real, una carga que el mini-PC central no cubre. Cifras orientativas, a confirmar en visita técnica. ¿Tienes una nave, almacén o finca en vez de una vivienda? Consulta Seguridad IA para Naves y Fincas."
   },
   {
     slug: "acceso-inteligente",
@@ -590,7 +598,7 @@ const modos = [
           total: 1550
         }
       ],
-      nota: "Coste adicional sobre el Mini-PC IA Central (950 €, obligatorio): desde 620 €. Asume cerradura inteligente y/o motor de garaje ya instalados (bloque Seguridad y Accesos)."
+      nota: "Coste adicional sobre el Mini-PC IA Central (E1, desde 590 €, según nivel): desde 620 €. Asume cerradura inteligente y/o motor de garaje ya instalados (bloque Seguridad y Accesos)."
     }
   }
 ];

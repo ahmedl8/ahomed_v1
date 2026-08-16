@@ -23,6 +23,26 @@ app.use(
     contentSecurityPolicy: false // simplificado para servir imágenes/estilos propios sin fricción
   })
 );
+
+// Sirve automáticamente la versión .webp de una imagen si existe y el
+// navegador la acepta (todos los navegadores modernos) — sin tocar ninguna
+// vista ni ruta de <img>. Si no hay .webp o el navegador no la acepta,
+// sigue sirviendo el .jpg/.png original sin cambios.
+const fs = require("fs");
+app.use((req, res, next) => {
+  if (!/\.(jpe?g|png)$/i.test(req.path)) return next();
+  const accept = req.headers.accept || "";
+  if (!accept.includes("image/webp")) return next();
+  const webpPath = req.path.replace(/\.(jpe?g|png)$/i, ".webp");
+  const fullWebpPath = path.join(__dirname, "public", webpPath);
+  fs.access(fullWebpPath, fs.constants.F_OK, (err) => {
+    if (err) return next();
+    req.url = webpPath;
+    res.set("Content-Type", "image/webp");
+    next();
+  });
+});
+
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.json());
 
@@ -121,7 +141,7 @@ app.get("/servicios/ia-predictiva", (req, res) => {
   res.render("services/ia-predictiva", {
     title: `Plataforma IA Predictiva — ${empresa.nombre}`,
     metaDescription:
-      "Mini-PC IA Central obligatorio (Ryzen 7, YOLO26, motor Python + dashboard) y once modos: seguridad IA, acceso inteligente, motor meteorológico, casa presencial, sueño, calidad del aire, mascotas, cocina, personas mayores, niños y bebés, y paquetes. Configura tu presupuesto.",
+      "Mini-PC IA Central obligatorio, en dos niveles (IA START 590 € o IA PRO 950 €), motor Python + dashboard, y once modos: seguridad IA, acceso inteligente, motor meteorológico, casa presencial, sueño, calidad del aire, mascotas, cocina, personas mayores, niños y bebés, y paquetes. Configura tu presupuesto.",
     instalacionBase,
     modos: modosIA
   });
@@ -207,7 +227,7 @@ app.get("/robots.txt", (req, res) => {
 
 app.get("/sitemap.xml", (req, res) => {
   const base = `https://${empresa.web}`;
-  const staticUrls = ["/", "/servicios", "/packs", "/galeria", "/preguntas-frecuentes", "/sobre-mi", "/contacto"];
+  const staticUrls = ["/", "/servicios", "/packs", "/preguntas-frecuentes", "/sobre-mi", "/contacto"];
   const bloqueUrls = bloques.map((b) => `/servicios/bloque/${b.slug}`);
   const servicioUrls = services.map((s) => `/servicios/${s.slug}`);
   const iaPredictivaUrls = ["/servicios/ia-predictiva", ...modosIA.map((m) => `/servicios/ia-predictiva/${m.slug}`)];

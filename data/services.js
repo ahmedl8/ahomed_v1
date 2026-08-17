@@ -7,7 +7,8 @@ const services = [
     bloque: "instalaciones-base",
     heroImagen: "/img/hero-bloques/electricidad.jpg",
     numero: 1,
-    publico: "ambos",
+    publico: "casa",
+    versionAlternativa: "electricidad-nave",
     nombre: "Electricidad",
     icono: "bolt",
     resumen: "Cuadros eléctricos, boletines, averías, puntos de recarga e iluminación. La base de cualquier instalación segura.",
@@ -698,7 +699,8 @@ const services = [
     bloque: "instalaciones-base",
     heroImagen: "/img/hero-bloques/redes-informatica.jpg",
     numero: 5,
-    publico: "ambos",
+    publico: "casa",
+    versionAlternativa: "redes-nave",
     nombre: "Redes e informática",
     icono: "network",
     resumen: "Cobertura WiFi sin zonas muertas y red doméstica bien configurada. Base imprescindible para domótica e IA.",
@@ -1243,7 +1245,8 @@ const services = [
     bloque: "reformas",
     heroImagen: "/img/hero-bloques/fontaneria.jpg",
     numero: 9,
-    publico: "ambos",
+    publico: "casa",
+    versionAlternativa: "fontaneria-nave",
     nombre: "Fontanería",
     icono: "plumbing",
     resumen: "Grifería, sanitarios y reparación de fugas.",
@@ -1408,7 +1411,8 @@ const services = [
     bloque: "mantenimiento",
     heroImagen: "/img/hero-bloques/mantenimiento.jpg",
     numero: 11,
-    publico: "ambos",
+    publico: "casa",
+    versionAlternativa: "mantenimiento-nave",
     nombre: "Mantenimiento y contratos",
     icono: "maintenance",
     resumen: "Para clientes con instalación domótica, de seguridad o eléctrica ya realizada por AHOMED. Tranquilidad todo el año.",
@@ -1450,8 +1454,278 @@ const services = [
     },
     extras: ["Reentrenamiento del modelo de IA (sistemas de detección inteligente)"],
     tambienInstalaron: []
+  },
+  {
+    slug: "electricidad-nave",
+    bloque: "instalaciones-base",
+    heroImagen: "/img/hero-bloques/electricidad.jpg",
+    numero: 12,
+    publico: "negocio",
+    versionAlternativa: "electricidad",
+    nombre: "Electricidad — Naves y Fincas",
+    icono: "bolt",
+    resumen:
+      "Cuadros trifásicos, boletines CIE de alta potencia, acometidas y adecuación eléctrica a la actividad. Pensado para naves, almacenes y explotaciones, no para el cuadro de una vivienda.",
+    tiempo: "Jornada completa o más, según potencia",
+    desde: 780,
+    idealPara: [
+      "Naves con cuadro antiguo o sin boletín CIE para la potencia real de la actividad",
+      "Cambio de actividad que exige adecuar la instalación (más potencia, nuevas máquinas)",
+      "Explotaciones agrícolas con acometida trifásica para riego, cámaras frigoríficas o maquinaria"
+    ],
+    ejemplo: {
+      titulo: "Cuadro trifásico + boletín CIE para nave de hasta 300 m²",
+      cliente: "Nave con cuadro monofásico insuficiente para la maquinaria instalada, sin boletín actualizado.",
+      imagen: "/img/trabajos/cuadro-electrico-despues.jpg",
+      imagenAntes: "/img/trabajos/cuadro-electrico-antes.jpg",
+      opciones: [
+        {
+          nombre: "Esencial — hasta 20 kW",
+          destacada: false,
+          items: [
+            ["Mano de obra (aprox. 8 h)", 320],
+            ["Cuadro trifásico 24 elementos + PIAs", 380],
+            ["Diferencial trifásico 30 mA", 140],
+            ["Material y cableado (sección industrial)", 90],
+            ["Boletín eléctrico (CIE) para instalación trifásica", 320]
+          ],
+          total: 1250
+        },
+        {
+          nombre: "Inteligente — hasta 40 kW, con protección de sobretensiones",
+          destacada: true,
+          items: [
+            ["Mano de obra (aprox. 12 h)", 480],
+            ["Cuadro trifásico 36 elementos + PIAs", 520],
+            ["Diferencial trifásico superinmunizado", 210],
+            ["Protector de sobretensiones industrial", 180],
+            ["Material y cableado (sección industrial)", 140],
+            ["Boletín eléctrico (CIE) para instalación trifásica", 320]
+          ],
+          total: 1850
+        },
+        {
+          nombre: "Completa — más de 40 kW, con proyecto eléctrico",
+          destacada: false,
+          items: [
+            ["Mano de obra (aprox. 18 h)", 680],
+            ["Cuadro trifásico ampliable + PIAs", 720],
+            ["Diferencial trifásico superinmunizado (x2, sectorizado)", 380],
+            ["Protector de sobretensiones industrial", 180],
+            ["Material y cableado (sección industrial)", 220],
+            ["Proyecto eléctrico firmado (obligatorio a partir de 20 kW)", 1390],
+            ["Boletín eléctrico (CIE) e inspección OCA inicial", 520]
+          ],
+          total: 4090
+        }
+      ],
+      nota: "A partir de 20 kW de potencia instalada, el REBT exige proyecto eléctrico firmado por técnico competente, no solo boletín — está incluido en la opción Completa. Instalaciones de más de 100 kW requieren además inspección periódica cada 5 años por un Organismo de Control Autorizado (OCA)."
+    },
+    extras: [
+      "Centro de transformación propio (si la potencia contratada supera 250 kW, se presupuesta aparte)",
+      "Punto de recarga para vehículos industriales o flota (desde 1.450 €)",
+      "Iluminación LED industrial de nave (desde 890 €)"
+    ],
+    tambienInstalaron: ["Redes e informática para nave", "Energía solar de autoconsumo", "Seguridad IA para Naves y Fincas"]
+  },
+  {
+    slug: "redes-nave",
+    bloque: "instalaciones-base",
+    heroImagen: "/img/hero-bloques/redes-informatica.jpg",
+    numero: 13,
+    publico: "negocio",
+    versionAlternativa: "redes-informatica",
+    nombre: "Redes e informática — Naves y Fincas",
+    icono: "network",
+    resumen:
+      "WiFi industrial que atraviesa estructuras metálicas y estanterías, y cableado estructurado para oficinas dentro de la nave. No es un router doméstico con más alcance — es una red pensada para que no se caiga con la actividad en marcha.",
+    tiempo: "1-2 jornadas según superficie",
+    desde: 890,
+    idealPara: [
+      "Naves con estructura metálica o estanterías altas que crean zonas sin cobertura",
+      "Almacenes que usan lectores de código de barras, tablets o sistemas de gestión (SGA) en movimiento",
+      "Oficinas dentro de la nave que necesitan puntos de red fijos, no solo WiFi"
+    ],
+    ejemplo: {
+      titulo: "WiFi industrial + cableado estructurado para nave de 500 m²",
+      cliente: "Nave logística con estanterías metálicas de gran altura y zonas sin cobertura para los lectores de almacén.",
+      imagen: "/img/trabajos/rack-comunicaciones-despues.jpg",
+      imagenAntes: "/img/trabajos/rack-comunicaciones-antes.jpg",
+      opciones: [
+        {
+          nombre: "Esencial — WiFi industrial (2 puntos de acceso)",
+          destacada: false,
+          items: [
+            ["Instalación y configuración con roaming entre puntos", 220],
+            ["Puntos de acceso WiFi industrial de alta potencia (x2)", 480],
+            ["Material y fijación en altura", 90]
+          ],
+          total: 790
+        },
+        {
+          nombre: "Inteligente — WiFi industrial (4 puntos) + 4 tomas de red",
+          destacada: true,
+          items: [
+            ["Instalación y configuración con roaming entre puntos", 380],
+            ["Puntos de acceso WiFi industrial de alta potencia (x4)", 960],
+            ["Cableado estructurado Cat6 a 4 tomas (oficina/recepción)", 340],
+            ["Switch gestionable de 8 puertos", 120],
+            ["Material, canalización y fijación en altura", 180]
+          ],
+          total: 1980
+        },
+        {
+          nombre: "Completa — cobertura total + rack y VLAN separadas",
+          destacada: false,
+          items: [
+            ["Instalación y configuración con roaming entre puntos", 520],
+            ["Puntos de acceso WiFi industrial de alta potencia (x6)", 1440],
+            ["Cableado estructurado Cat6 a 8 tomas", 640],
+            ["Armario rack con switch gestionable y patch panel", 480],
+            ["Configuración de VLAN (red de gestión separada de la de invitados)", 260],
+            ["Material, canalización y fijación en altura", 260]
+          ],
+          total: 3600
+        }
+      ],
+      nota: "Un router doméstico no tiene potencia suficiente para atravesar estructuras de acero y estanterías metálicas — por eso las carretillas y lectores de almacén pierden conexión al moverse por la nave. El presupuesto de arriba usa equipo industrial pensado para eso."
+    },
+    extras: [
+      "Ampliación de puntos de acceso adicionales (desde 240 € por punto)",
+      "Fibra óptica troncal entre edificios de la misma finca (se presupuesta según distancia)",
+      "Cámara IP integrada en la misma red (ver Seguridad IA para Naves y Fincas)"
+    ],
+    tambienInstalaron: ["Electricidad para nave", "Seguridad IA para Naves y Fincas"]
+  },
+  {
+    slug: "fontaneria-nave",
+    bloque: "reformas",
+    heroImagen: "/img/hero-bloques/fontaneria.jpg",
+    numero: 14,
+    publico: "negocio",
+    versionAlternativa: "fontaneria",
+    nombre: "Fontanería — Naves y Fincas",
+    icono: "plumbing",
+    resumen:
+      "Redes de riego para finca, saneamiento industrial y puntos de agua para nave o explotación. No es la grifería de un baño — son caudales, presiones y recorridos de otra escala.",
+    tiempo: "Según alcance de la instalación",
+    desde: 420,
+    idealPara: [
+      "Fincas que necesitan red de riego (goteo, aspersión) o ampliar la existente",
+      "Naves que necesitan puntos de agua para aseos, vestuarios o proceso productivo",
+      "Explotaciones con fugas o presión insuficiente en tramos largos de tubería"
+    ],
+    ejemplo: {
+      titulo: "Red de riego por goteo para finca de 1 hectárea",
+      cliente: "Finca con riego manual, sin automatización ni sectorización por zonas.",
+      imagen: "/img/trabajos/riego-despues.jpg",
+      imagenAntes: "/img/trabajos/riego-antes.jpg",
+      opciones: [
+        {
+          nombre: "Esencial — riego por goteo, 1 sector",
+          destacada: false,
+          items: [
+            ["Mano de obra (zanja, tubería principal y ramales)", 380],
+            ["Tubería principal PE 32mm (hasta 200 m)", 260],
+            ["Goteros y ramales de riego", 180],
+            ["Programador de riego con electroválvula", 140],
+            ["Material de conexión y estanqueidad", 40]
+          ],
+          total: 1000
+        },
+        {
+          nombre: "Inteligente — riego por goteo, 3 sectores + programador WiFi",
+          destacada: true,
+          items: [
+            ["Mano de obra (zanja, tubería principal y ramales)", 620],
+            ["Tubería principal PE 32-40mm (hasta 400 m)", 480],
+            ["Goteros y ramales de riego (3 sectores)", 420],
+            ["Programador de riego WiFi con 3 electroválvulas", 340],
+            ["Sensor de lluvia (evita riego innecesario)", 90],
+            ["Material de conexión y estanqueidad", 70]
+          ],
+          total: 2020
+        },
+        {
+          nombre: "Completa — riego automatizado + acometida nueva",
+          destacada: false,
+          items: [
+            ["Mano de obra (zanja, tubería principal y ramales)", 980],
+            ["Acometida de agua nueva desde captación o pozo", 650],
+            ["Tubería principal PE 40-50mm (hasta 800 m)", 890],
+            ["Goteros y ramales de riego (5 sectores)", 620],
+            ["Programador de riego WiFi con 5 electroválvulas", 480],
+            ["Sensor de lluvia y de humedad de suelo", 180],
+            ["Material de conexión y estanqueidad", 120]
+          ],
+          total: 3920
+        }
+      ],
+      nota: "El precio varía mucho según si hay que abrir zanja nueva o se reutilizan canalizaciones existentes, y según la distancia real a la toma de agua — la visita técnica gratuita ajusta la cifra final."
+    },
+    extras: [
+      "Puntos de agua para aseos o vestuarios de nave (desde 380 € por punto)",
+      "Reparación de fuga en tramo largo (desde 145 €, según localización)",
+      "Grupo de presión para caudal insuficiente (desde 650 €)"
+    ],
+    tambienInstalaron: ["Electricidad para nave", "Gestión Inteligente de Energía", "Seguridad IA para Naves y Fincas"]
+  },
+  {
+    slug: "mantenimiento-nave",
+    bloque: "mantenimiento",
+    heroImagen: "/img/hero-bloques/mantenimiento.jpg",
+    numero: 15,
+    publico: "negocio",
+    versionAlternativa: "mantenimiento",
+    nombre: "Mantenimiento — Naves y Fincas",
+    icono: "maintenance",
+    resumen:
+      "Para negocios con instalación eléctrica, de seguridad IA o de red ya realizada por AHOMED. Revisión pensada para que la actividad no pare, no para el ritmo de una vivienda.",
+    tiempo: "Visita programada",
+    desde: 180,
+    desdeUnidad: "/año",
+    idealPara: [
+      "Naves o fincas con Seguridad IA que necesitan reentrenamiento del modelo por cambios de actividad",
+      "Instalaciones eléctricas trifásicas que requieren inspección periódica (OCA cada 5 años si superan 100 kW)",
+      "Negocios que no pueden permitirse una avería sin respuesta rápida"
+    ],
+    ejemplo: {
+      titulo: "Contrato de mantenimiento para nave o finca",
+      cliente: null,
+      imagen: "/img/trabajos/mantenimiento-despues.jpg",
+      opciones: [
+        {
+          nombre: "Esencial — revisión anual",
+          destacada: false,
+          items: [["1 visita de revisión anual (cuadro eléctrico, cámaras IA, red, batería de sensores)", 180]],
+          total: 180,
+          totalUnidad: "€/año"
+        },
+        {
+          nombre: "Inteligente — revisión + 2 incidencias incluidas",
+          destacada: true,
+          items: [["1 visita de revisión anual + hasta 2 incidencias menores incluidas (sin coste de desplazamiento)", 340]],
+          total: 340,
+          totalUnidad: "€/año"
+        },
+        {
+          nombre: "Completa — mensual con atención prioritaria",
+          destacada: false,
+          items: [["Revisión trimestral + incidencias ilimitadas (solo material aparte) + respuesta prioritaria en menos de 4 h, adaptada a horario de actividad", 65]],
+          total: 65,
+          totalUnidad: "€/mes (780 €/año)"
+        }
+      ],
+      nota: "El bono no cubre sustitución de dispositivos dañados por mal uso, obra civil, ni la inspección OCA obligatoria de instalaciones de más de 100 kW (se presupuesta aparte, es un trámite independiente con un Organismo de Control Autorizado)."
+    },
+    extras: [
+      "Reentrenamiento del modelo de IA tras cambios de actividad o layout de la nave",
+      "Gestión de la inspección periódica OCA (instalaciones de más de 100 kW)"
+    ],
+    tambienInstalaron: []
   }
 ];
+
 
 // Packs combinados
 const packs = [

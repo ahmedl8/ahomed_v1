@@ -366,6 +366,9 @@ p { margin: 0; }
 }
 
 .service-meta { display: flex; gap: 8px; flex-wrap: wrap; margin: 4px 0; }
+.service-version-alt { font-size: 0.9rem; opacity: 0.85; margin: 4px 0 12px; }
+.service-version-alt a { color: #7dd3fc; text-decoration: underline; margin-left: 4px; }
+.service-version-alt a:hover { color: #fff; }
 .meta-chip {
   background: #eef0f2; color: var(--charcoal);
   font-size: 0.78rem; font-weight: 700;

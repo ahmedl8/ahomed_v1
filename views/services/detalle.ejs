@@ -24,6 +24,12 @@
         <span class="eyebrow">Servicio <%= service.numero %></span>
         <h1><%= service.nombre %></h1>
         <p><%= service.resumen %></p>
+        <% if (service.versionAlternativa) { %>
+          <p class="service-version-alt">
+            <%= service.publico === 'negocio' ? '¿Es para una vivienda?' : '¿Es para una nave, almacén o finca?' %>
+            <a href="/servicios/<%= service.versionAlternativa %>">Consulta la versión para <%= service.publico === 'negocio' ? 'tu casa' : 'naves y fincas' %> →</a>
+          </p>
+        <% } %>
         <div class="service-meta">
           <span class="meta-chip"><%= service.tiempo %></span>
           <span class="meta-chip meta-chip-price">Desde <%= fmt(service.desde) %> €<%= service.desdeUnidad || '' %></span>

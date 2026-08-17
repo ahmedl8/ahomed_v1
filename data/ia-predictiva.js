@@ -23,7 +23,7 @@ const nivelesInstalacionBase = [
     nombre: "IA START",
     subtitulo: "Para 1-2 servicios IA",
     resumen:
-      "El mini-PC IA analiza 1 frame cada 1-2 segundos por cámara y ejecuta un modo o dos sin esfuerzo — no hace falta más músculo del que da un Ryzen 5 de gama media para arrancar con la Plataforma IA Predictiva.",
+      "Suficiente para arrancar con 1 o 2 servicios de la Plataforma IA Predictiva sin esfuerzo — la opción más ajustada para empezar.",
     items: [
       ["Mini-PC IA (Ryzen 5 7530U o equivalente, 16 GB RAM, 512 GB SSD)", 430],
       ["Instalación del motor Python + modelos YOLO26 (orquestador de modos)", 90],
@@ -37,7 +37,7 @@ const nivelesInstalacionBase = [
     nombre: "IA PRO",
     subtitulo: "Para 3 o más servicios IA, o Seguridad IA con varias cámaras",
     resumen:
-      "Cuando el mini-PC tiene que correr varios modos a la vez, o analizar varias cámaras en paralelo para Seguridad IA, conviene más núcleos y una NPU dedicada — el Ryzen 7 8845HS mantiene todo fluido sin cuellos de botella.",
+      "Cuando quieres varios servicios a la vez, o Seguridad IA con varias cámaras en paralelo, conviene más potencia para que todo vaya fluido sin esperas.",
     items: [
       ["Mini-PC IA (Ryzen 7 8845HS o equivalente, 32 GB RAM, 1 TB SSD, NPU ~16 TOPS)", 700],
       ["Instalación del motor Python + modelos YOLO26 (orquestador de modos)", 130],
@@ -54,7 +54,7 @@ const nivelesInstalacionBase = [
 const instalacionBase = {
   nombre: "Mini-PC IA Central — instalación base obligatoria",
   resumen:
-    "Antes de cualquier modo se instala una única vez el Mini-PC IA Central, el motor Python que orquesta todos los modos, el dashboard de control y la integración con WhatsApp Business API. Disponible en dos niveles según cuántos servicios IA quiere el cliente — ver comparativa arriba. A partir de aquí, cada modo añadido es un coste adicional fijo, igual en ambos niveles.",
+    "Antes de cualquier modo se instala una única vez el Mini-PC IA Central: el cerebro que conecta todos los modos entre sí, el dashboard de control y la integración con WhatsApp Business API. Disponible en dos niveles según cuántos servicios IA quiere el cliente — ver comparativa arriba. A partir de aquí, cada modo añadido es un coste adicional fijo, igual en ambos niveles.",
   niveles: nivelesInstalacionBase,
   total: 950
 };
@@ -491,7 +491,7 @@ const modos = [
     subtitulo: "Detección de personas y vehículos, sin falsas alarmas",
     icono: "ai",
     resumen:
-      "El mini-PC central analiza un frame cada 1-2 segundos de cada cámara con YOLO26 y aprende a distinguir personas y vehículos reales de falsas alarmas (un gato, una sombra, una bolsa moviéndose con el viento). Solo avisa por WhatsApp cuando de verdad importa.",
+      "El sistema aprende a distinguir personas y vehículos reales de falsas alarmas (un gato, una sombra, una bolsa moviéndose con el viento). Solo avisa por WhatsApp cuando de verdad importa.",
     idealPara: ["Viviendas que quieren dejar de recibir alertas falsas", "Quien ya tiene cámaras y quiere añadirles análisis IA", "Chalets y segundas residencias"],
     extras: ["Reentrenamiento del modelo (ver bono de mantenimiento)", "Ampliación a panel de monitorización a medida (dashboard propio)", "Integración con CCTV cableado ya instalado"],
     tambienInstalaron: ["Cerradura inteligente", "Videoportero inteligente", "Red WiFi mesh (conexión estable, imprescindible para la IA)"],

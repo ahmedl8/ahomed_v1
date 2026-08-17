@@ -603,7 +603,7 @@ const services = [
       "Cerradura eléctrica con apertura desde el móvil (desde 195 €)",
       "Grabación en mini-PC local (CCTV cableado, desde 840 €)"
     ],
-    tambienInstalaron: ["Cerradura inteligente", "Cámara WiFi adicional", "Sistema de seguridad completo para chalet", "Detección YOLO + Alertas WhatsApp", "Red WiFi mesh", "Panel de monitorización a medida"],
+    tambienInstalaron: ["Cerradura inteligente", "Cámara WiFi adicional", "Sistema de seguridad completo para chalet", "Seguridad IA (sin falsas alarmas)", "Red WiFi mesh", "Panel de monitorización a medida"],
     ejemplosAdicionales: [
       {
         titulo: "Cerradura inteligente",

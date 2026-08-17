@@ -17,7 +17,7 @@ const seguridadIANaves = {
   subtitulo: "Detección de personas y vehículos a gran escala",
   icono: "ai",
   resumen:
-    "El mini-PC central analiza un frame cada 1-2 segundos de cada cámara con YOLO26 y aprende a distinguir personas y vehículos reales de falsas alarmas por fauna, vegetación o sombras. Pensado para el perímetro y los accesos de una nave, almacén o finca — no para el interior de una vivienda. Solo avisa por WhatsApp cuando de verdad importa.",
+    "El sistema aprende a distinguir personas y vehículos reales de falsas alarmas por fauna, vegetación o sombras. Pensado para el perímetro y los accesos de una nave, almacén o finca — no para el interior de una vivienda. Solo avisa por WhatsApp cuando de verdad importa.",
   idealPara: ["Naves industriales y almacenes", "Fincas rurales y agrícolas con vigilancia perimetral", "Talleres y locales con acceso de vehículos"],
   extras: ["Reentrenamiento del modelo (ver bono de mantenimiento)", "Ampliación a panel de monitorización a medida (dashboard propio)", "Integración con CCTV cableado ya instalado", "Cámaras térmicas perimetrales (reducen falsos positivos por fauna o vegetación)"],
   tambienInstalaron: ["Panel de monitorización a medida", "Integración con iluminación de seguridad perimetral", "Red de datos cableada para las cámaras"],

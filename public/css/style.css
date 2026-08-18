@@ -858,6 +858,7 @@ p { margin: 0; }
 .photo-label-after { background: var(--whatsapp-dark); }
 
 .pack-option-cta { width: 100%; justify-content: center; margin-top: 18px; }
+.option-card-cta { width: 100%; justify-content: center; margin-top: 18px; }
 .pack-note-bottom { font-size: 0.85rem; color: var(--gray-500); font-style: italic; margin-top: 24px; text-align: center; }
 
 @media (max-width: 640px) {

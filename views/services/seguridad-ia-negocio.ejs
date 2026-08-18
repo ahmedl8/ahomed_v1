@@ -70,7 +70,7 @@
 
           <div class="options-stack options-stack-3">
             <% ej.opciones.forEach(function(op){ %>
-              <%- include('../partials/option-card', { op: op, fmt: fmt }) %>
+              <%- include('../partials/option-card', { op: op, fmt: fmt, serviceNombre: modo.nombre, empresa: empresa }) %>
             <% }) %>
           </div>
         </div>

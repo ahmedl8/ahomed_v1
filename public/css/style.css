@@ -125,6 +125,7 @@ p { margin: 0; }
   padding-bottom: 2px;
 }
 .bloque-cta-link:hover { color: var(--whatsapp-dark); border-color: var(--whatsapp-dark); }
+.section-cta-more { display: block; text-align: center; margin-top: 28px; }
 
 .sub-heading {
   font-size: 1.3rem;

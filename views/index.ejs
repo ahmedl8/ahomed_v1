@@ -43,6 +43,29 @@
     </div>
   </section>
 
+  <!-- ¿QUÉ NECESITAS? -->
+  <section class="section section-tight necesitas-section">
+    <div class="container">
+      <div class="section-head">
+        <h2>¿Qué necesitas?</h2>
+      </div>
+      <div class="services-grid services-grid-full necesitas-grid">
+        <% necesitas.forEach(function(n){ %>
+          <a href="<%= n.link %>" class="service-card necesitas-card">
+            <div class="service-icon"><svg viewBox="0 0 24 24"><%- icons[n.icono] %></svg></div>
+            <h3><%= n.titulo %></h3>
+            <p><%= n.subtitulo %></p>
+            <% if (n.desde) { %>
+              <span class="link-arrow">Desde <%= fmt(n.desde) %> € →</span>
+            <% } else { %>
+              <span class="link-arrow">Ver más →</span>
+            <% } %>
+          </a>
+        <% }) %>
+      </div>
+    </div>
+  </section>
+
   <!-- POR QUÉ ELEGIR AHOMED -->
   <section class="section advantages-section">
     <div class="container">
@@ -70,7 +93,7 @@
       </div>
 
       <div class="services-grid">
-        <% services.forEach(function(s){ %>
+        <% serviciosDestacados.forEach(function(s){ %>
           <a href="/servicios/<%= s.slug %>" class="service-card">
             <h3><%= s.nombre %></h3>
             <p><%= s.resumen %></p>
@@ -81,6 +104,8 @@
           </a>
         <% }) %>
       </div>
+
+      <a href="/servicios" class="bloque-cta-link section-cta-more">Ver todos los servicios →</a>
     </div>
   </section>
 
@@ -145,7 +170,7 @@
         <p>No vendemos solo servicios sueltos: resolvemos la instalación completa.</p>
       </div>
       <div class="packs-grid">
-        <% packs.forEach(function(p){ %>
+        <% packsDestacados.forEach(function(p){ %>
           <a href="/packs#<%= p.slug %>" class="pack-card pack-card-photo">
             <img src="<%= p.imagen %>" alt="<%= p.imagenAlt %>" loading="lazy" class="pack-card-img">
             <div class="pack-card-body">
@@ -160,6 +185,8 @@
           </a>
         <% }) %>
       </div>
+
+      <a href="/packs" class="bloque-cta-link section-cta-more">Ver todos los packs →</a>
     </div>
   </section>
 

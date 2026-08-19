@@ -10,7 +10,8 @@
   <section class="page-hero">
     <div class="container">
       <h1>Servicios</h1>
-      <p>Seis bloques, un mismo equipo. Precios orientativos: el presupuesto final se confirma tras la visita técnica gratuita.</p>
+      <% var numeroEnLetra = ["", "un", "dos", "tres", "cuatro", "cinco", "seis", "siete", "ocho", "nueve", "diez"][bloques.length] || bloques.length; %>
+      <p><%= numeroEnLetra.charAt(0).toUpperCase() + numeroEnLetra.slice(1) %> bloques, un mismo equipo. Precios orientativos: el presupuesto final se confirma tras la visita técnica gratuita.</p>
     </div>
   </section>
 

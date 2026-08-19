@@ -1889,14 +1889,15 @@ const packs = [
         total: 1450
       },
       {
-        nombre: "Inteligente — + Motor Meteorológico ⭐",
+        nombre: "Inteligente — + Motor Meteorológico y Paquetes ⭐",
         destacada: true,
         items: [
           ["Mini-PC IA PRO — instalación base obligatoria (para varios modos a la vez)", 950],
-          ["Seguridad IA — 4 cámaras + zonas de detección personalizadas", 1330],
-          ["Motor Meteorológico — riego y persianas con IA climática", 1070]
+          ["Seguridad IA — 2 cámaras con detección de personas/vehículos y alertas WhatsApp", 860],
+          ["Motor Meteorológico — riego y persianas con IA climática", 600],
+          ["Gestión de Paquetes — detección, foto y alerta WhatsApp", 320]
         ],
-        total: 3350
+        total: 2730
       },
       {
         nombre: "Completa — + IA de Sueño y Personas Mayores",
@@ -1913,13 +1914,13 @@ const packs = [
     nota: "Precio orientativo; cada modo puede ampliarse o sustituirse por cualquiera de los diez de la Plataforma IA Predictiva sin cambiar el Mini-PC IA Central ya instalado."
   },
   {
-    nombre: "Pack Alquiler y Segunda Residencia IA",
+    nombre: "Pack Segunda Residencia IA",
     slug: "alquiler-segunda-residencia-ia",
     publico: "casa",
     incluyeIA: true,
-    descripcion: "Para viviendas que no se habitan todo el año: sabrás qué pasa en tu propiedad, simularás presencia y no se te pasará ni un paquete, sin tener que desplazarte.",
+    descripcion: "Controla tu propiedad desde donde estés: seguridad, simulación de presencia, gestión de paquetes y clima/riego, sin tener que desplazarte para saber que todo está bien.",
     imagen: "/img/packs/pack-alquiler-segunda-residencia.jpg",
-    imagenAlt: "Cámara de seguridad en terraza con vistas al mar — Pack Alquiler y Segunda Residencia AHOMED",
+    imagenAlt: "Cámara de seguridad en terraza con vistas al mar — Pack Segunda Residencia IA AHOMED",
     opciones: [
       {
         nombre: "Esencial — Casa Presencial + Seguridad IA",
@@ -1935,12 +1936,12 @@ const packs = [
         nombre: "Inteligente — + Gestión de Paquetes ⭐",
         destacada: true,
         items: [
-          ["Mini-PC IA START — instalación base obligatoria", 590],
+          ["Mini-PC IA PRO — instalación base obligatoria (3 modos a la vez + varias cámaras en Seguridad IA)", 950],
           ["Casa Presencial — 3 escenas + simulación de presencia", 595],
           ["Seguridad IA — 4 cámaras + zonas de detección personalizadas", 1330],
           ["Gestión de Paquetes — detección, foto y alerta WhatsApp", 320]
         ],
-        total: 2835
+        total: 3195
       },
       {
         nombre: "Completa — + Motor Meteorológico",

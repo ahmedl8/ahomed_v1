@@ -178,7 +178,8 @@ app.get("/servicios/ia-predictiva", (req, res) => {
     metaDescription:
       "Mini-PC IA Central obligatorio, en dos niveles (IA START 590 € o IA PRO 950 €), motor Python + dashboard, y once modos: seguridad IA, acceso inteligente, motor meteorológico, casa presencial, sueño, calidad del aire, mascotas, cocina, personas mayores, niños y bebés, y paquetes. Configura tu presupuesto.",
     instalacionBase,
-    modos: modosIA
+    modos: modosIA,
+    packsIA: packs.filter((p) => ["hogar-inteligente", "alquiler-segunda-residencia-ia"].includes(p.slug))
   });
 });
 

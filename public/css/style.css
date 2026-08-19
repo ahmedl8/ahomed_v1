@@ -17,6 +17,8 @@
   --whatsapp-dark: #1ebe57;
   --ai-accent: #a78bfa;
   --ai-accent-soft: #f5f2ff;
+  --urgent: #e0472c;
+  --urgent-soft: #fdf1ee;
   --radius: 14px;
   --radius-sm: 8px;
   --shadow: 0 4px 24px rgba(18, 20, 26, 0.06);
@@ -475,6 +477,7 @@ p { margin: 0; }
 /* ---------- Packs ---------- */
 .packs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 .packs-grid-page { grid-template-columns: repeat(3, 1fr); }
+.packs-grid-2 { grid-template-columns: repeat(2, 1fr); max-width: 780px; margin: 0 auto; }
 .pack-card {
   border: 1px solid var(--line);
   border-radius: var(--radius);
@@ -668,6 +671,32 @@ p { margin: 0; }
 .service-hero p { color: #c7cbd1; max-width: 620px; margin-bottom: 14px; }
 .service-hero .meta-chip { background: rgba(255,255,255,0.1); color: #fff; }
 .service-hero .meta-chip-price { background: #7dd3fc; color: var(--ink); }
+
+.section-urgent { padding: 28px 0 0; }
+.urgent-callout {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  background: var(--urgent-soft);
+  border: 1px solid rgba(224, 71, 44, 0.25);
+  border-radius: var(--radius);
+  padding: 18px 22px;
+}
+.urgent-callout-icon {
+  width: 46px; height: 46px; flex-shrink: 0;
+  background: rgba(224, 71, 44, 0.12);
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+}
+.urgent-callout-icon svg { width: 24px; height: 24px; fill: var(--urgent); }
+.urgent-callout-body { flex: 1; min-width: 0; }
+.urgent-callout-title { font-weight: 700; color: var(--ink); margin: 0 0 2px; }
+.urgent-callout-texto { color: var(--charcoal); margin: 0; font-size: 0.95rem; }
+.urgent-callout-cta { flex-shrink: 0; white-space: nowrap; }
+@media (max-width: 640px) {
+  .urgent-callout { flex-wrap: wrap; }
+  .urgent-callout-cta { width: 100%; text-align: center; }
+}
 
 .two-col { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 48px; align-items: start; }
 .two-col-top { align-items: start; margin-top: 40px; }
@@ -1069,7 +1098,7 @@ p { margin: 0; }
 @media (max-width: 1024px) {
   .services-grid { grid-template-columns: repeat(2, 1fr); }
   .services-grid-full { grid-template-columns: repeat(2, 1fr); }
-  .packs-grid, .packs-grid-page { grid-template-columns: 1fr; }
+  .packs-grid, .packs-grid-page, .packs-grid-2 { grid-template-columns: 1fr; }
   .steps-grid { grid-template-columns: 1fr; }
   .ai-highlight-inner { grid-template-columns: 1fr; }
   .two-col { grid-template-columns: 1fr; }

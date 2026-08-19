@@ -59,11 +59,37 @@
     </div>
   </section>
 
-  <!-- CALCULADORA -->
-  <section class="section section-alt" id="calculadora">
+  <% if (packsIA && packsIA.length) { %>
+  <section class="section section-alt">
     <div class="container">
-      <h2 class="sub-heading">2. Configura tu Plataforma IA</h2>
-      <p>Elige el Mini-PC según cuántos servicios te interesan, marca los modos y mira el total en vivo.</p>
+      <h2 class="sub-heading">2. ¿No sabes por dónde empezar? Empieza por un pack</h2>
+      <p>Combinan ya los modos que más piden las familias, a precio cerrado. Es la forma más rápida de arrancar — luego se puede ampliar con cualquiera de los otros modos sin tocar el Mini-PC ya instalado.</p>
+
+      <div class="packs-grid packs-grid-2">
+        <% packsIA.forEach(function(p){ %>
+          <a href="/packs#<%= p.slug %>" class="pack-card pack-card-photo">
+            <img src="<%= p.imagen %>" alt="<%= p.imagenAlt %>" loading="lazy" class="pack-card-img">
+            <div class="pack-card-body">
+              <% if (p.incluyeIA) { %><span class="pack-ia-badge pack-ia-badge-sm">🧠 Incluye IA</span><% } %>
+              <h3><%= p.nombre %></h3>
+              <p class="pack-desc"><%= p.descripcion %></p>
+              <div class="pack-footer">
+                <span class="price-tag price-tag-lg">Desde <%= fmt(p.opciones[0].total) %> €</span>
+                <span class="btn btn-outline">Ver desglose</span>
+              </div>
+            </div>
+          </a>
+        <% }) %>
+      </div>
+    </div>
+  </section>
+  <% } %>
+
+  <!-- CALCULADORA -->
+  <section class="section" id="calculadora">
+    <div class="container">
+      <h2 class="sub-heading">3. ¿Prefieres montarlo tú mismo? Elige modo a modo</h2>
+      <p>Si ya sabes qué necesitas, elige el Mini-PC según cuántos servicios te interesan, marca los modos y mira el total en vivo.</p>
 
       <div class="calc-wrap" data-wa="<%= empresa.whatsapp %>">
         <div class="calc-niveles">
@@ -100,7 +126,7 @@
 
   <section class="section">
     <div class="container">
-      <h2 class="sub-heading">3. Los <%= modos.length %> modos, uno a uno</h2>
+      <h2 class="sub-heading">4. Los <%= modos.length %> modos, uno a uno</h2>
       <p>Cada modo resuelve un escenario completo de la vida diaria, no un dispositivo suelto.</p>
 
       <div class="services-grid services-grid-full">

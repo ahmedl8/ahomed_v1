@@ -19,6 +19,12 @@ const services = [
       "Averías eléctricas urgentes",
       "Instalación de punto de recarga para coche eléctrico"
     ],
+    avisoUrgente: {
+      titulo: "¿Te has quedado sin luz ahora mismo?",
+      texto: "Diagnóstico de avería eléctrica a domicilio desde 100 €. Vamos el mismo día, sin esperar a comparar presupuestos.",
+      ctaTexto: "Pedir diagnóstico urgente",
+      mensajeWhatsapp: "Hola, tengo una avería eléctrica y necesito un diagnóstico urgente."
+    },
     ejemplo: {
       titulo: "Sustitución de cuadro eléctrico + boletín (CIE)",
       cliente: "Vivienda con cuadro eléctrico antiguo, sin diferencial ni protección por circuitos.",
@@ -43,7 +49,7 @@ const services = [
           items: [
             ["Mano de obra (aprox. 5 h)", 190],
             ["Cuadro eléctrico 12 elementos + PIAs", 130],
-            ["Diferencial superinmunizado (evita disparos por fugas fantasma)", 70],
+            ["Diferencial superinmunizado (no salta solo al encender el microondas o la lavadora)", 70],
             ["Material y cableado", 30],
             ["Boletín eléctrico (CIE): tramitación e inspección", 165]
           ],
@@ -55,8 +61,8 @@ const services = [
           items: [
             ["Mano de obra (aprox. 6 h)", 220],
             ["Cuadro eléctrico 12 elementos + PIAs", 130],
-            ["Diferencial superinmunizado", 70],
-            ["Protector de sobretensiones", 65],
+            ["Diferencial superinmunizado (no salta solo al encender el microondas o la lavadora)", 70],
+            ["Protector de sobretensiones (protege tus aparatos electrónicos de una subida de tensión de la red)", 65],
             ["Material y cableado", 35],
             ["Boletín eléctrico (CIE): tramitación e inspección", 165]
           ],
@@ -66,8 +72,7 @@ const services = [
     },
     extras: [
       "Punto de recarga para coche eléctrico (desde 995 €)",
-      "Iluminación LED (desde 235 €)",
-      "Diagnóstico de avería eléctrica (desde 100 €)"
+      "Iluminación LED (desde 235 €)"
     ],
     tambienInstalaron: [{ texto: "Iluminación LED", href: "/servicios/electricidad" }, { texto: "Red WiFi mesh", href: "/servicios/redes-informatica" }, { texto: "Domótica básica", href: "/servicios/domotica" }, { texto: "Energía solar (autoconsumo)", href: "/servicios/energia-solar" }],
     ejemplosAdicionales: [
@@ -127,7 +132,7 @@ const services = [
     icono: "home-wifi",
     resumen: "Luces, persianas, riego y escenas controladas desde el móvil. Desde una estancia hasta la vivienda completa.",
     tiempo: "Trabajo rápido (por estancia)",
-    desde: 295,
+    desde: 210,
     idealPara: [
       "Personas mayores (control sencillo por app o voz)",
       "Viviendas nuevas",
@@ -141,7 +146,18 @@ const services = [
       imagenAntes: "/img/trabajos/enchufes-antes.jpg",
       opciones: [
         {
-          nombre: "Presupuesto",
+          nombre: "Esencial",
+          destacada: false,
+          items: [
+            ["Mano de obra", 90],
+            ["3 interruptores WiFi", 90],
+            ["1 enchufe inteligente", 20],
+            ["Material eléctrico", 10]
+          ],
+          total: 210
+        },
+        {
+          nombre: "Inteligente",
           destacada: true,
           items: [
             ["Mano de obra", 120],
@@ -150,6 +166,18 @@ const services = [
             ["Material eléctrico", 15]
           ],
           total: 295
+        },
+        {
+          nombre: "Completa",
+          destacada: false,
+          items: [
+            ["Mano de obra", 150],
+            ["6 interruptores WiFi", 180],
+            ["3 enchufes inteligentes", 60],
+            ["Hub central de domótica (para escenas y control por voz)", 90],
+            ["Material eléctrico", 20]
+          ],
+          total: 500
         }
       ],
       nota: "Revisión y mantenimiento anual (opcional): 60 €/año — revisión de dispositivos y actualización de la app."
@@ -497,7 +525,7 @@ const services = [
             total: 6980
           }
         ],
-        nota: "Instalaciones con vertido de excedentes a red requieren alta como productor ante la compañía eléctrica; se gestiona como parte de la legalización. El número de paneles y orientación óptima se confirma con la visita técnica y el estudio de sombras."
+        nota: "Instalaciones con vertido de excedentes a red requieren alta como productor ante la compañía eléctrica; se gestiona como parte de la legalización. El número de paneles y orientación óptima se confirma con la visita técnica y el estudio de sombras. Nos encargamos de toda la tramitación — tú no tienes que hacer nada."
       },
       {
         titulo: "Gestión energética inteligente (tarifa PVPC)",
@@ -690,7 +718,7 @@ const services = [
             total: 2330
           }
         ],
-        nota: "El precio depende de la distancia real de cableado entre cámaras y el punto de grabación; se confirma en la visita técnica."
+        nota: "El precio depende de la distancia real de cableado entre cámaras y el punto de grabación; se confirma en la visita técnica. ¿Ya tienes cámaras y solo quieres que piensen? Mira Seguridad IA — no hace falta contratar las dos."
       }
     ]
   },
@@ -908,7 +936,7 @@ const services = [
             total: 5250
           }
         ],
-        nota: "El presupuesto final depende del número de estancias, distancias entre unidad exterior e interiores, y accesibilidad de la fachada. La opción Completa usa equipo A+++ de gama alta con control WiFi por zona; se recomienda confirmar el margen con el proveedor de equipos antes de publicitar el precio cerrado."
+        nota: "El presupuesto final depende del número de estancias, distancias entre unidad exterior e interiores, y accesibilidad de la fachada. La opción Completa usa equipo A+++ de gama alta con control WiFi por zona."
       }
     ]
   },
@@ -1049,6 +1077,21 @@ const services = [
             ["Material", 25]
           ],
           total: 605
+        },
+        {
+          nombre: "Completa",
+          destacada: false,
+          items: [
+            ["Mano de obra pintura (paredes y techo, aprox. 15 m²)", 120],
+            ["Pintura plástica antihumedad", 65],
+            ["Mano de obra alicatado (6 m² pared de ducha, incluye impermeabilización)", 260],
+            ["Azulejo de gama alta (6 m²)", 190],
+            ["Impermeabilización de la zona de ducha (membrana líquida)", 85],
+            ["Rodapié cerámico", 30],
+            ["Sellado de juntas con silicona antimoho", 25],
+            ["Material", 35]
+          ],
+          total: 810
         }
       ]
     },
@@ -1734,9 +1777,8 @@ const packs = [
     slug: "piso-nuevo",
     publico: "casa",
     descripcion: "Ideal para estrenar piso o preparar un alquiler. Todo lo que necesitas para que funcione desde el primer día.",
-    imagen: "/img/trabajos/cuadro-electrico-despues.jpg",
-    imagenAntes: "/img/trabajos/cuadro-electrico-antes.jpg",
-    imagenAlt: "Cuadro eléctrico renovado — Pack Piso Nuevo AHOMED",
+    imagen: "/img/packs/pack-piso-nuevo.jpg",
+    imagenAlt: "Cocina con iluminación LED integrada — Pack Piso Nuevo AHOMED",
     opciones: [
       {
         nombre: "Esencial",
@@ -1783,9 +1825,8 @@ const packs = [
     publico: "casa",
     incluyeIA: true,
     descripcion: "Ideal para chalets y segundas residencias. Tranquilidad total: sabrás en todo momento lo que pasa en tu propiedad, sin falsas alarmas.",
-    imagen: "/img/trabajos/camara-exterior-despues.jpg",
-    imagenAntes: "/img/trabajos/camara-exterior-antes.jpg",
-    imagenAlt: "Cámara IP exterior instalada — Pack Chalet Seguro AHOMED",
+    imagen: "/img/packs/pack-chalet-seguro.jpg",
+    imagenAlt: "Cámara de seguridad exterior sobre vallado de chalet — Pack Chalet Seguro AHOMED",
     opciones: [
       {
         nombre: "Esencial — 4 cámaras + cerradura + IA",
@@ -1835,8 +1876,8 @@ const packs = [
     publico: "casa",
     incluyeIA: true,
     descripcion: "El pack que reúne lo que hace diferente a AHOMED: Seguridad IA sin falsas alarmas combinada con los modos de la Plataforma IA Predictiva que más piden las familias.",
-    imagen: "/img/ia-predictiva/plataforma-hero.jpg",
-    imagenAlt: "Plataforma IA Predictiva instalada en vivienda — Pack Hogar Inteligente AHOMED",
+    imagen: "/img/packs/pack-hogar-inteligente.jpg",
+    imagenAlt: "Panel táctil de domótica con luces, clima, persianas y escenas — Pack Hogar Inteligente AHOMED",
     opciones: [
       {
         nombre: "Esencial — Seguridad IA (2 cámaras)",
@@ -1877,8 +1918,8 @@ const packs = [
     publico: "casa",
     incluyeIA: true,
     descripcion: "Para viviendas que no se habitan todo el año: sabrás qué pasa en tu propiedad, simularás presencia y no se te pasará ni un paquete, sin tener que desplazarte.",
-    imagen: "/img/ia-predictiva/gestion-energia.jpg",
-    imagenAlt: "Panel de control de la Plataforma IA Predictiva — Pack Alquiler y Segunda Residencia AHOMED",
+    imagen: "/img/packs/pack-alquiler-segunda-residencia.jpg",
+    imagenAlt: "Cámara de seguridad en terraza con vistas al mar — Pack Alquiler y Segunda Residencia AHOMED",
     opciones: [
       {
         nombre: "Esencial — Casa Presencial + Seguridad IA",
@@ -1922,9 +1963,8 @@ const packs = [
     publico: "negocio",
     incluyeIA: true,
     descripcion: "Ideal para naves, almacenes, talleres y locales. IA que descarta falsas alarmas y te avisa por WhatsApp solo cuando hay algo real.",
-    imagen: "/img/trabajos/naves-seguridad-ia-despues.jpg",
-    imagenAntes: "/img/trabajos/naves-seguridad-ia-antes.jpg",
-    imagenAlt: "Seguridad con IA en nave industrial — Pack Negocio AHOMED",
+    imagen: "/img/packs/pack-negocio.jpg",
+    imagenAlt: "Sala de control con monitorización de cámaras y dashboard IA — Pack Negocio AHOMED",
     opciones: [
       {
         nombre: "Esencial — 4 cámaras con detección IA",

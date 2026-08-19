@@ -38,6 +38,23 @@
     </div>
   </section>
 
+  <% if (service.avisoUrgente) { %>
+    <section class="section section-urgent">
+      <div class="container">
+        <div class="urgent-callout">
+          <div class="urgent-callout-icon"><svg viewBox="0 0 24 24"><%- icons[service.icono] %></svg></div>
+          <div class="urgent-callout-body">
+            <p class="urgent-callout-title"><%= service.avisoUrgente.titulo %></p>
+            <p class="urgent-callout-texto"><%= service.avisoUrgente.texto %></p>
+          </div>
+          <a href="https://wa.me/34<%= empresa.whatsapp %>?text=<%= encodeURIComponent(service.avisoUrgente.mensajeWhatsapp) %>" target="_blank" rel="noopener" class="btn btn-whatsapp urgent-callout-cta">
+            <%= service.avisoUrgente.ctaTexto %>
+          </a>
+        </div>
+      </div>
+    </section>
+  <% } %>
+
   <section class="section">
     <div class="container two-col">
       <div>

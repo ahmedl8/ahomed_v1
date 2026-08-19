@@ -95,3 +95,22 @@ document.addEventListener("DOMContentLoaded", function () {
     video.addEventListener("ended", function () { wrap.classList.remove("is-playing"); });
   });
 });
+
+// Envía a Google Tag Manager qué opción de precio (Esencial/Inteligente/Completa)
+// elige cada persona al pulsar "Elegir esta opción por WhatsApp", además del
+// clic genérico que ya captura el activador "Clic en WhatsApp/Llamar" de GTM.
+// Así se puede ver en Analytics qué nivel de precio se pide más por servicio,
+// sin tener que leer manualmente los mensajes de WhatsApp uno a uno.
+document.addEventListener("DOMContentLoaded", function () {
+  window.dataLayer = window.dataLayer || [];
+  document.querySelectorAll("[data-gtm-event='seleccion_opcion_precio']").forEach(function (link) {
+    link.addEventListener("click", function () {
+      window.dataLayer.push({
+        event: "seleccion_opcion_precio",
+        servicio: link.getAttribute("data-servicio"),
+        opcion: link.getAttribute("data-opcion"),
+        precio: link.getAttribute("data-precio")
+      });
+    });
+  });
+});

@@ -494,7 +494,11 @@ const modos = [
       "El sistema aprende a distinguir personas y vehículos reales de falsas alarmas (un gato, una sombra, una bolsa moviéndose con el viento). Solo avisa por WhatsApp cuando de verdad importa.",
     idealPara: ["Viviendas que quieren dejar de recibir alertas falsas", "Quien ya tiene cámaras y quiere añadirles análisis IA", "Chalets y segundas residencias"],
     extras: ["Reentrenamiento del modelo (ver bono de mantenimiento)", "Ampliación a panel de monitorización a medida (dashboard propio)", "Integración con CCTV cableado ya instalado"],
-    tambienInstalaron: ["Cerradura inteligente", "Videoportero inteligente", "Red WiFi mesh (conexión estable, imprescindible para la IA)"],
+    tambienInstalaron: [
+      { texto: "Cerradura inteligente", href: "/servicios/seguridad" },
+      { texto: "Videoportero inteligente", href: "/servicios/seguridad" },
+      { texto: "Red WiFi mesh (conexión estable, imprescindible para la IA)", href: "/servicios/redes-informatica" }
+    ],
     esProyecto: true,
     ejemplos: [
       {

@@ -26,8 +26,15 @@
     </table>
   </details>
   <% if (typeof ctaHtml !== 'undefined' && ctaHtml) { %><%- ctaHtml %><% } %>
-  <% if (typeof serviceNombre !== 'undefined' && serviceNombre) { %>
-    <a href="https://wa.me/34<%= empresa.whatsapp %>?text=<%= encodeURIComponent('Hola, quiero la opción ' + op.nombre.split('—')[0].replace(/[⭐]/g,'').trim() + ' de ' + serviceNombre + ' — ' + fmt(op.total) + ' ' + (op.totalUnidad || '€')) %>" target="_blank" rel="noopener" class="btn btn-whatsapp option-card-cta">
+  <% if (typeof serviceNombre !== 'undefined' && serviceNombre) {
+       var opcionLimpia = op.nombre.split('—')[0].replace(/[⭐]/g,'').trim();
+  %>
+    <a href="https://wa.me/34<%= empresa.whatsapp %>?text=<%= encodeURIComponent('Hola, quiero la opción ' + opcionLimpia + ' de ' + serviceNombre + ' — ' + fmt(op.total) + ' ' + (op.totalUnidad || '€')) %>"
+       target="_blank" rel="noopener" class="btn btn-whatsapp option-card-cta"
+       data-gtm-event="seleccion_opcion_precio"
+       data-servicio="<%= serviceNombre %>"
+       data-opcion="<%= opcionLimpia %>"
+       data-precio="<%= op.total %>">
       Elegir esta opción por WhatsApp
     </a>
   <% } %>

@@ -69,7 +69,7 @@ const services = [
       "Iluminación LED (desde 235 €)",
       "Diagnóstico de avería eléctrica (desde 100 €)"
     ],
-    tambienInstalaron: ["Iluminación LED", "Red WiFi mesh", "Domótica básica", "Energía solar (autoconsumo)"],
+    tambienInstalaron: [{ texto: "Iluminación LED", href: "/servicios/electricidad" }, { texto: "Red WiFi mesh", href: "/servicios/redes-informatica" }, { texto: "Domótica básica", href: "/servicios/domotica" }, { texto: "Energía solar (autoconsumo)", href: "/servicios/energia-solar" }],
     ejemplosAdicionales: [
       {
         titulo: "Punto de recarga para coche eléctrico (wallbox)",
@@ -161,7 +161,7 @@ const services = [
       "Toldo motorizado con control por app (desde 620 €)",
       "Automatización de piscina (desde 460 €)"
     ],
-    tambienInstalaron: ["Persianas motorizadas", "Cerradura inteligente", "Red WiFi mesh con red de domótica separada", "Iluminación de exterior", "Placas solares (para autoabastecer el sistema de riego)"],
+    tambienInstalaron: [{ texto: "Persianas motorizadas", href: "/servicios/domotica" }, { texto: "Cerradura inteligente", href: "/servicios/seguridad" }, { texto: "Red WiFi mesh con red de domótica separada", href: "/servicios/redes-informatica" }, { texto: "Iluminación de exterior", href: "/servicios/electricidad" }, { texto: "Placas solares (para autoabastecer el sistema de riego)", href: "/servicios/energia-solar" }],
     ejemplosAdicionales: [
       {
         titulo: "Domótica completa de vivienda",
@@ -448,7 +448,7 @@ const services = [
       "Gestión energética inteligente con tarifa PVPC (desde 590 €)",
       "Revisión y mantenimiento anual (30 €/año)"
     ],
-    tambienInstalaron: ["Panel de monitorización a medida", "Punto de recarga para coche eléctrico", "Batería portátil adicional"],
+    tambienInstalaron: [{ texto: "Panel de monitorización a medida", href: "/servicios/ia-predictiva" }, { texto: "Punto de recarga para coche eléctrico", href: "/servicios/electricidad" }, { texto: "Batería portátil adicional", href: "/servicios/energia-solar" }],
     ejemplosAdicionales: [
       {
         titulo: "Placas solares en tejado, autoconsumo",
@@ -604,7 +604,7 @@ const services = [
       "Cerradura eléctrica con apertura desde el móvil (desde 195 €)",
       "Grabación en mini-PC local (CCTV cableado, desde 840 €)"
     ],
-    tambienInstalaron: ["Cerradura inteligente", "Cámara WiFi adicional", "Sistema de seguridad completo para chalet", "Seguridad IA (sin falsas alarmas)", "Red WiFi mesh", "Panel de monitorización a medida"],
+    tambienInstalaron: [{ texto: "Cerradura inteligente", href: "/servicios/seguridad" }, { texto: "Cámara WiFi adicional", href: "/servicios/seguridad" }, { texto: "Sistema de seguridad completo para chalet", href: "/packs" }, { texto: "Seguridad IA (sin falsas alarmas)", href: "/servicios/ia-predictiva/seguridad-ia" }, { texto: "Red WiFi mesh", href: "/servicios/redes-informatica" }, { texto: "Panel de monitorización a medida", href: "/servicios/ia-predictiva" }],
     ejemplosAdicionales: [
       {
         titulo: "Cerradura inteligente",
@@ -757,7 +757,7 @@ const services = [
       "Copia de seguridad automática",
       "Armario de comunicaciones y rack de red (desde 380 €)"
     ],
-    tambienInstalaron: ["Domótica", "Cámaras con IA", "Panel de monitorización a medida"],
+    tambienInstalaron: [{ texto: "Domótica", href: "/servicios/domotica" }, { texto: "Cámaras con IA", href: "/servicios/ia-predictiva/seguridad-ia" }, { texto: "Panel de monitorización a medida", href: "/servicios/ia-predictiva" }],
     ejemplosAdicionales: [
       {
         titulo: "Armario de comunicaciones y rack de red",
@@ -864,7 +864,7 @@ const services = [
       nota: "Revisión y mantenimiento anual (opcional): 45 €/año — limpieza de filtros, revisión de gas y rendimiento."
     },
     extras: ["Climatización multisplit para toda la vivienda (desde 2.950 €)", "Control WiFi", "Certificado RITE"],
-    tambienInstalaron: ["Domótica (control por escenas)", "Iluminación LED", "Energía solar (para compensar el consumo)"],
+    tambienInstalaron: [{ texto: "Domótica (control por escenas)", href: "/servicios/domotica" }, { texto: "Iluminación LED", href: "/servicios/electricidad" }, { texto: "Energía solar (para compensar el consumo)", href: "/servicios/energia-solar" }],
     ejemplosAdicionales: [
       {
         titulo: "Climatización multisplit para toda la vivienda",
@@ -954,7 +954,7 @@ const services = [
       ]
     },
     extras: ["Antena TDT comunitaria de edificio (desde 860 €)", "Tomas adicionales de TV"],
-    tambienInstalaron: ["Red WiFi mesh", "Instalación eléctrica de la vivienda", "Antena parabólica individual", "Red WiFi mesh comunitaria", "Videoportero para el portal"],
+    tambienInstalaron: [{ texto: "Red WiFi mesh", href: "/servicios/redes-informatica" }, { texto: "Instalación eléctrica de la vivienda", href: "/servicios/electricidad" }, { texto: "Antena parabólica individual", href: "/servicios/antenas" }, { texto: "Red WiFi mesh comunitaria", href: "/servicios/redes-informatica" }, { texto: "Videoportero para el portal", href: "/servicios/seguridad" }],
     ejemplosAdicionales: [
       {
         titulo: "Antena TDT comunitaria de edificio",
@@ -1058,7 +1058,7 @@ const services = [
       "Montaje de cocina modular (desde 395 €)",
       "Reforma integral de cocina (desde 3.200 €)"
     ],
-    tambienInstalaron: ["Sustitución de sanitarios y grifería", "Falso techo de pladur con LED", "Fontanería (grifería y sanitarios)", "Electricidad (nuevos circuitos para electrodomésticos)"],
+    tambienInstalaron: [{ texto: "Sustitución de sanitarios y grifería", href: "/servicios/fontaneria" }, { texto: "Falso techo de pladur con LED", href: "/servicios/pladur" }, { texto: "Fontanería (grifería y sanitarios)", href: "/servicios/fontaneria" }, { texto: "Electricidad (nuevos circuitos para electrodomésticos)", href: "/servicios/electricidad" }],
     ejemplosAdicionales: [
       {
         titulo: "Pintura de piso completo",
@@ -1298,7 +1298,7 @@ const services = [
       nota: "Si hay que picar pared o suelo para mover puntos de agua/desagüe, se presupuesta aparte según el alcance real (albañilería + alicatado)."
     },
     extras: ["Reparación de fuga de agua (desde 145 €)"],
-    tambienInstalaron: ["Alicatado de baño", "Reforma pequeña de baño"]
+    tambienInstalaron: [{ texto: "Alicatado de baño", href: "/servicios/reparaciones-reformas" }, { texto: "Reforma pequeña de baño", href: "/servicios/reparaciones-reformas" }]
   },
   {
     slug: "pladur",
@@ -1358,7 +1358,7 @@ const services = [
       nota: "El cableado eléctrico de los puntos de luz se incluye en la mano de obra; la conexión al cuadro eléctrico general se presupuesta aparte si no hay un circuito ya disponible cerca."
     },
     extras: ["Tabique de pladur, 10 m² (desde 435 €)", "Regulación por app (domótica)"],
-    tambienInstalaron: ["Iluminación LED", "Domótica de escenas", "Pintura de piso completo", "Electricidad (nuevos puntos de luz)"],
+    tambienInstalaron: [{ texto: "Iluminación LED", href: "/servicios/electricidad" }, { texto: "Domótica de escenas", href: "/servicios/domotica" }, { texto: "Pintura de piso completo", href: "/servicios/reparaciones-reformas" }, { texto: "Electricidad (nuevos puntos de luz)", href: "/servicios/electricidad" }],
     ejemplosAdicionales: [
       {
         titulo: "Tabique de pladur",
@@ -1526,7 +1526,7 @@ const services = [
       "Punto de recarga para vehículos industriales o flota (desde 1.450 €)",
       "Iluminación LED industrial de nave (desde 890 €)"
     ],
-    tambienInstalaron: ["Redes e informática para nave", "Energía solar de autoconsumo", "Seguridad IA para Naves y Fincas"]
+    tambienInstalaron: [{ texto: "Redes e informática para nave", href: "/servicios/redes-nave" }, { texto: "Energía solar de autoconsumo", href: "/servicios/energia-solar" }, { texto: "Seguridad IA para Naves y Fincas", href: "/servicios/naves-fincas/seguridad-ia" }]
   },
   {
     slug: "redes-nave",
@@ -1595,7 +1595,7 @@ const services = [
       "Fibra óptica troncal entre edificios de la misma finca (se presupuesta según distancia)",
       "Cámara IP integrada en la misma red (ver Seguridad IA para Naves y Fincas)"
     ],
-    tambienInstalaron: ["Electricidad para nave", "Seguridad IA para Naves y Fincas"]
+    tambienInstalaron: [{ texto: "Electricidad para nave", href: "/servicios/electricidad-nave" }, { texto: "Seguridad IA para Naves y Fincas", href: "/servicios/naves-fincas/seguridad-ia" }]
   },
   {
     slug: "fontaneria-nave",
@@ -1668,7 +1668,7 @@ const services = [
       "Reparación de fuga en tramo largo (desde 145 €, según localización)",
       "Grupo de presión para caudal insuficiente (desde 650 €)"
     ],
-    tambienInstalaron: ["Electricidad para nave", "Gestión Inteligente de Energía", "Seguridad IA para Naves y Fincas"]
+    tambienInstalaron: [{ texto: "Electricidad para nave", href: "/servicios/electricidad-nave" }, { texto: "Gestión Inteligente de Energía", href: "/servicios/energia-solar" }, { texto: "Seguridad IA para Naves y Fincas", href: "/servicios/naves-fincas/seguridad-ia" }]
   },
   {
     slug: "mantenimiento-nave",

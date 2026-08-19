@@ -20,7 +20,11 @@ const seguridadIANaves = {
     "El sistema aprende a distinguir personas y vehículos reales de falsas alarmas por fauna, vegetación o sombras. Pensado para el perímetro y los accesos de una nave, almacén o finca — no para el interior de una vivienda. Solo avisa por WhatsApp cuando de verdad importa.",
   idealPara: ["Naves industriales y almacenes", "Fincas rurales y agrícolas con vigilancia perimetral", "Talleres y locales con acceso de vehículos"],
   extras: ["Reentrenamiento del modelo (ver bono de mantenimiento)", "Ampliación a panel de monitorización a medida (dashboard propio)", "Integración con CCTV cableado ya instalado", "Cámaras térmicas perimetrales (reducen falsos positivos por fauna o vegetación)"],
-  tambienInstalaron: ["Panel de monitorización a medida", "Integración con iluminación de seguridad perimetral", "Red de datos cableada para las cámaras"],
+  tambienInstalaron: [
+    { texto: "Panel de monitorización a medida", href: "/servicios/ia-predictiva" },
+    { texto: "Integración con iluminación de seguridad perimetral", href: "/servicios/electricidad-nave" },
+    { texto: "Red de datos cableada para las cámaras", href: "/servicios/redes-nave" }
+  ],
   esProyecto: true,
   ejemplos: [
     {

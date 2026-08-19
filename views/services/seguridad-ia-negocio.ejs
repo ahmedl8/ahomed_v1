@@ -89,9 +89,13 @@
         </div>
         <div>
           <h2 class="sub-heading">Clientes que contrataron este servicio también instalaron</h2>
-          <ul class="dot-list">
+          <ul class="dot-list dot-list-links">
             <% modo.tambienInstalaron.forEach(function(item){ %>
-              <li><%= item %></li>
+              <% if (item.href) { %>
+                <li><a href="<%= item.href %>"><%= item.texto %></a></li>
+              <% } else { %>
+                <li><%= item.texto %></li>
+              <% } %>
             <% }) %>
           </ul>
         </div>

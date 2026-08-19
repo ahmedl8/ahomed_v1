@@ -1,5 +1,6 @@
 const express = require("express");
 const path = require("path");
+const crypto = require("crypto");
 const compression = require("compression");
 const helmet = require("helmet");
 
@@ -18,11 +19,45 @@ app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
 app.use(compression());
-app.use(
+
+// Genera un nonce único por petición para el único script inline que tiene
+// la web (el arranque de Google Tag Manager en head.ejs). Así la CSP puede
+// permitir ese script concreto sin recurrir a 'unsafe-inline', que abriría
+// la puerta a cualquier script inyectado.
+app.use((req, res, next) => {
+  res.locals.cspNonce = crypto.randomBytes(16).toString("base64");
+  next();
+});
+
+app.use((req, res, next) => {
   helmet({
-    contentSecurityPolicy: false // simplificado para servir imágenes/estilos propios sin fricción
-  })
-);
+    // CSP explícita: solo permite los orígenes que la web realmente usa
+    // (Google Tag Manager/Analytics para medición, Google Fonts para tipografía,
+    // y el propio dominio para imágenes/scripts/estilos). No usamos ningún CDN
+    // ni script de terceros más allá de estos.
+    contentSecurityPolicy: {
+      directives: {
+        defaultSrc: ["'self'"],
+        scriptSrc: ["'self'", `'nonce-${res.locals.cspNonce}'`, "https://www.googletagmanager.com"],
+        // GTM inserta reglas de estilo vía JS; se permite inline solo para estilos
+        // (no ejecuta código, riesgo mínimo) en vez de bloquear el widget.
+        styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
+        fontSrc: ["'self'", "https://fonts.gstatic.com"],
+        imgSrc: ["'self'", "data:", "https://www.googletagmanager.com", "https://www.google-analytics.com"],
+        connectSrc: [
+          "'self'",
+          "https://www.googletagmanager.com",
+          "https://www.google-analytics.com",
+          "https://region1.google-analytics.com"
+        ],
+        // El iframe de respaldo de GTM (<noscript>) y los vídeos propios
+        frameSrc: ["'self'", "https://www.googletagmanager.com"],
+        objectSrc: ["'none'"],
+        baseUri: ["'self'"]
+      }
+    }
+  })(req, res, next);
+});
 
 // Sirve automáticamente la versión .webp de una imagen si existe y el
 // navegador la acepta (todos los navegadores modernos) — sin tocar ninguna

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <%- include('partials/head') %>
+</head>
+<body>
+  <%- include('partials/gtm-body') %>
+  <%- include('partials/header') %>
+
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow"><%= instalacionBase.marca %></span>
+      <h1>La tecnología detrás de tu casa</h1>
+      <p><%= instalacionBase.tagline %> No necesitas entender de servidores ni de modelos de IA para pedirlo — pero si tienes curiosidad, esto es lo que instalamos.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="tech-grid">
+
+        <div class="tech-card">
+          <div class="service-icon"><svg viewBox="0 0 24 24"><%- icons.ai %></svg></div>
+          <h3>Cerebro AHOMED</h3>
+          <p>Un único Mini-PC IA Central, en dos niveles según cuántos modos necesitas (IA START e IA PRO), que conecta y coordina todos los servicios de la Plataforma IA Predictiva.</p>
+        </div>
+
+        <div class="tech-card">
+          <div class="service-icon"><svg viewBox="0 0 24 24"><%- icons.shield %></svg></div>
+          <h3>IA en local, no en la nube</h3>
+          <p>El análisis se hace en tu propio mini-PC, sobre un fotograma cada 1-2 segundos — no streaming continuo hacia fuera. La decisión ocurre en tu casa.</p>
+        </div>
+
+        <div class="tech-card">
+          <div class="service-icon"><svg viewBox="0 0 24 24"><%- icons['aire-calidad'] %></svg></div>
+          <h3>Procesamiento de vídeo</h3>
+          <p>Modelos de visión (YOLO26) entrenados para distinguir personas y vehículos reales de falsas alarmas: un gato, una sombra, una bolsa moviéndose con el viento.</p>
+        </div>
+
+        <div class="tech-card">
+          <div class="service-icon"><svg viewBox="0 0 24 24"><%- icons['clima-ia'] %></svg></div>
+          <h3>Automatización</h3>
+          <p>Un motor Python cruza datos que nadie más mezcla: clima, precio de la luz por hora, geolocalización, calidad del aire y fases de sueño, para decidir qué hacer.</p>
+        </div>
+
+        <div class="tech-card">
+          <div class="service-icon"><svg viewBox="0 0 24 24"><%- icons.network %></svg></div>
+          <h3>Dashboard</h3>
+          <p>Panel de control unificado con el estado de cámaras, alertas, clima y accesos en un mismo lugar — para consultarlo cuando quieras, no porque tengas que hacerlo.</p>
+        </div>
+
+        <div class="tech-card">
+          <div class="service-icon"><svg viewBox="0 0 24 24"><%- icons.paquete %></svg></div>
+          <h3>WhatsApp Business API</h3>
+          <p>Las alertas llegan directamente por WhatsApp, con foto del momento, solo cuando de verdad importa — sin apps adicionales que instalar para recibirlas.</p>
+        </div>
+
+        <div class="tech-card">
+          <div class="service-icon"><svg viewBox="0 0 24 24"><%- icons.antenna %></svg></div>
+          <h3>Integraciones</h3>
+          <p>Compatible con dispositivos WiFi y Zigbee ya extendidos (Shelly o equivalentes) y con cerraduras o motores de garaje que ya tengas instalados.</p>
+        </div>
+
+        <div class="tech-card">
+          <div class="service-icon"><svg viewBox="0 0 24 24"><%- icons.wrench %></svg></div>
+          <h3>Sin cuotas, sin terceros</h3>
+          <p>Sin depender de un servidor externo ni de una central de alarmas de terceros. Pagas la instalación una vez y el equipo es tuyo, sin cuota mensual.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-head">
+        <h2>¿Cuántos modos necesitas?</h2>
+        <p>El nivel de Cerebro AHOMED (IA START o IA PRO) depende de cuántos servicios IA quieres a la vez, no del tamaño de la casa.</p>
+      </div>
+      <div class="tech-compare-cta"><a href="/servicios/ia-predictiva" class="btn btn-outline">Comparar IA START e IA PRO →</a></div>
+    </div>
+  </section>
+
+  <section class="section final-cta">
+    <div class="container final-cta-inner">
+      <h2>¿Hablamos de tu proyecto?</h2>
+      <p>Primera visita gratuita. Presupuesto sin compromiso.</p>
+      <a href="https://wa.me/34<%= empresa.whatsapp %>?text=Hola%2C%20tengo%20dudas%20t%C3%A9cnicas%20sobre%20el%20Cerebro%20AHOMED" target="_blank" rel="noopener" class="btn btn-whatsapp btn-lg">
+        <%= empresa.whatsappDisplay %>
+      </a>
+    </div>
+  </section>
+
+  <%- include('partials/footer') %>
+</body>
+</html>

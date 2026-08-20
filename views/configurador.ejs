@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <%- include('partials/head') %>
+</head>
+<body>
+  <%- include('partials/gtm-body') %>
+  <%- include('partials/header') %>
+
+  <section class="page-hero">
+    <div class="container">
+      <h1>Configura tu casa</h1>
+      <p>Responde 3 preguntas y te recomendamos el pack o servicio AHOMED que mejor encaja, con presupuesto orientativo al momento. El precio definitivo se confirma siempre tras la visita técnica gratuita.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="wizard-shell" id="configurador-wizard" data-wa="<%= empresa.whatsapp %>">
+
+        <div class="wizard-progress">
+          <div class="wizard-progress-step is-active" data-progress-step="1">1</div>
+          <div class="wizard-progress-line"></div>
+          <div class="wizard-progress-step" data-progress-step="2">2</div>
+          <div class="wizard-progress-line"></div>
+          <div class="wizard-progress-step" data-progress-step="3">3</div>
+          <div class="wizard-progress-line"></div>
+          <div class="wizard-progress-step" data-progress-step="4">✓</div>
+        </div>
+
+        <!-- PASO 1: TIPO DE VIVIENDA -->
+        <div class="wizard-step is-active" data-step="1">
+          <h2 class="wizard-step-title">¿Qué vivienda o negocio tienes?</h2>
+          <p class="wizard-step-sub">Para orientarte hacia el pack pensado para tu caso</p>
+          <div class="wizard-options">
+            <label class="wizard-option">
+              <input type="radio" name="config-vivienda" value="piso">
+              <span class="wizard-option-card">
+                <span class="wizard-option-icon"><svg viewBox="0 0 24 24"><%- icons['home-wifi'] %></svg></span>
+                <h4>Piso</h4>
+                <p>Vivienda en bloque, alquilada o propia</p>
+              </span>
+            </label>
+            <label class="wizard-option">
+              <input type="radio" name="config-vivienda" value="chalet">
+              <span class="wizard-option-card">
+                <span class="wizard-option-icon"><svg viewBox="0 0 24 24"><%- icons.shield %></svg></span>
+                <h4>Chalet</h4>
+                <p>Vivienda unifamiliar, con jardín o parcela</p>
+              </span>
+            </label>
+            <label class="wizard-option">
+              <input type="radio" name="config-vivienda" value="segunda-residencia">
+              <span class="wizard-option-card">
+                <span class="wizard-option-icon"><svg viewBox="0 0 24 24"><%- icons['geo-casa'] %></svg></span>
+                <h4>Segunda residencia</h4>
+                <p>Se visita poco, quieres controlarla en remoto</p>
+              </span>
+            </label>
+            <label class="wizard-option">
+              <input type="radio" name="config-vivienda" value="negocio">
+              <span class="wizard-option-card">
+                <span class="wizard-option-icon"><svg viewBox="0 0 24 24"><%- icons.ai %></svg></span>
+                <h4>Nave o negocio</h4>
+                <p>Nave, almacén, taller o local</p>
+              </span>
+            </label>
+          </div>
+          <div class="wizard-nav">
+            <span class="wizard-nav-spacer"></span>
+            <button type="button" class="btn btn-primary" data-wizard-next disabled>Siguiente →</button>
+          </div>
+        </div>
+
+        <!-- PASO 2: QUÉ QUIERES MEJORAR -->
+        <div class="wizard-step" data-step="2">
+          <h2 class="wizard-step-title">¿Qué quieres mejorar sobre todo?</h2>
+          <p class="wizard-step-sub">Elige la prioridad principal — luego se puede ampliar con el resto</p>
+          <div class="wizard-options">
+            <label class="wizard-option">
+              <input type="radio" name="config-necesidad" value="seguridad">
+              <span class="wizard-option-card">
+                <span class="wizard-option-icon"><svg viewBox="0 0 24 24"><%- icons.shield %></svg></span>
+                <h4>Seguridad</h4>
+                <p>Cámaras, accesos, Seguridad IA</p>
+              </span>
+            </label>
+            <label class="wizard-option">
+              <input type="radio" name="config-necesidad" value="confort">
+              <span class="wizard-option-card">
+                <span class="wizard-option-icon"><svg viewBox="0 0 24 24"><%- icons['clima-ia'] %></svg></span>
+                <h4>Confort</h4>
+                <p>Clima, persianas, sueño, calidad del aire</p>
+              </span>
+            </label>
+            <label class="wizard-option">
+              <input type="radio" name="config-necesidad" value="ahorro">
+              <span class="wizard-option-card">
+                <span class="wizard-option-icon"><svg viewBox="0 0 24 24"><%- icons.solar %></svg></span>
+                <h4>Ahorro energético</h4>
+                <p>Energía solar y gestión del consumo</p>
+              </span>
+            </label>
+            <label class="wizard-option">
+              <input type="radio" name="config-necesidad" value="familia">
+              <span class="wizard-option-card">
+                <span class="wizard-option-icon"><svg viewBox="0 0 24 24"><%- icons.mayores %></svg></span>
+                <h4>Familia</h4>
+                <p>Mayores, niños y bebés, mascotas</p>
+              </span>
+            </label>
+          </div>
+          <div class="wizard-nav">
+            <button type="button" class="btn btn-outline" data-wizard-back>← Atrás</button>
+            <span class="wizard-nav-spacer"></span>
+            <button type="button" class="btn btn-primary" data-wizard-next disabled>Siguiente →</button>
+          </div>
+        </div>
+
+        <!-- PASO 3: QUÉ QUIERES CONTROLAR AHORA -->
+        <div class="wizard-step" data-step="3">
+          <h2 class="wizard-step-title">¿Qué te gustaría controlar ya mismo?</h2>
+          <p class="wizard-step-sub">Marca todo lo que quieras — nos ayuda a afinar el presupuesto en la visita</p>
+          <div class="wizard-options">
+            <label class="wizard-option">
+              <input type="checkbox" name="config-control" value="Cámaras y accesos con IA">
+              <span class="wizard-option-card">
+                <span class="wizard-option-icon"><svg viewBox="0 0 24 24"><%- icons.ai %></svg></span>
+                <h4>Cámaras y accesos con IA</h4>
+                <p>Vigilancia, reconocimiento, apertura automática</p>
+              </span>
+            </label>
+            <label class="wizard-option">
+              <input type="checkbox" name="config-control" value="Clima y persianas">
+              <span class="wizard-option-card">
+                <span class="wizard-option-icon"><svg viewBox="0 0 24 24"><%- icons.climate %></svg></span>
+                <h4>Clima y persianas</h4>
+                <p>Termostatos, motores, riego</p>
+              </span>
+            </label>
+            <label class="wizard-option">
+              <input type="checkbox" name="config-control" value="Luces y enchufes">
+              <span class="wizard-option-card">
+                <span class="wizard-option-icon"><svg viewBox="0 0 24 24"><%- icons['home-wifi'] %></svg></span>
+                <h4>Luces y enchufes</h4>
+                <p>Iluminación y domótica básica</p>
+              </span>
+            </label>
+            <label class="wizard-option">
+              <input type="checkbox" name="config-control" value="Energía solar">
+              <span class="wizard-option-card">
+                <span class="wizard-option-icon"><svg viewBox="0 0 24 24"><%- icons.solar %></svg></span>
+                <h4>Energía solar</h4>
+                <p>Autoconsumo y monitorización</p>
+              </span>
+            </label>
+          </div>
+          <div class="wizard-nav">
+            <button type="button" class="btn btn-outline" data-wizard-back>← Atrás</button>
+            <span class="wizard-nav-spacer"></span>
+            <button type="button" class="btn btn-primary" data-wizard-next>Ver mi recomendación →</button>
+          </div>
+        </div>
+
+        <!-- RESULTADO -->
+        <div class="wizard-step" data-step="4">
+          <div class="wizard-result">
+            <div class="wizard-result-card" id="wizard-result-card">
+              <!-- Rellenado por public/js/configurador.js -->
+            </div>
+            <a href="#" id="wizard-whatsapp" target="_blank" rel="noopener" class="btn btn-whatsapp btn-lg">Pedir este presupuesto por WhatsApp</a>
+            <p class="wizard-restart"><a href="#" data-wizard-restart class="link-arrow">← Volver a empezar</a></p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Catálogo en JSON para que el asistente recomiende sin llamar al servidor -->
+  <script type="application/json" id="configurador-catalogo">
+    <%- JSON.stringify({
+      packs: packs.map(function(p){ return { slug: p.slug, nombre: p.nombre, descripcion: p.descripcion, publico: p.publico, desde: p.opciones[0].total }; }),
+      servicios: services.filter(function(s){ return s.slug === 'energia-solar'; }).map(function(s){ return { slug: s.slug, nombre: s.nombre, descripcion: s.resumen, desde: s.desde }; })
+    }) %>
+  </script>
+
+  <%- include('partials/footer') %>
+  <script src="/js/configurador.js" defer></script>
+</body>
+</html>

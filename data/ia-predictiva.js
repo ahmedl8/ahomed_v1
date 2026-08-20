@@ -53,6 +53,14 @@ const nivelesInstalacionBase = [
 // en vistas que aún no distinguen niveles.
 const instalacionBase = {
   nombre: "Mini-PC IA Central — instalación base obligatoria",
+  // "Cerebro AHOMED" es el nombre comercial de este mismo Mini-PC IA Central:
+  // se usa en la home y en la cabecera de /servicios/ia-predictiva para que
+  // el sistema se perciba como el cerebro que conecta la casa, no solo como
+  // una pieza de hardware. El hardware real sigue siendo el Mini-PC IA Central
+  // descrito abajo — no son dos productos distintos. Ver /areas/ahomed-negocio.md,
+  // construcción 1 de 5 del análisis comparativo con Loxone.
+  marca: "Cerebro AHOMED",
+  tagline: "El sistema que conecta y coordina tu casa.",
   resumen:
     "Antes de cualquier modo se instala una única vez el Mini-PC IA Central: el cerebro que conecta todos los modos entre sí, el dashboard de control y la integración con WhatsApp Business API. Disponible en dos niveles según cuántos servicios IA quiere el cliente — ver comparativa arriba. A partir de aquí, cada modo añadido es un coste adicional fijo, igual en ambos niveles.",
   niveles: nivelesInstalacionBase,

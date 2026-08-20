@@ -66,6 +66,22 @@
     </div>
   </section>
 
+  <!-- CONFIGURADOR DE VIVIENDA -->
+  <section class="section section-tight">
+    <div class="container">
+      <div class="configurador-banner">
+        <div class="configurador-banner-inner">
+          <div class="configurador-banner-copy">
+            <span class="eyebrow">¿No sabes por dónde empezar?</span>
+            <h2>Configura tu casa en 3 preguntas</h2>
+            <p>Tipo de vivienda, qué quieres mejorar y qué quieres controlar. Te recomendamos la solución AHOMED que mejor encaja, con presupuesto orientativo al momento.</p>
+          </div>
+          <a href="/configurador" class="btn btn-primary btn-lg configurador-banner-cta">Configurar mi casa →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- POR QUÉ ELEGIR AHOMED -->
   <section class="section advantages-section">
     <div class="container">
@@ -122,7 +138,29 @@
       <div class="section-head section-head-exclusivos">
         <span class="eyebrow">El gran diferenciador de AHOMED</span>
         <h2>Exclusivos — con Inteligencia Artificial</h2>
-        <p>Tu casa te avisa solo cuando de verdad importa — nada de alertas por un gato o una sombra. <%= totalModos %> modos a elegir, desde seguridad hasta cuidado de mayores o mascotas, todos sobre el mismo Mini-PC IA Central (desde 590 €).</p>
+        <p>Tu casa te avisa solo cuando de verdad importa — nada de alertas por un gato o una sombra. <%= totalModos %> modos a elegir, desde seguridad hasta cuidado de mayores o mascotas, todos coordinados por un mismo sistema.</p>
+      </div>
+
+      <div class="cerebro-diagram">
+        <div class="cerebro-intro">
+          <span class="cerebro-marca"><%= instalacionBase.marca %></span>
+          <span class="cerebro-tagline"><%= instalacionBase.tagline %></span>
+        </div>
+        <p class="cerebro-hardware-note">Hardware: <strong>Mini-PC IA Central</strong>, desde <%= fmt(instalacionBase.niveles[0].total) %> € — una única vez, para todos los modos.</p>
+
+        <div class="cerebro-hub-wrap">
+          <span class="cerebro-hub"><%= instalacionBase.marca %></span>
+          <div class="cerebro-connector"></div>
+        </div>
+        <div class="cerebro-branches">
+          <% familiasIA.forEach(function(familia){ %>
+            <a href="/servicios/ia-predictiva#familia-<%= familia.slug %>" class="cerebro-branch">
+              <div class="service-icon"><svg viewBox="0 0 24 24"><%- icons[familia.icono] %></svg></div>
+              <h4><%= familia.nombre %></h4>
+              <p><%= familia.resumen %></p>
+            </a>
+          <% }) %>
+        </div>
       </div>
 
       <div class="ai-highlight-inner">
@@ -147,18 +185,52 @@
         </div>
       </div>
 
-      <h3 class="ia-modos-strip-title">Y otros <%= modosIA.length %> modos, sobre el mismo Mini-PC IA Central</h3>
-      <div class="ia-modos-strip">
-        <% modosIA.forEach(function(m){ %>
-          <a href="/servicios/ia-predictiva/<%= m.slug %>" class="ia-modo-chip">
-            <span class="ia-modo-chip-num"><%= m.numero %></span>
-            <span class="ia-modo-chip-name"><%= m.nombre %></span>
-            <span class="ia-modo-chip-price">+<%= fmt(m.precioIncremento) %> €</span>
-          </a>
+      <a href="/servicios/ia-predictiva" class="btn btn-outline ia-modos-cta">Ver los <%= totalModos %> modos y sus precios →</a>
+    </div>
+  </section>
+
+  <!-- VIVE AHOMED · ESCENARIOS INTERACTIVOS -->
+  <section class="section vive-section">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Pruébalo</span>
+        <h2>Vive AHOMED</h2>
+        <p>Elige un momento del día y mira qué hace tu Cerebro AHOMED sin que tengas que tocar nada.</p>
+      </div>
+
+      <div class="escenario-tabs" role="tablist">
+        <% escenarios.forEach(function(e, i){ %>
+          <button type="button" class="escenario-tab<%= i === 0 ? ' is-active' : '' %>" data-escenario="<%= e.slug %>">
+            <svg viewBox="0 0 24 24"><%- icons[e.icono] %></svg>
+            <%= e.nombre %>
+          </button>
         <% }) %>
       </div>
 
-      <a href="/servicios/ia-predictiva" class="btn btn-outline ia-modos-cta">Configura tu Plataforma IA →</a>
+      <div class="escenario-panels">
+        <% escenarios.forEach(function(e, i){ %>
+          <div class="escenario-panel<%= i === 0 ? ' is-active' : '' %>" data-escenario-panel="<%= e.slug %>">
+            <p class="escenario-momento"><strong><%= e.nombre %>.</strong> <%= e.momento %>.</p>
+            <div class="escenario-acciones">
+              <% e.acciones.forEach(function(a){ %>
+                <div class="escenario-accion">
+                  <span class="escenario-accion-icon"><svg viewBox="0 0 24 24"><%- icons[a.icono] %></svg></span>
+                  <span><%= a.texto %></span>
+                </div>
+              <% }) %>
+            </div>
+            <p class="escenario-explicacion"><%= e.explicacion %></p>
+            <div class="escenario-links">
+              <% e.modos.forEach(function(slug){ var m = modosIATodos.find(function(x){ return x.slug === slug; }); if (!m) return; %>
+                <a href="/servicios/ia-predictiva/<%= m.slug %>" class="escenario-link"><%= m.nombre %> →</a>
+              <% }) %>
+              <% if (e.packSugerido) { %>
+                <a href="/packs#<%= e.packSugerido %>" class="escenario-link">Ver el pack para este caso →</a>
+              <% } %>
+            </div>
+          </div>
+        <% }) %>
+      </div>
     </div>
   </section>
 
@@ -207,6 +279,28 @@
     </div>
   </section>
 
+  <!-- TECNOLOGÍA AHOMED -->
+  <section class="section tech-teaser-section">
+    <div class="container tech-teaser-inner">
+      <div class="tech-teaser-copy">
+        <span class="eyebrow">Lo que hay detrás</span>
+        <h2>La tecnología del Cerebro AHOMED</h2>
+        <p>No es un dispositivo suelto de una tienda: es un motor Python con modelos de IA que corre en tu propia casa, sin depender de la nube para decidir. Así es como funciona por dentro.</p>
+        <div class="tech-teaser-list">
+          <span class="tech-teaser-chip">IA local</span>
+          <span class="tech-teaser-chip">Procesamiento de vídeo</span>
+          <span class="tech-teaser-chip">Dashboard</span>
+          <span class="tech-teaser-chip">WhatsApp Business API</span>
+          <span class="tech-teaser-chip">Privacidad</span>
+        </div>
+        <a href="/tecnologia" class="link-arrow">Ver cómo funciona por dentro →</a>
+      </div>
+      <div class="tech-teaser-visual">
+        <img src="/img/trabajos/monitor-ia-despues.jpg" alt="Dashboard de control del Cerebro AHOMED con alertas y cámaras" loading="lazy" class="tech-teaser-img" />
+      </div>
+    </div>
+  </section>
+
   <!-- QUIÉN HACE EL TRABAJO -->
   <section class="section about-teaser-section">
     <div class="container about-teaser-inner">
@@ -234,5 +328,6 @@
   </section>
 
   <%- include('partials/footer') %>
+  <script src="/js/escenarios.js" defer></script>
 </body>
 </html>

@@ -17,16 +17,17 @@
           <a href="/servicios">Servicios</a> ›
           <a href="/servicios/bloque/ia-predictiva">Plataforma IA Predictiva</a>
         </nav>
-        <span class="eyebrow">El cerebro de la vivienda</span>
+        <span class="eyebrow"><%= instalacionBase.marca %> — <%= instalacionBase.tagline %></span>
         <h1>Plataforma IA Predictiva</h1>
-        <p>El diferencial no está en los dispositivos — un Shelly o un Zigbee los compra cualquiera —, sino en la inteligencia que vive en el mini-PC y cruza datos que nadie más mezcla: clima, precio de la luz por hora, geolocalización, calidad del aire, fases de sueño. Ellos instalan dispositivos. AHOMED instala inteligencia.</p>
+        <p>El diferencial no está en los dispositivos — un Shelly o un Zigbee los compra cualquiera —, sino en la inteligencia que vive en el <%= instalacionBase.marca %> y cruza datos que nadie más mezcla: clima, precio de la luz por hora, geolocalización, calidad del aire, fases de sueño. Ellos instalan dispositivos. AHOMED instala inteligencia.</p>
       </div>
     </div>
   </section>
 
   <section class="section">
     <div class="container">
-      <h2 class="sub-heading">1. Mini-PC IA Central — instalación base obligatoria</h2>
+      <h2 class="sub-heading">1. <%= instalacionBase.marca %> — instalación base obligatoria</h2>
+      <p class="cerebro-hardware-note-light">Hardware: <strong>Mini-PC IA Central</strong>. <%= instalacionBase.tagline %></p>
       <p><%= instalacionBase.resumen %></p>
 
       <div class="options-stack options-stack-2">
@@ -130,7 +131,7 @@
       <p>Cada modo resuelve un escenario completo de la vida diaria, no un dispositivo suelto. Para no tener que estudiarlos uno a uno, se agrupan en 4 familias:</p>
 
       <% familiasIA.forEach(function(familia){ %>
-        <div class="ia-familia-group">
+        <div class="ia-familia-group" id="familia-<%= familia.slug %>">
           <div class="ia-familia-head">
             <div class="service-icon"><svg viewBox="0 0 24 24"><%- icons[familia.icono] %></svg></div>
             <div>

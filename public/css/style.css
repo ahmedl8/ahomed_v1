@@ -1232,3 +1232,225 @@ p { margin: 0; }
 .work-video-block { max-width: 720px; margin: 0 auto 40px; text-align: center; }
 .work-video { width: 100%; border-radius: var(--radius-sm); box-shadow: var(--shadow-lg); background: var(--ink); display: block; }
 
+
+/* ===========================================================
+   Cerebro AHOMED — arquitectura del sistema (home + IA predictiva)
+   Ver /areas/ahomed-negocio.md, construcción 1 de 5 del análisis
+   comparativo con Loxone.
+   =========================================================== */
+.cerebro-intro { display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 18px; margin: 28px 0 8px; }
+.cerebro-marca { font-size: 1.3rem; font-weight: 800; color: #fff; }
+.cerebro-tagline { color: #b8bcc4; font-size: 1rem; }
+.cerebro-hardware-note { font-size: 0.86rem; color: #9aa0ac; margin-bottom: 36px; }
+.cerebro-hardware-note strong { color: #d5d8de; }
+.cerebro-hardware-note-light { font-size: 0.9rem; color: var(--gray-600); margin: 4px 0 14px; }
+.cerebro-hardware-note-light strong { color: var(--ink); }
+
+.cerebro-diagram { margin: 8px 0 44px; }
+.cerebro-hub {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: linear-gradient(135deg, #7dd3fc, var(--ai-accent));
+  color: #1a1030;
+  font-weight: 800; font-size: 1.05rem;
+  padding: 14px 26px;
+  border-radius: 999px;
+  margin: 0 auto 4px;
+}
+.cerebro-hub-wrap { text-align: center; }
+.cerebro-connector { width: 1px; height: 26px; background: rgba(255,255,255,0.25); margin: 0 auto; }
+.cerebro-branches { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 10px; }
+.cerebro-branch {
+  display: flex; flex-direction: column; gap: 8px;
+  padding: 20px 18px;
+  border-radius: var(--radius);
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  transition: background 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+}
+.cerebro-branch:hover { background: rgba(255,255,255,0.1); border-color: var(--ai-accent); transform: translateY(-2px); }
+.cerebro-branch .service-icon { margin-bottom: 2px; }
+.cerebro-branch h4 { color: #fff; font-size: 1.02rem; margin: 0; }
+.cerebro-branch p { color: #9aa0ac; font-size: 0.86rem; margin: 0; }
+
+@media (max-width: 860px) {
+  .cerebro-branches { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 520px) {
+  .cerebro-branches { grid-template-columns: 1fr; }
+  .cerebro-intro { flex-direction: column; align-items: flex-start; gap: 4px; }
+}
+
+/* ===========================================================
+   Configurador — banner de la home + asistente en /configurador
+   Construcción 3 de 5.
+   =========================================================== */
+.configurador-banner {
+  background: linear-gradient(120deg, var(--ai-accent-soft), #eef4ff);
+  border: 1px solid #e2e6f5;
+  border-radius: 28px;
+  margin: 0 auto;
+  max-width: calc(var(--container) + 40px);
+  padding: 40px 44px;
+}
+.configurador-banner-inner { display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap; }
+.configurador-banner-copy { max-width: 560px; }
+.configurador-banner-copy .eyebrow { color: var(--ai-accent); }
+.configurador-banner-copy h2 { font-size: 1.7rem; margin: 8px 0 10px; }
+.configurador-banner-copy p { color: var(--gray-600); }
+.configurador-banner-cta { flex-shrink: 0; }
+
+@media (max-width: 720px) {
+  .configurador-banner { border-radius: 0; padding: 32px 24px; }
+  .configurador-banner-inner { flex-direction: column; align-items: flex-start; }
+}
+
+/* ---------- Página /configurador: asistente paso a paso ---------- */
+.wizard-shell { max-width: 760px; margin: 0 auto; }
+.wizard-progress { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 40px; }
+.wizard-progress-step {
+  width: 30px; height: 30px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--paper-soft); border: 1px solid var(--line);
+  font-weight: 800; font-size: 0.88rem; color: var(--gray-500);
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+.wizard-progress-line { flex: 1; max-width: 60px; height: 1px; background: var(--line); }
+.wizard-progress-step.is-active { background: var(--ink); border-color: var(--ink); color: #fff; }
+.wizard-progress-step.is-done { background: var(--whatsapp-dark); border-color: var(--whatsapp-dark); color: #fff; }
+
+.wizard-step { display: none; }
+.wizard-step.is-active { display: block; animation: wizardFade 0.2s ease; }
+@keyframes wizardFade { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+
+.wizard-step-title { text-align: center; margin-bottom: 6px; }
+.wizard-step-sub { text-align: center; color: var(--gray-600); margin-bottom: 28px; }
+
+.wizard-options { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-bottom: 32px; }
+.wizard-option { position: relative; }
+.wizard-option input { position: absolute; opacity: 0; pointer-events: none; }
+.wizard-option-card {
+  display: flex; flex-direction: column; gap: 6px;
+  border: 2px solid var(--line);
+  border-radius: var(--radius);
+  padding: 22px 20px;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease, transform 0.15s ease;
+  height: 100%;
+}
+.wizard-option-card:hover { transform: translateY(-2px); border-color: var(--gray-500); }
+.wizard-option input:checked + .wizard-option-card { border-color: var(--ai-accent); background: var(--ai-accent-soft); }
+.wizard-option-icon { width: 42px; height: 42px; background: var(--ink); border-radius: 12px; display: flex; align-items: center; justify-content: center; }
+.wizard-option-icon svg { width: 22px; height: 22px; fill: #fff; }
+.wizard-option-card h4 { font-size: 1.02rem; margin: 4px 0 0; }
+.wizard-option-card p { color: var(--gray-600); font-size: 0.86rem; margin: 0; }
+
+.wizard-nav { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.wizard-nav-spacer { flex: 1; }
+
+.wizard-result { text-align: center; }
+.wizard-result-card {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 32px 28px;
+  background: var(--paper-soft);
+  margin-bottom: 24px;
+  text-align: left;
+}
+.wizard-result-eyebrow { color: var(--ai-accent); font-weight: 700; font-size: 0.86rem; text-transform: uppercase; letter-spacing: .03em; }
+.wizard-result-card h3 { font-size: 1.5rem; margin: 8px 0 10px; }
+.wizard-result-card p { color: var(--gray-600); margin-bottom: 16px; }
+.wizard-result-price { font-weight: 800; font-size: 1.3rem; margin-bottom: 18px; display: block; }
+.wizard-result-summary { font-size: 0.86rem; color: var(--gray-500); margin-top: 18px; border-top: 1px dashed var(--line); padding-top: 14px; }
+.wizard-restart { text-align: center; margin-top: 8px; }
+
+@media (max-width: 640px) {
+  .wizard-options { grid-template-columns: 1fr; }
+}
+
+/* ===========================================================
+   Vive AHOMED — escenarios interactivos
+   Construcción 2 de 5.
+   =========================================================== */
+.vive-section { background: var(--ink); color: #fff; }
+.vive-section .section-head p { color: #c7cbd1; }
+.escenario-tabs { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 32px; }
+.escenario-tab {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 11px 18px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.14);
+  color: #d5d8de;
+  font-weight: 700; font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+.escenario-tab svg { width: 16px; height: 16px; fill: currentColor; }
+.escenario-tab:hover { background: rgba(255,255,255,0.11); }
+.escenario-tab.is-active { background: var(--ai-accent); border-color: var(--ai-accent); color: #1a1030; }
+
+.escenario-panels { max-width: 720px; margin: 0 auto; }
+.escenario-panel { display: none; }
+.escenario-panel.is-active { display: block; animation: wizardFade 0.2s ease; }
+.escenario-momento { text-align: center; color: #9aa0ac; font-size: 0.92rem; margin-bottom: 22px; }
+.escenario-momento strong { color: #fff; }
+
+.escenario-acciones { display: flex; flex-direction: column; gap: 10px; margin-bottom: 22px; }
+.escenario-accion {
+  display: flex; align-items: center; gap: 14px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--radius-sm);
+  padding: 14px 16px;
+}
+.escenario-accion-icon { width: 34px; height: 34px; flex-shrink: 0; background: rgba(255,255,255,0.1); border-radius: 10px; display: flex; align-items: center; justify-content: center; }
+.escenario-accion-icon svg { width: 18px; height: 18px; fill: var(--ai-accent); }
+.escenario-accion span:last-child { font-size: 0.95rem; color: #ecedef; }
+
+.escenario-explicacion { text-align: center; color: #c7cbd1; font-size: 0.95rem; margin-bottom: 20px; }
+.escenario-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+.escenario-link {
+  font-size: 0.84rem; font-weight: 700;
+  color: #7dd3fc;
+  border: 1px solid rgba(125,211,252,0.35);
+  border-radius: 999px;
+  padding: 7px 14px;
+}
+.escenario-link:hover { background: rgba(125,211,252,0.1); }
+
+@media (max-width: 640px) {
+  .escenario-tabs { gap: 8px; }
+  .escenario-tab { padding: 9px 14px; font-size: 0.84rem; }
+}
+
+/* ===========================================================
+   Tecnología AHOMED — teaser en la home + página completa
+   Construcción 5 de 5.
+   =========================================================== */
+.tech-teaser-section { background: var(--paper-soft); }
+.tech-teaser-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+.tech-teaser-copy h2 { margin-bottom: 12px; }
+.tech-teaser-copy p { color: var(--gray-600); margin-bottom: 16px; }
+.tech-teaser-list { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+.tech-teaser-chip { background: #fff; border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px; font-size: 0.82rem; font-weight: 700; color: var(--charcoal); }
+.tech-teaser-img { width: 100%; border-radius: var(--radius); box-shadow: var(--shadow-lg); }
+.tech-compare-cta { text-align: center; }
+
+.tech-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.tech-card {
+  background: var(--paper-soft);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 26px 22px;
+}
+.tech-card .service-icon { margin-bottom: 12px; }
+.tech-card h3 { font-size: 1.08rem; margin-bottom: 8px; }
+.tech-card p { color: var(--gray-600); font-size: 0.92rem; }
+
+@media (max-width: 1024px) {
+  .tech-teaser-inner { grid-template-columns: 1fr; }
+  .tech-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+  .tech-grid { grid-template-columns: 1fr; }
+}

@@ -10,6 +10,7 @@ const { instalacionBase, modos: modosIA, familiasIA } = require("./data/ia-predi
 const { seguridadIANaves } = require("./data/naves-fincas");
 const galeria = require("./data/galeria");
 const icons = require("./data/icons");
+const escenarios = require("./data/escenarios");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -180,11 +181,43 @@ app.get("/", (req, res) => {
     bloques,
     seguridadIA: modosIA.find((m) => m.slug === "seguridad-ia"),
     modosIA: modosIA.filter((m) => !m.esProyecto),
+    // Lista completa (incluye Seguridad IA, esProyecto: true) para los enlaces
+    // de la sección "Vive AHOMED", que sí referencian ese modo.
+    modosIATodos: modosIA,
     instalacionBase,
     packs: packs.filter((p) => p.publico !== "negocio"),
     packsDestacados: PACKS_DESTACADOS_HOME.map((slug) => packs.find((p) => p.slug === slug)).filter(Boolean),
     ventajas,
-    comoFunciona
+    comoFunciona,
+    familiasIA,
+    escenarios
+  });
+});
+
+// Configurador de vivienda: asistente de 3 pasos (tipo de vivienda, qué
+// quieres mejorar, qué quieres controlar) que recomienda un pack o servicio
+// real del catálogo y prepara el mensaje de WhatsApp. Toda la lógica de
+// recomendación vive en public/js/configurador.js, sobre los datos ya
+// renderizados en la página (sin llamadas al servidor).
+// Ver /areas/ahomed-negocio.md — construcción 3 de 5.
+app.get("/configurador", (req, res) => {
+  res.render("configurador", {
+    title: `Configura tu casa — ${empresa.nombre}`,
+    metaDescription:
+      "Responde 3 preguntas sobre tu vivienda o negocio y te recomendamos el pack o servicio AHOMED que mejor encaja, con presupuesto orientativo al momento.",
+    packs,
+    services
+  });
+});
+
+// Tecnología AHOMED: qué hay detrás del Cerebro AHOMED (motor Python, IA
+// local, WhatsApp Business API, privacidad). Construcción 5 de 5.
+app.get("/tecnologia", (req, res) => {
+  res.render("tecnologia", {
+    title: `Tecnología AHOMED — ${empresa.nombre}`,
+    metaDescription:
+      "Cómo funciona el Cerebro AHOMED por dentro: motor Python, modelos de IA locales, procesamiento de vídeo, dashboard, integración con WhatsApp y privacidad de tus datos.",
+    instalacionBase
   });
 });
 
@@ -320,7 +353,7 @@ app.get("/robots.txt", (req, res) => {
 
 app.get("/sitemap.xml", (req, res) => {
   const base = `https://${empresa.web}`;
-  const staticUrls = ["/", "/servicios", "/packs", "/preguntas-frecuentes", "/sobre-mi", "/contacto"];
+  const staticUrls = ["/", "/servicios", "/packs", "/configurador", "/tecnologia", "/preguntas-frecuentes", "/sobre-mi", "/contacto"];
   const bloqueUrls = bloques.map((b) => `/servicios/bloque/${b.slug}`);
   const servicioUrls = services.map((s) => `/servicios/${s.slug}`);
   const iaPredictivaUrls = ["/servicios/ia-predictiva", ...modosIA.map((m) => `/servicios/ia-predictiva/${m.slug}`)];

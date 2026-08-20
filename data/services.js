@@ -581,7 +581,7 @@ const services = [
     icono: "shield",
     resumen: "Cámaras, alarmas, videoportero y cerraduras inteligentes. Graba en local, sin cuota mensual — para que además interprete lo que ve y avise por WhatsApp, añade Seguridad IA. Equipo propiedad del cliente desde el primer día.",
     tiempo: "Trabajo rápido",
-    desde: 120,
+    desde: 145,
     idealPara: [
       "Chalets, locales y comunidades",
       "Segundas residencias",
@@ -1040,7 +1040,7 @@ const services = [
     icono: "wrench",
     resumen: "Pintura, alicatado, montaje de muebles y pequeñas reformas de baño y cocina.",
     tiempo: "Un día",
-    desde: 160,
+    desde: 510,
     idealPara: [
       "Puesta a punto antes de alquilar o vender",
       "Baños y cocinas que necesitan un lavado de cara",
@@ -1296,6 +1296,12 @@ const services = [
     tiempo: "Media jornada",
     desde: 145,
     idealPara: ["Baños que necesitan actualizar grifería o inodoro", "Fugas de agua detectadas o sospechadas"],
+    avisoUrgente: {
+      titulo: "¿Tienes una fuga de agua?",
+      texto: "Reparación de fuga a domicilio desde 145 €. Vamos el mismo día, sin esperar a comparar presupuestos.",
+      ctaTexto: "Pedir reparación urgente",
+      mensajeWhatsapp: "Hola, tengo una fuga de agua y necesito una reparación urgente."
+    },
     ejemplo: {
       titulo: "Sustitución de sanitarios y grifería de baño",
       cliente: "Baño con sanitarios y grifería antiguos, con fugas puntuales.",
@@ -1340,7 +1346,6 @@ const services = [
       ],
       nota: "Si hay que picar pared o suelo para mover puntos de agua/desagüe, se presupuesta aparte según el alcance real (albañilería + alicatado)."
     },
-    extras: ["Reparación de fuga de agua (desde 145 €)"],
     tambienInstalaron: [{ texto: "Alicatado de baño", href: "/servicios/reparaciones-reformas" }, { texto: "Reforma pequeña de baño", href: "/servicios/reparaciones-reformas" }]
   },
   {
@@ -1356,96 +1361,96 @@ const services = [
     desde: 435,
     idealPara: ["Dividir una habitación", "Salones que quieren un techo con iluminación indirecta"],
     ejemplo: {
-      titulo: "Falso techo de pladur con iluminación empotrada (salón, 18 m²)",
-      cliente: "Salón sin iluminación indirecta, con techo liso convencional.",
-      imagen: "/img/trabajos/pladur-falso-techo-despues.jpg",
-      imagenAntes: "/img/trabajos/pladur-falso-techo-antes.jpg",
+      titulo: "Tabique de pladur",
+      cliente: "División de una estancia o cerramiento con tabique de pladur, con o sin aislamiento acústico",
+      imagen: "/img/trabajos/pladur-techo-despues.jpg",
       opciones: [
         {
-          nombre: "Esencial — techo liso",
+          nombre: "Esencial — tabique simple, 10 m²",
           destacada: false,
           items: [
-            ["Mano de obra (estructura y placas, 18 m²)", 380],
-            ["Placas de pladur (18 m²)", 230],
-            ["Perfilería y varillas de suspensión", 60],
+            ["Mano de obra (estructura y placas, 10 m²)", 240],
+            ["Placas de pladur (10 m², una cara doble)", 130],
+            ["Perfilería y tornillería", 40],
             ["Masilla y cinta de juntas", 25]
           ],
-          total: 695
+          total: 435
         },
         {
-          nombre: "Inteligente — con foseado perimetral para LED",
+          nombre: "Inteligente — con aislamiento acústico ⭐",
           destacada: true,
           items: [
-            ["Mano de obra (estructura, foseado y placas, 18 m²)", 460],
-            ["Placas de pladur (18 m²)", 230],
-            ["Perfilería, varillas y perfil de foseado", 80],
-            ["Tira LED perimetral con transformador", 90],
+            ["Mano de obra (estructura y placas, 10 m²)", 280],
+            ["Placas de pladur (10 m²)", 130],
+            ["Lana de roca para aislamiento acústico", 80],
+            ["Perfilería y tornillería", 45],
             ["Masilla y cinta de juntas", 25]
           ],
-          total: 885
+          total: 560
         },
         {
-          nombre: "Completa — con downlights y regulación por app",
+          nombre: "Completa — con puerta integrada y acabado listo para pintar",
           destacada: false,
           items: [
-            ["Mano de obra (estructura, foseado y placas, 18 m²)", 480],
-            ["Placas de pladur (18 m²)", 230],
-            ["Perfilería, varillas y perfil de foseado", 80],
-            ["8 downlights LED regulables + tira perimetral", 220],
-            ["Módulo de control WiFi para regulación por app", 85],
-            ["Masilla y cinta de juntas", 25]
+            ["Mano de obra (estructura, placas y hueco de puerta, 10 m²)", 340],
+            ["Placas de pladur (10 m²)", 130],
+            ["Lana de roca para aislamiento acústico", 80],
+            ["Precerco de puerta", 90],
+            ["Perfilería y tornillería", 50],
+            ["Masilla, cinta de juntas y lijado fino (listo para pintar)", 55]
           ],
-          total: 1120
+          total: 745
         }
       ],
-      nota: "El cableado eléctrico de los puntos de luz se incluye en la mano de obra; la conexión al cuadro eléctrico general se presupuesta aparte si no hay un circuito ya disponible cerca."
+      nota: "El cableado eléctrico dentro del tabique (si hace falta pasar algún punto de luz o enchufe) se presupuesta aparte."
     },
     extras: ["Tabique de pladur, 10 m² (desde 435 €)", "Regulación por app (domótica)"],
     tambienInstalaron: [{ texto: "Iluminación LED", href: "/servicios/electricidad" }, { texto: "Domótica de escenas", href: "/servicios/domotica" }, { texto: "Pintura de piso completo", href: "/servicios/reparaciones-reformas" }, { texto: "Electricidad (nuevos puntos de luz)", href: "/servicios/electricidad" }],
     ejemplosAdicionales: [
       {
-        titulo: "Tabique de pladur",
-        cliente: "División de una estancia o cerramiento con tabique de pladur, con o sin aislamiento acústico",
-      imagen: "/img/trabajos/pladur-techo-despues.jpg",
+        titulo: "Falso techo de pladur con iluminación empotrada (salón, 18 m²)",
+        cliente: "Salón sin iluminación indirecta, con techo liso convencional.",
+        imagen: "/img/trabajos/pladur-falso-techo-despues.jpg",
+        imagenAntes: "/img/trabajos/pladur-falso-techo-antes.jpg",
         opciones: [
           {
-            nombre: "Esencial — tabique simple, 10 m²",
+            nombre: "Esencial — techo liso",
             destacada: false,
             items: [
-              ["Mano de obra (estructura y placas, 10 m²)", 240],
-              ["Placas de pladur (10 m², una cara doble)", 130],
-              ["Perfilería y tornillería", 40],
+              ["Mano de obra (estructura y placas, 18 m²)", 380],
+              ["Placas de pladur (18 m²)", 230],
+              ["Perfilería y varillas de suspensión", 60],
               ["Masilla y cinta de juntas", 25]
             ],
-            total: 435
+            total: 695
           },
           {
-            nombre: "Inteligente — con aislamiento acústico ⭐",
+            nombre: "Inteligente — con foseado perimetral para LED",
             destacada: true,
             items: [
-              ["Mano de obra (estructura y placas, 10 m²)", 280],
-              ["Placas de pladur (10 m²)", 130],
-              ["Lana de roca para aislamiento acústico", 80],
-              ["Perfilería y tornillería", 45],
+              ["Mano de obra (estructura, foseado y placas, 18 m²)", 460],
+              ["Placas de pladur (18 m²)", 230],
+              ["Perfilería, varillas y perfil de foseado", 80],
+              ["Tira LED perimetral con transformador", 90],
               ["Masilla y cinta de juntas", 25]
             ],
-            total: 560
+            total: 885
           },
           {
-            nombre: "Completa — con puerta integrada y acabado listo para pintar",
+            nombre: "Completa — con downlights y regulación por app",
             destacada: false,
             items: [
-              ["Mano de obra (estructura, placas y hueco de puerta, 10 m²)", 340],
-              ["Placas de pladur (10 m²)", 130],
-              ["Lana de roca para aislamiento acústico", 80],
-              ["Precerco de puerta", 90],
-              ["Perfilería y tornillería", 50],
-              ["Masilla, cinta de juntas y lijado fino (listo para pintar)", 55]
+              ["Mano de obra (estructura, foseado y placas, 18 m²)", 480],
+              ["Placas de pladur (18 m²)", 230],
+              ["Perfilería, varillas y perfil de foseado", 80],
+              ["8 downlights LED regulables + tira perimetral", 220],
+              ["Módulo de control WiFi para regulación por app", 85],
+              ["Masilla y cinta de juntas", 25]
             ],
-            total: 745
+            total: 1120
           }
         ],
-        nota: "El cableado eléctrico dentro del tabique (si hace falta pasar algún punto de luz o enchufe) se presupuesta aparte."
+        nota: "El cableado eléctrico de los puntos de luz se incluye en la mano de obra; la conexión al cuadro eléctrico general se presupuesta aparte si no hay un circuito ya disponible cerca."
       }
     ]
   },
@@ -1508,7 +1513,7 @@ const services = [
     nombre: "Electricidad — Naves y Fincas",
     icono: "bolt",
     resumen:
-      "Cuadros trifásicos, boletines CIE de alta potencia, acometidas y adecuación eléctrica a la actividad. Pensado para naves, almacenes y explotaciones, no para el cuadro de una vivienda.",
+      "Cuadros trifásicos, boletines CIE de alta potencia, acometidas y adecuación eléctrica a la actividad. Pensado para naves, almacenes y explotaciones, no para el cuadro de una vivienda. Estudio previo según potencia y actividad — no hay un precio estándar en industrial.",
     tiempo: "Jornada completa o más, según potencia",
     desde: 780,
     idealPara: [
@@ -1959,13 +1964,13 @@ const packs = [
     nota: "Sin cuota mensual ni necesidad de desplazarte para comprobar el estado de la vivienda. Precio orientativo, se ajusta en visita técnica según distancia y accesibilidad."
   },
   {
-    nombre: "Pack Negocio",
+    nombre: "Pack Seguridad IA para Negocios",
     slug: "negocio",
     publico: "negocio",
     incluyeIA: true,
     descripcion: "Ideal para naves, almacenes, talleres y locales. IA que descarta falsas alarmas y te avisa por WhatsApp solo cuando hay algo real.",
     imagen: "/img/packs/pack-negocio.jpg",
-    imagenAlt: "Sala de control con monitorización de cámaras y dashboard IA — Pack Negocio AHOMED",
+    imagenAlt: "Sala de control con monitorización de cámaras y dashboard IA — Pack Seguridad IA para Negocios AHOMED",
     opciones: [
       {
         nombre: "Esencial — 4 cámaras con detección IA",

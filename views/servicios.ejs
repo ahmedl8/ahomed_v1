@@ -31,7 +31,7 @@
         <div class="bloques-grid-group">
           <span class="bloques-grid-label bloques-grid-label-ia">Exclusivos · con IA</span>
           <div class="bloques-grid">
-            <% bloques.filter(function(b){ return b.grupo === 'exclusivo'; }).forEach(function(b){ %>
+            <% bloques.filter(function(b){ return b.grupo === 'exclusivo' && b.publico !== 'negocio'; }).forEach(function(b){ %>
               <a href="#bloque-<%= b.slug %>" class="bloque-chip bloque-chip-ia">
                 <span><%= b.nombre %></span>
               </a>
@@ -46,6 +46,14 @@
                 <span><%= b.nombre %></span>
               </a>
             <% }) %>
+          </div>
+        </div>
+        <div class="bloques-grid-group">
+          <span class="bloques-grid-label">Para tu negocio</span>
+          <div class="bloques-grid">
+            <a href="#grupo-naves-fincas" class="bloque-chip">
+              <span>🏭 Naves y Fincas</span>
+            </a>
           </div>
         </div>
       </div>
@@ -71,7 +79,7 @@
         </div>
 
         <div class="services-grid services-grid-full">
-          <% services.filter(function(s){ return s.bloque === b.slug; }).forEach(function(s){ %>
+          <% services.filter(function(s){ return s.bloque === b.slug && s.publico !== 'negocio'; }).forEach(function(s){ %>
             <a href="/servicios/<%= s.slug %>" class="service-card">
               <h3><%= s.numero %>. <%= s.nombre %></h3>
               <p><%= s.resumen %></p>
@@ -97,7 +105,7 @@
     </div>
   </section>
 
-  <% bloques.filter(function(b){ return b.grupo === 'exclusivo'; }).forEach(function(b){ %>
+  <% bloques.filter(function(b){ return b.grupo === 'exclusivo' && b.publico !== 'negocio'; }).forEach(function(b){ %>
     <section class="section <%= b.slug === 'ia-predictiva' ? 'section-alt' : '' %>" id="bloque-<%= b.slug %>">
       <div class="container">
         <div class="bloque-header">
@@ -136,19 +144,6 @@
               </a>
             <% }) %>
           <% } %>
-
-          <% if (b.slug === 'seguridad-ia-naves-fincas' && typeof seguridadIANaves !== 'undefined' && seguridadIANaves) { %>
-            <a href="/servicios/naves-fincas/seguridad-ia" class="service-card service-card-ia-modo service-card-ai">
-              <div class="service-badge">Servicio exclusivo</div>
-              <p class="card-titular"><%= seguridadIANaves.titular %></p>
-              <h3><%= seguridadIANaves.nombre %></h3>
-              <p><%= seguridadIANaves.subtitulo %></p>
-              <div class="service-card-footer">
-                <span class="price-tag">Proyecto a medida</span>
-                <span class="link-arrow">Ver detalle →</span>
-              </div>
-            </a>
-          <% } %>
         </div>
 
         <% if (b.slug === 'ia-predictiva') { %>
@@ -170,7 +165,7 @@
     <section class="section" id="bloque-<%= b.slug %>">
       <div class="container">
         <div class="services-grid services-grid-full">
-          <% services.filter(function(s){ return s.bloque === b.slug; }).forEach(function(s){ %>
+          <% services.filter(function(s){ return s.bloque === b.slug && s.publico !== 'negocio'; }).forEach(function(s){ %>
             <a href="/servicios/<%= s.slug %>" class="service-card">
               <h3><%= s.nombre %></h3>
               <p><%= s.resumen %></p>
@@ -187,6 +182,56 @@
       </div>
     </section>
   <% }) %>
+
+  <section class="section-group-header section-group-header-neutral" id="grupo-naves-fincas">
+    <div class="container">
+      <span class="section-group-eyebrow">🏭 Naves y Fincas</span>
+      <h2 class="section-group-title">Para tu negocio</h2>
+      <p class="section-group-desc">Los mismos servicios básicos (electricidad, redes, fontanería, mantenimiento) adaptados a otra escala, más Seguridad IA perimetral para naves, almacenes y fincas. Todo separado de la parte residencial — otro dimensionado, otro tipo de proyecto.</p>
+    </div>
+  </section>
+
+  <section class="section" id="bloque-naves-fincas-basicos">
+    <div class="container">
+      <h2 class="sub-heading">Básicos — sin IA</h2>
+      <div class="services-grid services-grid-full">
+        <% services.filter(function(s){ return s.publico === 'negocio'; }).forEach(function(s){ %>
+          <a href="/servicios/<%= s.slug %>" class="service-card">
+            <h3><%= s.nombre %></h3>
+            <p><%= s.resumen %></p>
+            <div class="service-meta">
+              <span class="meta-chip"><%= s.tiempo %></span>
+            </div>
+            <div class="service-card-footer">
+              <span class="price-tag">Desde <%= fmt(s.desde) %> €<%= s.desdeUnidad || '' %></span>
+              <span class="link-arrow">Ver detalle →</span>
+            </div>
+          </a>
+        <% }) %>
+      </div>
+    </div>
+  </section>
+
+  <% if (typeof seguridadIANaves !== 'undefined' && seguridadIANaves) { %>
+    <section class="section section-alt" id="bloque-seguridad-ia-naves-fincas">
+      <div class="container">
+        <h2 class="sub-heading">Con IA</h2>
+        <div class="services-grid services-grid-full">
+          <a href="/servicios/naves-fincas/seguridad-ia" class="service-card service-card-ia-modo service-card-ai">
+            <div class="service-badge">Servicio exclusivo</div>
+            <p class="card-titular"><%= seguridadIANaves.titular %></p>
+            <h3><%= seguridadIANaves.nombre %></h3>
+            <p><%= seguridadIANaves.subtitulo %></p>
+            <div class="service-card-footer">
+              <span class="price-tag">Proyecto a medida</span>
+              <span class="link-arrow">Ver detalle →</span>
+            </div>
+          </a>
+        </div>
+        <a href="/packs#packs-negocio" class="bloque-cta-link">Ver packs para tu negocio →</a>
+      </div>
+    </section>
+  <% } %>
 
   <section class="section final-cta">
     <div class="container final-cta-inner">

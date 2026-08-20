@@ -6,7 +6,7 @@ const helmet = require("helmet");
 
 const { services, packs, ventajas, comoFunciona, empresa } = require("./data/services");
 const bloques = require("./data/bloques");
-const { instalacionBase, modos: modosIA } = require("./data/ia-predictiva");
+const { instalacionBase, modos: modosIA, familiasIA } = require("./data/ia-predictiva");
 const { seguridadIANaves } = require("./data/naves-fincas");
 const galeria = require("./data/galeria");
 const icons = require("./data/icons");
@@ -151,7 +151,7 @@ const QUE_NECESITAS = [
     titulo: "Proteger tu vivienda",
     subtitulo: "Cámaras, videoportero, cerraduras, Seguridad IA",
     link: "/servicios/seguridad",
-    desde: 120
+    desde: 145
   },
   {
     icono: "solar",
@@ -191,8 +191,7 @@ app.get("/", (req, res) => {
 app.get("/servicios", (req, res) => {
   res.render("servicios", {
     title: `Servicios — ${empresa.nombre}`,
-    metaDescription:
-      "Catálogo completo de servicios AHOMED organizado en seis bloques: seguridad y accesos, instalaciones base, energía, reformas, plataforma IA predictiva y mantenimiento. Precios orientativos.",
+    metaDescription: `Catálogo completo de servicios AHOMED organizado en ${bloques.length} bloques: seguridad y accesos, instalaciones base, energía, reformas, plataforma IA predictiva, mantenimiento y naves y fincas. Precios orientativos.`,
     services,
     bloques,
     modosIA
@@ -236,6 +235,7 @@ app.get("/servicios/ia-predictiva", (req, res) => {
       "Mini-PC IA Central obligatorio, en dos niveles (IA START 590 € o IA PRO 950 €), motor Python + dashboard, y once modos: seguridad IA, acceso inteligente, motor meteorológico, casa presencial, sueño, calidad del aire, mascotas, cocina, personas mayores, niños y bebés, y paquetes. Configura tu presupuesto.",
     instalacionBase,
     modos: modosIA,
+    familiasIA,
     packsIA: packs.filter((p) => ["hogar-inteligente", "alquiler-segunda-residencia-ia"].includes(p.slug))
   });
 });
@@ -275,7 +275,7 @@ app.get("/packs", (req, res) => {
   res.render("packs", {
     title: `Packs — ${empresa.nombre}`,
     metaDescription:
-      "Instalación completa llave en mano para tu casa (Piso Nuevo, Chalet Seguro, Hogar Inteligente, Segunda Residencia IA) o para tu nave o finca (Pack Negocio). Varios servicios AHOMED combinados en una sola visita técnica.",
+      "Instalación completa llave en mano para tu casa (Piso Nuevo, Chalet Seguro, Hogar Inteligente, Segunda Residencia IA) o para tu nave o finca (Pack Seguridad IA para Negocios). Varios servicios AHOMED combinados en una sola visita técnica.",
     packsCasa: packs.filter((p) => p.publico !== "negocio"),
     packsNegocio: packs.filter((p) => p.publico === "negocio")
   });

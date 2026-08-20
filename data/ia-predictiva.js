@@ -21,7 +21,7 @@ const nivelesInstalacionBase = [
   {
     slug: "start",
     nombre: "IA START",
-    subtitulo: "Para 1-2 servicios IA",
+    subtitulo: "Empieza pequeño — para 1-2 servicios IA",
     resumen:
       "Suficiente para arrancar con 1 o 2 servicios de la Plataforma IA Predictiva sin esfuerzo — la opción más ajustada para empezar.",
     items: [
@@ -35,7 +35,7 @@ const nivelesInstalacionBase = [
   {
     slug: "pro",
     nombre: "IA PRO",
-    subtitulo: "Para 3 o más servicios IA, o Seguridad IA con varias cámaras",
+    subtitulo: "Crece sin cambiar todo — para 3+ servicios IA o Seguridad IA con varias cámaras",
     resumen:
       "Cuando quieres varios servicios a la vez, o Seguridad IA con varias cámaras en paralelo, conviene más potencia para que todo vaya fluido sin esperas.",
     items: [
@@ -65,6 +65,7 @@ const modos = [
     imagen: "/img/ia-predictiva/motor-meteorologico.jpg",
     video: "/video/ia-predictiva/motor-meteorologico.mp4",
     numero: 1,
+    familia: "confort",
     publico: "casa",
     nombre: "Motor Meteorológico",
     titular: "Tu jardín decide cuándo necesita agua",
@@ -114,6 +115,7 @@ const modos = [
     imagen: "/img/ia-predictiva/casa-presencial.jpg",
     video: "/video/ia-predictiva/casa-presencial.mp4",
     numero: 2,
+    familia: "seguridad",
     publico: "casa",
     nombre: "Casa Presencial",
     titular: "Tu casa sabe cuándo llegas",
@@ -163,6 +165,7 @@ const modos = [
     imagen: "/img/ia-predictiva/ia-sueno.jpg",
     video: "/video/ia-predictiva/ia-sueno.mp4",
     numero: 3,
+    familia: "confort",
     publico: "casa",
     nombre: "IA de Sueño",
     titular: "Tu dormitorio se prepara para que descanses mejor",
@@ -212,6 +215,7 @@ const modos = [
     imagen: "/img/ia-predictiva/calidad-aire.jpg",
     video: "/video/ia-predictiva/calidad-aire.mp4",
     numero: 4,
+    familia: "confort",
     publico: "casa",
     nombre: "Panel de Calidad del Aire",
     titular: "Respira un aire que se controla solo",
@@ -259,6 +263,7 @@ const modos = [
     imagen: "/img/ia-predictiva/cuidado-mascotas.jpg",
     video: "/video/ia-predictiva/cuidado-mascotas.mp4",
     numero: 5,
+    familia: "familia",
     publico: "casa",
     nombre: "Cuidado de Mascotas",
     titular: "Tu mascota, vigilada aunque no estés",
@@ -306,6 +311,7 @@ const modos = [
     imagen: "/img/ia-predictiva/cocina-inteligente.jpg",
     video: "/video/ia-predictiva/cocina-inteligente.mp4",
     numero: 6,
+    familia: "hogar",
     publico: "casa",
     nombre: "Cocina Inteligente",
     titular: "Que nunca más te preocupe si dejaste algo encendido",
@@ -351,6 +357,7 @@ const modos = [
     imagen: "/img/ia-predictiva/personas-mayores.jpg",
     video: "/video/ia-predictiva/personas-mayores.mp4",
     numero: 7,
+    familia: "familia",
     publico: "casa",
     nombre: "Personas Mayores",
     titular: "Tranquilidad para cuidar a distancia",
@@ -399,6 +406,7 @@ const modos = [
     video: "/video/ia-predictiva/modo-ninos.mp4",
     videosExtra: [{ titulo: "Bebés", src: "/video/ia-predictiva/bebes.mp4" }],
     numero: 8,
+    familia: "familia",
     publico: "casa",
     nombre: "Niños y Bebés",
     titular: "Sabrás que han llegado bien, sin tener que preguntar",
@@ -443,6 +451,7 @@ const modos = [
     imagen: "/img/ia-predictiva/gestion-paquetes.jpg",
     video: "/video/ia-predictiva/gestion-paquetes.mp4",
     numero: 9,
+    familia: "seguridad",
     publico: "casa",
     nombre: "Gestión de Paquetes",
     titular: "No te pierdas ni un paquete otra vez",
@@ -485,6 +494,7 @@ const modos = [
     imagen: "/img/hero-bloques/ia-monitorizacion.jpg",
     video: "/video/ia-predictiva/seguridad-ia.mp4",
     numero: 10,
+    familia: "seguridad",
     publico: "casa",
     nombre: "Seguridad IA",
     titular: "Que una cámara no solo grabe: que entienda lo que ocurre",
@@ -553,6 +563,7 @@ const modos = [
       { titulo: "Vehículo no autorizado", src: "/video/ia-predictiva/garaje-no-autorizado.mp4" }
     ],
     numero: 11,
+    familia: "seguridad",
     publico: "casa",
     nombre: "Acceso Inteligente",
     titular: "Que la puerta y el garaje reconozcan quién eres, sin llave ni mando",
@@ -607,4 +618,36 @@ const modos = [
   }
 ];
 
-module.exports = { instalacionBase, modos };
+// Agrupación comercial de los 11 modos en 4 familias (feedback de reestructuración,
+// Prioridad 4 — ver /areas/ahomed-web.md). Cada modo declara su familia arriba
+// mediante el campo `familia`, igual que cada servicio declara su `bloque` en
+// services.js. Así 11 modos se presentan como 4 soluciones, no como 11 productos
+// sueltos que el cliente tiene que estudiar uno a uno.
+const familiasIA = [
+  {
+    slug: "seguridad",
+    nombre: "Seguridad",
+    resumen: "Seguridad IA, Acceso Inteligente, Gestión de Paquetes y Casa Presencial.",
+    icono: "shield"
+  },
+  {
+    slug: "confort",
+    nombre: "Confort",
+    resumen: "Motor Meteorológico, IA de Sueño y Panel de Calidad del Aire.",
+    icono: "clima-ia"
+  },
+  {
+    slug: "familia",
+    nombre: "Familia",
+    resumen: "Personas Mayores, Niños y Bebés, y Cuidado de Mascotas.",
+    icono: "mayores"
+  },
+  {
+    slug: "hogar",
+    nombre: "Hogar",
+    resumen: "Cocina Inteligente.",
+    icono: "cocina-ia"
+  }
+];
+
+module.exports = { instalacionBase, modos, familiasIA };

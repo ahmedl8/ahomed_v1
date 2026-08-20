@@ -55,7 +55,7 @@
         <% }) %>
       </div>
 
-      <p class="example-note">Es obligatorio para cualquier modo de esta página, incluida Seguridad IA. Ya no se ofrece la opción de instalar un modo "solo, con equipo propio" ni Raspberry Pi como cerebro central. El coste adicional de cada modo es el mismo en ambos niveles — la diferencia está solo en el Mini-PC.</p>
+      <p class="example-note">Añade nuevos modos más adelante sin cambiar de Mini-PC — el coste adicional de cada modo es el mismo en ambos niveles, la diferencia está solo en la base. Es obligatorio para cualquier modo de esta página, incluida Seguridad IA. Ya no se ofrece la opción de instalar un modo "solo, con equipo propio" ni Raspberry Pi como cerebro central.</p>
     </div>
   </section>
 
@@ -126,23 +126,34 @@
 
   <section class="section">
     <div class="container">
-      <h2 class="sub-heading">4. Los <%= modos.length %> modos, uno a uno</h2>
-      <p>Cada modo resuelve un escenario completo de la vida diaria, no un dispositivo suelto.</p>
+      <h2 class="sub-heading">4. Los <%= modos.length %> modos, en 4 familias</h2>
+      <p>Cada modo resuelve un escenario completo de la vida diaria, no un dispositivo suelto. Para no tener que estudiarlos uno a uno, se agrupan en 4 familias:</p>
 
-      <div class="services-grid services-grid-full">
-        <% modos.forEach(function(m){ %>
-          <a href="/servicios/ia-predictiva/<%= m.slug %>" class="service-card service-card-ia-modo<%= m.esProyecto ? ' service-card-ai' : '' %>">
-            <% if (m.esProyecto) { %><div class="service-badge">Servicio exclusivo</div><% } %>
-            <% if (m.titular) { %><p class="card-titular"><%= m.titular %></p><% } %>
-            <h3><%= m.numero %>. <%= m.nombre %></h3>
-            <p><%= m.esProyecto ? m.subtitulo : m.resumen %></p>
-            <div class="service-card-footer">
-              <span class="price-tag"><%= m.esProyecto ? 'Proyecto a medida' : '+' + fmt(m.precioIncremento) + ' € sobre la base' %></span>
-              <span class="link-arrow">Ver detalle →</span>
+      <% familiasIA.forEach(function(familia){ %>
+        <div class="ia-familia-group">
+          <div class="ia-familia-head">
+            <div class="service-icon"><svg viewBox="0 0 24 24"><%- icons[familia.icono] %></svg></div>
+            <div>
+              <h3><%= familia.nombre %></h3>
+              <p><%= familia.resumen %></p>
             </div>
-          </a>
-        <% }) %>
-      </div>
+          </div>
+          <div class="services-grid services-grid-full">
+            <% modos.filter(function(m){ return m.familia === familia.slug; }).forEach(function(m){ %>
+              <a href="/servicios/ia-predictiva/<%= m.slug %>" class="service-card service-card-ia-modo<%= m.esProyecto ? ' service-card-ai' : '' %>">
+                <% if (m.esProyecto) { %><div class="service-badge">Servicio exclusivo</div><% } %>
+                <% if (m.titular) { %><p class="card-titular"><%= m.titular %></p><% } %>
+                <h3><%= m.numero %>. <%= m.nombre %></h3>
+                <p><%= m.esProyecto ? m.subtitulo : m.resumen %></p>
+                <div class="service-card-footer">
+                  <span class="price-tag"><%= m.esProyecto ? 'Proyecto a medida' : '+' + fmt(m.precioIncremento) + ' € sobre la base' %></span>
+                  <span class="link-arrow">Ver detalle →</span>
+                </div>
+              </a>
+            <% }) %>
+          </div>
+        </div>
+      <% }) %>
 
       <p class="orientative-note">Todos los importes son orientativos. El precio definitivo se confirma tras la visita técnica gratuita. ¿Dudas sobre el Mini-PC IA Central o las cuotas? Consulta las <a href="/preguntas-frecuentes">preguntas frecuentes</a>.</p>
     </div>

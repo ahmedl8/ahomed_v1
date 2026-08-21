@@ -1238,6 +1238,9 @@ p { margin: 0; }
    Ver /areas/ahomed-negocio.md, construcción 1 de 5 del análisis
    comparativo con Loxone.
    =========================================================== */
+.pack-detail-meta { margin-top: 10px; display: flex; flex-direction: column; gap: 4px; }
+.pack-detail-meta p { margin: 0; font-size: 0.95rem; color: var(--ink); }
+.pack-detail-meta strong { color: var(--gray-600); font-weight: 700; }
 .exclusivos-hero { margin: 28px 0 8px; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-lg); }
 .exclusivos-hero-img { width: 100%; max-height: 420px; object-fit: cover; display: block; }
 

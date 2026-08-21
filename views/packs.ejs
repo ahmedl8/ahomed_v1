@@ -31,6 +31,12 @@
         <% if (p.incluyeIA) { %><span class="pack-ia-badge">🧠 Incluye IA</span><% } %>
         <h2><%= p.nombre %></h2>
         <p class="pack-detail-desc"><%= p.descripcion %></p>
+        <% if (p.idealPara || p.resultado) { %>
+          <div class="pack-detail-meta">
+            <% if (p.idealPara) { %><p><strong>Ideal para:</strong> <%= p.idealPara %></p><% } %>
+            <% if (p.resultado) { %><p><strong>Resultado:</strong> <%= p.resultado %></p><% } %>
+          </div>
+        <% } %>
       </div>
 
       <% if (p.imagenAntes) { %>
@@ -86,6 +92,12 @@
         <% if (p.incluyeIA) { %><span class="pack-ia-badge">🧠 Incluye IA</span><% } %>
         <h2><%= p.nombre %></h2>
         <p class="pack-detail-desc"><%= p.descripcion %></p>
+        <% if (p.idealPara || p.resultado) { %>
+          <div class="pack-detail-meta">
+            <% if (p.idealPara) { %><p><strong>Ideal para:</strong> <%= p.idealPara %></p><% } %>
+            <% if (p.resultado) { %><p><strong>Resultado:</strong> <%= p.resultado %></p><% } %>
+          </div>
+        <% } %>
       </div>
 
       <% if (p.imagenAntes) { %>

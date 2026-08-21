@@ -143,7 +143,7 @@ const QUE_NECESITAS = [
   {
     icono: "home-wifi",
     titulo: "Mejorar tu casa",
-    subtitulo: "Domótica, WiFi, iluminación, escenas",
+    subtitulo: "Domótica, WiFi, iluminación, reformas",
     link: "/servicios/domotica",
     desde: 210
   },
@@ -172,9 +172,9 @@ const QUE_NECESITAS = [
 
 app.get("/", (req, res) => {
   res.render("index", {
-    title: `${empresa.nombre} — Seguridad IA, domótica y energía inteligente en Madrid`,
+    title: `${empresa.nombre} — Soluciones integrales para el hogar en Madrid`,
     metaDescription:
-      "Seguridad con IA, domótica, redes y energía inteligente para tu vivienda o negocio en Madrid y alrededores. Equipo propiedad del cliente, sin cuotas. Primera visita técnica gratuita.",
+      "Electricidad, domótica, seguridad con IA, energía solar, climatización y reformas en Madrid y alrededores. Equipo propiedad del cliente, sin cuotas. Primera visita técnica gratuita.",
     services,
     serviciosDestacados: SERVICIOS_DESTACADOS_HOME.map((slug) => services.find((s) => s.slug === slug)).filter(Boolean),
     necesitas: QUE_NECESITAS,
@@ -259,7 +259,7 @@ app.get("/para-profesionales", (req, res) => {
 app.get("/servicios", (req, res) => {
   res.render("servicios", {
     title: `Servicios — ${empresa.nombre}`,
-    metaDescription: `Catálogo completo de servicios AHOMED: seguridad y accesos, instalaciones base, energía, plataforma IA predictiva, mantenimiento y naves y fincas. Precios orientativos.`,
+    metaDescription: `Catálogo completo de servicios AHOMED organizado en ${bloques.length} bloques: seguridad y accesos, instalaciones base, energía, reformas, plataforma IA predictiva, mantenimiento y naves y fincas. Precios orientativos.`,
     services,
     bloques,
     modosIA
@@ -339,21 +339,29 @@ app.get("/servicios/:slug", (req, res, next) => {
   });
 });
 
-app.get("/packs", (req, res) => {
+app.get("/soluciones", (req, res) => {
   res.render("packs", {
-    title: `Packs — ${empresa.nombre}`,
+    title: `Soluciones — ${empresa.nombre}`,
     metaDescription:
-      "Instalación completa llave en mano para tu casa (Piso Nuevo, Chalet Seguro con IA, Hogar Inteligente, Segunda Residencia IA) o para tu nave o finca (Pack Seguridad IA para Negocios). Varios servicios AHOMED combinados en una sola visita técnica.",
+      "Instalación completa llave en mano para tu casa (Piso Nuevo, Chalet Seguro, Hogar Inteligente, Segunda Residencia IA) o para tu nave o finca (Pack Seguridad IA para Negocios). Varios servicios AHOMED combinados en una sola visita técnica.",
     packsCasa: packs.filter((p) => p.publico !== "negocio"),
     packsNegocio: packs.filter((p) => p.publico === "negocio")
   });
+});
+
+// v44: "/packs" pasó a llamarse "/soluciones" (ver /areas/ahomed-negocio.md,
+// punto 16 del análisis comparativo con Loxone — "pack" suena a paquete
+// comercial, "solución" suena a respuesta a un problema). Redirect 301 por
+// si algún enlace viejo sigue circulando.
+app.get("/packs", (req, res) => {
+  res.redirect(301, "/soluciones");
 });
 
 
 app.get("/galeria", (req, res) => {
   res.render("galeria", {
     title: `Galería de trabajos — ${empresa.nombre}`,
-    metaDescription: `Trabajos reales de ${empresa.nombre} en ${empresa.zona}: antes y después de electricidad, domótica, seguridad e IA.`,
+    metaDescription: `Trabajos reales de ${empresa.nombre} en ${empresa.zona}: antes y después de electricidad, domótica, seguridad, IA y reformas.`,
     trabajos: galeria
   });
 });
@@ -368,7 +376,7 @@ app.get("/preguntas-frecuentes", (req, res) => {
 app.get("/sobre-mi", (req, res) => {
   res.render("sobre-mi", {
     title: `Sobre mí — ${empresa.nombre}`,
-    metaDescription: `Más de ${empresa.anosExperiencia} de experiencia técnica en electricidad, domótica, IA y seguridad. Conoce al equipo detrás de ${empresa.nombre}.`
+    metaDescription: `Más de ${empresa.anosExperiencia} de experiencia técnica en electricidad, domótica, IA y reformas. Conoce al equipo detrás de ${empresa.nombre}.`
   });
 });
 
@@ -388,7 +396,7 @@ app.get("/robots.txt", (req, res) => {
 
 app.get("/sitemap.xml", (req, res) => {
   const base = `https://${empresa.web}`;
-  const staticUrls = ["/", "/servicios", "/packs", "/configurador", "/crea-tu-instalacion", "/tecnologia", "/para-profesionales", "/preguntas-frecuentes", "/sobre-mi", "/contacto"];
+  const staticUrls = ["/", "/servicios", "/soluciones", "/configurador", "/crea-tu-instalacion", "/tecnologia", "/para-profesionales", "/preguntas-frecuentes", "/sobre-mi", "/contacto"];
   const bloqueUrls = bloques.map((b) => `/servicios/bloque/${b.slug}`);
   const servicioUrls = services.map((s) => `/servicios/${s.slug}`);
   const iaPredictivaUrls = ["/servicios/ia-predictiva", ...modosIA.map((m) => `/servicios/ia-predictiva/${m.slug}`)];

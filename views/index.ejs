@@ -12,7 +12,7 @@
     <div class="container hero-split">
       <div class="hero-split-copy">
         <h1>Tu casa más segura, más cómoda y más inteligente</h1>
-        <p class="hero-sub">Instalaciones profesionales en <%= empresa.zona %> para viviendas y negocios: seguridad con IA, domótica, redes y energía. Soluciones a medida con atención personal.</p>
+        <p class="hero-sub">Instalaciones profesionales en <%= empresa.zona %> para viviendas y negocios: electricidad, domótica, seguridad con IA y energía solar. Soluciones a medida con atención personal.</p>
 
         <div class="hero-trust-row">
           <div class="hero-trust-item"><svg viewBox="0 0 24 24"><path d="M12 1l3 6 6.5.9-4.7 4.6 1.1 6.5L12 15.9 6.1 19l1.1-6.5L2.5 7.9 9 7z"/></svg>Más de <%= empresa.anosExperiencia %> de experiencia</div>
@@ -73,8 +73,8 @@
         <div class="configurador-banner-inner">
           <div class="configurador-banner-copy">
             <span class="eyebrow">¿No sabes por dónde empezar?</span>
-            <h2>Configura tu casa en 3 preguntas</h2>
-            <p>Tipo de vivienda, qué quieres mejorar y qué quieres controlar. Te recomendamos la solución AHOMED que mejor encaja, con presupuesto orientativo al momento.</p>
+            <h2>Configura tu casa en 4 preguntas</h2>
+            <p>Tipo de vivienda, qué quieres mejorar, qué quieres controlar y con qué nivel empezar. Te recomendamos la solución AHOMED que mejor encaja, con presupuesto orientativo al momento.</p>
             <a href="/configurador" class="btn btn-primary btn-lg configurador-banner-cta">Configurar mi casa →</a>
           </div>
           <div class="configurador-banner-visual">
@@ -82,22 +82,6 @@
               <source srcset="/img/marketing/configurador-tu-casa.webp" type="image/webp">
               <img src="/img/marketing/configurador-tu-casa.jpg" alt="Vivienda conectada con seguridad, confort, familia, acceso y energía coordinados desde una misma app" loading="lazy">
             </picture>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PARA PROFESIONALES -->
-  <section class="section section-tight">
-    <div class="container">
-      <div class="configurador-banner configurador-banner-dark">
-        <div class="configurador-banner-inner">
-          <div class="configurador-banner-copy">
-            <span class="eyebrow">¿Eres reformista, constructor o instalador?</span>
-            <h2>Tú construyes la casa. AHOMED la hace inteligente.</h2>
-            <p>Añade seguridad IA, domótica y tecnología a tus proyectos sin tener que aprenderla. Nosotros nos ocupamos de la parte inteligente y coordinamos contigo la instalación.</p>
-            <a href="/para-profesionales" class="btn btn-outline-light btn-lg configurador-banner-cta">Ver AHOMED para Profesionales →</a>
           </div>
         </div>
       </div>
@@ -125,8 +109,8 @@
   <section class="section services-strip" id="servicios">
     <div class="container">
       <div class="section-head">
-        <span class="eyebrow">Instalaciones tradicionales</span>
-        <h2>Básicos — trabajos sin IA</h2>
+        <span class="eyebrow">Para tu vivienda</span>
+        <h2>Instalaciones y servicios</h2>
         <p>Electricidad, seguridad, domótica, redes, climatización y energía solar. Se piden sueltos, sin ningún equipo obligatorio de por medio.</p>
       </div>
 
@@ -159,8 +143,8 @@
     <div class="container">
       <div class="section-head section-head-exclusivos">
         <span class="eyebrow">El gran diferenciador de AHOMED</span>
-        <h2>Exclusivos — con Inteligencia Artificial</h2>
-        <p>Tu casa te avisa solo cuando de verdad importa — nada de alertas por un gato o una sombra. <%= totalModos %> modos a elegir, desde seguridad hasta cuidado de mayores o mascotas, todos coordinados por un mismo sistema.</p>
+        <h2>Haz que tu casa piense</h2>
+        <p>El Cerebro AHOMED analiza lo que ocurre y actúa automáticamente para que no tengas que estar pendiente — nada de alertas por un gato o una sombra. <%= totalModos %> modos a elegir, desde seguridad hasta cuidado de mayores o mascotas, todos coordinados por un mismo sistema.</p>
       </div>
 
       <div class="exclusivos-hero">
@@ -185,14 +169,25 @@
 
         <p class="cerebro-hardware-note">Hardware: <strong>Mini-PC IA Central</strong>, desde <%= fmt(instalacionBase.niveles[0].total) %> € — una única vez, para todos los modos.</p>
 
-        <div class="cerebro-branches">
-          <% familiasIA.forEach(function(familia){ %>
-            <a href="/servicios/ia-predictiva#familia-<%= familia.slug %>" class="cerebro-branch">
-              <div class="service-icon"><svg viewBox="0 0 24 24"><%- icons[familia.icono] %></svg></div>
-              <h4><%= familia.nombre %></h4>
-              <p><%= familia.resumen %></p>
-            </a>
-          <% }) %>
+        <div class="cerebro-diagram-visual">
+          <svg class="cerebro-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+            <path class="cerebro-line" d="M50,50 Q38,36 25,24"/>
+            <path class="cerebro-line" d="M50,50 Q62,36 75,24"/>
+            <path class="cerebro-line" d="M50,50 Q38,64 25,76"/>
+            <path class="cerebro-line" d="M50,50 Q62,64 75,76"/>
+          </svg>
+          <div class="cerebro-hub-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><%- icons.ai %></svg>
+          </div>
+          <div class="cerebro-branches">
+            <% familiasIA.forEach(function(familia){ %>
+              <a href="/servicios/ia-predictiva#familia-<%= familia.slug %>" class="cerebro-branch">
+                <div class="service-icon"><svg viewBox="0 0 24 24"><%- icons[familia.icono] %></svg></div>
+                <h4><%= familia.nombre %></h4>
+                <p><%= familia.resumen %></p>
+              </a>
+            <% }) %>
+          </div>
         </div>
       </div>
 
@@ -266,7 +261,7 @@
                   <a href="/servicios/ia-predictiva/<%= m.slug %>" class="escenario-link"><%= m.nombre %> →</a>
                 <% }) %>
                 <% if (e.packSugerido) { %>
-                  <a href="/packs#<%= e.packSugerido %>" class="escenario-link">Ver el pack para este caso →</a>
+                  <a href="/soluciones#<%= e.packSugerido %>" class="escenario-link">Ver la solución para este caso →</a>
                 <% } %>
               </div>
             </div>
@@ -280,12 +275,12 @@
   <section class="section packs-section">
     <div class="container">
       <div class="section-head">
-        <h2>Packs AHOMED</h2>
-        <p>No vendemos solo servicios sueltos: resolvemos la instalación completa.</p>
+        <h2>Soluciones AHOMED</h2>
+        <p>Hemos agrupado las instalaciones más habituales para que puedas empezar con una solución clara, no con servicios sueltos.</p>
       </div>
       <div class="packs-grid">
         <% packsDestacados.forEach(function(p){ %>
-          <a href="/packs#<%= p.slug %>" class="pack-card pack-card-photo">
+          <a href="/soluciones#<%= p.slug %>" class="pack-card pack-card-photo">
             <img src="<%= p.imagen %>" alt="<%= p.imagenAlt %>" loading="lazy" class="pack-card-img">
             <div class="pack-card-body">
               <% if (p.incluyeIA) { %><span class="pack-ia-badge pack-ia-badge-sm">🧠 Incluye IA</span><% } %>
@@ -300,7 +295,7 @@
         <% }) %>
       </div>
 
-      <a href="/packs" class="bloque-cta-link section-cta-more">Ver todos los packs →</a>
+      <a href="/soluciones" class="bloque-cta-link section-cta-more">Ver todas las soluciones →</a>
     </div>
   </section>
 
@@ -310,13 +305,21 @@
       <div class="section-head">
         <h2>Cómo funciona un presupuesto AHOMED</h2>
       </div>
-      <div class="steps-grid">
-        <% comoFunciona.forEach(function(paso, i){ %>
-          <div class="step-card">
-            <div class="step-number"><%= i + 1 %></div>
-            <p><%= paso %></p>
-          </div>
-        <% }) %>
+      <div class="how-it-works-inner">
+        <div class="how-it-works-visual">
+          <picture>
+            <source srcset="/img/marketing/visita-tecnica.webp" type="image/webp">
+            <img src="/img/marketing/visita-tecnica.jpg" alt="Visita técnica a domicilio: revisión del proyecto con plano de la vivienda y presupuesto en tablet" loading="lazy">
+          </picture>
+        </div>
+        <div class="steps-grid steps-grid-compact">
+          <% comoFunciona.forEach(function(paso, i){ %>
+            <div class="step-card">
+              <div class="step-number"><%= i + 1 %></div>
+              <p><%= paso %></p>
+            </div>
+          <% }) %>
+        </div>
       </div>
     </div>
   </section>

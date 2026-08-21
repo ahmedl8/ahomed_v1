@@ -9,8 +9,8 @@
 
   <section class="page-hero">
     <div class="container">
-      <h1>Packs AHOMED</h1>
-      <p>Cada pack combina los servicios que más se piden juntos, con precios orientativos por opción. El presupuesto final se ajusta tras la visita técnica gratuita — sobre todo si el proyecto se coordina con tu reformista, constructora o instalador.</p>
+      <h1>Soluciones AHOMED</h1>
+      <p>Hemos agrupado las instalaciones más habituales para que puedas empezar con una solución clara: una sola visita, un solo presupuesto, sin sorpresas.</p>
       <p class="creador-alt-link">¿Ninguno encaja del todo? <a href="/crea-tu-instalacion">Arma tu propia combinación →</a></p>
     </div>
   </section>
@@ -18,7 +18,7 @@
   <section class="section-group-header" id="packs-casa">
     <div class="container">
       <span class="section-group-eyebrow">🏠 Para tu casa</span>
-      <h2 class="section-group-title">Packs para vivienda</h2>
+      <h2 class="section-group-title">Soluciones para vivienda</h2>
       <p class="section-group-desc">De lo esencial (piso nuevo) a la instalación con más Inteligencia Artificial (Hogar Inteligente, Segunda Residencia IA).</p>
     </div>
   </section>
@@ -32,12 +32,6 @@
         <% if (p.incluyeIA) { %><span class="pack-ia-badge">🧠 Incluye IA</span><% } %>
         <h2><%= p.nombre %></h2>
         <p class="pack-detail-desc"><%= p.descripcion %></p>
-        <% if (p.idealPara || p.resultado) { %>
-          <div class="pack-detail-meta">
-            <% if (p.idealPara) { %><p><strong>Ideal para:</strong> <%= p.idealPara %></p><% } %>
-            <% if (p.resultado) { %><p><strong>Resultado:</strong> <%= p.resultado %></p><% } %>
-          </div>
-        <% } %>
       </div>
 
       <% if (p.imagenAntes) { %>
@@ -79,7 +73,7 @@
   <section class="section-group-header section-group-header-neutral" id="packs-negocio">
     <div class="container">
       <span class="section-group-eyebrow">🏭 Naves y fincas</span>
-      <h2 class="section-group-title">Packs para negocio</h2>
+      <h2 class="section-group-title">Soluciones para negocio</h2>
       <p class="section-group-desc">Vigilancia perimetral con IA a escala industrial, sin cuota mensual.</p>
     </div>
   </section>
@@ -93,12 +87,6 @@
         <% if (p.incluyeIA) { %><span class="pack-ia-badge">🧠 Incluye IA</span><% } %>
         <h2><%= p.nombre %></h2>
         <p class="pack-detail-desc"><%= p.descripcion %></p>
-        <% if (p.idealPara || p.resultado) { %>
-          <div class="pack-detail-meta">
-            <% if (p.idealPara) { %><p><strong>Ideal para:</strong> <%= p.idealPara %></p><% } %>
-            <% if (p.resultado) { %><p><strong>Resultado:</strong> <%= p.resultado %></p><% } %>
-          </div>
-        <% } %>
       </div>
 
       <% if (p.imagenAntes) { %>

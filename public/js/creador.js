@@ -146,7 +146,7 @@
         var diferencia = match.desde - total;
         elMatchBody.textContent = match.nombre + " — por " + formatEuros(diferencia) + " más obtienes ya el paquete completo montado y probado.";
       }
-      elMatchLink.href = "/packs#" + match.slug;
+      elMatchLink.href = "/soluciones#" + match.slug;
     } else {
       elMatch.hidden = true;
     }

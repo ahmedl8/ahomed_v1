@@ -10,7 +10,7 @@
   <section class="page-hero">
     <div class="container">
       <h1>Configura tu casa</h1>
-      <p>Responde 3 preguntas y te recomendamos el pack o servicio AHOMED que mejor encaja, con presupuesto orientativo al momento. El precio definitivo se confirma siempre tras la visita técnica gratuita.</p>
+      <p>Responde 4 preguntas y te recomendamos el pack o servicio AHOMED que mejor encaja, con presupuesto orientativo al momento. El precio definitivo se confirma siempre tras la visita técnica gratuita.</p>
     </div>
   </section>
 
@@ -25,13 +25,15 @@
           <div class="wizard-progress-line"></div>
           <div class="wizard-progress-step" data-progress-step="3">3</div>
           <div class="wizard-progress-line"></div>
-          <div class="wizard-progress-step" data-progress-step="4">✓</div>
+          <div class="wizard-progress-step" data-progress-step="4">4</div>
+          <div class="wizard-progress-line"></div>
+          <div class="wizard-progress-step" data-progress-step="5">✓</div>
         </div>
 
         <!-- PASO 1: TIPO DE VIVIENDA -->
         <div class="wizard-step is-active" data-step="1">
           <h2 class="wizard-step-title">¿Qué vivienda o negocio tienes?</h2>
-          <p class="wizard-step-sub">Para orientarte hacia el pack pensado para tu caso</p>
+          <p class="wizard-step-sub">Para orientarte hacia la solución pensada para tu caso</p>
           <div class="wizard-options">
             <label class="wizard-option">
               <input type="radio" name="config-vivienda" value="piso">
@@ -158,12 +160,51 @@
           <div class="wizard-nav">
             <button type="button" class="btn btn-outline" data-wizard-back>← Atrás</button>
             <span class="wizard-nav-spacer"></span>
+            <button type="button" class="btn btn-primary" data-wizard-next>Siguiente →</button>
+          </div>
+        </div>
+
+        <!-- PASO 4: NIVEL — esencial / inteligente / completa (mapea a las
+             opciones reales de cada pack en data/services.js, no a un dato
+             inventado como "número de habitaciones" que el catálogo no tiene) -->
+        <div class="wizard-step" data-step="4">
+          <h2 class="wizard-step-title">¿Empezamos poco a poco o lo hacemos todo desde el primer día?</h2>
+          <p class="wizard-step-sub">Cada pack tiene 3 niveles reales de precio — esto decide cuál te enseñamos</p>
+          <div class="wizard-options">
+            <label class="wizard-option">
+              <input type="radio" name="config-nivel" value="esencial">
+              <span class="wizard-option-card">
+                <span class="wizard-option-icon"><svg viewBox="0 0 24 24"><%- icons.bolt %></svg></span>
+                <h4>Esencial</h4>
+                <p>Lo justo para empezar, se amplía después</p>
+              </span>
+            </label>
+            <label class="wizard-option">
+              <input type="radio" name="config-nivel" value="inteligente" checked>
+              <span class="wizard-option-card">
+                <span class="wizard-option-icon"><svg viewBox="0 0 24 24"><%- icons.ai %></svg></span>
+                <h4>Inteligente</h4>
+                <p>La opción que más se pide — equilibrio precio/IA</p>
+              </span>
+            </label>
+            <label class="wizard-option">
+              <input type="radio" name="config-nivel" value="completa">
+              <span class="wizard-option-card">
+                <span class="wizard-option-icon"><svg viewBox="0 0 24 24"><%- icons.shield %></svg></span>
+                <h4>Completa</h4>
+                <p>Todo desde el primer día, sin ampliaciones luego</p>
+              </span>
+            </label>
+          </div>
+          <div class="wizard-nav">
+            <button type="button" class="btn btn-outline" data-wizard-back>← Atrás</button>
+            <span class="wizard-nav-spacer"></span>
             <button type="button" class="btn btn-primary" data-wizard-next>Ver mi recomendación →</button>
           </div>
         </div>
 
         <!-- RESULTADO -->
-        <div class="wizard-step" data-step="4">
+        <div class="wizard-step" data-step="5">
           <div class="wizard-result">
             <div class="wizard-result-card" id="wizard-result-card">
               <!-- Rellenado por public/js/configurador.js -->
@@ -180,10 +221,21 @@
     </div>
   </section>
 
-  <!-- Catálogo en JSON para que el asistente recomiende sin llamar al servidor -->
+  <!-- Catálogo en JSON para que el asistente recomiende sin llamar al servidor.
+       v44: cada pack expone sus 3 niveles reales (Esencial/Inteligente/Completa)
+       en vez de un único "desde" fijo en el nivel más barato, para que el
+       paso 4 del wizard pueda cotizar el nivel que la persona elija de verdad. -->
   <script type="application/json" id="configurador-catalogo">
     <%- JSON.stringify({
-      packs: packs.map(function(p){ return { slug: p.slug, nombre: p.nombre, descripcion: p.descripcion, publico: p.publico, desde: p.opciones[0].total }; }),
+      packs: packs.map(function(p){
+        return {
+          slug: p.slug,
+          nombre: p.nombre,
+          descripcion: p.descripcion,
+          publico: p.publico,
+          opciones: p.opciones.map(function(o){ return { nombre: o.nombre, total: o.total }; })
+        };
+      }),
       servicios: services.filter(function(s){ return s.slug === 'energia-solar'; }).map(function(s){ return { slug: s.slug, nombre: s.nombre, descripcion: s.resumen, desde: s.desde }; })
     }) %>
   </script>

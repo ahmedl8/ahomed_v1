@@ -1784,6 +1784,9 @@ const packs = [
     nombre: "Pack Piso Nuevo",
     slug: "piso-nuevo",
     publico: "casa",
+    // Usado por el Creador de instalación (/crea-tu-instalacion) para detectar
+    // cuándo una combinación armada a mano se parece a este pack.
+    coincideCon: { servicios: ["electricidad", "redes-informatica", "seguridad"], modos: ["seguridad-ia"] },
     descripcion: "Entra a vivir con todo funcionando: electricidad, WiFi y videoportero listos desde el primer día.",
     idealPara: "estrenar piso o preparar una vivienda para alquilar",
     resultado: "Enciendes la luz, tienes WiFi en toda la casa y ves quién llama al telefonillo desde el móvil — sin nada por instalar.",
@@ -1834,6 +1837,7 @@ const packs = [
     slug: "chalet-seguro",
     publico: "casa",
     incluyeIA: true,
+    coincideCon: { servicios: ["seguridad"], modos: ["seguridad-ia", "acceso-inteligente"] },
     descripcion: "Vigila tu casa aunque estés a kilómetros: cámaras con IA que distinguen personas y vehículos, sin falsas alarmas.",
     idealPara: "chalets y segundas residencias",
     resultado: "Recibes una alerta por WhatsApp con la imagen del momento cuando la IA detecta una persona o un vehículo — no cuando se mueve una rama.",
@@ -1887,6 +1891,7 @@ const packs = [
     slug: "hogar-inteligente",
     publico: "casa",
     incluyeIA: true,
+    coincideCon: { servicios: [], modos: ["seguridad-ia", "motor-meteorologico", "gestion-paquetes", "ia-sueno", "personas-mayores"] },
     descripcion: "El pack que reúne lo que hace diferente a AHOMED: Seguridad IA sin falsas alarmas combinada con los modos de la Plataforma IA Predictiva que más piden las familias.",
     idealPara: "quien ya tiene claro que quiere Seguridad IA y quiere ampliarla con más modos",
     resultado: "La IA vigila tu casa, se anticipa al clima y te avisa por WhatsApp solo cuando de verdad importa.",
@@ -1932,6 +1937,7 @@ const packs = [
     slug: "alquiler-segunda-residencia-ia",
     publico: "casa",
     incluyeIA: true,
+    coincideCon: { servicios: [], modos: ["casa-presencial", "seguridad-ia", "gestion-paquetes", "motor-meteorologico"] },
     descripcion: "Controla tu propiedad desde donde estés: seguridad, simulación de presencia, gestión de paquetes y clima/riego, sin tener que desplazarte para saber que todo está bien.",
     idealPara: "viviendas que no se habitan todo el año — alquiler o segunda residencia",
     resultado: "Sabes que tu propiedad está bien sin ir a comprobarlo — la casa simula que hay alguien y te avisa si detecta algo raro.",

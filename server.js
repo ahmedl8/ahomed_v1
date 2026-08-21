@@ -210,6 +210,29 @@ app.get("/configurador", (req, res) => {
   });
 });
 
+// Creador de instalación: versión "arma tu combinación" del configurador.
+// A diferencia del wizard de 3 preguntas (que recomienda UN pack o servicio),
+// aquí el cliente marca libremente cualquier servicio Básico y cualquier modo
+// de la Plataforma IA Predictiva, ve el total en vivo (igual que la
+// calculadora de /servicios/ia-predictiva pero para toda la casa) y, si su
+// combinación se parece a un pack ya existente, se lo señalamos con el precio
+// de ese pack al lado — así no le montamos a mano algo que ya vendemos
+// empaquetado y más barato. Solo cubre público "casa" por ahora: naves y
+// fincas ya tienen su propio Pack Seguridad IA para Negocios.
+app.get("/crea-tu-instalacion", (req, res) => {
+  const serviciosCasa = services.filter((s) => s.publico === "casa");
+  const packsCasa = packs.filter((p) => p.publico === "casa");
+  res.render("creador", {
+    title: `Crea tu instalación a medida — ${empresa.nombre}`,
+    metaDescription:
+      "Combina los servicios y modos IA que quieras para tu vivienda y consigue un presupuesto orientativo al instante — con aviso si ya existe un pack AHOMED que encaja mejor.",
+    serviciosCasa,
+    packsCasa,
+    modos: modosIA,
+    instalacionBase
+  });
+});
+
 // Tecnología AHOMED: qué hay detrás del Cerebro AHOMED (motor Python, IA
 // local, WhatsApp Business API, privacidad). Construcción 5 de 5.
 app.get("/tecnologia", (req, res) => {
@@ -353,7 +376,7 @@ app.get("/robots.txt", (req, res) => {
 
 app.get("/sitemap.xml", (req, res) => {
   const base = `https://${empresa.web}`;
-  const staticUrls = ["/", "/servicios", "/packs", "/configurador", "/tecnologia", "/preguntas-frecuentes", "/sobre-mi", "/contacto"];
+  const staticUrls = ["/", "/servicios", "/packs", "/configurador", "/crea-tu-instalacion", "/tecnologia", "/preguntas-frecuentes", "/sobre-mi", "/contacto"];
   const bloqueUrls = bloques.map((b) => `/servicios/bloque/${b.slug}`);
   const servicioUrls = services.map((s) => `/servicios/${s.slug}`);
   const iaPredictivaUrls = ["/servicios/ia-predictiva", ...modosIA.map((m) => `/servicios/ia-predictiva/${m.slug}`)];

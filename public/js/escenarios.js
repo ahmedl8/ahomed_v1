@@ -13,7 +13,14 @@
 
       tabs.forEach(function (t) { t.classList.toggle("is-active", t === tab); });
       panels.forEach(function (p) {
-        p.classList.toggle("is-active", p.dataset.escenarioPanel === target);
+        var isTarget = p.dataset.escenarioPanel === target;
+        p.classList.toggle("is-active", isTarget);
+        // Si el panel deja de estar activo y tenía un vídeo reproduciéndose,
+        // lo paramos: si no, sigue sonando de fondo aunque esté oculto.
+        if (!isTarget) {
+          var video = p.querySelector(".escenario-video");
+          if (video && !video.paused) video.pause();
+        }
       });
     });
   });

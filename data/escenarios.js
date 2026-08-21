@@ -5,6 +5,13 @@
 // data/ia-predictiva.js (por slug), para que el texto no prometa nada que
 // AHOMED no instale. Ver /areas/ahomed-negocio.md — construcción 2 de 5
 // del análisis comparativo con Loxone (feedback de reestructuración).
+//
+// v44: cada escenario puede declarar `media` (vídeo + poster) para que el
+// panel de "Vive AHOMED" muestre el momento en vez de solo describirlo con
+// texto. "Alguien en la puerta" se queda sin vídeo propio a propósito: no
+// había ningún material de referencia que encajara con ese momento exacto
+// (detección + notificación en el acto) — mejor sin vídeo que con uno que
+// no coincide con lo que el texto describe.
 
 const escenarios = [
   {
@@ -19,7 +26,8 @@ const escenarios = [
     ],
     explicacion:
       "El mini-PC cruza el reconocimiento de matrícula con el geofencing del móvil: si eres tú, abre; si no, avisa por WhatsApp con una foto en vez de abrir.",
-    modos: ["acceso-inteligente", "casa-presencial"]
+    modos: ["acceso-inteligente", "casa-presencial"],
+    media: { tipo: "video", src: "/video/escenarios/llegar-a-casa.mp4", poster: "/img/escenarios/llegar-a-casa-poster.jpg" }
   },
   {
     slug: "salir-de-casa",
@@ -33,7 +41,8 @@ const escenarios = [
     ],
     explicacion:
       "No hace falta acordarse de nada al cerrar la puerta: la casa detecta que te has ido y ajusta consumo y presencia sola.",
-    modos: ["casa-presencial", "motor-meteorologico"]
+    modos: ["casa-presencial", "motor-meteorologico"],
+    media: { tipo: "video", src: "/video/escenarios/salir-de-casa.mp4", poster: "/img/escenarios/salir-de-casa-poster.jpg" }
   },
   {
     slug: "estas-durmiendo",
@@ -47,7 +56,8 @@ const escenarios = [
     ],
     explicacion:
       "El dormitorio se prepara solo antes de que te acuestes, y te despierta con luz gradual en vez de un sonido brusco.",
-    modos: ["ia-sueno", "calidad-aire"]
+    modos: ["ia-sueno", "calidad-aire"],
+    media: { tipo: "video", src: "/video/escenarios/estas-durmiendo.mp4", poster: "/img/escenarios/estas-durmiendo-poster.jpg" }
   },
   {
     slug: "alguien-en-la-puerta",
@@ -76,7 +86,8 @@ const escenarios = [
     explicacion:
       "Controlas la propiedad desde donde estés, sin tener que desplazarte solo para comprobar que todo sigue bien.",
     modos: ["casa-presencial", "seguridad-ia", "motor-meteorologico"],
-    packSugerido: "alquiler-segunda-residencia-ia"
+    packSugerido: "alquiler-segunda-residencia-ia",
+    media: { tipo: "video", src: "/video/escenarios/segunda-residencia-vacia.mp4", poster: "/img/escenarios/segunda-residencia-vacia-poster.jpg" }
   }
 ];
 

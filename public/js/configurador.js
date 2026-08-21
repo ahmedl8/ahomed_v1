@@ -49,31 +49,61 @@
   // catálogo (nunca a algo inventado). El caso "ahorro" recomienda el
   // servicio de energía solar en vez de un pack, porque ningún pack actual
   // combina energía con el resto — se cotiza aparte.
-  function recomendar(vivienda, necesidad) {
+  //
+  // v44: el paso 3 ("¿qué quieres controlar?") ahora entra en el cálculo.
+  // Antes se guardaba y se mostraba en el resumen, pero no cambiaba la
+  // recomendación — dos personas con la misma vivienda y necesidad recibían
+  // siempre el mismo pack, marcaran lo que marcaran aquí. Ahora, cuando lo
+  // marcado en el paso 3 apunta a algo que la recomendación principal no
+  // cubre, se añade como complemento en vez de perderse.
+  var CONTROL_CAMARAS = "Cámaras y accesos con IA";
+  var CONTROL_SOLAR = "Energía solar";
+
+  function tiene(lista, valor) {
+    return lista.indexOf(valor) !== -1;
+  }
+
+  function recomendar(vivienda, necesidad, controles) {
+    controles = controles || [];
+    var quiereCamaras = tiene(controles, CONTROL_CAMARAS);
+    var quiereSolar = tiene(controles, CONTROL_SOLAR);
+    var principal;
+
     if (vivienda === "negocio") {
-      return { tipo: "pack", item: pack("negocio"), href: "/packs#negocio" };
+      principal = { tipo: "pack", item: pack("negocio"), href: "/packs#negocio" };
+    } else if (vivienda === "segunda-residencia") {
+      principal = { tipo: "pack", item: pack("alquiler-segunda-residencia-ia"), href: "/packs#alquiler-segunda-residencia-ia" };
+    } else if (necesidad === "ahorro") {
+      principal = { tipo: "servicio", item: servicio("energia-solar"), href: "/servicios/energia-solar" };
+    } else if (necesidad === "seguridad" && vivienda === "chalet") {
+      principal = { tipo: "pack", item: pack("chalet-seguro"), href: "/packs#chalet-seguro" };
+    } else if (vivienda === "piso" && necesidad === "seguridad") {
+      principal = { tipo: "pack", item: pack("hogar-inteligente"), href: "/packs#hogar-inteligente" };
+    } else if (necesidad === "familia" || necesidad === "confort") {
+      // Chalet + quiere cámaras/accesos con IA aunque la prioridad marcada
+      // sea confort/familia: chalet-seguro cubre ese perímetro mejor que
+      // el pack genérico de piso/hogar-inteligente.
+      if (quiereCamaras && vivienda === "chalet") {
+        principal = { tipo: "pack", item: pack("chalet-seguro"), href: "/packs#chalet-seguro" };
+      } else {
+        principal = { tipo: "pack", item: pack("hogar-inteligente"), href: "/packs#hogar-inteligente" };
+      }
+    } else {
+      principal = { tipo: "pack", item: pack("hogar-inteligente"), href: "/packs#hogar-inteligente" };
     }
-    if (vivienda === "segunda-residencia") {
-      return { tipo: "pack", item: pack("alquiler-segunda-residencia-ia"), href: "/packs#alquiler-segunda-residencia-ia" };
+
+    // Complemento: si el paso 3 pide algo que la recomendación principal no
+    // trae incluido, se sugiere aparte en vez de ignorarse.
+    var complemento = null;
+    if (quiereSolar && principal.item && principal.item.slug !== "energia-solar") {
+      complemento = { tipo: "servicio", item: servicio("energia-solar"), href: "/servicios/energia-solar" };
+    } else if (quiereCamaras && necesidad === "ahorro") {
+      var slugCamaras = vivienda === "chalet" ? "chalet-seguro" : "hogar-inteligente";
+      complemento = { tipo: "pack", item: pack(slugCamaras), href: "/packs#" + slugCamaras };
     }
-    if (necesidad === "ahorro") {
-      var s = servicio("energia-solar");
-      return { tipo: "servicio", item: s, href: "/servicios/energia-solar" };
-    }
-    if (necesidad === "seguridad" && vivienda === "chalet") {
-      return { tipo: "pack", item: pack("chalet-seguro"), href: "/packs#chalet-seguro" };
-    }
-    if (vivienda === "piso" && necesidad === "seguridad") {
-      return { tipo: "pack", item: pack("hogar-inteligente"), href: "/packs#hogar-inteligente" };
-    }
-    if (necesidad === "familia" || necesidad === "confort") {
-      return { tipo: "pack", item: pack("hogar-inteligente"), href: "/packs#hogar-inteligente" };
-    }
-    // Por defecto: piso sin necesidad de IA marcada todavía → pack de entrada
-    if (vivienda === "piso") {
-      return { tipo: "pack", item: pack("piso-nuevo"), href: "/packs#piso-nuevo" };
-    }
-    return { tipo: "pack", item: pack("hogar-inteligente"), href: "/packs#hogar-inteligente" };
+
+    principal.complemento = complemento;
+    return principal;
   }
 
   function getSelectedRadio(name) {
@@ -103,7 +133,7 @@
     var necesidad = getSelectedRadio("config-necesidad");
     var controles = getSelectedChecks("config-control");
 
-    var rec = recomendar(vivienda, necesidad);
+    var rec = recomendar(vivienda, necesidad, controles);
     var card = document.getElementById("wizard-result-card");
     var elWa = document.getElementById("wizard-whatsapp");
 
@@ -114,17 +144,29 @@
         "<p>Con lo que nos cuentas, lo mejor es verlo en la visita técnica gratuita para darte un precio ajustado.</p>";
     } else {
       var esPack = rec.tipo === "pack";
-      card.innerHTML =
+      var html =
         '<span class="wizard-result-eyebrow">' + (esPack ? "Pack recomendado" : "Servicio recomendado") + "</span>" +
         "<h3>" + rec.item.nombre + "</h3>" +
         "<p>" + rec.item.descripcion + "</p>" +
         '<span class="wizard-result-price">Desde ' + formatEuros(rec.item.desde) + "</span>" +
-        '<a href="' + rec.href + '" class="link-arrow">Ver desglose completo →</a>' +
+        '<a href="' + rec.href + '" class="link-arrow">Ver desglose completo →</a>';
+
+      if (rec.complemento && rec.complemento.item) {
+        html +=
+          '<div class="wizard-result-complemento">' +
+          '<span class="wizard-result-complemento-label">Encaja también con:</span> ' +
+          '<a href="' + rec.complemento.href + '">' + rec.complemento.item.nombre + "</a>" +
+          "</div>";
+      }
+
+      html +=
         '<div class="wizard-result-summary">' +
         (vivienda ? "Vivienda: " + (VIVIENDA_LABEL[vivienda] || vivienda) + "<br>" : "") +
         (necesidad ? "Prioridad: " + (NECESIDAD_LABEL[necesidad] || necesidad) + "<br>" : "") +
         (controles.length ? "Quiere controlar: " + controles.join(", ") : "") +
         "</div>";
+
+      card.innerHTML = html;
     }
 
     var mensaje = "Hola, he usado el configurador de AHOMED y esto es lo que necesito:\n";
@@ -132,6 +174,7 @@
     mensaje += "Prioridad: " + (NECESIDAD_LABEL[necesidad] || "sin especificar") + "\n";
     if (controles.length) mensaje += "Quiero controlar: " + controles.join(", ") + "\n";
     if (rec.item) mensaje += "Solución recomendada: " + rec.item.nombre + " (desde " + formatEuros(rec.item.desde) + ")\n";
+    if (rec.complemento && rec.complemento.item) mensaje += "También me interesa: " + rec.complemento.item.nombre + "\n";
     mensaje += "¿Podéis darme un presupuesto?";
 
     elWa.href = "https://wa.me/34" + waNumber + "?text=" + encodeURIComponent(mensaje);

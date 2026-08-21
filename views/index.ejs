@@ -75,8 +75,14 @@
             <span class="eyebrow">¿No sabes por dónde empezar?</span>
             <h2>Configura tu casa en 3 preguntas</h2>
             <p>Tipo de vivienda, qué quieres mejorar y qué quieres controlar. Te recomendamos la solución AHOMED que mejor encaja, con presupuesto orientativo al momento.</p>
+            <a href="/configurador" class="btn btn-primary btn-lg configurador-banner-cta">Configurar mi casa →</a>
           </div>
-          <a href="/configurador" class="btn btn-primary btn-lg configurador-banner-cta">Configurar mi casa →</a>
+          <div class="configurador-banner-visual">
+            <picture>
+              <source srcset="/img/marketing/configurador-tu-casa.webp" type="image/webp">
+              <img src="/img/marketing/configurador-tu-casa.jpg" alt="Vivienda conectada con seguridad, confort, familia, acceso y energía coordinados desde una misma app" loading="lazy">
+            </picture>
+          </div>
         </div>
       </div>
     </div>
@@ -103,9 +109,9 @@
   <section class="section services-strip" id="servicios">
     <div class="container">
       <div class="section-head">
-        <span class="eyebrow">Instalaciones tradicionales</span>
-        <h2>Básicos — trabajos sin IA</h2>
-        <p>Se piden sueltos, sin ningún equipo obligatorio de por medio</p>
+        <span class="eyebrow">Para tu vivienda</span>
+        <h2>Instalaciones y servicios</h2>
+        <p>Electricidad, seguridad, domótica, redes, climatización y energía solar. Se piden sueltos, sin ningún equipo obligatorio de por medio.</p>
       </div>
 
       <div class="services-grid">
@@ -137,21 +143,32 @@
     <div class="container">
       <div class="section-head section-head-exclusivos">
         <span class="eyebrow">El gran diferenciador de AHOMED</span>
-        <h2>Exclusivos — con Inteligencia Artificial</h2>
-        <p>Tu casa te avisa solo cuando de verdad importa — nada de alertas por un gato o una sombra. <%= totalModos %> modos a elegir, desde seguridad hasta cuidado de mayores o mascotas, todos coordinados por un mismo sistema.</p>
+        <h2>Haz que tu casa piense</h2>
+        <p>El Cerebro AHOMED analiza lo que ocurre y actúa automáticamente para que no tengas que estar pendiente — nada de alertas por un gato o una sombra. <%= totalModos %> modos a elegir, desde seguridad hasta cuidado de mayores o mascotas, todos coordinados por un mismo sistema.</p>
+      </div>
+
+      <div class="exclusivos-hero">
+        <picture>
+          <source srcset="/img/marketing/haz-que-tu-casa-piense.webp" type="image/webp">
+          <img src="/img/marketing/haz-que-tu-casa-piense.jpg" alt="Familia en el salón por la noche con persianas, luz e iluminación de acceso ajustadas automáticamente por el Cerebro AHOMED" loading="lazy" class="exclusivos-hero-img">
+        </picture>
       </div>
 
       <div class="cerebro-diagram">
         <div class="cerebro-intro">
-          <span class="cerebro-marca"><%= instalacionBase.marca %></span>
+          <span class="cerebro-marca cerebro-marca-lg"><%= instalacionBase.marca %></span>
           <span class="cerebro-tagline"><%= instalacionBase.tagline %></span>
         </div>
+
+        <div class="cerebro-visual-wrap">
+          <picture>
+            <source srcset="/img/marketing/cerebro-ahomed.webp" type="image/webp">
+            <img src="/img/marketing/cerebro-ahomed.jpg" alt="Mini-PC IA Central del Cerebro AHOMED coordinando cámara, clima, luces, app móvil y consumo energético de la vivienda" loading="lazy" class="cerebro-visual-img">
+          </picture>
+        </div>
+
         <p class="cerebro-hardware-note">Hardware: <strong>Mini-PC IA Central</strong>, desde <%= fmt(instalacionBase.niveles[0].total) %> € — una única vez, para todos los modos.</p>
 
-        <div class="cerebro-hub-wrap">
-          <span class="cerebro-hub"><%= instalacionBase.marca %></span>
-          <div class="cerebro-connector"></div>
-        </div>
         <div class="cerebro-branches">
           <% familiasIA.forEach(function(familia){ %>
             <a href="/servicios/ia-predictiva#familia-<%= familia.slug %>" class="cerebro-branch">
@@ -207,26 +224,35 @@
         <% }) %>
       </div>
 
-      <div class="escenario-panels">
+      <div class="escenario-panels<%= escenarios.some(function(e){ return e.media; }) ? ' escenario-panels-media' : '' %>">
         <% escenarios.forEach(function(e, i){ %>
-          <div class="escenario-panel<%= i === 0 ? ' is-active' : '' %>" data-escenario-panel="<%= e.slug %>">
-            <p class="escenario-momento"><strong><%= e.nombre %>.</strong> <%= e.momento %>.</p>
-            <div class="escenario-acciones">
-              <% e.acciones.forEach(function(a){ %>
-                <div class="escenario-accion">
-                  <span class="escenario-accion-icon"><svg viewBox="0 0 24 24"><%- icons[a.icono] %></svg></span>
-                  <span><%= a.texto %></span>
-                </div>
-              <% }) %>
-            </div>
-            <p class="escenario-explicacion"><%= e.explicacion %></p>
-            <div class="escenario-links">
-              <% e.modos.forEach(function(slug){ var m = modosIATodos.find(function(x){ return x.slug === slug; }); if (!m) return; %>
-                <a href="/servicios/ia-predictiva/<%= m.slug %>" class="escenario-link"><%= m.nombre %> →</a>
-              <% }) %>
-              <% if (e.packSugerido) { %>
-                <a href="/packs#<%= e.packSugerido %>" class="escenario-link">Ver el pack para este caso →</a>
-              <% } %>
+          <div class="escenario-panel<%= i === 0 ? ' is-active' : '' %><%= e.media ? ' has-media' : '' %>" data-escenario-panel="<%= e.slug %>">
+            <% if (e.media) { %>
+              <div class="escenario-media">
+                <video class="escenario-video" controls preload="none" poster="<%= e.media.poster %>" playsinline>
+                  <source src="<%= e.media.src %>" type="video/mp4">
+                </video>
+              </div>
+            <% } %>
+            <div class="escenario-body">
+              <p class="escenario-momento"><strong><%= e.nombre %>.</strong> <%= e.momento %>.</p>
+              <div class="escenario-acciones">
+                <% e.acciones.forEach(function(a){ %>
+                  <div class="escenario-accion">
+                    <span class="escenario-accion-icon"><svg viewBox="0 0 24 24"><%- icons[a.icono] %></svg></span>
+                    <span><%= a.texto %></span>
+                  </div>
+                <% }) %>
+              </div>
+              <p class="escenario-explicacion"><%= e.explicacion %></p>
+              <div class="escenario-links">
+                <% e.modos.forEach(function(slug){ var m = modosIATodos.find(function(x){ return x.slug === slug; }); if (!m) return; %>
+                  <a href="/servicios/ia-predictiva/<%= m.slug %>" class="escenario-link"><%= m.nombre %> →</a>
+                <% }) %>
+                <% if (e.packSugerido) { %>
+                  <a href="/packs#<%= e.packSugerido %>" class="escenario-link">Ver el pack para este caso →</a>
+                <% } %>
+              </div>
             </div>
           </div>
         <% }) %>
@@ -238,8 +264,8 @@
   <section class="section packs-section">
     <div class="container">
       <div class="section-head">
-        <h2>Packs AHOMED</h2>
-        <p>No vendemos solo servicios sueltos: resolvemos la instalación completa.</p>
+        <h2>Soluciones AHOMED</h2>
+        <p>Hemos agrupado las instalaciones más habituales para que puedas empezar con una solución clara, no con servicios sueltos.</p>
       </div>
       <div class="packs-grid">
         <% packsDestacados.forEach(function(p){ %>
@@ -296,7 +322,10 @@
         <a href="/tecnologia" class="link-arrow">Ver cómo funciona por dentro →</a>
       </div>
       <div class="tech-teaser-visual">
-        <img src="/img/trabajos/monitor-ia-despues.jpg" alt="Dashboard de control del Cerebro AHOMED con alertas y cámaras" loading="lazy" class="tech-teaser-img" />
+        <picture>
+          <source srcset="/img/marketing/ia-local-privacidad.webp" type="image/webp">
+          <img src="/img/marketing/ia-local-privacidad.jpg" alt="El análisis de la cámara ocurre en el mini-PC dentro de la vivienda, no en la nube: detección local repartida entre las distintas zonas de la casa" loading="lazy" class="tech-teaser-img" />
+        </picture>
       </div>
     </div>
   </section>

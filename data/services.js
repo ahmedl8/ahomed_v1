@@ -2051,7 +2051,7 @@ const comoFunciona = [
 
 const empresa = {
   nombre: "AHOMED",
-  eslogan: "Soluciones integrales para el hogar",
+  eslogan: "La capa inteligente de tu vivienda",
   zona: "Madrid y alrededores",
   whatsapp: "671176482",
   whatsappDisplay: "671 176 482",
@@ -2059,7 +2059,7 @@ const empresa = {
   email: "info@ahomed.com",
   anosExperiencia: "10 años",
   metaDescriptionDefault:
-    "AHOMED — Soluciones integrales para el hogar. Electricidad, domótica, seguridad con IA, energía solar, climatización y reformas en Madrid y alrededores. Primera visita gratuita."
+    "AHOMED — Seguridad inteligente, domótica, IA, redes y energía para tu vivienda o negocio en Madrid y alrededores. Colaboramos con reformistas, constructoras e instaladores. Primera visita gratuita."
 };
 
 module.exports = { services, packs, ventajas, comoFunciona, empresa };

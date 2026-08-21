@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <%- include('partials/head') %>
+</head>
+<body>
+  <%- include('partials/gtm-body') %>
+  <%- include('partials/header') %>
+
+  <section class="page-hero page-hero-photo">
+    <img src="/img/hero-tecnico.jpg" alt="Instalación técnica AHOMED" class="page-hero-bg" loading="eager" />
+    <div class="page-hero-overlay"></div>
+    <div class="container page-hero-content">
+      <span class="eyebrow">AHOMED para Profesionales</span>
+      <h1>Tú construyes la casa.<br>AHOMED la hace inteligente.</h1>
+      <p>Colabora con AHOMED si eres reformista, constructor, persianero, electricista o interiorista. Añadimos seguridad IA, domótica, redes y energía a tus proyectos — sin que tengas que aprenderlo ni venderlo tú.</p>
+      <div class="hero-ctas">
+        <a href="https://wa.me/34<%= empresa.whatsapp %>?text=<%= encodeURIComponent('Hola, tengo una empresa y me interesa colaborar con AHOMED') %>" target="_blank" rel="noopener" class="btn btn-whatsapp btn-lg">
+          Hablar por WhatsApp
+        </a>
+        <a href="#como-funciona" class="btn btn-outline-light btn-lg">Ver cómo funciona</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- POR QUÉ COLABORAR -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <h2>No quiero competir contigo. Quiero ayudarte a vender más.</h2>
+        <p class="section-group-desc">Muchos reformistas, constructores e instaladores saben hacer cocina, baño, pladur, pintura o persianas — pero no dominan IA, cámaras inteligentes, automatización o integración. Vosotros hacéis la obra. AHOMED añade la parte inteligente.</p>
+      </div>
+      <div class="services-grid services-grid-full">
+        <div class="service-card">
+          <div class="service-icon"><svg viewBox="0 0 24 24"><%- icons.shield %></svg></div>
+          <h3>Aumentas el valor de tu obra</h3>
+          <p>Una reforma de cocina de 15.000 € puede incluir 1.000 € de iluminación inteligente, 1.200 € de persianas motorizadas o 1.500 € de domótica. Vendes "reforma + vivienda inteligente" al mismo cliente.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><svg viewBox="0 0 24 24"><%- icons.ai %></svg></div>
+          <h3>No te añade trabajo</h3>
+          <p>Tú nos presentas al cliente. Nosotros hacemos la visita, la propuesta, el presupuesto y la instalación de la parte tecnológica. Tú simplemente hiciste la introducción.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><svg viewBox="0 0 24 24"><%- icons.bolt %></svg></div>
+          <h3>Entras en el momento perfecto</h3>
+          <p>Mientras la vivienda está en obra es cuando tiene sentido meter cableado, domótica, cámaras y redes — antes de cerrar paredes y suelos.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODELOS DE COLABORACIÓN -->
+  <section class="section section-alt" id="como-funciona">
+    <div class="container">
+      <div class="section-head">
+        <h2>Tres formas de colaborar</h2>
+        <p class="section-group-desc">No es todo o nada. Elige la fórmula que mejor encaje con tu negocio — o combínalas.</p>
+      </div>
+      <div class="services-grid services-grid-full">
+        <div class="about-card">
+          <h3>1. Comisión por cliente referido</h3>
+          <p>Nos presentas un cliente y, si el proyecto sale adelante, recibes una comisión sobre nuestro margen o una cantidad fija por proyecto cerrado. La fórmula más sencilla para empezar.</p>
+        </div>
+        <div class="about-card">
+          <h3>2. Vendes más en tu propia obra</h3>
+          <p>Incorporas nuestra parte tecnológica a tu presupuesto y lo presentas como "reforma + vivienda inteligente". Ganas más por el mismo cliente, sin montar tú la tecnología.</p>
+        </div>
+        <div class="about-card">
+          <h3>3. Nos ocupamos de la parte que no dominas</h3>
+          <p>Vosotros hacéis cocina, baño, pladur o persianas. Nosotros añadimos IA, cámaras inteligentes, automatización, redes e integración. Tú te posicionas como algo más completo, sin formarte en tecnología.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUÉ APORTA AHOMED -->
+  <section class="section">
+    <div class="container two-col">
+      <div>
+        <h2 class="sub-heading">Lo que AHOMED aporta a tu proyecto</h2>
+        <p>Nos ocupamos de la capa inteligente que la mayoría de profesionales de obra no ofrece: seguridad con IA, domótica, redes, energía y automatización — con material propio, sin cuotas mensuales para el cliente final.</p>
+        <ul class="dot-list dot-list-cols">
+          <li>Seguridad IA: cámaras, detección, videoportero, avisos por WhatsApp</li>
+          <li>Domótica: luces, persianas, climatización, escenas</li>
+          <li>Plataforma IA Predictiva: presencia, sueño, mascotas, mayores, niños</li>
+          <li>Redes: WiFi profesional, infraestructura para cámaras y domótica</li>
+          <li>Energía inteligente: solar, consumo, climatización, carga</li>
+          <li>Cerebro AHOMED: el núcleo tecnológico detrás de todo</li>
+        </ul>
+      </div>
+
+      <div class="about-side">
+        <div class="about-card">
+          <h3>Buscamos colaborar con</h3>
+          <ul class="check-list check-list-lg">
+            <% ["Reformas integrales","Empresas de cocinas","Persianas y ventanas","Instaladores de climatización","Constructoras de chalets","Casas modulares o prefabricadas","Promotores pequeños","Interioristas y arquitectos técnicos"].forEach(function(v){ %>
+              <li><%= v %></li>
+            <% }) %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PACK PARA CONSTRUCTORES -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-head">
+        <h2>AHOMED para Profesionales, en un vistazo</h2>
+        <p class="section-group-desc">Así de simple lo puedes presentar tú a tu cliente: cuatro niveles, sin que tengas que explicar la tecnología.</p>
+      </div>
+      <div class="services-grid services-grid-full">
+        <div class="about-card">
+          <h3>Reforma + iluminación inteligente</h3>
+          <p>El punto de entrada más sencillo: control de luces por app y escenas básicas.</p>
+        </div>
+        <div class="about-card">
+          <h3>Reforma + domótica</h3>
+          <p>Luces, persianas y climatización coordinados, con control desde el móvil.</p>
+        </div>
+        <div class="about-card">
+          <h3>Reforma + seguridad IA</h3>
+          <p>Cámaras con detección inteligente y avisos por WhatsApp — sin falsas alarmas.</p>
+        </div>
+        <div class="about-card">
+          <h3>Reforma + vivienda inteligente completa</h3>
+          <p>Seguridad, domótica, redes y energía integradas bajo el Cerebro AHOMED.</p>
+        </div>
+      </div>
+      <p class="pack-note-bottom" style="text-align:center; margin-top: 28px;">Nosotros preparamos el presupuesto de la parte tecnológica. Tú no necesitas saber explicar la IA — simplemente dices: "Tenemos una solución AHOMED para esta parte".</p>
+    </div>
+  </section>
+
+  <!-- PROYECTO PILOTO -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <h2>Primer proyecto piloto, sin compromiso</h2>
+        <p class="section-group-desc">La forma más fácil de empezar a colaborar, antes de hablar de ningún acuerdo formal.</p>
+      </div>
+      <div class="services-grid services-grid-full">
+        <div class="service-card">
+          <h3>1. Nos presentas un cliente</h3>
+          <p>Detectas la oportunidad en una obra que ya tienes en marcha.</p>
+        </div>
+        <div class="service-card">
+          <h3>2. Hacemos la visita y la propuesta</h3>
+          <p>Estudiamos el proyecto y preparamos un presupuesto de la parte tecnológica.</p>
+        </div>
+        <div class="service-card">
+          <h3>3. Ejecutamos e instalamos</h3>
+          <p>Coordinamos con tu equipo la parte de obra y añadimos la capa inteligente.</p>
+        </div>
+        <div class="service-card">
+          <h3>4. Si sale bien, lo hacemos recurrente</h3>
+          <p>Convertimos el piloto en una colaboración estable, con la fórmula que mejor encaje.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="section final-cta">
+    <div class="container final-cta-inner">
+      <h2>¿Hablamos de colaborar?</h2>
+      <p>Cuéntanos qué tipo de proyectos hacéis y qué tipo de clientes soléis tener. Preparamos una propuesta de colaboración a medida — sin compromiso.</p>
+      <a href="https://wa.me/34<%= empresa.whatsapp %>?text=<%= encodeURIComponent('Hola, tengo una empresa y me interesa colaborar con AHOMED') %>" target="_blank" rel="noopener" class="btn btn-whatsapp btn-lg">Hablar por WhatsApp</a>
+    </div>
+  </section>
+
+  <%- include('partials/footer') %>
+</body>
+</html>

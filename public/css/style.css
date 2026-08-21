@@ -1299,6 +1299,16 @@ p { margin: 0; }
 .configurador-banner-visual { flex: 1 1 320px; max-width: 380px; border-radius: 18px; overflow: hidden; box-shadow: var(--shadow-lg); }
 .configurador-banner-visual img { width: 100%; display: block; }
 
+/* Variante oscura — usada por el bloque "Para Profesionales" de la home,
+   para distinguirlo visualmente del banner del configurador (claro). */
+.configurador-banner-dark {
+  background: linear-gradient(120deg, var(--ink), #23262d);
+  border-color: var(--ink);
+}
+.configurador-banner-dark .configurador-banner-copy .eyebrow { color: #7dd3fc; }
+.configurador-banner-dark .configurador-banner-copy h2 { color: #fff; }
+.configurador-banner-dark .configurador-banner-copy p { color: #b8bcc4; }
+
 @media (max-width: 720px) {
   .configurador-banner { border-radius: 0; padding: 32px 24px; }
   .configurador-banner-inner { flex-direction: column; align-items: flex-start; }

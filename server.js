@@ -143,7 +143,7 @@ const QUE_NECESITAS = [
   {
     icono: "home-wifi",
     titulo: "Mejorar tu casa",
-    subtitulo: "Domótica, WiFi, iluminación, reformas",
+    subtitulo: "Domótica, WiFi, iluminación, escenas",
     link: "/servicios/domotica",
     desde: 210
   },
@@ -172,9 +172,9 @@ const QUE_NECESITAS = [
 
 app.get("/", (req, res) => {
   res.render("index", {
-    title: `${empresa.nombre} — Soluciones integrales para el hogar en Madrid`,
+    title: `${empresa.nombre} — Seguridad IA, domótica y energía inteligente en Madrid`,
     metaDescription:
-      "Electricidad, domótica, seguridad con IA, energía solar, climatización y reformas en Madrid y alrededores. Equipo propiedad del cliente, sin cuotas. Primera visita técnica gratuita.",
+      "Seguridad con IA, domótica, redes y energía inteligente para tu vivienda o negocio en Madrid y alrededores. Equipo propiedad del cliente, sin cuotas. Primera visita técnica gratuita.",
     services,
     serviciosDestacados: SERVICIOS_DESTACADOS_HOME.map((slug) => services.find((s) => s.slug === slug)).filter(Boolean),
     necesitas: QUE_NECESITAS,
@@ -244,10 +244,22 @@ app.get("/tecnologia", (req, res) => {
   });
 });
 
+// AHOMED para Profesionales: página B2B dirigida a reformistas, constructoras,
+// persianeros, electricistas e interioristas. No vende directamente al
+// particular — explica el modelo de colaboración (referidos, packs conjuntos,
+// AHOMED asumiendo la parte tecnológica del proyecto).
+app.get("/para-profesionales", (req, res) => {
+  res.render("para-profesionales", {
+    title: `AHOMED para Profesionales — colabora con ${empresa.nombre}`,
+    metaDescription:
+      "Tú haces la obra, AHOMED la hace inteligente. Colabora con AHOMED si eres reformista, constructor, persianero, electricista o interiorista: añade seguridad IA, domótica y tecnología a tus proyectos sin tener que aprenderla."
+  });
+});
+
 app.get("/servicios", (req, res) => {
   res.render("servicios", {
     title: `Servicios — ${empresa.nombre}`,
-    metaDescription: `Catálogo completo de servicios AHOMED organizado en ${bloques.length} bloques: seguridad y accesos, instalaciones base, energía, reformas, plataforma IA predictiva, mantenimiento y naves y fincas. Precios orientativos.`,
+    metaDescription: `Catálogo completo de servicios AHOMED: seguridad y accesos, instalaciones base, energía, plataforma IA predictiva, mantenimiento y naves y fincas. Precios orientativos.`,
     services,
     bloques,
     modosIA
@@ -341,7 +353,7 @@ app.get("/packs", (req, res) => {
 app.get("/galeria", (req, res) => {
   res.render("galeria", {
     title: `Galería de trabajos — ${empresa.nombre}`,
-    metaDescription: `Trabajos reales de ${empresa.nombre} en ${empresa.zona}: antes y después de electricidad, domótica, seguridad, IA y reformas.`,
+    metaDescription: `Trabajos reales de ${empresa.nombre} en ${empresa.zona}: antes y después de electricidad, domótica, seguridad e IA.`,
     trabajos: galeria
   });
 });
@@ -356,7 +368,7 @@ app.get("/preguntas-frecuentes", (req, res) => {
 app.get("/sobre-mi", (req, res) => {
   res.render("sobre-mi", {
     title: `Sobre mí — ${empresa.nombre}`,
-    metaDescription: `Más de ${empresa.anosExperiencia} de experiencia técnica en electricidad, domótica, IA y reformas. Conoce al equipo detrás de ${empresa.nombre}.`
+    metaDescription: `Más de ${empresa.anosExperiencia} de experiencia técnica en electricidad, domótica, IA y seguridad. Conoce al equipo detrás de ${empresa.nombre}.`
   });
 });
 
@@ -376,7 +388,7 @@ app.get("/robots.txt", (req, res) => {
 
 app.get("/sitemap.xml", (req, res) => {
   const base = `https://${empresa.web}`;
-  const staticUrls = ["/", "/servicios", "/packs", "/configurador", "/crea-tu-instalacion", "/tecnologia", "/preguntas-frecuentes", "/sobre-mi", "/contacto"];
+  const staticUrls = ["/", "/servicios", "/packs", "/configurador", "/crea-tu-instalacion", "/tecnologia", "/para-profesionales", "/preguntas-frecuentes", "/sobre-mi", "/contacto"];
   const bloqueUrls = bloques.map((b) => `/servicios/bloque/${b.slug}`);
   const servicioUrls = services.map((s) => `/servicios/${s.slug}`);
   const iaPredictivaUrls = ["/servicios/ia-predictiva", ...modosIA.map((m) => `/servicios/ia-predictiva/${m.slug}`)];

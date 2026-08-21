@@ -48,16 +48,6 @@ const bloques = [
     publico: "ambos"
   },
   {
-    slug: "reformas",
-    heroImagen: "/img/hero-bloques/bloque-d.jpg",
-    letra: "D",
-    nombre: "Reformas",
-    resumen: "Pintura, alicatado, fontanería, pladur y montaje de muebles.",
-    icono: "wrench",
-    grupo: "basico",
-    publico: "ambos"
-  },
-  {
     slug: "ia-predictiva",
     letra: "E",
     nombre: "Plataforma IA Predictiva",
@@ -82,6 +72,20 @@ const bloques = [
     resumen: "Contratos de revisión y reentrenamiento de IA para cualquier instalación AHOMED.",
     icono: "maintenance",
     grupo: "general",
+    publico: "ambos"
+  },
+  {
+    slug: "reformas",
+    heroImagen: "/img/hero-bloques/bloque-d.jpg",
+    letra: "D",
+    nombre: "Reformas de apoyo",
+    resumen: "Pintura, alicatado, fontanería, pladur y montaje de muebles — como complemento a una instalación AHOMED, no como servicio independiente.",
+    icono: "wrench",
+    // "secundario": no aparece en los desplegables Básicos/Con IA del menú
+    // principal ni en los bloques destacados de /servicios; sigue teniendo
+    // su página propia (/servicios/bloque/reformas) para quien llega por SEO
+    // o desde un enlace directo, y sus servicios cuentan con ficha propia.
+    grupo: "secundario",
     publico: "ambos"
   }
 ];

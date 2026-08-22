@@ -360,8 +360,8 @@ app.get("/packs", (req, res) => {
 
 app.get("/galeria", (req, res) => {
   res.render("galeria", {
-    title: `Galería de trabajos — ${empresa.nombre}`,
-    metaDescription: `Trabajos reales de ${empresa.nombre} en ${empresa.zona}: antes y después de electricidad, domótica, seguridad e IA.`,
+    title: `Así puede quedar tu instalación — ${empresa.nombre}`,
+    metaDescription: `Recreaciones visuales de lo que ${empresa.nombre} puede hacer en tu vivienda o negocio en ${empresa.zona}: electricidad, domótica, seguridad e IA.`,
     trabajos: galeria
   });
 });

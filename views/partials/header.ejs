@@ -26,30 +26,27 @@
 
     <nav class="main-nav">
       <a href="/" class="<%= currentPath === '/' ? 'active' : '' %>">Inicio</a>
+      <a href="/configurador" class="<%= currentPath === '/configurador' ? 'active' : '' %>">Configurador</a>
 
       <% var basicosCols = function(b, audiencia) {
            var servs = services.filter(function(s){
              return s.bloque === b.slug && (s.publico === 'ambos' || s.publico === audiencia);
            });
            if (servs.length === 0) return;
-           var href = audiencia === 'casa' ? ('/servicios#bloque-' + b.slug) : ('/servicios/bloque/' + b.slug);
       %>
         <div class="dropdown-col">
-          <a href="<%= href %>" class="dropdown-col-title">
+          <a href="/servicios/bloque/<%= b.slug %>" class="dropdown-col-title">
             <%= b.nombre %>
           </a>
-          <% servs.forEach(function(s){ %>
-            <a href="/servicios/<%= s.slug %>"><%= s.nombre %></a>
-          <% }) %>
         </div>
       <% } %>
 
       <!-- PARA TU CASA -->
       <div class="nav-dropdown">
-        <a href="/servicios" class="<%= currentPath.startsWith('/servicios') && currentPath !== '/servicios/mantenimiento-nave' && currentPath !== '/servicios/bloque/seguridad-ia-naves-fincas' && currentPath !== '/servicios/bloque/mantenimiento' && !currentPath.startsWith('/servicios/naves-fincas') ? 'active' : '' %>">Tecnología para tu casa ▾</a>
+        <a href="/servicios" class="<%= currentPath.startsWith('/servicios') && currentPath !== '/servicios/mantenimiento' && currentPath !== '/servicios/bloque/seguridad-ia-naves-fincas' && !currentPath.startsWith('/servicios/naves-fincas') ? 'active' : '' %>">Para tu Casa ▾</a>
         <div class="dropdown-menu dropdown-menu-mega">
           <div class="dropdown-group dropdown-group-basico">
-            <span class="dropdown-group-title">Básicos — sin IA</span>
+            <span class="dropdown-group-title">Instalaciones y servicios</span>
             <div class="dropdown-group-cols">
               <% bloques.filter(function(b){ return b.grupo === 'basico'; }).forEach(function(b){ basicosCols(b, 'casa'); }) %>
             </div>
@@ -62,10 +59,9 @@
                 <a href="/servicios/ia-predictiva" class="dropdown-col-title">
                   Plataforma IA Predictiva
                 </a>
-                <a href="/tecnologia">Tecnología AHOMED</a>
               </div>
               <div class="dropdown-col">
-                <a href="/servicios#bloque-mantenimiento" class="dropdown-col-title">
+                <a href="/servicios/bloque/mantenimiento" class="dropdown-col-title">
                   Mantenimiento
                 </a>
                 <a href="/servicios/mantenimiento">Mantenimiento y contratos</a>
@@ -85,7 +81,7 @@
         <a href="/servicios/bloque/seguridad-ia-naves-fincas" class="<%= currentPath === '/servicios/bloque/seguridad-ia-naves-fincas' || currentPath.startsWith('/servicios/naves-fincas') ? 'active' : '' %>">Naves y Fincas ▾</a>
         <div class="dropdown-menu dropdown-menu-mega">
           <div class="dropdown-group dropdown-group-basico">
-            <span class="dropdown-group-title">Básicos — sin IA</span>
+            <span class="dropdown-group-title">Instalaciones y servicios</span>
             <div class="dropdown-group-cols">
               <% bloques.filter(function(b){ return b.grupo === 'basico'; }).forEach(function(b){ basicosCols(b, 'negocio'); }) %>
             </div>
@@ -114,7 +110,6 @@
       </div>
 
       <a href="/soluciones" class="<%= currentPath === '/soluciones' ? 'active' : '' %>">Soluciones</a>
-      <a href="/para-profesionales" class="<%= currentPath === '/para-profesionales' ? 'active' : '' %>">Para Profesionales</a>
       <a href="/preguntas-frecuentes" class="<%= currentPath === '/preguntas-frecuentes' ? 'active' : '' %>">Preguntas frecuentes</a>
       <a href="/contacto" class="<%= currentPath === '/contacto' ? 'active' : '' %>">Contacto</a>
     </nav>

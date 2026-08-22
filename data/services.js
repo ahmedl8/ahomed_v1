@@ -421,7 +421,7 @@ const services = [
     publico: "casa",
     nombre: "Energía solar",
     icono: "solar",
-    resumen: "Desde un kit de balcón que se enchufa directamente hasta placas de autoconsumo en tejado.",
+    resumen: "Desde un kit de balcón que se enchufa directamente hasta placas de autoconsumo en tejado. ¿No puedes poner placas en el tejado? Empieza por tu terraza.",
     tiempo: "Media jornada",
     desde: 510,
     idealPara: [
@@ -734,7 +734,7 @@ const services = [
     versionAlternativa: "redes-nave",
     nombre: "Redes e informática",
     icono: "network",
-    resumen: "Cobertura WiFi sin zonas muertas y red doméstica bien configurada. Base imprescindible para domótica e IA.",
+    resumen: "WiFi rápido y estable en toda tu casa, sin zonas muertas. Base imprescindible para domótica e IA.",
     tiempo: "Trabajo rápido",
     desde: 210,
     idealPara: [
@@ -1104,7 +1104,7 @@ const services = [
       "Montaje de cocina modular (desde 395 €)",
       "Reforma integral de cocina (desde 3.200 €)"
     ],
-    tambienInstalaron: [{ texto: "Sustitución de sanitarios y grifería", href: "/servicios/fontaneria" }, { texto: "Falso techo de pladur con LED", href: "/servicios/pladur" }, { texto: "Fontanería (grifería y sanitarios)", href: "/servicios/fontaneria" }, { texto: "Electricidad (nuevos circuitos para electrodomésticos)", href: "/servicios/electricidad" }],
+    tambienInstalaron: [{ texto: "Sustitución de sanitarios y grifería", href: "/servicios/fontaneria" }, { texto: "Falso techo de pladur con LED", href: "/servicios/pladur" }, { texto: "Fontanería (grifería y sanitarios)", href: "/servicios/fontaneria" }, { texto: "Electricidad (nuevos circuitos para electrodomésticos)", href: "/servicios/electricidad" }, { texto: "Pack Piso Nuevo (todo junto, para estrenar vivienda)", href: "/soluciones#piso-nuevo" }],
     ejemplosAdicionales: [
       {
         titulo: "Pintura de piso completo",
@@ -1293,7 +1293,7 @@ const services = [
     numero: 9,
     publico: "casa",
     versionAlternativa: "fontaneria-nave",
-    nombre: "Fontanería",
+    nombre: "Fontanería y fugas",
     icono: "plumbing",
     resumen: "Grifería, sanitarios y reparación de fugas.",
     tiempo: "Media jornada",
@@ -1359,7 +1359,7 @@ const services = [
     publico: "casa",
     nombre: "Pladur",
     icono: "pladur",
-    resumen: "Tabiques y falsos techos, con opción de iluminación LED integrada.",
+    resumen: "Tabiques y falsos techos, con iluminación LED integrada — y si quieres, regulable desde el móvil combinando pladur, electricidad y domótica en la misma visita.",
     tiempo: "Un día",
     desde: 435,
     idealPara: ["Dividir una habitación", "Salones que quieren un techo con iluminación indirecta"],
@@ -1787,7 +1787,9 @@ const packs = [
     // Usado por el Creador de instalación (/crea-tu-instalacion) para detectar
     // cuándo una combinación armada a mano se parece a este pack.
     coincideCon: { servicios: ["electricidad", "redes-informatica", "seguridad"], modos: ["seguridad-ia"] },
-    descripcion: "Ideal para estrenar piso o preparar un alquiler. Todo lo que necesitas para que funcione desde el primer día.",
+    descripcion: "Entra a vivir con todo funcionando: electricidad, WiFi y videoportero listos desde el primer día.",
+    idealPara: "estrenar piso o preparar una vivienda para alquilar",
+    resultado: "Enciendes la luz, tienes WiFi en toda la casa y ves quién llama al telefonillo desde el móvil — sin nada por instalar.",
     imagen: "/img/packs/pack-piso-nuevo.jpg",
     imagenAlt: "Cocina con iluminación LED integrada — Pack Piso Nuevo AHOMED",
     opciones: [
@@ -1831,14 +1833,16 @@ const packs = [
     nota: "Precio orientativo; se ajusta tras la visita técnica gratuita según el estado del cuadro actual y la superficie de la vivienda. La opción Completa incluye ya el Mini-PC IA Central (nivel START) — puede ampliarse después con cualquiera de los otros diez modos de la Plataforma IA Predictiva."
   },
   {
-    nombre: "Pack Chalet Seguro",
+    nombre: "Pack Chalet Seguro con IA",
     slug: "chalet-seguro",
     publico: "casa",
     incluyeIA: true,
     coincideCon: { servicios: ["seguridad"], modos: ["seguridad-ia", "acceso-inteligente"] },
-    descripcion: "Ideal para chalets y segundas residencias. Tranquilidad total: sabrás en todo momento lo que pasa en tu propiedad, sin falsas alarmas.",
+    descripcion: "Vigila tu casa aunque estés a kilómetros: cámaras con IA que distinguen personas y vehículos, sin falsas alarmas.",
+    idealPara: "chalets y segundas residencias",
+    resultado: "Recibes una alerta por WhatsApp con la imagen del momento cuando la IA detecta una persona o un vehículo — no cuando se mueve una rama.",
     imagen: "/img/packs/pack-chalet-seguro.jpg",
-    imagenAlt: "Cámara de seguridad exterior sobre vallado de chalet — Pack Chalet Seguro AHOMED",
+    imagenAlt: "Cámara de seguridad exterior sobre vallado de chalet — Pack Chalet Seguro con IA AHOMED",
     opciones: [
       {
         nombre: "Esencial — 4 cámaras + cerradura + IA",
@@ -1889,6 +1893,8 @@ const packs = [
     incluyeIA: true,
     coincideCon: { servicios: [], modos: ["seguridad-ia", "motor-meteorologico", "gestion-paquetes", "ia-sueno", "personas-mayores"] },
     descripcion: "El pack que reúne lo que hace diferente a AHOMED: Seguridad IA sin falsas alarmas combinada con los modos de la Plataforma IA Predictiva que más piden las familias.",
+    idealPara: "quien ya tiene claro que quiere Seguridad IA y quiere ampliarla con más modos",
+    resultado: "La IA vigila tu casa, se anticipa al clima y te avisa por WhatsApp solo cuando de verdad importa.",
     imagen: "/img/packs/pack-hogar-inteligente.jpg",
     imagenAlt: "Panel táctil de domótica con luces, clima, persianas y escenas — Pack Hogar Inteligente AHOMED",
     opciones: [
@@ -1933,6 +1939,8 @@ const packs = [
     incluyeIA: true,
     coincideCon: { servicios: [], modos: ["casa-presencial", "seguridad-ia", "gestion-paquetes", "motor-meteorologico"] },
     descripcion: "Controla tu propiedad desde donde estés: seguridad, simulación de presencia, gestión de paquetes y clima/riego, sin tener que desplazarte para saber que todo está bien.",
+    idealPara: "viviendas que no se habitan todo el año — alquiler o segunda residencia",
+    resultado: "Sabes que tu propiedad está bien sin ir a comprobarlo — la casa simula que hay alguien y te avisa si detecta algo raro.",
     imagen: "/img/packs/pack-alquiler-segunda-residencia.jpg",
     imagenAlt: "Cámara de seguridad en terraza con vistas al mar — Pack Segunda Residencia IA AHOMED",
     opciones: [
@@ -1978,6 +1986,8 @@ const packs = [
     publico: "negocio",
     incluyeIA: true,
     descripcion: "Ideal para naves, almacenes, talleres y locales. IA que descarta falsas alarmas y te avisa por WhatsApp solo cuando hay algo real.",
+    idealPara: "naves, almacenes, talleres y locales",
+    resultado: "Solo recibes un aviso por WhatsApp cuando hay una persona o vehículo fuera de horario — no cada vez que algo se mueve.",
     imagen: "/img/packs/pack-negocio.jpg",
     imagenAlt: "Sala de control con monitorización de cámaras y dashboard IA — Pack Seguridad IA para Negocios AHOMED",
     opciones: [
@@ -2033,14 +2043,16 @@ const ventajas = [
 ];
 
 const comoFunciona = [
-  "Visita técnica gratuita en tu domicilio o negocio.",
-  "Propuesta personalizada con opción Esencial, Inteligente y Completa.",
-  "Tú eliges. Sin compromiso, sin letra pequeña."
+  "Me escribes por WhatsApp y me cuentas qué necesitas.",
+  "Visito tu vivienda o negocio — la primera visita es gratuita.",
+  "Te preparo opciones claras: Esencial, Inteligente y Completa.",
+  "Tú decides. Sin compromiso, sin letra pequeña.",
+  "Instalamos y te enseño a usarlo todo."
 ];
 
 const empresa = {
   nombre: "AHOMED",
-  eslogan: "Soluciones integrales para el hogar",
+  eslogan: "La capa inteligente de tu vivienda",
   zona: "Madrid y alrededores",
   whatsapp: "671176482",
   whatsappDisplay: "671 176 482",
@@ -2048,7 +2060,7 @@ const empresa = {
   email: "info@ahomed.com",
   anosExperiencia: "10 años",
   metaDescriptionDefault:
-    "AHOMED — Soluciones integrales para el hogar. Electricidad, domótica, seguridad con IA, energía solar y climatización en Madrid y alrededores. Primera visita gratuita."
+    "AHOMED — Seguridad inteligente, domótica, IA, redes y energía para tu vivienda o negocio en Madrid y alrededores. Colaboramos con reformistas, constructoras e instaladores. Primera visita gratuita."
 };
 
 module.exports = { services, packs, ventajas, comoFunciona, empresa };

@@ -64,7 +64,7 @@
     <div class="container">
       <span class="section-group-eyebrow">🔧 Básicos</span>
       <h2 class="section-group-title">Servicios sin IA</h2>
-      <p class="section-group-desc">Instalaciones tradicionales: electricidad, domótica de control por app, seguridad con grabación local y climatización. Presupuesto orientativo, sin sorpresas.</p>
+      <p class="section-group-desc">Instalaciones tradicionales: electricidad, domótica de control por app, seguridad con grabación local y climatización. Opciones claras, presupuesto personalizado.</p>
     </div>
   </section>
 
@@ -193,7 +193,7 @@
 
   <section class="section" id="bloque-naves-fincas-basicos">
     <div class="container">
-      <h2 class="sub-heading">Básicos — sin IA</h2>
+      <h2 class="sub-heading">Instalaciones y servicios</h2>
       <div class="services-grid services-grid-full">
         <% services.filter(function(s){ return s.publico === 'negocio'; }).forEach(function(s){ %>
           <a href="/servicios/<%= s.slug %>" class="service-card">
@@ -215,7 +215,7 @@
   <% if (typeof seguridadIANaves !== 'undefined' && seguridadIANaves) { %>
     <section class="section section-alt" id="bloque-seguridad-ia-naves-fincas">
       <div class="container">
-        <h2 class="sub-heading">Con IA</h2>
+        <h2 class="sub-heading">Con inteligencia artificial</h2>
         <div class="services-grid services-grid-full">
           <a href="/servicios/naves-fincas/seguridad-ia" class="service-card service-card-ia-modo service-card-ai">
             <div class="service-badge">Servicio exclusivo</div>

@@ -10,8 +10,8 @@
   <section class="page-hero">
     <div class="container">
       <h1>Soluciones AHOMED</h1>
-      <p>Hemos agrupado las instalaciones más habituales para que puedas empezar con una solución clara: una sola visita, un solo presupuesto, sin sorpresas.</p>
-      <p class="creador-alt-link">¿Ninguno encaja del todo? <a href="/crea-tu-instalacion">Arma tu propia combinación →</a></p>
+      <p>Hemos agrupado las instalaciones más habituales para que puedas empezar con una solución clara: una sola visita, un solo presupuesto, sin sorpresas — y si el proyecto va de la mano de tu reformista, constructora o instalador, lo coordinamos con ellos.</p>
+      <p class="creador-alt-link">¿Ninguna encaja del todo? <a href="/crea-tu-instalacion">Arma tu propia combinación →</a></p>
     </div>
   </section>
 
@@ -32,6 +32,12 @@
         <% if (p.incluyeIA) { %><span class="pack-ia-badge">🧠 Incluye IA</span><% } %>
         <h2><%= p.nombre %></h2>
         <p class="pack-detail-desc"><%= p.descripcion %></p>
+        <% if (p.idealPara || p.resultado) { %>
+          <div class="pack-detail-meta">
+            <% if (p.idealPara) { %><p><strong>Ideal para:</strong> <%= p.idealPara %></p><% } %>
+            <% if (p.resultado) { %><p><strong>Resultado:</strong> <%= p.resultado %></p><% } %>
+          </div>
+        <% } %>
       </div>
 
       <% if (p.imagenAntes) { %>
@@ -87,6 +93,12 @@
         <% if (p.incluyeIA) { %><span class="pack-ia-badge">🧠 Incluye IA</span><% } %>
         <h2><%= p.nombre %></h2>
         <p class="pack-detail-desc"><%= p.descripcion %></p>
+        <% if (p.idealPara || p.resultado) { %>
+          <div class="pack-detail-meta">
+            <% if (p.idealPara) { %><p><strong>Ideal para:</strong> <%= p.idealPara %></p><% } %>
+            <% if (p.resultado) { %><p><strong>Resultado:</strong> <%= p.resultado %></p><% } %>
+          </div>
+        <% } %>
       </div>
 
       <% if (p.imagenAntes) { %>

@@ -11,7 +11,7 @@
     <div class="container">
       <h1>Crea tu instalación a medida</h1>
       <p>Marca lo que quieras de Básicos y de la Plataforma IA Predictiva y mira el total en vivo. Si tu combinación se parece a uno de nuestros packs, te lo decimos — puede salirte mejor ya montado. El precio definitivo se confirma siempre tras la visita técnica gratuita.</p>
-      <p class="creador-alt-link">¿Prefieres que te orientemos nosotros? <a href="/configurador">Prueba el configurador de 3 preguntas →</a></p>
+      <p class="creador-alt-link">¿Prefieres que te orientemos nosotros? <a href="/configurador">Prueba el configurador de 4 preguntas →</a></p>
     </div>
   </section>
 
@@ -20,7 +20,7 @@
       <div class="creador-picker" data-wa="<%= empresa.whatsapp %>">
 
         <!-- BÁSICOS, agrupados por bloque -->
-        <h2 class="sub-heading">Básicos — sin IA</h2>
+        <h2 class="sub-heading">Instalaciones y servicios</h2>
         <% bloques.filter(function(b){ return b.grupo === 'basico' || b.grupo === 'general'; }).forEach(function(b){ %>
           <% var serviciosBloque = serviciosCasa.filter(function(s){ return s.bloque === b.slug; }); %>
           <% if (!serviciosBloque.length) return; %>
@@ -41,7 +41,7 @@
         <% }) %>
 
         <!-- EXCLUSIVOS, modos IA -->
-        <h2 class="sub-heading creador-ia-title">Exclusivos — con Inteligencia Artificial</h2>
+        <h2 class="sub-heading creador-ia-title">Plataforma IA Predictiva</h2>
         <p class="creador-ia-sub">Si marcas al menos un modo, se añade el Mini-PC IA Central obligatorio (nivel según cuántos modos elijas).</p>
 
         <div class="calc-niveles" id="creador-niveles">

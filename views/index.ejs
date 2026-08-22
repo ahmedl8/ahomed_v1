@@ -12,7 +12,7 @@
     <div class="container hero-split">
       <div class="hero-split-copy">
         <h1>Tu casa más segura, más cómoda y más inteligente</h1>
-        <p class="hero-sub">Instalaciones profesionales en <%= empresa.zona %> para viviendas y negocios: seguridad con IA, domótica, redes y energía. Soluciones a medida con atención personal.</p>
+        <p class="hero-sub">Instalaciones profesionales en <%= empresa.zona %> para viviendas y negocios: electricidad, domótica, seguridad con IA y energía solar. Soluciones a medida con atención personal.</p>
 
         <div class="hero-trust-row">
           <div class="hero-trust-item"><svg viewBox="0 0 24 24"><path d="M12 1l3 6 6.5.9-4.7 4.6 1.1 6.5L12 15.9 6.1 19l1.1-6.5L2.5 7.9 9 7z"/></svg>Más de <%= empresa.anosExperiencia %> de experiencia</div>
@@ -88,28 +88,11 @@
     </div>
   </section>
 
-  <!-- PARA PROFESIONALES -->
-  <section class="section section-tight">
-    <div class="container">
-      <div class="configurador-banner configurador-banner-dark">
-        <div class="configurador-banner-inner">
-          <div class="configurador-banner-copy">
-            <span class="eyebrow">¿Eres reformista, constructor o instalador?</span>
-            <h2>Tú construyes la casa. AHOMED la hace inteligente.</h2>
-            <p>Añade seguridad IA, domótica y tecnología a tus proyectos sin tener que aprenderla. Nosotros nos ocupamos de la parte inteligente y coordinamos contigo la instalación.</p>
-            <a href="/para-profesionales" class="btn btn-outline-light btn-lg configurador-banner-cta">Ver AHOMED para Profesionales →</a>
-            <p class="banner-objection-note"><strong>¿Ya tienes reformista, constructor o instalador?</strong> Perfecto, no necesitas cambiarlo — AHOMED se integra con su trabajo para añadir seguridad, domótica, IA, redes y energía.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- POR QUÉ ELEGIR AHOMED -->
   <section class="section advantages-section">
     <div class="container">
       <div class="section-head">
-        <h2>¿Por qué elegir AHOMED?</h2>
+        <h2>¿Por qué AHOMED?</h2>
       </div>
       <div class="advantages-grid">
         <% ventajas.forEach(function(v){ %>
@@ -362,6 +345,36 @@
           <source srcset="/img/marketing/ia-local-privacidad.webp" type="image/webp">
           <img src="/img/marketing/ia-local-privacidad.jpg" alt="El análisis de la cámara ocurre en el mini-PC dentro de la vivienda, no en la nube: detección local repartida entre las distintas zonas de la casa" loading="lazy" class="tech-teaser-img" />
         </picture>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARA PROFESIONALES -->
+  <section class="section section-tight">
+    <div class="container">
+      <div class="configurador-banner configurador-banner-dark">
+        <div class="configurador-banner-inner">
+          <div class="configurador-banner-copy">
+            <span class="eyebrow">Para profesionales</span>
+            <h2>¿Eres profesional de la construcción?</h2>
+            <div class="configurador-banner-chips">
+              <span class="configurador-banner-chip">Reformas</span>
+              <span class="configurador-banner-chip">Constructoras</span>
+              <span class="configurador-banner-chip">Persianas</span>
+              <span class="configurador-banner-chip">Cocinas</span>
+              <span class="configurador-banner-chip">Climatización</span>
+              <span class="configurador-banner-chip">Interiorismo</span>
+            </div>
+            <p>Tú haces la obra. AHOMED añade la inteligencia.</p>
+            <a href="/para-profesionales" class="btn btn-primary btn-lg configurador-banner-cta">Descubre cómo colaborar →</a>
+          </div>
+          <div class="configurador-banner-visual">
+            <picture>
+              <source srcset="/img/trabajos/reforma-general-despues.webp" type="image/webp">
+              <img src="/img/trabajos/reforma-general-despues.jpg" alt="Reforma integral con tecnología AHOMED integrada" loading="lazy">
+            </picture>
+          </div>
+        </div>
       </div>
     </div>
   </section>

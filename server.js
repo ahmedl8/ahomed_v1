@@ -120,12 +120,12 @@ function bloqueDe(slug) {
 // los 15 servicios (incl. Naves y Fincas) ni los packs de negocio en la portada.
 // Ver /areas/ahomed-web.md — feedback de reestructuración comercial, Prioridad 1.
 const SERVICIOS_DESTACADOS_HOME = [
-  "electricidad",
   "seguridad",
   "domotica",
   "redes-informatica",
-  "climatizacion",
-  "energia-solar"
+  "energia-solar",
+  "electricidad",
+  "climatizacion"
 ];
 const PACKS_DESTACADOS_HOME = ["chalet-seguro", "piso-nuevo", "hogar-inteligente"];
 
@@ -143,7 +143,7 @@ const QUE_NECESITAS = [
   {
     icono: "home-wifi",
     titulo: "Mejorar tu casa",
-    subtitulo: "Domótica, WiFi, iluminación, escenas",
+    subtitulo: "Domótica, WiFi, iluminación, reformas",
     link: "/servicios/domotica",
     desde: 210
   },
@@ -172,9 +172,9 @@ const QUE_NECESITAS = [
 
 app.get("/", (req, res) => {
   res.render("index", {
-    title: `${empresa.nombre} — Seguridad IA, domótica y energía inteligente en Madrid`,
+    title: `${empresa.nombre} — Soluciones integrales para el hogar en Madrid`,
     metaDescription:
-      "Seguridad con IA, domótica, redes y energía inteligente para tu vivienda o negocio en Madrid y alrededores. Equipo propiedad del cliente, sin cuotas. Primera visita técnica gratuita.",
+      "Electricidad, domótica, seguridad con IA, energía solar, climatización y reformas en Madrid y alrededores. Equipo propiedad del cliente, sin cuotas. Primera visita técnica gratuita.",
     services,
     serviciosDestacados: SERVICIOS_DESTACADOS_HOME.map((slug) => services.find((s) => s.slug === slug)).filter(Boolean),
     necesitas: QUE_NECESITAS,
@@ -204,14 +204,14 @@ app.get("/configurador", (req, res) => {
   res.render("configurador", {
     title: `Configura tu casa — ${empresa.nombre}`,
     metaDescription:
-      "Responde 4 preguntas sobre tu vivienda o negocio y te recomendamos el pack o servicio AHOMED que mejor encaja, con presupuesto orientativo al momento.",
+      "Responde 3 preguntas sobre tu vivienda o negocio y te recomendamos el pack o servicio AHOMED que mejor encaja, con presupuesto orientativo al momento.",
     packs,
     services
   });
 });
 
 // Creador de instalación: versión "arma tu combinación" del configurador.
-// A diferencia del wizard de 4 preguntas (que recomienda UN pack o servicio),
+// A diferencia del wizard de 3 preguntas (que recomienda UN pack o servicio),
 // aquí el cliente marca libremente cualquier servicio Básico y cualquier modo
 // de la Plataforma IA Predictiva, ve el total en vivo (igual que la
 // calculadora de /servicios/ia-predictiva pero para toda la casa) y, si su
@@ -259,7 +259,7 @@ app.get("/para-profesionales", (req, res) => {
 app.get("/servicios", (req, res) => {
   res.render("servicios", {
     title: `Servicios — ${empresa.nombre}`,
-    metaDescription: `Catálogo completo de servicios AHOMED: seguridad y accesos, instalaciones base, energía, plataforma IA predictiva, mantenimiento y naves y fincas. Precios orientativos.`,
+    metaDescription: `Catálogo completo de servicios AHOMED organizado en ${bloques.length} bloques: seguridad y accesos, instalaciones base, energía, reformas, plataforma IA predictiva, mantenimiento y naves y fincas. Precios orientativos.`,
     services,
     bloques,
     modosIA
@@ -343,7 +343,7 @@ app.get("/soluciones", (req, res) => {
   res.render("packs", {
     title: `Soluciones — ${empresa.nombre}`,
     metaDescription:
-      "Instalación completa llave en mano para tu casa (Piso Nuevo, Chalet Seguro con IA, Hogar Inteligente, Segunda Residencia IA) o para tu nave o finca (Pack Seguridad IA para Negocios). Varios servicios AHOMED combinados en una sola visita técnica.",
+      "Instalación completa llave en mano para tu casa (Piso Nuevo, Chalet Seguro, Hogar Inteligente, Segunda Residencia IA) o para tu nave o finca (Pack Seguridad IA para Negocios). Varios servicios AHOMED combinados en una sola visita técnica.",
     packsCasa: packs.filter((p) => p.publico !== "negocio"),
     packsNegocio: packs.filter((p) => p.publico === "negocio")
   });
@@ -360,8 +360,8 @@ app.get("/packs", (req, res) => {
 
 app.get("/galeria", (req, res) => {
   res.render("galeria", {
-    title: `Así puede quedar tu instalación — ${empresa.nombre}`,
-    metaDescription: `Recreaciones visuales de lo que ${empresa.nombre} puede hacer en tu vivienda o negocio en ${empresa.zona}: electricidad, domótica, seguridad e IA.`,
+    title: `Galería de trabajos — ${empresa.nombre}`,
+    metaDescription: `Trabajos reales de ${empresa.nombre} en ${empresa.zona}: antes y después de electricidad, domótica, seguridad, IA y reformas.`,
     trabajos: galeria
   });
 });
@@ -376,7 +376,7 @@ app.get("/preguntas-frecuentes", (req, res) => {
 app.get("/sobre-mi", (req, res) => {
   res.render("sobre-mi", {
     title: `Sobre mí — ${empresa.nombre}`,
-    metaDescription: `Más de ${empresa.anosExperiencia} de experiencia técnica en electricidad, domótica, IA y seguridad. Conoce al equipo detrás de ${empresa.nombre}.`
+    metaDescription: `Más de ${empresa.anosExperiencia} de experiencia técnica en electricidad, domótica, IA y reformas. Conoce al equipo detrás de ${empresa.nombre}.`
   });
 });
 

@@ -165,9 +165,7 @@
     if (match) mensaje += "\nMe han dicho que se parece a: " + match.nombre;
 
     if (elWa) {
-      // v48: faltaba el prefijo de país "34" (sí lo llevan configurador.js y
-      // calculadora-ia.js) — sin él, wa.me no resuelve al número correcto.
-      elWa.href = "https://wa.me/34" + waNumber + "?text=" + encodeURIComponent(mensaje);
+      elWa.href = "https://wa.me/" + waNumber + "?text=" + encodeURIComponent(mensaje);
     }
   }
 

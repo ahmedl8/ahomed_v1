@@ -8,10 +8,15 @@
 //
 // v44: cada escenario puede declarar `media` (vídeo + poster) para que el
 // panel de "Vive AHOMED" muestre el momento en vez de solo describirlo con
-// texto. "Alguien en la puerta" se queda sin vídeo propio a propósito: no
-// había ningún material de referencia que encajara con ese momento exacto
-// (detección + notificación en el acto) — mejor sin vídeo que con uno que
-// no coincide con lo que el texto describe.
+// texto.
+//
+// "Alguien en la puerta" reutiliza el vídeo de Seguridad IA
+// (/servicios/ia-predictiva/seguridad-ia): su narrativa — gato en el jardín
+// ("Todo tranquilo") seguido de una persona real ("Solo avisa si importa",
+// con WhatsApp) — coincide con lo que este escenario describe casi frase
+// por frase, así que no hacía falta grabar nada nuevo. Poster propio
+// (alguien-en-la-puerta-poster.jpg) recortado del mismo vídeo a 16:9 para
+// que combine con el resto de posters del panel.
 
 const escenarios = [
   {
@@ -71,7 +76,8 @@ const escenarios = [
     ],
     explicacion:
       "Nada de alertas por un gato o una sombra: solo te llega un WhatsApp cuando de verdad hay alguien, con foto del momento.",
-    modos: ["seguridad-ia", "gestion-paquetes", "acceso-inteligente"]
+    modos: ["seguridad-ia", "gestion-paquetes", "acceso-inteligente"],
+    media: { tipo: "video", src: "/video/ia-predictiva/seguridad-ia.mp4", poster: "/img/escenarios/alguien-en-la-puerta-poster.jpg" }
   },
   {
     slug: "segunda-residencia-vacia",

@@ -10,8 +10,8 @@
   <section class="page-hero">
     <div class="container">
       <h1>Soluciones AHOMED</h1>
-      <p>Hemos agrupado las instalaciones más habituales para que puedas empezar con una solución clara: una sola visita, presupuesto personalizado según tu vivienda — y si el proyecto va de la mano de tu reformista, constructora o instalador, lo coordinamos con ellos.</p>
-      <p class="creador-alt-link">¿Ninguna encaja del todo? <a href="/crea-tu-instalacion">Arma tu propia combinación →</a></p>
+      <p>Hemos agrupado las instalaciones más habituales para que puedas empezar con una propuesta clara: una sola visita, una sola conversación, sin sorpresas. Cada proyecto se adapta a la vivienda y a la instalación existente.</p>
+      <p class="creador-alt-link">¿Ninguno encaja del todo? <a href="/crea-tu-instalacion">Arma tu propia combinación →</a></p>
     </div>
   </section>
 
@@ -32,12 +32,6 @@
         <% if (p.incluyeIA) { %><span class="pack-ia-badge">🧠 Incluye IA</span><% } %>
         <h2><%= p.nombre %></h2>
         <p class="pack-detail-desc"><%= p.descripcion %></p>
-        <% if (p.idealPara || p.resultado) { %>
-          <div class="pack-detail-meta">
-            <% if (p.idealPara) { %><p><strong>Ideal para:</strong> <%= p.idealPara %></p><% } %>
-            <% if (p.resultado) { %><p><strong>Resultado:</strong> <%= p.resultado %></p><% } %>
-          </div>
-        <% } %>
       </div>
 
       <% if (p.imagenAntes) { %>
@@ -70,7 +64,7 @@
       <% if (p.nota) { %>
         <p class="pack-note-bottom"><%= p.nota %></p>
       <% } %>
-      <p class="orientative-note">Todos los importes son orientativos. El precio definitivo se confirma tras la visita técnica gratuita.</p>
+      <p class="orientative-note">Importe orientativo: depende de la vivienda, los equipos y la instalación necesaria. Se confirma tras la visita técnica gratuita.</p>
 
     </div>
   </section>
@@ -93,12 +87,6 @@
         <% if (p.incluyeIA) { %><span class="pack-ia-badge">🧠 Incluye IA</span><% } %>
         <h2><%= p.nombre %></h2>
         <p class="pack-detail-desc"><%= p.descripcion %></p>
-        <% if (p.idealPara || p.resultado) { %>
-          <div class="pack-detail-meta">
-            <% if (p.idealPara) { %><p><strong>Ideal para:</strong> <%= p.idealPara %></p><% } %>
-            <% if (p.resultado) { %><p><strong>Resultado:</strong> <%= p.resultado %></p><% } %>
-          </div>
-        <% } %>
       </div>
 
       <% if (p.imagenAntes) { %>
@@ -131,7 +119,7 @@
       <% if (p.nota) { %>
         <p class="pack-note-bottom"><%= p.nota %></p>
       <% } %>
-      <p class="orientative-note">Todos los importes son orientativos. El precio definitivo se confirma tras la visita técnica gratuita.</p>
+      <p class="orientative-note">Importe orientativo: depende de la vivienda, los equipos y la instalación necesaria. Se confirma tras la visita técnica gratuita.</p>
 
     </div>
   </section>

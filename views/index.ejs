@@ -55,11 +55,7 @@
             <div class="service-icon"><svg viewBox="0 0 24 24"><%- icons[n.icono] %></svg></div>
             <h3><%= n.titulo %></h3>
             <p><%= n.subtitulo %></p>
-            <% if (n.desde) { %>
-              <span class="link-arrow">Desde <%= fmt(n.desde) %> € →</span>
-            <% } else { %>
-              <span class="link-arrow">Ver más →</span>
-            <% } %>
+            <span class="link-arrow">Ver más →</span>
           </a>
         <% }) %>
       </div>
@@ -88,23 +84,6 @@
     </div>
   </section>
 
-  <!-- POR QUÉ ELEGIR AHOMED -->
-  <section class="section advantages-section">
-    <div class="container">
-      <div class="section-head">
-        <h2>¿Por qué elegir AHOMED?</h2>
-      </div>
-      <div class="advantages-grid">
-        <% ventajas.forEach(function(v){ %>
-          <div class="advantage-item">
-            <svg viewBox="0 0 24 24"><path d="M9 16.2l-3.5-3.5L4 14.2 9 19.2 20 8.2l-1.5-1.5z"/></svg>
-            <span><%= v %></span>
-          </div>
-        <% }) %>
-      </div>
-    </div>
-  </section>
-
   <!-- SERVICIOS BÁSICOS -->
   <section class="section services-strip" id="servicios">
     <div class="container">
@@ -120,8 +99,7 @@
             <h3><%= s.nombre %></h3>
             <p><%= s.resumen %></p>
             <div class="service-card-footer">
-              <span class="price-tag">Desde <%= fmt(s.desde) %> €<%= s.desdeUnidad || '' %></span>
-              <span class="link-arrow">Ver detalle →</span>
+              <span class="link-arrow">Ver detalle y precio →</span>
             </div>
           </a>
         <% }) %>
@@ -217,56 +195,36 @@
     </div>
   </section>
 
-  <!-- VIVE AHOMED · ESCENARIOS INTERACTIVOS -->
-  <section class="section vive-section">
+  <!-- PARA PROFESIONALES -->
+  <section class="section section-tight">
     <div class="container">
-      <div class="section-head">
-        <span class="eyebrow">Pruébalo</span>
-        <h2>Vive AHOMED</h2>
-        <p>Elige un momento del día y mira qué hace tu Cerebro AHOMED sin que tengas que tocar nada.</p>
-      </div>
-
-      <div class="escenario-tabs" role="tablist">
-        <% escenarios.forEach(function(e, i){ %>
-          <button type="button" class="escenario-tab<%= i === 0 ? ' is-active' : '' %>" data-escenario="<%= e.slug %>">
-            <svg viewBox="0 0 24 24"><%- icons[e.icono] %></svg>
-            <%= e.nombre %>
-          </button>
-        <% }) %>
-      </div>
-
-      <div class="escenario-panels<%= escenarios.some(function(e){ return e.media; }) ? ' escenario-panels-media' : '' %>">
-        <% escenarios.forEach(function(e, i){ %>
-          <div class="escenario-panel<%= i === 0 ? ' is-active' : '' %><%= e.media ? ' has-media' : '' %>" data-escenario-panel="<%= e.slug %>">
-            <% if (e.media) { %>
-              <div class="escenario-media">
-                <video class="escenario-video" controls preload="none" poster="<%= e.media.poster %>" playsinline>
-                  <source src="<%= e.media.src %>" type="video/mp4">
-                </video>
-              </div>
-            <% } %>
-            <div class="escenario-body">
-              <p class="escenario-momento"><strong><%= e.nombre %>.</strong> <%= e.momento %>.</p>
-              <div class="escenario-acciones">
-                <% e.acciones.forEach(function(a){ %>
-                  <div class="escenario-accion">
-                    <span class="escenario-accion-icon"><svg viewBox="0 0 24 24"><%- icons[a.icono] %></svg></span>
-                    <span><%= a.texto %></span>
-                  </div>
-                <% }) %>
-              </div>
-              <p class="escenario-explicacion"><%= e.explicacion %></p>
-              <div class="escenario-links">
-                <% e.modos.forEach(function(slug){ var m = modosIATodos.find(function(x){ return x.slug === slug; }); if (!m) return; %>
-                  <a href="/servicios/ia-predictiva/<%= m.slug %>" class="escenario-link"><%= m.nombre %> →</a>
-                <% }) %>
-                <% if (e.packSugerido) { %>
-                  <a href="/soluciones#<%= e.packSugerido %>" class="escenario-link">Ver la solución para este caso →</a>
-                <% } %>
-              </div>
+      <div class="configurador-banner configurador-banner-dark configurador-banner-profesionales">
+        <div class="configurador-banner-inner">
+          <div class="configurador-banner-copy">
+            <span class="eyebrow">Nuestro otro gran foco ahora mismo</span>
+            <h2>¿Eres reformista, constructor o instalador?</h2>
+            <div class="configurador-banner-chips">
+              <span class="configurador-banner-chip">Reformas</span>
+              <span class="configurador-banner-chip">Constructoras</span>
+              <span class="configurador-banner-chip">Persianas</span>
+              <span class="configurador-banner-chip">Cocinas</span>
+              <span class="configurador-banner-chip">Climatización</span>
+              <span class="configurador-banner-chip">Interiorismo</span>
+            </div>
+            <p>Tú haces la obra. AHOMED añade la inteligencia — nosotros hacemos la visita, la propuesta y la instalación de la parte tecnológica. No te añade trabajo y vendes más en cada proyecto.</p>
+            <span class="oferta-badge">🎁 Oferta de lanzamiento: primera colaboración gratis para los 3 primeros</span>
+            <div class="configurador-banner-ctas">
+              <a href="/para-profesionales" class="btn btn-primary btn-lg configurador-banner-cta">Descubre cómo colaborar →</a>
+              <a href="/pdf/ahomed-para-profesionales.pdf" target="_blank" rel="noopener" class="btn btn-outline-light btn-lg">Descargar dossier PDF</a>
             </div>
           </div>
-        <% }) %>
+          <div class="configurador-banner-visual">
+            <picture>
+              <source srcset="/img/trabajos/reforma-general-despues.webp" type="image/webp">
+              <img src="/img/trabajos/reforma-general-despues.jpg" alt="Reforma integral con tecnología AHOMED integrada" loading="lazy">
+            </picture>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -287,8 +245,7 @@
               <h3><%= p.nombre %></h3>
               <p class="pack-desc"><%= p.descripcion %></p>
               <div class="pack-footer">
-                <span class="price-tag price-tag-lg">Desde <%= fmt(p.opciones[0].total) %> €</span>
-                <span class="btn btn-outline">Ver desglose</span>
+                <span class="btn btn-outline">Ver desglose y precio</span>
               </div>
             </div>
           </a>
@@ -349,37 +306,6 @@
     </div>
   </section>
 
-  <!-- PARA PROFESIONALES -->
-  <section class="section section-tight">
-    <div class="container">
-      <div class="configurador-banner configurador-banner-dark">
-        <div class="configurador-banner-inner">
-          <div class="configurador-banner-copy">
-            <span class="eyebrow">Para profesionales</span>
-            <h2>¿Eres profesional de la construcción?</h2>
-            <div class="configurador-banner-chips">
-              <span class="configurador-banner-chip">Reformas</span>
-              <span class="configurador-banner-chip">Constructoras</span>
-              <span class="configurador-banner-chip">Persianas</span>
-              <span class="configurador-banner-chip">Cocinas</span>
-              <span class="configurador-banner-chip">Climatización</span>
-              <span class="configurador-banner-chip">Interiorismo</span>
-            </div>
-            <p>Tú haces la obra. AHOMED añade la inteligencia.</p>
-            <a href="/para-profesionales" class="btn btn-primary btn-lg configurador-banner-cta">Descubre cómo colaborar →</a>
-            <p class="banner-objection-note"><strong>¿Ya tienes reformista, constructor o instalador?</strong> Perfecto, no necesitas cambiarlo — AHOMED se integra con su trabajo para añadir seguridad, domótica, IA, redes y energía.</p>
-          </div>
-          <div class="configurador-banner-visual">
-            <picture>
-              <source srcset="/img/trabajos/reforma-general-despues.webp" type="image/webp">
-              <img src="/img/trabajos/reforma-general-despues.jpg" alt="Reforma integral con tecnología AHOMED integrada" loading="lazy">
-            </picture>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- QUIÉN HACE EL TRABAJO -->
   <section class="section about-teaser-section">
     <div class="container about-teaser-inner">
@@ -407,6 +333,5 @@
   </section>
 
   <%- include('partials/footer') %>
-  <script src="/js/escenarios.js" defer></script>
 </body>
 </html>

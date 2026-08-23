@@ -252,7 +252,7 @@ app.get("/para-profesionales", (req, res) => {
   res.render("para-profesionales", {
     title: `AHOMED para Profesionales — colabora con ${empresa.nombre}`,
     metaDescription:
-      "Tú haces la obra, AHOMED la hace inteligente. Colabora con AHOMED si eres reformista, constructor, persianero, electricista o interiorista: añade seguridad IA, domótica y tecnología a tus proyectos sin tener que aprenderla."
+      "Tú haces la obra, AHOMED la hace inteligente. Colabora con AHOMED si eres reformista, constructor, persianero, electricista o interiorista. Oferta de lanzamiento: primera colaboración gratis para las 3 primeras empresas."
   });
 });
 
@@ -304,7 +304,8 @@ app.get("/servicios/ia-predictiva", (req, res) => {
     instalacionBase,
     modos: modosIA,
     familiasIA,
-    packsIA: packs.filter((p) => ["hogar-inteligente", "alquiler-segunda-residencia-ia"].includes(p.slug))
+    packsIA: packs.filter((p) => ["hogar-inteligente", "alquiler-segunda-residencia-ia"].includes(p.slug)),
+    escenarios
   });
 });
 

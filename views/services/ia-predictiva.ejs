@@ -75,8 +75,7 @@
               <h3><%= p.nombre %></h3>
               <p class="pack-desc"><%= p.descripcion %></p>
               <div class="pack-footer">
-                <span class="price-tag price-tag-lg">Desde <%= fmt(p.opciones[0].total) %> €</span>
-                <span class="btn btn-outline">Ver desglose</span>
+                <span class="btn btn-outline">Ver desglose y precio</span>
               </div>
             </div>
           </a>
@@ -160,6 +159,60 @@
     </div>
   </section>
 
+  <!-- VIVE AHOMED · ESCENARIOS INTERACTIVOS -->
+  <section class="section vive-section">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Pruébalo</span>
+        <h2>5. Vive AHOMED</h2>
+        <p>Elige un momento del día y mira qué hace tu Cerebro AHOMED sin que tengas que tocar nada.</p>
+      </div>
+
+      <div class="escenario-tabs" role="tablist">
+        <% escenarios.forEach(function(e, i){ %>
+          <button type="button" class="escenario-tab<%= i === 0 ? ' is-active' : '' %>" data-escenario="<%= e.slug %>">
+            <svg viewBox="0 0 24 24"><%- icons[e.icono] %></svg>
+            <%= e.nombre %>
+          </button>
+        <% }) %>
+      </div>
+
+      <div class="escenario-panels<%= escenarios.some(function(e){ return e.media; }) ? ' escenario-panels-media' : '' %>">
+        <% escenarios.forEach(function(e, i){ %>
+          <div class="escenario-panel<%= i === 0 ? ' is-active' : '' %><%= e.media ? ' has-media' : '' %>" data-escenario-panel="<%= e.slug %>">
+            <% if (e.media) { %>
+              <div class="escenario-media">
+                <video class="escenario-video" controls preload="none" poster="<%= e.media.poster %>" playsinline>
+                  <source src="<%= e.media.src %>" type="video/mp4">
+                </video>
+              </div>
+            <% } %>
+            <div class="escenario-body">
+              <p class="escenario-momento"><strong><%= e.nombre %>.</strong> <%= e.momento %>.</p>
+              <div class="escenario-acciones">
+                <% e.acciones.forEach(function(a){ %>
+                  <div class="escenario-accion">
+                    <span class="escenario-accion-icon"><svg viewBox="0 0 24 24"><%- icons[a.icono] %></svg></span>
+                    <span><%= a.texto %></span>
+                  </div>
+                <% }) %>
+              </div>
+              <p class="escenario-explicacion"><%= e.explicacion %></p>
+              <div class="escenario-links">
+                <% e.modos.forEach(function(slug){ var m = modos.find(function(x){ return x.slug === slug; }); if (!m) return; %>
+                  <a href="/servicios/ia-predictiva/<%= m.slug %>" class="escenario-link"><%= m.nombre %> →</a>
+                <% }) %>
+                <% if (e.packSugerido) { %>
+                  <a href="/soluciones#<%= e.packSugerido %>" class="escenario-link">Ver la solución para este caso →</a>
+                <% } %>
+              </div>
+            </div>
+          </div>
+        <% }) %>
+      </div>
+    </div>
+  </section>
+
   <section class="section final-cta">
     <div class="container final-cta-inner">
       <h2>¿Empezamos con tu plataforma IA?</h2>
@@ -172,5 +225,6 @@
 
   <%- include('../partials/footer') %>
   <script src="/js/calculadora-ia.js" defer></script>
+  <script src="/js/escenarios.js" defer></script>
 </body>
 </html>

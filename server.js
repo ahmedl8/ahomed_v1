@@ -135,6 +135,7 @@ const PACKS_DESTACADOS_HOME = ["chalet-seguro", "piso-nuevo", "hogar-inteligente
 const QUE_NECESITAS = [
   {
     icono: "wrench",
+    imagen: "/img/iconos/necesitas-resolver",
     titulo: "Resolver un problema",
     subtitulo: "Averías, electricidad, fontanería, climatización",
     link: "/servicios/electricidad",
@@ -142,6 +143,7 @@ const QUE_NECESITAS = [
   },
   {
     icono: "home-wifi",
+    imagen: "/img/iconos/necesitas-mejorar",
     titulo: "Mejorar tu casa",
     subtitulo: "Domótica, WiFi, iluminación, escenas",
     link: "/servicios/domotica",
@@ -149,6 +151,7 @@ const QUE_NECESITAS = [
   },
   {
     icono: "shield",
+    imagen: "/img/iconos/necesitas-vivienda",
     titulo: "Proteger tu vivienda",
     subtitulo: "Cámaras, videoportero, cerraduras, Seguridad IA",
     link: "/servicios/seguridad",
@@ -156,6 +159,7 @@ const QUE_NECESITAS = [
   },
   {
     icono: "solar",
+    imagen: "/img/iconos/necesitas-energia",
     titulo: "Ahorrar energía",
     subtitulo: "Solar, gestión energética",
     link: "/servicios/energia-solar",
@@ -163,6 +167,7 @@ const QUE_NECESITAS = [
   },
   {
     icono: "ai",
+    imagen: "/img/iconos/necesitas-negocio",
     titulo: "Proteger tu negocio",
     subtitulo: "Seguridad IA, electricidad y redes industriales",
     link: "/servicios/naves-fincas/seguridad-ia",
@@ -252,7 +257,7 @@ app.get("/para-profesionales", (req, res) => {
   res.render("para-profesionales", {
     title: `AHOMED para Profesionales — colabora con ${empresa.nombre}`,
     metaDescription:
-      "Tú haces la obra, AHOMED la hace inteligente. Colabora con AHOMED si eres reformista, constructor, persianero, electricista o interiorista. Oferta de lanzamiento: primera colaboración gratis para las 3 primeras empresas."
+      "Tú haces la obra, AHOMED la hace inteligente. Colabora con AHOMED si eres reformista, constructor, persianero, electricista o interiorista: añade seguridad IA, domótica y tecnología a tus proyectos sin tener que aprenderla."
   });
 });
 
@@ -304,8 +309,7 @@ app.get("/servicios/ia-predictiva", (req, res) => {
     instalacionBase,
     modos: modosIA,
     familiasIA,
-    packsIA: packs.filter((p) => ["hogar-inteligente", "alquiler-segunda-residencia-ia"].includes(p.slug)),
-    escenarios
+    packsIA: packs.filter((p) => ["hogar-inteligente", "alquiler-segunda-residencia-ia"].includes(p.slug))
   });
 });
 

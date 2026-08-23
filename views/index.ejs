@@ -32,8 +32,9 @@
         </div>
 
         <div class="hero-badges hero-badges-secondary">
-          <div class="hero-badge"><svg viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>Instalaciones rápidas y limpias</div>
-          <div class="hero-badge"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12.001 2C6.478 2 2 6.478 2 12c0 1.85.502 3.657 1.454 5.235L2 22l4.897-1.415A9.955 9.955 0 0 0 12.001 22C17.523 22 22 17.523 22 12S17.523 2 12.001 2z"/></svg>Atención directa por WhatsApp</div>
+          <% ["IA local, sin depender de la nube para decidir", "Sin cuotas mensuales en las soluciones que no las necesitan", "Hablas directamente con el técnico"].forEach(function(v){ %>
+            <div class="hero-badge"><svg viewBox="0 0 24 24"><path d="M9 16.2l-3.5-3.5L4 14.2 9 19.2 20 8.2l-1.5-1.5z"/></svg><%= v %></div>
+          <% }) %>
         </div>
       </div>
 
@@ -52,10 +53,19 @@
       <div class="services-grid services-grid-full necesitas-grid">
         <% necesitas.forEach(function(n){ %>
           <a href="<%= n.link %>" class="service-card necesitas-card">
-            <div class="service-icon"><svg viewBox="0 0 24 24"><%- icons[n.icono] %></svg></div>
+            <div class="service-icon service-icon-img">
+              <picture>
+                <source srcset="<%= n.imagen %>.webp" type="image/webp">
+                <img src="<%= n.imagen %>.png" alt="<%= n.titulo %>" loading="lazy">
+              </picture>
+            </div>
             <h3><%= n.titulo %></h3>
             <p><%= n.subtitulo %></p>
-            <span class="link-arrow">Ver más →</span>
+            <% if (n.desde) { %>
+              <span class="link-arrow">Desde <%= fmt(n.desde) %> € →</span>
+            <% } else { %>
+              <span class="link-arrow">Ver más →</span>
+            <% } %>
           </a>
         <% }) %>
       </div>
@@ -84,6 +94,38 @@
     </div>
   </section>
 
+  <!-- PARA PROFESIONALES -->
+  <section class="section section-tight">
+    <div class="container">
+      <div class="configurador-banner configurador-banner-dark">
+        <div class="configurador-banner-inner">
+          <div class="configurador-banner-copy">
+            <span class="launch-offer-badge launch-offer-badge-inline">Solo para los 3 primeros</span>
+            <span class="eyebrow">Para profesionales</span>
+            <h2>¿Eres profesional de la construcción?</h2>
+            <div class="configurador-banner-chips">
+              <span class="configurador-banner-chip">Reformas</span>
+              <span class="configurador-banner-chip">Constructoras</span>
+              <span class="configurador-banner-chip">Persianas</span>
+              <span class="configurador-banner-chip">Cocinas</span>
+              <span class="configurador-banner-chip">Climatización</span>
+              <span class="configurador-banner-chip">Interiorismo</span>
+            </div>
+            <p>Tú haces la obra. AHOMED añade la inteligencia. Y ahora mismo, tu primera colaboración puede salirte gratis.</p>
+            <a href="/para-profesionales" class="btn btn-primary btn-lg configurador-banner-cta">Descubre cómo colaborar →</a>
+            <p class="banner-objection-note"><strong>¿Ya tienes reformista, constructor o instalador?</strong> Perfecto, no necesitas cambiarlo — AHOMED se integra con su trabajo para añadir seguridad, domótica, IA, redes y energía.</p>
+          </div>
+          <div class="configurador-banner-visual">
+            <picture>
+              <source srcset="/img/trabajos/reforma-general-despues.webp" type="image/webp">
+              <img src="/img/trabajos/reforma-general-despues.jpg" alt="Reforma integral con tecnología AHOMED integrada" loading="lazy">
+            </picture>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- SERVICIOS BÁSICOS -->
   <section class="section services-strip" id="servicios">
     <div class="container">
@@ -99,7 +141,8 @@
             <h3><%= s.nombre %></h3>
             <p><%= s.resumen %></p>
             <div class="service-card-footer">
-              <span class="link-arrow">Ver detalle y precio →</span>
+              <span class="price-tag">Desde <%= fmt(s.desde) %> €<%= s.desdeUnidad || '' %></span>
+              <span class="link-arrow">Ver detalle →</span>
             </div>
           </a>
         <% }) %>
@@ -155,12 +198,20 @@
             <path class="cerebro-line" d="M50,50 Q62,64 75,76"/>
           </svg>
           <div class="cerebro-hub-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><%- icons.ai %></svg>
+            <picture>
+              <source srcset="/img/iconos/minipc-central.webp" type="image/webp">
+              <img src="/img/iconos/minipc-central.png" alt="">
+            </picture>
           </div>
           <div class="cerebro-branches">
             <% familiasIA.forEach(function(familia){ %>
               <a href="/servicios/ia-predictiva#familia-<%= familia.slug %>" class="cerebro-branch">
-                <div class="service-icon"><svg viewBox="0 0 24 24"><%- icons[familia.icono] %></svg></div>
+                <div class="service-icon service-icon-img">
+                  <picture>
+                    <source srcset="<%= familia.imagen %>.webp" type="image/webp">
+                    <img src="<%= familia.imagen %>.png" alt="<%= familia.nombre %>" loading="lazy">
+                  </picture>
+                </div>
                 <h4><%= familia.nombre %></h4>
                 <p><%= familia.resumen %></p>
               </a>
@@ -195,64 +246,70 @@
     </div>
   </section>
 
-  <!-- PARA PROFESIONALES -->
-  <section class="section section-tight">
+  <!-- VIVE AHOMED · ESCENARIOS INTERACTIVOS -->
+  <section class="section vive-section">
     <div class="container">
-      <div class="configurador-banner configurador-banner-dark configurador-banner-profesionales">
-        <div class="configurador-banner-inner">
-          <div class="configurador-banner-copy">
-            <span class="eyebrow">Nuestro otro gran foco ahora mismo</span>
-            <h2>¿Eres reformista, constructor o instalador?</h2>
-            <div class="configurador-banner-chips">
-              <span class="configurador-banner-chip">Reformas</span>
-              <span class="configurador-banner-chip">Constructoras</span>
-              <span class="configurador-banner-chip">Persianas</span>
-              <span class="configurador-banner-chip">Cocinas</span>
-              <span class="configurador-banner-chip">Climatización</span>
-              <span class="configurador-banner-chip">Interiorismo</span>
-            </div>
-            <p>Tú haces la obra. AHOMED añade la inteligencia — nosotros hacemos la visita, la propuesta y la instalación de la parte tecnológica. No te añade trabajo y vendes más en cada proyecto.</p>
-            <span class="oferta-badge">🎁 Oferta de lanzamiento: primera colaboración gratis para los 3 primeros</span>
-            <div class="configurador-banner-ctas">
-              <a href="/para-profesionales" class="btn btn-primary btn-lg configurador-banner-cta">Descubre cómo colaborar →</a>
-              <a href="/pdf/ahomed-para-profesionales.pdf" target="_blank" rel="noopener" class="btn btn-outline-light btn-lg">Descargar dossier PDF</a>
+      <div class="section-head">
+        <span class="eyebrow">Pruébalo</span>
+        <h2>Vive AHOMED</h2>
+        <p>Elige un momento del día y mira qué hace tu Cerebro AHOMED sin que tengas que tocar nada.</p>
+      </div>
+
+      <div class="escenario-tabs" role="tablist">
+        <% escenarios.forEach(function(e, i){ %>
+          <button type="button" class="escenario-tab<%= i === 0 ? ' is-active' : '' %>" data-escenario="<%= e.slug %>">
+            <svg viewBox="0 0 24 24"><%- icons[e.icono] %></svg>
+            <%= e.nombre %>
+          </button>
+        <% }) %>
+      </div>
+
+      <div class="escenario-panels<%= escenarios.some(function(e){ return e.media; }) ? ' escenario-panels-media' : '' %>">
+        <% escenarios.forEach(function(e, i){ %>
+          <div class="escenario-panel<%= i === 0 ? ' is-active' : '' %><%= e.media ? ' has-media' : '' %>" data-escenario-panel="<%= e.slug %>">
+            <% if (e.media) { %>
+              <div class="escenario-media">
+                <video class="escenario-video" controls preload="none" poster="<%= e.media.poster %>" playsinline>
+                  <source src="<%= e.media.src %>" type="video/mp4">
+                </video>
+              </div>
+            <% } %>
+            <div class="escenario-body">
+              <p class="escenario-momento"><strong><%= e.nombre %>.</strong> <%= e.momento %>.</p>
+              <div class="escenario-acciones">
+                <% e.acciones.forEach(function(a){ %>
+                  <div class="escenario-accion">
+                    <span class="escenario-accion-icon"><svg viewBox="0 0 24 24"><%- icons[a.icono] %></svg></span>
+                    <span><%= a.texto %></span>
+                  </div>
+                <% }) %>
+              </div>
+              <p class="escenario-explicacion"><%= e.explicacion %></p>
+              <div class="escenario-links">
+                <% e.modos.forEach(function(slug){ var m = modosIATodos.find(function(x){ return x.slug === slug; }); if (!m) return; %>
+                  <a href="/servicios/ia-predictiva/<%= m.slug %>" class="escenario-link"><%= m.nombre %> →</a>
+                <% }) %>
+                <% if (e.packSugerido) { %>
+                  <a href="/soluciones#<%= e.packSugerido %>" class="escenario-link">Ver la solución para este caso →</a>
+                <% } %>
+              </div>
             </div>
           </div>
-          <div class="configurador-banner-visual">
-            <picture>
-              <source srcset="/img/trabajos/reforma-general-despues.webp" type="image/webp">
-              <img src="/img/trabajos/reforma-general-despues.jpg" alt="Reforma integral con tecnología AHOMED integrada" loading="lazy">
-            </picture>
-          </div>
-        </div>
+        <% }) %>
       </div>
     </div>
   </section>
 
   <!-- PACKS -->
-  <section class="section packs-section">
+  <section class="section section-tight">
     <div class="container">
-      <div class="section-head">
-        <h2>Soluciones AHOMED</h2>
-        <p>Hemos agrupado las instalaciones más habituales para que puedas empezar con una solución clara, no con servicios sueltos.</p>
-      </div>
-      <div class="packs-grid">
-        <% packsDestacados.forEach(function(p){ %>
-          <a href="/soluciones#<%= p.slug %>" class="pack-card pack-card-photo">
-            <img src="<%= p.imagen %>" alt="<%= p.imagenAlt %>" loading="lazy" class="pack-card-img">
-            <div class="pack-card-body">
-              <% if (p.incluyeIA) { %><span class="pack-ia-badge pack-ia-badge-sm">🧠 Incluye IA</span><% } %>
-              <h3><%= p.nombre %></h3>
-              <p class="pack-desc"><%= p.descripcion %></p>
-              <div class="pack-footer">
-                <span class="btn btn-outline">Ver desglose y precio</span>
-              </div>
-            </div>
-          </a>
-        <% }) %>
-      </div>
-
-      <a href="/soluciones" class="bloque-cta-link section-cta-more">Ver todas las soluciones →</a>
+      <a href="/soluciones" class="soluciones-mini-banner">
+        <div>
+          <span class="eyebrow">¿Prefieres algo ya armado?</span>
+          <h3>Mira nuestras soluciones combinadas: Piso Nuevo, Chalet Seguro, Hogar Inteligente y más</h3>
+        </div>
+        <span class="btn btn-outline">Ver soluciones →</span>
+      </a>
     </div>
   </section>
 
@@ -333,5 +390,6 @@
   </section>
 
   <%- include('partials/footer') %>
+  <script src="/js/escenarios.js" defer></script>
 </body>
 </html>

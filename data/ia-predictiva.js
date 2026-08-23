@@ -636,25 +636,29 @@ const familiasIA = [
     slug: "seguridad",
     nombre: "Seguridad",
     resumen: "Seguridad IA, Acceso Inteligente, Gestión de Paquetes y Casa Presencial.",
-    icono: "shield"
+    icono: "shield",
+    imagen: "/img/iconos/necesitas-seguridad"
   },
   {
     slug: "confort",
     nombre: "Confort",
     resumen: "Motor Meteorológico, IA de Sueño y Panel de Calidad del Aire.",
-    icono: "clima-ia"
+    icono: "clima-ia",
+    imagen: "/img/iconos/necesitas-confort"
   },
   {
     slug: "familia",
     nombre: "Familia",
     resumen: "Personas Mayores, Niños y Bebés, y Cuidado de Mascotas.",
-    icono: "mayores"
+    icono: "mayores",
+    imagen: "/img/iconos/necesitas-familia"
   },
   {
     slug: "hogar",
     nombre: "Hogar",
     resumen: "Cocina Inteligente.",
-    icono: "cocina-ia"
+    icono: "cocina-ia",
+    imagen: "/img/iconos/necesitas-hogar"
   }
 ];
 

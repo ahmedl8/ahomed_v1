@@ -87,7 +87,8 @@
                 <span class="meta-chip"><%= s.tiempo %></span>
               </div>
               <div class="service-card-footer">
-                <span class="link-arrow">Ver detalle y precio →</span>
+                <span class="price-tag">Desde <%= fmt(s.desde) %> €<%= s.desdeUnidad || '' %></span>
+                <span class="link-arrow">Ver detalle →</span>
               </div>
             </a>
           <% }) %>
@@ -123,7 +124,8 @@
                 <span class="meta-chip"><%= s.tiempo %></span>
               </div>
               <div class="service-card-footer">
-                <span class="link-arrow">Ver detalle y precio →</span>
+                <span class="price-tag">Desde <%= fmt(s.desde) %> €<%= s.desdeUnidad || '' %></span>
+                <span class="link-arrow">Ver detalle →</span>
               </div>
             </a>
           <% }) %>
@@ -136,7 +138,8 @@
                 <h3><%= m.numero %>. <%= m.nombre %></h3>
                 <p><%= m.esProyecto ? m.subtitulo : m.resumen %></p>
                 <div class="service-card-footer">
-                  <span class="link-arrow">Ver detalle y precio →</span>
+                  <span class="price-tag"><%= m.esProyecto ? 'Proyecto a medida' : '+' + fmt(m.precioIncremento) + ' € sobre la base' %></span>
+                  <span class="link-arrow">Ver detalle →</span>
                 </div>
               </a>
             <% }) %>
@@ -170,7 +173,8 @@
                 <span class="meta-chip"><%= s.tiempo %></span>
               </div>
               <div class="service-card-footer">
-                <span class="link-arrow">Ver detalle y precio →</span>
+                <span class="price-tag">Desde <%= fmt(s.desde) %> €<%= s.desdeUnidad || '' %></span>
+                <span class="link-arrow">Ver detalle →</span>
               </div>
             </a>
           <% }) %>
@@ -199,7 +203,8 @@
               <span class="meta-chip"><%= s.tiempo %></span>
             </div>
             <div class="service-card-footer">
-              <span class="link-arrow">Ver detalle y precio →</span>
+              <span class="price-tag">Desde <%= fmt(s.desde) %> €<%= s.desdeUnidad || '' %></span>
+              <span class="link-arrow">Ver detalle →</span>
             </div>
           </a>
         <% }) %>
@@ -218,7 +223,8 @@
             <h3><%= seguridadIANaves.nombre %></h3>
             <p><%= seguridadIANaves.subtitulo %></p>
             <div class="service-card-footer">
-              <span class="link-arrow">Ver detalle y precio →</span>
+              <span class="price-tag">Proyecto a medida</span>
+              <span class="link-arrow">Ver detalle →</span>
             </div>
           </a>
         </div>

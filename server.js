@@ -151,7 +151,7 @@ const QUE_NECESITAS = [
   },
   {
     icono: "shield",
-    imagen: "/img/iconos/necesitas-vivienda",
+    imagen: "/img/iconos/necesitas-energia",
     titulo: "Proteger tu vivienda",
     subtitulo: "Cámaras, videoportero, cerraduras, Seguridad IA",
     link: "/servicios/seguridad",
@@ -159,7 +159,7 @@ const QUE_NECESITAS = [
   },
   {
     icono: "solar",
-    imagen: "/img/iconos/necesitas-energia",
+    imagen: "/img/iconos/necesitas-vivienda",
     titulo: "Ahorrar energía",
     subtitulo: "Solar, gestión energética",
     link: "/servicios/energia-solar",

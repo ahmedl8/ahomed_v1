@@ -1887,7 +1887,7 @@ const packs = [
     nota: "Sin cuota mensual ni contrato con central de alarmas. El sistema funciona de forma autónoma en tu propiedad, con IA desde la opción Esencial."
   },
   {
-    nombre: "Pack Hogar Inteligente",
+    nombre: "Pack Hogar con IA",
     slug: "hogar-inteligente",
     publico: "casa",
     incluyeIA: true,
@@ -1896,7 +1896,7 @@ const packs = [
     idealPara: "quien ya tiene claro que quiere Seguridad IA y quiere ampliarla con más modos",
     resultado: "La IA vigila tu casa, se anticipa al clima y te avisa por WhatsApp solo cuando de verdad importa.",
     imagen: "/img/packs/pack-hogar-inteligente.jpg",
-    imagenAlt: "Panel táctil de domótica con luces, clima, persianas y escenas — Pack Hogar Inteligente AHOMED",
+    imagenAlt: "Panel táctil de domótica con luces, clima, persianas y escenas — Pack Hogar con IA AHOMED",
     opciones: [
       {
         nombre: "Esencial — Seguridad IA (2 cámaras)",

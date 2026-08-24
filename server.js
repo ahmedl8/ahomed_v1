@@ -348,7 +348,7 @@ app.get("/soluciones", (req, res) => {
   res.render("packs", {
     title: `Soluciones — ${empresa.nombre}`,
     metaDescription:
-      "Instalación completa llave en mano para tu casa (Piso Nuevo, Chalet Seguro con IA, Hogar Inteligente, Segunda Residencia IA) o para tu nave o finca (Pack Seguridad IA para Negocios). Varios servicios AHOMED combinados en una sola visita técnica.",
+      "Instalación completa llave en mano para tu casa (Piso Nuevo, Chalet Seguro con IA, Hogar con IA, Segunda Residencia IA) o para tu nave o finca (Pack Seguridad IA para Negocios). Varios servicios AHOMED combinados en una sola visita técnica.",
     packsCasa: packs.filter((p) => p.publico !== "negocio"),
     packsNegocio: packs.filter((p) => p.publico === "negocio")
   });

@@ -133,7 +133,12 @@
       <% familiasIA.forEach(function(familia){ %>
         <div class="ia-familia-group" id="familia-<%= familia.slug %>">
           <div class="ia-familia-head">
-            <div class="service-icon"><svg viewBox="0 0 24 24"><%- icons[familia.icono] %></svg></div>
+            <div class="service-icon service-icon-img">
+              <picture>
+                <source srcset="<%= familia.imagen %>.webp" type="image/webp">
+                <img src="<%= familia.imagen %>.png" alt="<%= familia.nombre %>" loading="lazy">
+              </picture>
+            </div>
             <div>
               <h3><%= familia.nombre %></h3>
               <p><%= familia.resumen %></p>

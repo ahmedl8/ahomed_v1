@@ -392,6 +392,27 @@ app.get("/contacto", (req, res) => {
   });
 });
 
+app.get("/aviso-legal", (req, res) => {
+  res.render("legal-aviso", {
+    title: `Aviso legal — ${empresa.nombre}`,
+    metaDescription: `Condiciones de uso y datos identificativos de ${empresa.web}, conforme a la LSSI-CE.`
+  });
+});
+
+app.get("/privacidad", (req, res) => {
+  res.render("legal-privacidad", {
+    title: `Política de privacidad — ${empresa.nombre}`,
+    metaDescription: `Cómo trata ${empresa.nombre} los datos personales de quienes visitan y contactan con ${empresa.web}, conforme al RGPD.`
+  });
+});
+
+app.get("/cookies", (req, res) => {
+  res.render("legal-cookies", {
+    title: `Política de cookies — ${empresa.nombre}`,
+    metaDescription: `Qué cookies utiliza ${empresa.web}, con qué finalidad y cómo gestionarlas.`
+  });
+});
+
 // ---- SEO técnico ----
 app.get("/robots.txt", (req, res) => {
   res.type("text/plain").send(
@@ -401,7 +422,7 @@ app.get("/robots.txt", (req, res) => {
 
 app.get("/sitemap.xml", (req, res) => {
   const base = `https://${empresa.web}`;
-  const staticUrls = ["/", "/servicios", "/soluciones", "/configurador", "/crea-tu-instalacion", "/tecnologia", "/para-profesionales", "/preguntas-frecuentes", "/sobre-mi", "/contacto"];
+  const staticUrls = ["/", "/servicios", "/soluciones", "/configurador", "/crea-tu-instalacion", "/tecnologia", "/para-profesionales", "/preguntas-frecuentes", "/sobre-mi", "/contacto", "/aviso-legal", "/privacidad", "/cookies"];
   const bloqueUrls = bloques.map((b) => `/servicios/bloque/${b.slug}`);
   const servicioUrls = services.map((s) => `/servicios/${s.slug}`);
   const iaPredictivaUrls = ["/servicios/ia-predictiva", ...modosIA.map((m) => `/servicios/ia-predictiva/${m.slug}`)];

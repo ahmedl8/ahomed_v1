@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <%- include('partials/head') %>
+</head>
+<body>
+  <%- include('partials/gtm-body') %>
+  <%- include('partials/header') %>
+
+  <section class="page-hero">
+    <div class="container">
+      <h1>Política de cookies</h1>
+      <p>Qué cookies utiliza <%= empresa.web %>, con qué finalidad y cómo puedes gestionarlas.</p>
+      <div class="legal-nav">
+        <a href="/aviso-legal">Aviso legal</a>
+        <a href="/privacidad">Privacidad</a>
+        <a href="/cookies">Cookies</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container legal-content">
+
+      <h2 class="sub-heading">1. Qué son las cookies</h2>
+      <p>Las cookies son pequeños archivos que un sitio web guarda en tu navegador para recordar información sobre tu visita, como preferencias o estadísticas de uso.</p>
+
+      <h2 class="sub-heading">2. Cookies que utiliza este sitio</h2>
+      <p>Este sitio no usa cookies propias de personalización ni de publicidad. Las cookies que se instalan proceden de la herramienta de analítica que utilizamos:</p>
+      <ul class="dot-list">
+        <li><strong>Google Analytics 4</strong> (gestionado a través de Google Tag Manager, contenedor <code>GTM-5D5WS88L</code>): cookies de tipo <code>_ga</code> y <code>_ga_*</code>, que permiten medir de forma agregada las visitas, las páginas consultadas y el comportamiento general de navegación, sin identificarte personalmente. Son cookies de análisis, no de publicidad ni de seguimiento entre sitios.</li>
+      </ul>
+      <p>Si utilizas los enlaces o botones de WhatsApp de esta web, se te redirige a la aplicación o a WhatsApp Web, fuera de este sitio. Esa plataforma puede establecer sus propias cookies, ajenas a nosotros y reguladas por la política de privacidad y cookies de Meta/WhatsApp.</p>
+
+      <h2 class="sub-heading">3. No hacemos publicidad ni retargeting</h2>
+      <p>No utilizamos cookies de publicidad, no compartimos tu navegación con redes publicitarias y no realizamos campañas de retargeting a partir de tu visita a este sitio.</p>
+
+      <h2 class="sub-heading">4. Cómo gestionar o eliminar las cookies</h2>
+      <p>Puedes permitir, bloquear o eliminar las cookies instaladas en tu equipo desde la configuración de tu navegador. Bloquear las cookies de análisis no afecta a tu capacidad de navegar por el sitio ni de contactar con nosotros; solo dejaremos de recibir datos agregados sobre tu visita.</p>
+      <ul class="dot-list">
+        <li><a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener">Google Chrome</a></li>
+        <li><a href="https://support.mozilla.org/es/kb/habilitar-y-deshabilitar-cookies-sitios-web-rastrear-preferencias" target="_blank" rel="noopener">Mozilla Firefox</a></li>
+        <li><a href="https://support.apple.com/es-es/guide/safari/sfri11471/mac" target="_blank" rel="noopener">Safari</a></li>
+        <li><a href="https://support.microsoft.com/es-es/microsoft-edge" target="_blank" rel="noopener">Microsoft Edge</a></li>
+      </ul>
+
+      <h2 class="sub-heading">5. Dudas</h2>
+      <p>Si tienes cualquier duda sobre esta política, escríbenos a <a href="mailto:<%= empresa.email %>"><%= empresa.email %></a>.</p>
+
+      <p class="orientative-note">Última actualización: agosto de 2026.</p>
+
+    </div>
+  </section>
+
+  <%- include('partials/footer') %>
+</body>
+</html>

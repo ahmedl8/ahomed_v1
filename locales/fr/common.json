@@ -94,5 +94,12 @@
   "seo.profesionales.title": "AHOMED pour les Professionnels — collaborez avec",
   "seo.profesionales.desc": "Vous faites les travaux, AHOMED les rend intelligents. Collaborez avec AHOMED si vous êtes rénovateur, constructeur, poseur de stores, électricien ou décorateur d'intérieur : ajoutez sécurité IA, domotique et technologie à vos projets sans avoir à l'apprendre.",
   "seo.404.title": "Page introuvable",
-  "seo.404.desc": "La page que vous cherchez n'existe pas. Retournez à l'accueil ou consultez notre catalogue de services."
+  "seo.404.desc": "La page que vous cherchez n'existe pas. Retournez à l'accueil ou consultez notre catalogue de services.",
+  "seo.bloque.desc_suffix": "Services AHOMED à {zona}, devis après visite technique gratuite.",
+  "seo.seguridad_ia_naves.desc_suffix": "Service exclusif de {empresa} à {zona}.",
+  "seo.ia_predictiva.title": "Plateforme IA Prédictive",
+  "seo.ia_predictiva.desc": "Mini-PC IA Central obligatoire, en deux niveaux (IA START 590 € ou IA PRO 950 €), moteur Python + tableau de bord, et onze modes : sécurité IA, accès intelligent, moteur météo, présence à domicile, sommeil, qualité de l'air, animaux, cuisine, personnes âgées, enfants et bébés, et forfaits. Configurez votre devis.",
+  "seo.ia_modo.desc_suffix_proyecto": "Service exclusif de {empresa} à {zona}.",
+  "seo.ia_modo.desc_suffix_addon": "À partir de {precio} € installé avec la plateforme IA Prédictive de {empresa}.",
+  "seo.detalle_servicio.desc_suffix": "À partir de {desde} € à {zona}. Devis après visite technique gratuite."
 }

@@ -94,5 +94,12 @@
   "seo.profesionales.title": "AHOMED for Professionals — collaborate with",
   "seo.profesionales.desc": "You do the building work, AHOMED makes it smart. Collaborate with AHOMED if you're a renovator, builder, blinds installer, electrician or interior designer: add AI security, home automation and technology to your projects without having to learn it.",
   "seo.404.title": "Page Not Found",
-  "seo.404.desc": "The page you're looking for doesn't exist. Go back to the homepage or check out our service catalog."
+  "seo.404.desc": "The page you're looking for doesn't exist. Go back to the homepage or check out our service catalog.",
+  "seo.bloque.desc_suffix": "AHOMED services in {zona}, with a quote after a free technical visit.",
+  "seo.seguridad_ia_naves.desc_suffix": "Exclusive service from {empresa} in {zona}.",
+  "seo.ia_predictiva.title": "Predictive AI Platform",
+  "seo.ia_predictiva.desc": "Mandatory Central AI Mini-PC, in two tiers (AI START €590 or AI PRO €950), Python engine + dashboard, and eleven modes: AI security, smart access, weather engine, home presence, sleep, air quality, pets, kitchen, elderly, kids and babies, and packages. Build your quote.",
+  "seo.ia_modo.desc_suffix_proyecto": "Exclusive service from {empresa} in {zona}.",
+  "seo.ia_modo.desc_suffix_addon": "From €{precio} installed alongside {empresa}'s Predictive AI platform.",
+  "seo.detalle_servicio.desc_suffix": "From €{desde} in {zona}. Quote after a free technical visit."
 }

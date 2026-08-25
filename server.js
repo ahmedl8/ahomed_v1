@@ -62,6 +62,12 @@ function langHref(currentPathNoPrefix, lang) {
   return lang === "es" ? clean || "/" : `/${lang}${clean}`;
 }
 
+// URL de la home en el idioma actual (independiente de la página en la que
+// se esté) — usada por el logo y el enlace "Inicio" del menú.
+function homeHref(lang) {
+  return lang === "es" ? "/" : `/${lang}`;
+}
+
 // Genera un nonce único por petición para el único script inline que tiene
 // la web (el arranque de Google Tag Manager en head.ejs). Así la CSP puede
 // permitir ese script concreto sin recurrir a 'unsafe-inline', que abriría
@@ -147,6 +153,7 @@ app.use((req, res, next) => {
   const lang = res.locals.lang;
   res.locals.t = (key) => uiStrings.t(key, lang);
   res.locals.langHref = (targetLang) => langHref(req.path, targetLang);
+  res.locals.homeHref = homeHref(lang);
   res.locals.supportedLangs = SUPPORTED_LANGS;
 
   res.locals.empresa = translate("empresa", empresaRaw, lang);
@@ -173,6 +180,12 @@ app.use((req, res, next) => {
 // mostrado coincida con el idioma de la petición.
 function bloqueDe(slug, bloquesArr) {
   return bloquesArr.find((b) => b.slug === slug) || null;
+}
+
+// Sustituye {placeholders} en las plantillas de meta description traducidas
+// (seo.*.desc_suffix en common.json) por los valores reales (zona, precio...).
+function fill(template, values) {
+  return template.replace(/\{(\w+)\}/g, (m, k) => (Object.prototype.hasOwnProperty.call(values, k) ? values[k] : m));
 }
 
 // ---- Rutas ----
@@ -339,7 +352,7 @@ app.get("/servicios", (req, res) => {
 
 // Página de bloque: agrupa los servicios (y, para el bloque E, los modos IA) de esa categoría
 app.get("/servicios/bloque/:slug", (req, res, next) => {
-  const { empresa, services, bloques, modosIA, instalacionBase } = res.locals;
+  const { empresa, services, bloques, modosIA, instalacionBase, t } = res.locals;
   const bloque = bloqueDe(req.params.slug, bloques);
   if (!bloque) return next();
 
@@ -348,7 +361,7 @@ app.get("/servicios/bloque/:slug", (req, res, next) => {
 
   res.render("bloque", {
     title: `${bloque.nombre} — ${empresa.nombre}`,
-    metaDescription: `${bloque.resumen} Servicios AHOMED en ${empresa.zona}, con presupuesto tras visita técnica gratuita.`,
+    metaDescription: `${bloque.resumen} ${fill(t('seo.bloque.desc_suffix'), { zona: empresa.zona })}`,
     bloque,
     servicios: serviciosDelBloque,
     modosIA: esPlataformaIA ? modosIA : null,
@@ -359,10 +372,10 @@ app.get("/servicios/bloque/:slug", (req, res, next) => {
 // Seguridad IA para Naves y Fincas — servicio independiente de la Plataforma IA
 // Predictiva residencial (bloque E), a escala perimetral/industrial.
 app.get("/servicios/naves-fincas/seguridad-ia", (req, res) => {
-  const { empresa, seguridadIANaves, instalacionBase } = res.locals;
+  const { empresa, seguridadIANaves, instalacionBase, t } = res.locals;
   res.render("services/seguridad-ia-negocio", {
     title: `${seguridadIANaves.nombre} — ${empresa.nombre}`,
-    metaDescription: `${seguridadIANaves.resumen} Servicio exclusivo de ${empresa.nombre} en ${empresa.zona}.`,
+    metaDescription: `${seguridadIANaves.resumen} ${fill(t('seo.seguridad_ia_naves.desc_suffix'), { empresa: empresa.nombre, zona: empresa.zona })}`,
     modo: seguridadIANaves,
     instalacionBase
   });
@@ -370,11 +383,10 @@ app.get("/servicios/naves-fincas/seguridad-ia", (req, res) => {
 
 // Plataforma IA Predictiva — página general con instalación base + los 11 modos
 app.get("/servicios/ia-predictiva", (req, res) => {
-  const { empresa, instalacionBase, modosIA, familiasIA, packs } = res.locals;
+  const { empresa, instalacionBase, modosIA, familiasIA, packs, t } = res.locals;
   res.render("services/ia-predictiva", {
-    title: `Plataforma IA Predictiva — ${empresa.nombre}`,
-    metaDescription:
-      "Mini-PC IA Central obligatorio, en dos niveles (IA START 590 € o IA PRO 950 €), motor Python + dashboard, y once modos: seguridad IA, acceso inteligente, motor meteorológico, casa presencial, sueño, calidad del aire, mascotas, cocina, personas mayores, niños y bebés, y paquetes. Configura tu presupuesto.",
+    title: `${t('seo.ia_predictiva.title')} — ${empresa.nombre}`,
+    metaDescription: t('seo.ia_predictiva.desc'),
     instalacionBase,
     modos: modosIA,
     familiasIA,
@@ -384,15 +396,15 @@ app.get("/servicios/ia-predictiva", (req, res) => {
 
 // Ficha de un modo concreto de la Plataforma IA Predictiva
 app.get("/servicios/ia-predictiva/:modoSlug", (req, res, next) => {
-  const { empresa, modosIA, instalacionBase } = res.locals;
+  const { empresa, modosIA, instalacionBase, t } = res.locals;
   const modo = modosIA.find((m) => m.slug === req.params.modoSlug);
   if (!modo) return next();
   const template = modo.esProyecto ? "services/ia-modo-proyecto" : "services/ia-modo";
   res.render(template, {
     title: `${modo.nombre} — ${empresa.nombre}`,
     metaDescription: modo.esProyecto
-      ? `${modo.resumen} Servicio exclusivo de ${empresa.nombre} en ${empresa.zona}.`
-      : `${modo.resumen} Desde ${modo.precioIncremento} € instalado junto a la plataforma IA Predictiva de ${empresa.nombre}.`,
+      ? `${modo.resumen} ${fill(t('seo.ia_modo.desc_suffix_proyecto'), { empresa: empresa.nombre, zona: empresa.zona })}`
+      : `${modo.resumen} ${fill(t('seo.ia_modo.desc_suffix_addon'), { precio: modo.precioIncremento, empresa: empresa.nombre })}`,
     modo,
     instalacionBase
   });
@@ -404,12 +416,12 @@ app.get("/servicios/ia-monitorizacion", (req, res) => {
 });
 
 app.get("/servicios/:slug", (req, res, next) => {
-  const { empresa, services, bloques } = res.locals;
+  const { empresa, services, bloques, t } = res.locals;
   const service = services.find((s) => s.slug === req.params.slug);
   if (!service) return next();
   res.render("services/detalle", {
     title: `${service.nombre} — ${empresa.nombre}`,
-    metaDescription: `${service.resumen} Desde ${service.desde} € en ${empresa.zona}. Presupuesto tras visita técnica gratuita.`,
+    metaDescription: `${service.resumen} ${fill(t('seo.detalle_servicio.desc_suffix'), { desde: service.desde, zona: empresa.zona })}`,
     service,
     bloque: bloqueDe(service.bloque, bloques)
   });

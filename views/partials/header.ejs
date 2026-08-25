@@ -27,7 +27,7 @@
   </div>
 
   <div class="container navbar">
-    <a href="<%= langHref(lang) %>" class="brand">
+    <a href="<%= homeHref %>" class="brand">
       <img src="/img/logo.png" alt="AHOMED — Soluciones integrales para el hogar" class="brand-logo" />
     </a>
 
@@ -37,7 +37,7 @@
     </label>
 
     <nav class="main-nav">
-      <a href="<%= langHref('') %>" class="<%= currentPath === '/' ? 'active' : '' %>"><%= t('nav.home') %></a>
+      <a href="<%= homeHref %>" class="<%= currentPath === '/' ? 'active' : '' %>"><%= t('nav.home') %></a>
       <a href="<%= langHref('/configurador') %>" class="<%= currentPath === '/configurador' ? 'active' : '' %>"><%= t('nav.configurador') %></a>
 
       <% var basicosCols = function(b, audiencia) {

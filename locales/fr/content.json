@@ -4,19 +4,16 @@
   "ventajas[2]": "Aucun abonnement mensuel pour les solutions qui n'en ont pas besoin",
   "ventajas[3]": "Un système qui peut évoluer avec vous",
   "ventajas[4]": "Vous parlez directement au technicien",
-
   "comoFunciona[0]": "Vous m'écrivez sur WhatsApp et m'expliquez votre besoin.",
   "comoFunciona[1]": "Je me déplace chez vous ou dans votre entreprise — la première visite est gratuite.",
   "comoFunciona[2]": "Je vous prépare des options claires : Essentiel, Intelligent et Complet.",
   "comoFunciona[3]": "Vous décidez. Sans engagement, sans petites lignes.",
   "comoFunciona[4]": "Nous installons et je vous montre comment tout utiliser.",
-
   "empresa.whatsappDisplay": "+34 671 176 482",
   "empresa.eslogan": "La couche intelligente de votre maison",
   "empresa.zona": "Madrid et ses environs",
   "empresa.anosExperiencia": "10 ans",
   "empresa.metaDescriptionDefault": "AHOMED — Sécurité intelligente, domotique, IA, réseaux et énergie pour votre logement ou votre entreprise à Madrid et ses environs. Nous collaborons avec des rénovateurs, des promoteurs et des installateurs. Première visite gratuite.",
-
   "bloques[slug:seguridad-accesos].nombre": "Sécurité et Accès",
   "bloques[slug:seguridad-accesos].resumen": "Caméras, alarmes, portier vidéo et serrures intelligentes — enregistrement uniquement, sans analyse IA.",
   "bloques[slug:instalaciones-base].nombre": "Installations de Base",
@@ -31,42 +28,36 @@
   "bloques[slug:mantenimiento].resumen": "Contrats de révision et de réentraînement de l'IA pour toute installation AHOMED.",
   "bloques[slug:reformas].nombre": "Travaux complémentaires",
   "bloques[slug:reformas].resumen": "Peinture, carrelage, plomberie, placo et montage de meubles — en complément d'une installation AHOMED, pas comme service indépendant.",
-
   "escenarios[slug:llegar-a-casa].nombre": "Rentrer à la maison",
   "escenarios[slug:llegar-a-casa].momento": "Votre voiture approche du portail",
   "escenarios[slug:llegar-a-casa].acciones[0].texto": "Accès Intelligent reconnaît le véhicule et ouvre le garage",
   "escenarios[slug:llegar-a-casa].acciones[1].texto": "Maison Présentielle active la scène de bienvenue : lumières, climat",
   "escenarios[slug:llegar-a-casa].acciones[2].texto": "Tout est prêt avant même que vous vous garriez",
   "escenarios[slug:llegar-a-casa].explicacion": "Le mini-PC croise la reconnaissance de plaque avec le geofencing du mobile : si c'est vous, il ouvre ; sinon, il prévient par WhatsApp avec une photo au lieu d'ouvrir.",
-
   "escenarios[slug:salir-de-casa].nombre": "Sortir de la maison",
   "escenarios[slug:salir-de-casa].momento": "Le mobile s'éloigne du géopérimètre de la maison",
   "escenarios[slug:salir-de-casa].acciones[0].texto": "Maison Présentielle éteint les lumières et met le climat en mode économie",
   "escenarios[slug:salir-de-casa].acciones[1].texto": "Moteur Météorologique décide si l'arrosage peut attendre",
   "escenarios[slug:salir-de-casa].acciones[2].texto": "Simulation de présence si vous tardez à rentrer",
   "escenarios[slug:salir-de-casa].explicacion": "Pas besoin de penser à rien en fermant la porte : la maison détecte votre départ et ajuste seule la consommation et la présence.",
-
   "escenarios[slug:estas-durmiendo].nombre": "Vous dormez",
   "escenarios[slug:estas-durmiendo].momento": "Votre heure de coucher habituelle approche",
   "escenarios[slug:estas-durmiendo].acciones[0].texto": "L'IA du Sommeil baisse les volets et passe la lumière en teinte chaude",
   "escenarios[slug:estas-durmiendo].acciones[1].texto": "Le Panneau de Qualité de l'Air ventile si le CO₂ augmente",
   "escenarios[slug:estas-durmiendo].acciones[2].texto": "Lever de soleil progressif et intégration avec l'alarme du mobile",
   "escenarios[slug:estas-durmiendo].explicacion": "La chambre se prépare seule avant que vous vous couchiez, et vous réveille en lumière progressive plutôt qu'avec un son brutal.",
-
   "escenarios[slug:alguien-en-la-puerta].nombre": "Quelqu'un à la porte",
   "escenarios[slug:alguien-en-la-puerta].momento": "Une caméra détecte un mouvement à l'entrée",
   "escenarios[slug:alguien-en-la-puerta].acciones[0].texto": "Sécurité IA distingue une vraie personne d'une fausse alarme",
   "escenarios[slug:alguien-en-la-puerta].acciones[1].texto": "Gestion des Colis identifie s'il s'agit d'un livreur et prend une photo",
   "escenarios[slug:alguien-en-la-puerta].acciones[2].texto": "Accès Intelligent enregistre l'accès s'il est autorisé",
   "escenarios[slug:alguien-en-la-puerta].explicacion": "Fini les alertes pour un chat ou une ombre : vous ne recevez un WhatsApp que quand il y a vraiment quelqu'un, avec une photo du moment.",
-
   "escenarios[slug:segunda-residencia-vacia].nombre": "Votre résidence secondaire est vide",
   "escenarios[slug:segunda-residencia-vacia].momento": "Cela fait des semaines que vous n'y êtes pas allé",
   "escenarios[slug:segunda-residencia-vacia].acciones[0].texto": "Maison Présentielle simule une présence avec des motifs de lumière réalistes",
   "escenarios[slug:segunda-residencia-vacia].acciones[1].texto": "Sécurité IA surveille et prévient par WhatsApp en cas d'accès réel",
   "escenarios[slug:segunda-residencia-vacia].acciones[2].texto": "Moteur Météorologique remonte les volets en cas de vent fort",
   "escenarios[slug:segunda-residencia-vacia].explicacion": "Vous contrôlez la propriété d'où que vous soyez, sans avoir à vous déplacer juste pour vérifier que tout va bien.",
-
   "galeria[0].titulo": "Remplacement de tableau électrique + certificat (CIE)",
   "galeria[0].categoria": "Installations de Base",
   "galeria[1].titulo": "Domotique salon + cuisine",
@@ -125,7 +116,6 @@
   "galeria[27].categoria": "Plateforme IA Prédictive",
   "galeria[28].titulo": "Hangar industriel de 450 m²",
   "galeria[28].categoria": "Entrepôts et Domaines",
-
   "instalacionBase.nombre": "Mini-PC IA Central — installation de base obligatoire",
   "instalacionBase.marca": "Cerveau AHOMED",
   "instalacionBase.tagline": "Le système qui connecte et coordonne votre maison.",
@@ -136,7 +126,6 @@
   "instalacionBase.niveles[slug:pro].nombre": "IA PRO",
   "instalacionBase.niveles[slug:pro].subtitulo": "Évoluez sans tout changer — pour 3+ services IA ou Sécurité IA avec plusieurs caméras",
   "instalacionBase.niveles[slug:pro].resumen": "Quand vous voulez plusieurs services à la fois, ou Sécurité IA avec plusieurs caméras en parallèle, mieux vaut plus de puissance pour que tout fonctionne sans latence.",
-
   "familiasIA[slug:seguridad].nombre": "Sécurité",
   "familiasIA[slug:seguridad].resumen": "Sécurité IA, Accès Intelligent, Gestion des Colis et Maison Présentielle.",
   "familiasIA[slug:confort].nombre": "Confort",
@@ -145,7 +134,6 @@
   "familiasIA[slug:familia].resumen": "Seniors, Enfants et Bébés, et Soin des Animaux.",
   "familiasIA[slug:hogar].nombre": "Maison",
   "familiasIA[slug:hogar].resumen": "Cuisine Intelligente.",
-
   "seguridadIANaves.nombre": "Sécurité IA pour Entrepôts et Domaines",
   "seguridadIANaves.titular": "Une surveillance périmétrique qui écarte elle-même les fausses alarmes",
   "seguridadIANaves.subtitulo": "Détection de personnes et de véhicules à grande échelle",
@@ -163,42 +151,36 @@
   "seguridadIANaves.ejemplos[0].titulo": "Hangar industriel de 450 m²",
   "seguridadIANaves.ejemplos[0].subtitulo": "Caméras IA pour hangar ou entrepôt",
   "seguridadIANaves.nota": "Toutes les options supposent déjà l'installation du Mini-PC IA Central (E1, à partir de 590 €, selon le niveau) — elles n'incluent pas de mini-PC d'enregistrement séparé. La Sécurité IA pour hangars avec plusieurs caméras en parallèle demande généralement le niveau IA PRO (950 €). Chiffres indicatifs, à confirmer lors de la visite technique. C'est pour un logement ? Consultez Sécurité IA au sein de la Plateforme IA Prédictive.",
-
   "packs[slug:piso-nuevo].nombre": "Pack Nouveau Logement",
   "packs[slug:piso-nuevo].descripcion": "Emménagez avec tout déjà fonctionnel : électricité, WiFi et portier vidéo prêts dès le premier jour.",
   "packs[slug:piso-nuevo].idealPara": "emménager dans un logement neuf ou préparer un bien pour la location",
   "packs[slug:piso-nuevo].resultado": "Vous allumez la lumière, vous avez le WiFi dans toute la maison et vous voyez qui sonne à l'interphone depuis votre mobile — plus rien à installer.",
   "packs[slug:piso-nuevo].imagenAlt": "Cuisine avec éclairage LED intégré — Pack Nouveau Logement AHOMED",
   "packs[slug:piso-nuevo].nota": "Prix indicatif ; ajusté après la visite technique gratuite selon l'état du tableau actuel et la surface du logement. L'option Complète inclut déjà le Mini-PC IA Central (niveau START) — extensible ensuite avec n'importe lequel des dix autres modes de la Plateforme IA Prédictive.",
-
   "packs[slug:chalet-seguro].nombre": "Pack Villa Sécurisée avec IA",
   "packs[slug:chalet-seguro].descripcion": "Surveillez votre maison même à des kilomètres : des caméras avec IA qui distinguent personnes et véhicules, sans fausses alarmes.",
   "packs[slug:chalet-seguro].idealPara": "villas et résidences secondaires",
   "packs[slug:chalet-seguro].resultado": "Vous recevez une alerte WhatsApp avec l'image du moment quand l'IA détecte une personne ou un véhicule — pas quand une branche bouge.",
   "packs[slug:chalet-seguro].imagenAlt": "Caméra de sécurité extérieure sur clôture de villa — Pack Villa Sécurisée avec IA AHOMED",
   "packs[slug:chalet-seguro].nota": "Sans abonnement mensuel ni contrat avec une centrale d'alarme. Le système fonctionne de façon autonome sur votre propriété, avec IA dès l'option Essentielle.",
-
   "packs[slug:hogar-inteligente].nombre": "Pack Maison avec IA",
   "packs[slug:hogar-inteligente].descripcion": "Le pack qui réunit ce qui fait la différence chez AHOMED : Sécurité IA sans fausses alarmes combinée aux modes de la Plateforme IA Prédictive les plus demandés par les familles.",
   "packs[slug:hogar-inteligente].idealPara": "qui sait déjà vouloir la Sécurité IA et souhaite l'étendre avec d'autres modes",
   "packs[slug:hogar-inteligente].resultado": "L'IA surveille votre maison, anticipe la météo et vous prévient par WhatsApp seulement quand c'est vraiment important.",
   "packs[slug:hogar-inteligente].imagenAlt": "Panneau tactile domotique avec lumières, climat, volets et scènes — Pack Maison avec IA AHOMED",
   "packs[slug:hogar-inteligente].nota": "Prix indicatif ; chaque mode peut être étendu ou remplacé par n'importe lequel des dix de la Plateforme IA Prédictive sans changer le Mini-PC IA Central déjà installé.",
-
   "packs[slug:alquiler-segunda-residencia-ia].nombre": "Pack Résidence Secondaire IA",
   "packs[slug:alquiler-segunda-residencia-ia].descripcion": "Contrôlez votre propriété d'où que vous soyez : sécurité, simulation de présence, gestion des colis et climat/arrosage, sans avoir à vous déplacer pour vérifier que tout va bien.",
   "packs[slug:alquiler-segunda-residencia-ia].idealPara": "logements inoccupés une partie de l'année — location ou résidence secondaire",
   "packs[slug:alquiler-segunda-residencia-ia].resultado": "Vous savez que votre propriété va bien sans avoir à le vérifier — la maison simule une présence et vous prévient si elle détecte quelque chose d'anormal.",
   "packs[slug:alquiler-segunda-residencia-ia].imagenAlt": "Caméra de sécurité sur terrasse avec vue sur mer — Pack Résidence Secondaire IA AHOMED",
   "packs[slug:alquiler-segunda-residencia-ia].nota": "Sans abonnement mensuel ni besoin de vous déplacer pour vérifier l'état du logement. Prix indicatif, ajusté lors de la visite technique selon la distance et l'accessibilité.",
-
   "packs[slug:negocio].nombre": "Pack Sécurité IA pour Entreprises",
   "packs[slug:negocio].descripcion": "Idéal pour hangars, entrepôts, ateliers et locaux commerciaux. Une IA qui écarte les fausses alarmes et vous prévient par WhatsApp seulement quand il y a quelque chose de réel.",
   "packs[slug:negocio].idealPara": "hangars, entrepôts, ateliers et locaux commerciaux",
   "packs[slug:negocio].resultado": "Vous ne recevez une alerte WhatsApp que lorsqu'il y a une personne ou un véhicule en dehors des horaires — pas à chaque fois que quelque chose bouge.",
   "packs[slug:negocio].imagenAlt": "Salle de contrôle avec suivi de caméras et tableau de bord IA — Pack Sécurité IA pour Entreprises AHOMED",
   "packs[slug:negocio].nota": "Extensible avec du CCTV filaire supplémentaire, une intégration avec l'accès des employés ou un contrôle de présence. Sans abonnement mensuel.",
-
   "modos[slug:motor-meteorologico].nombre": "Moteur Météorologique",
   "modos[slug:motor-meteorologico].titular": "Votre jardin décide quand il a besoin d'eau",
   "modos[slug:motor-meteorologico].subtitulo": "Arrosage et volets pilotés par IA climatique",
@@ -208,7 +190,6 @@
   "modos[slug:motor-meteorologico].idealPara[2]": "Résidences secondaires peu visitées",
   "modos[slug:motor-meteorologico].ejemplo.titulo": "Moteur climat + arrosage + volets",
   "modos[slug:motor-meteorologico].ejemplo.nota": "Coût supplémentaire par rapport au Mini-PC IA Central (E1, à partir de 590 €, selon le niveau) : 600 €. Ce mode n'est plus proposé avec un équipement propre indépendant.",
-
   "modos[slug:casa-presencial].nombre": "Maison Présentielle",
   "modos[slug:casa-presencial].titular": "Votre maison sait quand vous arrivez",
   "modos[slug:casa-presencial].subtitulo": "Géolocalisation et scènes automatiques",
@@ -218,7 +199,6 @@
   "modos[slug:casa-presencial].idealPara[2]": "Qui veut rentrer chez soi avec tout déjà prêt",
   "modos[slug:casa-presencial].ejemplo.titulo": "Geofencing + 3 scènes + simulation de présence",
   "modos[slug:casa-presencial].ejemplo.nota": "Coût supplémentaire par rapport au Mini-PC IA Central (E1, à partir de 590 €, selon le niveau) : 620 €. Ce mode n'est plus proposé avec un équipement propre indépendant.",
-
   "modos[slug:ia-sueno].nombre": "IA du Sommeil",
   "modos[slug:ia-sueno].titular": "Votre chambre se prépare pour un meilleur repos",
   "modos[slug:ia-sueno].subtitulo": "Environnement adaptatif pour un repos optimal",
@@ -228,7 +208,6 @@
   "modos[slug:ia-sueno].idealPara[2]": "Qui veut se réveiller sans alarme brutale",
   "modos[slug:ia-sueno].ejemplo.titulo": "Volets + lumière adaptative + intégration avec l'alarme",
   "modos[slug:ia-sueno].ejemplo.nota": "Coût supplémentaire par rapport au Mini-PC IA Central (E1, à partir de 590 €, selon le niveau) : 618 €. Ce mode n'est plus proposé avec un équipement propre indépendant.",
-
   "modos[slug:calidad-aire].nombre": "Panneau de Qualité de l'Air",
   "modos[slug:calidad-aire].titular": "Respirez un air qui se contrôle tout seul",
   "modos[slug:calidad-aire].subtitulo": "CO₂, COV et ventilation pilotés par IA",
@@ -238,7 +217,6 @@
   "modos[slug:calidad-aire].idealPara[2]": "Familles avec jeunes enfants ou allergies",
   "modos[slug:calidad-aire].ejemplo.titulo": "Capteur CO₂ + tableau de bord + alertes automatiques",
   "modos[slug:calidad-aire].ejemplo.nota": "Coût supplémentaire par rapport au Mini-PC IA Central (E1, à partir de 590 €, selon le niveau) : 430 €. Ce mode n'est plus proposé avec un équipement propre indépendant.",
-
   "modos[slug:cuidado-mascotas].nombre": "Soin des Animaux",
   "modos[slug:cuidado-mascotas].titular": "Votre animal, surveillé même en votre absence",
   "modos[slug:cuidado-mascotas].subtitulo": "IA de bien-être animal",
@@ -248,7 +226,6 @@
   "modos[slug:cuidado-mascotas].idealPara[2]": "Qui voyage fréquemment",
   "modos[slug:cuidado-mascotas].ejemplo.titulo": "Suivi + distributeur + contrôle de température",
   "modos[slug:cuidado-mascotas].ejemplo.nota": "Coût supplémentaire par rapport au Mini-PC IA Central (E1, à partir de 590 €, selon le niveau) : 405 €. Ce mode n'est plus proposé avec un équipement propre indépendant.",
-
   "modos[slug:cocina-inteligente].nombre": "Cuisine Intelligente",
   "modos[slug:cocina-inteligente].titular": "Ne vous inquiétez plus jamais d'avoir laissé quelque chose allumé",
   "modos[slug:cocina-inteligente].subtitulo": "Détection de fumée et alerte du four",
@@ -258,7 +235,6 @@
   "modos[slug:cocina-inteligente].idealPara[2]": "Familles avec enfants ou seniors à la maison",
   "modos[slug:cocina-inteligente].ejemplo.titulo": "Détection de fumée + hotte automatique + alerte du four",
   "modos[slug:cocina-inteligente].ejemplo.nota": "Coût supplémentaire par rapport au Mini-PC IA Central (E1, à partir de 590 €, selon le niveau) : 385 €. Le détecteur de fumée/CO connecté passe de 70 € à 100 € dans cette révision : c'est le vrai coût d'un détecteur connecté équivalent (type Nest Protect) en 2026.",
-
   "modos[slug:personas-mayores].nombre": "Seniors",
   "modos[slug:personas-mayores].titular": "La tranquillité pour veiller à distance",
   "modos[slug:personas-mayores].subtitulo": "Téléassistance intelligente sans abonnement",
@@ -268,7 +244,6 @@
   "modos[slug:personas-mayores].idealPara[2]": "Logements avec plusieurs générations",
   "modos[slug:personas-mayores].ejemplo.titulo": "Absence de mouvement + détection de chutes par IA",
   "modos[slug:personas-mayores].ejemplo.nota": "Coût supplémentaire par rapport au Mini-PC IA Central (E1, à partir de 590 €, selon le niveau) : 540 €. Ce mode n'est plus proposé avec un équipement propre indépendant. Ne remplace pas la téléassistance sanitaire officielle.",
-
   "modos[slug:modo-ninos].videosExtra[0].titulo": "Bébés",
   "modos[slug:modo-ninos].nombre": "Enfants et Bébés",
   "modos[slug:modo-ninos].titular": "Vous saurez qu'ils sont bien arrivés, sans avoir à demander",
@@ -280,7 +255,6 @@
   "modos[slug:modo-ninos].idealPara[3]": "Qui veut une confirmation automatique d'arrivée",
   "modos[slug:modo-ninos].ejemplo.titulo": "Geofencing + alerte d'arrivée + scène de bienvenue",
   "modos[slug:modo-ninos].ejemplo.nota": "Coût supplémentaire par rapport au Mini-PC IA Central (E1, à partir de 590 €, selon le niveau) : 385 €. L'option Intelligente suppose une serrure intelligente déjà installée (bloc Sécurité et Accès).",
-
   "modos[slug:gestion-paquetes].nombre": "Gestion des Colis",
   "modos[slug:gestion-paquetes].titular": "Ne ratez plus jamais un colis",
   "modos[slug:gestion-paquetes].subtitulo": "Détection des livreurs par IA",
@@ -290,7 +264,6 @@
   "modos[slug:gestion-paquetes].idealPara[2]": "Entreprises recevant des marchandises",
   "modos[slug:gestion-paquetes].ejemplo.titulo": "Détection de colis + photo automatique + alerte WhatsApp",
   "modos[slug:gestion-paquetes].ejemplo.nota": "Coût supplémentaire par rapport au Mini-PC IA Central (E1, à partir de 590 €, selon le niveau) : 320 €. Ce mode n'est plus proposé avec un équipement propre indépendant.",
-
   "modos[slug:seguridad-ia].nombre": "Sécurité IA",
   "modos[slug:seguridad-ia].titular": "Qu'une caméra ne se contente pas d'enregistrer : qu'elle comprenne ce qui se passe",
   "modos[slug:seguridad-ia].subtitulo": "Détection de personnes et véhicules, sans fausses alarmes",
@@ -307,7 +280,6 @@
   "modos[slug:seguridad-ia].ejemplos[0].titulo": "Logement : kit de surveillance avec alertes WhatsApp",
   "modos[slug:seguridad-ia].ejemplos[0].subtitulo": "Maison individuelle · 2 à 6 caméras selon l'option",
   "modos[slug:seguridad-ia].nota": "Toutes les options supposent déjà l'installation du Mini-PC IA Central (E1, à partir de 590 €, selon le niveau) — elles n'incluent pas de mini-PC d'enregistrement séparé. Exception : l'option Complète ajoute un serveur avec GPU dédié pour la reconnaissance faciale en temps réel, une charge que le mini-PC central ne couvre pas. Chiffres indicatifs, à confirmer lors de la visite technique. Vous avez un hangar, un entrepôt ou un domaine plutôt qu'un logement ? Consultez Sécurité IA pour Entrepôts et Domaines.",
-
   "modos[slug:acceso-inteligente].videosExtra[0].titulo": "Véhicule autorisé",
   "modos[slug:acceso-inteligente].videosExtra[1].titulo": "Véhicule non autorisé",
   "modos[slug:acceso-inteligente].nombre": "Accès Intelligent",
@@ -319,7 +291,6 @@
   "modos[slug:acceso-inteligente].idealPara[2]": "Familles qui veulent arrêter d'utiliser une télécommande ou une clé",
   "modos[slug:acceso-inteligente].ejemplo.titulo": "Accès porte principale + garage",
   "modos[slug:acceso-inteligente].ejemplo.nota": "Coût supplémentaire par rapport au Mini-PC IA Central (E1, à partir de 590 €, selon le niveau) : à partir de 620 €. Suppose une serrure intelligente et/ou un moteur de garage déjà installés (bloc Sécurité et Accès).",
-
   "services[slug:electricidad].nombre": "Électricité",
   "services[slug:electricidad].resumen": "Tableaux électriques, certificats, pannes, points de recharge et éclairage. La base de toute installation sûre.",
   "services[slug:electricidad].tiempo": "Demi-journée",
@@ -341,7 +312,6 @@
   "services[slug:electricidad].ejemplosAdicionales[0].titulo": "Point de recharge pour voiture électrique (borne murale)",
   "services[slug:electricidad].ejemplosAdicionales[0].cliente": "Installation d'une borne murale domestique, du tableau électrique jusqu'au garage ou à la place de parking",
   "services[slug:electricidad].ejemplosAdicionales[0].nota": "Si le tableau électrique n'a pas de capacité disponible ou s'il faut tirer une nouvelle ligne depuis le compteur, cela est chiffré à part après la visite technique.",
-
   "services[slug:domotica].nombre": "Domotique",
   "services[slug:domotica].resumen": "Faites en sorte que votre maison agisse pour vous. Lumières, volets, climatisation, arrosage et scènes automatiques pilotés depuis le mobile — d'une seule pièce jusqu'au logement complet.",
   "services[slug:domotica].tiempo": "Intervention rapide (par pièce)",
@@ -380,7 +350,6 @@
   "services[slug:domotica].ejemplosAdicionales[4].titulo": "Automatisation de piscine (filtration, lumière et suivi)",
   "services[slug:domotica].ejemplosAdicionales[4].cliente": "Piscine de maison individuelle",
   "services[slug:domotica].ejemplosAdicionales[4].nota": "La sonde de qualité de l'eau prévient par appli quand le pH ou le niveau de chlore sort de la plage recommandée, avant que l'eau ne soit affectée.",
-
   "services[slug:energia-solar].nombre": "Énergie solaire",
   "services[slug:energia-solar].resumen": "D'un kit de balcon qui se branche directement jusqu'à des panneaux en autoconsommation sur le toit. Vous ne pouvez pas installer de panneaux sur le toit ? Commencez par votre terrasse.",
   "services[slug:energia-solar].tiempo": "Demi-journée",
@@ -402,7 +371,6 @@
   "services[slug:energia-solar].ejemplosAdicionales[1].titulo": "Gestion énergétique intelligente (tarif dynamique)",
   "services[slug:energia-solar].ejemplosAdicionales[1].cliente": "Logement avec tableau ancien et compteur classique, sans visibilité sur la consommation ni exploitation des heures creuses du tarif électrique",
   "services[slug:energia-solar].ejemplosAdicionales[1].nota": "Compatible avec toute installation électrique existante, avec ou sans panneaux solaires. Chiffres indicatifs, à confirmer lors de la visite technique.",
-
   "services[slug:seguridad].nombre": "Sécurité",
   "services[slug:seguridad].resumen": "Caméras, alarmes, portier vidéo et serrures intelligentes. Enregistrement local, sans abonnement mensuel — et pour que le système interprète aussi ce qu'il voit et prévienne par WhatsApp, ajoutez Sécurité IA. Équipement propriété du client dès le premier jour.",
   "services[slug:seguridad].tiempo": "Intervention rapide",
@@ -427,7 +395,6 @@
   "services[slug:seguridad].ejemplosAdicionales[1].titulo": "Vidéosurveillance CCTV",
   "services[slug:seguridad].ejemplosAdicionales[1].cliente": "Caméras PoE filaires (plus fiables que le WiFi) avec enregistrement local, sans abonnement mensuel. Enregistrement seul : si vous voulez aussi que la caméra comprenne ce qu'elle voit et vous prévienne par WhatsApp, voyez Sécurité IA.",
   "services[slug:seguridad].ejemplosAdicionales[1].nota": "Le prix dépend de la distance réelle de câblage entre les caméras et le point d'enregistrement ; confirmé lors de la visite technique. Vous avez déjà des caméras et voulez juste qu'elles réfléchissent ? Voyez Sécurité IA — pas besoin de souscrire aux deux.",
-
   "services[slug:redes-informatica].nombre": "Réseaux et informatique",
   "services[slug:redes-informatica].resumen": "Un WiFi rapide et stable dans toute votre maison, sans zone morte. Base indispensable pour la domotique et l'IA.",
   "services[slug:redes-informatica].tiempo": "Intervention rapide",
@@ -447,7 +414,6 @@
   "services[slug:redes-informatica].ejemplosAdicionales[0].titulo": "Armoire de communications et baie de brassage",
   "services[slug:redes-informatica].ejemplosAdicionales[0].cliente": "Logement avec routeur et câblage apparents, 4 prises réseau",
   "services[slug:redes-informatica].ejemplosAdicionales[0].nota": "Centraliser l'ONT, le routeur et le switch dans une seule armoire facilite la maintenance et évite que le routeur reste visible dans le salon.",
-
   "services[slug:climatizacion].nombre": "Climatisation",
   "services[slug:climatizacion].resumen": "Installation de climatisation, d'une pièce jusqu'au logement complet avec système multisplit.",
   "services[slug:climatizacion].tiempo": "Une journée",
@@ -466,7 +432,6 @@
   "services[slug:climatizacion].ejemplosAdicionales[0].titulo": "Climatisation multisplit pour tout le logement",
   "services[slug:climatizacion].ejemplosAdicionales[0].cliente": "Une seule unité extérieure desservant plusieurs pièces, avec contrôle indépendant par pièce",
   "services[slug:climatizacion].ejemplosAdicionales[0].nota": "Le devis final dépend du nombre de pièces, des distances entre unité extérieure et unités intérieures, et de l'accessibilité de la façade. L'option Complète utilise un équipement A+++ haut de gamme avec contrôle WiFi par zone.",
-
   "services[slug:antenas].nombre": "Antennes",
   "services[slug:antenas].resumen": "TV par satellite et TNT, pour un logement ou pour toute une copropriété.",
   "services[slug:antenas].tiempo": "Intervention rapide",
@@ -484,7 +449,6 @@
   "services[slug:antenas].ejemplosAdicionales[0].titulo": "Antenne TNT collective d'immeuble",
   "services[slug:antenas].ejemplosAdicionales[0].cliente": "Installation collective de réception TNT pour tout un immeuble ou une copropriété",
   "services[slug:antenas].ejemplosAdicionales[0].nota": "Le nombre de prises et l'état des descentes existantes se confirment lors de la visite technique ; un remplacement partiel du câblage ancien peut être nécessaire.",
-
   "services[slug:reparaciones-reformas].nombre": "Réparations et travaux",
   "services[slug:reparaciones-reformas].resumen": "Peinture, carrelage, montage de meubles et petits travaux de salle de bain et de cuisine.",
   "services[slug:reparaciones-reformas].tiempo": "Une journée",
@@ -514,7 +478,6 @@
   "services[slug:reparaciones-reformas].ejemplosAdicionales[3].titulo": "Rénovation complète de cuisine",
   "services[slug:reparaciones-reformas].ejemplosAdicionales[3].cliente": "Cuisine de 9 m², avec changement de disposition",
   "services[slug:reparaciones-reformas].ejemplosAdicionales[3].nota": "Le changement de disposition (déplacer la plomberie ou l'électricité) nécessite une visite technique préalable pour confirmer la faisabilité selon l'installation existante de l'immeuble.",
-
   "services[slug:fontaneria].nombre": "Plomberie et fuites",
   "services[slug:fontaneria].resumen": "Robinetterie, sanitaires et réparation de fuites.",
   "services[slug:fontaneria].tiempo": "Demi-journée",
@@ -529,7 +492,6 @@
   "services[slug:fontaneria].ejemplo.nota": "S'il faut percer un mur ou le sol pour déplacer des points d'eau/d'évacuation, c'est chiffré à part selon la portée réelle (maçonnerie + carrelage).",
   "services[slug:fontaneria].tambienInstalaron[0].texto": "Carrelage de salle de bain",
   "services[slug:fontaneria].tambienInstalaron[1].texto": "Petite rénovation de salle de bain",
-
   "services[slug:pladur].nombre": "Placo",
   "services[slug:pladur].resumen": "Cloisons et faux plafonds, avec éclairage LED intégré — et si vous le souhaitez, réglable depuis le mobile en combinant placo, électricité et domotique lors de la même visite.",
   "services[slug:pladur].tiempo": "Une journée",
@@ -547,7 +509,6 @@
   "services[slug:pladur].ejemplosAdicionales[0].titulo": "Faux plafond placo avec éclairage encastré (salon, 18 m²)",
   "services[slug:pladur].ejemplosAdicionales[0].cliente": "Salon sans éclairage indirect, avec plafond lisse classique.",
   "services[slug:pladur].ejemplosAdicionales[0].nota": "Le câblage électrique des points lumière est inclus dans la main-d'œuvre ; le raccordement au tableau électrique général est chiffré à part s'il n'y a pas déjà un circuit disponible à proximité.",
-
   "services[slug:mantenimiento].nombre": "Maintenance et contrats",
   "services[slug:mantenimiento].resumen": "Pour les clients ayant déjà une installation domotique, de sécurité ou électrique réalisée par AHOMED. Tranquillité toute l'année.",
   "services[slug:mantenimiento].tiempo": "Visite programmée",
@@ -557,7 +518,6 @@
   "services[slug:mantenimiento].ejemplo.titulo": "Contrat de maintenance",
   "services[slug:mantenimiento].ejemplo.nota": "Le bon ne couvre pas le remplacement de dispositifs endommagés par une mauvaise utilisation ou l'usure, ni les travaux de génie civil.",
   "services[slug:mantenimiento].extras[0]": "Réentraînement du modèle d'IA (systèmes de détection intelligente)",
-
   "services[slug:electricidad-nave].nombre": "Électricité — Entrepôts et Domaines",
   "services[slug:electricidad-nave].resumen": "Tableaux triphasés, certificats CIE haute puissance, raccordements et mise à niveau électrique selon l'activité. Pensé pour les hangars, entrepôts et exploitations, pas pour le tableau d'un logement. Étude préalable selon la puissance et l'activité — il n'y a pas de prix standard dans l'industriel.",
   "services[slug:electricidad-nave].tiempo": "Une journée complète ou plus, selon la puissance",
@@ -573,7 +533,6 @@
   "services[slug:electricidad-nave].tambienInstalaron[0].texto": "Réseaux et informatique pour hangar",
   "services[slug:electricidad-nave].tambienInstalaron[1].texto": "Énergie solaire en autoconsommation",
   "services[slug:electricidad-nave].tambienInstalaron[2].texto": "Sécurité IA pour Entrepôts et Domaines",
-
   "services[slug:redes-nave].nombre": "Réseaux et informatique — Entrepôts et Domaines",
   "services[slug:redes-nave].resumen": "WiFi industriel qui traverse les structures métalliques et les rayonnages, et câblage structuré pour les bureaux à l'intérieur du hangar. Ce n'est pas un routeur domestique avec plus de portée — c'est un réseau pensé pour ne pas tomber pendant l'activité.",
   "services[slug:redes-nave].tiempo": "1-2 journées selon la surface",
@@ -588,7 +547,6 @@
   "services[slug:redes-nave].extras[2]": "Caméra IP intégrée au même réseau (voir Sécurité IA pour Entrepôts et Domaines)",
   "services[slug:redes-nave].tambienInstalaron[0].texto": "Électricité pour hangar",
   "services[slug:redes-nave].tambienInstalaron[1].texto": "Sécurité IA pour Entrepôts et Domaines",
-
   "services[slug:fontaneria-nave].nombre": "Plomberie — Entrepôts et Domaines",
   "services[slug:fontaneria-nave].resumen": "Réseaux d'irrigation pour domaine, assainissement industriel et points d'eau pour hangar ou exploitation. Ce n'est pas la robinetterie d'une salle de bain — ce sont des débits, des pressions et des tracés d'une autre échelle.",
   "services[slug:fontaneria-nave].tiempo": "Selon la portée de l'installation",
@@ -604,7 +562,6 @@
   "services[slug:fontaneria-nave].tambienInstalaron[0].texto": "Électricité pour hangar",
   "services[slug:fontaneria-nave].tambienInstalaron[1].texto": "Gestion Intelligente de l'Énergie",
   "services[slug:fontaneria-nave].tambienInstalaron[2].texto": "Sécurité IA pour Entrepôts et Domaines",
-
   "services[slug:mantenimiento-nave].nombre": "Maintenance — Entrepôts et Domaines",
   "services[slug:mantenimiento-nave].resumen": "Pour les entreprises ayant déjà une installation électrique, de Sécurité IA ou de réseau réalisée par AHOMED. Une révision pensée pour que l'activité ne s'arrête pas, pas pour le rythme d'un logement.",
   "services[slug:mantenimiento-nave].tiempo": "Visite programmée",
@@ -615,5 +572,42 @@
   "services[slug:mantenimiento-nave].ejemplo.titulo": "Contrat de maintenance pour hangar ou domaine",
   "services[slug:mantenimiento-nave].ejemplo.nota": "Le bon ne couvre pas le remplacement de dispositifs endommagés par une mauvaise utilisation, les travaux de génie civil, ni l'inspection périodique obligatoire des installations de plus de 100 kW (chiffrée à part, c'est une démarche indépendante avec un organisme de contrôle agréé).",
   "services[slug:mantenimiento-nave].extras[0]": "Réentraînement du modèle d'IA après changement d'activité ou d'agencement du hangar",
-  "services[slug:mantenimiento-nave].extras[1]": "Gestion de l'inspection périodique (installations de plus de 100 kW)"
+  "services[slug:mantenimiento-nave].extras[1]": "Gestion de l'inspection périodique (installations de plus de 100 kW)",
+  "services[slug:electricidad].ejemplo.opciones[0].nombre": "Essentielle",
+  "services[slug:electricidad].ejemplo.opciones[0].items[0][0]": "Main d'œuvre (environ 4 h)",
+  "services[slug:electricidad].ejemplo.opciones[0].items[1][0]": "Tableau électrique 12 modules + disjoncteurs",
+  "services[slug:electricidad].ejemplo.opciones[0].items[2][0]": "Différentiel 30 mA standard",
+  "services[slug:electricidad].ejemplo.opciones[0].items[3][0]": "Matériel et petit câblage",
+  "services[slug:electricidad].ejemplo.opciones[0].items[4][0]": "Certificat électrique (CIE) : démarches et inspection",
+  "services[slug:electricidad].ejemplo.opciones[1].nombre": "Intelligente",
+  "services[slug:electricidad].ejemplo.opciones[1].items[0][0]": "Main d'œuvre (environ 5 h)",
+  "services[slug:electricidad].ejemplo.opciones[1].items[1][0]": "Tableau électrique 12 modules + disjoncteurs",
+  "services[slug:electricidad].ejemplo.opciones[1].items[2][0]": "Différentiel superimmunisé (ne se déclenche pas au simple démarrage du micro-ondes ou du lave-linge)",
+  "services[slug:electricidad].ejemplo.opciones[1].items[3][0]": "Matériel et câblage",
+  "services[slug:electricidad].ejemplo.opciones[1].items[4][0]": "Certificat électrique (CIE) : démarches et inspection",
+  "services[slug:electricidad].ejemplo.opciones[2].nombre": "Complète",
+  "services[slug:electricidad].ejemplo.opciones[2].items[0][0]": "Main d'œuvre (environ 6 h)",
+  "services[slug:electricidad].ejemplo.opciones[2].items[1][0]": "Tableau électrique 12 modules + disjoncteurs",
+  "services[slug:electricidad].ejemplo.opciones[2].items[2][0]": "Différentiel superimmunisé (ne se déclenche pas au simple démarrage du micro-ondes ou du lave-linge)",
+  "services[slug:electricidad].ejemplo.opciones[2].items[3][0]": "Parafoudre (protège vos appareils électroniques d'une surtension du réseau)",
+  "services[slug:electricidad].ejemplo.opciones[2].items[4][0]": "Matériel et câblage",
+  "services[slug:electricidad].ejemplo.opciones[2].items[5][0]": "Certificat électrique (CIE) : démarches et inspection",
+  "services[slug:electricidad].ejemplosAdicionales[0].opciones[0].nombre": "Essentielle — wallbox 7,4 kW, installation courte (jusqu'à 5 m)",
+  "services[slug:electricidad].ejemplosAdicionales[0].opciones[0].items[0][0]": "Main d'œuvre et installation (jusqu'à 5 m depuis le tableau)",
+  "services[slug:electricidad].ejemplosAdicionales[0].opciones[0].items[1][0]": "Wallbox monophasée 7,4 kW",
+  "services[slug:electricidad].ejemplosAdicionales[0].opciones[0].items[2][0]": "Ligne électrique dédiée + protections (disjoncteur et différentiel)",
+  "services[slug:electricidad].ejemplosAdicionales[0].opciones[0].items[3][0]": "Matériel (goulotte, câblage)",
+  "services[slug:electricidad].ejemplosAdicionales[0].opciones[1].nombre": "Intelligente — wallbox connectée + gestion de charge ⭐",
+  "services[slug:electricidad].ejemplosAdicionales[0].opciones[1].items[0][0]": "Main d'œuvre et installation (jusqu'à 8 m)",
+  "services[slug:electricidad].ejemplosAdicionales[0].opciones[1].items[1][0]": "Wallbox 7,4 kW avec connexion WiFi et application de contrôle",
+  "services[slug:electricidad].ejemplosAdicionales[0].opciones[1].items[2][0]": "Ligne électrique dédiée + protections",
+  "services[slug:electricidad].ejemplosAdicionales[0].opciones[1].items[3][0]": "Matériel",
+  "services[slug:electricidad].ejemplosAdicionales[0].opciones[1].items[4][0]": "Certificat électrique (CIE) de la nouvelle ligne",
+  "services[slug:electricidad].ejemplosAdicionales[0].opciones[2].nombre": "Complète — wallbox triphasée 22 kW + gestion dynamique de puissance",
+  "services[slug:electricidad].ejemplosAdicionales[0].opciones[2].items[0][0]": "Main d'œuvre et installation (jusqu'à 10 m, ligne triphasée)",
+  "services[slug:electricidad].ejemplosAdicionales[0].opciones[2].items[1][0]": "Wallbox triphasée 22 kW avec application et programmation horaire",
+  "services[slug:electricidad].ejemplosAdicionales[0].opciones[2].items[2][0]": "Ligne électrique dédiée + protections renforcées",
+  "services[slug:electricidad].ejemplosAdicionales[0].opciones[2].items[3][0]": "Gestionnaire de charge dynamique (évite les déclenchements du disjoncteur général en cas d'autres fortes consommations)",
+  "services[slug:electricidad].ejemplosAdicionales[0].opciones[2].items[4][0]": "Matériel",
+  "services[slug:electricidad].ejemplosAdicionales[0].opciones[2].items[5][0]": "Certificat électrique (CIE)"
 }

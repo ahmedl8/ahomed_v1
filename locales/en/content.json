@@ -4,19 +4,16 @@
   "ventajas[2]": "No monthly fees on the solutions that don't need them",
   "ventajas[3]": "A system that can grow with you",
   "ventajas[4]": "You talk directly to the technician",
-
   "comoFunciona[0]": "You message me on WhatsApp and tell me what you need.",
   "comoFunciona[1]": "I visit your home or business — the first visit is free.",
   "comoFunciona[2]": "I prepare clear options for you: Essential, Smart and Complete.",
   "comoFunciona[3]": "You decide. No obligation, no small print.",
   "comoFunciona[4]": "We install it and I show you how to use everything.",
-
   "empresa.whatsappDisplay": "+34 671 176 482",
   "empresa.eslogan": "The smart layer of your home",
   "empresa.zona": "Madrid and surrounding areas",
   "empresa.anosExperiencia": "10 years",
   "empresa.metaDescriptionDefault": "AHOMED — Smart security, home automation, AI, networks and energy for your home or business in Madrid and surrounding areas. We work with renovators, developers and installers. First visit free.",
-
   "bloques[slug:seguridad-accesos].nombre": "Security and Access",
   "bloques[slug:seguridad-accesos].resumen": "Cameras, alarms, video intercom and smart locks — recording only, no AI analysis.",
   "bloques[slug:instalaciones-base].nombre": "Base Installations",
@@ -31,42 +28,36 @@
   "bloques[slug:mantenimiento].resumen": "Review and AI retraining contracts for any AHOMED installation.",
   "bloques[slug:reformas].nombre": "Supporting Renovations",
   "bloques[slug:reformas].resumen": "Painting, tiling, plumbing, drywall and furniture assembly — as a complement to an AHOMED installation, not as a standalone service.",
-
   "escenarios[slug:llegar-a-casa].nombre": "Arriving home",
   "escenarios[slug:llegar-a-casa].momento": "Your car approaches the gate",
   "escenarios[slug:llegar-a-casa].acciones[0].texto": "Smart Access recognizes the vehicle and opens the garage",
   "escenarios[slug:llegar-a-casa].acciones[1].texto": "Home Presence activates the welcome scene: lights, climate",
   "escenarios[slug:llegar-a-casa].acciones[2].texto": "Everything is ready before you've parked",
   "escenarios[slug:llegar-a-casa].explicacion": "The mini-PC cross-checks license plate recognition with the phone's geofencing: if it's you, it opens; if not, it alerts you on WhatsApp with a photo instead of opening.",
-
   "escenarios[slug:salir-de-casa].nombre": "Leaving home",
   "escenarios[slug:salir-de-casa].momento": "Your phone moves outside the home's geoperimeter",
   "escenarios[slug:salir-de-casa].acciones[0].texto": "Home Presence turns off the lights and sets the climate to savings mode",
   "escenarios[slug:salir-de-casa].acciones[1].texto": "Weather Engine decides whether the irrigation can wait",
   "escenarios[slug:salir-de-casa].acciones[2].texto": "Presence simulation if you'll be out for a while",
   "escenarios[slug:salir-de-casa].explicacion": "No need to remember anything as you close the door: the house detects you've left and adjusts consumption and presence on its own.",
-
   "escenarios[slug:estas-durmiendo].nombre": "You're asleep",
   "escenarios[slug:estas-durmiendo].momento": "Your usual bedtime is approaching",
   "escenarios[slug:estas-durmiendo].acciones[0].texto": "Sleep AI lowers the blinds and shifts the lighting to a warm tone",
   "escenarios[slug:estas-durmiendo].acciones[1].texto": "The Air Quality Panel ventilates if CO₂ rises",
   "escenarios[slug:estas-durmiendo].acciones[2].texto": "Gradual sunrise and integration with your phone's alarm",
   "escenarios[slug:estas-durmiendo].explicacion": "The bedroom gets itself ready before you go to bed, and wakes you with gradual light instead of a jarring sound.",
-
   "escenarios[slug:alguien-en-la-puerta].nombre": "Someone at the door",
   "escenarios[slug:alguien-en-la-puerta].momento": "A camera detects movement at the entrance",
   "escenarios[slug:alguien-en-la-puerta].acciones[0].texto": "AI Security tells a real person apart from a false alarm",
   "escenarios[slug:alguien-en-la-puerta].acciones[1].texto": "Package Management identifies whether it's a courier and takes a photo",
   "escenarios[slug:alguien-en-la-puerta].acciones[2].texto": "Smart Access logs the entry if it's authorized",
   "escenarios[slug:alguien-en-la-puerta].explicacion": "No alerts over a cat or a shadow: you only get a WhatsApp message when there's really someone there, with a photo of the moment.",
-
   "escenarios[slug:segunda-residencia-vacia].nombre": "Your second home is empty",
   "escenarios[slug:segunda-residencia-vacia].momento": "You haven't set foot in the house for weeks",
   "escenarios[slug:segunda-residencia-vacia].acciones[0].texto": "Home Presence simulates occupancy with realistic lighting patterns",
   "escenarios[slug:segunda-residencia-vacia].acciones[1].texto": "AI Security watches and alerts you on WhatsApp for any real access",
   "escenarios[slug:segunda-residencia-vacia].acciones[2].texto": "Weather Engine raises the blinds if there's strong wind",
   "escenarios[slug:segunda-residencia-vacia].explicacion": "You keep control of the property from wherever you are, without having to travel just to check that everything's fine.",
-
   "galeria[0].titulo": "Electrical panel replacement + certification",
   "galeria[0].categoria": "Base Installations",
   "galeria[1].titulo": "Living room + kitchen home automation",
@@ -125,7 +116,6 @@
   "galeria[27].categoria": "Predictive AI Platform",
   "galeria[28].titulo": "450 m² industrial warehouse",
   "galeria[28].categoria": "Warehouses and Estates",
-
   "instalacionBase.nombre": "Central AI Mini-PC — mandatory base installation",
   "instalacionBase.marca": "AHOMED Brain",
   "instalacionBase.tagline": "The system that connects and coordinates your home.",
@@ -136,7 +126,6 @@
   "instalacionBase.niveles[slug:pro].nombre": "AI PRO",
   "instalacionBase.niveles[slug:pro].subtitulo": "Grow without changing everything — for 3+ AI services or AI Security with multiple cameras",
   "instalacionBase.niveles[slug:pro].resumen": "When you want several services at once, or AI Security with multiple cameras running in parallel, it's worth having more power so everything runs smoothly without lag.",
-
   "familiasIA[slug:seguridad].nombre": "Security",
   "familiasIA[slug:seguridad].resumen": "AI Security, Smart Access, Package Management and Home Presence.",
   "familiasIA[slug:confort].nombre": "Comfort",
@@ -145,7 +134,6 @@
   "familiasIA[slug:familia].resumen": "Elderly Care, Kids and Babies, and Pet Care.",
   "familiasIA[slug:hogar].nombre": "Home",
   "familiasIA[slug:hogar].resumen": "Smart Kitchen.",
-
   "seguridadIANaves.nombre": "AI Security for Warehouses and Estates",
   "seguridadIANaves.titular": "Perimeter surveillance that rules out false alarms on its own",
   "seguridadIANaves.subtitulo": "Large-scale detection of people and vehicles",
@@ -163,42 +151,36 @@
   "seguridadIANaves.ejemplos[0].titulo": "450 m² industrial warehouse",
   "seguridadIANaves.ejemplos[0].subtitulo": "AI cameras for a warehouse or storage facility",
   "seguridadIANaves.nota": "All options already assume you have the Central AI Mini-PC installed (E1, from €590, depending on tier) — they don't include a separate recording mini-PC. AI Security for warehouses with several cameras running in parallel usually calls for the AI PRO tier (€950). Figures are indicative, to be confirmed on a technical visit. Is this for a home instead? Check out AI Security within the Predictive AI Platform.",
-
   "packs[slug:piso-nuevo].nombre": "New Home Pack",
   "packs[slug:piso-nuevo].descripcion": "Move in with everything already working: electricity, WiFi and video intercom ready from day one.",
   "packs[slug:piso-nuevo].idealPara": "moving into a new home or preparing a property for rent",
   "packs[slug:piso-nuevo].resultado": "You turn on the light, you have WiFi throughout the house, and you can see who's at the door from your phone — nothing left to install.",
   "packs[slug:piso-nuevo].imagenAlt": "Kitchen with integrated LED lighting — AHOMED New Home Pack",
   "packs[slug:piso-nuevo].nota": "Indicative price; adjusted after the free technical visit based on the condition of the current panel and the size of the home. The Complete option already includes the Central AI Mini-PC (START tier) — can be expanded later with any of the other ten Predictive AI Platform modes.",
-
   "packs[slug:chalet-seguro].nombre": "AI-Secured Home Pack",
   "packs[slug:chalet-seguro].descripcion": "Watch over your home even from miles away: AI cameras that tell people and vehicles apart, with no false alarms.",
   "packs[slug:chalet-seguro].idealPara": "houses and second homes",
   "packs[slug:chalet-seguro].resultado": "You get a WhatsApp alert with a photo of the moment when the AI detects a person or a vehicle — not when a branch moves.",
   "packs[slug:chalet-seguro].imagenAlt": "Outdoor security camera over a house fence — AHOMED AI-Secured Home Pack",
   "packs[slug:chalet-seguro].nota": "No monthly fee or alarm monitoring contract. The system works autonomously on your property, with AI from the Essential option onward.",
-
   "packs[slug:hogar-inteligente].nombre": "AI Home Pack",
   "packs[slug:hogar-inteligente].descripcion": "The pack that brings together what makes AHOMED different: AI Security with no false alarms combined with the Predictive AI Platform modes families ask for most.",
   "packs[slug:hogar-inteligente].idealPara": "anyone who already knows they want AI Security and wants to expand it with more modes",
   "packs[slug:hogar-inteligente].resultado": "The AI watches over your home, anticipates the weather, and alerts you on WhatsApp only when it really matters.",
   "packs[slug:hogar-inteligente].imagenAlt": "Touch panel for home automation with lights, climate, blinds and scenes — AHOMED AI Home Pack",
   "packs[slug:hogar-inteligente].nota": "Indicative price; each mode can be expanded or swapped for any of the ten Predictive AI Platform modes without changing the Central AI Mini-PC already installed.",
-
   "packs[slug:alquiler-segunda-residencia-ia].nombre": "AI Second Home Pack",
   "packs[slug:alquiler-segunda-residencia-ia].descripcion": "Control your property from wherever you are: security, presence simulation, package management and climate/irrigation, without having to travel to check everything's fine.",
   "packs[slug:alquiler-segunda-residencia-ia].idealPara": "homes not lived in year-round — rentals or second homes",
   "packs[slug:alquiler-segunda-residencia-ia].resultado": "You know your property is fine without going to check — the house simulates occupancy and alerts you if it detects anything unusual.",
   "packs[slug:alquiler-segunda-residencia-ia].imagenAlt": "Security camera on a terrace with sea views — AHOMED AI Second Home Pack",
   "packs[slug:alquiler-segunda-residencia-ia].nota": "No monthly fee and no need to travel to check on the property. Indicative price, adjusted on the technical visit based on distance and accessibility.",
-
   "packs[slug:negocio].nombre": "AI Security Pack for Businesses",
   "packs[slug:negocio].descripcion": "Ideal for warehouses, storage facilities, workshops and business premises. AI that rules out false alarms and alerts you on WhatsApp only when something real happens.",
   "packs[slug:negocio].idealPara": "warehouses, storage facilities, workshops and business premises",
   "packs[slug:negocio].resultado": "You only get a WhatsApp alert when there's a person or vehicle outside business hours — not every time something moves.",
   "packs[slug:negocio].imagenAlt": "Control room with camera monitoring and AI dashboard — AHOMED AI Security Pack for Businesses",
   "packs[slug:negocio].nota": "Expandable with additional wired CCTV, integration with employee access, or presence control. No monthly fee.",
-
   "modos[slug:motor-meteorologico].nombre": "Weather Engine",
   "modos[slug:motor-meteorologico].titular": "Your garden decides when it needs water",
   "modos[slug:motor-meteorologico].subtitulo": "Irrigation and blinds driven by climate AI",
@@ -208,7 +190,6 @@
   "modos[slug:motor-meteorologico].idealPara[2]": "Second homes that are visited infrequently",
   "modos[slug:motor-meteorologico].ejemplo.titulo": "Climate engine + irrigation + blinds",
   "modos[slug:motor-meteorologico].ejemplo.nota": "Extra cost on top of the Central AI Mini-PC (E1, from €590, depending on tier): €600. This mode is no longer offered with its own standalone equipment.",
-
   "modos[slug:casa-presencial].nombre": "Home Presence",
   "modos[slug:casa-presencial].titular": "Your house knows when you're arriving",
   "modos[slug:casa-presencial].subtitulo": "Geolocation and automatic scenes",
@@ -218,7 +199,6 @@
   "modos[slug:casa-presencial].idealPara[2]": "Anyone who wants to come home to everything ready",
   "modos[slug:casa-presencial].ejemplo.titulo": "Geofencing + 3 scenes + presence simulation",
   "modos[slug:casa-presencial].ejemplo.nota": "Extra cost on top of the Central AI Mini-PC (E1, from €590, depending on tier): €620. This mode is no longer offered with its own standalone equipment.",
-
   "modos[slug:ia-sueno].nombre": "Sleep AI",
   "modos[slug:ia-sueno].titular": "Your bedroom gets ready so you rest better",
   "modos[slug:ia-sueno].subtitulo": "Adaptive environment for optimal rest",
@@ -228,7 +208,6 @@
   "modos[slug:ia-sueno].idealPara[2]": "Anyone who wants to wake up without a jarring alarm",
   "modos[slug:ia-sueno].ejemplo.titulo": "Blinds + adaptive lighting + alarm integration",
   "modos[slug:ia-sueno].ejemplo.nota": "Extra cost on top of the Central AI Mini-PC (E1, from €590, depending on tier): €618. This mode is no longer offered with its own standalone equipment.",
-
   "modos[slug:calidad-aire].nombre": "Air Quality Panel",
   "modos[slug:calidad-aire].titular": "Breathe air that regulates itself",
   "modos[slug:calidad-aire].subtitulo": "CO₂, VOCs and ventilation with AI",
@@ -238,7 +217,6 @@
   "modos[slug:calidad-aire].idealPara[2]": "Families with young children or allergies",
   "modos[slug:calidad-aire].ejemplo.titulo": "CO₂ sensor + dashboard + automatic alerts",
   "modos[slug:calidad-aire].ejemplo.nota": "Extra cost on top of the Central AI Mini-PC (E1, from €590, depending on tier): €430. This mode is no longer offered with its own standalone equipment.",
-
   "modos[slug:cuidado-mascotas].nombre": "Pet Care",
   "modos[slug:cuidado-mascotas].titular": "Your pet, watched over even when you're not there",
   "modos[slug:cuidado-mascotas].subtitulo": "Animal wellbeing AI",
@@ -248,7 +226,6 @@
   "modos[slug:cuidado-mascotas].idealPara[2]": "Anyone who travels frequently",
   "modos[slug:cuidado-mascotas].ejemplo.titulo": "Monitoring + feeder + temperature control",
   "modos[slug:cuidado-mascotas].ejemplo.nota": "Extra cost on top of the Central AI Mini-PC (E1, from €590, depending on tier): €405. This mode is no longer offered with its own standalone equipment.",
-
   "modos[slug:cocina-inteligente].nombre": "Smart Kitchen",
   "modos[slug:cocina-inteligente].titular": "Never worry again about leaving something on",
   "modos[slug:cocina-inteligente].subtitulo": "Smoke detection and oven alert",
@@ -258,7 +235,6 @@
   "modos[slug:cocina-inteligente].idealPara[2]": "Families with children or elderly people at home",
   "modos[slug:cocina-inteligente].ejemplo.titulo": "Smoke detection + automatic extractor fan + oven alert",
   "modos[slug:cocina-inteligente].ejemplo.nota": "Extra cost on top of the Central AI Mini-PC (E1, from €590, depending on tier): €385. The connected smoke/CO detector goes from €70 to €100 in this update: that's the real cost of an equivalent connected detector (Nest Protect-type) in 2026.",
-
   "modos[slug:personas-mayores].nombre": "Elderly Care",
   "modos[slug:personas-mayores].titular": "Peace of mind to look after them from a distance",
   "modos[slug:personas-mayores].subtitulo": "Smart telecare with no monthly fee",
@@ -268,7 +244,6 @@
   "modos[slug:personas-mayores].idealPara[2]": "Multi-generational homes",
   "modos[slug:personas-mayores].ejemplo.titulo": "Lack of movement + AI fall detection",
   "modos[slug:personas-mayores].ejemplo.nota": "Extra cost on top of the Central AI Mini-PC (E1, from €590, depending on tier): €540. This mode is no longer offered with its own standalone equipment. It does not replace official healthcare telecare.",
-
   "modos[slug:modo-ninos].videosExtra[0].titulo": "Babies",
   "modos[slug:modo-ninos].nombre": "Kids and Babies",
   "modos[slug:modo-ninos].titular": "You'll know they got home safe, without having to ask",
@@ -280,7 +255,6 @@
   "modos[slug:modo-ninos].idealPara[3]": "Anyone who wants automatic arrival confirmation",
   "modos[slug:modo-ninos].ejemplo.titulo": "Geofencing + arrival alert + welcome scene",
   "modos[slug:modo-ninos].ejemplo.nota": "Extra cost on top of the Central AI Mini-PC (E1, from €590, depending on tier): €385. The Smart option assumes a smart lock is already installed (Security and Access block).",
-
   "modos[slug:gestion-paquetes].nombre": "Package Management",
   "modos[slug:gestion-paquetes].titular": "Never miss a package again",
   "modos[slug:gestion-paquetes].subtitulo": "AI courier detection",
@@ -290,7 +264,6 @@
   "modos[slug:gestion-paquetes].idealPara[2]": "Businesses receiving goods deliveries",
   "modos[slug:gestion-paquetes].ejemplo.titulo": "Package detection + automatic photo + WhatsApp alert",
   "modos[slug:gestion-paquetes].ejemplo.nota": "Extra cost on top of the Central AI Mini-PC (E1, from €590, depending on tier): €320. This mode is no longer offered with its own standalone equipment.",
-
   "modos[slug:seguridad-ia].nombre": "AI Security",
   "modos[slug:seguridad-ia].titular": "A camera that doesn't just record: it understands what's happening",
   "modos[slug:seguridad-ia].subtitulo": "Detection of people and vehicles, with no false alarms",
@@ -307,7 +280,6 @@
   "modos[slug:seguridad-ia].ejemplos[0].titulo": "Home: surveillance kit with WhatsApp alerts",
   "modos[slug:seguridad-ia].ejemplos[0].subtitulo": "Single-family home · 2 to 6 cameras depending on option",
   "modos[slug:seguridad-ia].nota": "All options already assume you have the Central AI Mini-PC installed (E1, from €590, depending on tier) — they don't include a separate recording mini-PC. Exception: the Complete option adds a server with a dedicated GPU for real-time facial recognition, a load the central mini-PC doesn't cover. Figures are indicative, to be confirmed on a technical visit. Do you have a warehouse, storage facility or estate instead of a home? Check out AI Security for Warehouses and Estates.",
-
   "modos[slug:acceso-inteligente].videosExtra[0].titulo": "Authorized vehicle",
   "modos[slug:acceso-inteligente].videosExtra[1].titulo": "Unauthorized vehicle",
   "modos[slug:acceso-inteligente].nombre": "Smart Access",
@@ -319,7 +291,6 @@
   "modos[slug:acceso-inteligente].idealPara[2]": "Families who want to stop using a remote or key",
   "modos[slug:acceso-inteligente].ejemplo.titulo": "Front door + garage access",
   "modos[slug:acceso-inteligente].ejemplo.nota": "Extra cost on top of the Central AI Mini-PC (E1, from €590, depending on tier): from €620. Assumes a smart lock and/or garage motor are already installed (Security and Access block).",
-
   "services[slug:electricidad].nombre": "Electrical",
   "services[slug:electricidad].resumen": "Electrical panels, certifications, faults, charging points and lighting. The foundation of any safe installation.",
   "services[slug:electricidad].tiempo": "Half a day",
@@ -341,7 +312,6 @@
   "services[slug:electricidad].ejemplosAdicionales[0].titulo": "Electric car charging point (wallbox)",
   "services[slug:electricidad].ejemplosAdicionales[0].cliente": "Installing a home wallbox, from the electrical panel to the garage or parking space",
   "services[slug:electricidad].ejemplosAdicionales[0].nota": "If the electrical panel has no spare capacity or a new line needs to be run from the meter, this is quoted separately after the technical visit.",
-
   "services[slug:domotica].nombre": "Home Automation",
   "services[slug:domotica].resumen": "Make your home do things for you. Lights, blinds, climate, irrigation and automatic scenes controlled from your phone — from a single room to the whole home.",
   "services[slug:domotica].tiempo": "Quick job (per room)",
@@ -380,7 +350,6 @@
   "services[slug:domotica].ejemplosAdicionales[4].titulo": "Pool automation (filtration, lighting and monitoring)",
   "services[slug:domotica].ejemplosAdicionales[4].cliente": "Single-family home pool",
   "services[slug:domotica].ejemplosAdicionales[4].nota": "The water-quality probe alerts via app when pH or chlorine levels fall outside the recommended range, before the water is affected.",
-
   "services[slug:energia-solar].nombre": "Solar Energy",
   "services[slug:energia-solar].resumen": "From a plug-in balcony kit to rooftop self-consumption panels. Can't fit panels on the roof? Start with your terrace.",
   "services[slug:energia-solar].tiempo": "Half a day",
@@ -402,7 +371,6 @@
   "services[slug:energia-solar].ejemplosAdicionales[1].titulo": "Smart energy management (dynamic tariff)",
   "services[slug:energia-solar].ejemplosAdicionales[1].cliente": "Home with an old panel and a conventional meter, with no visibility of consumption or use of the cheapest electricity hours",
   "services[slug:energia-solar].ejemplosAdicionales[1].nota": "Compatible with any existing electrical installation, with or without solar panels. Figures are indicative, to be confirmed on a technical visit.",
-
   "services[slug:seguridad].nombre": "Security",
   "services[slug:seguridad].resumen": "Cameras, alarms, video intercom and smart locks. Local recording, no monthly fee — and to also have the system interpret what it sees and alert you on WhatsApp, add AI Security. Equipment owned by the customer from day one.",
   "services[slug:seguridad].tiempo": "Quick job",
@@ -427,7 +395,6 @@
   "services[slug:seguridad].ejemplosAdicionales[1].titulo": "CCTV video surveillance",
   "services[slug:seguridad].ejemplosAdicionales[1].cliente": "Wired PoE cameras (more reliable than WiFi) with local recording, no monthly fee. Recording only: if you also want the camera to understand what it sees and alert you on WhatsApp, check out AI Security.",
   "services[slug:seguridad].ejemplosAdicionales[1].nota": "Price depends on the actual cable run between the cameras and the recording point; confirmed on the technical visit. Already have cameras and just want them to think? Check out AI Security — no need to hire both.",
-
   "services[slug:redes-informatica].nombre": "Networking and IT",
   "services[slug:redes-informatica].resumen": "Fast, stable WiFi throughout your home, with no dead zones. Essential foundation for home automation and AI.",
   "services[slug:redes-informatica].tiempo": "Quick job",
@@ -447,7 +414,6 @@
   "services[slug:redes-informatica].ejemplosAdicionales[0].titulo": "Comms cabinet and network rack",
   "services[slug:redes-informatica].ejemplosAdicionales[0].cliente": "Home with router and cabling on display, 4 network outlets",
   "services[slug:redes-informatica].ejemplosAdicionales[0].nota": "Centralizing the ONT, router and switch in a single cabinet makes maintenance easier and keeps the router out of sight in the living room.",
-
   "services[slug:climatizacion].nombre": "Air Conditioning",
   "services[slug:climatizacion].resumen": "Air conditioning installation, from a single room to a full home with a multi-split system.",
   "services[slug:climatizacion].tiempo": "One day",
@@ -466,7 +432,6 @@
   "services[slug:climatizacion].ejemplosAdicionales[0].titulo": "Multi-split air conditioning for the whole home",
   "services[slug:climatizacion].ejemplosAdicionales[0].cliente": "A single outdoor unit serving several rooms, with independent control per room",
   "services[slug:climatizacion].ejemplosAdicionales[0].nota": "The final quote depends on the number of rooms, distances between the outdoor and indoor units, and facade accessibility. The Complete option uses high-end A+++ equipment with WiFi control per zone.",
-
   "services[slug:antenas].nombre": "Antennas",
   "services[slug:antenas].resumen": "Satellite and terrestrial TV, for a single home or a whole residential community.",
   "services[slug:antenas].tiempo": "Quick job",
@@ -484,7 +449,6 @@
   "services[slug:antenas].ejemplosAdicionales[0].titulo": "Communal terrestrial TV antenna for a building",
   "services[slug:antenas].ejemplosAdicionales[0].cliente": "Collective terrestrial TV reception installation for an entire building or residential community",
   "services[slug:antenas].ejemplosAdicionales[0].nota": "The number of outlets and the condition of the existing risers are confirmed on the technical visit; partial replacement of old cabling may be required.",
-
   "services[slug:reparaciones-reformas].nombre": "Repairs and Renovations",
   "services[slug:reparaciones-reformas].resumen": "Painting, tiling, furniture assembly and small bathroom and kitchen renovations.",
   "services[slug:reparaciones-reformas].tiempo": "One day",
@@ -514,7 +478,6 @@
   "services[slug:reparaciones-reformas].ejemplosAdicionales[3].titulo": "Full kitchen renovation",
   "services[slug:reparaciones-reformas].ejemplosAdicionales[3].cliente": "9 m² kitchen, with a layout change",
   "services[slug:reparaciones-reformas].ejemplosAdicionales[3].nota": "Changing the layout (moving plumbing or electrical) requires a prior technical visit to confirm feasibility based on the building's existing installation.",
-
   "services[slug:fontaneria].nombre": "Plumbing and Leaks",
   "services[slug:fontaneria].resumen": "Fixtures, fittings and leak repairs.",
   "services[slug:fontaneria].tiempo": "Half a day",
@@ -529,7 +492,6 @@
   "services[slug:fontaneria].ejemplo.nota": "If a wall or floor needs to be opened up to move water/drain points, this is quoted separately based on actual scope (masonry + tiling).",
   "services[slug:fontaneria].tambienInstalaron[0].texto": "Bathroom tiling",
   "services[slug:fontaneria].tambienInstalaron[1].texto": "Small bathroom renovation",
-
   "services[slug:pladur].nombre": "Drywall",
   "services[slug:pladur].resumen": "Partition walls and false ceilings, with integrated LED lighting — and, if you like, dimmable from your phone by combining drywall, electrical and home automation in the same visit.",
   "services[slug:pladur].tiempo": "One day",
@@ -547,7 +509,6 @@
   "services[slug:pladur].ejemplosAdicionales[0].titulo": "Drywall false ceiling with recessed lighting (living room, 18 m²)",
   "services[slug:pladur].ejemplosAdicionales[0].cliente": "Living room with no indirect lighting, with a plain conventional ceiling.",
   "services[slug:pladur].ejemplosAdicionales[0].nota": "The electrical wiring for the light points is included in the labor cost; connecting to the main electrical panel is quoted separately if there's no circuit already available nearby.",
-
   "services[slug:mantenimiento].nombre": "Maintenance and Contracts",
   "services[slug:mantenimiento].resumen": "For customers with a home automation, security or electrical installation already carried out by AHOMED. Peace of mind all year round.",
   "services[slug:mantenimiento].tiempo": "Scheduled visit",
@@ -557,7 +518,6 @@
   "services[slug:mantenimiento].ejemplo.titulo": "Maintenance contract",
   "services[slug:mantenimiento].ejemplo.nota": "The package doesn't cover replacing devices damaged by misuse or wear, or building work.",
   "services[slug:mantenimiento].extras[0]": "AI model retraining (smart detection systems)",
-
   "services[slug:electricidad-nave].nombre": "Electrical — Warehouses and Estates",
   "services[slug:electricidad-nave].resumen": "Three-phase panels, high-power certifications, service connections and electrical upgrades to match the activity. Designed for warehouses, storage facilities and farms, not for a home's panel. Prior study based on power and activity — there's no standard price in industrial settings.",
   "services[slug:electricidad-nave].tiempo": "A full day or more, depending on power",
@@ -573,7 +533,6 @@
   "services[slug:electricidad-nave].tambienInstalaron[0].texto": "Networking and IT for warehouses",
   "services[slug:electricidad-nave].tambienInstalaron[1].texto": "Self-consumption solar energy",
   "services[slug:electricidad-nave].tambienInstalaron[2].texto": "AI Security for Warehouses and Estates",
-
   "services[slug:redes-nave].nombre": "Networking and IT — Warehouses and Estates",
   "services[slug:redes-nave].resumen": "Industrial WiFi that penetrates metal structures and shelving, and structured cabling for offices inside the warehouse. Not a home router with more range — a network designed not to drop while the business is running.",
   "services[slug:redes-nave].tiempo": "1-2 days depending on the area",
@@ -588,7 +547,6 @@
   "services[slug:redes-nave].extras[2]": "IP camera integrated into the same network (see AI Security for Warehouses and Estates)",
   "services[slug:redes-nave].tambienInstalaron[0].texto": "Electrical for warehouses",
   "services[slug:redes-nave].tambienInstalaron[1].texto": "AI Security for Warehouses and Estates",
-
   "services[slug:fontaneria-nave].nombre": "Plumbing — Warehouses and Estates",
   "services[slug:fontaneria-nave].resumen": "Irrigation networks for estates, industrial drainage and water points for warehouses or farms. Not a bathroom's fittings — flows, pressures and runs on a different scale.",
   "services[slug:fontaneria-nave].tiempo": "Depending on the scope of the installation",
@@ -604,7 +562,6 @@
   "services[slug:fontaneria-nave].tambienInstalaron[0].texto": "Electrical for warehouses",
   "services[slug:fontaneria-nave].tambienInstalaron[1].texto": "Smart Energy Management",
   "services[slug:fontaneria-nave].tambienInstalaron[2].texto": "AI Security for Warehouses and Estates",
-
   "services[slug:mantenimiento-nave].nombre": "Maintenance — Warehouses and Estates",
   "services[slug:mantenimiento-nave].resumen": "For businesses with an electrical, AI security or network installation already carried out by AHOMED. A review designed so the business doesn't stop, not for the pace of a home.",
   "services[slug:mantenimiento-nave].tiempo": "Scheduled visit",
@@ -615,5 +572,42 @@
   "services[slug:mantenimiento-nave].ejemplo.titulo": "Maintenance contract for a warehouse or estate",
   "services[slug:mantenimiento-nave].ejemplo.nota": "The package doesn't cover replacing devices damaged by misuse, building work, or the mandatory periodic inspection for installations over 100 kW (quoted separately, as it's an independent process with an Authorized Control Body).",
   "services[slug:mantenimiento-nave].extras[0]": "AI model retraining after changes to the warehouse's activity or layout",
-  "services[slug:mantenimiento-nave].extras[1]": "Managing the periodic inspection (installations over 100 kW)"
+  "services[slug:mantenimiento-nave].extras[1]": "Managing the periodic inspection (installations over 100 kW)",
+  "services[slug:electricidad].ejemplo.opciones[0].nombre": "Essential",
+  "services[slug:electricidad].ejemplo.opciones[0].items[0][0]": "Labor (approx. 4 h)",
+  "services[slug:electricidad].ejemplo.opciones[0].items[1][0]": "12-way electrical panel + circuit breakers",
+  "services[slug:electricidad].ejemplo.opciones[0].items[2][0]": "Standard 30 mA RCD",
+  "services[slug:electricidad].ejemplo.opciones[0].items[3][0]": "Materials and minor wiring",
+  "services[slug:electricidad].ejemplo.opciones[0].items[4][0]": "Electrical certificate (CIE): filing and inspection",
+  "services[slug:electricidad].ejemplo.opciones[1].nombre": "Smart",
+  "services[slug:electricidad].ejemplo.opciones[1].items[0][0]": "Labor (approx. 5 h)",
+  "services[slug:electricidad].ejemplo.opciones[1].items[1][0]": "12-way electrical panel + circuit breakers",
+  "services[slug:electricidad].ejemplo.opciones[1].items[2][0]": "Super-immunized RCD (won't trip just from a microwave or washing machine)",
+  "services[slug:electricidad].ejemplo.opciones[1].items[3][0]": "Materials and wiring",
+  "services[slug:electricidad].ejemplo.opciones[1].items[4][0]": "Electrical certificate (CIE): filing and inspection",
+  "services[slug:electricidad].ejemplo.opciones[2].nombre": "Complete",
+  "services[slug:electricidad].ejemplo.opciones[2].items[0][0]": "Labor (approx. 6 h)",
+  "services[slug:electricidad].ejemplo.opciones[2].items[1][0]": "12-way electrical panel + circuit breakers",
+  "services[slug:electricidad].ejemplo.opciones[2].items[2][0]": "Super-immunized RCD (won't trip just from a microwave or washing machine)",
+  "services[slug:electricidad].ejemplo.opciones[2].items[3][0]": "Surge protector (protects your electronics from a voltage spike on the grid)",
+  "services[slug:electricidad].ejemplo.opciones[2].items[4][0]": "Materials and wiring",
+  "services[slug:electricidad].ejemplo.opciones[2].items[5][0]": "Electrical certificate (CIE): filing and inspection",
+  "services[slug:electricidad].ejemplosAdicionales[0].opciones[0].nombre": "Essential — 7.4 kW wallbox, short run (up to 5 m)",
+  "services[slug:electricidad].ejemplosAdicionales[0].opciones[0].items[0][0]": "Labor and installation (up to 5 m from the panel)",
+  "services[slug:electricidad].ejemplosAdicionales[0].opciones[0].items[1][0]": "7.4 kW single-phase wallbox",
+  "services[slug:electricidad].ejemplosAdicionales[0].opciones[0].items[2][0]": "Dedicated electrical line + protections (circuit breaker and RCD)",
+  "services[slug:electricidad].ejemplosAdicionales[0].opciones[0].items[3][0]": "Materials (trunking, wiring)",
+  "services[slug:electricidad].ejemplosAdicionales[0].opciones[1].nombre": "Smart — connected wallbox + charge management ⭐",
+  "services[slug:electricidad].ejemplosAdicionales[0].opciones[1].items[0][0]": "Labor and installation (up to 8 m)",
+  "services[slug:electricidad].ejemplosAdicionales[0].opciones[1].items[1][0]": "7.4 kW wallbox with WiFi connection and control app",
+  "services[slug:electricidad].ejemplosAdicionales[0].opciones[1].items[2][0]": "Dedicated electrical line + protections",
+  "services[slug:electricidad].ejemplosAdicionales[0].opciones[1].items[3][0]": "Materials",
+  "services[slug:electricidad].ejemplosAdicionales[0].opciones[1].items[4][0]": "Electrical certificate (CIE) for the new line",
+  "services[slug:electricidad].ejemplosAdicionales[0].opciones[2].nombre": "Complete — 22 kW three-phase wallbox + dynamic power management",
+  "services[slug:electricidad].ejemplosAdicionales[0].opciones[2].items[0][0]": "Labor and installation (up to 10 m, three-phase line)",
+  "services[slug:electricidad].ejemplosAdicionales[0].opciones[2].items[1][0]": "22 kW three-phase wallbox with app and scheduled charging",
+  "services[slug:electricidad].ejemplosAdicionales[0].opciones[2].items[2][0]": "Dedicated electrical line + reinforced protections",
+  "services[slug:electricidad].ejemplosAdicionales[0].opciones[2].items[3][0]": "Dynamic load manager (prevents the main breaker from tripping when other high loads are running)",
+  "services[slug:electricidad].ejemplosAdicionales[0].opciones[2].items[4][0]": "Materials",
+  "services[slug:electricidad].ejemplosAdicionales[0].opciones[2].items[5][0]": "Electrical certificate (CIE)"
 }

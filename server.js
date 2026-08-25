@@ -152,7 +152,10 @@ app.locals.fmt = (n) => {
 app.use((req, res, next) => {
   const lang = res.locals.lang;
   res.locals.t = (key) => uiStrings.t(key, lang);
+  // Selector de idioma (ES/FR/EN): misma página, otro idioma.
   res.locals.langHref = (targetLang) => langHref(req.path, targetLang);
+  // Enlaces de navegación (menú, botones internos): otra ruta, mismo idioma actual.
+  res.locals.pathHref = (targetPath) => langHref(targetPath, lang);
   res.locals.homeHref = homeHref(lang);
   res.locals.supportedLangs = SUPPORTED_LANGS;
 

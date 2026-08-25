@@ -38,7 +38,7 @@
 
     <nav class="main-nav">
       <a href="<%= homeHref %>" class="<%= currentPath === '/' ? 'active' : '' %>"><%= t('nav.home') %></a>
-      <a href="<%= langHref('/configurador') %>" class="<%= currentPath === '/configurador' ? 'active' : '' %>"><%= t('nav.configurador') %></a>
+      <a href="<%= pathHref('/configurador') %>" class="<%= currentPath === '/configurador' ? 'active' : '' %>"><%= t('nav.configurador') %></a>
 
       <% var basicosCols = function(b, audiencia) {
            var servs = services.filter(function(s){
@@ -47,7 +47,7 @@
            if (servs.length === 0) return;
       %>
         <div class="dropdown-col">
-          <a href="<%= langHref('/servicios/bloque/' + b.slug) %>" class="dropdown-col-title">
+          <a href="<%= pathHref('/servicios/bloque/' + b.slug) %>" class="dropdown-col-title">
             <%= b.nombre %>
           </a>
         </div>
@@ -55,7 +55,7 @@
 
       <!-- PARA TU CASA -->
       <div class="nav-dropdown">
-        <a href="<%= langHref('/servicios') %>" class="<%= currentPath.startsWith('/servicios') && currentPath !== '/servicios/mantenimiento' && currentPath !== '/servicios/bloque/seguridad-ia-naves-fincas' && !currentPath.startsWith('/servicios/naves-fincas') ? 'active' : '' %>"><%= t('nav.para_tu_casa') %> ▾</a>
+        <a href="<%= pathHref('/servicios') %>" class="<%= currentPath.startsWith('/servicios') && currentPath !== '/servicios/mantenimiento' && currentPath !== '/servicios/bloque/seguridad-ia-naves-fincas' && !currentPath.startsWith('/servicios/naves-fincas') ? 'active' : '' %>"><%= t('nav.para_tu_casa') %> ▾</a>
         <div class="dropdown-menu dropdown-menu-mega">
           <div class="dropdown-group dropdown-group-basico">
             <span class="dropdown-group-title"><%= t('nav.instalaciones_servicios') %></span>
@@ -68,7 +68,7 @@
             <span class="dropdown-group-title"><%= t('nav.con_ia') %> <em><%= t('nav.con_ia_nota') %></em></span>
             <div class="dropdown-group-cols">
               <div class="dropdown-col">
-                <a href="<%= langHref('/servicios/ia-predictiva') %>" class="dropdown-col-title">
+                <a href="<%= pathHref('/servicios/ia-predictiva') %>" class="dropdown-col-title">
                   <%= t('nav.plataforma_ia') %>
                 </a>
               </div>
@@ -77,12 +77,12 @@
 
           <div class="dropdown-group">
             <div class="dropdown-col">
-              <a href="<%= langHref('/servicios/bloque/mantenimiento') %>" class="dropdown-col-title"><%= t('nav.mantenimiento') %></a>
+              <a href="<%= pathHref('/servicios/bloque/mantenimiento') %>" class="dropdown-col-title"><%= t('nav.mantenimiento') %></a>
             </div>
           </div>
 
           <div class="dropdown-group">
-            <a href="<%= langHref('/soluciones') %>#packs-casa" class="dropdown-col-title"><%= t('nav.ver_soluciones_casa') %></a>
+            <a href="<%= pathHref('/soluciones') %>#packs-casa" class="dropdown-col-title"><%= t('nav.ver_soluciones_casa') %></a>
             <span class="dropdown-note"><%= t('nav.combinaciones_nota') %></span>
           </div>
         </div>
@@ -90,7 +90,7 @@
 
       <!-- NAVES Y FINCAS -->
       <div class="nav-dropdown">
-        <a href="<%= langHref('/servicios/bloque/seguridad-ia-naves-fincas') %>" class="<%= currentPath === '/servicios/bloque/seguridad-ia-naves-fincas' || currentPath.startsWith('/servicios/naves-fincas') ? 'active' : '' %>"><%= t('nav.naves_fincas') %> ▾</a>
+        <a href="<%= pathHref('/servicios/bloque/seguridad-ia-naves-fincas') %>" class="<%= currentPath === '/servicios/bloque/seguridad-ia-naves-fincas' || currentPath.startsWith('/servicios/naves-fincas') ? 'active' : '' %>"><%= t('nav.naves_fincas') %> ▾</a>
         <div class="dropdown-menu dropdown-menu-mega">
           <div class="dropdown-group dropdown-group-basico">
             <span class="dropdown-group-title"><%= t('nav.instalaciones_servicios') %></span>
@@ -103,21 +103,21 @@
             <span class="dropdown-group-title"><%= t('nav.con_ia') %> <em><%= t('nav.con_ia_nota') %></em></span>
             <div class="dropdown-group-cols">
               <div class="dropdown-col">
-                <a href="<%= langHref('/servicios/naves-fincas/seguridad-ia') %>" class="dropdown-col-title"><%= t('nav.seguridad_ia') %></a>
+                <a href="<%= pathHref('/servicios/naves-fincas/seguridad-ia') %>" class="dropdown-col-title"><%= t('nav.seguridad_ia') %></a>
               </div>
             </div>
           </div>
 
           <div class="dropdown-group">
-            <a href="<%= langHref('/soluciones') %>#packs-negocio" class="dropdown-col-title"><%= t('nav.ver_soluciones_negocio') %></a>
+            <a href="<%= pathHref('/soluciones') %>#packs-negocio" class="dropdown-col-title"><%= t('nav.ver_soluciones_negocio') %></a>
             <span class="dropdown-note"><%= t('nav.combinaciones_nota') %></span>
           </div>
         </div>
       </div>
 
-      <a href="<%= langHref('/soluciones') %>" class="<%= currentPath === '/soluciones' ? 'active' : '' %>"><%= t('nav.soluciones') %></a>
-      <a href="<%= langHref('/preguntas-frecuentes') %>" class="<%= currentPath === '/preguntas-frecuentes' ? 'active' : '' %>"><%= t('nav.faq') %></a>
-      <a href="<%= langHref('/contacto') %>" class="<%= currentPath === '/contacto' ? 'active' : '' %>"><%= t('nav.contacto') %></a>
+      <a href="<%= pathHref('/soluciones') %>" class="<%= currentPath === '/soluciones' ? 'active' : '' %>"><%= t('nav.soluciones') %></a>
+      <a href="<%= pathHref('/preguntas-frecuentes') %>" class="<%= currentPath === '/preguntas-frecuentes' ? 'active' : '' %>"><%= t('nav.faq') %></a>
+      <a href="<%= pathHref('/contacto') %>" class="<%= currentPath === '/contacto' ? 'active' : '' %>"><%= t('nav.contacto') %></a>
 
       <a href="https://wa.me/34<%= empresa.whatsapp %>?text=Hola%2C%20quiero%20pedir%20presupuesto" target="_blank" rel="noopener" class="btn btn-whatsapp mobile-nav-cta">
         <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12.001 2C6.478 2 2 6.478 2 12c0 1.85.502 3.657 1.454 5.235L2 22l4.897-1.415A9.955 9.955 0 0 0 12.001 22C17.523 22 22 17.523 22 12S17.523 2 12.001 2zm0 18.15a8.13 8.13 0 0 1-4.146-1.135l-.297-.176-3.05.881.897-2.968-.193-.306A8.14 8.14 0 1 1 20.14 12a8.15 8.15 0 0 1-8.139 8.15z"/></svg>

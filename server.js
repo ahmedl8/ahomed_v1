@@ -4,13 +4,28 @@ const crypto = require("crypto");
 const compression = require("compression");
 const helmet = require("helmet");
 
-const { services, packs, ventajas, comoFunciona, empresa } = require("./data/services");
-const bloques = require("./data/bloques");
-const { instalacionBase, modos: modosIA, familiasIA } = require("./data/ia-predictiva");
-const { seguridadIANaves } = require("./data/naves-fincas");
-const galeria = require("./data/galeria");
+const { translate } = require("./i18n/content");
+const uiStrings = require("./i18n/ui");
+
+const {
+  services: servicesRaw,
+  packs: packsRaw,
+  ventajas: ventajasRaw,
+  comoFunciona: comoFuncionaRaw,
+  empresa: empresaRaw
+} = require("./data/services");
+const bloquesRaw = require("./data/bloques");
+const {
+  instalacionBase: instalacionBaseRaw,
+  modos: modosIARaw,
+  familiasIA: familiasIARaw
+} = require("./data/ia-predictiva");
+const { seguridadIANaves: seguridadIANavesRaw } = require("./data/naves-fincas");
+const galeriaRaw = require("./data/galeria");
 const icons = require("./data/icons");
-const escenarios = require("./data/escenarios");
+const escenariosRaw = require("./data/escenarios");
+
+const SUPPORTED_LANGS = ["es", "fr", "en"];
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -20,6 +35,32 @@ app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
 app.use(compression());
+
+// Detección de idioma por prefijo de URL: el español vive en las rutas
+// existentes sin prefijo (para no romper el SEO ya indexado), y francés/inglés
+// se sirven bajo /fr y /en reutilizando exactamente las mismas rutas. Se hace
+// aquí, antes de cualquier ruta, reescribiendo req.url para que el resto de la
+// app (incluida express.static para vistas, no para /public) funcione igual
+// en los tres idiomas.
+app.use((req, res, next) => {
+  const m = req.url.match(/^\/(fr|en)(\/|\?|$)/);
+  if (m) {
+    res.locals.lang = m[1];
+    const rest = req.url.slice(1 + m[1].length);
+    req.url = rest.startsWith("/") || rest.startsWith("?") || rest === "" ? (rest || "/") : "/" + rest;
+  } else {
+    res.locals.lang = "es";
+  }
+  next();
+});
+
+// Construye la URL equivalente en otro idioma a partir de la ruta actual
+// (sin prefijo, ya que req.url fue reescrito arriba) — usado por el selector
+// de idioma y las etiquetas hreflang.
+function langHref(currentPathNoPrefix, lang) {
+  const clean = currentPathNoPrefix === "/" ? "" : currentPathNoPrefix;
+  return lang === "es" ? clean || "/" : `/${lang}${clean}`;
+}
 
 // Genera un nonce único por petición para el único script inline que tiene
 // la web (el arranque de Google Tag Manager en head.ejs). Así la CSP puede
@@ -97,22 +138,41 @@ app.locals.fmt = (n) => {
   return out;
 };
 
-// Datos disponibles en todas las vistas
+// Datos disponibles en todas las vistas — traducidos según res.locals.lang
+// (fijado por el middleware de prefijo de arriba). El español no pasa por
+// translate() (devuelve el dato tal cual); francés e inglés aplican el
+// diccionario correspondiente de /locales/<lang>/content.json por ruta
+// estable, con fallback automático al español si falta una traducción.
 app.use((req, res, next) => {
-  res.locals.empresa = empresa;
+  const lang = res.locals.lang;
+  res.locals.t = (key) => uiStrings.t(key, lang);
+  res.locals.langHref = (targetLang) => langHref(req.path, targetLang);
+  res.locals.supportedLangs = SUPPORTED_LANGS;
+
+  res.locals.empresa = translate("empresa", empresaRaw, lang);
   res.locals.currentPath = req.path;
   res.locals.icons = icons;
-  res.locals.bloques = bloques;
-  res.locals.services = services;
-  res.locals.seguridadIANaves = seguridadIANaves;
-  res.locals.totalModos = modosIA.length;
-  res.locals.metaDescription = empresa.metaDescriptionDefault;
+  res.locals.bloques = translate("bloques", bloquesRaw, lang);
+  res.locals.services = translate("services", servicesRaw, lang);
+  res.locals.packs = translate("packs", packsRaw, lang);
+  res.locals.ventajas = translate("ventajas", ventajasRaw, lang);
+  res.locals.comoFunciona = translate("comoFunciona", comoFuncionaRaw, lang);
+  res.locals.escenarios = translate("escenarios", escenariosRaw, lang);
+  res.locals.galeria = translate("galeria", galeriaRaw, lang);
+  res.locals.modosIA = translate("modos", modosIARaw, lang);
+  res.locals.familiasIA = translate("familiasIA", familiasIARaw, lang);
+  res.locals.instalacionBase = translate("instalacionBase", instalacionBaseRaw, lang);
+  res.locals.seguridadIANaves = translate("seguridadIANaves", seguridadIANavesRaw, lang);
+  res.locals.totalModos = modosIARaw.length;
+  res.locals.metaDescription = res.locals.empresa.metaDescriptionDefault;
   next();
 });
 
 // Helper: adjunta el bloque completo (nombre, letra...) a un servicio a partir de su slug
-function bloqueDe(slug) {
-  return bloques.find((b) => b.slug === slug) || null;
+// Recibe el array de bloques ya traducido de res.locals para que el nombre
+// mostrado coincida con el idioma de la petición.
+function bloqueDe(slug, bloquesArr) {
+  return bloquesArr.find((b) => b.slug === slug) || null;
 }
 
 // ---- Rutas ----
@@ -176,13 +236,18 @@ const QUE_NECESITAS = [
 ];
 
 app.get("/", (req, res) => {
+  const { services, bloques, packs, modosIA, instalacionBase, ventajas, comoFunciona, familiasIA, escenarios, empresa, t } = res.locals;
+  const necesitas = QUE_NECESITAS.map((item) => ({
+    ...item,
+    titulo: t(`necesitas.${item.icono}.titulo`),
+    subtitulo: t(`necesitas.${item.icono}.subtitulo`)
+  }));
   res.render("index", {
-    title: `${empresa.nombre} — Seguridad IA, domótica y energía inteligente en Madrid`,
-    metaDescription:
-      "Seguridad con IA, domótica, redes y energía inteligente para tu vivienda o negocio en Madrid y alrededores. Equipo propiedad del cliente, sin cuotas. Primera visita técnica gratuita.",
+    title: `${empresa.nombre} — ${t('seo.home.title')}`,
+    metaDescription: t('seo.home.desc'),
     services,
     serviciosDestacados: SERVICIOS_DESTACADOS_HOME.map((slug) => services.find((s) => s.slug === slug)).filter(Boolean),
-    necesitas: QUE_NECESITAS,
+    necesitas,
     bloques,
     seguridadIA: modosIA.find((m) => m.slug === "seguridad-ia"),
     modosIA: modosIA.filter((m) => !m.esProyecto),
@@ -206,10 +271,10 @@ app.get("/", (req, res) => {
 // renderizados en la página (sin llamadas al servidor).
 // Ver /areas/ahomed-negocio.md — construcción 3 de 5.
 app.get("/configurador", (req, res) => {
+  const { empresa, packs, services, t } = res.locals;
   res.render("configurador", {
-    title: `Configura tu casa — ${empresa.nombre}`,
-    metaDescription:
-      "Responde 4 preguntas sobre tu vivienda o negocio y te recomendamos el pack o servicio AHOMED que mejor encaja, con presupuesto orientativo al momento.",
+    title: `${t('seo.configurador.title')} — ${empresa.nombre}`,
+    metaDescription: t('seo.configurador.desc'),
     packs,
     services
   });
@@ -225,12 +290,12 @@ app.get("/configurador", (req, res) => {
 // empaquetado y más barato. Solo cubre público "casa" por ahora: naves y
 // fincas ya tienen su propio Pack Seguridad IA para Negocios.
 app.get("/crea-tu-instalacion", (req, res) => {
+  const { empresa, services, packs, modosIA, instalacionBase, t } = res.locals;
   const serviciosCasa = services.filter((s) => s.publico === "casa");
   const packsCasa = packs.filter((p) => p.publico === "casa");
   res.render("creador", {
-    title: `Crea tu instalación a medida — ${empresa.nombre}`,
-    metaDescription:
-      "Combina los servicios y modos IA que quieras para tu vivienda y consigue un presupuesto orientativo al instante — con aviso si ya existe un pack AHOMED que encaja mejor.",
+    title: `${t('seo.creador.title')} — ${empresa.nombre}`,
+    metaDescription: t('seo.creador.desc'),
     serviciosCasa,
     packsCasa,
     modos: modosIA,
@@ -241,10 +306,10 @@ app.get("/crea-tu-instalacion", (req, res) => {
 // Tecnología AHOMED: qué hay detrás del Cerebro AHOMED (motor Python, IA
 // local, WhatsApp Business API, privacidad). Construcción 5 de 5.
 app.get("/tecnologia", (req, res) => {
+  const { empresa, instalacionBase, t } = res.locals;
   res.render("tecnologia", {
-    title: `Tecnología AHOMED — ${empresa.nombre}`,
-    metaDescription:
-      "Cómo funciona el Cerebro AHOMED por dentro: motor Python, modelos de IA locales, procesamiento de vídeo, dashboard, integración con WhatsApp y privacidad de tus datos.",
+    title: `${t('seo.tecnologia.title')} — ${empresa.nombre}`,
+    metaDescription: t('seo.tecnologia.desc'),
     instalacionBase
   });
 });
@@ -254,17 +319,18 @@ app.get("/tecnologia", (req, res) => {
 // particular — explica el modelo de colaboración (referidos, packs conjuntos,
 // AHOMED asumiendo la parte tecnológica del proyecto).
 app.get("/para-profesionales", (req, res) => {
+  const { empresa, t } = res.locals;
   res.render("para-profesionales", {
-    title: `AHOMED para Profesionales — colabora con ${empresa.nombre}`,
-    metaDescription:
-      "Tú haces la obra, AHOMED la hace inteligente. Colabora con AHOMED si eres reformista, constructor, persianero, electricista o interiorista: añade seguridad IA, domótica y tecnología a tus proyectos sin tener que aprenderla."
+    title: `${t('seo.profesionales.title')} ${empresa.nombre}`,
+    metaDescription: t('seo.profesionales.desc')
   });
 });
 
 app.get("/servicios", (req, res) => {
+  const { empresa, services, bloques, modosIA, t } = res.locals;
   res.render("servicios", {
-    title: `Servicios — ${empresa.nombre}`,
-    metaDescription: `Catálogo completo de servicios AHOMED: seguridad y accesos, instalaciones base, energía, plataforma IA predictiva, mantenimiento y naves y fincas. Precios orientativos.`,
+    title: `${t('seo.servicios.title')} — ${empresa.nombre}`,
+    metaDescription: t('seo.servicios.desc'),
     services,
     bloques,
     modosIA
@@ -273,7 +339,8 @@ app.get("/servicios", (req, res) => {
 
 // Página de bloque: agrupa los servicios (y, para el bloque E, los modos IA) de esa categoría
 app.get("/servicios/bloque/:slug", (req, res, next) => {
-  const bloque = bloqueDe(req.params.slug);
+  const { empresa, services, bloques, modosIA, instalacionBase } = res.locals;
+  const bloque = bloqueDe(req.params.slug, bloques);
   if (!bloque) return next();
 
   const serviciosDelBloque = services.filter((s) => s.bloque === bloque.slug);
@@ -292,6 +359,7 @@ app.get("/servicios/bloque/:slug", (req, res, next) => {
 // Seguridad IA para Naves y Fincas — servicio independiente de la Plataforma IA
 // Predictiva residencial (bloque E), a escala perimetral/industrial.
 app.get("/servicios/naves-fincas/seguridad-ia", (req, res) => {
+  const { empresa, seguridadIANaves, instalacionBase } = res.locals;
   res.render("services/seguridad-ia-negocio", {
     title: `${seguridadIANaves.nombre} — ${empresa.nombre}`,
     metaDescription: `${seguridadIANaves.resumen} Servicio exclusivo de ${empresa.nombre} en ${empresa.zona}.`,
@@ -302,6 +370,7 @@ app.get("/servicios/naves-fincas/seguridad-ia", (req, res) => {
 
 // Plataforma IA Predictiva — página general con instalación base + los 11 modos
 app.get("/servicios/ia-predictiva", (req, res) => {
+  const { empresa, instalacionBase, modosIA, familiasIA, packs } = res.locals;
   res.render("services/ia-predictiva", {
     title: `Plataforma IA Predictiva — ${empresa.nombre}`,
     metaDescription:
@@ -315,6 +384,7 @@ app.get("/servicios/ia-predictiva", (req, res) => {
 
 // Ficha de un modo concreto de la Plataforma IA Predictiva
 app.get("/servicios/ia-predictiva/:modoSlug", (req, res, next) => {
+  const { empresa, modosIA, instalacionBase } = res.locals;
   const modo = modosIA.find((m) => m.slug === req.params.modoSlug);
   if (!modo) return next();
   const template = modo.esProyecto ? "services/ia-modo-proyecto" : "services/ia-modo";
@@ -334,21 +404,22 @@ app.get("/servicios/ia-monitorizacion", (req, res) => {
 });
 
 app.get("/servicios/:slug", (req, res, next) => {
+  const { empresa, services, bloques } = res.locals;
   const service = services.find((s) => s.slug === req.params.slug);
   if (!service) return next();
   res.render("services/detalle", {
     title: `${service.nombre} — ${empresa.nombre}`,
     metaDescription: `${service.resumen} Desde ${service.desde} € en ${empresa.zona}. Presupuesto tras visita técnica gratuita.`,
     service,
-    bloque: bloqueDe(service.bloque)
+    bloque: bloqueDe(service.bloque, bloques)
   });
 });
 
 app.get("/soluciones", (req, res) => {
+  const { empresa, packs, t } = res.locals;
   res.render("packs", {
-    title: `Soluciones — ${empresa.nombre}`,
-    metaDescription:
-      "Instalación completa llave en mano para tu casa (Piso Nuevo, Chalet Seguro con IA, Hogar con IA, Segunda Residencia IA) o para tu nave o finca (Pack Seguridad IA para Negocios). Varios servicios AHOMED combinados en una sola visita técnica.",
+    title: `${t('seo.soluciones.title')} — ${empresa.nombre}`,
+    metaDescription: t('seo.soluciones.desc'),
     packsCasa: packs.filter((p) => p.publico !== "negocio"),
     packsNegocio: packs.filter((p) => p.publico === "negocio")
   });
@@ -364,71 +435,87 @@ app.get("/packs", (req, res) => {
 
 
 app.get("/galeria", (req, res) => {
+  const { empresa, galeria, t } = res.locals;
   res.render("galeria", {
-    title: `Así puede quedar tu instalación — ${empresa.nombre}`,
-    metaDescription: `Recreaciones visuales de lo que ${empresa.nombre} puede hacer en tu vivienda o negocio en ${empresa.zona}: electricidad, domótica, seguridad e IA.`,
+    title: `${t('seo.galeria.title')} — ${empresa.nombre}`,
+    metaDescription: t('seo.galeria.desc'),
     trabajos: galeria
   });
 });
 
 app.get("/preguntas-frecuentes", (req, res) => {
+  const { empresa, t } = res.locals;
   res.render("faq", {
-    title: `Preguntas frecuentes — ${empresa.nombre}`,
-    metaDescription: `Resolvemos las dudas más habituales sobre presupuestos, el Mini-PC IA Central, cuotas mensuales, garantía y zona de servicio de ${empresa.nombre}.`
+    title: `${t('seo.faq.title')} — ${empresa.nombre}`,
+    metaDescription: t('seo.faq.desc')
   });
 });
 
 app.get("/sobre-mi", (req, res) => {
+  const { empresa, t } = res.locals;
   res.render("sobre-mi", {
-    title: `Sobre mí — ${empresa.nombre}`,
-    metaDescription: `Más de ${empresa.anosExperiencia} de experiencia técnica en electricidad, domótica, IA y seguridad. Conoce al equipo detrás de ${empresa.nombre}.`
+    title: `${t('seo.sobre_mi.title')} — ${empresa.nombre}`,
+    metaDescription: `${empresa.anosExperiencia} ${t('seo.sobre_mi.desc')}`
   });
 });
 
 app.get("/contacto", (req, res) => {
+  const { empresa, t } = res.locals;
   res.render("contacto", {
-    title: `Contacto — ${empresa.nombre}`,
-    metaDescription: `Contacta con ${empresa.nombre} por WhatsApp, teléfono o email. Visita técnica gratuita en ${empresa.zona}.`
+    title: `${t('seo.contacto.title')} — ${empresa.nombre}`,
+    metaDescription: `${t('seo.contacto.desc')} ${empresa.zona}.`
   });
 });
 
 app.get("/aviso-legal", (req, res) => {
+  const { empresa, t } = res.locals;
   res.render("legal-aviso", {
-    title: `Aviso legal — ${empresa.nombre}`,
-    metaDescription: `Condiciones de uso y datos identificativos de ${empresa.web}, conforme a la LSSI-CE.`
+    title: `${t('seo.aviso_legal.title')} — ${empresa.nombre}`,
+    metaDescription: t('seo.aviso_legal.desc')
   });
 });
 
 app.get("/privacidad", (req, res) => {
+  const { empresa, t } = res.locals;
   res.render("legal-privacidad", {
-    title: `Política de privacidad — ${empresa.nombre}`,
-    metaDescription: `Cómo trata ${empresa.nombre} los datos personales de quienes visitan y contactan con ${empresa.web}, conforme al RGPD.`
+    title: `${t('seo.privacidad.title')} — ${empresa.nombre}`,
+    metaDescription: t('seo.privacidad.desc')
   });
 });
 
 app.get("/cookies", (req, res) => {
+  const { empresa, t } = res.locals;
   res.render("legal-cookies", {
-    title: `Política de cookies — ${empresa.nombre}`,
-    metaDescription: `Qué cookies utiliza ${empresa.web}, con qué finalidad y cómo gestionarlas.`
+    title: `${t('seo.cookies.title')} — ${empresa.nombre}`,
+    metaDescription: t('seo.cookies.desc')
   });
 });
 
 // ---- SEO técnico ----
 app.get("/robots.txt", (req, res) => {
+  const { empresa } = res.locals;
   res.type("text/plain").send(
     ["User-agent: *", "Allow: /", `Sitemap: https://${empresa.web}/sitemap.xml`].join("\n")
   );
 });
 
 app.get("/sitemap.xml", (req, res) => {
+  const empresa = empresaRaw;
   const base = `https://${empresa.web}`;
   const staticUrls = ["/", "/servicios", "/soluciones", "/configurador", "/crea-tu-instalacion", "/tecnologia", "/para-profesionales", "/preguntas-frecuentes", "/sobre-mi", "/contacto", "/aviso-legal", "/privacidad", "/cookies"];
-  const bloqueUrls = bloques.map((b) => `/servicios/bloque/${b.slug}`);
-  const servicioUrls = services.map((s) => `/servicios/${s.slug}`);
-  const iaPredictivaUrls = ["/servicios/ia-predictiva", ...modosIA.map((m) => `/servicios/ia-predictiva/${m.slug}`)];
+  const bloqueUrls = bloquesRaw.map((b) => `/servicios/bloque/${b.slug}`);
+  const servicioUrls = servicesRaw.map((s) => `/servicios/${s.slug}`);
+  const iaPredictivaUrls = ["/servicios/ia-predictiva", ...modosIARaw.map((m) => `/servicios/ia-predictiva/${m.slug}`)];
   const navesFincasUrls = ["/servicios/naves-fincas/seguridad-ia"];
 
-  const urls = [...staticUrls, ...bloqueUrls, ...servicioUrls, ...iaPredictivaUrls, ...navesFincasUrls];
+  const paths = [...staticUrls, ...bloqueUrls, ...servicioUrls, ...iaPredictivaUrls, ...navesFincasUrls];
+  // Cada URL se ofrece en los 3 idiomas: español sin prefijo, francés/inglés con /fr y /en
+  const urls = [];
+  paths.forEach((p) => {
+    SUPPORTED_LANGS.forEach((lang) => {
+      urls.push(lang === "es" ? p : `/${lang}${p === "/" ? "" : p}`);
+    });
+  });
 
   const body = urls
     .map((u) => `  <url><loc>${base}${u}</loc></url>`)
@@ -441,9 +528,10 @@ app.get("/sitemap.xml", (req, res) => {
 
 // ---- 404 ----
 app.use((req, res) => {
+  const { empresa, t } = res.locals;
   res.status(404).render("404", {
-    title: `Página no encontrada — ${empresa.nombre}`,
-    metaDescription: `La página que buscas no existe. Vuelve al inicio de ${empresa.nombre} o consulta nuestro catálogo de servicios.`
+    title: `${t('seo.404.title')} — ${empresa.nombre}`,
+    metaDescription: t('seo.404.desc')
   });
 });
 

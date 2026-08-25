@@ -9,14 +9,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-5D5WS88L');</script>
 <!-- End Google Tag Manager -->
 <meta name="description" content="<%= metaDescription %>" />
-<link rel="canonical" href="https://<%= empresa.web %><%= currentPath %>" />
+<link rel="canonical" href="https://<%= empresa.web %><%= langHref(lang) %>" />
+<link rel="alternate" hreflang="es" href="https://<%= empresa.web %><%= langHref('es') %>" />
+<link rel="alternate" hreflang="fr" href="https://<%= empresa.web %><%= langHref('fr') %>" />
+<link rel="alternate" hreflang="en" href="https://<%= empresa.web %><%= langHref('en') %>" />
+<link rel="alternate" hreflang="x-default" href="https://<%= empresa.web %><%= langHref('es') %>" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="<%= empresa.nombre %>" />
 <meta property="og:title" content="<%= title %>" />
 <meta property="og:description" content="<%= metaDescription %>" />
 <meta property="og:image" content="https://<%= empresa.web %><%= typeof ogImage !== 'undefined' ? ogImage : '/img/hero-tecnico.jpg' %>" />
-<meta property="og:url" content="https://<%= empresa.web %><%= currentPath %>" />
-<meta property="og:locale" content="es_ES" />
+<meta property="og:url" content="https://<%= empresa.web %><%= langHref(lang) %>" />
+<meta property="og:locale" content="<%= lang === 'fr' ? 'fr_FR' : (lang === 'en' ? 'en_US' : 'es_ES') %>" />
 <meta name="twitter:card" content="summary_large_image" />
 <link rel="icon" type="image/png" href="/img/favicon.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />

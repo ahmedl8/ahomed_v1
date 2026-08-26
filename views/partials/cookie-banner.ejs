@@ -1,0 +1,15 @@
+<!-- Banner de consentimiento de cookies. Oculto por defecto (display:none
+     inline, evita el parpadeo); cookie-consent.js lo muestra solo si el
+     visitante todavía no ha decidido. Mientras no acepte, no se carga GTM. -->
+<div id="cookie-banner" class="cookie-banner" style="display:none" role="dialog" aria-live="polite" aria-label="<%= t('cookiebanner.aria_label') %>">
+  <div class="cookie-banner-inner">
+    <p class="cookie-banner-text">
+      <%- tv('cookiebanner.text', { cookies_href: pathHref('/cookies'), cookies_label: t('legal.nav.cookies_lower') }) %>
+    </p>
+    <div class="cookie-banner-actions">
+      <button type="button" id="cookie-reject" class="btn btn-outline btn-sm"><%= t('cookiebanner.reject') %></button>
+      <button type="button" id="cookie-accept" class="btn btn-primary btn-sm"><%= t('cookiebanner.accept') %></button>
+    </div>
+  </div>
+</div>
+<script src="/js/cookie-consent.js"></script>

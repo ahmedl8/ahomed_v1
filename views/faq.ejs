@@ -9,8 +9,8 @@
 
   <section class="page-hero">
     <div class="container">
-      <h1>Preguntas frecuentes</h1>
-      <p>Las dudas más habituales antes de pedir presupuesto. Si no encuentras la tuya, pregunta directamente por WhatsApp.</p>
+      <h1><%= t('faq.hero.title') %></h1>
+      <p><%= t('faq.hero.subtitle') %></p>
     </div>
   </section>
 
@@ -19,53 +19,53 @@
       <div class="faq-list">
 
         <details class="faq-item">
-          <summary>¿Cómo funciona el presupuesto?</summary>
-          <p>Primera visita técnica gratuita, a domicilio o en tu negocio. De ahí sale un presupuesto cerrado con tres opciones — Esencial, Inteligente y Completa — para que elijas tú, sin compromiso ni letra pequeña.</p>
+          <summary><%= t('faq.q1.q') %></summary>
+          <p><%= t('faq.q1.a') %></p>
         </details>
 
         <details class="faq-item">
-          <summary>¿Qué es el Mini-PC IA Central y por qué es obligatorio?</summary>
-          <p>Es el cerebro de todos los modos de la Plataforma IA Predictiva: analiza tus cámaras y sensores y coordina todo el sistema. Es obligatorio porque ya no se instalan modos sueltos con equipo propio — todos comparten este mismo cerebro. Hay dos niveles: <strong>IA START</strong> (590 €, para 1-2 modos) e <strong>IA PRO</strong> (950 €, para 3 o más modos, o Seguridad IA con varias cámaras a la vez).</p>
+          <summary><%= t('faq.q2.q') %></summary>
+          <p><%- t('faq.q2.a') %></p>
         </details>
 
         <details class="faq-item">
-          <summary>¿Hay que pagar cuota mensual?</summary>
-          <p>No. Todo el análisis se hace en local, en tu propio mini-PC, sin depender de un servidor externo ni de una central de alarmas. Pagas la instalación una vez y el sistema es tuyo, sin cuotas después.</p>
+          <summary><%= t('faq.q3.q') %></summary>
+          <p><%= t('faq.q3.a') %></p>
         </details>
 
         <details class="faq-item">
-          <summary>¿Cómo evita las falsas alarmas Seguridad IA?</summary>
-          <p>El sistema no solo graba: analiza cada cámara con IA y aprende a distinguir personas y vehículos reales de falsas alarmas — un gato, una sombra, una bolsa moviéndose con el viento. Solo avisa por WhatsApp, con foto, cuando de verdad importa.</p>
+          <summary><%= t('faq.q4.q') %></summary>
+          <p><%= t('faq.q4.a') %></p>
         </details>
 
         <details class="faq-item">
-          <summary>¿En qué zona trabajáis?</summary>
+          <summary><%= t('faq.q5.q') %></summary>
           <p><%= empresa.zona %>.</p>
         </details>
 
         <details class="faq-item">
-          <summary>¿Cuánto tarda una instalación?</summary>
-          <p>Depende del servicio: desde un trabajo rápido de un par de horas (una cerradura, unos enchufes) hasta una jornada completa en instalaciones más grandes. El tiempo exacto se concreta en la visita técnica.</p>
+          <summary><%= t('faq.q6.q') %></summary>
+          <p><%= t('faq.q6.a') %></p>
         </details>
 
         <details class="faq-item">
-          <summary>¿Qué garantía tienen las instalaciones?</summary>
-          <p>Todas las instalaciones de AHOMED llevan garantía, con material de primeras marcas y equipo que es tuyo desde el primer día.</p>
+          <summary><%= t('faq.q7.q') %></summary>
+          <p><%= t('faq.q7.a') %></p>
         </details>
 
         <details class="faq-item">
-          <summary>¿Puedo empezar solo con lo básico y añadir IA más adelante?</summary>
-          <p>Sí. Muchos servicios básicos — cámaras, cerraduras, redes — pueden ampliarse después con cualquiera de los modos de la Plataforma IA Predictiva sin rehacer la instalación de partida.</p>
+          <summary><%= t('faq.q8.q') %></summary>
+          <p><%= t('faq.q8.a') %></p>
         </details>
 
         <details class="faq-item">
-          <summary>¿Trabajáis también con naves, almacenes o fincas, o solo con viviendas?</summary>
-          <p>Los dos. Naves y Fincas tiene su propia sección en el menú, con servicios básicos, Seguridad IA a escala perimetral/industrial y el Pack Seguridad IA para Negocios.</p>
+          <summary><%= t('faq.q9.q') %></summary>
+          <p><%= t('faq.q9.a') %></p>
         </details>
 
         <details class="faq-item">
-          <summary>¿Cómo pido presupuesto?</summary>
-          <p>Por WhatsApp, es la vía más rápida y directa. La primera visita técnica es gratuita y sin compromiso.</p>
+          <summary><%= t('faq.q10.q') %></summary>
+          <p><%= t('faq.q10.a') %></p>
         </details>
 
       </div>
@@ -74,9 +74,9 @@
 
   <section class="section final-cta">
     <div class="container final-cta-inner">
-      <h2>¿Tu duda no está aquí?</h2>
-      <p>Pregunta directamente, respondo por WhatsApp.</p>
-      <a href="https://wa.me/34<%= empresa.whatsapp %>?text=Hola%2C%20tengo%20una%20duda" target="_blank" rel="noopener" class="btn btn-whatsapp btn-lg">
+      <h2><%= t('faq.cta.title') %></h2>
+      <p><%= t('faq.cta.subtitle') %></p>
+      <a href="https://wa.me/34<%= empresa.whatsapp %>?text=<%= t('faq.cta.whatsapp_text') %>" target="_blank" rel="noopener" class="btn btn-whatsapp btn-lg">
         <%= empresa.whatsappDisplay %>
       </a>
     </div>

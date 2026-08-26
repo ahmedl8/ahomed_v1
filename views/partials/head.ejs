@@ -1,12 +1,20 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title><%= title %></title>
-<!-- Google Tag Manager -->
-<script nonce="<%= cspNonce %>">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-5D5WS88L');</script>
+<!-- Google Tag Manager: la carga real se dispara solo tras el consentimiento
+     de cookies (ver partials/cookie-banner.ejs). Aquí solo definimos la
+     función que lo arranca; no se ejecuta hasta que el usuario acepta. -->
+<script nonce="<%= cspNonce %>">
+window.__loadGTM = function(){
+  if (window.__gtmLoaded) return;
+  window.__gtmLoaded = true;
+  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-5D5WS88L');
+};
+</script>
 <!-- End Google Tag Manager -->
 <meta name="description" content="<%= metaDescription %>" />
 <link rel="canonical" href="https://<%= empresa.web %><%= langHref(lang) %>" />

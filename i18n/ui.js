@@ -33,4 +33,15 @@ function t(key, lang) {
   return Object.prototype.hasOwnProperty.call(es, key) ? es[key] : key;
 }
 
-module.exports = { t };
+// Igual que t(), pero sustituye placeholders {nombre} por los valores dados en
+// `vars`, reemplazando TODAS las ocurrencias de cada uno (no solo la primera).
+function tv(key, lang, vars) {
+  let str = t(key, lang);
+  if (!vars) return str;
+  for (const [k, v] of Object.entries(vars)) {
+    str = str.split(`{${k}}`).join(v);
+  }
+  return str;
+}
+
+module.exports = { t, tv };

@@ -152,6 +152,7 @@ app.locals.fmt = (n) => {
 app.use((req, res, next) => {
   const lang = res.locals.lang;
   res.locals.t = (key) => uiStrings.t(key, lang);
+  res.locals.tv = (key, vars) => uiStrings.tv(key, lang, vars);
   // Selector de idioma (ES/FR/EN): misma página, otro idioma.
   res.locals.langHref = (targetLang) => langHref(req.path, targetLang);
   // Enlaces de navegación (menú, botones internos): otra ruta, mismo idioma actual.

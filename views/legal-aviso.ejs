@@ -9,12 +9,12 @@
 
   <section class="page-hero">
     <div class="container">
-      <h1>Aviso legal</h1>
-      <p>Condiciones de uso de <%= empresa.web %> y datos identificativos del titular, conforme a la Ley 34/2002 de Servicios de la Sociedad de la Información y Comercio Electrónico (LSSI-CE).</p>
+      <h1><%= t('legal.aviso.hero.title') %></h1>
+      <p><%- tv('legal.aviso.hero.subtitle', { web: empresa.web }) %></p>
       <div class="legal-nav">
-        <a href="/aviso-legal">Aviso legal</a>
-        <a href="/privacidad">Privacidad</a>
-        <a href="/cookies">Cookies</a>
+        <a href="<%= pathHref('/aviso-legal') %>"><%= t('legal.nav.aviso') %></a>
+        <a href="<%= pathHref('/privacidad') %>"><%= t('legal.nav.privacidad') %></a>
+        <a href="<%= pathHref('/cookies') %>"><%= t('legal.nav.cookies') %></a>
       </div>
     </div>
   </section>
@@ -23,27 +23,38 @@
     <div class="container legal-content">
 
       <!-- TODO: sustituir por los datos fiscales definitivos (nombre completo/razón social, NIF/CIF, domicilio fiscal) en cuanto se formalice el alta como autónomo o sociedad. -->
-      <span class="legal-pending">Este proyecto está actualmente en fase de alta como autónomo. Los datos de identificación fiscal completos (nombre y apellidos o razón social, NIF/CIF y domicilio fiscal) se incorporarán a este aviso legal en cuanto se formalice el alta. Mientras tanto, cualquier consulta sobre esta web puede dirigirse a <a href="mailto:<%= empresa.email %>"><%= empresa.email %></a>.</span>
+      <span class="legal-pending"><%- tv('legal.aviso.pending', { email: empresa.email }) %></span>
 
-      <h2 class="sub-heading">1. Datos identificativos</h2>
-      <p>Titular del sitio web: <strong>Ahmed</strong>, actuando bajo el nombre comercial <strong><%= empresa.nombre %></strong> ("<%= empresa.nombre %>", "nosotros"). Zona de actividad: <%= empresa.zona %>. Contacto: <a href="mailto:<%= empresa.email %>"><%= empresa.email %></a> · <a href="https://wa.me/34<%= empresa.whatsapp %>" target="_blank" rel="noopener">WhatsApp <%= empresa.whatsappDisplay %></a>.</p>
+      <h2 class="sub-heading"><%= t('legal.aviso.s1.title') %></h2>
+      <p><%- tv('legal.aviso.s1.body', {
+            nombre: empresa.nombre,
+            zona: empresa.zona,
+            email: empresa.email,
+            whatsapp: empresa.whatsapp,
+            whatsappDisplay: empresa.whatsappDisplay
+          }) %></p>
 
-      <h2 class="sub-heading">2. Objeto</h2>
-      <p><%= empresa.web %> tiene como finalidad informar sobre los servicios de electricidad, domótica, seguridad con inteligencia artificial, redes, energía solar y reformas que presta <%= empresa.nombre %>, así como facilitar el contacto y la solicitud de presupuesto por parte de las personas usuarias. El sitio no dispone de tienda online ni de sistema de contratación electrónica: los presupuestos se cierran de forma personal, tras la visita técnica.</p>
+      <h2 class="sub-heading"><%= t('legal.aviso.s2.title') %></h2>
+      <p><%- tv('legal.aviso.s2.body', { web: empresa.web, nombre: empresa.nombre }) %></p>
 
-      <h2 class="sub-heading">3. Condiciones de uso</h2>
-      <p>El acceso y la navegación por este sitio web atribuyen la condición de persona usuaria y suponen la aceptación de las condiciones aquí expuestas. La persona usuaria se compromete a hacer un uso adecuado de los contenidos y a no emplearlos para incurrir en actividades ilícitas o contrarias a la buena fe y al ordenamiento legal.</p>
+      <h2 class="sub-heading"><%= t('legal.aviso.s3.title') %></h2>
+      <p><%= t('legal.aviso.s3.body') %></p>
 
-      <h2 class="sub-heading">4. Propiedad intelectual e industrial</h2>
-      <p>Los contenidos de este sitio web (textos, imágenes, vídeos, diseño, código y marca <%= empresa.nombre %>) son propiedad de su titular o se utilizan con la autorización correspondiente, y están protegidos por la normativa de propiedad intelectual e industrial. No está permitida su reproducción, distribución o comunicación pública total o parcial sin autorización previa por escrito.</p>
+      <h2 class="sub-heading"><%= t('legal.aviso.s4.title') %></h2>
+      <p><%- tv('legal.aviso.s4.body', { nombre: empresa.nombre }) %></p>
 
-      <h2 class="sub-heading">5. Responsabilidad</h2>
-      <p>Los precios, plazos y características técnicas mostrados en el sitio son orientativos y se confirman siempre tras la visita técnica gratuita. <%= empresa.nombre %> no se hace responsable de las decisiones tomadas únicamente a partir de la información orientativa publicada, ni del contenido de los sitios web de terceros a los que puedan dirigir los enlaces incluidos en esta web (por ejemplo, WhatsApp).</p>
+      <h2 class="sub-heading"><%= t('legal.aviso.s5.title') %></h2>
+      <p><%- tv('legal.aviso.s5.body', { nombre: empresa.nombre }) %></p>
 
-      <h2 class="sub-heading">6. Legislación aplicable</h2>
-      <p>Las presentes condiciones se rigen por la legislación española. Para cualquier controversia derivada del uso de este sitio web serán competentes los juzgados y tribunales que correspondan conforme a la normativa vigente en materia de protección de personas consumidoras y usuarias.</p>
+      <h2 class="sub-heading"><%= t('legal.aviso.s6.title') %></h2>
+      <p><%= t('legal.aviso.s6.body') %></p>
 
-      <p>Para todo lo relacionado con el tratamiento de datos personales, consulta la <a href="/privacidad">Política de privacidad</a> y la <a href="/cookies">Política de cookies</a>.</p>
+      <p><%- tv('legal.aviso.footer_links', {
+            privacidad_href: pathHref('/privacidad'),
+            privacidad_label: t('legal.nav.privacidad_lower'),
+            cookies_href: pathHref('/cookies'),
+            cookies_label: t('legal.nav.cookies_lower')
+          }) %></p>
 
     </div>
   </section>

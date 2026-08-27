@@ -94,33 +94,9 @@
     </div>
   </section>
 
-  <!-- SERVICIOS BÁSICOS -->
-  <section class="section services-strip" id="servicios">
-    <div class="container">
-      <div class="section-head">
-        <span class="eyebrow"><%= t('home.servicios.eyebrow') %></span>
-        <h2><%= t('home.servicios.title') %></h2>
-        <p><%= t('home.servicios.body') %></p>
-      </div>
-
-      <div class="services-grid">
-        <% serviciosDestacados.forEach(function(s){ %>
-          <a href="/servicios/<%= s.slug %>" class="service-card">
-            <h3><%= s.nombre %></h3>
-            <p><%= s.resumen %></p>
-            <div class="service-card-footer">
-              <span class="price-tag"><%= t('common.desde') %> <%= fmt(s.desde) %> €<%= s.desdeUnidad || '' %></span>
-              <span class="link-arrow"><%= t('common.ver_detalle') %> →</span>
-            </div>
-          </a>
-        <% }) %>
-      </div>
-
-      <a href="/servicios" class="bloque-cta-link section-cta-more"><%= t('home.servicios.ver_todos') %></a>
-    </div>
-  </section>
-
-  <!-- PUENTE VISUAL ENTRE BÁSICOS Y EXCLUSIVOS -->
+  <!-- PUENTE VISUAL HACIA EXCLUSIVOS: ya no repetimos aquí la lista de
+       servicios (viven en el menú, bien agrupados, y en /servicios) — la
+       home pasa directa del configurador a la Plataforma IA Predictiva. -->
   <div class="section-bridge">
     <div class="section-bridge-line"></div>
     <span class="section-bridge-text"><%= t('home.bridge.text') %></span>

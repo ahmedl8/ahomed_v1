@@ -4,7 +4,7 @@
 const services = [
   {
     slug: "electricidad",
-    bloque: "instalaciones-base",
+    bloque: "electricidad-redes",
     heroImagen: "/img/hero-bloques/electricidad.jpg",
     numero: 1,
     publico: "casa",
@@ -124,7 +124,7 @@ const services = [
   },
   {
     slug: "domotica",
-    bloque: "instalaciones-base",
+    bloque: "confort-clima",
     heroImagen: "/img/hero-bloques/domotica.jpg",
     numero: 2,
     publico: "casa",
@@ -727,7 +727,7 @@ const services = [
   },
   {
     slug: "redes-informatica",
-    bloque: "instalaciones-base",
+    bloque: "electricidad-redes",
     heroImagen: "/img/hero-bloques/redes-informatica.jpg",
     numero: 5,
     publico: "casa",
@@ -840,7 +840,7 @@ const services = [
   },
   {
     slug: "climatizacion",
-    bloque: "instalaciones-base",
+    bloque: "confort-clima",
     heroImagen: "/img/hero-bloques/climatizacion.jpg",
     numero: 6,
     publico: "casa",
@@ -945,7 +945,7 @@ const services = [
   },
   {
     slug: "antenas",
-    bloque: "instalaciones-base",
+    bloque: "electricidad-redes",
     heroImagen: "/img/hero-bloques/antenas.jpg",
     numero: 7,
     publico: "casa",
@@ -1508,7 +1508,7 @@ const services = [
   },
   {
     slug: "electricidad-nave",
-    bloque: "instalaciones-base",
+    bloque: "electricidad-redes",
     heroImagen: "/img/hero-bloques/electricidad.jpg",
     numero: 12,
     publico: "negocio",
@@ -1581,7 +1581,7 @@ const services = [
   },
   {
     slug: "redes-nave",
-    bloque: "instalaciones-base",
+    bloque: "electricidad-redes",
     heroImagen: "/img/hero-bloques/redes-informatica.jpg",
     numero: 13,
     publico: "negocio",

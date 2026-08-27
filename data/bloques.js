@@ -28,14 +28,24 @@ const bloques = [
     publico: "ambos"
   },
   {
-    slug: "instalaciones-base",
-    heroImagen: "/img/hero-bloques/bloque-b.jpg",
+    slug: "electricidad-redes",
+    heroImagen: "/img/hero-bloques/electricidad.jpg",
     letra: "B",
-    nombre: "Instalaciones Base",
-    resumen: "Electricidad, domótica por app, redes, climatización y antenas.",
+    nombre: "Electricidad y Redes",
+    resumen: "Cuadros eléctricos, boletines, punto de recarga, WiFi mesh, cableado de red y antenas.",
     icono: "bolt",
     grupo: "basico",
     publico: "ambos"
+  },
+  {
+    slug: "confort-clima",
+    heroImagen: "/img/hero-bloques/domotica.jpg",
+    letra: "H",
+    nombre: "Domótica y Climatización",
+    resumen: "Interruptores y persianas por app, escenas del hogar y aire acondicionado por zonas.",
+    icono: "home-wifi",
+    grupo: "basico",
+    publico: "casa"
   },
   {
     slug: "energia",

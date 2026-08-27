@@ -22,13 +22,21 @@
     catalogo = { packs: [], servicios: [] };
   }
 
-  var VIVIENDA_LABEL = {
+  var i18nEl = document.getElementById("configurador-i18n");
+  var I18N = {};
+  try {
+    I18N = i18nEl ? JSON.parse(i18nEl.textContent) : {};
+  } catch (e) {
+    I18N = {};
+  }
+
+  var VIVIENDA_LABEL = I18N.viviendaLabel || {
     piso: "Piso",
     chalet: "Chalet",
     "segunda-residencia": "Segunda residencia",
     negocio: "Nave o negocio"
   };
-  var NECESIDAD_LABEL = {
+  var NECESIDAD_LABEL = I18N.necesidadLabel || {
     seguridad: "Seguridad",
     confort: "Confort",
     ahorro: "Ahorro energético",
@@ -38,11 +46,22 @@
   // verdad en data/services.js para los 5 packs (Esencial/Inteligente/
   // Completa), así que aquí no se inventa ningún dato nuevo, solo se deja
   // elegir cuál de los 3 precios reales se muestra.
-  var NIVEL_LABEL = { esencial: "Esencial", inteligente: "Inteligente", completa: "Completa" };
+  var NIVEL_LABEL = I18N.nivelLabel || { esencial: "Esencial", inteligente: "Inteligente", completa: "Completa" };
   var NIVEL_INDEX = { esencial: 0, inteligente: 1, completa: 2 };
 
   function formatEuros(n) {
     return Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + " €";
+  }
+
+  // Escapa HTML al insertar texto (nombres de packs/servicios, textos i18n)
+  // dentro de innerHTML, evitando que caracteres como < o & rompan el marcado.
+  function esc(str) {
+    if (str == null) return "";
+    return String(str)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;");
   }
 
   function pack(slug) {
@@ -155,15 +174,15 @@
 
     if (!rec.item) {
       card.innerHTML =
-        '<span class="wizard-result-eyebrow">Presupuesto a medida</span>' +
-        "<h3>Hablemos de tu proyecto</h3>" +
-        "<p>Con lo que nos cuentas, lo mejor es verlo en la visita técnica gratuita para darte un precio ajustado.</p>";
+        '<span class="wizard-result-eyebrow">' + esc(I18N.presupuestoMedidaEyebrow) + "</span>" +
+        "<h3>" + esc(I18N.presupuestoMedidaTitle) + "</h3>" +
+        "<p>" + esc(I18N.presupuestoMedidaBody) + "</p>";
 
-      var mensajeGenerico = "Hola, he usado el configurador de AHOMED y esto es lo que necesito:\n";
-      mensajeGenerico += "Vivienda: " + (VIVIENDA_LABEL[vivienda] || "sin especificar") + "\n";
-      mensajeGenerico += "Prioridad: " + (NECESIDAD_LABEL[necesidad] || "sin especificar") + "\n";
-      if (controles.length) mensajeGenerico += "Quiero controlar: " + controles.join(", ") + "\n";
-      mensajeGenerico += "¿Podéis darme un presupuesto?";
+      var mensajeGenerico = I18N.mensajeIntro + "\n";
+      mensajeGenerico += I18N.mensajeVivienda + ": " + (VIVIENDA_LABEL[vivienda] || I18N.sinEspecificar) + "\n";
+      mensajeGenerico += I18N.mensajePrioridad + ": " + (NECESIDAD_LABEL[necesidad] || I18N.sinEspecificar) + "\n";
+      if (controles.length) mensajeGenerico += I18N.mensajeQuiereControlar + ": " + controles.join(", ") + "\n";
+      mensajeGenerico += I18N.mensajeCierre;
       elWa.href = "https://wa.me/34" + waNumber + "?text=" + encodeURIComponent(mensajeGenerico);
       return;
     }
@@ -176,40 +195,40 @@
     var nivelNombre = opcion ? opcion.nombre : null;
 
     var html =
-      '<span class="wizard-result-eyebrow">' + (esPack ? "Pack recomendado" : "Servicio recomendado") + "</span>" +
-      "<h3>" + rec.item.nombre + "</h3>" +
-      "<p>" + rec.item.descripcion + "</p>" +
-      (nivelNombre ? '<span class="wizard-result-nivel">Nivel: ' + nivelNombre + "</span>" : "") +
-      '<span class="wizard-result-price">' + (precio != null ? formatEuros(precio) : "Consultar") + "</span>" +
-      '<a href="' + rec.href + '" class="link-arrow">Ver desglose completo →</a>';
+      '<span class="wizard-result-eyebrow">' + esc(esPack ? I18N.packRecomendadoEyebrow : I18N.servicioRecomendadoEyebrow) + "</span>" +
+      "<h3>" + esc(rec.item.nombre) + "</h3>" +
+      "<p>" + esc(rec.item.descripcion) + "</p>" +
+      (nivelNombre ? '<span class="wizard-result-nivel">' + esc(I18N.nivelPrefix) + ": " + esc(nivelNombre) + "</span>" : "") +
+      '<span class="wizard-result-price">' + (precio != null ? formatEuros(precio) : esc(I18N.consultar)) + "</span>" +
+      '<a href="' + rec.href + '" class="link-arrow">' + esc(I18N.verDesgloseCompleto) + "</a>";
 
     if (rec.complemento && rec.complemento.item) {
       html +=
         '<div class="wizard-result-complemento">' +
-        '<span class="wizard-result-complemento-label">Encaja también con:</span> ' +
-        '<a href="' + rec.complemento.href + '">' + rec.complemento.item.nombre + "</a>" +
+        '<span class="wizard-result-complemento-label">' + esc(I18N.encajaTambienCon) + "</span> " +
+        '<a href="' + rec.complemento.href + '">' + esc(rec.complemento.item.nombre) + "</a>" +
         "</div>";
     }
 
     html +=
       '<div class="wizard-result-summary">' +
-      (vivienda ? "Vivienda: " + (VIVIENDA_LABEL[vivienda] || vivienda) + "<br>" : "") +
-      (necesidad ? "Prioridad: " + (NECESIDAD_LABEL[necesidad] || necesidad) + "<br>" : "") +
-      (controles.length ? "Quiere controlar: " + controles.join(", ") + "<br>" : "") +
-      (nivelNombre ? "Nivel: " + (NIVEL_LABEL[nivel] || nivel) : "") +
+      (vivienda ? esc(I18N.resumenVivienda) + ": " + esc(VIVIENDA_LABEL[vivienda] || vivienda) + "<br>" : "") +
+      (necesidad ? esc(I18N.resumenPrioridad) + ": " + esc(NECESIDAD_LABEL[necesidad] || necesidad) + "<br>" : "") +
+      (controles.length ? esc(I18N.resumenQuiereControlar) + ": " + esc(controles.join(", ")) + "<br>" : "") +
+      (nivelNombre ? esc(I18N.resumenNivel) + ": " + esc(NIVEL_LABEL[nivel] || nivel) : "") +
       "</div>";
 
     card.innerHTML = html;
 
-    var mensajeSolucion = rec.item.nombre + (nivelNombre ? " — nivel " + nivelNombre : "") + (precio != null ? " (" + formatEuros(precio) + ")" : "");
+    var mensajeSolucion = rec.item.nombre + (nivelNombre ? " " + I18N.resultadoNivelSeparador + " " + nivelNombre : "") + (precio != null ? " (" + formatEuros(precio) + ")" : "");
 
-    var mensaje = "Hola, he usado el configurador de AHOMED y esto es lo que necesito:\n";
-    mensaje += "Vivienda: " + (VIVIENDA_LABEL[vivienda] || "sin especificar") + "\n";
-    mensaje += "Prioridad: " + (NECESIDAD_LABEL[necesidad] || "sin especificar") + "\n";
-    if (controles.length) mensaje += "Quiero controlar: " + controles.join(", ") + "\n";
-    mensaje += "Solución recomendada: " + mensajeSolucion + "\n";
-    if (rec.complemento && rec.complemento.item) mensaje += "También me interesa: " + rec.complemento.item.nombre + "\n";
-    mensaje += "¿Podéis darme un presupuesto?";
+    var mensaje = I18N.mensajeIntro + "\n";
+    mensaje += I18N.mensajeVivienda + ": " + (VIVIENDA_LABEL[vivienda] || I18N.sinEspecificar) + "\n";
+    mensaje += I18N.mensajePrioridad + ": " + (NECESIDAD_LABEL[necesidad] || I18N.sinEspecificar) + "\n";
+    if (controles.length) mensaje += I18N.mensajeQuiereControlar + ": " + controles.join(", ") + "\n";
+    mensaje += I18N.mensajeSolucionRecomendada + ": " + mensajeSolucion + "\n";
+    if (rec.complemento && rec.complemento.item) mensaje += I18N.mensajeTambienInteresa + ": " + rec.complemento.item.nombre + "\n";
+    mensaje += I18N.mensajeCierre;
 
     elWa.href = "https://wa.me/34" + waNumber + "?text=" + encodeURIComponent(mensaje);
   }

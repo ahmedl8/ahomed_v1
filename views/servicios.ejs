@@ -9,9 +9,9 @@
 
   <section class="page-hero">
     <div class="container">
-      <h1>Servicios</h1>
-      <% var numeroEnLetra = ["", "un", "dos", "tres", "cuatro", "cinco", "seis", "siete", "ocho", "nueve", "diez"][bloques.length] || bloques.length; %>
-      <p><%= numeroEnLetra.charAt(0).toUpperCase() + numeroEnLetra.slice(1) %> bloques, un mismo equipo. Precios orientativos: el presupuesto final se confirma tras la visita técnica gratuita.</p>
+      <h1><%= t('nav.servicios') %></h1>
+      <% var nDisplay = (lang === 'es') ? (function(w){ return w.charAt(0).toUpperCase() + w.slice(1); })((["", "un", "dos", "tres", "cuatro", "cinco", "seis", "siete", "ocho", "nueve", "diez"][bloques.length] || String(bloques.length))) : String(bloques.length); %>
+      <p><%= tv('servicios.hero.subtitle', { n: nDisplay }) %></p>
     </div>
   </section>
 
@@ -19,7 +19,7 @@
     <div class="container">
       <div class="bloques-grid-wrap">
         <div class="bloques-grid-group">
-          <span class="bloques-grid-label">Básicos</span>
+          <span class="bloques-grid-label"><%= t('servicios.nav.basicos') %></span>
           <div class="bloques-grid">
             <% bloques.filter(function(b){ return b.grupo === 'basico'; }).forEach(function(b){ %>
               <a href="#bloque-<%= b.slug %>" class="bloque-chip">
@@ -29,7 +29,7 @@
           </div>
         </div>
         <div class="bloques-grid-group">
-          <span class="bloques-grid-label bloques-grid-label-ia">Exclusivos · con IA</span>
+          <span class="bloques-grid-label bloques-grid-label-ia"><%= t('servicios.nav.exclusivos_ia') %></span>
           <div class="bloques-grid">
             <% bloques.filter(function(b){ return b.grupo === 'exclusivo' && b.publico !== 'negocio'; }).forEach(function(b){ %>
               <a href="#bloque-<%= b.slug %>" class="bloque-chip bloque-chip-ia">
@@ -39,7 +39,7 @@
           </div>
         </div>
         <div class="bloques-grid-group">
-          <span class="bloques-grid-label">Transversal</span>
+          <span class="bloques-grid-label"><%= t('servicios.nav.transversal') %></span>
           <div class="bloques-grid">
             <% bloques.filter(function(b){ return b.grupo === 'general'; }).forEach(function(b){ %>
               <a href="#bloque-<%= b.slug %>" class="bloque-chip">
@@ -49,10 +49,10 @@
           </div>
         </div>
         <div class="bloques-grid-group">
-          <span class="bloques-grid-label">Para tu negocio</span>
+          <span class="bloques-grid-label"><%= t('servicios.nav.negocio') %></span>
           <div class="bloques-grid">
             <a href="#grupo-naves-fincas" class="bloque-chip">
-              <span>🏭 Naves y Fincas</span>
+              <span><%= t('servicios.nav.naves_fincas') %></span>
             </a>
           </div>
         </div>
@@ -62,9 +62,9 @@
 
   <section class="section-group-header" id="grupo-basicos">
     <div class="container">
-      <span class="section-group-eyebrow">🔧 Básicos</span>
-      <h2 class="section-group-title">Servicios sin IA</h2>
-      <p class="section-group-desc">Instalaciones tradicionales: electricidad, domótica de control por app, seguridad con grabación local y climatización. Opciones claras, presupuesto personalizado.</p>
+      <span class="section-group-eyebrow"><%= t('servicios.basicos.eyebrow') %></span>
+      <h2 class="section-group-title"><%= t('servicios.basicos.title') %></h2>
+      <p class="section-group-desc"><%= t('servicios.basicos.desc') %></p>
     </div>
   </section>
 
@@ -87,8 +87,8 @@
                 <span class="meta-chip"><%= s.tiempo %></span>
               </div>
               <div class="service-card-footer">
-                <span class="price-tag">Desde <%= fmt(s.desde) %> €<%= s.desdeUnidad || '' %></span>
-                <span class="link-arrow">Ver detalle →</span>
+                <span class="price-tag"><%= t('common.desde') %> <%= fmt(s.desde) %> €<%= s.desdeUnidad || '' %></span>
+                <span class="link-arrow"><%= t('common.ver_detalle') %> →</span>
               </div>
             </a>
           <% }) %>
@@ -99,9 +99,9 @@
 
   <section class="section-group-header section-group-header-ia" id="grupo-exclusivos">
     <div class="container">
-      <span class="section-group-eyebrow">🧠 Exclusivos</span>
-      <h2 class="section-group-title">Con Inteligencia Artificial</h2>
-      <p class="section-group-desc">Un mismo Mini-PC IA Central hace de cerebro para todos estos servicios: analiza cámaras, cruza datos de clima y presencia, y avisa por WhatsApp solo cuando de verdad importa. Sin cuota mensual, todo el procesamiento en tu casa.</p>
+      <span class="section-group-eyebrow"><%= t('servicios.exclusivos.eyebrow') %></span>
+      <h2 class="section-group-title"><%= t('servicios.exclusivos.title') %></h2>
+      <p class="section-group-desc"><%= t('servicios.exclusivos.desc') %></p>
     </div>
   </section>
 
@@ -124,8 +124,8 @@
                 <span class="meta-chip"><%= s.tiempo %></span>
               </div>
               <div class="service-card-footer">
-                <span class="price-tag">Desde <%= fmt(s.desde) %> €<%= s.desdeUnidad || '' %></span>
-                <span class="link-arrow">Ver detalle →</span>
+                <span class="price-tag"><%= t('common.desde') %> <%= fmt(s.desde) %> €<%= s.desdeUnidad || '' %></span>
+                <span class="link-arrow"><%= t('common.ver_detalle') %> →</span>
               </div>
             </a>
           <% }) %>
@@ -133,13 +133,13 @@
           <% if (b.slug === 'ia-predictiva') { %>
             <% modosIA.forEach(function(m){ %>
               <a href="/servicios/ia-predictiva/<%= m.slug %>" class="service-card service-card-ia-modo<%= m.esProyecto ? ' service-card-ai' : '' %>">
-                <% if (m.esProyecto) { %><div class="service-badge">Servicio exclusivo</div><% } %>
+                <% if (m.esProyecto) { %><div class="service-badge"><%= t('servicios.badge.exclusivo') %></div><% } %>
                 <% if (m.titular) { %><p class="card-titular"><%= m.titular %></p><% } %>
                 <h3><%= m.numero %>. <%= m.nombre %></h3>
                 <p><%= m.esProyecto ? m.subtitulo : m.resumen %></p>
                 <div class="service-card-footer">
-                  <span class="price-tag"><%= m.esProyecto ? 'Proyecto a medida' : '+' + fmt(m.precioIncremento) + ' € sobre la base' %></span>
-                  <span class="link-arrow">Ver detalle →</span>
+                  <span class="price-tag"><%= m.esProyecto ? t('servicios.precio.proyecto_medida') : tv('servicios.precio.sobre_base', { precio: fmt(m.precioIncremento) }) %></span>
+                  <span class="link-arrow"><%= t('common.ver_detalle') %> →</span>
                 </div>
               </a>
             <% }) %>
@@ -147,7 +147,7 @@
         </div>
 
         <% if (b.slug === 'ia-predictiva') { %>
-          <a href="/servicios/ia-predictiva" class="bloque-cta-link">Ver cómo funciona la plataforma completa →</a>
+          <a href="/servicios/ia-predictiva" class="bloque-cta-link"><%= t('servicios.ia_predictiva.ver_plataforma') %></a>
         <% } %>
       </div>
     </section>
@@ -155,9 +155,9 @@
 
   <section class="section-group-header section-group-header-neutral" id="grupo-mantenimiento">
     <div class="container">
-      <span class="section-group-eyebrow">🔧 Transversal</span>
-      <h2 class="section-group-title">Mantenimiento</h2>
-      <p class="section-group-desc">Para cualquier instalación AHOMED, básica o con IA: revisiones, incidencias y reentrenamiento del modelo cuando aplica.</p>
+      <span class="section-group-eyebrow"><%= t('servicios.mantenimiento.eyebrow') %></span>
+      <h2 class="section-group-title"><%= t('nav.mantenimiento') %></h2>
+      <p class="section-group-desc"><%= t('servicios.mantenimiento.desc') %></p>
     </div>
   </section>
 
@@ -173,8 +173,8 @@
                 <span class="meta-chip"><%= s.tiempo %></span>
               </div>
               <div class="service-card-footer">
-                <span class="price-tag">Desde <%= fmt(s.desde) %> €<%= s.desdeUnidad || '' %></span>
-                <span class="link-arrow">Ver detalle →</span>
+                <span class="price-tag"><%= t('common.desde') %> <%= fmt(s.desde) %> €<%= s.desdeUnidad || '' %></span>
+                <span class="link-arrow"><%= t('common.ver_detalle') %> →</span>
               </div>
             </a>
           <% }) %>
@@ -185,15 +185,15 @@
 
   <section class="section-group-header section-group-header-neutral" id="grupo-naves-fincas">
     <div class="container">
-      <span class="section-group-eyebrow">🏭 Naves y Fincas</span>
-      <h2 class="section-group-title">Para tu negocio</h2>
-      <p class="section-group-desc">Los mismos servicios básicos (electricidad, redes, fontanería, mantenimiento) adaptados a otra escala, más Seguridad IA perimetral para naves, almacenes y fincas. Todo separado de la parte residencial — otro dimensionado, otro tipo de proyecto.</p>
+      <span class="section-group-eyebrow"><%= t('servicios.nav.naves_fincas') %></span>
+      <h2 class="section-group-title"><%= t('servicios.nav.negocio') %></h2>
+      <p class="section-group-desc"><%= t('servicios.naves_fincas.desc') %></p>
     </div>
   </section>
 
   <section class="section" id="bloque-naves-fincas-basicos">
     <div class="container">
-      <h2 class="sub-heading">Instalaciones y servicios</h2>
+      <h2 class="sub-heading"><%= t('nav.instalaciones_servicios') %></h2>
       <div class="services-grid services-grid-full">
         <% services.filter(function(s){ return s.publico === 'negocio'; }).forEach(function(s){ %>
           <a href="/servicios/<%= s.slug %>" class="service-card">
@@ -203,8 +203,8 @@
               <span class="meta-chip"><%= s.tiempo %></span>
             </div>
             <div class="service-card-footer">
-              <span class="price-tag">Desde <%= fmt(s.desde) %> €<%= s.desdeUnidad || '' %></span>
-              <span class="link-arrow">Ver detalle →</span>
+              <span class="price-tag"><%= t('common.desde') %> <%= fmt(s.desde) %> €<%= s.desdeUnidad || '' %></span>
+              <span class="link-arrow"><%= t('common.ver_detalle') %> →</span>
             </div>
           </a>
         <% }) %>
@@ -215,29 +215,29 @@
   <% if (typeof seguridadIANaves !== 'undefined' && seguridadIANaves) { %>
     <section class="section section-alt" id="bloque-seguridad-ia-naves-fincas">
       <div class="container">
-        <h2 class="sub-heading">Con inteligencia artificial</h2>
+        <h2 class="sub-heading"><%= t('servicios.naves_fincas.con_ia') %></h2>
         <div class="services-grid services-grid-full">
           <a href="/servicios/naves-fincas/seguridad-ia" class="service-card service-card-ia-modo service-card-ai">
-            <div class="service-badge">Servicio exclusivo</div>
+            <div class="service-badge"><%= t('servicios.badge.exclusivo') %></div>
             <p class="card-titular"><%= seguridadIANaves.titular %></p>
             <h3><%= seguridadIANaves.nombre %></h3>
             <p><%= seguridadIANaves.subtitulo %></p>
             <div class="service-card-footer">
-              <span class="price-tag">Proyecto a medida</span>
-              <span class="link-arrow">Ver detalle →</span>
+              <span class="price-tag"><%= t('servicios.precio.proyecto_medida') %></span>
+              <span class="link-arrow"><%= t('common.ver_detalle') %> →</span>
             </div>
           </a>
         </div>
-        <a href="/soluciones#packs-negocio" class="bloque-cta-link">Ver soluciones para tu negocio →</a>
+        <a href="/soluciones#packs-negocio" class="bloque-cta-link"><%= t('nav.ver_soluciones_negocio') %></a>
       </div>
     </section>
   <% } %>
 
   <section class="section final-cta">
     <div class="container final-cta-inner">
-      <h2>¿No encuentras el servicio?</h2>
-      <p>Nuestro fuerte es la capa inteligente de la vivienda: seguridad con IA, domótica, redes y energía. Para pintura, alicatado, fontanería o pladur puntual — normalmente como <a href="/servicios/bloque/reformas">apoyo a una instalación AHOMED</a> — consúltanos también, y si trabajas con una reforma o construcción en marcha, mira <a href="/para-profesionales">AHOMED para Profesionales</a>.</p>
-      <a href="https://wa.me/34<%= empresa.whatsapp %>?text=Hola%2C%20tengo%20una%20consulta" target="_blank" rel="noopener" class="btn btn-whatsapp btn-lg">Consultar por WhatsApp</a>
+      <h2><%= t('servicios.final_cta.title') %></h2>
+      <p><%- t('servicios.final_cta.body') %></p>
+      <a href="https://wa.me/34<%= empresa.whatsapp %>?text=<%= t('servicios.final_cta.whatsapp_text') %>" target="_blank" rel="noopener" class="btn btn-whatsapp btn-lg"><%= t('servicios.final_cta.cta') %></a>
     </div>
   </section>
 

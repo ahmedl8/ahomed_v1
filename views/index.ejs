@@ -11,35 +11,35 @@
   <section class="hero hero-split-section">
     <div class="container hero-split">
       <div class="hero-split-copy">
-        <h1>Tu casa más segura, más cómoda y más inteligente</h1>
-        <p class="hero-sub">Instalaciones profesionales en <%= empresa.zona %> para viviendas y negocios: seguridad con IA, domótica, redes y energía. Soluciones a medida con atención personal.</p>
+        <h1><%= t('home.hero.title') %></h1>
+        <p class="hero-sub"><%= tv('home.hero.subtitle', { zona: empresa.zona }) %></p>
 
         <div class="hero-trust-row">
-          <div class="hero-trust-item"><svg viewBox="0 0 24 24"><path d="M12 1l3 6 6.5.9-4.7 4.6 1.1 6.5L12 15.9 6.1 19l1.1-6.5L2.5 7.9 9 7z"/></svg>Más de <%= empresa.anosExperiencia %> de experiencia</div>
+          <div class="hero-trust-item"><svg viewBox="0 0 24 24"><path d="M12 1l3 6 6.5.9-4.7 4.6 1.1 6.5L12 15.9 6.1 19l1.1-6.5L2.5 7.9 9 7z"/></svg><%= t('topbar.experience_prefix') %> <%= empresa.anosExperiencia %> <%= t('topbar.experience_suffix') %></div>
           <div class="hero-trust-item"><svg viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg><%= empresa.zona %></div>
-          <div class="hero-trust-item"><svg viewBox="0 0 24 24"><path d="M12 2l8 3.5v6c0 5.2-3.4 9.8-8 10.5-4.6-.7-8-5.3-8-10.5v-6L12 2z"/></svg>Presupuesto sin compromiso</div>
+          <div class="hero-trust-item"><svg viewBox="0 0 24 24"><path d="M12 2l8 3.5v6c0 5.2-3.4 9.8-8 10.5-4.6-.7-8-5.3-8-10.5v-6L12 2z"/></svg><%= t('common.presupuesto_sin_compromiso') %></div>
         </div>
 
         <div class="hero-ctas">
-          <a href="https://wa.me/34<%= empresa.whatsapp %>?text=Hola%2C%20quiero%20pedir%20presupuesto%20gratuito" target="_blank" rel="noopener" class="btn btn-whatsapp btn-lg">
+          <a href="https://wa.me/34<%= empresa.whatsapp %>?text=<%= t('common.whatsapp_text_presupuesto') %>" target="_blank" rel="noopener" class="btn btn-whatsapp btn-lg">
             <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12.001 2C6.478 2 2 6.478 2 12c0 1.85.502 3.657 1.454 5.235L2 22l4.897-1.415A9.955 9.955 0 0 0 12.001 22C17.523 22 22 17.523 22 12S17.523 2 12.001 2z"/></svg>
-            Hablar por WhatsApp
+            <%= t('common.hablar_whatsapp') %>
           </a>
           <a href="tel:+34<%= empresa.whatsapp %>" class="btn btn-outline-light btn-lg">
             <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24 11.4 11.4 0 0 0 3.58.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.4 11.4 0 0 0 .57 3.58 1 1 0 0 1-.25 1.01l-2.2 2.2z"/></svg>
-            Llámame
+            <%= t('common.llamame') %>
           </a>
         </div>
 
         <div class="hero-badges hero-badges-secondary">
-          <% ["IA local, sin depender de la nube para decidir", "Sin cuotas mensuales en las soluciones que no las necesitan", "Hablas directamente con el técnico"].forEach(function(v){ %>
-            <div class="hero-badge"><svg viewBox="0 0 24 24"><path d="M9 16.2l-3.5-3.5L4 14.2 9 19.2 20 8.2l-1.5-1.5z"/></svg><%= v %></div>
+          <% ['home.hero.badge1', 'home.hero.badge2', 'home.hero.badge3'].forEach(function(k){ %>
+            <div class="hero-badge"><svg viewBox="0 0 24 24"><path d="M9 16.2l-3.5-3.5L4 14.2 9 19.2 20 8.2l-1.5-1.5z"/></svg><%= t(k) %></div>
           <% }) %>
         </div>
       </div>
 
       <div class="hero-split-visual">
-        <img src="/img/hero-casa-movil.jpg" alt="Vivienda con domótica y seguridad AHOMED: cámara IP exterior y app de control desde el móvil" class="hero-split-img" />
+        <img src="/img/hero-casa-movil.jpg" alt="<%= t('home.hero.image_alt') %>" class="hero-split-img" />
       </div>
     </div>
   </section>
@@ -48,7 +48,7 @@
   <section class="section section-tight necesitas-section">
     <div class="container">
       <div class="section-head">
-        <h2>¿Qué necesitas?</h2>
+        <h2><%= t('home.necesitas.title') %></h2>
       </div>
       <div class="services-grid services-grid-full necesitas-grid">
         <% necesitas.forEach(function(n){ %>
@@ -62,9 +62,9 @@
             <h3><%= n.titulo %></h3>
             <p><%= n.subtitulo %></p>
             <% if (n.desde) { %>
-              <span class="link-arrow">Desde <%= fmt(n.desde) %> € →</span>
+              <span class="link-arrow"><%= t('common.desde') %> <%= fmt(n.desde) %> € →</span>
             <% } else { %>
-              <span class="link-arrow">Ver más →</span>
+              <span class="link-arrow"><%= t('common.ver_mas') %> →</span>
             <% } %>
           </a>
         <% }) %>
@@ -78,15 +78,15 @@
       <div class="configurador-banner">
         <div class="configurador-banner-inner">
           <div class="configurador-banner-copy">
-            <span class="eyebrow">¿No sabes por dónde empezar?</span>
-            <h2>Configura tu casa en 4 preguntas</h2>
-            <p>Tipo de vivienda, qué quieres mejorar, qué quieres controlar y con qué nivel empezar. Te recomendamos la solución AHOMED que mejor encaja, con presupuesto orientativo al momento.</p>
-            <a href="/configurador" class="btn btn-primary btn-lg configurador-banner-cta">Configurar mi casa →</a>
+            <span class="eyebrow"><%= t('home.configurador_banner.eyebrow') %></span>
+            <h2><%= t('home.configurador_banner.title') %></h2>
+            <p><%= t('home.configurador_banner.body') %></p>
+            <a href="/configurador" class="btn btn-primary btn-lg configurador-banner-cta"><%= t('home.configurador_banner.cta') %></a>
           </div>
           <div class="configurador-banner-visual">
             <picture>
               <source srcset="/img/marketing/configurador-tu-casa.webp" type="image/webp">
-              <img src="/img/marketing/configurador-tu-casa.jpg" alt="Vivienda conectada con seguridad, confort, familia, acceso y energía coordinados desde una misma app" loading="lazy">
+              <img src="/img/marketing/configurador-tu-casa.jpg" alt="<%= t('home.configurador_banner.image_alt') %>" loading="lazy">
             </picture>
           </div>
         </div>
@@ -98,9 +98,9 @@
   <section class="section services-strip" id="servicios">
     <div class="container">
       <div class="section-head">
-        <span class="eyebrow">Para tu vivienda</span>
-        <h2>Instalaciones y servicios</h2>
-        <p>Electricidad, seguridad, domótica, redes, climatización y energía solar. Se piden sueltos, sin ningún equipo obligatorio de por medio.</p>
+        <span class="eyebrow"><%= t('home.servicios.eyebrow') %></span>
+        <h2><%= t('home.servicios.title') %></h2>
+        <p><%= t('home.servicios.body') %></p>
       </div>
 
       <div class="services-grid">
@@ -109,21 +109,21 @@
             <h3><%= s.nombre %></h3>
             <p><%= s.resumen %></p>
             <div class="service-card-footer">
-              <span class="price-tag">Desde <%= fmt(s.desde) %> €<%= s.desdeUnidad || '' %></span>
-              <span class="link-arrow">Ver detalle →</span>
+              <span class="price-tag"><%= t('common.desde') %> <%= fmt(s.desde) %> €<%= s.desdeUnidad || '' %></span>
+              <span class="link-arrow"><%= t('common.ver_detalle') %> →</span>
             </div>
           </a>
         <% }) %>
       </div>
 
-      <a href="/servicios" class="bloque-cta-link section-cta-more">Ver todos los servicios →</a>
+      <a href="/servicios" class="bloque-cta-link section-cta-more"><%= t('home.servicios.ver_todos') %></a>
     </div>
   </section>
 
   <!-- PUENTE VISUAL ENTRE BÁSICOS Y EXCLUSIVOS -->
   <div class="section-bridge">
     <div class="section-bridge-line"></div>
-    <span class="section-bridge-text">Y si quieres que todo esto piense por sí solo…</span>
+    <span class="section-bridge-text"><%= t('home.bridge.text') %></span>
     <div class="section-bridge-line"></div>
   </div>
 
@@ -131,9 +131,9 @@
   <section class="section section-exclusivos">
     <div class="container">
       <div class="section-head section-head-exclusivos">
-        <span class="eyebrow">El gran diferenciador de AHOMED</span>
-        <h2>Haz que tu casa piense</h2>
-        <p>El Cerebro AHOMED analiza lo que ocurre y actúa automáticamente para que no tengas que estar pendiente — nada de alertas por un gato o una sombra. <%= totalModos %> modos a elegir, desde seguridad hasta cuidado de mayores o mascotas, todos coordinados por un mismo sistema.</p>
+        <span class="eyebrow"><%= t('home.exclusivos.eyebrow') %></span>
+        <h2><%= t('home.exclusivos.title') %></h2>
+        <p><%= tv('home.exclusivos.body', { totalModos: totalModos }) %></p>
       </div>
 
       <div class="cerebro-diagram">
@@ -145,11 +145,11 @@
         <div class="cerebro-visual-wrap">
           <picture>
             <source srcset="/img/marketing/cerebro-ahomed.webp" type="image/webp">
-            <img src="/img/marketing/cerebro-ahomed.jpg" alt="Mini-PC IA Central del Cerebro AHOMED coordinando cámara, clima, luces, app móvil y consumo energético de la vivienda" loading="lazy" class="cerebro-visual-img">
+            <img src="/img/marketing/cerebro-ahomed.jpg" alt="<%= t('home.exclusivos.cerebro_visual_alt') %>" loading="lazy" class="cerebro-visual-img">
           </picture>
         </div>
 
-        <p class="cerebro-hardware-note">Hardware: <strong>Mini-PC IA Central</strong>, desde <%= fmt(instalacionBase.niveles[0].total) %> € — una única vez, para todos los modos.</p>
+        <p class="cerebro-hardware-note"><%- tv('home.exclusivos.hardware_note', { precio: fmt(instalacionBase.niveles[0].total) }) %></p>
 
         <div class="cerebro-diagram-visual">
           <svg class="cerebro-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
@@ -183,14 +183,14 @@
 
       <div class="ai-highlight-inner">
         <div class="ai-highlight-copy">
-          <h3>Seguridad IA — el más pedido</h3>
+          <h3><%= t('home.ai_highlight.title') %></h3>
           <p><%= seguridadIA.resumen %></p>
           <ul class="check-list">
-            <li>Ideal para: <%= seguridadIA.idealPara.join(', ') %></li>
-            <li>Configuración del modelo de detección entrenado con imágenes reales de tu local o vivienda</li>
-            <li>Notificaciones por WhatsApp solo cuando de verdad importa</li>
+            <li><%= t('home.ai_highlight.ideal_para_prefix') %> <%= seguridadIA.idealPara.join(', ') %></li>
+            <li><%= t('home.ai_highlight.feature1') %></li>
+            <li><%= t('home.ai_highlight.feature2') %></li>
           </ul>
-          <a href="/servicios/ia-predictiva/seguridad-ia" class="btn btn-primary">Ver ejemplos y precios</a>
+          <a href="/servicios/ia-predictiva/seguridad-ia" class="btn btn-primary"><%= t('home.ai_highlight.cta') %></a>
         </div>
         <div class="ai-highlight-visual">
           <% if (seguridadIA.video) { %>
@@ -198,12 +198,12 @@
               <source src="<%= seguridadIA.video %>" type="video/mp4">
             </video>
           <% } else { %>
-            <img src="/img/trabajos/monitor-ia-despues.jpg" alt="Sistema de videovigilancia con detección de personas y vehículos por IA y alertas por WhatsApp" loading="lazy">
+            <img src="/img/trabajos/monitor-ia-despues.jpg" alt="<%= t('home.ai_highlight.video_alt') %>" loading="lazy">
           <% } %>
         </div>
       </div>
 
-      <a href="/servicios/ia-predictiva" class="btn btn-outline ia-modos-cta">Ver los <%= totalModos %> modos y sus precios →</a>
+      <a href="/servicios/ia-predictiva" class="btn btn-outline ia-modos-cta"><%= tv('home.exclusivos.modos_cta', { totalModos: totalModos }) %></a>
     </div>
   </section>
 
@@ -213,25 +213,25 @@
       <div class="configurador-banner configurador-banner-dark">
         <div class="configurador-banner-inner">
           <div class="configurador-banner-copy">
-            <span class="launch-offer-badge launch-offer-badge-inline">Solo para los 3 primeros</span>
-            <span class="eyebrow">Para profesionales</span>
-            <h2>¿Eres profesional de la construcción?</h2>
+            <span class="launch-offer-badge launch-offer-badge-inline"><%= t('home.profesionales_teaser.badge') %></span>
+            <span class="eyebrow"><%= t('home.profesionales_teaser.eyebrow') %></span>
+            <h2><%= t('home.profesionales_teaser.title') %></h2>
             <div class="configurador-banner-chips">
-              <span class="configurador-banner-chip">Reformas</span>
-              <span class="configurador-banner-chip">Constructoras</span>
-              <span class="configurador-banner-chip">Persianas</span>
-              <span class="configurador-banner-chip">Cocinas</span>
-              <span class="configurador-banner-chip">Climatización</span>
-              <span class="configurador-banner-chip">Interiorismo</span>
+              <span class="configurador-banner-chip"><%= t('home.profesionales_teaser.chip_reformas') %></span>
+              <span class="configurador-banner-chip"><%= t('home.profesionales_teaser.chip_constructoras') %></span>
+              <span class="configurador-banner-chip"><%= t('home.profesionales_teaser.chip_persianas') %></span>
+              <span class="configurador-banner-chip"><%= t('home.profesionales_teaser.chip_cocinas') %></span>
+              <span class="configurador-banner-chip"><%= t('home.profesionales_teaser.chip_climatizacion') %></span>
+              <span class="configurador-banner-chip"><%= t('home.profesionales_teaser.chip_interiorismo') %></span>
             </div>
-            <p>Tú haces la obra. AHOMED añade la inteligencia. Y ahora mismo, tu primera colaboración puede salirte gratis.</p>
-            <a href="/para-profesionales" class="btn btn-primary btn-lg configurador-banner-cta">Descubre cómo colaborar →</a>
-            <p class="banner-objection-note"><strong>¿Ya tienes reformista, constructor o instalador?</strong> Perfecto, no necesitas cambiarlo — AHOMED se integra con su trabajo para añadir seguridad, domótica, IA, redes y energía.</p>
+            <p><%= t('home.profesionales_teaser.body') %></p>
+            <a href="/para-profesionales" class="btn btn-primary btn-lg configurador-banner-cta"><%= t('home.profesionales_teaser.cta') %></a>
+            <p class="banner-objection-note"><%- t('home.profesionales_teaser.objection') %></p>
           </div>
           <div class="configurador-banner-visual">
             <picture>
               <source srcset="/img/trabajos/reforma-general-despues.webp" type="image/webp">
-              <img src="/img/trabajos/reforma-general-despues.jpg" alt="Reforma integral con tecnología AHOMED integrada" loading="lazy">
+              <img src="/img/trabajos/reforma-general-despues.jpg" alt="<%= t('home.profesionales_teaser.image_alt') %>" loading="lazy">
             </picture>
           </div>
         </div>
@@ -243,9 +243,9 @@
   <section class="section vive-section">
     <div class="container">
       <div class="section-head">
-        <span class="eyebrow">Pruébalo</span>
-        <h2>Vive AHOMED</h2>
-        <p>Elige un momento del día y mira qué hace tu Cerebro AHOMED sin que tengas que tocar nada.</p>
+        <span class="eyebrow"><%= t('home.vive.eyebrow') %></span>
+        <h2><%= t('home.vive.title') %></h2>
+        <p><%= t('home.vive.body') %></p>
       </div>
 
       <div class="escenario-tabs" role="tablist">
@@ -283,7 +283,7 @@
                   <a href="/servicios/ia-predictiva/<%= m.slug %>" class="escenario-link"><%= m.nombre %> →</a>
                 <% }) %>
                 <% if (e.packSugerido) { %>
-                  <a href="/soluciones#<%= e.packSugerido %>" class="escenario-link">Ver la solución para este caso →</a>
+                  <a href="/soluciones#<%= e.packSugerido %>" class="escenario-link"><%= t('home.escenario.ver_solucion') %></a>
                 <% } %>
               </div>
             </div>
@@ -296,12 +296,15 @@
   <!-- PACKS -->
   <section class="section section-tight">
     <div class="container">
+      <% var pisoNuevoPack = packsDestacados.find(function(p){ return p.slug === 'piso-nuevo'; });
+         var chaletSeguroPack = packsDestacados.find(function(p){ return p.slug === 'chalet-seguro'; });
+         var hogarIAPack = packsDestacados.find(function(p){ return p.slug === 'hogar-inteligente'; }); %>
       <a href="/soluciones" class="soluciones-mini-banner">
         <div>
-          <span class="eyebrow">¿Prefieres algo ya armado?</span>
-          <h3>Mira nuestras soluciones combinadas: Piso Nuevo, Chalet Seguro, Hogar con IA y más</h3>
+          <span class="eyebrow"><%= t('home.packs_banner.eyebrow') %></span>
+          <h3><%= tv('home.packs_banner.title', { pack1: pisoNuevoPack.nombre, pack2: chaletSeguroPack.nombre, pack3: hogarIAPack.nombre }) %></h3>
         </div>
-        <span class="btn btn-outline">Ver soluciones →</span>
+        <span class="btn btn-outline"><%= t('home.packs_banner.cta') %></span>
       </a>
     </div>
   </section>
@@ -310,13 +313,13 @@
   <section class="section how-it-works">
     <div class="container">
       <div class="section-head">
-        <h2>Cómo funciona un presupuesto AHOMED</h2>
+        <h2><%= t('home.how_it_works.title') %></h2>
       </div>
       <div class="how-it-works-inner">
         <div class="how-it-works-visual">
           <picture>
             <source srcset="/img/marketing/visita-tecnica.webp" type="image/webp">
-            <img src="/img/marketing/visita-tecnica.jpg" alt="Visita técnica a domicilio: revisión del proyecto con plano de la vivienda y presupuesto en tablet" loading="lazy">
+            <img src="/img/marketing/visita-tecnica.jpg" alt="<%= t('home.how_it_works.image_alt') %>" loading="lazy">
           </picture>
         </div>
         <div class="steps-grid steps-grid-compact">
@@ -335,22 +338,22 @@
   <section class="section tech-teaser-section">
     <div class="container tech-teaser-inner">
       <div class="tech-teaser-copy">
-        <span class="eyebrow">Lo que hay detrás</span>
-        <h2>La tecnología del Cerebro AHOMED</h2>
-        <p>No es un dispositivo suelto de una tienda: es un motor Python con modelos de IA que corre en tu propia casa, sin depender de la nube para decidir. Así es como funciona por dentro.</p>
+        <span class="eyebrow"><%= t('home.tech_teaser.eyebrow') %></span>
+        <h2><%= t('home.tech_teaser.title') %></h2>
+        <p><%= t('home.tech_teaser.body') %></p>
         <div class="tech-teaser-list">
-          <span class="tech-teaser-chip">IA local</span>
-          <span class="tech-teaser-chip">Procesamiento de vídeo</span>
-          <span class="tech-teaser-chip">Dashboard</span>
-          <span class="tech-teaser-chip">WhatsApp Business API</span>
-          <span class="tech-teaser-chip">Privacidad</span>
+          <span class="tech-teaser-chip"><%= t('home.tech_teaser.chip1') %></span>
+          <span class="tech-teaser-chip"><%= t('home.tech_teaser.chip2') %></span>
+          <span class="tech-teaser-chip"><%= t('home.tech_teaser.chip3') %></span>
+          <span class="tech-teaser-chip"><%= t('home.tech_teaser.chip4') %></span>
+          <span class="tech-teaser-chip"><%= t('home.tech_teaser.chip5') %></span>
         </div>
-        <a href="/tecnologia" class="link-arrow">Ver cómo funciona por dentro →</a>
+        <a href="/tecnologia" class="link-arrow"><%= t('home.tech_teaser.cta') %></a>
       </div>
       <div class="tech-teaser-visual">
         <picture>
           <source srcset="/img/marketing/ia-local-privacidad.webp" type="image/webp">
-          <img src="/img/marketing/ia-local-privacidad.jpg" alt="El análisis de la cámara ocurre en el mini-PC dentro de la vivienda, no en la nube: detección local repartida entre las distintas zonas de la casa" loading="lazy" class="tech-teaser-img" />
+          <img src="/img/marketing/ia-local-privacidad.jpg" alt="<%= t('home.tech_teaser.image_alt') %>" loading="lazy" class="tech-teaser-img" />
         </picture>
       </div>
     </div>
@@ -360,12 +363,12 @@
   <section class="section about-teaser-section">
     <div class="container about-teaser-inner">
       <div class="about-teaser-photo">
-        <img src="/img/ahmed-sobre-mi.jpg" alt="Ahmed, técnico y fundador de AHOMED" loading="lazy" />
+        <img src="/img/ahmed-sobre-mi.jpg" alt="<%= t('home.about_teaser.image_alt') %>" loading="lazy" />
       </div>
       <div class="about-teaser-copy">
-        <h2>Quién viene a tu casa</h2>
-        <p>Soy Ahmed, técnico con más de <%= empresa.anosExperiencia %> de experiencia en electricidad, domótica y sistemas de seguridad con IA. Soy quien valora tu proyecto en la visita técnica y con quien hablas directamente por WhatsApp, de principio a fin.</p>
-        <a href="/sobre-mi" class="link-arrow">Conoce mi experiencia completa →</a>
+        <h2><%= t('home.about_teaser.title') %></h2>
+        <p><%= tv('home.about_teaser.body', { anos: empresa.anosExperiencia }) %></p>
+        <a href="/sobre-mi" class="link-arrow"><%= t('home.about_teaser.cta') %></a>
       </div>
     </div>
   </section>
@@ -373,9 +376,9 @@
   <!-- CTA FINAL -->
   <section class="section final-cta">
     <div class="container final-cta-inner">
-      <h2>¿Hablamos de tu proyecto?</h2>
-      <p>Primera visita gratuita. Presupuesto sin compromiso.</p>
-      <a href="https://wa.me/34<%= empresa.whatsapp %>?text=Hola%2C%20quiero%20pedir%20presupuesto%20gratuito" target="_blank" rel="noopener" class="btn btn-whatsapp btn-lg">
+      <h2><%= t('home.final_cta.title') %></h2>
+      <p><%= t('home.final_cta.subtitle') %></p>
+      <a href="https://wa.me/34<%= empresa.whatsapp %>?text=<%= t('common.whatsapp_text_presupuesto') %>" target="_blank" rel="noopener" class="btn btn-whatsapp btn-lg">
         <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12.001 2C6.478 2 2 6.478 2 12c0 1.85.502 3.657 1.454 5.235L2 22l4.897-1.415A9.955 9.955 0 0 0 12.001 22C17.523 22 22 17.523 22 12S17.523 2 12.001 2z"/></svg>
         <%= empresa.whatsappDisplay %>
       </a>

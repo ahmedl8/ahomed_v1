@@ -13,21 +13,21 @@
     <div class="container service-hero-inner">
       <div class="service-hero-icon"><svg viewBox="0 0 24 24"><%- icons.ai %></svg></div>
       <div>
-        <nav class="breadcrumb" aria-label="Ruta de navegación">
-          <a href="/servicios">Servicios</a> ›
-          <a href="/servicios/bloque/ia-predictiva">Plataforma IA Predictiva</a>
+        <nav class="breadcrumb" aria-label="<%= t('common.breadcrumb_aria') %>">
+          <a href="/servicios"><%= t('nav.servicios') %></a> ›
+          <a href="/servicios/bloque/ia-predictiva"><%= t('nav.plataforma_ia') %></a>
         </nav>
         <span class="eyebrow"><%= instalacionBase.marca %> — <%= instalacionBase.tagline %></span>
-        <h1>Plataforma IA Predictiva</h1>
-        <p>El diferencial no está en los dispositivos — un Shelly o un Zigbee los compra cualquiera —, sino en la inteligencia que vive en el <%= instalacionBase.marca %> y cruza datos que nadie más mezcla: clima, precio de la luz por hora, geolocalización, calidad del aire, fases de sueño. Ellos instalan dispositivos. AHOMED instala inteligencia.</p>
+        <h1><%= t('nav.plataforma_ia') %></h1>
+        <p><%= tv('ia_predictiva.hero.body', { marca: instalacionBase.marca }) %></p>
       </div>
     </div>
   </section>
 
   <section class="section">
     <div class="container">
-      <h2 class="sub-heading">1. <%= instalacionBase.marca %> — instalación base obligatoria</h2>
-      <p class="cerebro-hardware-note-light">Hardware: <strong>Mini-PC IA Central</strong>. <%= instalacionBase.tagline %></p>
+      <h2 class="sub-heading"><%= tv('ia_predictiva.s1.title', { marca: instalacionBase.marca }) %></h2>
+      <p class="cerebro-hardware-note-light"><%- tv('ia_predictiva.s1.hardware_note', { tagline: instalacionBase.tagline }) %></p>
       <p><%= instalacionBase.resumen %></p>
 
       <div class="options-stack options-stack-2">
@@ -47,7 +47,7 @@
               </tbody>
               <tfoot>
                 <tr>
-                  <td>TOTAL — <%= nivel.nombre %></td>
+                  <td><%= t('common.total') %> — <%= nivel.nombre %></td>
                   <td class="option-price option-total"><%= fmt(nivel.total) %> €</td>
                 </tr>
               </tfoot>
@@ -56,27 +56,27 @@
         <% }) %>
       </div>
 
-      <p class="example-note">Añade nuevos modos más adelante sin cambiar de Mini-PC — el coste adicional de cada modo es el mismo en ambos niveles, la diferencia está solo en la base. Es obligatorio para cualquier modo de esta página, incluida Seguridad IA. Ya no se ofrece la opción de instalar un modo "solo, con equipo propio" ni Raspberry Pi como cerebro central.</p>
+      <p class="example-note"><%= t('ia_predictiva.s1.example_note') %></p>
     </div>
   </section>
 
   <% if (packsIA && packsIA.length) { %>
   <section class="section section-alt">
     <div class="container">
-      <h2 class="sub-heading">2. ¿No sabes por dónde empezar? Empieza por un pack</h2>
-      <p>Combinan los modos más habituales para facilitar la propuesta inicial. Es la forma más rápida de arrancar — luego se puede ampliar con cualquiera de los otros modos sin tocar el Mini-PC ya instalado.</p>
+      <h2 class="sub-heading"><%= t('ia_predictiva.s2.title') %></h2>
+      <p><%= t('ia_predictiva.s2.desc') %></p>
 
       <div class="packs-grid packs-grid-2">
         <% packsIA.forEach(function(p){ %>
           <a href="/soluciones#<%= p.slug %>" class="pack-card pack-card-photo">
             <img src="<%= p.imagen %>" alt="<%= p.imagenAlt %>" loading="lazy" class="pack-card-img">
             <div class="pack-card-body">
-              <% if (p.incluyeIA) { %><span class="pack-ia-badge pack-ia-badge-sm">🧠 Incluye IA</span><% } %>
+              <% if (p.incluyeIA) { %><span class="pack-ia-badge pack-ia-badge-sm"><%= t('packs.badge.incluye_ia') %></span><% } %>
               <h3><%= p.nombre %></h3>
               <p class="pack-desc"><%= p.descripcion %></p>
               <div class="pack-footer">
-                <span class="price-tag price-tag-lg">Desde <%= fmt(p.opciones[0].total) %> €</span>
-                <span class="btn btn-outline">Ver desglose</span>
+                <span class="price-tag price-tag-lg"><%= t('common.desde') %> <%= fmt(p.opciones[0].total) %> €</span>
+                <span class="btn btn-outline"><%= t('ia_predictiva.s2.ver_desglose') %></span>
               </div>
             </div>
           </a>
@@ -89,8 +89,8 @@
   <!-- CALCULADORA -->
   <section class="section" id="calculadora">
     <div class="container">
-      <h2 class="sub-heading">3. ¿Prefieres montarlo tú mismo? Elige modo a modo</h2>
-      <p>Si ya sabes qué necesitas, elige el Mini-PC según cuántos servicios te interesan, marca los modos y mira el total en vivo.</p>
+      <h2 class="sub-heading"><%= t('ia_predictiva.s3.title') %></h2>
+      <p><%= t('ia_predictiva.s3.desc') %></p>
 
       <div class="calc-wrap" data-wa="<%= empresa.whatsapp %>">
         <div class="calc-niveles">
@@ -107,19 +107,19 @@
         <div class="calc-modos">
           <% modos.forEach(function(m){ %>
             <label class="calc-item">
-              <span class="calc-item-check"><input type="checkbox" class="calc-check" data-precio="<%= m.esProyecto ? 860 : m.precioIncremento %>" data-nombre="<%= m.nombre %>"><span class="calc-item-name"><%= m.numero %>. <%= m.nombre %><% if (m.esProyecto) { %> <em>(desde, proyecto a medida)</em><% } %></span></span>
+              <span class="calc-item-check"><input type="checkbox" class="calc-check" data-precio="<%= m.esProyecto ? 860 : m.precioIncremento %>" data-nombre="<%= m.nombre %>"><span class="calc-item-name"><%= m.numero %>. <%= m.nombre %><% if (m.esProyecto) { %> <em><%= t('ia_predictiva.s3.desde_proyecto') %></em><% } %></span></span>
               <span class="calc-item-price">+<%= fmt(m.esProyecto ? 860 : m.precioIncremento) %> €</span>
             </label>
           <% }) %>
         </div>
 
         <div class="calc-summary">
-          <h3>Tu presupuesto orientativo</h3>
-          <div class="calc-total-row"><span id="calc-base-label">Mini-PC IA Central</span><span id="calc-base"><%= fmt(instalacionBase.niveles[0].total) %> €</span></div>
-          <div class="calc-total-row"><span>Modos seleccionados</span><span id="calc-extra">+0 €</span></div>
-          <div class="calc-total-row calc-total-final"><span>Total estimado</span><span id="calc-total"><%= fmt(instalacionBase.niveles[0].total) %> €</span></div>
-          <a href="#" id="calc-whatsapp" target="_blank" rel="noopener" class="btn btn-whatsapp btn-lg calc-cta">Enviar por WhatsApp</a>
-          <p class="calc-disclaimer">Estimación orientativa. El precio definitivo se confirma tras la visita técnica gratuita. Seguridad IA se cotiza con su ejemplo más económico — el precio real depende del número de cámaras.</p>
+          <h3><%= t('ia_predictiva.s3.calc_title') %></h3>
+          <div class="calc-total-row"><span id="calc-base-label"><%= t('ia_predictiva.s3.minipc_label') %></span><span id="calc-base"><%= fmt(instalacionBase.niveles[0].total) %> €</span></div>
+          <div class="calc-total-row"><span><%= t('ia_predictiva.s3.modos_seleccionados') %></span><span id="calc-extra">+0 €</span></div>
+          <div class="calc-total-row calc-total-final"><span><%= t('ia_predictiva.s3.total_estimado') %></span><span id="calc-total"><%= fmt(instalacionBase.niveles[0].total) %> €</span></div>
+          <a href="#" id="calc-whatsapp" target="_blank" rel="noopener" class="btn btn-whatsapp btn-lg calc-cta"><%= t('ia_predictiva.s3.enviar_whatsapp') %></a>
+          <p class="calc-disclaimer"><%= t('ia_predictiva.s3.disclaimer') %></p>
         </div>
       </div>
     </div>
@@ -127,8 +127,8 @@
 
   <section class="section">
     <div class="container">
-      <h2 class="sub-heading">4. Los <%= modos.length %> modos, en 4 familias</h2>
-      <p>Cada modo resuelve un escenario completo de la vida diaria, no un dispositivo suelto. Para no tener que estudiarlos uno a uno, se agrupan en 4 familias:</p>
+      <h2 class="sub-heading"><%= tv('ia_predictiva.s4.title', { n: modos.length }) %></h2>
+      <p><%= t('ia_predictiva.s4.desc') %></p>
 
       <% familiasIA.forEach(function(familia){ %>
         <div class="ia-familia-group" id="familia-<%= familia.slug %>">
@@ -147,13 +147,13 @@
           <div class="services-grid services-grid-full">
             <% modos.filter(function(m){ return m.familia === familia.slug; }).forEach(function(m){ %>
               <a href="/servicios/ia-predictiva/<%= m.slug %>" class="service-card service-card-ia-modo<%= m.esProyecto ? ' service-card-ai' : '' %>">
-                <% if (m.esProyecto) { %><div class="service-badge">Servicio exclusivo</div><% } %>
+                <% if (m.esProyecto) { %><div class="service-badge"><%= t('servicios.badge.exclusivo') %></div><% } %>
                 <% if (m.titular) { %><p class="card-titular"><%= m.titular %></p><% } %>
                 <h3><%= m.numero %>. <%= m.nombre %></h3>
                 <p><%= m.esProyecto ? m.subtitulo : m.resumen %></p>
                 <div class="service-card-footer">
-                  <span class="price-tag"><%= m.esProyecto ? 'Proyecto a medida' : '+' + fmt(m.precioIncremento) + ' € sobre la base' %></span>
-                  <span class="link-arrow">Ver detalle →</span>
+                  <span class="price-tag"><%= m.esProyecto ? t('servicios.precio.proyecto_medida') : tv('servicios.precio.sobre_base', { precio: fmt(m.precioIncremento) }) %></span>
+                  <span class="link-arrow"><%= t('common.ver_detalle') %> →</span>
                 </div>
               </a>
             <% }) %>
@@ -161,15 +161,15 @@
         </div>
       <% }) %>
 
-      <p class="orientative-note">Todos los importes son orientativos. El precio definitivo se confirma tras la visita técnica gratuita. ¿Dudas sobre el Mini-PC IA Central o las cuotas? Consulta las <a href="/preguntas-frecuentes">preguntas frecuentes</a>.</p>
+      <p class="orientative-note"><%- t('ia_predictiva.s4.orientative_note') %></p>
     </div>
   </section>
 
   <section class="section final-cta">
     <div class="container final-cta-inner">
-      <h2>¿Empezamos con tu plataforma IA?</h2>
-      <p>Primera visita gratuita. Presupuesto sin compromiso.</p>
-      <a href="https://wa.me/34<%= empresa.whatsapp %>?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20la%20Plataforma%20IA%20Predictiva" target="_blank" rel="noopener" class="btn btn-whatsapp btn-lg">
+      <h2><%= t('ia_predictiva.final_cta.title') %></h2>
+      <p><%= t('ia_predictiva.final_cta.body') %></p>
+      <a href="https://wa.me/34<%= empresa.whatsapp %>?text=<%= t('ia_predictiva.final_cta.whatsapp_text') %>" target="_blank" rel="noopener" class="btn btn-whatsapp btn-lg">
         <%= empresa.whatsappDisplay %>
       </a>
     </div>

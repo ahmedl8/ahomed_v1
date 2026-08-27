@@ -38,10 +38,24 @@
     packs = [];
   }
 
+  var i18nEl = document.getElementById("creador-i18n");
+  var I18N = {};
+  try {
+    I18N = i18nEl ? JSON.parse(i18nEl.textContent) : {};
+  } catch (e) {
+    I18N = {};
+  }
+  var MINI_PC_CENTRAL = I18N.miniPcCentral || "Mini-PC IA Central";
+
   var nivelElegidoManualmente = false;
 
   function formatEuros(n) {
     return Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + " €";
+  }
+
+  // Sustituye {numModos} por el valor real en un texto de I18N.
+  function conNumModos(str, numModos) {
+    return (str || "").split("{numModos}").join(numModos);
   }
 
   function nivelActivo() {
@@ -107,7 +121,7 @@
 
     var nivel = nivelActivo();
     var baseTotal = numModos > 0 ? (parseInt(nivel.value, 10) || 0) : 0;
-    var nombreNivel = nivel.dataset.nombre || "Mini-PC IA Central";
+    var nombreNivel = nivel.dataset.nombre || MINI_PC_CENTRAL;
 
     var total = totalBasicos + baseTotal + totalModos;
 
@@ -130,9 +144,9 @@
       if (numModos === 0) {
         nivelHint.textContent = "";
       } else if (numModos >= 3) {
-        nivelHint.textContent = "Con " + numModos + " modos, recomendamos IA PRO para que todo corra fluido a la vez.";
+        nivelHint.textContent = conNumModos(I18N.nivelHintPro, numModos);
       } else {
-        nivelHint.textContent = "Con 1-2 modos, IA START va sobrado.";
+        nivelHint.textContent = I18N.nivelHintStart || "";
       }
     }
 
@@ -141,28 +155,28 @@
     if (match && hayAlgo) {
       elMatch.hidden = false;
       if (match.desde <= total) {
-        elMatchBody.textContent = match.nombre + ", desde " + formatEuros(match.desde) + ", podría salirte más a cuenta que montarlo pieza a pieza.";
+        elMatchBody.textContent = match.nombre + ", " + I18N.matchMejorPrecio + " " + formatEuros(match.desde) + ".";
       } else {
         var diferencia = match.desde - total;
-        elMatchBody.textContent = match.nombre + " — por " + formatEuros(diferencia) + " más obtienes ya el paquete completo montado y probado.";
+        elMatchBody.textContent = match.nombre + " — " + I18N.matchDiferenciaPrefix + " " + formatEuros(diferencia) + " " + I18N.matchDiferenciaSuffix;
       }
       elMatchLink.href = "/soluciones#" + match.slug;
     } else {
       elMatch.hidden = true;
     }
 
-    var mensaje = "Hola, quiero un presupuesto para esta combinación con AHOMED:\n";
+    var mensaje = I18N.mensajeIntro + "\n";
     if (nombresServicios.length) {
-      mensaje += "Básicos: " + nombresServicios.join(", ") + "\n";
+      mensaje += I18N.mensajeBasicos + ": " + nombresServicios.join(", ") + "\n";
     }
     if (numModos > 0) {
-      mensaje += nombreNivel + " + modos IA: " + nombresModos.join(", ") + "\n";
+      mensaje += nombreNivel + " + " + I18N.mensajeModosIA + ": " + nombresModos.join(", ") + "\n";
     }
     if (!hayAlgo) {
-      mensaje += "(todavía sin nada marcado)\n";
+      mensaje += I18N.mensajeSinNada + "\n";
     }
-    mensaje += "Total estimado: " + formatEuros(total);
-    if (match) mensaje += "\nMe han dicho que se parece a: " + match.nombre;
+    mensaje += I18N.mensajeTotalEstimado + ": " + formatEuros(total);
+    if (match) mensaje += "\n" + I18N.mensajeSeParece + ": " + match.nombre;
 
     if (elWa) {
       // v48: faltaba el prefijo de país "34" (sí lo llevan configurador.js y

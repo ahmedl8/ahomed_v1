@@ -15,16 +15,16 @@
     <div class="container service-hero-inner">
       <div class="service-hero-icon"><svg viewBox="0 0 24 24"><%- icons[modo.icono] %></svg></div>
       <div>
-        <nav class="breadcrumb" aria-label="Ruta de navegación">
-          <a href="/servicios">Servicios</a> ›
-          <a href="/servicios/ia-predictiva">Plataforma IA Predictiva</a>
+        <nav class="breadcrumb" aria-label="<%= t('detalle_servicio.breadcrumb.aria') %>">
+          <a href="/servicios"><%= t('nav.servicios') %></a> ›
+          <a href="/servicios/ia-predictiva"><%= t('nav.plataforma_ia') %></a>
         </nav>
-        <span class="eyebrow">Modo <%= modo.numero %> de <%= totalModos %> — <%= modo.subtitulo %></span>
+        <span class="eyebrow"><%= tv('ia_modo.eyebrow', { numero: modo.numero, total: totalModos }) %> — <%= modo.subtitulo %></span>
         <% if (modo.titular) { %><p class="hero-titular"><%= modo.titular %></p><% } %>
         <h1><%= modo.nombre %></h1>
         <p><%= modo.resumen %></p>
         <div class="service-meta">
-          <span class="meta-chip meta-chip-price">+ <%= fmt(modo.precioIncremento) %> € sobre el Mini-PC IA Central</span>
+          <span class="meta-chip meta-chip-price"><%= tv('ia_modo.precio_sobre_minipc', { precio: fmt(modo.precioIncremento) }) %></span>
         </div>
       </div>
     </div>
@@ -33,7 +33,7 @@
   <section class="section">
     <div class="container two-col">
       <div>
-        <h2 class="sub-heading">Ideal para</h2>
+        <h2 class="sub-heading"><%= t('detalle_servicio.ideal_para.title') %></h2>
         <ul class="check-list check-list-lg">
           <% modo.idealPara.forEach(function(item){ %>
             <li><%= item %></li>
@@ -41,8 +41,8 @@
         </ul>
 
         <div class="ia-modo-info-box">
-          <p><strong>Requiere el Mini-PC IA Central</strong></p>
-          <p>Este modo cuesta <strong><%= fmt(modo.precioIncremento) %> €</strong> adicionales sobre el <a href="/servicios/ia-predictiva">Mini-PC IA Central (desde 590 €, obligatorio)</a> — reutiliza el mismo mini-PC que el resto de modos. Ya no se instala con equipo propio independiente.</p>
+          <p><strong><%= t('ia_modo.requiere_minipc.title') %></strong></p>
+          <p><%- tv('ia_modo.requiere_minipc.text', { precio: fmt(modo.precioIncremento) }) %></p>
         </div>
 
         <% if (modo.video) { %>
@@ -66,13 +66,13 @@
           </div>
         <% } %>
 
-        <a href="https://wa.me/34<%= empresa.whatsapp %>?text=<%= encodeURIComponent('Hola, quiero pedir presupuesto para ' + modo.nombre.toLowerCase()) %>" target="_blank" rel="noopener" class="btn btn-whatsapp btn-lg cta-block">
-          Pedir presupuesto gratuito
+        <a href="https://wa.me/34<%= empresa.whatsapp %>?text=<%= encodeURIComponent(tv('detalle_servicio.whatsapp_presupuesto', { servicio: modo.nombre.toLowerCase() })) %>" target="_blank" rel="noopener" class="btn btn-whatsapp btn-lg cta-block">
+          <%= t('detalle_servicio.cta_presupuesto') %>
         </a>
       </div>
 
       <div class="example-panel">
-        <h2 class="sub-heading">Ejemplo real — <%= modo.ejemplo.titulo %></h2>
+        <h2 class="sub-heading"><%= tv('detalle_servicio.ejemplo_real.title', { titulo: modo.ejemplo.titulo }) %></h2>
 
         <div class="options-stack">
           <% modo.ejemplo.opciones.forEach(function(op){ %>
@@ -84,16 +84,16 @@
           <p class="example-note"><%= modo.ejemplo.nota %></p>
         <% } %>
 
-        <p class="orientative-note">Todos los importes son orientativos. El precio definitivo se confirma tras la visita técnica gratuita.</p>
+        <p class="orientative-note"><%= t('detalle_servicio.nota_orientativa') %></p>
       </div>
     </div>
   </section>
 
   <section class="section final-cta">
     <div class="container final-cta-inner">
-      <h2>¿Empezamos con <%= modo.nombre.toLowerCase() %>?</h2>
-      <p>Primera visita gratuita. Presupuesto sin compromiso.</p>
-      <a href="https://wa.me/34<%= empresa.whatsapp %>?text=<%= encodeURIComponent('Hola, quiero pedir presupuesto para ' + modo.nombre.toLowerCase()) %>" target="_blank" rel="noopener" class="btn btn-whatsapp btn-lg">
+      <h2><%= tv('ia_modo.cta_final.title', { servicio: modo.nombre.toLowerCase() }) %></h2>
+      <p><%= t('detalle_servicio.cta_final.subtitle') %></p>
+      <a href="https://wa.me/34<%= empresa.whatsapp %>?text=<%= encodeURIComponent(tv('detalle_servicio.whatsapp_presupuesto', { servicio: modo.nombre.toLowerCase() })) %>" target="_blank" rel="noopener" class="btn btn-whatsapp btn-lg">
         <%= empresa.whatsappDisplay %>
       </a>
     </div>

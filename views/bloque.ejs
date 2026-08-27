@@ -13,10 +13,10 @@
       <div class="page-hero-overlay"></div>
     <% } %>
     <div class="container page-hero-content">
-      <nav class="breadcrumb" aria-label="Ruta de navegación">
-        <a href="/servicios">Servicios</a> › <%= bloque.nombre %>
+      <nav class="breadcrumb" aria-label="<%= t('detalle_servicio.breadcrumb.aria') %>">
+        <a href="/servicios"><%= t('nav.servicios') %></a> › <%= bloque.nombre %>
       </nav>
-      <span class="eyebrow">Categoría de servicios</span>
+      <span class="eyebrow"><%= t('bloque.eyebrow') %></span>
       <h1><%= bloque.nombre %></h1>
       <p><%= bloque.resumen %></p>
     </div>
@@ -33,8 +33,8 @@
               <span class="meta-chip"><%= s.tiempo %></span>
             </div>
             <div class="service-card-footer">
-              <span class="price-tag">Desde <%= fmt(s.desde) %> €<%= s.desdeUnidad || '' %></span>
-              <span class="link-arrow">Ver detalle →</span>
+              <span class="price-tag"><%= tv('detalle_servicio.desde_precio', { precio: fmt(s.desde), unidad: s.desdeUnidad || '' }) %></span>
+              <span class="link-arrow"><%= t('bloque.ver_detalle') %></span>
             </div>
           </a>
         <% }) %>
@@ -42,13 +42,13 @@
         <% if (modosIA) { %>
           <% modosIA.forEach(function(m){ %>
             <a href="/servicios/ia-predictiva/<%= m.slug %>" class="service-card service-card-ia-modo<%= m.esProyecto ? ' service-card-ai' : '' %>">
-              <% if (m.esProyecto) { %><div class="service-badge">Servicio exclusivo</div><% } %>
+              <% if (m.esProyecto) { %><div class="service-badge"><%= t('bloque.servicio_exclusivo') %></div><% } %>
               <% if (m.titular) { %><p class="card-titular"><%= m.titular %></p><% } %>
               <h3><%= m.numero %>. <%= m.nombre %></h3>
               <p><%= m.esProyecto ? m.subtitulo : m.resumen %></p>
               <div class="service-card-footer">
-                <span class="price-tag"><%= m.esProyecto ? 'Proyecto a medida' : '+' + fmt(m.precioIncremento) + ' € sobre la base' %></span>
-                <span class="link-arrow">Ver detalle →</span>
+                <span class="price-tag"><%= m.esProyecto ? t('bloque.proyecto_a_medida') : tv('bloque.precio_sobre_base', { precio: fmt(m.precioIncremento) }) %></span>
+                <span class="link-arrow"><%= t('bloque.ver_detalle') %></span>
               </div>
             </a>
           <% }) %>
@@ -56,29 +56,29 @@
 
         <% if (bloque.slug === 'seguridad-ia-naves-fincas' && typeof seguridadIANaves !== 'undefined' && seguridadIANaves) { %>
           <a href="/servicios/naves-fincas/seguridad-ia" class="service-card service-card-ia-modo service-card-ai">
-            <div class="service-badge">Servicio exclusivo</div>
+            <div class="service-badge"><%= t('bloque.servicio_exclusivo') %></div>
             <p class="card-titular"><%= seguridadIANaves.titular %></p>
             <h3><%= seguridadIANaves.nombre %></h3>
             <p><%= seguridadIANaves.subtitulo %></p>
             <div class="service-card-footer">
-              <span class="price-tag">Proyecto a medida</span>
-              <span class="link-arrow">Ver detalle →</span>
+              <span class="price-tag"><%= t('bloque.proyecto_a_medida') %></span>
+              <span class="link-arrow"><%= t('bloque.ver_detalle') %></span>
             </div>
           </a>
         <% } %>
       </div>
 
       <% if (modosIA) { %>
-        <a href="/servicios/ia-predictiva" class="bloque-cta-link">Ver instalación base y cómo funciona la plataforma →</a>
+        <a href="/servicios/ia-predictiva" class="bloque-cta-link"><%= t('bloque.ver_instalacion_base') %></a>
       <% } %>
     </div>
   </section>
 
   <section class="section final-cta">
     <div class="container final-cta-inner">
-      <h2>¿Hablamos de tu proyecto?</h2>
-      <p>Primera visita gratuita. Presupuesto sin compromiso.</p>
-      <a href="https://wa.me/34<%= empresa.whatsapp %>?text=<%= encodeURIComponent('Hola, quiero información sobre ' + bloque.nombre.toLowerCase()) %>" target="_blank" rel="noopener" class="btn btn-whatsapp btn-lg">
+      <h2><%= t('tecnologia.cta.title') %></h2>
+      <p><%= t('tecnologia.cta.subtitle') %></p>
+      <a href="https://wa.me/34<%= empresa.whatsapp %>?text=<%= encodeURIComponent(tv('bloque.whatsapp_text', { bloque: bloque.nombre.toLowerCase() })) %>" target="_blank" rel="noopener" class="btn btn-whatsapp btn-lg">
         <%= empresa.whatsappDisplay %>
       </a>
     </div>

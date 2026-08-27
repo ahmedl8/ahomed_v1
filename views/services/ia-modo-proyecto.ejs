@@ -13,16 +13,16 @@
     <div class="container service-hero-inner">
       <div class="service-hero-icon"><svg viewBox="0 0 24 24"><%- icons[modo.icono] %></svg></div>
       <div>
-        <nav class="breadcrumb" aria-label="Ruta de navegación">
-          <a href="/servicios">Servicios</a> ›
-          <a href="/servicios/ia-predictiva">Plataforma IA Predictiva</a>
+        <nav class="breadcrumb" aria-label="<%= t('detalle_servicio.breadcrumb.aria') %>">
+          <a href="/servicios"><%= t('nav.servicios') %></a> ›
+          <a href="/servicios/ia-predictiva"><%= t('nav.plataforma_ia') %></a>
         </nav>
-        <span class="eyebrow">Modo <%= modo.numero %> de <%= totalModos %> — <%= modo.subtitulo %></span>
+        <span class="eyebrow"><%= tv('ia_modo.eyebrow', { numero: modo.numero, total: totalModos }) %> — <%= modo.subtitulo %></span>
         <% if (modo.titular) { %><p class="hero-titular"><%= modo.titular %></p><% } %>
         <h1><%= modo.nombre %></h1>
         <p><%= modo.resumen %></p>
-        <a href="https://wa.me/34<%= empresa.whatsapp %>?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Seguridad%20IA" target="_blank" rel="noopener" class="btn btn-whatsapp cta-block">
-          Pedir presupuesto gratuito
+        <a href="https://wa.me/34<%= empresa.whatsapp %>?text=<%= t('ia_modo_proyecto.whatsapp_text_hero') %>" target="_blank" rel="noopener" class="btn btn-whatsapp cta-block">
+          <%= t('detalle_servicio.cta_presupuesto') %>
         </a>
       </div>
     </div>
@@ -31,8 +31,8 @@
   <section class="section">
     <div class="container">
       <div class="ia-modo-info-box">
-        <p><strong>Requiere el Mini-PC IA Central</strong></p>
-        <p>Seguridad IA es el modo 10 de la Plataforma IA Predictiva: reutiliza el mismo <a href="/servicios/ia-predictiva">Mini-PC IA Central (desde 590 €, obligatorio)</a> que el resto de modos — no necesitas comprar un mini-PC de grabación aparte. Los precios de abajo son el coste de las cámaras, la configuración del modelo de detección y la puesta en marcha.</p>
+        <p><strong><%= t('ia_modo.requiere_minipc.title') %></strong></p>
+        <p><%- t('ia_modo_proyecto.requiere_minipc_text') %></p>
       </div>
 
       <% if (modo.video) { %>
@@ -45,18 +45,18 @@
 
       <% modo.ejemplos.forEach(function(ej, idx){ %>
         <div class="ia-example-block">
-          <h2 class="sub-heading">Ejemplo — <%= ej.titulo %></h2>
+          <h2 class="sub-heading"><%= tv('detalle_servicio.ejemplo_real.title', { titulo: ej.titulo }) %></h2>
           <p class="example-client"><%= ej.subtitulo %></p>
 
           <% if (ej.imagen && ej.imagenAntes) { %>
             <div class="pack-photo-pair">
               <div class="pack-photo-wrap">
-                <span class="photo-label">Antes</span>
-                <img src="<%= ej.imagenAntes %>" alt="Antes — <%= ej.titulo %>" loading="lazy">
+                <span class="photo-label"><%= t('detalle_servicio.antes') %></span>
+                <img src="<%= ej.imagenAntes %>" alt="<%= tv('detalle_servicio.antes_alt', { titulo: ej.titulo }) %>" loading="lazy">
               </div>
               <div class="pack-photo-wrap">
-                <span class="photo-label photo-label-after">Después</span>
-                <img src="<%= ej.imagen %>" alt="Después — <%= ej.titulo %>" loading="lazy">
+                <span class="photo-label photo-label-after"><%= t('detalle_servicio.despues') %></span>
+                <img src="<%= ej.imagen %>" alt="<%= tv('detalle_servicio.despues_alt', { titulo: ej.titulo }) %>" loading="lazy">
               </div>
             </div>
           <% } %>
@@ -73,7 +73,7 @@
 
       <div class="two-col two-col-top">
         <div>
-          <h2 class="sub-heading">Extras habituales</h2>
+          <h2 class="sub-heading"><%= t('detalle_servicio.extras.title') %></h2>
           <ul class="plus-list">
             <% modo.extras.forEach(function(item){ %>
               <li><%= item %></li>
@@ -81,7 +81,7 @@
           </ul>
         </div>
         <div>
-          <h2 class="sub-heading">Clientes que contrataron este servicio también instalaron</h2>
+          <h2 class="sub-heading"><%= t('detalle_servicio.tambien_instalaron.title') %></h2>
           <ul class="dot-list dot-list-links">
             <% modo.tambienInstalaron.forEach(function(item){ %>
               <% if (item.href) { %>
@@ -94,15 +94,15 @@
         </div>
       </div>
 
-      <p class="orientative-note">Todos los importes son orientativos. El precio definitivo se confirma tras la visita técnica gratuita.</p>
+      <p class="orientative-note"><%= t('detalle_servicio.nota_orientativa') %></p>
     </div>
   </section>
 
   <section class="section final-cta">
     <div class="container final-cta-inner">
-      <h2>¿Hablamos de tu proyecto de vigilancia inteligente?</h2>
-      <p>Primera visita gratuita. Presupuesto sin compromiso.</p>
-      <a href="https://wa.me/34<%= empresa.whatsapp %>?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Seguridad%20IA" target="_blank" rel="noopener" class="btn btn-whatsapp btn-lg">
+      <h2><%= t('ia_modo_proyecto.cta_final.title') %></h2>
+      <p><%= t('detalle_servicio.cta_final.subtitle') %></p>
+      <a href="https://wa.me/34<%= empresa.whatsapp %>?text=<%= t('ia_modo_proyecto.whatsapp_text_hero') %>" target="_blank" rel="noopener" class="btn btn-whatsapp btn-lg">
         <%= empresa.whatsappDisplay %>
       </a>
     </div>

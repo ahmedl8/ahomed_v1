@@ -8,17 +8,17 @@
   <%- include('partials/header') %>
 
   <section class="page-hero page-hero-photo">
-    <img src="/img/hero-tecnico.jpg" alt="Instalación técnica AHOMED" class="page-hero-bg" loading="eager" />
+    <img src="/img/hero-tecnico.jpg" alt="<%= t('profesionales.hero.image_alt') %>" class="page-hero-bg" loading="eager" />
     <div class="page-hero-overlay"></div>
     <div class="container page-hero-content">
-      <span class="eyebrow">AHOMED para Profesionales</span>
-      <h1>Tú construyes la casa.<br>AHOMED la hace inteligente.</h1>
-      <p>Colabora con AHOMED si eres reformista, constructor, persianero, electricista o interiorista. Añadimos seguridad IA, domótica, redes y energía a tus proyectos — sin que tengas que aprenderlo ni venderlo tú.</p>
+      <span class="eyebrow"><%= t('profesionales.hero.eyebrow') %></span>
+      <h1><%= t('profesionales.hero.title1') %><br><%= t('profesionales.hero.title2') %></h1>
+      <p><%= t('profesionales.hero.body') %></p>
       <div class="hero-ctas">
-        <a href="https://wa.me/34<%= empresa.whatsapp %>?text=<%= encodeURIComponent('Hola, tengo una empresa y me interesa colaborar con AHOMED') %>" target="_blank" rel="noopener" class="btn btn-whatsapp btn-lg">
-          Hablar por WhatsApp
+        <a href="https://wa.me/34<%= empresa.whatsapp %>?text=<%= t('profesionales.whatsapp_text') %>" target="_blank" rel="noopener" class="btn btn-whatsapp btn-lg">
+          <%= t('common.hablar_whatsapp') %>
         </a>
-        <a href="/pdf/ahomed-para-profesionales.pdf" target="_blank" rel="noopener" class="btn btn-outline-light btn-lg">Descargar presentación para profesionales</a>
+        <a href="/pdf/ahomed-para-profesionales.pdf" target="_blank" rel="noopener" class="btn btn-outline-light btn-lg"><%= t('profesionales.hero.cta_pdf') %></a>
       </div>
     </div>
   </section>
@@ -27,11 +27,11 @@
   <section class="section launch-offer">
     <div class="container">
       <div class="launch-offer-box">
-        <span class="launch-offer-badge">Solo para los 3 primeros</span>
-        <h2>Tu primera colaboración con AHOMED, gratis</h2>
-        <p>Estamos empezando y preferimos demostrarlo con hechos, no solo con palabras. A las <strong>3 primeras empresas o profesionales</strong> que colaboren con nosotros, les hacemos la instalación de la parte tecnológica del primer proyecto <strong>sin coste</strong> — os quedáis con el 100% de lo que facturéis por vuestra parte. A cambio, solo os pedimos poder fotografiar y grabar el resultado, y una reseña si ha ido bien.</p>
-        <p class="launch-offer-fine-print">Aplica a un proyecto de tamaño estándar (una vivienda o negocio); para proyectos más grandes lo hablamos caso a caso. Válido mientras queden plazas de las 3 disponibles.</p>
-        <a href="https://wa.me/34<%= empresa.whatsapp %>?text=<%= encodeURIComponent('Hola, quiero ser una de las 3 primeras empresas en colaborar con AHOMED con la primera instalación gratis') %>" target="_blank" rel="noopener" class="btn btn-whatsapp btn-lg">Quiero ser uno de los 3 →</a>
+        <span class="launch-offer-badge"><%= t('profesionales.launch.badge') %></span>
+        <h2><%= t('profesionales.launch.title') %></h2>
+        <p><%- t('profesionales.launch.body') %></p>
+        <p class="launch-offer-fine-print"><%= t('profesionales.launch.fine_print') %></p>
+        <a href="https://wa.me/34<%= empresa.whatsapp %>?text=<%= t('profesionales.launch.whatsapp_text') %>" target="_blank" rel="noopener" class="btn btn-whatsapp btn-lg"><%= t('profesionales.launch.cta') %></a>
       </div>
     </div>
   </section>
@@ -40,24 +40,24 @@
   <section class="section">
     <div class="container">
       <div class="section-head">
-        <h2>No quiero competir contigo. Quiero ayudarte a vender más.</h2>
-        <p class="section-group-desc">Muchos reformistas, constructores e instaladores saben hacer cocina, baño, pladur, pintura o persianas — pero no dominan IA, cámaras inteligentes, automatización o integración. Vosotros hacéis la obra. AHOMED añade la parte inteligente.</p>
+        <h2><%= t('profesionales.why.title') %></h2>
+        <p class="section-group-desc"><%= t('profesionales.why.body') %></p>
       </div>
       <div class="services-grid services-grid-full">
         <div class="service-card">
           <div class="service-icon"><svg viewBox="0 0 24 24"><%- icons.shield %></svg></div>
-          <h3>Aumenta el valor de cada obra</h3>
-          <p>Reforma + iluminación inteligente + persianas motorizadas + seguridad IA = "reforma + vivienda inteligente". Vendes más al mismo cliente sin montar tú la tecnología — el detalle económico lo resolvemos en la conversación comercial.</p>
+          <h3><%= t('profesionales.why.card1.title') %></h3>
+          <p><%= t('profesionales.why.card1.body') %></p>
         </div>
         <div class="service-card">
           <div class="service-icon"><svg viewBox="0 0 24 24"><%- icons.ai %></svg></div>
-          <h3>No te añade trabajo</h3>
-          <p>Tú nos presentas al cliente. Nosotros hacemos la visita, la propuesta, el presupuesto y la instalación de la parte tecnológica. Tú simplemente hiciste la introducción.</p>
+          <h3><%= t('profesionales.why.card2.title') %></h3>
+          <p><%= t('profesionales.why.card2.body') %></p>
         </div>
         <div class="service-card">
           <div class="service-icon"><svg viewBox="0 0 24 24"><%- icons.bolt %></svg></div>
-          <h3>Entras en el momento perfecto</h3>
-          <p>Mientras la vivienda está en obra es cuando tiene sentido meter cableado, domótica, cámaras y redes — antes de cerrar paredes y suelos.</p>
+          <h3><%= t('profesionales.why.card3.title') %></h3>
+          <p><%= t('profesionales.why.card3.body') %></p>
         </div>
       </div>
     </div>
@@ -67,21 +67,21 @@
   <section class="section section-alt" id="como-funciona">
     <div class="container">
       <div class="section-head">
-        <h2>Tres formas de colaborar</h2>
-        <p class="section-group-desc">No es todo o nada. Elige la fórmula que mejor encaje con tu negocio — o combínalas.</p>
+        <h2><%= t('profesionales.modelos.title') %></h2>
+        <p class="section-group-desc"><%= t('profesionales.modelos.body') %></p>
       </div>
       <div class="services-grid services-grid-full">
         <div class="about-card">
-          <h3>1. Comisión por cliente referido</h3>
-          <p>Nos presentas un cliente y, si el proyecto sale adelante, recibes una comisión sobre nuestro margen o una cantidad fija por proyecto cerrado. La fórmula más sencilla para empezar.</p>
+          <h3><%= t('profesionales.modelos.item1.title') %></h3>
+          <p><%= t('profesionales.modelos.item1.body') %></p>
         </div>
         <div class="about-card">
-          <h3>2. Vendes más en tu propia obra</h3>
-          <p>Incorporas nuestra parte tecnológica a tu presupuesto y lo presentas como "reforma + vivienda inteligente". Ganas más por el mismo cliente, sin montar tú la tecnología.</p>
+          <h3><%= t('profesionales.modelos.item2.title') %></h3>
+          <p><%= t('profesionales.modelos.item2.body') %></p>
         </div>
         <div class="about-card">
-          <h3>3. Nos ocupamos de la parte que no dominas</h3>
-          <p>Vosotros hacéis cocina, baño, pladur o persianas. Nosotros añadimos IA, cámaras inteligentes, automatización, redes e integración. Tú te posicionas como algo más completo, sin formarte en tecnología.</p>
+          <h3><%= t('profesionales.modelos.item3.title') %></h3>
+          <p><%= t('profesionales.modelos.item3.body') %></p>
         </div>
       </div>
     </div>
@@ -91,24 +91,24 @@
   <section class="section">
     <div class="container two-col">
       <div>
-        <h2 class="sub-heading">Lo que AHOMED aporta a tu proyecto</h2>
-        <p>Nos ocupamos de la capa inteligente que la mayoría de profesionales de obra no ofrece: seguridad con IA, domótica, redes, energía y automatización — con una selección de tecnología y soluciones adecuadas para cada proyecto, sin cuotas mensuales para el cliente final.</p>
+        <h2 class="sub-heading"><%= t('profesionales.aporta.title') %></h2>
+        <p><%= t('profesionales.aporta.body') %></p>
         <ul class="dot-list dot-list-cols">
-          <li>Seguridad IA: cámaras, detección, videoportero, avisos por WhatsApp</li>
-          <li>Domótica: luces, persianas, climatización, escenas</li>
-          <li>Plataforma IA Predictiva: presencia, sueño, mascotas, mayores, niños</li>
-          <li>Redes: WiFi profesional, infraestructura para cámaras y domótica</li>
-          <li>Energía inteligente: solar, consumo, climatización, carga</li>
-          <li>Cerebro AHOMED: el núcleo tecnológico detrás de todo</li>
+          <li><%= t('profesionales.aporta.li1') %></li>
+          <li><%= t('profesionales.aporta.li2') %></li>
+          <li><%= t('profesionales.aporta.li3') %></li>
+          <li><%= t('profesionales.aporta.li4') %></li>
+          <li><%= t('profesionales.aporta.li5') %></li>
+          <li><%= t('profesionales.aporta.li6') %></li>
         </ul>
       </div>
 
       <div class="about-side">
         <div class="about-card">
-          <h3>Buscamos colaborar con</h3>
+          <h3><%= t('profesionales.aporta.side_title') %></h3>
           <ul class="check-list check-list-lg">
-            <% ["Reformas integrales","Empresas de cocinas","Persianas y ventanas","Instaladores de climatización","Constructoras de chalets","Casas modulares o prefabricadas","Promotores pequeños","Interioristas y arquitectos técnicos"].forEach(function(v){ %>
-              <li><%= v %></li>
+            <% ["profesionales.aporta.tipo1","profesionales.aporta.tipo2","profesionales.aporta.tipo3","profesionales.aporta.tipo4","profesionales.aporta.tipo5","profesionales.aporta.tipo6","profesionales.aporta.tipo7","profesionales.aporta.tipo8"].forEach(function(k){ %>
+              <li><%= t(k) %></li>
             <% }) %>
           </ul>
         </div>
@@ -120,28 +120,28 @@
   <section class="section section-alt">
     <div class="container">
       <div class="section-head">
-        <h2>AHOMED para Profesionales, en un vistazo</h2>
-        <p class="section-group-desc">Así de simple lo puedes presentar tú a tu cliente: cuatro niveles, sin que tengas que explicar la tecnología.</p>
+        <h2><%= t('profesionales.niveles.title') %></h2>
+        <p class="section-group-desc"><%= t('profesionales.niveles.body') %></p>
       </div>
       <div class="services-grid services-grid-full">
         <div class="about-card">
-          <h3>Reforma + iluminación inteligente</h3>
-          <p>El punto de entrada más sencillo: control de luces por app y escenas básicas.</p>
+          <h3><%= t('profesionales.niveles.item1.title') %></h3>
+          <p><%= t('profesionales.niveles.item1.body') %></p>
         </div>
         <div class="about-card">
-          <h3>Reforma + domótica</h3>
-          <p>Luces, persianas y climatización coordinados, con control desde el móvil.</p>
+          <h3><%= t('profesionales.niveles.item2.title') %></h3>
+          <p><%= t('profesionales.niveles.item2.body') %></p>
         </div>
         <div class="about-card">
-          <h3>Reforma + seguridad IA</h3>
-          <p>Cámaras con detección inteligente y avisos por WhatsApp — sin falsas alarmas.</p>
+          <h3><%= t('profesionales.niveles.item3.title') %></h3>
+          <p><%= t('profesionales.niveles.item3.body') %></p>
         </div>
         <div class="about-card">
-          <h3>Reforma + vivienda inteligente completa</h3>
-          <p>Seguridad, domótica, redes y energía integradas bajo el Cerebro AHOMED.</p>
+          <h3><%= t('profesionales.niveles.item4.title') %></h3>
+          <p><%= t('profesionales.niveles.item4.body') %></p>
         </div>
       </div>
-      <p class="pack-note-bottom" style="text-align:center; margin-top: 28px;">Nosotros preparamos el presupuesto de la parte tecnológica. Tú no necesitas saber explicar la IA — simplemente dices: "Tenemos una solución AHOMED para esta parte".</p>
+      <p class="pack-note-bottom" style="text-align:center; margin-top: 28px;"><%- t('profesionales.niveles.note') %></p>
     </div>
   </section>
 
@@ -149,25 +149,25 @@
   <section class="section">
     <div class="container">
       <div class="section-head">
-        <h2>Primer proyecto piloto, sin compromiso</h2>
-        <p class="section-group-desc">La forma más fácil de empezar a colaborar, antes de hablar de ningún acuerdo formal.</p>
+        <h2><%= t('profesionales.piloto.title') %></h2>
+        <p class="section-group-desc"><%= t('profesionales.piloto.body') %></p>
       </div>
       <div class="services-grid services-grid-full">
         <div class="service-card">
-          <h3>1. Nos presentas un cliente</h3>
-          <p>Detectas la oportunidad en una obra que ya tienes en marcha.</p>
+          <h3><%= t('profesionales.piloto.item1.title') %></h3>
+          <p><%= t('profesionales.piloto.item1.body') %></p>
         </div>
         <div class="service-card">
-          <h3>2. Hacemos la visita y la propuesta</h3>
-          <p>Estudiamos el proyecto y preparamos un presupuesto de la parte tecnológica.</p>
+          <h3><%= t('profesionales.piloto.item2.title') %></h3>
+          <p><%= t('profesionales.piloto.item2.body') %></p>
         </div>
         <div class="service-card">
-          <h3>3. Coordinamos e integramos la instalación</h3>
-          <p>Coordinamos con tu equipo la parte de obra y añadimos la capa inteligente.</p>
+          <h3><%= t('profesionales.piloto.item3.title') %></h3>
+          <p><%= t('profesionales.piloto.item3.body') %></p>
         </div>
         <div class="service-card">
-          <h3>4. Si sale bien, lo hacemos recurrente</h3>
-          <p>Convertimos el piloto en una colaboración estable, con la fórmula que mejor encaje.</p>
+          <h3><%= t('profesionales.piloto.item4.title') %></h3>
+          <p><%= t('profesionales.piloto.item4.body') %></p>
         </div>
       </div>
     </div>
@@ -176,9 +176,9 @@
   <!-- CTA FINAL -->
   <section class="section final-cta">
     <div class="container final-cta-inner">
-      <h2>¿Hablamos de colaborar?</h2>
-      <p>Cuéntanos qué tipo de proyectos hacéis y qué tipo de clientes soléis tener. Preparamos una propuesta de colaboración a medida — sin compromiso.</p>
-      <a href="https://wa.me/34<%= empresa.whatsapp %>?text=<%= encodeURIComponent('Hola, tengo una empresa y me interesa colaborar con AHOMED') %>" target="_blank" rel="noopener" class="btn btn-whatsapp btn-lg">Hablar por WhatsApp</a>
+      <h2><%= t('profesionales.final.title') %></h2>
+      <p><%= t('profesionales.final.body') %></p>
+      <a href="https://wa.me/34<%= empresa.whatsapp %>?text=<%= t('profesionales.whatsapp_text') %>" target="_blank" rel="noopener" class="btn btn-whatsapp btn-lg"><%= t('common.hablar_whatsapp') %></a>
     </div>
   </section>
 

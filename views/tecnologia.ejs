@@ -10,8 +10,8 @@
   <section class="page-hero">
     <div class="container">
       <span class="eyebrow"><%= instalacionBase.marca %></span>
-      <h1>La tecnología detrás de tu casa</h1>
-      <p><%= instalacionBase.tagline %> No necesitas entender de servidores ni de modelos de IA para pedirlo — pero si tienes curiosidad, esto es lo que instalamos.</p>
+      <h1><%= t('tecnologia.hero.title') %></h1>
+      <p><%= instalacionBase.tagline %> <%= t('tecnologia.hero.subtitle') %></p>
     </div>
   </section>
 
@@ -21,51 +21,51 @@
 
         <div class="tech-card">
           <div class="service-icon service-icon-img"><picture><source srcset="/img/iconos/minipc-central.webp" type="image/webp"><img src="/img/iconos/minipc-central.png" alt=""></picture></div>
-          <h3>Cerebro AHOMED</h3>
-          <p>Un único Mini-PC IA Central, en dos niveles según cuántos modos necesitas (IA START e IA PRO), que conecta y coordina todos los servicios de la Plataforma IA Predictiva.</p>
+          <h3><%= t('tecnologia.card_cerebro.title') %></h3>
+          <p><%= t('tecnologia.card_cerebro.text') %></p>
         </div>
 
         <div class="tech-card">
           <div class="service-icon service-icon-img"><picture><source srcset="/img/iconos/tech-ia-local.webp" type="image/webp"><img src="/img/iconos/tech-ia-local.png" alt=""></picture></div>
-          <h3>IA en local, no en la nube</h3>
-          <p>El análisis se hace en tu propio mini-PC, sobre un fotograma cada 1-2 segundos — no streaming continuo hacia fuera. La decisión ocurre en tu casa.</p>
+          <h3><%= t('tecnologia.card_local.title') %></h3>
+          <p><%= t('tecnologia.card_local.text') %></p>
         </div>
 
         <div class="tech-card">
           <div class="service-icon service-icon-img"><picture><source srcset="/img/iconos/tech-video.webp" type="image/webp"><img src="/img/iconos/tech-video.png" alt=""></picture></div>
-          <h3>Procesamiento de vídeo</h3>
-          <p>Distingue personas y vehículos reales de falsas alarmas — un gato, una sombra, una bolsa moviéndose con el viento — antes de avisarte.</p>
-          <p class="tech-card-detail">Detalle técnico: modelos de visión <strong>YOLO26</strong> entrenados para esa distinción.</p>
+          <h3><%= t('tecnologia.card_video.title') %></h3>
+          <p><%= t('tecnologia.card_video.text') %></p>
+          <p class="tech-card-detail"><%- t('tecnologia.card_video.detail') %></p>
         </div>
 
         <div class="tech-card">
           <div class="service-icon service-icon-img"><picture><source srcset="/img/iconos/tech-automatizacion.webp" type="image/webp"><img src="/img/iconos/tech-automatizacion.png" alt=""></picture></div>
-          <h3>Automatización</h3>
-          <p>Un motor Python cruza datos que nadie más mezcla: clima, precio de la luz por hora, geolocalización, calidad del aire y fases de sueño, para decidir qué hacer.</p>
+          <h3><%= t('tecnologia.card_automatizacion.title') %></h3>
+          <p><%= t('tecnologia.card_automatizacion.text') %></p>
         </div>
 
         <div class="tech-card">
           <div class="service-icon service-icon-img"><picture><source srcset="/img/iconos/tech-dashboard.webp" type="image/webp"><img src="/img/iconos/tech-dashboard.png" alt=""></picture></div>
-          <h3>Dashboard</h3>
-          <p>Panel de control unificado con el estado de cámaras, alertas, clima y accesos en un mismo lugar — para consultarlo cuando quieras, no porque tengas que hacerlo.</p>
+          <h3><%= t('tecnologia.card_dashboard.title') %></h3>
+          <p><%= t('tecnologia.card_dashboard.text') %></p>
         </div>
 
         <div class="tech-card">
           <div class="service-icon service-icon-img"><picture><source srcset="/img/iconos/tech-whatsapp-api.webp" type="image/webp"><img src="/img/iconos/tech-whatsapp-api.png" alt=""></picture></div>
-          <h3>WhatsApp Business API</h3>
-          <p>Las alertas llegan directamente por WhatsApp, con foto del momento, solo cuando de verdad importa — sin apps adicionales que instalar para recibirlas.</p>
+          <h3><%= t('tecnologia.card_whatsapp.title') %></h3>
+          <p><%= t('tecnologia.card_whatsapp.text') %></p>
         </div>
 
         <div class="tech-card">
           <div class="service-icon service-icon-img"><picture><source srcset="/img/iconos/tech-integraciones.webp" type="image/webp"><img src="/img/iconos/tech-integraciones.png" alt=""></picture></div>
-          <h3>Integraciones</h3>
-          <p>Compatible con dispositivos WiFi y Zigbee ya extendidos (Shelly o equivalentes) y con cerraduras o motores de garaje que ya tengas instalados.</p>
+          <h3><%= t('tecnologia.card_integraciones.title') %></h3>
+          <p><%= t('tecnologia.card_integraciones.text') %></p>
         </div>
 
         <div class="tech-card">
           <div class="service-icon service-icon-img"><picture><source srcset="/img/iconos/tech-sin-cuotas.webp" type="image/webp"><img src="/img/iconos/tech-sin-cuotas.png" alt=""></picture></div>
-          <h3>Sin cuotas, sin terceros</h3>
-          <p>Sin depender de un servidor externo ni de una central de alarmas de terceros. Pagas la instalación una vez y el equipo es tuyo, sin cuota mensual.</p>
+          <h3><%= t('tecnologia.card_sin_cuotas.title') %></h3>
+          <p><%= t('tecnologia.card_sin_cuotas.text') %></p>
         </div>
 
       </div>
@@ -75,18 +75,18 @@
   <section class="section section-alt">
     <div class="container">
       <div class="section-head">
-        <h2>¿Cuántos modos necesitas?</h2>
-        <p>El nivel de Cerebro AHOMED (IA START o IA PRO) depende de cuántos servicios IA quieres a la vez, no del tamaño de la casa.</p>
+        <h2><%= t('tecnologia.modos.title') %></h2>
+        <p><%= t('tecnologia.modos.text') %></p>
       </div>
-      <div class="tech-compare-cta"><a href="/servicios/ia-predictiva" class="btn btn-outline">Comparar IA START e IA PRO →</a></div>
+      <div class="tech-compare-cta"><a href="/servicios/ia-predictiva" class="btn btn-outline"><%= t('tecnologia.modos.cta') %></a></div>
     </div>
   </section>
 
   <section class="section final-cta">
     <div class="container final-cta-inner">
-      <h2>¿Hablamos de tu proyecto?</h2>
-      <p>Primera visita gratuita. Presupuesto sin compromiso.</p>
-      <a href="https://wa.me/34<%= empresa.whatsapp %>?text=Hola%2C%20tengo%20dudas%20t%C3%A9cnicas%20sobre%20el%20Cerebro%20AHOMED" target="_blank" rel="noopener" class="btn btn-whatsapp btn-lg">
+      <h2><%= t('tecnologia.cta.title') %></h2>
+      <p><%= t('tecnologia.cta.subtitle') %></p>
+      <a href="https://wa.me/34<%= empresa.whatsapp %>?text=<%= t('tecnologia.cta.whatsapp_text') %>" target="_blank" rel="noopener" class="btn btn-whatsapp btn-lg">
         <%= empresa.whatsappDisplay %>
       </a>
     </div>

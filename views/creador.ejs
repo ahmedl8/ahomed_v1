@@ -9,9 +9,9 @@
 
   <section class="page-hero">
     <div class="container">
-      <h1>Crea tu instalación a medida</h1>
-      <p>Marca lo que quieras de Básicos y de la Plataforma IA Predictiva y mira el total en vivo. Si tu combinación se parece a uno de nuestros packs, te lo decimos — puede salirte mejor ya montado. El precio definitivo se confirma siempre tras la visita técnica gratuita.</p>
-      <p class="creador-alt-link">¿Prefieres que te orientemos nosotros? <a href="/configurador">Prueba el configurador de 4 preguntas →</a></p>
+      <h1><%= t('creador.hero.title') %></h1>
+      <p><%= t('creador.hero.body') %></p>
+      <p class="creador-alt-link"><%= t('creador.hero.alt_link_text') %> <a href="/configurador"><%= t('creador.hero.alt_link_cta') %></a></p>
     </div>
   </section>
 
@@ -20,7 +20,7 @@
       <div class="creador-picker" data-wa="<%= empresa.whatsapp %>">
 
         <!-- BÁSICOS, agrupados por bloque -->
-        <h2 class="sub-heading">Instalaciones y servicios</h2>
+        <h2 class="sub-heading"><%= t('creador.instalaciones.title') %></h2>
         <% bloques.filter(function(b){ return b.grupo === 'basico' || b.grupo === 'general'; }).forEach(function(b){ %>
           <% var serviciosBloque = serviciosCasa.filter(function(s){ return s.bloque === b.slug; }); %>
           <% if (!serviciosBloque.length) return; %>
@@ -33,7 +33,7 @@
                     <input type="checkbox" class="creador-check creador-check-servicio" data-slug="<%= s.slug %>" data-precio="<%= s.desde %>" data-nombre="<%= s.nombre %>">
                     <span class="calc-item-name"><%= s.nombre %></span>
                   </span>
-                  <span class="calc-item-price">desde <%= fmt(s.desde) %> €<%= s.desdeUnidad || '' %></span>
+                  <span class="calc-item-price"><%= tv('creador.desde_precio', { precio: fmt(s.desde), unidad: s.desdeUnidad || '' }) %></span>
                 </label>
               <% }) %>
             </div>
@@ -41,8 +41,8 @@
         <% }) %>
 
         <!-- EXCLUSIVOS, modos IA -->
-        <h2 class="sub-heading creador-ia-title">Plataforma IA Predictiva</h2>
-        <p class="creador-ia-sub">Si marcas al menos un modo, se añade el Mini-PC IA Central obligatorio (nivel según cuántos modos elijas).</p>
+        <h2 class="sub-heading creador-ia-title"><%= t('creador.ia.title') %></h2>
+        <p class="creador-ia-sub"><%= t('creador.ia.subtitle') %></p>
 
         <div class="calc-niveles" id="creador-niveles">
           <% instalacionBase.niveles.forEach(function(nivel, i){ %>
@@ -61,7 +61,7 @@
               <label class="calc-item">
                 <span class="calc-item-check">
                   <input type="checkbox" class="creador-check creador-check-modo" data-slug="<%= m.slug %>" data-precio="<%= m.esProyecto ? 860 : m.precioIncremento %>" data-nombre="<%= m.nombre %>">
-                  <span class="calc-item-name"><%= m.numero %>. <%= m.nombre %><% if (m.esProyecto) { %> <em>(desde, proyecto a medida)</em><% } %></span>
+                  <span class="calc-item-name"><%= m.numero %>. <%= m.nombre %><% if (m.esProyecto) { %> <em><%= t('creador.proyecto_a_medida') %></em><% } %></span>
                 </span>
                 <span class="calc-item-price">+<%= fmt(m.esProyecto ? 860 : m.precioIncremento) %> €</span>
               </label>
@@ -73,22 +73,22 @@
       <!-- RESUMEN, fijo en escritorio -->
       <aside class="creador-summary-wrap">
         <div class="calc-summary creador-summary">
-          <h3>Tu instalación</h3>
-          <p class="creador-empty-hint" id="creador-empty-hint">Marca lo que quieras a la izquierda — el total se actualiza solo.</p>
+          <h3><%= t('creador.resumen.title') %></h3>
+          <p class="creador-empty-hint" id="creador-empty-hint"><%= t('creador.resumen.empty_hint') %></p>
 
           <div id="creador-match" class="creador-match" hidden>
-            <span class="creador-match-label">📦 Se parece a un pack ya montado</span>
+            <span class="creador-match-label">📦 <%= t('creador.resumen.match_label') %></span>
             <p class="creador-match-body" id="creador-match-body"></p>
-            <a href="#" id="creador-match-link" class="link-arrow">Ver ese pack →</a>
+            <a href="#" id="creador-match-link" class="link-arrow"><%= t('creador.resumen.match_link') %></a>
           </div>
 
-          <div class="calc-total-row" id="creador-row-basicos" hidden><span>Básicos</span><span id="creador-total-basicos">0 €</span></div>
-          <div class="calc-total-row" id="creador-row-base" hidden><span id="creador-base-label">Mini-PC IA Central</span><span id="creador-total-base">0 €</span></div>
-          <div class="calc-total-row" id="creador-row-modos" hidden><span>Modos IA</span><span id="creador-total-modos">0 €</span></div>
-          <div class="calc-total-row calc-total-final"><span>Total estimado</span><span id="creador-total">0 €</span></div>
+          <div class="calc-total-row" id="creador-row-basicos" hidden><span><%= t('creador.resumen.basicos') %></span><span id="creador-total-basicos">0 €</span></div>
+          <div class="calc-total-row" id="creador-row-base" hidden><span id="creador-base-label"><%= t('creador.js_i18n.mini_pc_central') %></span><span id="creador-total-base">0 €</span></div>
+          <div class="calc-total-row" id="creador-row-modos" hidden><span><%= t('creador.resumen.modos_ia') %></span><span id="creador-total-modos">0 €</span></div>
+          <div class="calc-total-row calc-total-final"><span><%= t('creador.resumen.total_estimado') %></span><span id="creador-total">0 €</span></div>
 
-          <a href="#" id="creador-whatsapp" target="_blank" rel="noopener" class="btn btn-whatsapp btn-lg calc-cta">Pedir este presupuesto por WhatsApp</a>
-          <p class="calc-disclaimer">Estimación orientativa a partir del precio "desde" de cada servicio. El presupuesto cerrado se confirma tras la visita técnica gratuita.</p>
+          <a href="#" id="creador-whatsapp" target="_blank" rel="noopener" class="btn btn-whatsapp btn-lg calc-cta"><%= t('creador.resumen.cta_whatsapp') %></a>
+          <p class="calc-disclaimer"><%= t('creador.resumen.disclaimer') %></p>
         </div>
       </aside>
     </div>
@@ -105,6 +105,27 @@
         modos: (p.coincideCon && p.coincideCon.modos) || []
       };
     })) %>
+  </script>
+
+  <!-- Textos usados por public/js/creador.js (resumen en vivo, mensaje de
+       WhatsApp, coincidencia con packs) — resueltos en servidor vía t()/tv()
+       para que el JS del cliente no tenga que hardcodear español. -->
+  <script type="application/json" id="creador-i18n">
+    <%- JSON.stringify({
+      miniPcCentral: t('creador.js_i18n.mini_pc_central'),
+      nivelHintVacio: "",
+      nivelHintPro: t('creador.js_i18n.nivel_hint_pro'),
+      nivelHintStart: t('creador.js_i18n.nivel_hint_start'),
+      matchMejorPrecio: t('creador.js_i18n.match_mejor_precio'),
+      matchDiferenciaPrefix: t('creador.js_i18n.match_diferencia_prefix'),
+      matchDiferenciaSuffix: t('creador.js_i18n.match_diferencia_suffix'),
+      mensajeIntro: t('creador.js_i18n.mensaje_intro'),
+      mensajeBasicos: t('creador.js_i18n.mensaje_basicos'),
+      mensajeModosIA: t('creador.js_i18n.mensaje_modos_ia'),
+      mensajeSinNada: t('creador.js_i18n.mensaje_sin_nada'),
+      mensajeTotalEstimado: t('creador.js_i18n.mensaje_total_estimado'),
+      mensajeSeParece: t('creador.js_i18n.mensaje_se_parece')
+    }) %>
   </script>
 
   <%- include('partials/footer') %>

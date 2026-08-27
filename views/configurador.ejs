@@ -9,8 +9,8 @@
 
   <section class="page-hero">
     <div class="container">
-      <h1>Configura tu casa</h1>
-      <p>Responde 4 preguntas y te recomendamos el pack o servicio AHOMED que mejor encaja, con presupuesto orientativo al momento. El precio definitivo se confirma siempre tras la visita técnica gratuita.</p>
+      <h1><%= t('configurador.hero.title') %></h1>
+      <p><%= t('configurador.hero.body') %></p>
     </div>
   </section>
 
@@ -32,135 +32,139 @@
 
         <!-- PASO 1: TIPO DE VIVIENDA -->
         <div class="wizard-step is-active" data-step="1">
-          <h2 class="wizard-step-title">¿Qué vivienda o negocio tienes?</h2>
-          <p class="wizard-step-sub">Para orientarte hacia la solución pensada para tu caso</p>
+          <h2 class="wizard-step-title"><%= t('configurador.step1.title') %></h2>
+          <p class="wizard-step-sub"><%= t('configurador.step1.sub') %></p>
           <div class="wizard-options">
             <label class="wizard-option">
               <input type="radio" name="config-vivienda" value="piso">
               <span class="wizard-option-card">
                 <span class="wizard-option-icon wizard-option-icon-img"><picture><source srcset="/img/iconos/vivienda-piso.webp" type="image/webp"><img src="/img/iconos/vivienda-piso.png" alt=""></picture></span>
-                <h4>Piso</h4>
-                <p>Vivienda en bloque, alquilada o propia</p>
+                <h4><%= t('configurador.step1.piso.title') %></h4>
+                <p><%= t('configurador.step1.piso.desc') %></p>
               </span>
             </label>
             <label class="wizard-option">
               <input type="radio" name="config-vivienda" value="chalet">
               <span class="wizard-option-card">
                 <span class="wizard-option-icon wizard-option-icon-img"><picture><source srcset="/img/iconos/vivienda-chalet.webp" type="image/webp"><img src="/img/iconos/vivienda-chalet.png" alt=""></picture></span>
-                <h4>Chalet</h4>
-                <p>Vivienda unifamiliar, con jardín o parcela</p>
+                <h4><%= t('configurador.step1.chalet.title') %></h4>
+                <p><%= t('configurador.step1.chalet.desc') %></p>
               </span>
             </label>
             <label class="wizard-option">
               <input type="radio" name="config-vivienda" value="segunda-residencia">
               <span class="wizard-option-card">
                 <span class="wizard-option-icon wizard-option-icon-img"><picture><source srcset="/img/iconos/vivienda-segunda-residencia.webp" type="image/webp"><img src="/img/iconos/vivienda-segunda-residencia.png" alt=""></picture></span>
-                <h4>Segunda residencia</h4>
-                <p>Se visita poco, quieres controlarla en remoto</p>
+                <h4><%= t('configurador.step1.segunda.title') %></h4>
+                <p><%= t('configurador.step1.segunda.desc') %></p>
               </span>
             </label>
             <label class="wizard-option">
               <input type="radio" name="config-vivienda" value="negocio">
               <span class="wizard-option-card">
                 <span class="wizard-option-icon wizard-option-icon-img"><picture><source srcset="/img/iconos/necesitas-negocio.webp" type="image/webp"><img src="/img/iconos/necesitas-negocio.png" alt=""></picture></span>
-                <h4>Nave o negocio</h4>
-                <p>Nave, almacén, taller o local</p>
+                <h4><%= t('configurador.step1.negocio.title') %></h4>
+                <p><%= t('configurador.step1.negocio.desc') %></p>
               </span>
             </label>
           </div>
           <div class="wizard-nav">
             <span class="wizard-nav-spacer"></span>
-            <button type="button" class="btn btn-primary" data-wizard-next disabled>Siguiente →</button>
+            <button type="button" class="btn btn-primary" data-wizard-next disabled><%= t('configurador.nav.siguiente') %></button>
           </div>
         </div>
 
         <!-- PASO 2: QUÉ QUIERES MEJORAR -->
         <div class="wizard-step" data-step="2">
-          <h2 class="wizard-step-title">¿Qué quieres mejorar sobre todo?</h2>
-          <p class="wizard-step-sub">Elige la prioridad principal — luego se puede ampliar con el resto</p>
+          <h2 class="wizard-step-title"><%= t('configurador.step2.title') %></h2>
+          <p class="wizard-step-sub"><%= t('configurador.step2.sub') %></p>
           <div class="wizard-options">
             <label class="wizard-option">
               <input type="radio" name="config-necesidad" value="seguridad">
               <span class="wizard-option-card">
                 <span class="wizard-option-icon wizard-option-icon-img"><picture><source srcset="/img/iconos/necesitas-seguridad.webp" type="image/webp"><img src="/img/iconos/necesitas-seguridad.png" alt=""></picture></span>
-                <h4>Seguridad</h4>
-                <p>Cámaras, accesos, Seguridad IA</p>
+                <h4><%= t('configurador.step2.seguridad.title') %></h4>
+                <p><%= t('configurador.step2.seguridad.desc') %></p>
               </span>
             </label>
             <label class="wizard-option">
               <input type="radio" name="config-necesidad" value="confort">
               <span class="wizard-option-card">
                 <span class="wizard-option-icon wizard-option-icon-img"><picture><source srcset="/img/iconos/necesitas-confort.webp" type="image/webp"><img src="/img/iconos/necesitas-confort.png" alt=""></picture></span>
-                <h4>Confort</h4>
-                <p>Clima, persianas, sueño, calidad del aire</p>
+                <h4><%= t('configurador.step2.confort.title') %></h4>
+                <p><%= t('configurador.step2.confort.desc') %></p>
               </span>
             </label>
             <label class="wizard-option">
               <input type="radio" name="config-necesidad" value="ahorro">
               <span class="wizard-option-card">
                 <span class="wizard-option-icon wizard-option-icon-img"><picture><source srcset="/img/iconos/necesitas-vivienda.webp" type="image/webp"><img src="/img/iconos/necesitas-vivienda.png" alt=""></picture></span>
-                <h4>Ahorro energético</h4>
-                <p>Energía solar y gestión del consumo</p>
+                <h4><%= t('configurador.step2.ahorro.title') %></h4>
+                <p><%= t('configurador.step2.ahorro.desc') %></p>
               </span>
             </label>
             <label class="wizard-option">
               <input type="radio" name="config-necesidad" value="familia">
               <span class="wizard-option-card">
                 <span class="wizard-option-icon wizard-option-icon-img"><picture><source srcset="/img/iconos/necesitas-familia.webp" type="image/webp"><img src="/img/iconos/necesitas-familia.png" alt=""></picture></span>
-                <h4>Familia</h4>
-                <p>Mayores, niños y bebés, mascotas</p>
+                <h4><%= t('configurador.step2.familia.title') %></h4>
+                <p><%= t('configurador.step2.familia.desc') %></p>
               </span>
             </label>
           </div>
           <div class="wizard-nav">
-            <button type="button" class="btn btn-outline" data-wizard-back>← Atrás</button>
+            <button type="button" class="btn btn-outline" data-wizard-back><%= t('configurador.nav.atras') %></button>
             <span class="wizard-nav-spacer"></span>
-            <button type="button" class="btn btn-primary" data-wizard-next disabled>Siguiente →</button>
+            <button type="button" class="btn btn-primary" data-wizard-next disabled><%= t('configurador.nav.siguiente') %></button>
           </div>
         </div>
 
         <!-- PASO 3: QUÉ QUIERES CONTROLAR AHORA -->
         <div class="wizard-step" data-step="3">
-          <h2 class="wizard-step-title">¿Qué te gustaría controlar ya mismo?</h2>
-          <p class="wizard-step-sub">Marca todo lo que quieras — nos ayuda a afinar el presupuesto en la visita</p>
+          <h2 class="wizard-step-title"><%= t('configurador.step3.title') %></h2>
+          <p class="wizard-step-sub"><%= t('configurador.step3.sub') %></p>
           <div class="wizard-options">
+            <!-- Los value= de estos checkboxes se usan tal cual (en español) en la
+                 lógica de recomendación y en el mensaje de WhatsApp que genera
+                 public/js/configurador.js (CONTROL_CAMARAS, CONTROL_SOLAR) — no
+                 traducir estos value, solo el texto visible (h4/p). -->
             <label class="wizard-option">
               <input type="checkbox" name="config-control" value="Cámaras y accesos con IA">
               <span class="wizard-option-card">
                 <span class="wizard-option-icon wizard-option-icon-img"><picture><source srcset="/img/iconos/necesitas-seguridad.webp" type="image/webp"><img src="/img/iconos/necesitas-seguridad.png" alt=""></picture></span>
-                <h4>Cámaras y accesos con IA</h4>
-                <p>Vigilancia, reconocimiento, apertura automática</p>
+                <h4><%= t('configurador.step3.camaras.title') %></h4>
+                <p><%= t('configurador.step3.camaras.desc') %></p>
               </span>
             </label>
             <label class="wizard-option">
               <input type="checkbox" name="config-control" value="Clima y persianas">
               <span class="wizard-option-card">
                 <span class="wizard-option-icon wizard-option-icon-img"><picture><source srcset="/img/iconos/necesitas-confort.webp" type="image/webp"><img src="/img/iconos/necesitas-confort.png" alt=""></picture></span>
-                <h4>Clima y persianas</h4>
-                <p>Termostatos, motores, riego</p>
+                <h4><%= t('configurador.step3.clima.title') %></h4>
+                <p><%= t('configurador.step3.clima.desc') %></p>
               </span>
             </label>
             <label class="wizard-option">
               <input type="checkbox" name="config-control" value="Luces y enchufes">
               <span class="wizard-option-card">
                 <span class="wizard-option-icon wizard-option-icon-img"><picture><source srcset="/img/iconos/necesitas-hogar.webp" type="image/webp"><img src="/img/iconos/necesitas-hogar.png" alt=""></picture></span>
-                <h4>Luces y enchufes</h4>
-                <p>Iluminación y domótica básica</p>
+                <h4><%= t('configurador.step3.luces.title') %></h4>
+                <p><%= t('configurador.step3.luces.desc') %></p>
               </span>
             </label>
             <label class="wizard-option">
               <input type="checkbox" name="config-control" value="Energía solar">
               <span class="wizard-option-card">
                 <span class="wizard-option-icon wizard-option-icon-img"><picture><source srcset="/img/iconos/necesitas-vivienda.webp" type="image/webp"><img src="/img/iconos/necesitas-vivienda.png" alt=""></picture></span>
-                <h4>Energía solar</h4>
-                <p>Autoconsumo y monitorización</p>
+                <h4><%= t('configurador.step3.solar.title') %></h4>
+                <p><%= t('configurador.step3.solar.desc') %></p>
               </span>
             </label>
           </div>
           <div class="wizard-nav">
-            <button type="button" class="btn btn-outline" data-wizard-back>← Atrás</button>
+            <button type="button" class="btn btn-outline" data-wizard-back><%= t('configurador.nav.atras') %></button>
             <span class="wizard-nav-spacer"></span>
-            <button type="button" class="btn btn-primary" data-wizard-next>Siguiente →</button>
+            <button type="button" class="btn btn-primary" data-wizard-next><%= t('configurador.nav.siguiente') %></button>
           </div>
         </div>
 
@@ -168,38 +172,38 @@
              opciones reales de cada pack en data/services.js, no a un dato
              inventado como "número de habitaciones" que el catálogo no tiene) -->
         <div class="wizard-step" data-step="4">
-          <h2 class="wizard-step-title">¿Empezamos poco a poco o lo hacemos todo desde el primer día?</h2>
-          <p class="wizard-step-sub">Cada pack tiene 3 niveles reales de precio — esto decide cuál te enseñamos</p>
+          <h2 class="wizard-step-title"><%= t('configurador.step4.title') %></h2>
+          <p class="wizard-step-sub"><%= t('configurador.step4.sub') %></p>
           <div class="wizard-options">
             <label class="wizard-option">
               <input type="radio" name="config-nivel" value="esencial">
               <span class="wizard-option-card">
                 <span class="wizard-option-icon wizard-option-icon-img"><picture><source srcset="/img/iconos/nivel-esencial.webp" type="image/webp"><img src="/img/iconos/nivel-esencial.png" alt=""></picture></span>
-                <h4>Esencial</h4>
-                <p>Lo justo para empezar, se amplía después</p>
+                <h4><%= t('configurador.step4.esencial.title') %></h4>
+                <p><%= t('configurador.step4.esencial.desc') %></p>
               </span>
             </label>
             <label class="wizard-option">
               <input type="radio" name="config-nivel" value="inteligente" checked>
               <span class="wizard-option-card">
                 <span class="wizard-option-icon wizard-option-icon-img"><picture><source srcset="/img/iconos/nivel-inteligente.webp" type="image/webp"><img src="/img/iconos/nivel-inteligente.png" alt=""></picture></span>
-                <h4>Inteligente</h4>
-                <p>La opción que más se pide — equilibrio precio/IA</p>
+                <h4><%= t('configurador.step4.inteligente.title') %></h4>
+                <p><%= t('configurador.step4.inteligente.desc') %></p>
               </span>
             </label>
             <label class="wizard-option">
               <input type="radio" name="config-nivel" value="completa">
               <span class="wizard-option-card">
                 <span class="wizard-option-icon wizard-option-icon-img"><picture><source srcset="/img/iconos/nivel-completa.webp" type="image/webp"><img src="/img/iconos/nivel-completa.png" alt=""></picture></span>
-                <h4>Completa</h4>
-                <p>Todo desde el primer día, sin ampliaciones luego</p>
+                <h4><%= t('configurador.step4.completa.title') %></h4>
+                <p><%= t('configurador.step4.completa.desc') %></p>
               </span>
             </label>
           </div>
           <div class="wizard-nav">
-            <button type="button" class="btn btn-outline" data-wizard-back>← Atrás</button>
+            <button type="button" class="btn btn-outline" data-wizard-back><%= t('configurador.nav.atras') %></button>
             <span class="wizard-nav-spacer"></span>
-            <button type="button" class="btn btn-primary" data-wizard-next>Ver mi recomendación →</button>
+            <button type="button" class="btn btn-primary" data-wizard-next><%= t('configurador.step4.cta') %></button>
           </div>
         </div>
 
@@ -207,12 +211,13 @@
         <div class="wizard-step" data-step="5">
           <div class="wizard-result">
             <div class="wizard-result-card" id="wizard-result-card">
-              <!-- Rellenado por public/js/configurador.js -->
+              <!-- Rellenado por public/js/configurador.js, con los textos
+                   traducidos vía el JSON #configurador-i18n de más abajo. -->
             </div>
-            <a href="#" id="wizard-whatsapp" target="_blank" rel="noopener" class="btn btn-whatsapp btn-lg">Pedir este presupuesto por WhatsApp</a>
+            <a href="#" id="wizard-whatsapp" target="_blank" rel="noopener" class="btn btn-whatsapp btn-lg"><%= t('configurador.resultado.cta_whatsapp') %></a>
             <p class="wizard-restart">
-              <a href="#" data-wizard-restart class="link-arrow">← Volver a empezar</a>
-              · <a href="/crea-tu-instalacion" class="link-arrow">Prefiero armar mi combinación pieza a pieza →</a>
+              <a href="#" data-wizard-restart class="link-arrow"><%= t('configurador.resultado.restart') %></a>
+              · <a href="/crea-tu-instalacion" class="link-arrow"><%= t('configurador.resultado.link_creador') %></a>
             </p>
           </div>
         </div>
@@ -224,7 +229,9 @@
   <!-- Catálogo en JSON para que el asistente recomiende sin llamar al servidor.
        v44: cada pack expone sus 3 niveles reales (Esencial/Inteligente/Completa)
        en vez de un único "desde" fijo en el nivel más barato, para que el
-       paso 4 del wizard pueda cotizar el nivel que la persona elija de verdad. -->
+       paso 4 del wizard pueda cotizar el nivel que la persona elija de verdad.
+       Los objetos vienen de res.locals.packs/services, ya traducidos según
+       res.locals.lang por i18n/content.js — no hace falta tocar nada aquí. -->
   <script type="application/json" id="configurador-catalogo">
     <%- JSON.stringify({
       packs: packs.map(function(p){
@@ -237,6 +244,53 @@
         };
       }),
       servicios: services.filter(function(s){ return s.slug === 'energia-solar'; }).map(function(s){ return { slug: s.slug, nombre: s.nombre, descripcion: s.resumen, desde: s.desde }; })
+    }) %>
+  </script>
+
+  <!-- Textos usados por public/js/configurador.js (resultado del wizard,
+       mensaje de WhatsApp) — resueltos en servidor vía t()/tv() para que el
+       JS del cliente no tenga que hardcodear español. -->
+  <script type="application/json" id="configurador-i18n">
+    <%- JSON.stringify({
+      viviendaLabel: {
+        piso: t('configurador.step1.piso.title'),
+        chalet: t('configurador.step1.chalet.title'),
+        "segunda-residencia": t('configurador.step1.segunda.title'),
+        negocio: t('configurador.step1.negocio.title')
+      },
+      necesidadLabel: {
+        seguridad: t('configurador.step2.seguridad.title'),
+        confort: t('configurador.step2.confort.title'),
+        ahorro: t('configurador.step2.ahorro.title'),
+        familia: t('configurador.js_i18n.necesidad_familia_label')
+      },
+      nivelLabel: {
+        esencial: t('configurador.step4.esencial.title'),
+        inteligente: t('configurador.step4.inteligente.title'),
+        completa: t('configurador.step4.completa.title')
+      },
+      sinEspecificar: t('configurador.js_i18n.sin_especificar'),
+      presupuestoMedidaEyebrow: t('configurador.js_i18n.presupuesto_medida_eyebrow'),
+      presupuestoMedidaTitle: t('configurador.js_i18n.presupuesto_medida_title'),
+      presupuestoMedidaBody: t('configurador.js_i18n.presupuesto_medida_body'),
+      mensajeIntro: t('configurador.js_i18n.mensaje_intro'),
+      mensajeVivienda: t('configurador.js_i18n.mensaje_vivienda'),
+      mensajePrioridad: t('configurador.js_i18n.mensaje_prioridad'),
+      mensajeQuiereControlar: t('configurador.js_i18n.mensaje_quiere_controlar'),
+      mensajeCierre: t('configurador.js_i18n.mensaje_cierre'),
+      mensajeSolucionRecomendada: t('configurador.js_i18n.mensaje_solucion_recomendada'),
+      mensajeTambienInteresa: t('configurador.js_i18n.mensaje_tambien_interesa'),
+      packRecomendadoEyebrow: t('configurador.js_i18n.pack_recomendado_eyebrow'),
+      servicioRecomendadoEyebrow: t('configurador.js_i18n.servicio_recomendado_eyebrow'),
+      nivelPrefix: t('configurador.js_i18n.nivel_prefix'),
+      consultar: t('configurador.js_i18n.consultar'),
+      verDesgloseCompleto: t('configurador.js_i18n.ver_desglose_completo'),
+      encajaTambienCon: t('configurador.js_i18n.encaja_tambien_con'),
+      resumenVivienda: t('configurador.js_i18n.resumen_vivienda'),
+      resumenPrioridad: t('configurador.js_i18n.resumen_prioridad'),
+      resumenQuiereControlar: t('configurador.js_i18n.resumen_quiere_controlar'),
+      resumenNivel: t('configurador.js_i18n.resumen_nivel'),
+      resultadoNivelSeparador: t('configurador.js_i18n.resultado_nivel_separador')
     }) %>
   </script>
 

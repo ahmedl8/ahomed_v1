@@ -16,23 +16,23 @@
       <div class="service-hero-icon"><svg viewBox="0 0 24 24"><%- icons[service.icono] %></svg></div>
       <div>
         <% if (bloque) { %>
-          <nav class="breadcrumb" aria-label="Ruta de navegación">
-            <a href="/servicios">Servicios</a> ›
+          <nav class="breadcrumb" aria-label="<%= t('detalle_servicio.breadcrumb.aria') %>">
+            <a href="/servicios"><%= t('nav.servicios') %></a> ›
             <a href="/servicios/bloque/<%= bloque.slug %>"><%= bloque.nombre %></a>
           </nav>
         <% } %>
-        <span class="eyebrow">Servicio <%= service.numero %></span>
+        <span class="eyebrow"><%= tv('detalle_servicio.eyebrow', { numero: service.numero }) %></span>
         <h1><%= service.nombre %></h1>
         <p><%= service.resumen %></p>
         <% if (service.versionAlternativa) { %>
           <p class="service-version-alt">
-            <%= service.publico === 'negocio' ? '¿Es para una vivienda?' : '¿Es para una nave, almacén o finca?' %>
-            <a href="/servicios/<%= service.versionAlternativa %>">Consulta la versión para <%= service.publico === 'negocio' ? 'tu casa' : 'naves y fincas' %> →</a>
+            <%= service.publico === 'negocio' ? t('detalle_servicio.version_alt.pregunta_vivienda') : t('detalle_servicio.version_alt.pregunta_nave') %>
+            <a href="/servicios/<%= service.versionAlternativa %>"><%= service.publico === 'negocio' ? t('detalle_servicio.version_alt.link_casa') : t('detalle_servicio.version_alt.link_naves') %></a>
           </p>
         <% } %>
         <div class="service-meta">
           <span class="meta-chip"><%= service.tiempo %></span>
-          <span class="meta-chip meta-chip-price">Desde <%= fmt(service.desde) %> €<%= service.desdeUnidad || '' %></span>
+          <span class="meta-chip meta-chip-price"><%= tv('detalle_servicio.desde_precio', { precio: fmt(service.desde), unidad: service.desdeUnidad || '' }) %></span>
         </div>
       </div>
     </div>
@@ -58,7 +58,7 @@
   <section class="section">
     <div class="container two-col">
       <div>
-        <h2 class="sub-heading">Ideal para</h2>
+        <h2 class="sub-heading"><%= t('detalle_servicio.ideal_para.title') %></h2>
         <ul class="check-list check-list-lg">
           <% service.idealPara.forEach(function(item){ %>
             <li><%= item %></li>
@@ -66,7 +66,7 @@
         </ul>
 
         <% if (service.extras && service.extras.length) { %>
-          <h2 class="sub-heading">Extras habituales</h2>
+          <h2 class="sub-heading"><%= t('detalle_servicio.extras.title') %></h2>
           <ul class="plus-list">
             <% service.extras.forEach(function(item){ %>
               <li><%= item %></li>
@@ -75,7 +75,7 @@
         <% } %>
 
         <% if (service.tambienInstalaron && service.tambienInstalaron.length) { %>
-          <h2 class="sub-heading">Clientes que contrataron este servicio también instalaron</h2>
+          <h2 class="sub-heading"><%= t('detalle_servicio.tambien_instalaron.title') %></h2>
           <ul class="dot-list dot-list-links">
             <% service.tambienInstalaron.forEach(function(item){ %>
               <% if (item.href) { %>
@@ -87,8 +87,8 @@
           </ul>
         <% } %>
 
-        <a href="https://wa.me/34<%= empresa.whatsapp %>?text=<%= encodeURIComponent('Hola, quiero pedir presupuesto para ' + service.nombre.toLowerCase()) %>" target="_blank" rel="noopener" class="btn btn-whatsapp btn-lg cta-block">
-          Pedir presupuesto gratuito
+        <a href="https://wa.me/34<%= empresa.whatsapp %>?text=<%= encodeURIComponent(tv('detalle_servicio.whatsapp_presupuesto', { servicio: service.nombre.toLowerCase() })) %>" target="_blank" rel="noopener" class="btn btn-whatsapp btn-lg cta-block">
+          <%= t('detalle_servicio.cta_presupuesto') %>
         </a>
       </div>
 
@@ -109,18 +109,18 @@
             <div class="example-tab-panels">
               <% allExamples.forEach(function(ex, i){ %>
                 <div class="example-tab-panel" id="panel-<%= service.slug %>-<%= i %>">
-                  <h2 class="sub-heading">Ejemplo real — <%= ex.titulo %></h2>
+                  <h2 class="sub-heading"><%= tv('detalle_servicio.ejemplo_real.title', { titulo: ex.titulo }) %></h2>
                   <% if (ex.cliente) { %><p class="example-client"><%= ex.cliente %></p><% } %>
 
                   <% if (ex.imagen && ex.imagenAntes) { %>
                     <div class="pack-photo-pair">
                       <div class="pack-photo-wrap">
-                        <span class="photo-label">Antes</span>
-                        <img src="<%= ex.imagenAntes %>" alt="Antes — <%= ex.titulo %>" loading="lazy">
+                        <span class="photo-label"><%= t('detalle_servicio.antes') %></span>
+                        <img src="<%= ex.imagenAntes %>" alt="<%= tv('detalle_servicio.antes_alt', { titulo: ex.titulo }) %>" loading="lazy">
                       </div>
                       <div class="pack-photo-wrap">
-                        <span class="photo-label photo-label-after">Después</span>
-                        <img src="<%= ex.imagen %>" alt="Después — <%= ex.titulo %>" loading="lazy">
+                        <span class="photo-label photo-label-after"><%= t('detalle_servicio.despues') %></span>
+                        <img src="<%= ex.imagen %>" alt="<%= tv('detalle_servicio.despues_alt', { titulo: ex.titulo }) %>" loading="lazy">
                       </div>
                     </div>
                   <% } else if (ex.imagen) { %>
@@ -143,18 +143,18 @@
             </div>
           </div>
         <% } else { %>
-          <h2 class="sub-heading">Ejemplo real — <%= service.ejemplo.titulo %></h2>
+          <h2 class="sub-heading"><%= tv('detalle_servicio.ejemplo_real.title', { titulo: service.ejemplo.titulo }) %></h2>
           <% if (service.ejemplo.cliente) { %><p class="example-client"><%= service.ejemplo.cliente %></p><% } %>
 
           <% if (service.ejemplo.imagen && service.ejemplo.imagenAntes) { %>
             <div class="pack-photo-pair">
               <div class="pack-photo-wrap">
-                <span class="photo-label">Antes</span>
-                <img src="<%= service.ejemplo.imagenAntes %>" alt="Antes — <%= service.ejemplo.titulo %>" loading="lazy">
+                <span class="photo-label"><%= t('detalle_servicio.antes') %></span>
+                <img src="<%= service.ejemplo.imagenAntes %>" alt="<%= tv('detalle_servicio.antes_alt', { titulo: service.ejemplo.titulo }) %>" loading="lazy">
               </div>
               <div class="pack-photo-wrap">
-                <span class="photo-label photo-label-after">Después</span>
-                <img src="<%= service.ejemplo.imagen %>" alt="Después — <%= service.ejemplo.titulo %>" loading="lazy">
+                <span class="photo-label photo-label-after"><%= t('detalle_servicio.despues') %></span>
+                <img src="<%= service.ejemplo.imagen %>" alt="<%= tv('detalle_servicio.despues_alt', { titulo: service.ejemplo.titulo }) %>" loading="lazy">
               </div>
             </div>
           <% } else if (service.ejemplo.imagen) { %>
@@ -174,16 +174,16 @@
           <% } %>
         <% } %>
 
-        <p class="orientative-note">Todos los importes son orientativos. El precio definitivo se confirma tras la visita técnica gratuita.</p>
+        <p class="orientative-note"><%= t('detalle_servicio.nota_orientativa') %></p>
       </div>
     </div>
   </section>
 
   <section class="section final-cta">
     <div class="container final-cta-inner">
-      <h2>¿Empezamos con tu <%= service.nombre.toLowerCase() %>?</h2>
-      <p>Primera visita gratuita. Presupuesto sin compromiso.</p>
-      <a href="https://wa.me/34<%= empresa.whatsapp %>?text=<%= encodeURIComponent('Hola, quiero pedir presupuesto para ' + service.nombre.toLowerCase()) %>" target="_blank" rel="noopener" class="btn btn-whatsapp btn-lg">
+      <h2><%= tv('detalle_servicio.cta_final.title', { servicio: service.nombre.toLowerCase() }) %></h2>
+      <p><%= t('detalle_servicio.cta_final.subtitle') %></p>
+      <a href="https://wa.me/34<%= empresa.whatsapp %>?text=<%= encodeURIComponent(tv('detalle_servicio.whatsapp_presupuesto', { servicio: service.nombre.toLowerCase() })) %>" target="_blank" rel="noopener" class="btn btn-whatsapp btn-lg">
         <%= empresa.whatsappDisplay %>
       </a>
     </div>

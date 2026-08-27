@@ -10,11 +10,11 @@
   <section class="page-hero about-hero">
     <div class="container about-hero-inner">
       <div class="about-photo">
-        <img src="/img/ahmed-sobre-mi.jpg" alt="Ahmed, técnico y fundador de AHOMED" loading="eager" />
+        <img src="/img/ahmed-sobre-mi.jpg" alt="<%= t('sobre_mi.hero.photo_alt') %>" loading="eager" />
       </div>
       <div>
-        <h1>Sobre mí</h1>
-        <p class="about-lead">Más de 10 años de experiencia técnica multidisciplinar: desde programación e inteligencia artificial hasta instalación eléctrica, domótica y sistemas de seguridad, con trabajo de campo en entornos exigentes.</p>
+        <h1><%= t('sobre_mi.hero.title') %></h1>
+        <p class="about-lead"><%= t('sobre_mi.hero.subtitle') %></p>
       </div>
     </div>
   </section>
@@ -22,34 +22,45 @@
   <section class="section">
     <div class="container two-col">
       <div>
-        <h2 class="sub-heading">Mi experiencia</h2>
-        <p>Soy técnico multidisciplinar especializado en electricidad, domótica, redes, seguridad y sistemas de inteligencia artificial aplicados al hogar y a los negocios. Durante más de una década he combinado el desarrollo de software con la instalación y el mantenimiento en campo: cuadros eléctricos, redes domésticas, cámaras y sensores, sistemas de detección con IA, y automatización completa de viviendas.</p>
-        <p>Esa base técnica es lo que diferencia a AHOMED: no solo instalo cámaras o domótica, también sé configurar y entrenar los modelos de inteligencia artificial que hay detrás. Llevo años desarrollando sistemas de videovigilancia con IA para un sector donde una falsa alarma tiene un coste real — instalaciones industriales monitorizadas 24/7, con detección por cámara, GPS y sensores combinados. Esa misma experiencia es la que aplico para que tu sistema de seguridad distinga de verdad a una persona de un gato o una sombra, y solo te avise cuando importa.</p>
+        <h2 class="sub-heading"><%= t('sobre_mi.experiencia.title') %></h2>
+        <p><%= t('sobre_mi.experiencia.p1') %></p>
+        <p><%= t('sobre_mi.experiencia.p2') %></p>
 
-        <h2 class="sub-heading">Áreas técnicas</h2>
+        <h2 class="sub-heading"><%= t('sobre_mi.areas.title') %></h2>
         <ul class="dot-list dot-list-cols">
-          <li>Electricidad e instalaciones de cuadros eléctricos</li>
-          <li>Domótica: luces, persianas, climatización, riego</li>
-          <li>Cámaras IP y sistemas de detección con IA</li>
-          <li>Redes WiFi y configuración de redes domésticas</li>
-          <li>Integración con WhatsApp Business (API Meta) para alertas</li>
-          <li>Energía solar de autoconsumo</li>
-          <li>Reparaciones, fontanería y pequeñas reformas</li>
-          <li>Electrónica de campo y montaje de dispositivos IoT</li>
+          <% [
+            t('sobre_mi.areas.item1'),
+            t('sobre_mi.areas.item2'),
+            t('sobre_mi.areas.item3'),
+            t('sobre_mi.areas.item4'),
+            t('sobre_mi.areas.item5'),
+            t('sobre_mi.areas.item6'),
+            t('sobre_mi.areas.item7'),
+            t('sobre_mi.areas.item8')
+          ].forEach(function(v){ %>
+            <li><%= v %></li>
+          <% }) %>
         </ul>
       </div>
 
       <div class="about-side">
         <div class="about-card">
-          <h3>Por qué AHOMED</h3>
+          <h3><%= t('sobre_mi.por_que.title') %></h3>
           <ul class="check-list check-list-lg">
-            <% ["Primera visita gratuita","Presupuesto sin compromiso","Instalación profesional","Material de primeras marcas","Garantía en todas las instalaciones","Atención directa por WhatsApp"].forEach(function(v){ %>
+            <% [
+              t('sobre_mi.por_que.item1'),
+              t('sobre_mi.por_que.item2'),
+              t('sobre_mi.por_que.item3'),
+              t('sobre_mi.por_que.item4'),
+              t('sobre_mi.por_que.item5'),
+              t('sobre_mi.por_que.item6')
+            ].forEach(function(v){ %>
               <li><%= v %></li>
             <% }) %>
           </ul>
         </div>
         <div class="about-card">
-          <h3>Zona de servicio</h3>
+          <h3><%= t('sobre_mi.zona.title') %></h3>
           <p><%= empresa.zona %></p>
           <a href="https://wa.me/34<%= empresa.whatsapp %>" target="_blank" rel="noopener" class="btn btn-whatsapp cta-block">WhatsApp <%= empresa.whatsappDisplay %></a>
         </div>

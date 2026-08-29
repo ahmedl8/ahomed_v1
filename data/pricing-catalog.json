@@ -1,0 +1,2301 @@
+{
+  "_meta": {
+    "descripcion": "Catálogo de componentes AHOMED — precios unitarios usados para calcular presupuestos de servicios, packs y configurador.",
+    "tipos": [
+      "mano_obra",
+      "material",
+      "dispositivo",
+      "tramite",
+      "referencia"
+    ],
+    "reglaVolumen": "Cuando un mismo dispositivo se instala varias veces en el mismo trabajo, la 1ª unidad lleva las horas de mano de obra completas (incluye desplazamiento/preparación) y las unidades adicionales llevan menos horas — mismo patrón que usan electricistas reales (1ª hora a tarifa completa, resto a tarifa reducida). El precio del dispositivo en sí no varía por volumen.",
+    "fase": "4 de N — completo: los 14 servicios de casa + naves catalogados, sin cambios de precio salvo energia-solar y CCTV/seguridad (fase 2, con evidencia de mercado)"
+  },
+  "componentes": [
+    {
+      "id": "mo_electricista_hora",
+      "nombre": "Mano de obra electricista",
+      "tipo": "mano_obra",
+      "area": "electricidad",
+      "unidad": "hora",
+      "precio": 38
+    },
+    {
+      "id": "mo_domotica_hora",
+      "nombre": "Mano de obra instalador domótica",
+      "tipo": "mano_obra",
+      "area": "domotica",
+      "unidad": "hora",
+      "precio": 30
+    },
+    {
+      "id": "mo_domotica_hora_adicional",
+      "nombre": "Mano de obra instalador domótica — unidad adicional en el mismo trabajo",
+      "tipo": "mano_obra",
+      "area": "domotica",
+      "unidad": "hora",
+      "precio": 30,
+      "nota": "Misma tarifa por hora; lo que baja es el número de horas por unidad a partir de la 2ª (sin desplazamiento ni preparación repetidos) — igual que el modelo real del sector, donde la 1ª hora se cobra completa y el resto a tarifa reducida"
+    },
+    {
+      "id": "cuadro_12_elementos",
+      "nombre": "Cuadro eléctrico 12 elementos + PIAs",
+      "tipo": "material",
+      "area": "electricidad",
+      "unidad": "unidad",
+      "precio": 130
+    },
+    {
+      "id": "diferencial_estandar_30ma",
+      "nombre": "Diferencial 30 mA estándar",
+      "tipo": "material",
+      "area": "electricidad",
+      "unidad": "unidad",
+      "precio": 45
+    },
+    {
+      "id": "diferencial_superinmunizado",
+      "nombre": "Diferencial superinmunizado",
+      "tipo": "material",
+      "area": "electricidad",
+      "unidad": "unidad",
+      "precio": 70,
+      "nota": "No salta solo al encender el microondas o la lavadora"
+    },
+    {
+      "id": "protector_sobretensiones",
+      "nombre": "Protector de sobretensiones",
+      "tipo": "material",
+      "area": "electricidad",
+      "unidad": "unidad",
+      "precio": 65,
+      "nota": "Protege los aparatos electrónicos de una subida de tensión de la red"
+    },
+    {
+      "id": "material_cableado_basico",
+      "nombre": "Material y pequeño cableado",
+      "tipo": "material",
+      "area": "electricidad",
+      "unidad": "lote",
+      "precio": 25
+    },
+    {
+      "id": "material_cableado_medio",
+      "nombre": "Material y cableado",
+      "tipo": "material",
+      "area": "electricidad",
+      "unidad": "lote",
+      "precio": 30
+    },
+    {
+      "id": "material_cableado_ampliado",
+      "nombre": "Material y cableado (ampliado)",
+      "tipo": "material",
+      "area": "electricidad",
+      "unidad": "lote",
+      "precio": 35
+    },
+    {
+      "id": "boletin_cie",
+      "nombre": "Boletín eléctrico (CIE): tramitación e inspección",
+      "tipo": "tramite",
+      "area": "electricidad",
+      "unidad": "unidad",
+      "precio": 165
+    },
+    {
+      "id": "wallbox_74kw_mono",
+      "nombre": "Wallbox 7,4 kW monofásica",
+      "tipo": "dispositivo",
+      "area": "electricidad",
+      "unidad": "unidad",
+      "precio": 480
+    },
+    {
+      "id": "wallbox_74kw_wifi",
+      "nombre": "Wallbox 7,4 kW con conexión WiFi y app de control",
+      "tipo": "dispositivo",
+      "area": "electricidad",
+      "unidad": "unidad",
+      "precio": 620
+    },
+    {
+      "id": "wallbox_22kw_trifasica",
+      "nombre": "Wallbox trifásica 22 kW con app y programación horaria",
+      "tipo": "dispositivo",
+      "area": "electricidad",
+      "unidad": "unidad",
+      "precio": 1150
+    },
+    {
+      "id": "linea_dedicada_protecciones",
+      "nombre": "Línea eléctrica dedicada + protecciones (magnetotérmico y diferencial)",
+      "tipo": "material",
+      "area": "electricidad",
+      "unidad": "unidad",
+      "precio": 165
+    },
+    {
+      "id": "linea_dedicada_protecciones_reforzada",
+      "nombre": "Línea eléctrica dedicada + protecciones reforzadas",
+      "tipo": "material",
+      "area": "electricidad",
+      "unidad": "unidad",
+      "precio": 220
+    },
+    {
+      "id": "gestor_carga_dinamico",
+      "nombre": "Gestor de carga dinámico",
+      "tipo": "dispositivo",
+      "area": "electricidad",
+      "unidad": "unidad",
+      "precio": 180,
+      "nota": "Evita saltos del ICP si hay otros consumos altos"
+    },
+    {
+      "id": "material_canaleta_cableado",
+      "nombre": "Material (canaleta, cableado)",
+      "tipo": "material",
+      "area": "electricidad",
+      "unidad": "lote",
+      "precio": 70
+    },
+    {
+      "id": "material_wallbox_medio",
+      "nombre": "Material",
+      "tipo": "material",
+      "area": "electricidad",
+      "unidad": "lote",
+      "precio": 85
+    },
+    {
+      "id": "material_wallbox_trifasica",
+      "nombre": "Material",
+      "tipo": "material",
+      "area": "electricidad",
+      "unidad": "lote",
+      "precio": 100
+    },
+    {
+      "id": "interruptor_wifi",
+      "nombre": "Interruptor WiFi",
+      "tipo": "dispositivo",
+      "area": "domotica",
+      "unidad": "unidad",
+      "precio": 30
+    },
+    {
+      "id": "enchufe_inteligente",
+      "nombre": "Enchufe inteligente",
+      "tipo": "dispositivo",
+      "area": "domotica",
+      "unidad": "unidad",
+      "precio": 20
+    },
+    {
+      "id": "hub_domotica",
+      "nombre": "Hub central de domótica",
+      "tipo": "dispositivo",
+      "area": "domotica",
+      "unidad": "unidad",
+      "precio": 90,
+      "nota": "Para escenas y control por voz"
+    },
+    {
+      "id": "hub_domotica_altavoz",
+      "nombre": "Hub central + altavoz de control por voz",
+      "tipo": "dispositivo",
+      "area": "domotica",
+      "unidad": "unidad",
+      "precio": 220
+    },
+    {
+      "id": "termostato_inteligente",
+      "nombre": "Termostato inteligente integrado",
+      "tipo": "dispositivo",
+      "area": "domotica",
+      "unidad": "unidad",
+      "precio": 180
+    },
+    {
+      "id": "config_escenas_basica",
+      "nombre": "Configuración de escenas (\"buenas noches\", \"salir de casa\")",
+      "tipo": "mano_obra",
+      "area": "domotica",
+      "unidad": "lote",
+      "precio": 120
+    },
+    {
+      "id": "config_escenas_avanzada",
+      "nombre": "Configuración de escenas y automatizaciones por horario/presencia",
+      "tipo": "mano_obra",
+      "area": "domotica",
+      "unidad": "lote",
+      "precio": 180
+    },
+    {
+      "id": "material_electrico_domotica_bajo",
+      "nombre": "Material eléctrico",
+      "tipo": "material",
+      "area": "domotica",
+      "unidad": "lote",
+      "precio": 10
+    },
+    {
+      "id": "material_electrico_domotica_medio",
+      "nombre": "Material eléctrico",
+      "tipo": "material",
+      "area": "domotica",
+      "unidad": "lote",
+      "precio": 15
+    },
+    {
+      "id": "material_electrico_domotica_alto",
+      "nombre": "Material eléctrico",
+      "tipo": "material",
+      "area": "domotica",
+      "unidad": "lote",
+      "precio": 20
+    },
+    {
+      "id": "material_domotica_60",
+      "nombre": "Material eléctrico",
+      "tipo": "material",
+      "area": "domotica",
+      "unidad": "lote",
+      "precio": 60
+    },
+    {
+      "id": "material_domotica_70",
+      "nombre": "Material",
+      "tipo": "material",
+      "area": "domotica",
+      "unidad": "lote",
+      "precio": 70
+    },
+    {
+      "id": "material_domotica_90",
+      "nombre": "Material",
+      "tipo": "material",
+      "area": "domotica",
+      "unidad": "lote",
+      "precio": 90
+    },
+    {
+      "id": "dispositivo_motor_persiana_mando",
+      "nombre": "Motor tubular de persiana (con mando a distancia)",
+      "tipo": "dispositivo",
+      "area": "domotica",
+      "unidad": "unidad",
+      "precio": 90,
+      "nota": "Precio de mercado del motor sin módulo WiFi (rango real Somfy/Aqara ~90-150€)"
+    },
+    {
+      "id": "dispositivo_motor_persiana_wifi",
+      "nombre": "Motor tubular de persiana con módulo WiFi",
+      "tipo": "dispositivo",
+      "area": "domotica",
+      "unidad": "unidad",
+      "precio": 150,
+      "nota": "Precio de mercado del motor con conectividad WiFi/app (rango real Somfy/Aqara ~120-260€)"
+    },
+    {
+      "id": "material_fijacion_persiana",
+      "nombre": "Material de fijación",
+      "tipo": "material",
+      "area": "domotica",
+      "unidad": "lote",
+      "precio": 40
+    },
+    {
+      "id": "_nota_horas_motor_persiana",
+      "nombre": "REFERENCIA — no es un componente sumable: instalar un motor de persiana lleva 4,5h (1ª unidad) o 2,5h (unidades adicionales en el mismo trabajo, sin desplazamiento repetido) a mo_domotica_hora",
+      "tipo": "referencia",
+      "area": "domotica",
+      "unidad": "-",
+      "precio": 0
+    },
+    {
+      "id": "programador_riego_2v",
+      "nombre": "Programador de riego con 2 electroválvulas",
+      "tipo": "dispositivo",
+      "area": "domotica",
+      "unidad": "unidad",
+      "precio": 180
+    },
+    {
+      "id": "programador_riego_wifi_4v",
+      "nombre": "Programador de riego WiFi con 4 electroválvulas",
+      "tipo": "dispositivo",
+      "area": "domotica",
+      "unidad": "unidad",
+      "precio": 320
+    },
+    {
+      "id": "programador_riego_wifi_6v",
+      "nombre": "Programador de riego WiFi con 6 electroválvulas",
+      "tipo": "dispositivo",
+      "area": "domotica",
+      "unidad": "unidad",
+      "precio": 420
+    },
+    {
+      "id": "sensor_lluvia",
+      "nombre": "Sensor de lluvia",
+      "tipo": "dispositivo",
+      "area": "domotica",
+      "unidad": "unidad",
+      "precio": 60,
+      "nota": "Evita riego innecesario"
+    },
+    {
+      "id": "sensor_humedad_suelo",
+      "nombre": "Sensor de humedad de suelo",
+      "tipo": "dispositivo",
+      "area": "domotica",
+      "unidad": "unidad",
+      "precio": 90
+    },
+    {
+      "id": "tuberia_material_zanja_bajo",
+      "nombre": "Tubería, goteros/difusores y material de zanja",
+      "tipo": "material",
+      "area": "domotica",
+      "unidad": "lote",
+      "precio": 100
+    },
+    {
+      "id": "tuberia_material_zanja_medio",
+      "nombre": "Tubería, goteros/difusores y material de zanja",
+      "tipo": "material",
+      "area": "domotica",
+      "unidad": "lote",
+      "precio": 180
+    },
+    {
+      "id": "tuberia_material_zanja_alto",
+      "nombre": "Tubería, goteros/difusores y material de zanja",
+      "tipo": "material",
+      "area": "domotica",
+      "unidad": "lote",
+      "precio": 260
+    },
+    {
+      "id": "integracion_domotica_riego",
+      "nombre": "Integración con domótica (escenas y automatizaciones)",
+      "tipo": "mano_obra",
+      "area": "domotica",
+      "unidad": "lote",
+      "precio": 90
+    },
+    {
+      "id": "dispositivo_toldo_motor_mando",
+      "nombre": "Toldo con motor tubular y mando a distancia",
+      "tipo": "dispositivo",
+      "area": "domotica",
+      "unidad": "unidad",
+      "precio": 420,
+      "nota": "Toldo 4x3m con motor tubular"
+    },
+    {
+      "id": "dispositivo_toldo_motor_wifi",
+      "nombre": "Toldo con motor tubular WiFi",
+      "tipo": "dispositivo",
+      "area": "domotica",
+      "unidad": "unidad",
+      "precio": 520
+    },
+    {
+      "id": "modulo_control_app_toldo",
+      "nombre": "Módulo de control por app",
+      "tipo": "dispositivo",
+      "area": "domotica",
+      "unidad": "unidad",
+      "precio": 60
+    },
+    {
+      "id": "sensor_viento",
+      "nombre": "Sensor de viento",
+      "tipo": "dispositivo",
+      "area": "domotica",
+      "unidad": "unidad",
+      "precio": 110,
+      "nota": "Cierre automático ante ráfagas fuertes"
+    },
+    {
+      "id": "led_brazo_toldo",
+      "nombre": "Tira LED integrada en el brazo del toldo",
+      "tipo": "dispositivo",
+      "area": "domotica",
+      "unidad": "unidad",
+      "precio": 80
+    },
+    {
+      "id": "material_fijacion_toldo_20",
+      "nombre": "Material de fijación",
+      "tipo": "material",
+      "area": "domotica",
+      "unidad": "lote",
+      "precio": 20
+    },
+    {
+      "id": "material_fijacion_toldo_25",
+      "nombre": "Material de fijación",
+      "tipo": "material",
+      "area": "domotica",
+      "unidad": "lote",
+      "precio": 25
+    },
+    {
+      "id": "material_fijacion_toldo_30",
+      "nombre": "Material de fijación",
+      "tipo": "material",
+      "area": "domotica",
+      "unidad": "lote",
+      "precio": 30
+    },
+    {
+      "id": "programador_bomba_wifi",
+      "nombre": "Programador WiFi para bomba de filtración",
+      "tipo": "dispositivo",
+      "area": "domotica",
+      "unidad": "unidad",
+      "precio": 220
+    },
+    {
+      "id": "led_piscina_rgb",
+      "nombre": "Foco LED de piscina RGB con control por app",
+      "tipo": "dispositivo",
+      "area": "domotica",
+      "unidad": "unidad",
+      "precio": 180
+    },
+    {
+      "id": "sonda_ph_cloro",
+      "nombre": "Sonda de pH y cloro con monitorización desde el móvil",
+      "tipo": "dispositivo",
+      "area": "domotica",
+      "unidad": "unidad",
+      "precio": 340
+    },
+    {
+      "id": "material_proteccion_electrica_60",
+      "nombre": "Material y protección eléctrica (caja estanca)",
+      "tipo": "material",
+      "area": "domotica",
+      "unidad": "lote",
+      "precio": 60
+    },
+    {
+      "id": "material_proteccion_electrica_70",
+      "nombre": "Material y protección eléctrica",
+      "tipo": "material",
+      "area": "domotica",
+      "unidad": "lote",
+      "precio": 70
+    },
+    {
+      "id": "material_proteccion_electrica_80",
+      "nombre": "Material y protección eléctrica",
+      "tipo": "material",
+      "area": "domotica",
+      "unidad": "lote",
+      "precio": 80
+    },
+    {
+      "id": "mo_solar_hora",
+      "nombre": "Mano de obra instalador fotovoltaico",
+      "tipo": "mano_obra",
+      "area": "energia-solar",
+      "unidad": "hora",
+      "precio": 40,
+      "nota": "Instalación de estructura, cableado DC/AC y puesta en marcha; tarifa de mercado especializada (35-55€/h)"
+    },
+    {
+      "id": "mo_seguridad_hora",
+      "nombre": "Mano de obra instalador de seguridad",
+      "tipo": "mano_obra",
+      "area": "seguridad",
+      "unidad": "hora",
+      "precio": 32
+    },
+    {
+      "id": "panel_solar_400w",
+      "nombre": "Panel solar 400 W",
+      "tipo": "dispositivo",
+      "area": "energia-solar",
+      "unidad": "unidad",
+      "precio": 140
+    },
+    {
+      "id": "microinversor_800w",
+      "nombre": "Microinversor 800 W",
+      "tipo": "dispositivo",
+      "area": "energia-solar",
+      "unidad": "unidad",
+      "precio": 120
+    },
+    {
+      "id": "microinversor_800w_app",
+      "nombre": "Microinversor 800 W con monitorización por app",
+      "tipo": "dispositivo",
+      "area": "energia-solar",
+      "unidad": "unidad",
+      "precio": 150
+    },
+    {
+      "id": "bateria_portatil_1kwh",
+      "nombre": "Batería portátil 1 kWh",
+      "tipo": "dispositivo",
+      "area": "energia-solar",
+      "unidad": "unidad",
+      "precio": 480
+    },
+    {
+      "id": "estructura_fijacion_balcon",
+      "nombre": "Estructura de fijación reforzada (balcón/terraza)",
+      "tipo": "material",
+      "area": "energia-solar",
+      "unidad": "lote",
+      "precio": 45
+    },
+    {
+      "id": "material_solar_balcon_20",
+      "nombre": "Material de fijación",
+      "tipo": "material",
+      "area": "energia-solar",
+      "unidad": "lote",
+      "precio": 20
+    },
+    {
+      "id": "material_solar_balcon_25",
+      "nombre": "Material",
+      "tipo": "material",
+      "area": "energia-solar",
+      "unidad": "lote",
+      "precio": 25
+    },
+    {
+      "id": "panel_solar_400w_tejado",
+      "nombre": "Panel solar 400 W (instalación en tejado)",
+      "tipo": "dispositivo",
+      "area": "energia-solar",
+      "unidad": "unidad",
+      "precio": 165,
+      "nota": "Precio de mercado del panel; ligeramente superior al de balcón por certificación para cubierta"
+    },
+    {
+      "id": "inversor_string_1600w",
+      "nombre": "Inversor 1.600 W (string)",
+      "tipo": "dispositivo",
+      "area": "energia-solar",
+      "unidad": "unidad",
+      "precio": 780,
+      "nota": "Ajustado a precio de mercado real de inversor con instalación en cubierta (rango 480-750€)"
+    },
+    {
+      "id": "inversor_string_2400w_app",
+      "nombre": "Inversor 2.400 W con monitorización por app",
+      "tipo": "dispositivo",
+      "area": "energia-solar",
+      "unidad": "unidad",
+      "precio": 780
+    },
+    {
+      "id": "inversor_hibrido_3200w_app",
+      "nombre": "Inversor híbrido 3.200 W con monitorización por app",
+      "tipo": "dispositivo",
+      "area": "energia-solar",
+      "unidad": "unidad",
+      "precio": 980,
+      "nota": "Inversor híbrido (preparado para batería)"
+    },
+    {
+      "id": "estructura_tejado_4p",
+      "nombre": "Estructura de fijación para tejado (hasta 4 paneles)",
+      "tipo": "material",
+      "area": "energia-solar",
+      "unidad": "lote",
+      "precio": 620,
+      "nota": "Ajustada a coste real de estructura + anclajes de cubierta inclinada (rango de mercado 400-800€ para 4 paneles)"
+    },
+    {
+      "id": "estructura_tejado_6p",
+      "nombre": "Estructura de fijación para tejado (hasta 6 paneles)",
+      "tipo": "material",
+      "area": "energia-solar",
+      "unidad": "lote",
+      "precio": 560
+    },
+    {
+      "id": "estructura_tejado_8p",
+      "nombre": "Estructura de fijación para tejado (hasta 8 paneles)",
+      "tipo": "material",
+      "area": "energia-solar",
+      "unidad": "lote",
+      "precio": 700
+    },
+    {
+      "id": "bateria_almacenamiento_5kwh",
+      "nombre": "Batería de almacenamiento de litio 5 kWh",
+      "tipo": "dispositivo",
+      "area": "energia-solar",
+      "unidad": "unidad",
+      "precio": 3200,
+      "nota": "Ajustada a precio de mercado real de batería 5kWh (rango 3.000-4.500€ como componente adicional)"
+    },
+    {
+      "id": "legalizacion_memoria_tecnica",
+      "nombre": "Legalización: memoria técnica de instalación",
+      "tipo": "tramite",
+      "area": "energia-solar",
+      "unidad": "unidad",
+      "precio": 350
+    },
+    {
+      "id": "legalizacion_alta_productor",
+      "nombre": "Legalización: alta como productor (excedentes a red)",
+      "tipo": "tramite",
+      "area": "energia-solar",
+      "unidad": "unidad",
+      "precio": 480
+    },
+    {
+      "id": "material_protecciones_solar_350",
+      "nombre": "Material y protecciones eléctricas",
+      "tipo": "material",
+      "area": "energia-solar",
+      "unidad": "lote",
+      "precio": 350
+    },
+    {
+      "id": "material_protecciones_solar_420",
+      "nombre": "Material y protecciones eléctricas",
+      "tipo": "material",
+      "area": "energia-solar",
+      "unidad": "lote",
+      "precio": 420
+    },
+    {
+      "id": "material_protecciones_solar_500",
+      "nombre": "Material y protecciones eléctricas",
+      "tipo": "material",
+      "area": "energia-solar",
+      "unidad": "lote",
+      "precio": 500
+    },
+    {
+      "id": "modulo_monitorizacion_consumo",
+      "nombre": "Módulo de monitorización de consumo en cuadro",
+      "tipo": "dispositivo",
+      "area": "energia-solar",
+      "unidad": "unidad",
+      "precio": 280
+    },
+    {
+      "id": "app_consumo_tiempo_real",
+      "nombre": "App con consumo en tiempo real e histórico",
+      "tipo": "dispositivo",
+      "area": "energia-solar",
+      "unidad": "unidad",
+      "precio": 90
+    },
+    {
+      "id": "integracion_tarifa_pvpc",
+      "nombre": "Integración con tarifa PVPC (precio por horas)",
+      "tipo": "mano_obra",
+      "area": "energia-solar",
+      "unidad": "lote",
+      "precio": 260
+    },
+    {
+      "id": "rele_inteligente_electrodomestico",
+      "nombre": "Relés inteligentes para electrodomésticos (lavadora/termo, arranque en horas baratas)",
+      "tipo": "dispositivo",
+      "area": "energia-solar",
+      "unidad": "unidad",
+      "precio": 340
+    },
+    {
+      "id": "videoportero_wifi_bateria",
+      "nombre": "Videoportero WiFi a batería con app",
+      "tipo": "dispositivo",
+      "area": "seguridad",
+      "unidad": "unidad",
+      "precio": 90
+    },
+    {
+      "id": "videoportero_2hilos",
+      "nombre": "Videoportero 2 hilos con cámara y monitor interior",
+      "tipo": "dispositivo",
+      "area": "seguridad",
+      "unidad": "unidad",
+      "precio": 145
+    },
+    {
+      "id": "videoportero_ip_nube",
+      "nombre": "Videoportero IP con grabación en la nube",
+      "tipo": "dispositivo",
+      "area": "seguridad",
+      "unidad": "unidad",
+      "precio": 210
+    },
+    {
+      "id": "modulo_apertura_remota",
+      "nombre": "Módulo de apertura remota",
+      "tipo": "dispositivo",
+      "area": "seguridad",
+      "unidad": "unidad",
+      "precio": 45
+    },
+    {
+      "id": "material_seguridad_10",
+      "nombre": "Material",
+      "tipo": "material",
+      "area": "seguridad",
+      "unidad": "lote",
+      "precio": 10
+    },
+    {
+      "id": "material_seguridad_15",
+      "nombre": "Material",
+      "tipo": "material",
+      "area": "seguridad",
+      "unidad": "lote",
+      "precio": 15
+    },
+    {
+      "id": "material_seguridad_20",
+      "nombre": "Material",
+      "tipo": "material",
+      "area": "seguridad",
+      "unidad": "lote",
+      "precio": 20
+    },
+    {
+      "id": "cerradura_teclado_app",
+      "nombre": "Cerradura inteligente con teclado numérico + app",
+      "tipo": "dispositivo",
+      "area": "seguridad",
+      "unidad": "unidad",
+      "precio": 195
+    },
+    {
+      "id": "cerradura_huella_teclado_app",
+      "nombre": "Cerradura inteligente con huella, teclado y app",
+      "tipo": "dispositivo",
+      "area": "seguridad",
+      "unidad": "unidad",
+      "precio": 310
+    },
+    {
+      "id": "cerradura_huella_teclado_app_nfc",
+      "nombre": "Cerradura inteligente con huella, teclado, app y NFC",
+      "tipo": "dispositivo",
+      "area": "seguridad",
+      "unidad": "unidad",
+      "precio": 380
+    },
+    {
+      "id": "integracion_cerradura_videoportero",
+      "nombre": "Integración cerradura con videoportero (apertura remota)",
+      "tipo": "mano_obra",
+      "area": "seguridad",
+      "unidad": "lote",
+      "precio": 90
+    },
+    {
+      "id": "config_accesos_temporales",
+      "nombre": "Configuración de accesos temporales (códigos de un solo uso)",
+      "tipo": "mano_obra",
+      "area": "seguridad",
+      "unidad": "lote",
+      "precio": 60
+    },
+    {
+      "id": "camara_ip_poe_exterior",
+      "nombre": "Cámara IP PoE exterior con visión nocturna",
+      "tipo": "dispositivo",
+      "area": "seguridad",
+      "unidad": "unidad",
+      "precio": 85,
+      "nota": "Precio de mercado confirmado por búsqueda (Hikvision/Dahua 4MP PoE ~85-100€)"
+    },
+    {
+      "id": "nvr_grabacion_local",
+      "nombre": "Mini-PC de grabación (NVR) con disco duro",
+      "tipo": "dispositivo",
+      "area": "seguridad",
+      "unidad": "unidad",
+      "precio": 240,
+      "nota": "Ligero ajuste al alza por disco duro de capacidad adecuada a grabación continua"
+    },
+    {
+      "id": "nvr_grabacion_local_ampliado",
+      "nombre": "Mini-PC de grabación con disco duro ampliado",
+      "tipo": "dispositivo",
+      "area": "seguridad",
+      "unidad": "unidad",
+      "precio": 340
+    },
+    {
+      "id": "config_acceso_remoto_app",
+      "nombre": "Configuración de acceso remoto por app",
+      "tipo": "mano_obra",
+      "area": "seguridad",
+      "unidad": "lote",
+      "precio": 90
+    },
+    {
+      "id": "config_deteccion_ia_camara",
+      "nombre": "Configuración de detección IA (persona/vehículo)",
+      "tipo": "mano_obra",
+      "area": "seguridad",
+      "unidad": "lote",
+      "precio": 380
+    },
+    {
+      "id": "notificaciones_whatsapp_alarma",
+      "nombre": "Notificaciones por WhatsApp ante alarma real",
+      "tipo": "mano_obra",
+      "area": "seguridad",
+      "unidad": "lote",
+      "precio": 90
+    },
+    {
+      "id": "material_cctv_100",
+      "nombre": "Material y conectorizado",
+      "tipo": "material",
+      "area": "seguridad",
+      "unidad": "lote",
+      "precio": 100,
+      "nota": "Ajustado ligeramente al alza; incluye conectores RJ45, canaleta exterior y protección IP"
+    },
+    {
+      "id": "material_cctv_130",
+      "nombre": "Material y conectorizado",
+      "tipo": "material",
+      "area": "seguridad",
+      "unidad": "lote",
+      "precio": 130
+    },
+    {
+      "id": "material_cctv_160",
+      "nombre": "Material y conectorizado",
+      "tipo": "material",
+      "area": "seguridad",
+      "unidad": "lote",
+      "precio": 160
+    },
+    {
+      "id": "app_pvpc_aviso_automatizacion",
+      "nombre": "App con aviso de horas más baratas y automatización",
+      "tipo": "dispositivo",
+      "area": "energia-solar",
+      "unidad": "unidad",
+      "precio": 150
+    },
+    {
+      "id": "cableado_estructurado_cctv_4cam",
+      "nombre": "Cableado estructurado y canalización (hasta 4 cámaras)",
+      "tipo": "material",
+      "area": "seguridad",
+      "unidad": "lote",
+      "precio": 180,
+      "nota": "Canaleta, cable UTP/coaxial y pasamuros; ajustado a precio de mercado real de instalación CCTV (1.400-1.900€ para 4 cámaras)"
+    },
+    {
+      "id": "cableado_estructurado_cctv_6cam",
+      "nombre": "Cableado estructurado y canalización (hasta 6 cámaras)",
+      "tipo": "material",
+      "area": "seguridad",
+      "unidad": "lote",
+      "precio": 260
+    },
+    {
+      "id": "cableado_estructurado_cctv_8cam",
+      "nombre": "Cableado estructurado y canalización (hasta 8 cámaras)",
+      "tipo": "material",
+      "area": "seguridad",
+      "unidad": "lote",
+      "precio": 340
+    },
+    {
+      "id": "mo_redes_hora",
+      "nombre": "Mano de obra instalador de redes",
+      "tipo": "mano_obra",
+      "area": "redes",
+      "unidad": "hora",
+      "precio": 32
+    },
+    {
+      "id": "mo_clima_hora",
+      "nombre": "Mano de obra instalador de climatización (RITE)",
+      "tipo": "mano_obra",
+      "area": "climatizacion",
+      "unidad": "hora",
+      "precio": 40
+    },
+    {
+      "id": "mo_antenista_hora",
+      "nombre": "Mano de obra antenista",
+      "tipo": "mano_obra",
+      "area": "antenas",
+      "unidad": "hora",
+      "precio": 32
+    },
+    {
+      "id": "mo_reformas_hora",
+      "nombre": "Mano de obra oficial de reformas",
+      "tipo": "mano_obra",
+      "area": "reformas",
+      "unidad": "hora",
+      "precio": 28
+    },
+    {
+      "id": "mo_fontanero_hora",
+      "nombre": "Mano de obra fontanero",
+      "tipo": "mano_obra",
+      "area": "fontaneria",
+      "unidad": "hora",
+      "precio": 32
+    },
+    {
+      "id": "mo_pladurista_hora",
+      "nombre": "Mano de obra pladurista",
+      "tipo": "mano_obra",
+      "area": "pladur",
+      "unidad": "hora",
+      "precio": 28
+    },
+    {
+      "id": "mo_industrial_hora",
+      "nombre": "Mano de obra técnico industrial (nave/finca)",
+      "tipo": "mano_obra",
+      "area": "industrial",
+      "unidad": "hora",
+      "precio": 40,
+      "nota": "Tarifa superior a residencial: trabajo trifásico/industrial, mayor responsabilidad técnica"
+    },
+    {
+      "id": "wifi_mesh_2pt",
+      "nombre": "Sistema WiFi mesh (2 puntos)",
+      "tipo": "dispositivo",
+      "area": "redes",
+      "unidad": "unidad",
+      "precio": 140
+    },
+    {
+      "id": "wifi_mesh_3pt",
+      "nombre": "Sistema WiFi mesh (3 puntos)",
+      "tipo": "dispositivo",
+      "area": "redes",
+      "unidad": "unidad",
+      "precio": 210
+    },
+    {
+      "id": "config_redes_separadas",
+      "nombre": "Configuración de redes separadas (invitados/domótica)",
+      "tipo": "mano_obra",
+      "area": "redes",
+      "unidad": "lote",
+      "precio": 25
+    },
+    {
+      "id": "config_backup_automatico",
+      "nombre": "Configuración de copia de seguridad automática (NAS/nube)",
+      "tipo": "mano_obra",
+      "area": "redes",
+      "unidad": "lote",
+      "precio": 95
+    },
+    {
+      "id": "material_redes_10",
+      "nombre": "Material",
+      "tipo": "material",
+      "area": "redes",
+      "unidad": "lote",
+      "precio": 10
+    },
+    {
+      "id": "material_redes_15",
+      "nombre": "Material",
+      "tipo": "material",
+      "area": "redes",
+      "unidad": "lote",
+      "precio": 15
+    },
+    {
+      "id": "material_redes_20",
+      "nombre": "Material",
+      "tipo": "material",
+      "area": "redes",
+      "unidad": "lote",
+      "precio": 20
+    },
+    {
+      "id": "armario_comunicaciones_superficie",
+      "nombre": "Armario de comunicaciones compacto (superficie)",
+      "tipo": "dispositivo",
+      "area": "redes",
+      "unidad": "unidad",
+      "precio": 110
+    },
+    {
+      "id": "armario_comunicaciones_empotrado",
+      "nombre": "Armario de comunicaciones empotrado con rack",
+      "tipo": "dispositivo",
+      "area": "redes",
+      "unidad": "unidad",
+      "precio": 160
+    },
+    {
+      "id": "switch_8p",
+      "nombre": "Switch de 8 puertos",
+      "tipo": "dispositivo",
+      "area": "redes",
+      "unidad": "unidad",
+      "precio": 45
+    },
+    {
+      "id": "switch_8p_gestionable",
+      "nombre": "Switch gestionable de 8 puertos",
+      "tipo": "dispositivo",
+      "area": "redes",
+      "unidad": "unidad",
+      "precio": 70
+    },
+    {
+      "id": "patch_panel_12p",
+      "nombre": "Patch panel de 12 puertos",
+      "tipo": "dispositivo",
+      "area": "redes",
+      "unidad": "unidad",
+      "precio": 65
+    },
+    {
+      "id": "cable_red_4_tomas",
+      "nombre": "Cable de red y 4 tomas RJ45",
+      "tipo": "material",
+      "area": "redes",
+      "unidad": "lote",
+      "precio": 100
+    },
+    {
+      "id": "cable_red_6_tomas",
+      "nombre": "Cable de red y 6 tomas RJ45",
+      "tipo": "material",
+      "area": "redes",
+      "unidad": "lote",
+      "precio": 140
+    },
+    {
+      "id": "reubicacion_ont_router",
+      "nombre": "Reubicación de ONT y router dentro del rack",
+      "tipo": "mano_obra",
+      "area": "redes",
+      "unidad": "lote",
+      "precio": 55
+    },
+    {
+      "id": "material_rack_25",
+      "nombre": "Material y regletas de conexión",
+      "tipo": "material",
+      "area": "redes",
+      "unidad": "lote",
+      "precio": 25
+    },
+    {
+      "id": "material_rack_30",
+      "nombre": "Material y regletas de conexión",
+      "tipo": "material",
+      "area": "redes",
+      "unidad": "lote",
+      "precio": 30
+    },
+    {
+      "id": "material_rack_35",
+      "nombre": "Material y regletas de conexión",
+      "tipo": "material",
+      "area": "redes",
+      "unidad": "lote",
+      "precio": 35
+    },
+    {
+      "id": "split_1x1_basico",
+      "nombre": "Split 1x1 2.500 frigorías (gama básica)",
+      "tipo": "dispositivo",
+      "area": "climatizacion",
+      "unidad": "unidad",
+      "precio": 380
+    },
+    {
+      "id": "split_1x1_media",
+      "nombre": "Split 1x1 3.000 frigorías (gama media, Daikin/Mitsubishi)",
+      "tipo": "dispositivo",
+      "area": "climatizacion",
+      "unidad": "unidad",
+      "precio": 650
+    },
+    {
+      "id": "split_1x1_alta_wifi",
+      "nombre": "Split 1x1 3.000 frigorías alta eficiencia (A+++) con control WiFi",
+      "tipo": "dispositivo",
+      "area": "climatizacion",
+      "unidad": "unidad",
+      "precio": 850
+    },
+    {
+      "id": "certificado_rite",
+      "nombre": "Certificado RITE",
+      "tipo": "tramite",
+      "area": "climatizacion",
+      "unidad": "unidad",
+      "precio": 60
+    },
+    {
+      "id": "material_clima_40",
+      "nombre": "Material (tubería, soportes, canaleta)",
+      "tipo": "material",
+      "area": "climatizacion",
+      "unidad": "lote",
+      "precio": 40
+    },
+    {
+      "id": "material_clima_45",
+      "nombre": "Material",
+      "tipo": "material",
+      "area": "climatizacion",
+      "unidad": "lote",
+      "precio": 45
+    },
+    {
+      "id": "material_clima_50",
+      "nombre": "Material",
+      "tipo": "material",
+      "area": "climatizacion",
+      "unidad": "lote",
+      "precio": 50
+    },
+    {
+      "id": "unidad_exterior_2x1_basica",
+      "nombre": "Unidad exterior multisplit 2x1 (gama básica)",
+      "tipo": "dispositivo",
+      "area": "climatizacion",
+      "unidad": "unidad",
+      "precio": 780
+    },
+    {
+      "id": "unidad_exterior_3x1_media",
+      "nombre": "Unidad exterior multisplit 3x1 (gama media)",
+      "tipo": "dispositivo",
+      "area": "climatizacion",
+      "unidad": "unidad",
+      "precio": 1180
+    },
+    {
+      "id": "unidad_exterior_4x1_alta",
+      "nombre": "Unidad exterior multisplit 4x1 alta eficiencia (A+++)",
+      "tipo": "dispositivo",
+      "area": "climatizacion",
+      "unidad": "unidad",
+      "precio": 1850
+    },
+    {
+      "id": "unidad_interior_2500fg",
+      "nombre": "Unidad interior 2.500 frigorías",
+      "tipo": "dispositivo",
+      "area": "climatizacion",
+      "unidad": "unidad",
+      "precio": 380
+    },
+    {
+      "id": "unidad_interior_2500_3000fg",
+      "nombre": "Unidad interior 2.500-3.000 frigorías",
+      "tipo": "dispositivo",
+      "area": "climatizacion",
+      "unidad": "unidad",
+      "precio": 440
+    },
+    {
+      "id": "unidad_interior_3000fg_wifi",
+      "nombre": "Unidad interior 3.000 frigorías con control WiFi",
+      "tipo": "dispositivo",
+      "area": "climatizacion",
+      "unidad": "unidad",
+      "precio": 495
+    },
+    {
+      "id": "material_multisplit_160",
+      "nombre": "Material (tubería, soportes, canaleta)",
+      "tipo": "material",
+      "area": "climatizacion",
+      "unidad": "lote",
+      "precio": 160
+    },
+    {
+      "id": "material_multisplit_220",
+      "nombre": "Material",
+      "tipo": "material",
+      "area": "climatizacion",
+      "unidad": "lote",
+      "precio": 220
+    },
+    {
+      "id": "material_multisplit_280",
+      "nombre": "Material",
+      "tipo": "material",
+      "area": "climatizacion",
+      "unidad": "lote",
+      "precio": 280
+    },
+    {
+      "id": "antena_parabolica_60cm",
+      "nombre": "Antena parabólica 60 cm con LNB universal",
+      "tipo": "dispositivo",
+      "area": "antenas",
+      "unidad": "unidad",
+      "precio": 55
+    },
+    {
+      "id": "modulador_uhf_vhf",
+      "nombre": "Modulador UHF/VHF",
+      "tipo": "dispositivo",
+      "area": "antenas",
+      "unidad": "unidad",
+      "precio": 60
+    },
+    {
+      "id": "cableado_3_tomas_tv",
+      "nombre": "Cableado a 3 tomas de TV",
+      "tipo": "material",
+      "area": "antenas",
+      "unidad": "lote",
+      "precio": 70
+    },
+    {
+      "id": "soporte_cableado_antena",
+      "nombre": "Soporte y cableado",
+      "tipo": "material",
+      "area": "antenas",
+      "unidad": "lote",
+      "precio": 25
+    },
+    {
+      "id": "antena_tdt_alta_ganancia",
+      "nombre": "Antena TDT de alta ganancia",
+      "tipo": "dispositivo",
+      "area": "antenas",
+      "unidad": "unidad",
+      "precio": 180
+    },
+    {
+      "id": "antena_satelite_comunitaria",
+      "nombre": "Antena satélite comunitaria (añadida a TDT)",
+      "tipo": "dispositivo",
+      "area": "antenas",
+      "unidad": "unidad",
+      "precio": 240
+    },
+    {
+      "id": "central_amplificadora_multibanda",
+      "nombre": "Central amplificadora multibanda",
+      "tipo": "dispositivo",
+      "area": "antenas",
+      "unidad": "unidad",
+      "precio": 220
+    },
+    {
+      "id": "central_amplificadora_multibanda_potente",
+      "nombre": "Central amplificadora multibanda de mayor potencia",
+      "tipo": "dispositivo",
+      "area": "antenas",
+      "unidad": "unidad",
+      "precio": 320
+    },
+    {
+      "id": "repartidores_refuerzo_intermedio",
+      "nombre": "Repartidores y refuerzo en plantas intermedias",
+      "tipo": "material",
+      "area": "antenas",
+      "unidad": "lote",
+      "precio": 180
+    },
+    {
+      "id": "repartidores_refuerzo_total",
+      "nombre": "Repartidores y refuerzo en todas las plantas",
+      "tipo": "material",
+      "area": "antenas",
+      "unidad": "lote",
+      "precio": 260
+    },
+    {
+      "id": "certificado_instalacion_comunidad",
+      "nombre": "Certificado de instalación para la comunidad",
+      "tipo": "tramite",
+      "area": "antenas",
+      "unidad": "unidad",
+      "precio": 120
+    },
+    {
+      "id": "material_antena_140",
+      "nombre": "Material y conectorizado",
+      "tipo": "material",
+      "area": "antenas",
+      "unidad": "lote",
+      "precio": 140
+    },
+    {
+      "id": "material_antena_180",
+      "nombre": "Material y conectorizado",
+      "tipo": "material",
+      "area": "antenas",
+      "unidad": "lote",
+      "precio": 180
+    },
+    {
+      "id": "material_antena_220",
+      "nombre": "Material y conectorizado",
+      "tipo": "material",
+      "area": "antenas",
+      "unidad": "lote",
+      "precio": 220
+    },
+    {
+      "id": "pintura_plastica_antihumedad",
+      "nombre": "Pintura plástica antihumedad",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 65
+    },
+    {
+      "id": "azulejo_basico_6m2",
+      "nombre": "Azulejo básico (6 m²)",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 90
+    },
+    {
+      "id": "azulejo_media_6m2",
+      "nombre": "Azulejo de gama media (6 m²)",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 130
+    },
+    {
+      "id": "azulejo_alta_6m2",
+      "nombre": "Azulejo de gama alta (6 m²)",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 190
+    },
+    {
+      "id": "material_agarre_juntas_25",
+      "nombre": "Material de agarre y juntas",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 25
+    },
+    {
+      "id": "rodapie_ceramico_bano",
+      "nombre": "Rodapié cerámico (baño pequeño)",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 30
+    },
+    {
+      "id": "sellado_silicona_antimoho_25",
+      "nombre": "Sellado de juntas con silicona antimoho",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 25
+    },
+    {
+      "id": "impermeabilizacion_ducha",
+      "nombre": "Impermeabilización de zona de ducha (membrana líquida)",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 85
+    },
+    {
+      "id": "material_reformas_25",
+      "nombre": "Material",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 25
+    },
+    {
+      "id": "material_reformas_35",
+      "nombre": "Material",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 35
+    },
+    {
+      "id": "pintura_plastica_lisa_1color",
+      "nombre": "Pintura plástica lisa (blanco o color único)",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 280
+    },
+    {
+      "id": "pintura_plastica_lisa_3colores",
+      "nombre": "Pintura plástica lisa, hasta 3 colores por estancia",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 320
+    },
+    {
+      "id": "pintura_antihumedad_banos_cocina",
+      "nombre": "Pintura plástica antihumedad en baños y cocina",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 180
+    },
+    {
+      "id": "pintura_lisa_media_resto",
+      "nombre": "Pintura lisa gama media en el resto de estancias",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 320
+    },
+    {
+      "id": "reparacion_grietas_puntual",
+      "nombre": "Reparación de grietas y desconchones puntuales",
+      "tipo": "mano_obra",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 150
+    },
+    {
+      "id": "reparacion_grietas_completa",
+      "nombre": "Reparación de grietas y desconchones",
+      "tipo": "mano_obra",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 180
+    },
+    {
+      "id": "acabado_especial_techos",
+      "nombre": "Acabado especial en techos (mate profesional)",
+      "tipo": "mano_obra",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 150
+    },
+    {
+      "id": "material_pintura_70",
+      "nombre": "Material (cinta, plásticos, masilla)",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 70
+    },
+    {
+      "id": "material_pintura_90",
+      "nombre": "Material",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 90
+    },
+    {
+      "id": "material_pintura_110",
+      "nombre": "Material",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 110
+    },
+    {
+      "id": "azulejo_basico_12m2",
+      "nombre": "Azulejo básico (12 m²)",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 180
+    },
+    {
+      "id": "azulejo_media_12m2",
+      "nombre": "Azulejo de gama media (12 m²)",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 260
+    },
+    {
+      "id": "azulejo_gran_formato_12m2",
+      "nombre": "Azulejo gran formato, gama alta (12 m²)",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 420
+    },
+    {
+      "id": "rodapie_ceramico_12m2",
+      "nombre": "Rodapié cerámico",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 50
+    },
+    {
+      "id": "nivelacion_suelo_previa",
+      "nombre": "Nivelación de suelo antes del alicatado",
+      "tipo": "mano_obra",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 150
+    },
+    {
+      "id": "rodapie_perfiles_acabado",
+      "nombre": "Rodapié y perfiles de acabado",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 80
+    },
+    {
+      "id": "sellado_silicona_antimoho_40",
+      "nombre": "Sellado de juntas con silicona antimoho",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 40
+    },
+    {
+      "id": "material_alicatado_70",
+      "nombre": "Material de agarre y juntas",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 70
+    },
+    {
+      "id": "material_alicatado_80",
+      "nombre": "Material",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 80
+    },
+    {
+      "id": "material_alicatado_100",
+      "nombre": "Material",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 100
+    },
+    {
+      "id": "material_fijacion_nivelacion",
+      "nombre": "Material de fijación y nivelación",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 45
+    },
+    {
+      "id": "ajuste_puertas_cajones",
+      "nombre": "Ajuste de puertas y cajones",
+      "tipo": "mano_obra",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 70
+    },
+    {
+      "id": "colocacion_encimera",
+      "nombre": "Colocación e instalación de encimera",
+      "tipo": "mano_obra",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 130
+    },
+    {
+      "id": "conexion_fregadero",
+      "nombre": "Conexión de fregadero (grifo y desagüe)",
+      "tipo": "mano_obra",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 90
+    },
+    {
+      "id": "material_fijacion_sellado",
+      "nombre": "Material de fijación y sellado",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 60
+    },
+    {
+      "id": "instalacion_placa_horno_electrica",
+      "nombre": "Instalación de placa/horno (conexión eléctrica)",
+      "tipo": "mano_obra",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 160
+    },
+    {
+      "id": "instalacion_campana_extractora",
+      "nombre": "Instalación de campana extractora",
+      "tipo": "mano_obra",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 110
+    },
+    {
+      "id": "material_fijacion_sellado_70",
+      "nombre": "Material de fijación y sellado",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 70
+    },
+    {
+      "id": "muebles_cocina_basica_9m2",
+      "nombre": "Muebles de cocina, gama básica (9 m²)",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 1400
+    },
+    {
+      "id": "muebles_cocina_media_isla_9m2",
+      "nombre": "Muebles de cocina, gama media (9 m²) + isla central",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 2200
+    },
+    {
+      "id": "muebles_cocina_media_alta_isla_9m2",
+      "nombre": "Muebles de cocina, gama media-alta (9 m²) + isla central",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 2600
+    },
+    {
+      "id": "encimera_laminada",
+      "nombre": "Encimera laminada",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 320
+    },
+    {
+      "id": "encimera_cuarzo_compacto",
+      "nombre": "Encimera de cuarzo compacto",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 620
+    },
+    {
+      "id": "fontaneria_electricidad_adaptacion",
+      "nombre": "Fontanería y electricidad (adaptación de puntos existentes)",
+      "tipo": "mano_obra",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 380
+    },
+    {
+      "id": "fontaneria_electricidad_isla",
+      "nombre": "Fontanería y electricidad (nuevos puntos para isla)",
+      "tipo": "mano_obra",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 650
+    },
+    {
+      "id": "iluminacion_led_integrada_cocina",
+      "nombre": "Iluminación LED integrada",
+      "tipo": "dispositivo",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 220
+    },
+    {
+      "id": "electrodomesticos_integrados_cocina",
+      "nombre": "Electrodomésticos integrados (horno, placa, campana, frigorífico)",
+      "tipo": "dispositivo",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 2100
+    },
+    {
+      "id": "material_cocina_120",
+      "nombre": "Material y remates",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 120
+    },
+    {
+      "id": "material_cocina_180",
+      "nombre": "Material y remates",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 180
+    },
+    {
+      "id": "material_cocina_200",
+      "nombre": "Material y remates",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 200
+    },
+    {
+      "id": "grifo_lavabo_monomando",
+      "nombre": "Grifo de lavabo monomando",
+      "tipo": "dispositivo",
+      "area": "fontaneria",
+      "unidad": "unidad",
+      "precio": 45
+    },
+    {
+      "id": "grifo_termostatico_ducha",
+      "nombre": "Grifo termostático de ducha",
+      "tipo": "dispositivo",
+      "area": "fontaneria",
+      "unidad": "unidad",
+      "precio": 85
+    },
+    {
+      "id": "grifo_lavabo_ducha_media",
+      "nombre": "Grifo de lavabo y ducha, gama media",
+      "tipo": "dispositivo",
+      "area": "fontaneria",
+      "unidad": "unidad",
+      "precio": 150
+    },
+    {
+      "id": "inodoro_doble_descarga",
+      "nombre": "Inodoro con cisterna de doble descarga",
+      "tipo": "dispositivo",
+      "area": "fontaneria",
+      "unidad": "unidad",
+      "precio": 180
+    },
+    {
+      "id": "lavabo_pedestal",
+      "nombre": "Lavabo con pedestal o semipedestal",
+      "tipo": "dispositivo",
+      "area": "fontaneria",
+      "unidad": "unidad",
+      "precio": 120
+    },
+    {
+      "id": "material_estanqueidad_10",
+      "nombre": "Material de estanqueidad (teflón, juntas)",
+      "tipo": "material",
+      "area": "fontaneria",
+      "unidad": "lote",
+      "precio": 10
+    },
+    {
+      "id": "material_estanqueidad_20",
+      "nombre": "Material de fijación y estanqueidad",
+      "tipo": "material",
+      "area": "fontaneria",
+      "unidad": "lote",
+      "precio": 20
+    },
+    {
+      "id": "valvulas_sifones_estanqueidad",
+      "nombre": "Válvulas de corte, sifones y material de estanqueidad",
+      "tipo": "material",
+      "area": "fontaneria",
+      "unidad": "lote",
+      "precio": 45
+    },
+    {
+      "id": "placas_pladur_10m2_simple",
+      "nombre": "Placas de pladur (10 m², una cara)",
+      "tipo": "material",
+      "area": "pladur",
+      "unidad": "lote",
+      "precio": 130
+    },
+    {
+      "id": "perfileria_tornilleria_40",
+      "nombre": "Perfilería y tornillería",
+      "tipo": "material",
+      "area": "pladur",
+      "unidad": "lote",
+      "precio": 40
+    },
+    {
+      "id": "perfileria_tornilleria_45",
+      "nombre": "Perfilería y tornillería",
+      "tipo": "material",
+      "area": "pladur",
+      "unidad": "lote",
+      "precio": 45
+    },
+    {
+      "id": "perfileria_tornilleria_50",
+      "nombre": "Perfilería y tornillería",
+      "tipo": "material",
+      "area": "pladur",
+      "unidad": "lote",
+      "precio": 50
+    },
+    {
+      "id": "masilla_cinta_juntas_25",
+      "nombre": "Masilla y cinta de juntas",
+      "tipo": "material",
+      "area": "pladur",
+      "unidad": "lote",
+      "precio": 25
+    },
+    {
+      "id": "lana_roca_aislamiento",
+      "nombre": "Lana de roca para aislamiento acústico",
+      "tipo": "material",
+      "area": "pladur",
+      "unidad": "lote",
+      "precio": 80
+    },
+    {
+      "id": "precerco_puerta",
+      "nombre": "Precerco de puerta",
+      "tipo": "material",
+      "area": "pladur",
+      "unidad": "unidad",
+      "precio": 90
+    },
+    {
+      "id": "masilla_cinta_lijado_fino",
+      "nombre": "Masilla, cinta de juntas y lijado fino (listo para pintar)",
+      "tipo": "material",
+      "area": "pladur",
+      "unidad": "lote",
+      "precio": 55
+    },
+    {
+      "id": "placas_pladur_18m2",
+      "nombre": "Placas de pladur (18 m²)",
+      "tipo": "material",
+      "area": "pladur",
+      "unidad": "lote",
+      "precio": 230
+    },
+    {
+      "id": "perfileria_varillas_suspension",
+      "nombre": "Perfilería y varillas de suspensión",
+      "tipo": "material",
+      "area": "pladur",
+      "unidad": "lote",
+      "precio": 60
+    },
+    {
+      "id": "perfileria_varillas_foseado",
+      "nombre": "Perfilería, varillas y perfil de foseado",
+      "tipo": "material",
+      "area": "pladur",
+      "unidad": "lote",
+      "precio": 80
+    },
+    {
+      "id": "tira_led_perimetral_transformador",
+      "nombre": "Tira LED perimetral con transformador",
+      "tipo": "dispositivo",
+      "area": "pladur",
+      "unidad": "lote",
+      "precio": 90
+    },
+    {
+      "id": "downlights_led_tira_perimetral",
+      "nombre": "8 downlights LED regulables + tira perimetral",
+      "tipo": "dispositivo",
+      "area": "pladur",
+      "unidad": "lote",
+      "precio": 220
+    },
+    {
+      "id": "modulo_control_wifi_regulacion",
+      "nombre": "Módulo de control WiFi para regulación por app",
+      "tipo": "dispositivo",
+      "area": "pladur",
+      "unidad": "unidad",
+      "precio": 85
+    },
+    {
+      "id": "cuadro_trifasico_24elementos",
+      "nombre": "Cuadro trifásico 24 elementos + PIAs",
+      "tipo": "material",
+      "area": "industrial",
+      "unidad": "unidad",
+      "precio": 380
+    },
+    {
+      "id": "cuadro_trifasico_36elementos",
+      "nombre": "Cuadro trifásico 36 elementos + PIAs",
+      "tipo": "material",
+      "area": "industrial",
+      "unidad": "unidad",
+      "precio": 520
+    },
+    {
+      "id": "cuadro_trifasico_ampliable",
+      "nombre": "Cuadro trifásico ampliable + PIAs",
+      "tipo": "material",
+      "area": "industrial",
+      "unidad": "unidad",
+      "precio": 720
+    },
+    {
+      "id": "diferencial_trifasico_30ma",
+      "nombre": "Diferencial trifásico 30 mA",
+      "tipo": "material",
+      "area": "industrial",
+      "unidad": "unidad",
+      "precio": 140
+    },
+    {
+      "id": "diferencial_trifasico_superinmunizado",
+      "nombre": "Diferencial trifásico superinmunizado",
+      "tipo": "material",
+      "area": "industrial",
+      "unidad": "unidad",
+      "precio": 210
+    },
+    {
+      "id": "diferencial_trifasico_superinmunizado_x2",
+      "nombre": "Diferencial trifásico superinmunizado (x2, sectorizado)",
+      "tipo": "material",
+      "area": "industrial",
+      "unidad": "unidad",
+      "precio": 380
+    },
+    {
+      "id": "protector_sobretensiones_industrial",
+      "nombre": "Protector de sobretensiones industrial",
+      "tipo": "material",
+      "area": "industrial",
+      "unidad": "unidad",
+      "precio": 180
+    },
+    {
+      "id": "material_industrial_90",
+      "nombre": "Material y cableado (sección industrial)",
+      "tipo": "material",
+      "area": "industrial",
+      "unidad": "lote",
+      "precio": 90
+    },
+    {
+      "id": "material_industrial_140",
+      "nombre": "Material y cableado (sección industrial)",
+      "tipo": "material",
+      "area": "industrial",
+      "unidad": "lote",
+      "precio": 140
+    },
+    {
+      "id": "material_industrial_220",
+      "nombre": "Material y cableado (sección industrial)",
+      "tipo": "material",
+      "area": "industrial",
+      "unidad": "lote",
+      "precio": 220
+    },
+    {
+      "id": "boletin_cie_trifasico",
+      "nombre": "Boletín eléctrico (CIE) para instalación trifásica",
+      "tipo": "tramite",
+      "area": "industrial",
+      "unidad": "unidad",
+      "precio": 320
+    },
+    {
+      "id": "proyecto_electrico_firmado",
+      "nombre": "Proyecto eléctrico firmado (obligatorio a partir de 20 kW)",
+      "tipo": "tramite",
+      "area": "industrial",
+      "unidad": "unidad",
+      "precio": 1390
+    },
+    {
+      "id": "boletin_inspeccion_oca_inicial",
+      "nombre": "Boletín eléctrico (CIE) e inspección OCA inicial",
+      "tipo": "tramite",
+      "area": "industrial",
+      "unidad": "unidad",
+      "precio": 520
+    },
+    {
+      "id": "ap_wifi_industrial_alta_potencia",
+      "nombre": "Punto de acceso WiFi industrial de alta potencia",
+      "tipo": "dispositivo",
+      "area": "industrial",
+      "unidad": "unidad",
+      "precio": 240
+    },
+    {
+      "id": "cableado_cat6_4_tomas_oficina",
+      "nombre": "Cableado estructurado Cat6 a 4 tomas (oficina)",
+      "tipo": "material",
+      "area": "industrial",
+      "unidad": "lote",
+      "precio": 340
+    },
+    {
+      "id": "cableado_cat6_8_tomas",
+      "nombre": "Cableado estructurado Cat6 a 8 tomas",
+      "tipo": "material",
+      "area": "industrial",
+      "unidad": "lote",
+      "precio": 640
+    },
+    {
+      "id": "switch_gestionable_8p_industrial",
+      "nombre": "Switch gestionable de 8 puertos",
+      "tipo": "dispositivo",
+      "area": "industrial",
+      "unidad": "unidad",
+      "precio": 120
+    },
+    {
+      "id": "rack_switch_patch_panel",
+      "nombre": "Armario rack con switch gestionable y patch panel",
+      "tipo": "dispositivo",
+      "area": "industrial",
+      "unidad": "unidad",
+      "precio": 480
+    },
+    {
+      "id": "config_vlan_separadas",
+      "nombre": "Configuración de VLAN (red de gestión separada)",
+      "tipo": "mano_obra",
+      "area": "industrial",
+      "unidad": "lote",
+      "precio": 260
+    },
+    {
+      "id": "material_industrial_redes_90",
+      "nombre": "Material, canalización y fijación en altura",
+      "tipo": "material",
+      "area": "industrial",
+      "unidad": "lote",
+      "precio": 90
+    },
+    {
+      "id": "material_industrial_redes_180",
+      "nombre": "Material, canalización y fijación en altura",
+      "tipo": "material",
+      "area": "industrial",
+      "unidad": "lote",
+      "precio": 180
+    },
+    {
+      "id": "material_industrial_redes_260",
+      "nombre": "Material, canalización y fijación en altura",
+      "tipo": "material",
+      "area": "industrial",
+      "unidad": "lote",
+      "precio": 260
+    },
+    {
+      "id": "tuberia_pe32_200m",
+      "nombre": "Tubería principal PE 32mm (hasta 200 m)",
+      "tipo": "material",
+      "area": "industrial",
+      "unidad": "lote",
+      "precio": 260
+    },
+    {
+      "id": "tuberia_pe32_40_400m",
+      "nombre": "Tubería principal PE 32-40mm (hasta 400 m)",
+      "tipo": "material",
+      "area": "industrial",
+      "unidad": "lote",
+      "precio": 480
+    },
+    {
+      "id": "tuberia_pe40_50_800m",
+      "nombre": "Tubería principal PE 40-50mm (hasta 800 m)",
+      "tipo": "material",
+      "area": "industrial",
+      "unidad": "lote",
+      "precio": 890
+    },
+    {
+      "id": "goteros_ramales_1sector",
+      "nombre": "Goteros y ramales de riego (1 sector)",
+      "tipo": "material",
+      "area": "industrial",
+      "unidad": "lote",
+      "precio": 180
+    },
+    {
+      "id": "goteros_ramales_3sectores",
+      "nombre": "Goteros y ramales de riego (3 sectores)",
+      "tipo": "material",
+      "area": "industrial",
+      "unidad": "lote",
+      "precio": 420
+    },
+    {
+      "id": "goteros_ramales_5sectores",
+      "nombre": "Goteros y ramales de riego (5 sectores)",
+      "tipo": "material",
+      "area": "industrial",
+      "unidad": "lote",
+      "precio": 620
+    },
+    {
+      "id": "programador_riego_electrovalvula_1",
+      "nombre": "Programador de riego con electroválvula",
+      "tipo": "dispositivo",
+      "area": "industrial",
+      "unidad": "unidad",
+      "precio": 140
+    },
+    {
+      "id": "programador_riego_wifi_3v_industrial",
+      "nombre": "Programador de riego WiFi con 3 electroválvulas",
+      "tipo": "dispositivo",
+      "area": "industrial",
+      "unidad": "unidad",
+      "precio": 340
+    },
+    {
+      "id": "programador_riego_wifi_5v_industrial",
+      "nombre": "Programador de riego WiFi con 5 electroválvulas",
+      "tipo": "dispositivo",
+      "area": "industrial",
+      "unidad": "unidad",
+      "precio": 480
+    },
+    {
+      "id": "sensor_lluvia_industrial",
+      "nombre": "Sensor de lluvia",
+      "tipo": "dispositivo",
+      "area": "industrial",
+      "unidad": "unidad",
+      "precio": 90
+    },
+    {
+      "id": "sensor_lluvia_humedad_industrial",
+      "nombre": "Sensor de lluvia y de humedad de suelo",
+      "tipo": "dispositivo",
+      "area": "industrial",
+      "unidad": "unidad",
+      "precio": 180
+    },
+    {
+      "id": "acometida_agua_nueva",
+      "nombre": "Acometida de agua nueva desde captación o pozo",
+      "tipo": "mano_obra",
+      "area": "industrial",
+      "unidad": "lote",
+      "precio": 650
+    },
+    {
+      "id": "material_conexion_estanqueidad_40",
+      "nombre": "Material de conexión y estanqueidad",
+      "tipo": "material",
+      "area": "industrial",
+      "unidad": "lote",
+      "precio": 40
+    },
+    {
+      "id": "material_conexion_estanqueidad_70",
+      "nombre": "Material de conexión y estanqueidad",
+      "tipo": "material",
+      "area": "industrial",
+      "unidad": "lote",
+      "precio": 70
+    },
+    {
+      "id": "material_conexion_estanqueidad_120",
+      "nombre": "Material de conexión y estanqueidad",
+      "tipo": "material",
+      "area": "industrial",
+      "unidad": "lote",
+      "precio": 120
+    },
+    {
+      "id": "interruptor_convencional",
+      "nombre": "Interruptor convencional (empotrado, sin control remoto)",
+      "tipo": "dispositivo",
+      "area": "domotica",
+      "unidad": "unidad",
+      "precio": 8
+    },
+    {
+      "id": "enchufe_convencional",
+      "nombre": "Enchufe convencional (empotrado, sin control remoto)",
+      "tipo": "dispositivo",
+      "area": "domotica",
+      "unidad": "unidad",
+      "precio": 6
+    },
+    {
+      "id": "mando_persiana_cableado",
+      "nombre": "Mando de pared cableado para persiana (sin WiFi)",
+      "tipo": "dispositivo",
+      "area": "domotica",
+      "unidad": "unidad",
+      "precio": 25
+    },
+    {
+      "id": "programador_riego_manual",
+      "nombre": "Programador de riego a pilas (sin conexión, sin app)",
+      "tipo": "dispositivo",
+      "area": "domotica",
+      "unidad": "unidad",
+      "precio": 55
+    },
+    {
+      "id": "manivela_toldo_manual",
+      "nombre": "Manivela manual para toldo (sin motor)",
+      "tipo": "dispositivo",
+      "area": "domotica",
+      "unidad": "unidad",
+      "precio": 45
+    },
+    {
+      "id": "temporizador_bomba_piscina_mecanico",
+      "nombre": "Temporizador mecánico para bomba de filtración (sin app)",
+      "tipo": "dispositivo",
+      "area": "domotica",
+      "unidad": "unidad",
+      "precio": 35
+    },
+    {
+      "id": "telefonillo_video_basico",
+      "nombre": "Telefonillo con vídeo básico (solo contestador interior, sin app)",
+      "tipo": "dispositivo",
+      "area": "seguridad",
+      "unidad": "unidad",
+      "precio": 65
+    },
+    {
+      "id": "cerradura_teclado_sin_app",
+      "nombre": "Cerradura con teclado numérico (sin conexión, sin app)",
+      "tipo": "dispositivo",
+      "area": "seguridad",
+      "unidad": "unidad",
+      "precio": 140
+    }
+  ]
+}

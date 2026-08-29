@@ -6,6 +6,7 @@ const helmet = require("helmet");
 
 const { translate } = require("./i18n/content");
 const uiStrings = require("./i18n/ui");
+const { resolverServicios } = require("./data/pricing");
 
 const {
   services: servicesRaw,
@@ -164,7 +165,7 @@ app.use((req, res, next) => {
   res.locals.currentPath = req.path;
   res.locals.icons = icons;
   res.locals.bloques = translate("bloques", bloquesRaw, lang);
-  res.locals.services = translate("services", servicesRaw, lang);
+  res.locals.services = translate("services", resolverServicios(servicesRaw), lang);
   res.locals.packs = translate("packs", packsRaw, lang);
   res.locals.ventajas = translate("ventajas", ventajasRaw, lang);
   res.locals.comoFunciona = translate("comoFunciona", comoFuncionaRaw, lang);
@@ -193,10 +194,6 @@ function fill(template, values) {
 }
 
 // ---- Rutas ----
-// Home: subconjunto reducido de packs a destacar, para no mezclar los packs
-// de negocio en la portada. Los servicios ya no se repiten en la home (viven
-// bien agrupados en el menú y en /servicios) — ver /areas/ahomed-web.md,
-// reestructuración de home y menú.
 const PACKS_DESTACADOS_HOME = ["chalet-seguro", "piso-nuevo", "hogar-inteligente"];
 
 // Bloque "¿Qué necesitas?": navegación por necesidad del cliente, no por
@@ -273,44 +270,66 @@ app.get("/", (req, res) => {
   });
 });
 
-// Configurador de vivienda: asistente único que fusiona el antiguo wizard
-// guiado de 4 preguntas con el antiguo "Crea tu instalación a medida"
-// (/crea-tu-instalacion, retirado — redirige aquí más abajo). Pasos 1-2 dan
-// contexto (tipo de vivienda, qué te importa); paso 3 dejar marcar libremente
-// cualquier servicio Básico + cualquier modo de la Plataforma IA Predictiva
-// (como hacía el Creador, con el mismo total en vivo); paso 4 elige el nivel
-// de precio. El resultado final puede ser: (a) un pack existente si la
-// combinación coincide bien, (b) una "combinación a medida" con el total
-// sumado si no hay pack que encaje, o (c) la ficha de un único servicio/modo
-// si solo se ha marcado uno. Toda la lógica vive en public/js/configurador.js
-// sobre los datos ya renderizados (sin llamadas al servidor). Para
-// "Nave o negocio" se mantiene el atajo directo al Pack Seguridad IA para
-// Negocios (catálogo demasiado pequeño para justificar el picker libre).
-// Ver /areas/ahomed-negocio.md — construcción 3 de 5, y fusión de
-// configuradores (fase 2).
+// Configurador de vivienda: asistente de 3 pasos (tipo de vivienda, qué
+// quieres mejorar, qué quieres controlar) que recomienda un pack o servicio
+// real del catálogo y prepara el mensaje de WhatsApp. Toda la lógica de
+// recomendación vive en public/js/configurador.js, sobre los datos ya
+// renderizados en la página (sin llamadas al servidor).
+// Ver /areas/ahomed-negocio.md — construcción 3 de 5.
+// Configurador (wizard de 4 preguntas): vivienda → qué te importa (varias
+// opciones a la vez) → qué quieres controlar (servicios/modos reales,
+// filtrados según lo marcado en el paso anterior) → nivel de automatización.
+// El paso 2 filtra qué aparece en el paso 3 para no volcar el catálogo
+// entero de golpe — ver NECESIDAD_CATALOGO más abajo.
+//
+// El resultado (calculado en el navegador, public/js/configurador.js)
+// reutiliza el mismo motor de coincidencia con packs que ya usa el creador
+// (mejorCoincidencia sobre coincideCon.servicios/modos): si lo marcado hace
+// match con un pack existente, se recomienda ese pack; si no pero hay 2+
+// cosas marcadas, se arma un pack a medida sumando en vivo; si hay solo 1,
+// se recomienda ese servicio o modo individual.
+const NECESIDAD_CATALOGO = {
+  seguridad: { servicios: ["seguridad"], modos: ["seguridad-ia", "acceso-inteligente"] },
+  confort: { servicios: ["domotica", "climatizacion"], modos: ["casa-presencial", "ia-sueno", "cocina-inteligente", "acceso-inteligente"] },
+  ahorro: { servicios: ["energia-solar"], modos: ["motor-meteorologico", "calidad-aire"] },
+  familia: { servicios: [], modos: ["cuidado-mascotas", "personas-mayores", "modo-ninos", "gestion-paquetes"] }
+};
+
 app.get("/configurador", (req, res) => {
-  const { empresa, packs, services, modosIA, instalacionBase, bloques, t } = res.locals;
+  const { empresa, packs, services, modosIA, t } = res.locals;
   const serviciosCasa = services.filter((s) => s.publico === "casa");
-  const packsCasa = packs.filter((p) => p.publico === "casa");
+
   res.render("configurador", {
     title: `${t('seo.configurador.title')} — ${empresa.nombre}`,
     metaDescription: t('seo.configurador.desc'),
     packs,
-    services,
-    serviciosCasa,
-    packsCasa,
-    modos: modosIA,
-    instalacionBase,
-    bloques
+    services: serviciosCasa,
+    modosIA,
+    necesidadCatalogo: NECESIDAD_CATALOGO
   });
 });
 
-// El antiguo "Crea tu instalación a medida" se fusionó dentro de
-// /configurador (paso 3) — se redirige por SEO en vez de servir 404,
-// respetando el prefijo de idioma (/fr, /en) de la URL de origen.
+// Creador de instalación: versión "arma tu combinación" del configurador.
+// A diferencia del wizard de 4 preguntas (que recomienda UN pack o servicio),
+// aquí el cliente marca libremente cualquier servicio Básico y cualquier modo
+// de la Plataforma IA Predictiva, ve el total en vivo (igual que la
+// calculadora de /servicios/ia-predictiva pero para toda la casa) y, si su
+// combinación se parece a un pack ya existente, se lo señalamos con el precio
+// de ese pack al lado — así no le montamos a mano algo que ya vendemos
+// empaquetado y más barato. Solo cubre público "casa" por ahora: naves y
+// fincas ya tienen su propio Pack Seguridad IA para Negocios.
 app.get("/crea-tu-instalacion", (req, res) => {
-  const lang = res.locals.lang;
-  res.redirect(301, lang === "es" ? "/configurador" : `/${lang}/configurador`);
+  const { empresa, services, packs, modosIA, instalacionBase, t } = res.locals;
+  const serviciosCasa = services.filter((s) => s.publico === "casa");
+  const packsCasa = packs.filter((p) => p.publico === "casa");
+  res.render("creador", {
+    title: `${t('seo.creador.title')} — ${empresa.nombre}`,
+    metaDescription: t('seo.creador.desc'),
+    serviciosCasa,
+    packsCasa,
+    modos: modosIA,
+    instalacionBase
+  });
 });
 
 // Tecnología AHOMED: qué hay detrás del Cerebro AHOMED (motor Python, IA
@@ -511,9 +530,7 @@ app.get("/robots.txt", (req, res) => {
 app.get("/sitemap.xml", (req, res) => {
   const empresa = empresaRaw;
   const base = `https://${empresa.web}`;
-  // /crea-tu-instalacion ya no aparece en el sitemap (301 a /configurador,
-  // fusionado ahí — no se indexa una URL que solo redirige).
-  const staticUrls = ["/", "/servicios", "/soluciones", "/configurador", "/tecnologia", "/para-profesionales", "/preguntas-frecuentes", "/sobre-mi", "/contacto", "/aviso-legal", "/privacidad", "/cookies"];
+  const staticUrls = ["/", "/servicios", "/soluciones", "/configurador", "/crea-tu-instalacion", "/tecnologia", "/para-profesionales", "/preguntas-frecuentes", "/sobre-mi", "/contacto", "/aviso-legal", "/privacidad", "/cookies"];
   const bloqueUrls = bloquesRaw.map((b) => `/servicios/bloque/${b.slug}`);
   const servicioUrls = servicesRaw.map((s) => `/servicios/${s.slug}`);
   const iaPredictivaUrls = ["/servicios/ia-predictiva", ...modosIARaw.map((m) => `/servicios/ia-predictiva/${m.slug}`)];

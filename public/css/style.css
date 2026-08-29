@@ -277,8 +277,8 @@ p { margin: 0; }
 }
 .dropdown-group-exclusivo .dropdown-group-title { color: var(--ai-accent); }
 .dropdown-group-title em { font-style: normal; font-weight: 500; text-transform: none; letter-spacing: 0; opacity: 0.75; }
-.dropdown-group-cols { display: grid; grid-auto-flow: column; grid-auto-columns: 172px; justify-content: start; gap: 4px 6px; }
-.dropdown-group-exclusivo .dropdown-group-cols { grid-auto-columns: 220px; }
+.dropdown-group-cols { display: grid; grid-template-columns: repeat(3, 172px); justify-content: start; gap: 4px 6px; }
+.dropdown-group-exclusivo .dropdown-group-cols { grid-template-columns: repeat(2, 220px); }
 .dropdown-col { display: flex; flex-direction: column; padding: 4px; }
 .dropdown-col-title {
   display: flex;
@@ -294,6 +294,9 @@ p { margin: 0; }
   border-bottom: 1px solid var(--line);
 }
 .dropdown-col a:not(.dropdown-col-title) { font-size: 0.86rem; font-weight: 500; padding: 6px 10px; }
+.dropdown-col-list { display: flex; flex-direction: column; margin: 0; padding: 0; list-style: none; }
+.dropdown-col-list li { margin: 0; padding: 0; }
+.dropdown-col-list a { display: block; }
 .dropdown-group-exclusivo .dropdown-col-title { color: var(--ai-accent) !important; border-bottom-color: currentColor; }
 
 .dropdown-note { display: block; font-size: 0.78rem; color: var(--gray-500); padding: 0 10px; margin-top: 2px; }
@@ -1444,7 +1447,6 @@ p { margin: 0; }
 
 /* ---------- Página /configurador: asistente paso a paso ---------- */
 .wizard-shell { max-width: 760px; margin: 0 auto; }
-.wizard-shell-wide { max-width: 900px; }
 .wizard-progress { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 40px; }
 .wizard-progress-step {
   width: 30px; height: 30px; border-radius: 50%;
@@ -1507,17 +1509,6 @@ p { margin: 0; }
 .wizard-result-complemento-label { font-weight: 700; color: var(--ink); }
 .wizard-result-complemento a { color: var(--ai-accent); font-weight: 700; }
 .wizard-restart { text-align: center; margin-top: 8px; }
-
-.wizard-picker { margin-bottom: 18px; }
-.wizard-picker-total {
-  display: flex; align-items: center; justify-content: space-between;
-  background: var(--ai-accent-soft); border-radius: var(--radius-sm);
-  padding: 12px 18px; margin-bottom: 24px; font-weight: 700; font-size: 0.95rem;
-  position: sticky; bottom: 12px; box-shadow: 0 4px 14px rgba(0,0,0,.08);
-}
-.wizard-picker-total span { font-weight: 600; color: var(--gray-600); font-size: 0.86rem; }
-.wizard-picker-total strong { font-size: 1.1rem; color: var(--ink); }
-.wizard-picker-empty { font-size: 0.9rem; color: var(--gray-500); margin: -6px 0 18px; }
 
 /* ===========================================================
    Creador de instalación — /crea-tu-instalacion

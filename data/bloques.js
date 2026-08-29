@@ -1,4 +1,4 @@
-// Los 7 bloques que agrupan todos los servicios AHOMED.
+// Los 8 bloques que agrupan todos los servicios AHOMED.
 // Cada servicio (en services.js) y cada modo IA (en ia-predictiva.js) declara
 // a qué bloque pertenece mediante el campo `bloque` (su slug aquí).
 //
@@ -15,6 +15,13 @@
 //                 residenciales + Seguridad IA vivienda).
 //  - "negocio"  → solo tiene sentido en una nave, almacén o finca
 //                 (Seguridad IA a escala industrial/perimetral).
+//
+// v66: "Instalaciones Base" (electricidad+domótica+redes+clima+antenas, un
+// cajón de sastre sin hilo conductor real) se separó en 3 bloques con
+// temática propia: "Electricidad y Domótica" (todo lo que pasa por el
+// cuadro eléctrico y el control de la vivienda), "Climatización" (queda
+// solo, es un servicio grande por sí mismo) y "Conectividad" (redes +
+// antenas, ambos son "señal que llega a casa": internet y TV).
 
 const bloques = [
   {
@@ -28,24 +35,34 @@ const bloques = [
     publico: "ambos"
   },
   {
-    slug: "electricidad-redes",
-    heroImagen: "/img/hero-bloques/electricidad.jpg",
+    slug: "electricidad-domotica",
+    heroImagen: "/img/hero-bloques/bloque-b.jpg",
     letra: "B",
-    nombre: "Electricidad y Redes",
-    resumen: "Cuadros eléctricos, boletines, punto de recarga, WiFi mesh, cableado de red y antenas.",
+    nombre: "Electricidad y Domótica",
+    resumen: "Cuadros eléctricos, puntos de recarga e iluminación, más control por app de luces, persianas y enchufes.",
     icono: "bolt",
     grupo: "basico",
     publico: "ambos"
   },
   {
-    slug: "confort-clima",
-    heroImagen: "/img/hero-bloques/domotica.jpg",
+    slug: "climatizacion",
+    heroImagen: "/img/hero-bloques/climatizacion.jpg",
     letra: "H",
-    nombre: "Domótica y Climatización",
-    resumen: "Interruptores y persianas por app, escenas del hogar y aire acondicionado por zonas.",
-    icono: "home-wifi",
+    nombre: "Climatización",
+    resumen: "Aire acondicionado, de una habitación a la vivienda completa con sistema multisplit.",
+    icono: "climate",
     grupo: "basico",
-    publico: "casa"
+    publico: "ambos"
+  },
+  {
+    slug: "conectividad",
+    heroImagen: "/img/hero-bloques/bloque-conectividad.jpg",
+    letra: "I",
+    nombre: "Conectividad",
+    resumen: "Red WiFi que llega a todas partes y antena de TV, para vivienda o comunidad.",
+    icono: "wifi",
+    grupo: "basico",
+    publico: "ambos"
   },
   {
     slug: "energia",
@@ -91,11 +108,10 @@ const bloques = [
     nombre: "Reformas de apoyo",
     resumen: "Pintura, alicatado, fontanería, pladur y montaje de muebles — como complemento a una instalación AHOMED, no como servicio independiente.",
     icono: "wrench",
-    // "secundario": no aparece en los desplegables Básicos/Con IA del menú
-    // principal ni en los bloques destacados de /servicios; sigue teniendo
-    // su página propia (/servicios/bloque/reformas) para quien llega por SEO
-    // o desde un enlace directo, y sus servicios cuentan con ficha propia.
-    grupo: "secundario",
+    // v66: sale del modo "secundario oculto" — ahora aparece en el menú
+    // desplegable como el resto de bloques básicos, para que quien busca
+    // pintura o fontanería no tenga que llegar por SEO o enlace directo.
+    grupo: "basico",
     publico: "ambos"
   }
 ];

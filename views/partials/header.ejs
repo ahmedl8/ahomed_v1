@@ -50,6 +50,11 @@
           <a href="<%= pathHref('/servicios/bloque/' + b.slug) %>" class="dropdown-col-title">
             <%= b.nombre %>
           </a>
+          <ul class="dropdown-col-list">
+            <% servs.forEach(function(s){ %>
+              <li><a href="<%= pathHref('/servicios/' + s.slug) %>"><%= s.nombre %></a></li>
+            <% }) %>
+          </ul>
         </div>
       <% } %>
 

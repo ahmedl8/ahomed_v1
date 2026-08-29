@@ -4,7 +4,7 @@
 const services = [
   {
     slug: "electricidad",
-    bloque: "electricidad-redes",
+    bloque: "electricidad-domotica",
     heroImagen: "/img/hero-bloques/electricidad.jpg",
     numero: 1,
     publico: "casa",
@@ -34,39 +34,36 @@ const services = [
         {
           nombre: "Esencial",
           destacada: false,
-          items: [
-            ["Mano de obra (aprox. 4 h)", 150],
-            ["Cuadro eléctrico 12 elementos + PIAs", 130],
-            ["Diferencial 30 mA estándar", 45],
-            ["Material y pequeño cableado", 25],
-            ["Boletín eléctrico (CIE): tramitación e inspección", 165]
-          ],
-          total: 515
+          lineas: [
+            { ref: "mo_electricista_hora", horas: 4 },
+            { ref: "cuadro_12_elementos" },
+            { ref: "diferencial_estandar_30ma" },
+            { ref: "material_cableado_basico" },
+            { ref: "boletin_cie" }
+          ]
         },
         {
           nombre: "Inteligente",
           destacada: true,
-          items: [
-            ["Mano de obra (aprox. 5 h)", 190],
-            ["Cuadro eléctrico 12 elementos + PIAs", 130],
-            ["Diferencial superinmunizado (no salta solo al encender el microondas o la lavadora)", 70],
-            ["Material y cableado", 30],
-            ["Boletín eléctrico (CIE): tramitación e inspección", 165]
-          ],
-          total: 585
+          lineas: [
+            { ref: "mo_electricista_hora", horas: 5 },
+            { ref: "cuadro_12_elementos" },
+            { ref: "diferencial_superinmunizado", label: "Diferencial superinmunizado (no salta solo al encender el microondas o la lavadora)" },
+            { ref: "material_cableado_medio" },
+            { ref: "boletin_cie" }
+          ]
         },
         {
           nombre: "Completa",
           destacada: false,
-          items: [
-            ["Mano de obra (aprox. 6 h)", 220],
-            ["Cuadro eléctrico 12 elementos + PIAs", 130],
-            ["Diferencial superinmunizado (no salta solo al encender el microondas o la lavadora)", 70],
-            ["Protector de sobretensiones (protege tus aparatos electrónicos de una subida de tensión de la red)", 65],
-            ["Material y cableado", 35],
-            ["Boletín eléctrico (CIE): tramitación e inspección", 165]
-          ],
-          total: 685
+          lineas: [
+            { ref: "mo_electricista_hora", horas: 6 },
+            { ref: "cuadro_12_elementos" },
+            { ref: "diferencial_superinmunizado", label: "Diferencial superinmunizado (no salta solo al encender el microondas o la lavadora)" },
+            { ref: "protector_sobretensiones", label: "Protector de sobretensiones (protege tus aparatos electrónicos de una subida de tensión de la red)" },
+            { ref: "material_cableado_ampliado" },
+            { ref: "boletin_cie" }
+          ]
         }
       ]
     },
@@ -84,38 +81,35 @@ const services = [
           {
             nombre: "Esencial — wallbox 7,4 kW, instalación corta (hasta 5 m)",
             destacada: false,
-            items: [
-              ["Mano de obra e instalación (hasta 5 m desde el cuadro)", 280],
-              ["Wallbox 7,4 kW monofásica", 480],
-              ["Línea eléctrica dedicada + protecciones (magnetotérmico y diferencial)", 165],
-              ["Material (canaleta, cableado)", 70]
-            ],
-            total: 995
+            lineas: [
+              { ref: "mo_electricista_hora", horas: 7.4, label: "Mano de obra e instalación (hasta 5 m desde el cuadro)" },
+              { ref: "wallbox_74kw_mono" },
+              { ref: "linea_dedicada_protecciones" },
+              { ref: "material_canaleta_cableado" }
+            ]
           },
           {
             nombre: "Inteligente — wallbox conectada + gestión de carga ⭐",
             destacada: true,
-            items: [
-              ["Mano de obra e instalación (hasta 8 m)", 340],
-              ["Wallbox 7,4 kW con conexión WiFi y app de control", 620],
-              ["Línea eléctrica dedicada + protecciones", 165],
-              ["Material", 85],
-              ["Boletín eléctrico (CIE) de la nueva línea", 165]
-            ],
-            total: 1375
+            lineas: [
+              { ref: "mo_electricista_hora", horas: 8.95, label: "Mano de obra e instalación (hasta 8 m)" },
+              { ref: "wallbox_74kw_wifi" },
+              { ref: "linea_dedicada_protecciones" },
+              { ref: "material_wallbox_medio" },
+              { ref: "boletin_cie", label: "Boletín eléctrico (CIE) de la nueva línea" }
+            ]
           },
           {
             nombre: "Completa — wallbox trifásica 22 kW + gestión dinámica de potencia",
             destacada: false,
-            items: [
-              ["Mano de obra e instalación (hasta 10 m, línea trifásica)", 420],
-              ["Wallbox trifásica 22 kW con app y programación horaria", 1150],
-              ["Línea eléctrica dedicada + protecciones reforzadas", 220],
-              ["Gestor de carga dinámico (evita saltos del ICP si hay otros consumos altos)", 180],
-              ["Material", 100],
-              ["Boletín eléctrico (CIE)", 165]
-            ],
-            total: 2235
+            lineas: [
+              { ref: "mo_electricista_hora", horas: 11.05, label: "Mano de obra e instalación (hasta 10 m, línea trifásica)" },
+              { ref: "wallbox_22kw_trifasica" },
+              { ref: "linea_dedicada_protecciones_reforzada" },
+              { ref: "gestor_carga_dinamico", label: "Gestor de carga dinámico (evita saltos del ICP si hay otros consumos altos)" },
+              { ref: "material_wallbox_trifasica" },
+              { ref: "boletin_cie" }
+            ]
           }
         ],
         nota: "Si el cuadro eléctrico no tiene capacidad disponible o hay que llevar línea nueva desde el contador, se presupuesta aparte tras la visita técnica."
@@ -124,7 +118,7 @@ const services = [
   },
   {
     slug: "domotica",
-    bloque: "confort-clima",
+    bloque: "electricidad-domotica",
     heroImagen: "/img/hero-bloques/domotica.jpg",
     numero: 2,
     publico: "casa",
@@ -146,41 +140,38 @@ const services = [
       imagenAntes: "/img/trabajos/enchufes-antes.jpg",
       opciones: [
         {
-          nombre: "Una estancia",
+          nombre: "Básica — interruptores de toda la vida",
           destacada: false,
-          items: [
-            ["Mano de obra", 90],
-            ["3 interruptores WiFi", 90],
-            ["1 enchufe inteligente", 20],
-            ["Material eléctrico", 10]
-          ],
-          total: 210
+          lineas: [
+            { ref: "mo_domotica_hora", horas: 3, label: "Mano de obra (sustitución/instalación de puntos)" },
+            { ref: "interruptor_convencional", cantidad: 4, label: "4 interruptores convencionales" },
+            { ref: "enchufe_convencional", cantidad: 2, label: "2 enchufes convencionales" },
+            { ref: "material_electrico_domotica_bajo" }
+          ]
         },
         {
-          nombre: "Varias estancias",
+          nombre: "Inteligente — control desde el móvil ⭐",
           destacada: true,
-          items: [
-            ["Mano de obra", 120],
-            ["4 interruptores WiFi", 120],
-            ["2 enchufes inteligentes", 40],
-            ["Material eléctrico", 15]
-          ],
-          total: 295
+          lineas: [
+            { ref: "mo_domotica_hora", horas: 4, label: "Mano de obra" },
+            { ref: "interruptor_wifi", cantidad: 4, label: "4 interruptores WiFi" },
+            { ref: "enchufe_inteligente", cantidad: 2, label: "2 enchufes inteligentes" },
+            { ref: "material_electrico_domotica_medio" }
+          ]
         },
         {
-          nombre: "Casa completa — con hub central para escenas",
+          nombre: "Completa — la IA decide, tú confirmas",
           destacada: false,
-          items: [
-            ["Mano de obra", 150],
-            ["6 interruptores WiFi", 180],
-            ["3 enchufes inteligentes", 60],
-            ["Hub central de domótica (para escenas y control por voz)", 90],
-            ["Material eléctrico", 20]
-          ],
-          total: 500
+          lineas: [
+            { ref: "mo_domotica_hora", horas: 5, label: "Mano de obra" },
+            { ref: "interruptor_wifi", cantidad: 6, label: "6 interruptores WiFi" },
+            { ref: "enchufe_inteligente", cantidad: 3, label: "3 enchufes inteligentes" },
+            { ref: "hub_domotica", label: "Hub central de domótica (para escenas y control por voz)" },
+            { ref: "material_electrico_domotica_alto" }
+          ]
         }
       ],
-      nota: "Revisión y mantenimiento anual (opcional): 60 €/año — revisión de dispositivos y actualización de la app."
+      nota: "La opción Completa necesita el Mini-PC IA Central de la Plataforma IA Predictiva (desde 590 €, no incluido aquí) — se comparte con el resto de modos IA que instales, no se paga varias veces. Revisión y mantenimiento anual (opcional): 60 €/año — revisión de dispositivos y actualización de la app."
     },
     extras: [
       "Al salir de casa: apaga luces y baja la climatización con una sola escena",
@@ -201,48 +192,45 @@ const services = [
       imagenAntes: "/img/trabajos/persianas-antes.jpg",
         opciones: [
           {
-            nombre: "Esencial — piso de 3 habitaciones",
+            nombre: "Básica — interruptores de toda la vida (piso de 3 habitaciones)",
             destacada: false,
-            items: [
-              ["Mano de obra (instalación y configuración, 3 hab. + salón + cocina)", 480],
-              ["10 interruptores WiFi", 300],
-              ["4 enchufes inteligentes", 80],
-              ["Hub central de domótica", 150],
-              ["Material eléctrico", 60]
-            ],
-            total: 1070
+            lineas: [
+              { ref: "mo_domotica_hora", horas: 12, label: "Mano de obra (instalación, 3 hab. + salón + cocina)" },
+              { ref: "interruptor_convencional", cantidad: 10, label: "10 interruptores convencionales" },
+              { ref: "enchufe_convencional", cantidad: 4, label: "4 enchufes convencionales" },
+              { ref: "mando_persiana_cableado", cantidad: 4, label: "4 mandos de pared para persianas" },
+              { ref: "material_domotica_60" }
+            ]
           },
           {
-            nombre: "Inteligente — con persianas y escenas ⭐",
+            nombre: "Inteligente — control desde el móvil ⭐",
             destacada: true,
-            items: [
-              ["Mano de obra (instalación y configuración avanzada)", 620],
-              ["10 interruptores WiFi", 300],
-              ["4 enchufes inteligentes", 80],
-              ["4 motores de persiana con control WiFi", 480],
-              ["Hub central de domótica", 150],
-              ["Configuración de escenas (\"buenas noches\", \"salir de casa\")", 120],
-              ["Material", 70]
-            ],
-            total: 1820
+            lineas: [
+              { ref: "mo_domotica_hora", horas: 20.5, label: "Mano de obra (instalación y configuración avanzada)" },
+              { ref: "interruptor_wifi", cantidad: 10, label: "10 interruptores WiFi" },
+              { ref: "enchufe_inteligente", cantidad: 4, label: "4 enchufes inteligentes" },
+              { ref: "dispositivo_motor_persiana_wifi", cantidad: 4, horasPrimera: 4.5, horasAdicional: 2.5, horasRef: "mo_domotica_hora", label: "4 motores de persiana con control WiFi" },
+              { ref: "hub_domotica" },
+              { ref: "config_escenas_basica" },
+              { ref: "material_domotica_70" }
+            ]
           },
           {
-            nombre: "Completa — control por voz + clima integrado",
+            nombre: "Completa — la IA decide, tú confirmas",
             destacada: false,
-            items: [
-              ["Mano de obra (instalación y configuración completa)", 780],
-              ["12 interruptores WiFi", 360],
-              ["6 enchufes inteligentes", 120],
-              ["5 motores de persiana con control WiFi", 600],
-              ["Termostato inteligente integrado", 180],
-              ["Hub central + altavoz de control por voz", 220],
-              ["Configuración de escenas y automatizaciones por horario/presencia", 180],
-              ["Material", 90]
-            ],
-            total: 2530
+            lineas: [
+              { ref: "mo_domotica_hora", horas: 26, label: "Mano de obra (instalación y configuración completa)" },
+              { ref: "interruptor_wifi", cantidad: 12, label: "12 interruptores WiFi" },
+              { ref: "enchufe_inteligente", cantidad: 6, label: "6 enchufes inteligentes" },
+              { ref: "dispositivo_motor_persiana_wifi", cantidad: 5, horasPrimera: 4.5, horasAdicional: 2.5, horasRef: "mo_domotica_hora", label: "5 motores de persiana con control WiFi" },
+              { ref: "termostato_inteligente" },
+              { ref: "hub_domotica_altavoz" },
+              { ref: "config_escenas_avanzada" },
+              { ref: "material_domotica_90" }
+            ]
           }
         ],
-        nota: "El alcance final depende del número de estancias y puntos de luz/persiana reales; se ajusta tras la visita técnica."
+        nota: "El alcance final depende del número de estancias y puntos de luz/persiana reales; se ajusta tras la visita técnica. La opción Completa decide sola cuándo bajar persianas, ajustar temperatura o encender luces según presencia y hora, y te avisa antes de actuar cuando la situación no está clara — necesita el Mini-PC IA Central (desde 590 €, no incluido, se comparte con otros modos IA)."
       },
       {
         titulo: "Persianas motorizadas",
@@ -251,38 +239,35 @@ const services = [
       imagenAntes: "/img/trabajos/persianas-antes.jpg",
         opciones: [
           {
-            nombre: "Esencial — 1 persiana, motor con mando",
+            nombre: "Básica — 1 persiana, mando de pared cableado",
             destacada: false,
-            items: [
-              ["Mano de obra (desmontaje persiana manual + instalación motor)", 120],
-              ["Motor tubular con mando a distancia", 185],
-              ["Material de fijación", 40]
-            ],
-            total: 345
+            lineas: [
+              { ref: "mo_domotica_hora", horas: 3.5, label: "Mano de obra (desmontaje persiana manual + instalación motor)" },
+              { ref: "dispositivo_motor_persiana_mando", label: "Motor tubular de persiana", precioOverride: 150 },
+              { ref: "mando_persiana_cableado" },
+              { ref: "material_fijacion_persiana" }
+            ]
           },
           {
-            nombre: "Inteligente — 1 persiana con control WiFi ⭐",
+            nombre: "Inteligente — 1 persiana con control desde el móvil ⭐",
             destacada: true,
-            items: [
-              ["Mano de obra", 140],
-              ["Motor tubular con módulo WiFi y control por app", 280],
-              ["Material de fijación", 45]
-            ],
-            total: 465
+            lineas: [
+              { ref: "mo_domotica_hora", horas: 4.5 },
+              { ref: "dispositivo_motor_persiana_wifi" },
+              { ref: "material_fijacion_persiana", label: "Material de fijación", precioOverride: 45 }
+            ]
           },
           {
-            nombre: "Completa — pack 4 persianas con escenas automáticas",
+            nombre: "Completa — pack 4 persianas, la IA decide, tú confirmas",
             destacada: false,
-            items: [
-              ["Mano de obra (4 persianas)", 480],
-              ["4 motores tubulares con módulo WiFi", 1120],
-              ["Configuración de escenas automáticas (apertura al amanecer, cierre por temperatura)", 150],
-              ["Material de fijación", 120]
-            ],
-            total: 1870
+            lineas: [
+              { ref: "dispositivo_motor_persiana_wifi", cantidad: 4, horasPrimera: 4.5, horasAdicional: 2.5, horasRef: "mo_domotica_hora", label: "4 motores tubulares con módulo WiFi (incluye mano de obra)" },
+              { ref: "config_escenas_basica", label: "Configuración de escenas automáticas (apertura al amanecer, cierre por temperatura)" },
+              { ref: "material_fijacion_persiana", cantidad: 3, label: "Material de fijación (4 persianas)" }
+            ]
           }
         ],
-        nota: "Precio por persiana estándar (hasta 3 m² de superficie); persianas grandes o de material reforzado se valoran aparte."
+        nota: "Precio por persiana estándar (hasta 3 m² de superficie); persianas grandes o de material reforzado se valoran aparte. La opción Completa necesita el Mini-PC IA Central (desde 590 €, no incluido, se comparte con otros modos IA) para que decida sola cuándo subir o bajar cada persiana."
       },
       {
         titulo: "Riego automático de jardín",
@@ -291,40 +276,37 @@ const services = [
       imagenAntes: "/img/trabajos/riego-antes.jpg",
         opciones: [
           {
-            nombre: "Esencial — 2 zonas de riego",
+            nombre: "Básica — 2 zonas, programador manual a pilas",
             destacada: false,
-            items: [
-              ["Mano de obra e instalación (2 zonas, hasta 100 m²)", 220],
-              ["Programador de riego con 2 electroválvulas", 180],
-              ["Tubería, goteros/difusores y material de zanja", 100]
-            ],
-            total: 500
+            lineas: [
+              { ref: "mo_domotica_hora", horas: 6, label: "Mano de obra e instalación (2 zonas, hasta 100 m²)" },
+              { ref: "programador_riego_manual", cantidad: 2, label: "2 programadores de riego a pilas (sin app)" },
+              { ref: "tuberia_material_zanja_bajo" }
+            ]
           },
           {
-            nombre: "Inteligente — 4 zonas con control WiFi ⭐",
+            nombre: "Inteligente — 4 zonas con control desde el móvil ⭐",
             destacada: true,
-            items: [
-              ["Mano de obra e instalación (4 zonas, hasta 250 m²)", 380],
-              ["Programador de riego WiFi con 4 electroválvulas", 320],
-              ["Sensor de lluvia (evita riego innecesario)", 60],
-              ["Tubería, goteros/difusores y material de zanja", 180]
-            ],
-            total: 940
+            lineas: [
+              { ref: "mo_domotica_hora", horas: 12.67, label: "Mano de obra e instalación (4 zonas, hasta 250 m²)" },
+              { ref: "programador_riego_wifi_4v" },
+              { ref: "sensor_lluvia", label: "Sensor de lluvia (evita riego innecesario)" },
+              { ref: "tuberia_material_zanja_medio" }
+            ]
           },
           {
-            nombre: "Completa — 6 zonas + sensor de humedad de suelo",
+            nombre: "Completa — 6 zonas, la IA decide, tú confirmas",
             destacada: false,
-            items: [
-              ["Mano de obra e instalación (6 zonas, hasta 500 m²)", 520],
-              ["Programador de riego WiFi con 6 electroválvulas", 420],
-              ["Sensor de lluvia y sensor de humedad de suelo", 150],
-              ["Tubería, goteros/difusores y material de zanja", 260],
-              ["Integración con domótica (escenas y automatizaciones)", 90]
-            ],
-            total: 1440
+            lineas: [
+              { ref: "mo_domotica_hora", horas: 17.33, label: "Mano de obra e instalación (6 zonas, hasta 500 m²)" },
+              { ref: "programador_riego_wifi_6v" },
+              { ref: "sensor_lluvia", label: "Sensor de lluvia y sensor de humedad de suelo", precioOverride: 150 },
+              { ref: "tuberia_material_zanja_alto" },
+              { ref: "integracion_domotica_riego" }
+            ]
           }
         ],
-        nota: "El precio depende de la superficie real de jardín y del tipo de riego (goteo, difusión o aspersión); se ajusta tras la visita técnica."
+        nota: "El precio depende de la superficie real de jardín y del tipo de riego (goteo, difusión o aspersión); se ajusta tras la visita técnica. La opción Completa cruza previsión meteorológica y humedad real del suelo para decidir si riega o no, y necesita el Mini-PC IA Central (desde 590 €, no incluido, se comparte con otros modos IA)."
       },
       {
         titulo: "Toldo motorizado con control por app",
@@ -333,41 +315,38 @@ const services = [
       imagenAntes: "/img/trabajos/toldo-antes.jpg",
         opciones: [
           {
-            nombre: "Esencial — motorizado con mando",
+            nombre: "Básica — manivela manual",
             destacada: false,
-            items: [
-              ["Instalación y fijación (toldo de 4 x 3 m)", 180],
-              ["Toldo con motor tubular y mando a distancia", 420],
-              ["Material de fijación", 20]
-            ],
-            total: 620
+            lineas: [
+              { ref: "mo_domotica_hora", horas: 3, label: "Instalación y fijación (toldo de 4 x 3 m)" },
+              { ref: "manivela_toldo_manual" },
+              { ref: "material_fijacion_toldo_20", label: "Material de fijación", precioOverride: 380 }
+            ]
           },
           {
-            nombre: "Inteligente — con control por app ⭐",
+            nombre: "Inteligente — control desde el móvil ⭐",
             destacada: true,
-            items: [
-              ["Instalación y fijación", 200],
-              ["Toldo con motor tubular WiFi", 520],
-              ["Módulo de control por app", 60],
-              ["Material de fijación", 25]
-            ],
-            total: 805
+            lineas: [
+              { ref: "mo_domotica_hora", horas: 6.67, label: "Instalación y fijación" },
+              { ref: "dispositivo_toldo_motor_wifi" },
+              { ref: "modulo_control_app_toldo" },
+              { ref: "material_fijacion_toldo_25" }
+            ]
           },
           {
-            nombre: "Completa — con sensor de viento y LED integrado",
+            nombre: "Completa — la IA decide, tú confirmas",
             destacada: false,
-            items: [
-              ["Instalación y fijación", 220],
-              ["Toldo con motor tubular WiFi", 520],
-              ["Módulo de control por app", 60],
-              ["Sensor de viento (cierre automático ante ráfagas fuertes)", 110],
-              ["Tira LED integrada en el brazo del toldo", 80],
-              ["Material de fijación", 30]
-            ],
-            total: 1020
+            lineas: [
+              { ref: "mo_domotica_hora", horas: 7.33, label: "Instalación y fijación" },
+              { ref: "dispositivo_toldo_motor_wifi" },
+              { ref: "modulo_control_app_toldo" },
+              { ref: "sensor_viento", label: "Sensor de viento (cierre automático ante ráfagas fuertes)" },
+              { ref: "led_brazo_toldo" },
+              { ref: "material_fijacion_toldo_30" }
+            ]
           }
         ],
-        nota: "El sensor de viento protege el toldo cerrándolo automáticamente antes de que una ráfaga fuerte pueda dañar la lona o los brazos."
+        nota: "El sensor de viento protege el toldo cerrándolo automáticamente antes de que una ráfaga fuerte pueda dañar la lona o los brazos. La opción Completa avisa y cierra el toldo sola ante viento fuerte o lluvia, y necesita el Mini-PC IA Central (desde 590 €, no incluido, se comparte con otros modos IA)."
       },
       {
         titulo: "Automatización de piscina (filtración, luz y monitorización)",
@@ -376,40 +355,37 @@ const services = [
       imagenAntes: "/img/trabajos/piscina-antes.jpg",
         opciones: [
           {
-            nombre: "Esencial — programador de filtración",
+            nombre: "Básica — temporizador mecánico de filtración",
             destacada: false,
-            items: [
-              ["Instalación y conexionado eléctrico", 180],
-              ["Programador WiFi para bomba de filtración", 220],
-              ["Material y protección eléctrica (caja estanca)", 60]
-            ],
-            total: 460
+            lineas: [
+              { ref: "mo_domotica_hora", horas: 4, label: "Instalación y conexionado eléctrico" },
+              { ref: "temporizador_bomba_piscina_mecanico" },
+              { ref: "material_proteccion_electrica_60", label: "Material y protección eléctrica (caja estanca)", precioOverride: 155 }
+            ]
           },
           {
-            nombre: "Inteligente — filtración + iluminación LED ⭐",
+            nombre: "Inteligente — filtración + iluminación desde el móvil ⭐",
             destacada: true,
-            items: [
-              ["Instalación y conexionado eléctrico", 220],
-              ["Programador WiFi para bomba de filtración", 220],
-              ["Foco LED de piscina RGB con control por app", 180],
-              ["Material y protección eléctrica", 70]
-            ],
-            total: 690
+            lineas: [
+              { ref: "mo_domotica_hora", horas: 7.33, label: "Instalación y conexionado eléctrico" },
+              { ref: "programador_bomba_wifi" },
+              { ref: "led_piscina_rgb" },
+              { ref: "material_proteccion_electrica_70" }
+            ]
           },
           {
-            nombre: "Completa — con sonda de calidad del agua",
+            nombre: "Completa — la IA decide, tú confirmas",
             destacada: false,
-            items: [
-              ["Instalación y conexionado eléctrico", 260],
-              ["Programador WiFi para bomba de filtración", 220],
-              ["Foco LED de piscina RGB con control por app", 180],
-              ["Sonda de pH y cloro con monitorización desde el móvil", 340],
-              ["Material y protección eléctrica", 80]
-            ],
-            total: 1080
+            lineas: [
+              { ref: "mo_domotica_hora", horas: 8.67, label: "Instalación y conexionado eléctrico" },
+              { ref: "programador_bomba_wifi" },
+              { ref: "led_piscina_rgb" },
+              { ref: "sonda_ph_cloro" },
+              { ref: "material_proteccion_electrica_80" }
+            ]
           }
         ],
-        nota: "La sonda de calidad del agua avisa por app cuando el pH o el nivel de cloro se salen del rango recomendado, antes de que el agua se vea afectada."
+        nota: "La sonda de calidad del agua avisa por app cuando el pH o el nivel de cloro se salen del rango recomendado, antes de que el agua se vea afectada. La opción Completa ajusta sola tiempos de filtración según uso y temperatura, y necesita el Mini-PC IA Central (desde 590 €, no incluido, se comparte con otros modos IA)."
       }
     ]
   },
@@ -438,38 +414,35 @@ const services = [
         {
           nombre: "Esencial",
           destacada: false,
-          items: [
-            ["Instalación y fijación", 90],
-            ["2 paneles solares 400 W (800 W total)", 280],
-            ["Microinversor 800 W", 120],
-            ["Material de fijación", 20]
-          ],
-          total: 510
+          lineas: [
+            { ref: "mo_solar_hora", horas: 2.25, label: "Instalación y fijación" },
+            { ref: "panel_solar_400w", cantidad: 2, label: "2 paneles solares 400 W (800 W total)" },
+            { ref: "microinversor_800w" },
+            { ref: "material_solar_balcon_20" }
+          ]
         },
         {
           nombre: "Inteligente",
           destacada: true,
-          items: [
-            ["Instalación y fijación con estructura reforzada", 110],
-            ["2 paneles solares 400 W (800 W total)", 280],
-            ["Microinversor 800 W con monitorización por app", 150],
-            ["Estructura de fijación reforzada", 45],
-            ["Material", 20]
-          ],
-          total: 605
+          lineas: [
+            { ref: "mo_solar_hora", horas: 2.75, label: "Instalación y fijación con estructura reforzada" },
+            { ref: "panel_solar_400w", cantidad: 2, label: "2 paneles solares 400 W (800 W total)" },
+            { ref: "microinversor_800w_app" },
+            { ref: "estructura_fijacion_balcon" },
+            { ref: "material_solar_balcon_20", label: "Material" }
+          ]
         },
         {
           nombre: "Completa — con batería portátil",
           destacada: false,
-          items: [
-            ["Instalación y fijación con estructura reforzada", 130],
-            ["2 paneles solares 400 W (800 W total)", 280],
-            ["Microinversor 800 W con monitorización por app", 150],
-            ["Batería portátil 1 kWh (almacena excedente para la noche)", 480],
-            ["Estructura de fijación reforzada", 45],
-            ["Material", 25]
-          ],
-          total: 1110
+          lineas: [
+            { ref: "mo_solar_hora", horas: 3.25, label: "Instalación y fijación con estructura reforzada" },
+            { ref: "panel_solar_400w", cantidad: 2, label: "2 paneles solares 400 W (800 W total)" },
+            { ref: "microinversor_800w_app" },
+            { ref: "bateria_portatil_1kwh", label: "Batería portátil 1 kWh (almacena excedente para la noche)" },
+            { ref: "estructura_fijacion_balcon" },
+            { ref: "material_solar_balcon_25", label: "Material" }
+          ]
         }
       ],
       nota: "Instalación de autoconsumo sin excedentes de baja potencia: no requiere alta como productor ni boletín de vertido a red."
@@ -490,42 +463,39 @@ const services = [
           {
             nombre: "Esencial — 4 paneles (1.600 W)",
             destacada: false,
-            items: [
-              ["Instalación, estructura de tejado y cableado", 780],
-              ["4 paneles solares 400 W (1.600 W total)", 560],
-              ["Inversor 1.600 W", 480],
-              ["Estructura de fijación para tejado", 310],
-              ["Legalización (memoria técnica, si aplica según potencia)", 350],
-              ["Material y protecciones", 350]
-            ],
-            total: 2830
+            lineas: [
+              { ref: "mo_solar_hora", horas: 19.5, label: "Instalación, estructura de tejado y cableado" },
+              { ref: "panel_solar_400w_tejado", cantidad: 4, label: "4 paneles solares 400 W (1.600 W total)" },
+              { ref: "inversor_string_1600w", label: "Inversor 1.600 W" },
+              { ref: "estructura_tejado_4p", label: "Estructura de fijación para tejado" },
+              { ref: "legalizacion_memoria_tecnica", label: "Legalización (memoria técnica, si aplica según potencia)" },
+              { ref: "material_protecciones_solar_350", label: "Material y protecciones" }
+            ]
           },
           {
             nombre: "Inteligente — 6 paneles (2.400 W) + monitorización ⭐",
             destacada: true,
-            items: [
-              ["Instalación, estructura de tejado y cableado", 980],
-              ["6 paneles solares 400 W (2.400 W total)", 840],
-              ["Inversor 2.400 W con monitorización por app", 650],
-              ["Estructura de fijación para tejado", 420],
-              ["Legalización (memoria técnica)", 350],
-              ["Material y protecciones", 420]
-            ],
-            total: 3660
+            lineas: [
+              { ref: "mo_solar_hora", horas: 24.5, label: "Instalación, estructura de tejado y cableado" },
+              { ref: "panel_solar_400w_tejado", cantidad: 6, label: "6 paneles solares 400 W (2.400 W total)" },
+              { ref: "inversor_string_2400w_app", label: "Inversor 2.400 W con monitorización por app" },
+              { ref: "estructura_tejado_6p", label: "Estructura de fijación para tejado" },
+              { ref: "legalizacion_memoria_tecnica", label: "Legalización (memoria técnica)" },
+              { ref: "material_protecciones_solar_420", label: "Material y protecciones" }
+            ]
           },
           {
             nombre: "Completa — 8 paneles (3.200 W) + batería",
             destacada: false,
-            items: [
-              ["Instalación, estructura de tejado y cableado", 1180],
-              ["8 paneles solares 400 W (3.200 W total)", 1120],
-              ["Inversor 3.200 W con monitorización por app", 780],
-              ["Batería de almacenamiento 5 kWh", 2400],
-              ["Estructura de fijación para tejado", 520],
-              ["Legalización (memoria técnica) y alta como productor si hay excedentes", 480],
-              ["Material y protecciones", 500]
-            ],
-            total: 6980
+            lineas: [
+              { ref: "mo_solar_hora", horas: 29.5, label: "Instalación, estructura de tejado y cableado" },
+              { ref: "panel_solar_400w_tejado", cantidad: 8, label: "8 paneles solares 400 W (3.200 W total)" },
+              { ref: "inversor_hibrido_3200w_app", label: "Inversor 3.200 W con monitorización por app" },
+              { ref: "bateria_almacenamiento_5kwh", label: "Batería de almacenamiento 5 kWh" },
+              { ref: "estructura_tejado_8p", label: "Estructura de fijación para tejado" },
+              { ref: "legalizacion_memoria_tecnica", label: "Legalización (memoria técnica) y alta como productor si hay excedentes", precioOverride: 830 },
+              { ref: "material_protecciones_solar_500", label: "Material y protecciones" }
+            ]
           }
         ],
         nota: "Instalaciones con vertido de excedentes a red requieren alta como productor ante la compañía eléctrica; se gestiona como parte de la legalización. El número de paneles y orientación óptima se confirma con la visita técnica y el estudio de sombras. Nos encargamos de toda la tramitación — tú no tienes que hacer nada."
@@ -539,35 +509,32 @@ const services = [
           {
             nombre: "Esencial — monitorización de consumo",
             destacada: false,
-            items: [
-              ["Instalación y configuración", 220],
-              ["Módulo de monitorización de consumo en cuadro", 280],
-              ["App con consumo en tiempo real e histórico", 90]
-            ],
-            total: 590
+            lineas: [
+              { ref: "mo_solar_hora", horas: 5.5, label: "Instalación y configuración" },
+              { ref: "modulo_monitorizacion_consumo" },
+              { ref: "app_consumo_tiempo_real" }
+            ]
           },
           {
             nombre: "Inteligente — + optimización por tarifa PVPC ⭐",
             destacada: true,
-            items: [
-              ["Instalación y configuración", 280],
-              ["Módulo de monitorización de consumo en cuadro", 280],
-              ["Integración con tarifa PVPC (precio por horas)", 260],
-              ["App con aviso de horas más baratas y consumo en tiempo real", 150]
-            ],
-            total: 970
+            lineas: [
+              { ref: "mo_solar_hora", horas: 7, label: "Instalación y configuración" },
+              { ref: "modulo_monitorizacion_consumo" },
+              { ref: "integracion_tarifa_pvpc" },
+              { ref: "app_pvpc_aviso_automatizacion", label: "App con aviso de horas más baratas y consumo en tiempo real" }
+            ]
           },
           {
             nombre: "Completa — + automatización de electrodomésticos",
             destacada: false,
-            items: [
-              ["Instalación y configuración", 280],
-              ["Módulo de monitorización de consumo en cuadro", 280],
-              ["Integración con tarifa PVPC (precio por horas)", 260],
-              ["Relés inteligentes para lavadora/termo (arranque en horas baratas)", 340],
-              ["App con automatización y aviso de horas más baratas", 150]
-            ],
-            total: 1310
+            lineas: [
+              { ref: "mo_solar_hora", horas: 7, label: "Instalación y configuración" },
+              { ref: "modulo_monitorizacion_consumo" },
+              { ref: "integracion_tarifa_pvpc" },
+              { ref: "rele_inteligente_electrodomestico", label: "Relés inteligentes para lavadora/termo (arranque en horas baratas)" },
+              { ref: "app_pvpc_aviso_automatizacion", label: "App con automatización y aviso de horas más baratas" }
+            ]
           }
         ],
         nota: "Compatible con cualquier instalación eléctrica existente, con o sin placas solares. Cifras orientativas, a confirmar en visita técnica."
@@ -597,38 +564,35 @@ const services = [
       imagenAntes: "/img/trabajos/videoportero-antes.jpg",
       opciones: [
         {
-          nombre: "Esencial — inalámbrico, sin obra",
+          nombre: "Básica — telefonillo con vídeo, sin app",
           destacada: false,
-          items: [
-            ["Instalación y configuración", 45],
-            ["Videoportero WiFi a batería con app", 90],
-            ["Material", 10]
-          ],
-          total: 145
+          lineas: [
+            { ref: "mo_seguridad_hora", horas: 1.5, label: "Instalación y configuración" },
+            { ref: "telefonillo_video_basico" },
+            { ref: "material_seguridad_10" }
+          ]
         },
         {
-          nombre: "Inteligente — sobre cableado existente (2 hilos)",
+          nombre: "Inteligente — control desde el móvil ⭐",
           destacada: true,
-          items: [
-            ["Instalación y configuración", 75],
-            ["Videoportero 2 hilos con cámara y monitor interior", 145],
-            ["Material", 15]
-          ],
-          total: 235
+          lineas: [
+            { ref: "mo_seguridad_hora", horas: 2.3, label: "Instalación y configuración" },
+            { ref: "videoportero_2hilos" },
+            { ref: "material_seguridad_15", label: "Material" }
+          ]
         },
         {
-          nombre: "Completa — sistema IP con apertura remota",
+          nombre: "Completa — la IA decide, tú confirmas",
           destacada: false,
-          items: [
-            ["Instalación y configuración avanzada", 100],
-            ["Videoportero IP con grabación en la nube", 210],
-            ["Módulo de apertura remota", 45],
-            ["Material", 20]
-          ],
-          total: 375
+          lineas: [
+            { ref: "mo_seguridad_hora", horas: 3.1, label: "Instalación y configuración avanzada" },
+            { ref: "videoportero_ip_nube" },
+            { ref: "modulo_apertura_remota" },
+            { ref: "material_seguridad_20", label: "Material" }
+          ]
         }
       ],
-      nota: "Revisión y mantenimiento anual (opcional): 25 €/año — comprobación de batería/conexión y actualización de firmware."
+      nota: "Revisión y mantenimiento anual (opcional): 25 €/año — comprobación de batería/conexión y actualización de firmware. La opción Completa reconoce si quien llama es una visita habitual o un repartidor y te sugiere abrir o no — necesita el Mini-PC IA Central (desde 590 €, no incluido, se comparte con otros modos IA)."
     },
     extras: [
       "Monitor adicional",
@@ -644,39 +608,36 @@ const services = [
       imagenAntes: "/img/trabajos/cerradura-antes.jpg",
         opciones: [
           {
-            nombre: "Esencial — cerradura con teclado y app",
+            nombre: "Básica — teclado numérico, sin conexión",
             destacada: false,
-            items: [
-              ["Instalación y configuración", 80],
-              ["Cerradura inteligente con teclado numérico + app", 195],
-              ["Material", 15]
-            ],
-            total: 290
+            lineas: [
+              { ref: "mo_seguridad_hora", horas: 2.2, label: "Instalación y configuración" },
+              { ref: "cerradura_teclado_sin_app" },
+              { ref: "material_seguridad_15", label: "Material" }
+            ]
           },
           {
-            nombre: "Inteligente — con huella digital ⭐",
+            nombre: "Inteligente — control desde el móvil ⭐",
             destacada: true,
-            items: [
-              ["Instalación y configuración", 90],
-              ["Cerradura inteligente con huella, teclado y app", 310],
-              ["Material", 20]
-            ],
-            total: 420
+            lineas: [
+              { ref: "mo_seguridad_hora", horas: 2.8, label: "Instalación y configuración" },
+              { ref: "cerradura_huella_teclado_app" },
+              { ref: "material_seguridad_20", label: "Material" }
+            ]
           },
           {
-            nombre: "Completa — integrada con videoportero y accesos temporales",
+            nombre: "Completa — la IA decide, tú confirmas",
             destacada: false,
-            items: [
-              ["Instalación y configuración avanzada", 110],
-              ["Cerradura inteligente con huella, teclado, app y NFC", 380],
-              ["Integración con videoportero (apertura remota desde la app del portero)", 90],
-              ["Configuración de accesos temporales (códigos de un solo uso para huéspedes/limpieza)", 60],
-              ["Material", 25]
-            ],
-            total: 665
+            lineas: [
+              { ref: "mo_seguridad_hora", horas: 3.4, label: "Instalación y configuración avanzada" },
+              { ref: "cerradura_huella_teclado_app_nfc" },
+              { ref: "integracion_cerradura_videoportero" },
+              { ref: "config_accesos_temporales" },
+              { ref: "material_seguridad_20", label: "Material", precioOverride: 25 }
+            ]
           }
         ],
-        nota: "Compatible con la mayoría de puertas europeas estándar; en puertas acorazadas o con cerradura especial se valora aparte tras revisión."
+        nota: "Compatible con la mayoría de puertas europeas estándar; en puertas acorazadas o con cerradura especial se valora aparte tras revisión. La opción Completa avisa si detecta un patrón de acceso raro (hora inusual, varios intentos fallidos) y necesita el Mini-PC IA Central (desde 590 €, no incluido, se comparte con otros modos IA)."
       },
       {
         titulo: "Videovigilancia CCTV",
@@ -685,49 +646,49 @@ const services = [
       imagenAntes: "/img/trabajos/camara-exterior-antes.jpg",
         opciones: [
           {
-            nombre: "Esencial — 4 cámaras cableadas",
+            nombre: "Básica — 4 cámaras, solo graba",
             destacada: false,
-            items: [
-              ["Instalación y cableado (4 cámaras, hasta 30 m de tirada por cámara)", 380],
-              ["4 cámaras IP cableadas con visión nocturna", 340],
-              ["Mini-PC de grabación (NVR) con disco duro", 220],
-              ["Material y conectorizado", 80]
-            ],
-            total: 1020
+            lineas: [
+              { ref: "mo_seguridad_hora", horas: 12, label: "Instalación y cableado (4 cámaras, hasta 30 m de tirada por cámara)" },
+              { ref: "camara_ip_poe_exterior", cantidad: 4, label: "4 cámaras IP cableadas con visión nocturna" },
+              { ref: "nvr_grabacion_local", label: "Mini-PC de grabación (NVR) con disco duro" },
+              { ref: "cableado_estructurado_cctv_4cam" },
+              { ref: "material_cctv_100", label: "Material y conectorizado" }
+            ]
           },
           {
-            nombre: "Inteligente — 6 cámaras + acceso remoto ⭐",
+            nombre: "Inteligente — 6 cámaras, control desde el móvil ⭐",
             destacada: true,
-            items: [
-              ["Instalación y cableado (6 cámaras)", 540],
-              ["6 cámaras IP cableadas con visión nocturna", 510],
-              ["Mini-PC de grabación con disco duro ampliado", 320],
-              ["Configuración de acceso remoto por app", 90],
-              ["Material y conectorizado", 110]
-            ],
-            total: 1570
+            lineas: [
+              { ref: "mo_seguridad_hora", horas: 17, label: "Instalación y cableado (6 cámaras)" },
+              { ref: "camara_ip_poe_exterior", cantidad: 6, label: "6 cámaras IP cableadas con visión nocturna" },
+              { ref: "nvr_grabacion_local_ampliado", label: "Mini-PC de grabación con disco duro ampliado" },
+              { ref: "cableado_estructurado_cctv_6cam" },
+              { ref: "config_acceso_remoto_app" },
+              { ref: "material_cctv_130", label: "Material y conectorizado" }
+            ]
           },
           {
-            nombre: "Completa — 8 cámaras + detección IA",
+            nombre: "Completa — 8 cámaras, la IA decide, tú confirmas",
             destacada: false,
-            items: [
-              ["Instalación y cableado (8 cámaras)", 720],
-              ["8 cámaras IP cableadas con visión nocturna", 680],
-              ["Mini-PC de grabación con disco duro ampliado", 320],
-              ["Configuración de detección IA (persona/vehículo)", 380],
-              ["Notificaciones por WhatsApp ante alarma real", 90],
-              ["Material y conectorizado", 140]
-            ],
-            total: 2330
+            lineas: [
+              { ref: "mo_seguridad_hora", horas: 22.5, label: "Instalación y cableado (8 cámaras)" },
+              { ref: "camara_ip_poe_exterior", cantidad: 8, label: "8 cámaras IP cableadas con visión nocturna" },
+              { ref: "nvr_grabacion_local_ampliado", label: "Mini-PC de grabación con disco duro ampliado" },
+              { ref: "cableado_estructurado_cctv_8cam" },
+              { ref: "config_deteccion_ia_camara", label: "Configuración de detección IA (persona/vehículo)" },
+              { ref: "notificaciones_whatsapp_alarma" },
+              { ref: "material_cctv_160", label: "Material y conectorizado" }
+            ]
           }
         ],
-        nota: "El precio depende de la distancia real de cableado entre cámaras y el punto de grabación; se confirma en la visita técnica. ¿Ya tienes cámaras y solo quieres que piensen? Mira Seguridad IA — no hace falta contratar las dos."
+        nota: "El precio depende de la distancia real de cableado entre cámaras y el punto de grabación; se confirma en la visita técnica. A diferencia de domótica/clima/riego, aquí la IA va integrada en el propio NVR de grabación — no necesita el Mini-PC IA Central de la Plataforma IA Predictiva. La opción Completa distingue personas y vehículos de falsas alarmas (un gato, una sombra) y solo te avisa por WhatsApp cuando de verdad importa."
       }
     ]
   },
   {
     slug: "redes-informatica",
-    bloque: "electricidad-redes",
+    bloque: "conectividad",
     heroImagen: "/img/hero-bloques/redes-informatica.jpg",
     numero: 5,
     publico: "casa",
@@ -751,33 +712,30 @@ const services = [
         {
           nombre: "Esencial",
           destacada: false,
-          items: [
-            ["Instalación y configuración", 60],
-            ["Sistema WiFi mesh (2 puntos)", 140],
-            ["Material", 10]
-          ],
-          total: 210
+          lineas: [
+            { ref: "mo_redes_hora", horas: 1.875, label: "Instalación y configuración" },
+            { ref: "wifi_mesh_2pt" },
+            { ref: "material_redes_10", label: "Material" }
+          ]
         },
         {
           nombre: "Inteligente — con redes separadas",
           destacada: true,
-          items: [
-            ["Instalación y configuración avanzada (red de invitados y red de domótica separadas)", 85],
-            ["Sistema WiFi mesh (3 puntos)", 210],
-            ["Material", 15]
-          ],
-          total: 310
+          lineas: [
+            { ref: "mo_redes_hora", horas: 2.65625, label: "Instalación y configuración avanzada (red de invitados y red de domótica separadas)" },
+            { ref: "wifi_mesh_3pt" },
+            { ref: "material_redes_15", label: "Material" }
+          ]
         },
         {
           nombre: "Completa — con copia de seguridad automática",
           destacada: false,
-          items: [
-            ["Instalación y configuración avanzada", 110],
-            ["Sistema WiFi mesh (3 puntos)", 210],
-            ["Configuración de copia de seguridad automática (NAS/nube)", 95],
-            ["Material", 20]
-          ],
-          total: 435
+          lineas: [
+            { ref: "mo_redes_hora", horas: 3.4375, label: "Instalación y configuración avanzada" },
+            { ref: "wifi_mesh_3pt" },
+            { ref: "config_backup_automatico" },
+            { ref: "material_redes_20", label: "Material" }
+          ]
         }
       ],
       nota: "Revisión y mantenimiento anual (opcional): 35 €/año — actualización de firmware y comprobación de cobertura."
@@ -799,39 +757,36 @@ const services = [
           {
             nombre: "Esencial — armario compacto de superficie",
             destacada: false,
-            items: [
-              ["Instalación de armario y orden de cableado existente", 140],
-              ["Armario de comunicaciones compacto (superficie)", 110],
-              ["Switch de 8 puertos", 45],
-              ["Material y regletas de conexión", 25]
-            ],
-            total: 320
+            lineas: [
+              { ref: "mo_redes_hora", horas: 4.375, label: "Instalación de armario y orden de cableado existente" },
+              { ref: "armario_comunicaciones_superficie" },
+              { ref: "switch_8p" },
+              { ref: "material_rack_25" }
+            ]
           },
           {
             nombre: "Inteligente — rack empotrado + 4 tomas nuevas ⭐",
             destacada: true,
-            items: [
-              ["Instalación de armario empotrado y cableado a 4 tomas", 260],
-              ["Armario de comunicaciones empotrado con rack", 160],
-              ["Switch gestionable de 8 puertos", 70],
-              ["Cable de red y 4 tomas RJ45", 100],
-              ["Material y regletas de conexión", 30]
-            ],
-            total: 620
+            lineas: [
+              { ref: "mo_redes_hora", horas: 8.125, label: "Instalación de armario empotrado y cableado a 4 tomas" },
+              { ref: "armario_comunicaciones_empotrado" },
+              { ref: "switch_8p_gestionable" },
+              { ref: "cable_red_4_tomas" },
+              { ref: "material_rack_30" }
+            ]
           },
           {
             nombre: "Completa — con ONT, patch panel y router en rack",
             destacada: false,
-            items: [
-              ["Instalación de armario empotrado y cableado a 6 tomas", 320],
-              ["Armario de comunicaciones empotrado con rack", 160],
-              ["Patch panel de 12 puertos", 65],
-              ["Switch gestionable de 8 puertos", 70],
-              ["Cable de red y 6 tomas RJ45", 140],
-              ["Reubicación de ONT y router dentro del rack", 55],
-              ["Material y regletas de conexión", 35]
-            ],
-            total: 845
+            lineas: [
+              { ref: "mo_redes_hora", horas: 10, label: "Instalación de armario empotrado y cableado a 6 tomas" },
+              { ref: "armario_comunicaciones_empotrado" },
+              { ref: "patch_panel_12p" },
+              { ref: "switch_8p_gestionable" },
+              { ref: "cable_red_6_tomas" },
+              { ref: "reubicacion_ont_router" },
+              { ref: "material_rack_35" }
+            ]
           }
         ],
         nota: "Centralizar ONT, router y switch en un único armario facilita el mantenimiento y evita que el router quede a la vista en el salón."
@@ -840,7 +795,7 @@ const services = [
   },
   {
     slug: "climatizacion",
-    bloque: "confort-clima",
+    bloque: "climatizacion",
     heroImagen: "/img/hero-bloques/climatizacion.jpg",
     numero: 6,
     publico: "casa",
@@ -861,38 +816,35 @@ const services = [
       imagenAntes: "/img/trabajos/aire-acondicionado-antes.jpg",
       opciones: [
         {
-          nombre: "Esencial",
+          nombre: "Básica — mando físico, sin conexión",
           destacada: false,
-          items: [
-            ["Mano de obra e instalación (hasta 3 m de distancia)", 220],
-            ["Split 1x1 2.500 frigorías (gama básica)", 380],
-            ["Material (tubería, soportes, canaleta)", 40]
-          ],
-          total: 640
+          lineas: [
+            { ref: "mo_clima_hora", horas: 5.5, label: "Mano de obra e instalación (hasta 3 m de distancia)" },
+            { ref: "split_1x1_basico" },
+            { ref: "material_clima_40" }
+          ]
         },
         {
-          nombre: "Inteligente",
+          nombre: "Inteligente — control desde el móvil ⭐",
           destacada: true,
-          items: [
-            ["Mano de obra e instalación", 250],
-            ["Split 1x1 3.000 frigorías (gama media, Daikin/Mitsubishi)", 650],
-            ["Material", 45]
-          ],
-          total: 945
+          lineas: [
+            { ref: "mo_clima_hora", horas: 6.9, label: "Mano de obra e instalación" },
+            { ref: "split_1x1_alta_wifi", label: "Split 1x1 3.000 frigorías con control WiFi" },
+            { ref: "material_clima_45", label: "Material" }
+          ]
         },
         {
-          nombre: "Completa — alta eficiencia con WiFi",
+          nombre: "Completa — la IA decide, tú confirmas",
           destacada: false,
-          items: [
-            ["Mano de obra e instalación", 280],
-            ["Split 1x1 3.000 frigorías alta eficiencia (A+++) con control WiFi", 850],
-            ["Material", 50],
-            ["Certificado RITE", 60]
-          ],
-          total: 1240
+          lineas: [
+            { ref: "mo_clima_hora", horas: 7, label: "Mano de obra e instalación" },
+            { ref: "split_1x1_alta_wifi" },
+            { ref: "material_clima_50", label: "Material" },
+            { ref: "certificado_rite" }
+          ]
         }
       ],
-      nota: "Revisión y mantenimiento anual (opcional): 45 €/año — limpieza de filtros, revisión de gas y rendimiento."
+      nota: "Revisión y mantenimiento anual (opcional): 45 €/año — limpieza de filtros, revisión de gas y rendimiento. La opción Completa ajusta sola la temperatura según si hay alguien en casa y la previsión del tiempo, y necesita el Mini-PC IA Central (desde 590 €, no incluido, se comparte con otros modos IA)."
     },
     extras: ["Climatización multisplit para toda la vivienda (desde 2.950 €)", "Control WiFi", "Certificado RITE"],
     tambienInstalaron: [{ texto: "Domótica (control por escenas)", href: "/servicios/domotica" }, { texto: "Iluminación LED", href: "/servicios/electricidad" }, { texto: "Energía solar (para compensar el consumo)", href: "/servicios/energia-solar" }],
@@ -903,49 +855,46 @@ const services = [
       imagen: "/img/trabajos/climatizacion-multisplit-vivienda-despues.jpg",
         opciones: [
           {
-            nombre: "Esencial — multisplit 2x1 (2 estancias)",
+            nombre: "Básica — multisplit 3x1, mando físico por estancia",
             destacada: false,
-            items: [
-              ["Mano de obra e instalación (unidad exterior + 2 interiores)", 620],
-              ["Unidad exterior 2x1 (gama básica)", 780],
-              ["2 unidades interiores 2.500 frigorías", 760],
-              ["Material (tubería, soportes, canaleta)", 160],
-              ["Certificado RITE", 60]
-            ],
-            total: 2380
+            lineas: [
+              { ref: "mo_clima_hora", horas: 21.25, label: "Mano de obra e instalación (unidad exterior + 3 interiores)" },
+              { ref: "unidad_exterior_3x1_media" },
+              { ref: "unidad_interior_2500_3000fg", cantidad: 3, label: "3 unidades interiores 2.500-3.000 frigorías" },
+              { ref: "material_clima_45", label: "Material", precioOverride: 220 },
+              { ref: "certificado_rite" }
+            ]
           },
           {
-            nombre: "Inteligente — multisplit 3x1 (3 estancias) ⭐",
+            nombre: "Inteligente — multisplit 3x1, control desde el móvil por zona ⭐",
             destacada: true,
-            items: [
-              ["Mano de obra e instalación (unidad exterior + 3 interiores)", 850],
-              ["Unidad exterior 3x1 (gama media, Daikin/Mitsubishi)", 1180],
-              ["3 unidades interiores 2.500-3.000 frigorías", 1320],
-              ["Material", 220],
-              ["Certificado RITE", 60]
-            ],
-            total: 3630
+            lineas: [
+              { ref: "mo_clima_hora", horas: 24, label: "Mano de obra e instalación (unidad exterior + 3 interiores)" },
+              { ref: "unidad_exterior_3x1_media" },
+              { ref: "unidad_interior_3000fg_wifi", cantidad: 3, label: "3 unidades interiores 3.000 frigorías con control WiFi" },
+              { ref: "material_clima_45", label: "Material", precioOverride: 250 },
+              { ref: "certificado_rite" }
+            ]
           },
           {
-            nombre: "Completa — multisplit 4x1 con control WiFi por zona",
+            nombre: "Completa — multisplit 3x1, la IA decide, tú confirmas",
             destacada: false,
-            items: [
-              ["Mano de obra e instalación (unidad exterior + 4 interiores)", 1080],
-              ["Unidad exterior 4x1 alta eficiencia (A+++)", 1850],
-              ["4 unidades interiores 3.000 frigorías con control WiFi", 1980],
-              ["Material", 280],
-              ["Certificado RITE", 60]
-            ],
-            total: 5250
+            lineas: [
+              { ref: "mo_clima_hora", horas: 24, label: "Mano de obra e instalación (unidad exterior + 3 interiores)" },
+              { ref: "unidad_exterior_3x1_media" },
+              { ref: "unidad_interior_3000fg_wifi", cantidad: 3, label: "3 unidades interiores 3.000 frigorías con control WiFi" },
+              { ref: "material_clima_45", label: "Material", precioOverride: 250 },
+              { ref: "certificado_rite" }
+            ]
           }
         ],
-        nota: "El presupuesto final depende del número de estancias, distancias entre unidad exterior e interiores, y accesibilidad de la fachada. La opción Completa usa equipo A+++ de gama alta con control WiFi por zona."
+        nota: "Precio de referencia para multisplit 3x1 (2 y 4 estancias también disponibles, se ajusta en la visita técnica). La opción Completa ajusta sola la temperatura de cada estancia según ocupación y necesita el Mini-PC IA Central (desde 590 €, no incluido, se comparte con otros modos IA)."
       }
     ]
   },
   {
     slug: "antenas",
-    bloque: "electricidad-redes",
+    bloque: "conectividad",
     heroImagen: "/img/hero-bloques/antenas.jpg",
     numero: 7,
     publico: "casa",
@@ -964,23 +913,21 @@ const services = [
         {
           nombre: "Esencial — 1 toma de TV",
           destacada: false,
-          items: [
-            ["Instalación, orientación y configuración", 70],
-            ["Antena parabólica 60 cm con LNB universal", 55],
-            ["Soporte y cableado", 25]
-          ],
-          total: 150
+          lineas: [
+            { ref: "mo_antenista_hora", horas: 2.1875, label: "Instalación, orientación y configuración" },
+            { ref: "antena_parabolica_60cm" },
+            { ref: "soporte_cableado_antena" }
+          ]
         },
         {
           nombre: "Inteligente — señal a varias TVs (hasta 3 tomas)",
           destacada: true,
-          items: [
-            ["Instalación, orientación y configuración", 95],
-            ["Antena parabólica 60 cm con LNB universal", 55],
-            ["Modulador UHF/VHF", 60],
-            ["Cableado a 3 tomas", 70]
-          ],
-          total: 280
+          lineas: [
+            { ref: "mo_antenista_hora", horas: 2.96875, label: "Instalación, orientación y configuración" },
+            { ref: "antena_parabolica_60cm" },
+            { ref: "modulador_uhf_vhf" },
+            { ref: "cableado_3_tomas_tv", label: "Cableado a 3 tomas" }
+          ]
         }
       ]
     },
@@ -995,38 +942,35 @@ const services = [
           {
             nombre: "Esencial — hasta 8 viviendas",
             destacada: false,
-            items: [
-              ["Mano de obra (instalación en cubierta y revisión de bajantes)", 320],
-              ["Antena TDT de alta ganancia", 180],
-              ["Central amplificadora multibanda", 220],
-              ["Material y conectorizado", 140]
-            ],
-            total: 860
+            lineas: [
+              { ref: "mo_antenista_hora", horas: 10, label: "Mano de obra (instalación en cubierta y revisión de bajantes)" },
+              { ref: "antena_tdt_alta_ganancia" },
+              { ref: "central_amplificadora_multibanda" },
+              { ref: "material_antena_140", label: "Material y conectorizado" }
+            ]
           },
           {
             nombre: "Inteligente — hasta 15 viviendas, con refuerzo de señal ⭐",
             destacada: true,
-            items: [
-              ["Mano de obra (instalación y revisión completa de bajantes)", 420],
-              ["Antena TDT de alta ganancia", 180],
-              ["Central amplificadora multibanda de mayor potencia", 320],
-              ["Repartidores y refuerzo en plantas intermedias", 180],
-              ["Material y conectorizado", 180]
-            ],
-            total: 1280
+            lineas: [
+              { ref: "mo_antenista_hora", horas: 13.125, label: "Mano de obra (instalación y revisión completa de bajantes)" },
+              { ref: "antena_tdt_alta_ganancia" },
+              { ref: "central_amplificadora_multibanda_potente" },
+              { ref: "repartidores_refuerzo_intermedio" },
+              { ref: "material_antena_180", label: "Material y conectorizado" }
+            ]
           },
           {
             nombre: "Completa — más de 15 viviendas, con certificado de instalación",
             destacada: false,
-            items: [
-              ["Mano de obra (instalación y revisión completa)", 560],
-              ["Antena TDT de alta ganancia + antena satélite comunitaria", 420],
-              ["Central amplificadora multibanda de mayor potencia", 320],
-              ["Repartidores y refuerzo en todas las plantas", 260],
-              ["Certificado de instalación para la comunidad", 120],
-              ["Material y conectorizado", 220]
-            ],
-            total: 1900
+            lineas: [
+              { ref: "mo_antenista_hora", horas: 17.5, label: "Mano de obra (instalación y revisión completa)" },
+              { ref: "antena_tdt_alta_ganancia", label: "Antena TDT de alta ganancia + antena satélite comunitaria", precioOverride: 420 },
+              { ref: "central_amplificadora_multibanda_potente" },
+              { ref: "repartidores_refuerzo_total" },
+              { ref: "certificado_instalacion_comunidad" },
+              { ref: "material_antena_220", label: "Material y conectorizado" }
+            ]
           }
         ],
         nota: "El número de tomas y el estado de las bajantes existentes se confirma en la visita técnica; puede requerir sustitución parcial de cableado antiguo."
@@ -1058,43 +1002,40 @@ const services = [
         {
           nombre: "Esencial",
           destacada: false,
-          items: [
-            ["Mano de obra pintura (paredes y techo, aprox. 15 m²)", 120],
-            ["Pintura plástica antihumedad", 65],
-            ["Mano de obra alicatado (6 m² pared de ducha)", 210],
-            ["Azulejo básico (6 m²)", 90],
-            ["Material de agarre y juntas", 25]
-          ],
-          total: 510
+          lineas: [
+            { ref: "mo_reformas_hora", horas: 4.2857, label: "Mano de obra pintura (paredes y techo, aprox. 15 m²)" },
+            { ref: "pintura_plastica_antihumedad" },
+            { ref: "mo_reformas_hora", horas: 7.5, label: "Mano de obra alicatado (6 m² pared de ducha)" },
+            { ref: "azulejo_basico_6m2" },
+            { ref: "material_agarre_juntas_25" }
+          ]
         },
         {
           nombre: "Inteligente",
           destacada: true,
-          items: [
-            ["Mano de obra pintura (paredes y techo, aprox. 15 m²)", 120],
-            ["Pintura plástica antihumedad", 65],
-            ["Mano de obra alicatado (6 m² pared de ducha)", 210],
-            ["Azulejo de gama media (6 m²)", 130],
-            ["Rodapié cerámico", 30],
-            ["Sellado de juntas con silicona antimoho", 25],
-            ["Material", 25]
-          ],
-          total: 605
+          lineas: [
+            { ref: "mo_reformas_hora", horas: 4.2857, label: "Mano de obra pintura (paredes y techo, aprox. 15 m²)" },
+            { ref: "pintura_plastica_antihumedad" },
+            { ref: "mo_reformas_hora", horas: 7.5, label: "Mano de obra alicatado (6 m² pared de ducha)" },
+            { ref: "azulejo_media_6m2" },
+            { ref: "rodapie_ceramico_bano" },
+            { ref: "sellado_silicona_antimoho_25" },
+            { ref: "material_reformas_25", label: "Material" }
+          ]
         },
         {
           nombre: "Completa",
           destacada: false,
-          items: [
-            ["Mano de obra pintura (paredes y techo, aprox. 15 m²)", 120],
-            ["Pintura plástica antihumedad", 65],
-            ["Mano de obra alicatado (6 m² pared de ducha, incluye impermeabilización)", 260],
-            ["Azulejo de gama alta (6 m²)", 190],
-            ["Impermeabilización de la zona de ducha (membrana líquida)", 85],
-            ["Rodapié cerámico", 30],
-            ["Sellado de juntas con silicona antimoho", 25],
-            ["Material", 35]
-          ],
-          total: 810
+          lineas: [
+            { ref: "mo_reformas_hora", horas: 4.2857, label: "Mano de obra pintura (paredes y techo, aprox. 15 m²)" },
+            { ref: "pintura_plastica_antihumedad" },
+            { ref: "mo_reformas_hora", horas: 9.2857, label: "Mano de obra alicatado (6 m² pared de ducha, incluye impermeabilización)" },
+            { ref: "azulejo_alta_6m2" },
+            { ref: "impermeabilizacion_ducha" },
+            { ref: "rodapie_ceramico_bano" },
+            { ref: "sellado_silicona_antimoho_25" },
+            { ref: "material_reformas_35", label: "Material" }
+          ]
         }
       ]
     },
@@ -1115,36 +1056,33 @@ const services = [
           {
             nombre: "Esencial — piso de 80 m², un solo color",
             destacada: false,
-            items: [
-              ["Mano de obra (paredes y techos, 80 m² aprox.)", 620],
-              ["Pintura plástica lisa (blanco o color único)", 280],
-              ["Material (cinta, plásticos protectores, masilla)", 70]
-            ],
-            total: 970
+            lineas: [
+              { ref: "mo_reformas_hora", horas: 22.1429, label: "Mano de obra (paredes y techos, 80 m² aprox.)" },
+              { ref: "pintura_plastica_lisa_1color" },
+              { ref: "material_pintura_70" }
+            ]
           },
           {
             nombre: "Inteligente — con reparación de grietas y varios colores ⭐",
             destacada: true,
-            items: [
-              ["Mano de obra (paredes y techos, incluye preparación de superficie)", 760],
-              ["Pintura plástica lisa, hasta 3 colores distintos por estancia", 320],
-              ["Reparación de grietas y desconchones puntuales", 150],
-              ["Material", 90]
-            ],
-            total: 1320
+            lineas: [
+              { ref: "mo_reformas_hora", horas: 27.1429, label: "Mano de obra (paredes y techos, incluye preparación de superficie)" },
+              { ref: "pintura_plastica_lisa_3colores" },
+              { ref: "reparacion_grietas_puntual" },
+              { ref: "material_pintura_90" }
+            ]
           },
           {
             nombre: "Completa — pintura antihumedad + techos con acabado especial",
             destacada: false,
-            items: [
-              ["Mano de obra completa (paredes, techos y reparaciones)", 920],
-              ["Pintura plástica antihumedad en baños y cocina", 180],
-              ["Pintura lisa gama media en el resto de estancias", 320],
-              ["Reparación de grietas y desconchones", 180],
-              ["Acabado especial en techos (plano de luz, mate profesional)", 150],
-              ["Material", 110]
-            ],
-            total: 1860
+            lineas: [
+              { ref: "mo_reformas_hora", horas: 32.8571, label: "Mano de obra completa (paredes, techos y reparaciones)" },
+              { ref: "pintura_antihumedad_banos_cocina" },
+              { ref: "pintura_lisa_media_resto" },
+              { ref: "reparacion_grietas_completa" },
+              { ref: "acabado_especial_techos", label: "Acabado especial en techos (plano de luz, mate profesional)" },
+              { ref: "material_pintura_110" }
+            ]
           }
         ],
         nota: "Precio orientativo para 80 m² en buen estado de base; humedades, gotelé a alisar o alturas especiales se valoran aparte."
@@ -1158,37 +1096,34 @@ const services = [
           {
             nombre: "Esencial — 12 m², azulejo estándar",
             destacada: false,
-            items: [
-              ["Mano de obra (retirada de azulejo antiguo + alicatado, 12 m²)", 420],
-              ["Azulejo básico (12 m²)", 180],
-              ["Material de agarre y juntas", 70]
-            ],
-            total: 670
+            lineas: [
+              { ref: "mo_reformas_hora", horas: 15, label: "Mano de obra (retirada de azulejo antiguo + alicatado, 12 m²)" },
+              { ref: "azulejo_basico_12m2" },
+              { ref: "material_alicatado_70" }
+            ]
           },
           {
             nombre: "Inteligente — con rodapié y juntas antimoho ⭐",
             destacada: true,
-            items: [
-              ["Mano de obra (retirada + alicatado, 12 m²)", 480],
-              ["Azulejo de gama media (12 m²)", 260],
-              ["Rodapié cerámico", 50],
-              ["Sellado de juntas con silicona antimoho", 40],
-              ["Material", 80]
-            ],
-            total: 910
+            lineas: [
+              { ref: "mo_reformas_hora", horas: 17.1429, label: "Mano de obra (retirada + alicatado, 12 m²)" },
+              { ref: "azulejo_media_12m2" },
+              { ref: "rodapie_ceramico_12m2" },
+              { ref: "sellado_silicona_antimoho_40" },
+              { ref: "material_alicatado_80" }
+            ]
           },
           {
             nombre: "Completa — con nivelación de suelo y azulejo gran formato",
             destacada: false,
-            items: [
-              ["Mano de obra (retirada, nivelación y alicatado, 12 m²)", 580],
-              ["Azulejo gran formato, gama alta (12 m²)", 420],
-              ["Nivelación de suelo antes del alicatado", 150],
-              ["Rodapié y perfiles de acabado", 80],
-              ["Sellado de juntas con silicona antimoho", 40],
-              ["Material", 100]
-            ],
-            total: 1370
+            lineas: [
+              { ref: "mo_reformas_hora", horas: 20.7143, label: "Mano de obra (retirada, nivelación y alicatado, 12 m²)" },
+              { ref: "azulejo_gran_formato_12m2" },
+              { ref: "nivelacion_suelo_previa" },
+              { ref: "rodapie_perfiles_acabado" },
+              { ref: "sellado_silicona_antimoho_40" },
+              { ref: "material_alicatado_100" }
+            ]
           }
         ],
         nota: "Incluye retirada y gestión de escombros del alicatado antiguo. No incluye fontanería ni sanitarios (ver categoría Fontanería)."
@@ -1202,36 +1137,33 @@ const services = [
           {
             nombre: "Esencial — módulos bajos y altos (hasta 4 m lineales)",
             destacada: false,
-            items: [
-              ["Mano de obra (montaje de muebles bajos y altos)", 280],
-              ["Material de fijación y nivelación", 45],
-              ["Ajuste de puertas y cajones", 70]
-            ],
-            total: 395
+            lineas: [
+              { ref: "mo_reformas_hora", horas: 10, label: "Mano de obra (montaje de muebles bajos y altos)" },
+              { ref: "material_fijacion_nivelacion" },
+              { ref: "ajuste_puertas_cajones" }
+            ]
           },
           {
             nombre: "Inteligente — con encimera y conexión de fregadero ⭐",
             destacada: true,
-            items: [
-              ["Mano de obra (montaje completo)", 340],
-              ["Colocación e instalación de encimera", 130],
-              ["Conexión de fregadero (grifo y desagüe)", 90],
-              ["Material de fijación y sellado", 60]
-            ],
-            total: 620
+            lineas: [
+              { ref: "mo_reformas_hora", horas: 12.1429, label: "Mano de obra (montaje completo)" },
+              { ref: "colocacion_encimera" },
+              { ref: "conexion_fregadero" },
+              { ref: "material_fijacion_sellado" }
+            ]
           },
           {
             nombre: "Completa — con instalación de electrodomésticos",
             destacada: false,
-            items: [
-              ["Mano de obra (montaje completo)", 380],
-              ["Colocación e instalación de encimera", 130],
-              ["Conexión de fregadero", 90],
-              ["Instalación de placa de inducción/vitro y horno (conexión eléctrica)", 160],
-              ["Instalación de campana extractora", 110],
-              ["Material de fijación y sellado", 70]
-            ],
-            total: 940
+            lineas: [
+              { ref: "mo_reformas_hora", horas: 13.5714, label: "Mano de obra (montaje completo)" },
+              { ref: "colocacion_encimera" },
+              { ref: "conexion_fregadero" },
+              { ref: "instalacion_placa_horno_electrica", label: "Instalación de placa de inducción/vitro y horno (conexión eléctrica)" },
+              { ref: "instalacion_campana_extractora" },
+              { ref: "material_fijacion_sellado_70" }
+            ]
           }
         ],
         nota: "No incluye el precio de los muebles ni electrodomésticos, solo mano de obra de montaje e instalación. Si hace falta mover puntos de agua, luz o gas, se presupuesta aparte."
@@ -1245,44 +1177,41 @@ const services = [
           {
             nombre: "Esencial — muebles y encimera, sin cambiar distribución",
             destacada: false,
-            items: [
-              ["Mano de obra (desmontaje, instalación de muebles y encimera)", 780],
-              ["Muebles de cocina, gama básica (9 m²)", 1400],
-              ["Encimera laminada", 320],
-              ["Fontanería y electricidad (adaptación de puntos existentes)", 380],
-              ["Material y remates", 120]
-            ],
-            total: 3000
+            lineas: [
+              { ref: "mo_reformas_hora", horas: 27.8571, label: "Mano de obra (desmontaje, instalación de muebles y encimera)" },
+              { ref: "muebles_cocina_basica_9m2" },
+              { ref: "encimera_laminada" },
+              { ref: "fontaneria_electricidad_adaptacion" },
+              { ref: "material_cocina_120", label: "Material y remates" }
+            ]
           },
           {
             nombre: "Inteligente — con cambio de distribución e isla ⭐",
             destacada: true,
-            items: [
-              ["Mano de obra (demolición parcial, nueva distribución, isla)", 1350],
-              ["Muebles de cocina, gama media (9 m²) + isla central", 2200],
-              ["Encimera de cuarzo compacto", 620],
-              ["Fontanería y electricidad (nuevos puntos para isla)", 650],
-              ["Iluminación LED integrada", 220],
-              ["Material y remates", 180]
-            ],
-            total: 5220
+            lineas: [
+              { ref: "mo_reformas_hora", horas: 48.2143, label: "Mano de obra (demolición parcial, nueva distribución, isla)" },
+              { ref: "muebles_cocina_media_isla_9m2" },
+              { ref: "encimera_cuarzo_compacto" },
+              { ref: "fontaneria_electricidad_isla" },
+              { ref: "iluminacion_led_integrada_cocina" },
+              { ref: "material_cocina_180", label: "Material y remates" }
+            ]
           },
           {
             nombre: "Completa — con electrodomésticos integrados",
             destacada: false,
-            items: [
-              ["Mano de obra (demolición parcial, nueva distribución, isla)", 1450],
-              ["Muebles de cocina, gama media-alta (9 m²) + isla central", 2600],
-              ["Encimera de cuarzo compacto", 620],
-              ["Electrodomésticos integrados (horno, placa, campana, frigorífico)", 2100],
-              ["Fontanería y electricidad (nuevos puntos para isla)", 650],
-              ["Iluminación LED integrada", 220],
-              ["Material y remates", 200]
-            ],
-            total: 7840
+            lineas: [
+              { ref: "mo_reformas_hora", horas: 51.7857, label: "Mano de obra (demolición parcial, nueva distribución, isla)" },
+              { ref: "muebles_cocina_media_alta_isla_9m2" },
+              { ref: "encimera_cuarzo_compacto" },
+              { ref: "electrodomesticos_integrados_cocina" },
+              { ref: "fontaneria_electricidad_isla" },
+              { ref: "iluminacion_led_integrada_cocina" },
+              { ref: "material_cocina_200", label: "Material y remates" }
+            ]
           }
         ],
-        nota: "El cambio de distribución (mover fontanería o electricidad de sitio) requiere visita técnica previa para confirmar la viabilidad según la instalación existente del edificio."
+        nota: "El cambio de distribución (mover fontanería o electricidad de sitio) requiere visita técnica previa para confirmar la viabilidad según la instalación existente del edificio. La opción Esencial no incluye electrodomésticos ni cambio de distribución — para una reforma completa con nueva distribución, ver las opciones Inteligente y Completa."
       }
     ]
   },
@@ -1314,37 +1243,34 @@ const services = [
         {
           nombre: "Esencial — grifería",
           destacada: false,
-          items: [
-            ["Mano de obra (cambio de 2 grifos: lavabo y ducha)", 90],
-            ["Grifo de lavabo monomando", 45],
-            ["Grifo termostático de ducha", 85],
-            ["Material de estanqueidad (teflón, juntas)", 10]
-          ],
-          total: 230
+          lineas: [
+            { ref: "mo_fontanero_hora", horas: 2.8125, label: "Mano de obra (cambio de 2 grifos: lavabo y ducha)" },
+            { ref: "grifo_lavabo_monomando" },
+            { ref: "grifo_termostatico_ducha" },
+            { ref: "material_estanqueidad_10" }
+          ]
         },
         {
           nombre: "Inteligente — grifería + inodoro",
           destacada: true,
-          items: [
-            ["Mano de obra (grifería + sustitución de inodoro)", 180],
-            ["Grifo de lavabo monomando", 45],
-            ["Grifo termostático de ducha", 85],
-            ["Inodoro con cisterna de doble descarga", 180],
-            ["Material de fijación y estanqueidad", 20]
-          ],
-          total: 510
+          lineas: [
+            { ref: "mo_fontanero_hora", horas: 5.625, label: "Mano de obra (grifería + sustitución de inodoro)" },
+            { ref: "grifo_lavabo_monomando" },
+            { ref: "grifo_termostatico_ducha" },
+            { ref: "inodoro_doble_descarga" },
+            { ref: "material_estanqueidad_20" }
+          ]
         },
         {
           nombre: "Completa — baño completo (sin obra de alicatado)",
           destacada: false,
-          items: [
-            ["Mano de obra completa (grifería, inodoro, lavabo)", 260],
-            ["Grifo de lavabo y ducha, gama media", 150],
-            ["Inodoro con cisterna de doble descarga", 180],
-            ["Lavabo con pedestal o semipedestal", 120],
-            ["Válvulas de corte, sifones y material de estanqueidad", 45]
-          ],
-          total: 755
+          lineas: [
+            { ref: "mo_fontanero_hora", horas: 8.125, label: "Mano de obra completa (grifería, inodoro, lavabo)" },
+            { ref: "grifo_lavabo_ducha_media" },
+            { ref: "inodoro_doble_descarga" },
+            { ref: "lavabo_pedestal" },
+            { ref: "valvulas_sifones_estanqueidad" }
+          ]
         }
       ],
       nota: "Si hay que picar pared o suelo para mover puntos de agua/desagüe, se presupuesta aparte según el alcance real (albañilería + alicatado)."
@@ -1371,38 +1297,35 @@ const services = [
         {
           nombre: "Esencial — tabique simple, 10 m²",
           destacada: false,
-          items: [
-            ["Mano de obra (estructura y placas, 10 m²)", 240],
-            ["Placas de pladur (10 m², una cara doble)", 130],
-            ["Perfilería y tornillería", 40],
-            ["Masilla y cinta de juntas", 25]
-          ],
-          total: 435
+          lineas: [
+            { ref: "mo_pladurista_hora", horas: 8.5714, label: "Mano de obra (estructura y placas, 10 m²)" },
+            { ref: "placas_pladur_10m2_simple", label: "Placas de pladur (10 m², una cara doble)" },
+            { ref: "perfileria_tornilleria_40" },
+            { ref: "masilla_cinta_juntas_25" }
+          ]
         },
         {
           nombre: "Inteligente — con aislamiento acústico ⭐",
           destacada: true,
-          items: [
-            ["Mano de obra (estructura y placas, 10 m²)", 280],
-            ["Placas de pladur (10 m²)", 130],
-            ["Lana de roca para aislamiento acústico", 80],
-            ["Perfilería y tornillería", 45],
-            ["Masilla y cinta de juntas", 25]
-          ],
-          total: 560
+          lineas: [
+            { ref: "mo_pladurista_hora", horas: 10, label: "Mano de obra (estructura y placas, 10 m²)" },
+            { ref: "placas_pladur_10m2_simple", label: "Placas de pladur (10 m²)" },
+            { ref: "lana_roca_aislamiento" },
+            { ref: "perfileria_tornilleria_45" },
+            { ref: "masilla_cinta_juntas_25" }
+          ]
         },
         {
           nombre: "Completa — con puerta integrada y acabado listo para pintar",
           destacada: false,
-          items: [
-            ["Mano de obra (estructura, placas y hueco de puerta, 10 m²)", 340],
-            ["Placas de pladur (10 m²)", 130],
-            ["Lana de roca para aislamiento acústico", 80],
-            ["Precerco de puerta", 90],
-            ["Perfilería y tornillería", 50],
-            ["Masilla, cinta de juntas y lijado fino (listo para pintar)", 55]
-          ],
-          total: 745
+          lineas: [
+            { ref: "mo_pladurista_hora", horas: 12.1429, label: "Mano de obra (estructura, placas y hueco de puerta, 10 m²)" },
+            { ref: "placas_pladur_10m2_simple", label: "Placas de pladur (10 m²)" },
+            { ref: "lana_roca_aislamiento" },
+            { ref: "precerco_puerta" },
+            { ref: "perfileria_tornilleria_50" },
+            { ref: "masilla_cinta_lijado_fino" }
+          ]
         }
       ],
       nota: "El cableado eléctrico dentro del tabique (si hace falta pasar algún punto de luz o enchufe) se presupuesta aparte."
@@ -1419,38 +1342,35 @@ const services = [
           {
             nombre: "Esencial — techo liso",
             destacada: false,
-            items: [
-              ["Mano de obra (estructura y placas, 18 m²)", 380],
-              ["Placas de pladur (18 m²)", 230],
-              ["Perfilería y varillas de suspensión", 60],
-              ["Masilla y cinta de juntas", 25]
-            ],
-            total: 695
+            lineas: [
+              { ref: "mo_pladurista_hora", horas: 13.5714, label: "Mano de obra (estructura y placas, 18 m²)" },
+              { ref: "placas_pladur_18m2" },
+              { ref: "perfileria_varillas_suspension" },
+              { ref: "masilla_cinta_juntas_25" }
+            ]
           },
           {
             nombre: "Inteligente — con foseado perimetral para LED",
             destacada: true,
-            items: [
-              ["Mano de obra (estructura, foseado y placas, 18 m²)", 460],
-              ["Placas de pladur (18 m²)", 230],
-              ["Perfilería, varillas y perfil de foseado", 80],
-              ["Tira LED perimetral con transformador", 90],
-              ["Masilla y cinta de juntas", 25]
-            ],
-            total: 885
+            lineas: [
+              { ref: "mo_pladurista_hora", horas: 16.4286, label: "Mano de obra (estructura, foseado y placas, 18 m²)" },
+              { ref: "placas_pladur_18m2" },
+              { ref: "perfileria_varillas_foseado" },
+              { ref: "tira_led_perimetral_transformador" },
+              { ref: "masilla_cinta_juntas_25" }
+            ]
           },
           {
             nombre: "Completa — con downlights y regulación por app",
             destacada: false,
-            items: [
-              ["Mano de obra (estructura, foseado y placas, 18 m²)", 480],
-              ["Placas de pladur (18 m²)", 230],
-              ["Perfilería, varillas y perfil de foseado", 80],
-              ["8 downlights LED regulables + tira perimetral", 220],
-              ["Módulo de control WiFi para regulación por app", 85],
-              ["Masilla y cinta de juntas", 25]
-            ],
-            total: 1120
+            lineas: [
+              { ref: "mo_pladurista_hora", horas: 17.1429, label: "Mano de obra (estructura, foseado y placas, 18 m²)" },
+              { ref: "placas_pladur_18m2" },
+              { ref: "perfileria_varillas_foseado" },
+              { ref: "downlights_led_tira_perimetral" },
+              { ref: "modulo_control_wifi_regulacion" },
+              { ref: "masilla_cinta_juntas_25" }
+            ]
           }
         ],
         nota: "El cableado eléctrico de los puntos de luz se incluye en la mano de obra; la conexión al cuadro eléctrico general se presupuesta aparte si no hay un circuito ya disponible cerca."
@@ -1508,7 +1428,7 @@ const services = [
   },
   {
     slug: "electricidad-nave",
-    bloque: "electricidad-redes",
+    bloque: "electricidad-domotica",
     heroImagen: "/img/hero-bloques/electricidad.jpg",
     numero: 12,
     publico: "negocio",
@@ -1533,41 +1453,38 @@ const services = [
         {
           nombre: "Esencial — hasta 20 kW",
           destacada: false,
-          items: [
-            ["Mano de obra (aprox. 8 h)", 320],
-            ["Cuadro trifásico 24 elementos + PIAs", 380],
-            ["Diferencial trifásico 30 mA", 140],
-            ["Material y cableado (sección industrial)", 90],
-            ["Boletín eléctrico (CIE) para instalación trifásica", 320]
-          ],
-          total: 1250
+          lineas: [
+            { ref: "mo_industrial_hora", horas: 8, label: "Mano de obra (aprox. 8 h)" },
+            { ref: "cuadro_trifasico_24elementos" },
+            { ref: "diferencial_trifasico_30ma" },
+            { ref: "material_industrial_90", label: "Material y cableado (sección industrial)" },
+            { ref: "boletin_cie_trifasico" }
+          ]
         },
         {
           nombre: "Inteligente — hasta 40 kW, con protección de sobretensiones",
           destacada: true,
-          items: [
-            ["Mano de obra (aprox. 12 h)", 480],
-            ["Cuadro trifásico 36 elementos + PIAs", 520],
-            ["Diferencial trifásico superinmunizado", 210],
-            ["Protector de sobretensiones industrial", 180],
-            ["Material y cableado (sección industrial)", 140],
-            ["Boletín eléctrico (CIE) para instalación trifásica", 320]
-          ],
-          total: 1850
+          lineas: [
+            { ref: "mo_industrial_hora", horas: 12, label: "Mano de obra (aprox. 12 h)" },
+            { ref: "cuadro_trifasico_36elementos" },
+            { ref: "diferencial_trifasico_superinmunizado" },
+            { ref: "protector_sobretensiones_industrial" },
+            { ref: "material_industrial_140", label: "Material y cableado (sección industrial)" },
+            { ref: "boletin_cie_trifasico" }
+          ]
         },
         {
           nombre: "Completa — más de 40 kW, con proyecto eléctrico",
           destacada: false,
-          items: [
-            ["Mano de obra (aprox. 18 h)", 680],
-            ["Cuadro trifásico ampliable + PIAs", 720],
-            ["Diferencial trifásico superinmunizado (x2, sectorizado)", 380],
-            ["Protector de sobretensiones industrial", 180],
-            ["Material y cableado (sección industrial)", 220],
-            ["Proyecto eléctrico firmado (obligatorio a partir de 20 kW)", 1390],
-            ["Boletín eléctrico (CIE) e inspección OCA inicial", 520]
-          ],
-          total: 4090
+          lineas: [
+            { ref: "mo_industrial_hora", horas: 17, label: "Mano de obra (aprox. 18 h)" },
+            { ref: "cuadro_trifasico_ampliable" },
+            { ref: "diferencial_trifasico_superinmunizado_x2" },
+            { ref: "protector_sobretensiones_industrial" },
+            { ref: "material_industrial_220", label: "Material y cableado (sección industrial)" },
+            { ref: "proyecto_electrico_firmado" },
+            { ref: "boletin_inspeccion_oca_inicial" }
+          ]
         }
       ],
       nota: "A partir de 20 kW de potencia instalada, el REBT exige proyecto eléctrico firmado por técnico competente, no solo boletín — está incluido en la opción Completa. Instalaciones de más de 100 kW requieren además inspección periódica cada 5 años por un Organismo de Control Autorizado (OCA)."
@@ -1581,7 +1498,7 @@ const services = [
   },
   {
     slug: "redes-nave",
-    bloque: "electricidad-redes",
+    bloque: "conectividad",
     heroImagen: "/img/hero-bloques/redes-informatica.jpg",
     numero: 13,
     publico: "negocio",
@@ -1606,37 +1523,34 @@ const services = [
         {
           nombre: "Esencial — WiFi industrial (2 puntos de acceso)",
           destacada: false,
-          items: [
-            ["Instalación y configuración con roaming entre puntos", 220],
-            ["Puntos de acceso WiFi industrial de alta potencia (x2)", 480],
-            ["Material y fijación en altura", 90]
-          ],
-          total: 790
+          lineas: [
+            { ref: "mo_industrial_hora", horas: 5.5, label: "Instalación y configuración con roaming entre puntos" },
+            { ref: "ap_wifi_industrial_alta_potencia", cantidad: 2, label: "Puntos de acceso WiFi industrial de alta potencia (x2)" },
+            { ref: "material_industrial_redes_90", label: "Material y fijación en altura" }
+          ]
         },
         {
           nombre: "Inteligente — WiFi industrial (4 puntos) + 4 tomas de red",
           destacada: true,
-          items: [
-            ["Instalación y configuración con roaming entre puntos", 380],
-            ["Puntos de acceso WiFi industrial de alta potencia (x4)", 960],
-            ["Cableado estructurado Cat6 a 4 tomas (oficina/recepción)", 340],
-            ["Switch gestionable de 8 puertos", 120],
-            ["Material, canalización y fijación en altura", 180]
-          ],
-          total: 1980
+          lineas: [
+            { ref: "mo_industrial_hora", horas: 9.5, label: "Instalación y configuración con roaming entre puntos" },
+            { ref: "ap_wifi_industrial_alta_potencia", cantidad: 4, label: "Puntos de acceso WiFi industrial de alta potencia (x4)" },
+            { ref: "cableado_cat6_4_tomas_oficina" },
+            { ref: "switch_gestionable_8p_industrial" },
+            { ref: "material_industrial_redes_180", label: "Material, canalización y fijación en altura" }
+          ]
         },
         {
           nombre: "Completa — cobertura total + rack y VLAN separadas",
           destacada: false,
-          items: [
-            ["Instalación y configuración con roaming entre puntos", 520],
-            ["Puntos de acceso WiFi industrial de alta potencia (x6)", 1440],
-            ["Cableado estructurado Cat6 a 8 tomas", 640],
-            ["Armario rack con switch gestionable y patch panel", 480],
-            ["Configuración de VLAN (red de gestión separada de la de invitados)", 260],
-            ["Material, canalización y fijación en altura", 260]
-          ],
-          total: 3600
+          lineas: [
+            { ref: "mo_industrial_hora", horas: 13, label: "Instalación y configuración con roaming entre puntos" },
+            { ref: "ap_wifi_industrial_alta_potencia", cantidad: 6, label: "Puntos de acceso WiFi industrial de alta potencia (x6)" },
+            { ref: "cableado_cat6_8_tomas" },
+            { ref: "rack_switch_patch_panel" },
+            { ref: "config_vlan_separadas", label: "Configuración de VLAN (red de gestión separada de la de invitados)" },
+            { ref: "material_industrial_redes_260", label: "Material, canalización y fijación en altura" }
+          ]
         }
       ],
       nota: "Un router doméstico no tiene potencia suficiente para atravesar estructuras de acero y estanterías metálicas — por eso las carretillas y lectores de almacén pierden conexión al moverse por la nave. El presupuesto de arriba usa equipo industrial pensado para eso."
@@ -1675,41 +1589,38 @@ const services = [
         {
           nombre: "Esencial — riego por goteo, 1 sector",
           destacada: false,
-          items: [
-            ["Mano de obra (zanja, tubería principal y ramales)", 380],
-            ["Tubería principal PE 32mm (hasta 200 m)", 260],
-            ["Goteros y ramales de riego", 180],
-            ["Programador de riego con electroválvula", 140],
-            ["Material de conexión y estanqueidad", 40]
-          ],
-          total: 1000
+          lineas: [
+            { ref: "mo_industrial_hora", horas: 9.5, label: "Mano de obra (zanja, tubería principal y ramales)" },
+            { ref: "tuberia_pe32_200m" },
+            { ref: "goteros_ramales_1sector" },
+            { ref: "programador_riego_electrovalvula_1" },
+            { ref: "material_conexion_estanqueidad_40" }
+          ]
         },
         {
           nombre: "Inteligente — riego por goteo, 3 sectores + programador WiFi",
           destacada: true,
-          items: [
-            ["Mano de obra (zanja, tubería principal y ramales)", 620],
-            ["Tubería principal PE 32-40mm (hasta 400 m)", 480],
-            ["Goteros y ramales de riego (3 sectores)", 420],
-            ["Programador de riego WiFi con 3 electroválvulas", 340],
-            ["Sensor de lluvia (evita riego innecesario)", 90],
-            ["Material de conexión y estanqueidad", 70]
-          ],
-          total: 2020
+          lineas: [
+            { ref: "mo_industrial_hora", horas: 15.5, label: "Mano de obra (zanja, tubería principal y ramales)" },
+            { ref: "tuberia_pe32_40_400m" },
+            { ref: "goteros_ramales_3sectores" },
+            { ref: "programador_riego_wifi_3v_industrial" },
+            { ref: "sensor_lluvia_industrial", label: "Sensor de lluvia (evita riego innecesario)" },
+            { ref: "material_conexion_estanqueidad_70" }
+          ]
         },
         {
           nombre: "Completa — riego automatizado + acometida nueva",
           destacada: false,
-          items: [
-            ["Mano de obra (zanja, tubería principal y ramales)", 980],
-            ["Acometida de agua nueva desde captación o pozo", 650],
-            ["Tubería principal PE 40-50mm (hasta 800 m)", 890],
-            ["Goteros y ramales de riego (5 sectores)", 620],
-            ["Programador de riego WiFi con 5 electroválvulas", 480],
-            ["Sensor de lluvia y de humedad de suelo", 180],
-            ["Material de conexión y estanqueidad", 120]
-          ],
-          total: 3920
+          lineas: [
+            { ref: "mo_industrial_hora", horas: 24.5, label: "Mano de obra (zanja, tubería principal y ramales)" },
+            { ref: "acometida_agua_nueva" },
+            { ref: "tuberia_pe40_50_800m" },
+            { ref: "goteros_ramales_5sectores" },
+            { ref: "programador_riego_wifi_5v_industrial" },
+            { ref: "sensor_lluvia_humedad_industrial", label: "Sensor de lluvia y de humedad de suelo" },
+            { ref: "material_conexion_estanqueidad_120" }
+          ]
         }
       ],
       nota: "El precio varía mucho según si hay que abrir zanja nueva o se reutilizan canalizaciones existentes, y según la distancia real a la toma de agua — la visita técnica gratuita ajusta la cifra final."

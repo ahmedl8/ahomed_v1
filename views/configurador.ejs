@@ -16,7 +16,7 @@
 
   <section class="section">
     <div class="container">
-      <div class="wizard-shell wizard-shell-wide" id="configurador-wizard" data-wa="<%= empresa.whatsapp %>">
+      <div class="wizard-shell" id="configurador-wizard" data-wa="<%= empresa.whatsapp %>">
 
         <div class="wizard-progress">
           <div class="wizard-progress-step is-active" data-progress-step="1">1</div>
@@ -74,7 +74,8 @@
           </div>
         </div>
 
-        <!-- PASO 2: QUÉ TE IMPORTA (multi-selección: orienta el paso 3, no cierra ninguna puerta) -->
+        <!-- PASO 2: QUÉ TE IMPORTA (selección múltiple — filtra qué aparece
+             en el paso 3, ver public/js/configurador.js) -->
         <div class="wizard-step" data-step="2">
           <h2 class="wizard-step-title"><%= t('configurador.step2.title') %></h2>
           <p class="wizard-step-sub"><%= t('configurador.step2.sub') %></p>
@@ -119,59 +120,16 @@
           </div>
         </div>
 
-        <!-- PASO 3: QUÉ QUIERES CONTROLAR O AUTOMATIZAR — picker libre fusionado
-             desde el antiguo /crea-tu-instalacion: cualquier servicio Básico +
-             cualquier modo de la Plataforma IA Predictiva, con total en vivo.
-             Vivienda "negocio" salta directamente de paso 2 a paso 5 (ver
-             configurador.js) porque su catálogo es un único pack. -->
+        <!-- PASO 3: QUÉ QUIERES CONTROLAR — rellenado por configurador.js con
+             los servicios/modos reales del catálogo que correspondan a lo
+             marcado en el paso 2 (ver NECESIDAD_CATALOGO en server.js). Los
+             checkboxes usan slugs reales como value, no texto en español. -->
         <div class="wizard-step" data-step="3">
           <h2 class="wizard-step-title"><%= t('configurador.step3.title') %></h2>
           <p class="wizard-step-sub"><%= t('configurador.step3.sub') %></p>
-
-          <div class="wizard-picker" id="wizard-picker">
-            <h3 class="sub-heading"><%= t('creador.instalaciones.title') %></h3>
-            <% bloques.filter(function(b){ return b.grupo === 'basico' || b.grupo === 'general'; }).forEach(function(b){ %>
-              <% var serviciosBloque = serviciosCasa.filter(function(s){ return s.bloque === b.slug; }); %>
-              <% if (!serviciosBloque.length) return; %>
-              <div class="creador-grupo" data-prioridad-grupo="<%= b.slug %>">
-                <h4 class="creador-grupo-title"><svg viewBox="0 0 24 24" class="creador-grupo-icon"><%- icons[b.icono] %></svg><%= b.nombre %></h4>
-                <div class="calc-modos">
-                  <% serviciosBloque.forEach(function(s){ %>
-                    <label class="calc-item">
-                      <span class="calc-item-check">
-                        <input type="checkbox" class="wizard-check-servicio" data-slug="<%= s.slug %>" data-precio="<%= s.desde %>" data-nombre="<%= s.nombre %>">
-                        <span class="calc-item-name"><%= s.nombre %></span>
-                      </span>
-                      <span class="calc-item-price"><%= tv('creador.desde_precio', { precio: fmt(s.desde), unidad: s.desdeUnidad || '' }) %></span>
-                    </label>
-                  <% }) %>
-                </div>
-              </div>
-            <% }) %>
-
-            <h3 class="sub-heading creador-ia-title"><%= t('creador.ia.title') %></h3>
-            <p class="creador-ia-sub"><%= t('creador.ia.subtitle') %></p>
-            <div class="creador-grupo">
-              <div class="calc-modos">
-                <% modos.forEach(function(m){ %>
-                  <label class="calc-item">
-                    <span class="calc-item-check">
-                      <input type="checkbox" class="wizard-check-modo" data-slug="<%= m.slug %>" data-familia="<%= m.familia %>" data-precio="<%= m.esProyecto ? 860 : m.precioIncremento %>" data-nombre="<%= m.nombre %>">
-                      <span class="calc-item-name"><%= m.numero %>. <%= m.nombre %><% if (m.esProyecto) { %> <em><%= t('creador.proyecto_a_medida') %></em><% } %></span>
-                    </span>
-                    <span class="calc-item-price">+<%= fmt(m.esProyecto ? 860 : m.precioIncremento) %> €</span>
-                  </label>
-                <% }) %>
-              </div>
-            </div>
+          <div class="wizard-options" id="config-control-options">
+            <!-- Contenido generado dinámicamente por configurador.js -->
           </div>
-
-          <p class="wizard-picker-empty" id="wizard-picker-empty"><%= t('creador.resumen.empty_hint') %></p>
-          <div class="wizard-picker-total" id="wizard-picker-total" hidden>
-            <span><%= t('creador.resumen.total_estimado') %></span>
-            <strong id="wizard-picker-total-amount">0 €</strong>
-          </div>
-
           <div class="wizard-nav">
             <button type="button" class="btn btn-outline" data-wizard-back><%= t('configurador.nav.atras') %></button>
             <span class="wizard-nav-spacer"></span>
@@ -179,18 +137,19 @@
           </div>
         </div>
 
-        <!-- PASO 4: NIVEL — esencial / inteligente / completa (decide qué
-             opción de precio mostrar cuando el resultado es un pack real) -->
+        <!-- PASO 4: NIVEL — Básica / Inteligente / Completa, coherente con el
+             modelo de las fichas de servicio (interruptor físico / control
+             desde el móvil / la IA decide y tú confirmas). -->
         <div class="wizard-step" data-step="4">
           <h2 class="wizard-step-title"><%= t('configurador.step4.title') %></h2>
           <p class="wizard-step-sub"><%= t('configurador.step4.sub') %></p>
           <div class="wizard-options">
             <label class="wizard-option">
-              <input type="radio" name="config-nivel" value="esencial">
+              <input type="radio" name="config-nivel" value="basica">
               <span class="wizard-option-card">
                 <span class="wizard-option-icon wizard-option-icon-img"><picture><source srcset="/img/iconos/nivel-esencial.webp" type="image/webp"><img src="/img/iconos/nivel-esencial.png" alt=""></picture></span>
-                <h4><%= t('configurador.step4.esencial.title') %></h4>
-                <p><%= t('configurador.step4.esencial.desc') %></p>
+                <h4><%= t('configurador.step4.basica.title') %></h4>
+                <p><%= t('configurador.step4.basica.desc') %></p>
               </span>
             </label>
             <label class="wizard-option">
@@ -227,6 +186,7 @@
             <a href="#" id="wizard-whatsapp" target="_blank" rel="noopener" class="btn btn-whatsapp btn-lg"><%= t('configurador.resultado.cta_whatsapp') %></a>
             <p class="wizard-restart">
               <a href="#" data-wizard-restart class="link-arrow"><%= t('configurador.resultado.restart') %></a>
+              · <a href="/crea-tu-instalacion" class="link-arrow"><%= t('configurador.resultado.link_creador') %></a>
             </p>
           </div>
         </div>
@@ -236,12 +196,10 @@
   </section>
 
   <!-- Catálogo en JSON para que el asistente recomiende sin llamar al servidor.
-       Fusiona lo que antes se repartía entre #configurador-catalogo y
-       #creador-catalogo: packs con sus 3 niveles reales + coincideCon (para
-       la detección de pack), servicios y modos IA de la Plataforma IA
-       Predictiva, y los 2 niveles de hardware del Mini-PC IA Central. Los
-       objetos vienen de res.locals ya traducidos según res.locals.lang por
-       i18n/content.js — no hace falta tocar nada aquí. -->
+       El paso 3 se rellena en el navegador con los servicios/modos reales que
+       correspondan a lo marcado en el paso 2 (necesidadCatalogo), y el
+       resultado reutiliza el mismo motor de coincidencia con packs que ya usa
+       /crea-tu-instalacion (coincideCon.servicios/modos aplanado). -->
   <script type="application/json" id="configurador-catalogo">
     <%- JSON.stringify({
       packs: packs.map(function(p){
@@ -250,30 +208,47 @@
           nombre: p.nombre,
           descripcion: p.descripcion,
           publico: p.publico,
-          coincideCon: p.coincideCon || { servicios: [], modos: [] },
+          servicios: (p.coincideCon && p.coincideCon.servicios) || [],
+          modos: (p.coincideCon && p.coincideCon.modos) || [],
           opciones: p.opciones.map(function(o){ return { nombre: o.nombre, total: o.total }; })
         };
       }),
-      servicios: serviciosCasa.map(function(s){
+      servicios: services.map(function(s){
         return { slug: s.slug, nombre: s.nombre, descripcion: s.resumen, desde: s.desde, desdeUnidad: s.desdeUnidad || '' };
       }),
-      modos: modos.map(function(m){
-        return {
-          slug: m.slug,
-          nombre: m.nombre,
-          descripcion: m.esProyecto ? m.subtitulo : m.resumen,
-          familia: m.familia,
-          esProyecto: !!m.esProyecto,
-          precioIncremento: m.esProyecto ? 860 : m.precioIncremento
-        };
+      modos: modosIA.map(function(m){
+        return { slug: m.slug, nombre: m.nombre, descripcion: m.resumen || m.subtitulo, precioIncremento: m.precioIncremento, esProyecto: !!m.esProyecto };
       }),
-      nivelesBase: instalacionBase.niveles.map(function(n){ return { slug: n.slug, nombre: n.nombre, total: n.total }; })
+      necesidadCatalogo: necesidadCatalogo
     }) %>
   </script>
 
-  <!-- Textos usados por public/js/configurador.js (picker en vivo, resultado
-       del wizard, mensaje de WhatsApp) — resueltos en servidor vía t()/tv()
-       para que el JS del cliente no tenga que hardcodear español. -->
+  <!-- Iconos por servicio/modo para el paso 3 dinámico — reutiliza los que
+       ya existen en /img/iconos, con un genérico de respaldo. -->
+  <script type="application/json" id="configurador-iconos">
+    <%- JSON.stringify({
+      seguridad: "necesitas-seguridad",
+      "seguridad-ia": "necesitas-seguridad",
+      "acceso-inteligente": "necesitas-seguridad",
+      domotica: "necesitas-hogar",
+      climatizacion: "necesitas-confort",
+      "casa-presencial": "necesitas-confort",
+      "ia-sueno": "necesitas-confort",
+      "cocina-inteligente": "necesitas-confort",
+      "energia-solar": "necesitas-vivienda",
+      "motor-meteorologico": "necesitas-vivienda",
+      "calidad-aire": "necesitas-vivienda",
+      "cuidado-mascotas": "necesitas-familia",
+      "personas-mayores": "necesitas-familia",
+      "modo-ninos": "necesitas-familia",
+      "gestion-paquetes": "necesitas-familia",
+      _default: "necesitas-mejorar"
+    }) %>
+  </script>
+
+  <!-- Textos usados por public/js/configurador.js (resultado del wizard,
+       mensaje de WhatsApp) — resueltos en servidor vía t()/tv() para que el
+       JS del cliente no tenga que hardcodear español. -->
   <script type="application/json" id="configurador-i18n">
     <%- JSON.stringify({
       viviendaLabel: {
@@ -289,29 +264,15 @@
         familia: t('configurador.js_i18n.necesidad_familia_label')
       },
       nivelLabel: {
-        esencial: t('configurador.step4.esencial.title'),
+        basica: t('configurador.step4.basica.title'),
         inteligente: t('configurador.step4.inteligente.title'),
         completa: t('configurador.step4.completa.title')
       },
-      miniPcCentral: t('creador.js_i18n.mini_pc_central'),
       sinEspecificar: t('configurador.js_i18n.sin_especificar'),
+      ningunoSeleccionado: t('configurador.js_i18n.ninguno_seleccionado'),
       presupuestoMedidaEyebrow: t('configurador.js_i18n.presupuesto_medida_eyebrow'),
       presupuestoMedidaTitle: t('configurador.js_i18n.presupuesto_medida_title'),
       presupuestoMedidaBody: t('configurador.js_i18n.presupuesto_medida_body'),
-      packAMedidaEyebrow: t('configurador.resultado.pack_a_medida_eyebrow'),
-      packAMedidaIntro: t('configurador.resultado.pack_a_medida_intro'),
-      individualModoEyebrow: t('configurador.resultado.individual_modo_eyebrow'),
-      sobreBase: t('configurador.resultado.sobre_base'),
-      basicos: t('creador.resumen.basicos'),
-      modosIALabel: t('creador.resumen.modos_ia'),
-      totalEstimado: t('creador.resumen.total_estimado'),
-      disclaimer: t('creador.resumen.disclaimer'),
-      emptyHint: t('creador.resumen.empty_hint'),
-      matchLabel: t('creador.resumen.match_label'),
-      matchLink: t('creador.resumen.match_link'),
-      matchMejorPrecio: t('creador.js_i18n.match_mejor_precio'),
-      matchDiferenciaPrefix: t('creador.js_i18n.match_diferencia_prefix'),
-      matchDiferenciaSuffix: t('creador.js_i18n.match_diferencia_suffix'),
       mensajeIntro: t('configurador.js_i18n.mensaje_intro'),
       mensajeVivienda: t('configurador.js_i18n.mensaje_vivienda'),
       mensajePrioridad: t('configurador.js_i18n.mensaje_prioridad'),
@@ -319,10 +280,11 @@
       mensajeCierre: t('configurador.js_i18n.mensaje_cierre'),
       mensajeSolucionRecomendada: t('configurador.js_i18n.mensaje_solucion_recomendada'),
       mensajeTambienInteresa: t('configurador.js_i18n.mensaje_tambien_interesa'),
-      mensajeTotalEstimado: t('creador.js_i18n.mensaje_total_estimado'),
-      mensajeSeParece: t('creador.js_i18n.mensaje_se_parece'),
+      mensajePackAMedida: t('configurador.js_i18n.mensaje_pack_a_medida'),
       packRecomendadoEyebrow: t('configurador.js_i18n.pack_recomendado_eyebrow'),
       servicioRecomendadoEyebrow: t('configurador.js_i18n.servicio_recomendado_eyebrow'),
+      packAMedidaEyebrow: t('configurador.js_i18n.pack_a_medida_eyebrow'),
+      packAMedidaTitle: t('configurador.js_i18n.pack_a_medida_title'),
       nivelPrefix: t('configurador.js_i18n.nivel_prefix'),
       consultar: t('configurador.js_i18n.consultar'),
       verDesgloseCompleto: t('configurador.js_i18n.ver_desglose_completo'),
@@ -331,7 +293,9 @@
       resumenPrioridad: t('configurador.js_i18n.resumen_prioridad'),
       resumenQuiereControlar: t('configurador.js_i18n.resumen_quiere_controlar'),
       resumenNivel: t('configurador.js_i18n.resumen_nivel'),
-      resultadoNivelSeparador: t('configurador.js_i18n.resultado_nivel_separador')
+      resultadoNivelSeparador: t('configurador.js_i18n.resultado_nivel_separador'),
+      requiereMiniPc: t('configurador.js_i18n.requiere_minipc'),
+      masElementos: t('configurador.js_i18n.mas_elementos')
     }) %>
   </script>
 

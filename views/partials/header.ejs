@@ -38,7 +38,14 @@
 
     <nav class="main-nav">
       <a href="<%= homeHref %>" class="<%= currentPath === '/' ? 'active' : '' %>"><%= t('nav.home') %></a>
-      <a href="<%= pathHref('/configurador') %>" class="<%= currentPath === '/configurador' ? 'active' : '' %>"><%= t('nav.configurador') %></a>
+
+      <div class="nav-dropdown">
+        <a href="<%= pathHref('/configurador') %>" class="<%= (currentPath === '/configurador' || currentPath === '/crea-tu-instalacion') ? 'active' : '' %>"><%= t('nav.configurador') %> ▾</a>
+        <div class="dropdown-menu">
+          <a href="<%= pathHref('/configurador') %>"><%= t('nav.configurador_asistido') %></a>
+          <a href="<%= pathHref('/crea-tu-instalacion') %>"><%= t('nav.crea_instalacion') %></a>
+        </div>
+      </div>
 
       <% var basicosCols = function(b, audiencia) {
            var servs = services.filter(function(s){
@@ -121,6 +128,7 @@
       </div>
 
       <a href="<%= pathHref('/soluciones') %>" class="<%= currentPath === '/soluciones' ? 'active' : '' %>"><%= t('nav.soluciones') %></a>
+      <a href="<%= pathHref('/para-profesionales') %>" class="<%= currentPath === '/para-profesionales' ? 'active' : '' %>"><%= t('nav.para_profesionales') %></a>
       <a href="<%= pathHref('/preguntas-frecuentes') %>" class="<%= currentPath === '/preguntas-frecuentes' ? 'active' : '' %>"><%= t('nav.faq') %></a>
       <a href="<%= pathHref('/contacto') %>" class="<%= currentPath === '/contacto' ? 'active' : '' %>"><%= t('nav.contacto') %></a>
 

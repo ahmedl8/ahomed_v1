@@ -197,10 +197,7 @@ function fill(template, values) {
   return template.replace(/\{(\w+)\}/g, (m, k) => (Object.prototype.hasOwnProperty.call(values, k) ? values[k] : m));
 }
 
-// ---- Rutas ----
-const PACKS_DESTACADOS_HOME = ["chalet-seguro", "piso-nuevo", "hogar-inteligente"];
-
-// Bloque "¿Qué necesitas?": navegación por necesidad del cliente, no por
+// ---- Rutas ----// Bloque "¿Qué necesitas?": navegación por necesidad del cliente, no por
 // bloque técnico. Cada tarjeta enlaza al servicio/página real más representativo
 // de esa necesidad (no se filtra por varios servicios a la vez).
 const QUE_NECESITAS = [
@@ -259,14 +256,12 @@ app.get("/", (req, res) => {
     services,
     necesitas,
     bloques,
-    seguridadIA: modosIA.find((m) => m.slug === "seguridad-ia"),
     modosIA: modosIA.filter((m) => !m.esProyecto),
     // Lista completa (incluye Seguridad IA, esProyecto: true) para los enlaces
     // de la sección "Vive AHOMED", que sí referencian ese modo.
     modosIATodos: modosIA,
     instalacionBase,
     packs,
-    packsDestacados: PACKS_DESTACADOS_HOME.map((slug) => packs.find((p) => p.slug === slug)).filter(Boolean),
     ventajas,
     comoFunciona,
     familiasIA,

@@ -24,13 +24,12 @@ const nivelesInstalacionBase = [
     subtitulo: "Empieza pequeño — para 1-2 servicios IA",
     resumen:
       "Suficiente para arrancar con 1 o 2 servicios de la Plataforma IA Predictiva sin esfuerzo — la opción más ajustada para empezar.",
-    items: [
-      ["Mini-PC IA (Ryzen 5 7530U o equivalente, 16 GB RAM, 512 GB SSD)", 430],
-      ["Instalación del motor Python + modelos YOLO26 (orquestador de modos)", 90],
-      ["Dashboard de control unificado", 40],
-      ["Integración WhatsApp Business API", 30]
-    ],
-    total: 590
+    lineas: [
+      { ref: "minipc_ia_start" },
+      { ref: "motor_python_start" },
+      { ref: "dashboard_control_start" },
+      { ref: "integracion_whatsapp_api" }
+    ]
   },
   {
     slug: "pro",
@@ -38,14 +37,13 @@ const nivelesInstalacionBase = [
     subtitulo: "Crece sin cambiar todo — para 3+ servicios IA o Seguridad IA con varias cámaras",
     resumen:
       "Cuando quieres varios servicios a la vez, o Seguridad IA con varias cámaras en paralelo, conviene más potencia para que todo vaya fluido sin esperas.",
-    items: [
-      ["Mini-PC IA (Ryzen 7 8845HS o equivalente, 32 GB RAM, 1 TB SSD, NPU ~16 TOPS)", 700],
-      ["Instalación del motor Python + modelos YOLO26 (orquestador de modos)", 130],
-      ["Dashboard de control unificado", 50],
-      ["Integración WhatsApp Business API", 30],
-      ["UPS de protección (evita corrupción de datos ante cortes de luz)", 40]
-    ],
-    total: 950
+    lineas: [
+      { ref: "minipc_ia_pro" },
+      { ref: "motor_python_pro" },
+      { ref: "dashboard_control_pro" },
+      { ref: "integracion_whatsapp_api" },
+      { ref: "ups_proteccion" }
+    ]
   }
 ];
 
@@ -89,30 +87,27 @@ const modos = [
         {
           nombre: "Esencial — motor clima + riego (4 zonas)",
           destacada: false,
-          items: [
-
-            ["Controlador de riego WiFi 4 zonas (Shelly o similar)", 55],
-            ["Sensores de temperatura/humedad exterior (x2)", 30],
-            ["Cableado y material de instalación", 25],
-            ["Configuración del motor Python (API clima + lógica de riego)", 280],
-            ["Integración con app móvil y dashboard básico", 120],
-            ["Puesta en marcha y formación (2 h)", 90]
-          ],
-          total: 600
+          lineas: [
+            { ref: "controlador_riego_wifi_4z_shelly" },
+            { ref: "sensores_temp_humedad_ext_x2" },
+            { ref: "material_ia_25" },
+            { ref: "config_motor_clima_riego" },
+            { ref: "integracion_app_dashboard_basico" },
+            { ref: "puesta_marcha_formacion_2h" }
+          ]
         },
         {
           nombre: "Inteligente — motor clima + riego + persianas",
           destacada: true,
-          items: [
-            ["Controlador de riego WiFi 4 zonas", 55],
-            ["4 motores de persiana WiFi (Shelly 2.5 o equivalente)", 220],
-            ["Sensores exterior temperatura/humedad/lluvia", 45],
-            ["Cableado, canal y material", 60],
-            ["Motor Python: lógica climática + riego + persianas + alertas WhatsApp", 380],
-            ["Dashboard web personalizado (consulta desde móvil)", 180],
-            ["Puesta en marcha y formación (3 h)", 130]
-          ],
-          total: 1070
+          lineas: [
+            { ref: "controlador_riego_wifi_4z_shelly" },
+            { ref: "motores_persiana_wifi_x4_shelly" },
+            { ref: "sensores_ext_temp_hum_lluvia" },
+            { ref: "material_ia_60" },
+            { ref: "motor_python_clima_riego_persianas" },
+            { ref: "dashboard_web_personalizado" },
+            { ref: "puesta_marcha_formacion_3h" }
+          ]
         }
       ],
       nota: "Coste adicional sobre el Mini-PC IA Central (E1, desde 590 €, según nivel): 600 €. Ya no se ofrece este modo con equipo propio independiente."
@@ -139,30 +134,28 @@ const modos = [
         {
           nombre: "Esencial — geofencing + 3 escenas (llegada / salida / noche)",
           destacada: false,
-          items: [
-            ["2 enchufes inteligentes WiFi (Shelly Plug)", 40],
-            ["1 tira LED salón con controlador WiFi", 55],
-            ["Termostato WiFi inteligente", 75],
-            ["Cableado y material", 20],
-            ["Configuración del motor de geofencing (GPS móvil → escenas)", 240],
-            ["3 escenas configuradas + app de control", 100],
-            ["Puesta en marcha y ajuste de perímetros GPS (2 h)", 90]
-          ],
-          total: 620
+          lineas: [
+            { ref: "enchufes_inteligentes_wifi_x2" },
+            { ref: "tira_led_salon_controlador_wifi" },
+            { ref: "termostato_wifi_inteligente" },
+            { ref: "material_ia_20" },
+            { ref: "config_motor_geofencing" },
+            { ref: "escenas_3_app_control" },
+            { ref: "puesta_marcha_ajuste_gps_2h" }
+          ]
         },
         {
           nombre: "Inteligente — 3 escenas + simulación de presencia",
           destacada: true,
-          items: [
-            ["2 enchufes inteligentes WiFi", 40],
-            ["1 tira LED salón con controlador WiFi", 55],
-            ["Termostato WiFi inteligente", 75],
-            ["Cableado y material", 75],
-            ["Configuración del motor de geofencing (GPS móvil → escenas)", 20],
-            ["3 escenas configuradas + simulación de presencia + app de control", 240],
-            ["Puesta en marcha y ajuste de perímetros GPS (2 h)", 90]
-          ],
-          total: 595
+          lineas: [
+            { ref: "enchufes_inteligentes_wifi_x2" },
+            { ref: "tira_led_salon_controlador_wifi" },
+            { ref: "termostato_wifi_inteligente" },
+            { ref: "material_ia_75" },
+            { ref: "config_motor_geofencing_reducido" },
+            { ref: "escenas_3_presencia_app" },
+            { ref: "puesta_marcha_ajuste_gps_2h", label: "Puesta en marcha y ajuste de perímetros GPS (2 h)" }
+          ]
         }
       ],
       nota: "Coste adicional sobre el Mini-PC IA Central (E1, desde 590 €, según nivel): 620 €. Ya no se ofrece este modo con equipo propio independiente."
@@ -189,30 +182,28 @@ const modos = [
         {
           nombre: "Esencial — persianas + luz nocturna adaptativa",
           destacada: false,
-          items: [
-            ["2 motores de persiana WiFi (dormitorio principal)", 110],
-            ["Tira LED regulable (temperatura de color cálido/frío)", 65],
-            ["Sensor de luminosidad exterior", 18],
-            ["Cableado y material", 25],
-            ["Configuración del motor de sueño: horarios + amanecer gradual", 220],
-            ["Integración con alarma del móvil (vía API o IFTTT)", 90],
-            ["Puesta en marcha y formación (2 h)", 90]
-          ],
-          total: 618
+          lineas: [
+            { ref: "motores_persiana_wifi_x2_dormitorio" },
+            { ref: "tira_led_regulable_temp_color" },
+            { ref: "sensor_luminosidad_exterior" },
+            { ref: "material_ia_25", label: "Cableado y material" },
+            { ref: "config_motor_sueno" },
+            { ref: "integracion_alarma_movil" },
+            { ref: "puesta_marcha_formacion_2h", label: "Puesta en marcha y formación (2 h)" }
+          ]
         },
         {
           nombre: "Inteligente — + luz cálida/fría + alarma del móvil",
           destacada: true,
-          items: [
-            ["2 motores de persiana WiFi", 110],
-            ["Tira LED regulable (temperatura de color cálido/frío)", 110],
-            ["Sensor de luminosidad exterior", 65],
-            ["Cableado y material", 25],
-            ["Configuración del motor de sueño: horarios + amanecer gradual", 25],
-            ["Integración con alarma del móvil (vía API o IFTTT)", 220],
-            ["Puesta en marcha y formación (2 h)", 90]
-          ],
-          total: 645
+          lineas: [
+            { ref: "motores_persiana_wifi_x2_dormitorio" },
+            { ref: "tira_led_regulable_temp_color_v2" },
+            { ref: "sensor_luminosidad_ext_v2" },
+            { ref: "material_ia_25", label: "Cableado y material" },
+            { ref: "config_motor_sueno_reducido" },
+            { ref: "integracion_alarma_movil_v2" },
+            { ref: "puesta_marcha_formacion_2h", label: "Puesta en marcha y formación (2 h)" }
+          ]
         }
       ],
       nota: "Coste adicional sobre el Mini-PC IA Central (E1, desde 590 €, según nivel): 618 €. Ya no se ofrece este modo con equipo propio independiente."
@@ -239,28 +230,26 @@ const modos = [
         {
           nombre: "Esencial — monitorización + alertas WhatsApp",
           destacada: false,
-          items: [
-            ["Sensor CO₂ + temperatura + humedad (SCD40 o equivalente)", 45],
-            ["Cableado y material mínimo", 15],
-            ["Motor Python: lectura continua + umbrales + alertas WhatsApp", 200],
-            ["Dashboard básico con histórico 7 días", 100],
-            ["Puesta en marcha y calibración (1,5 h)", 70]
-          ],
-          total: 430
+          lineas: [
+            { ref: "sensor_co2_temp_hum_scd40" },
+            { ref: "material_ia_15" },
+            { ref: "motor_python_umbrales_alertas" },
+            { ref: "dashboard_basico_historico_7d" },
+            { ref: "puesta_marcha_calibracion_15h" }
+          ]
         },
         {
           nombre: "Inteligente — CO₂ + VOC + ventilación automática",
           destacada: true,
-          items: [
-            ["Sensor CO₂ + VOC + temperatura + humedad (multi-sensor)", 85],
-            ["Extractor de baño/cocina WiFi inteligente (x2)", 80],
-            ["Cableado y material de instalación", 40],
-            ["Motor Python: umbrales adaptativos + control de ventilación + histórico", 280],
-            ["Dashboard en tiempo real + recomendaciones automáticas de ventilación", 140],
-            ["Alertas personalizadas por WhatsApp (alerta inmediata + resumen diario)", 80],
-            ["Puesta en marcha y calibración (2,5 h)", 120]
-          ],
-          total: 825
+          lineas: [
+            { ref: "sensor_co2_voc_multisensor" },
+            { ref: "extractor_wifi_x2" },
+            { ref: "material_ia_40" },
+            { ref: "motor_python_umbrales_ventilacion" },
+            { ref: "dashboard_tiempo_real_recomendaciones" },
+            { ref: "alertas_whatsapp_resumen_diario" },
+            { ref: "puesta_marcha_calibracion_25h" }
+          ]
         }
       ],
       nota: "Coste adicional sobre el Mini-PC IA Central (E1, desde 590 €, según nivel): 430 €. Ya no se ofrece este modo con equipo propio independiente."
@@ -287,28 +276,26 @@ const modos = [
         {
           nombre: "Esencial — monitorización + alerta de ladridos",
           destacada: false,
-          items: [
-            ["Cámara IP con audio bidireccional", 110],
-            ["Sensor de nivel de bebedero", 35],
-            ["Cableado y material", 15],
-            ["Motor Python: detección de ladridos prolongados + alertas WhatsApp", 180],
-            ["Puesta en marcha (1,5 h)", 65]
-          ],
-          total: 405
+          lineas: [
+            { ref: "camara_ip_audio_bidireccional" },
+            { ref: "sensor_nivel_bebedero" },
+            { ref: "material_ia_15", label: "Cableado y material" },
+            { ref: "motor_python_ladridos_alertas" },
+            { ref: "puesta_marcha_15h" }
+          ]
         },
         {
           nombre: "Inteligente — + comedero y control de temperatura",
           destacada: true,
-          items: [
-            ["Cámara IP con audio bidireccional y visión nocturna", 140],
-            ["Comedero automático conectado (raciones programadas)", 120],
-            ["Sensor de nivel de bebedero", 35],
-            ["Sensor de temperatura de la estancia", 20],
-            ["Cableado y material", 25],
-            ["Motor Python: comida/agua/temperatura + detección de ladridos + alertas WhatsApp", 280],
-            ["Puesta en marcha y formación (2 h)", 90]
-          ],
-          total: 710
+          lineas: [
+            { ref: "camara_ip_audio_vision_nocturna" },
+            { ref: "comedero_automatico_conectado" },
+            { ref: "sensor_nivel_bebedero" },
+            { ref: "sensor_temperatura_estancia" },
+            { ref: "material_ia_25", label: "Cableado y material" },
+            { ref: "motor_python_comida_temp_ladridos" },
+            { ref: "puesta_marcha_formacion_2h", label: "Puesta en marcha y formación (2 h)" }
+          ]
         }
       ],
       nota: "Coste adicional sobre el Mini-PC IA Central (E1, desde 590 €, según nivel): 405 €. Ya no se ofrece este modo con equipo propio independiente."
@@ -335,26 +322,24 @@ const modos = [
         {
           nombre: "Esencial — detección de humo + alerta WhatsApp",
           destacada: false,
-          items: [
-            ["Detector de humo/CO conectado", 100],
-            ["Cableado y material", 15],
-            ["Motor Python: lectura continua + alerta WhatsApp inmediata", 180],
-            ["Puesta en marcha (1,5 h)", 90]
-          ],
-          total: 385
+          lineas: [
+            { ref: "detector_humo_co_conectado" },
+            { ref: "material_ia_15", label: "Cableado y material" },
+            { ref: "motor_python_humo_alerta" },
+            { ref: "puesta_marcha_15h", label: "Puesta en marcha (1,5 h)", precioOverride: 90 }
+          ]
         },
         {
           nombre: "Inteligente — + extractor automático y aviso de horno",
           destacada: true,
-          items: [
-            ["Detector de humo/CO conectado", 100],
-            ["Extractor de cocina WiFi inteligente", 80],
-            ["Enchufe/relé inteligente en horno o vitro", 45],
-            ["Cableado y material", 30],
-            ["Motor Python: humo → extractor + alerta; horno encendido al salir → pregunta WhatsApp", 320],
-            ["Puesta en marcha y formación (2,5 h)", 120]
-          ],
-          total: 695
+          lineas: [
+            { ref: "detector_humo_co_conectado" },
+            { ref: "extractor_cocina_wifi" },
+            { ref: "enchufe_rele_horno_vitro" },
+            { ref: "material_ia_30" },
+            { ref: "motor_python_humo_horno" },
+            { ref: "puesta_marcha_formacion_25h" }
+          ]
         }
       ],
       nota: "Coste adicional sobre el Mini-PC IA Central (E1, desde 590 €, según nivel): 385 €. El detector de humo/CO conectado sube de 70 € a 100 € en esta revisión: es lo que cuesta de verdad un detector conectado equivalente (tipo Nest Protect) en 2026."
@@ -368,11 +353,11 @@ const modos = [
     familia: "familia",
     publico: "casa",
     nombre: "Personas Mayores",
-    titular: "Tranquilidad para cuidar a distancia",
+    titular: "Sin cuota, para siempre — se paga sola en 1-3 años",
     subtitulo: "Teleasistencia inteligente sin cuota",
     icono: "mayores",
     resumen:
-      "Detecta ausencia prolongada de movimiento, posibles caídas mediante IA de visión, puertas abiertas demasiado tiempo, temperaturas extremas y consumo eléctrico anormal. Avisa automáticamente a uno o varios familiares por WhatsApp, sin cuota mensual.",
+      "Detecta ausencia prolongada de movimiento, posibles caídas mediante IA de visión, puertas abiertas demasiado tiempo, temperaturas extremas y consumo eléctrico anormal. Avisa automáticamente a uno o varios familiares por WhatsApp — pagas la instalación una vez y ya no hay cuota nunca más: una teleasistencia privada cuesta 20-60 €/mes (240-720 €/año) de por vida, así que esto se amortiza en 1-3 años y luego sale gratis.",
     idealPara: ["Padres o madres mayores que viven solos", "Familias que quieren tranquilidad sin cuota de teleasistencia", "Viviendas con varias generaciones"],
     precioIncremento: 540,
     ejemplo: {
@@ -381,28 +366,26 @@ const modos = [
         {
           nombre: "Esencial — ausencia de movimiento + puerta abierta",
           destacada: false,
-          items: [
-            ["Sensor de movimiento por estancia (x3)", 75],
-            ["Sensor de puerta/ventana (entrada principal)", 20],
-            ["Cableado y material", 25],
-            ["Motor Python: ausencia prolongada + puerta abierta + alertas WhatsApp a familiares", 300],
-            ["Puesta en marcha y formación (2,5 h)", 120]
-          ],
-          total: 540
+          lineas: [
+            { ref: "sensor_movimiento_estancia_x3" },
+            { ref: "sensor_puerta_ventana" },
+            { ref: "material_ia_25", label: "Cableado y material" },
+            { ref: "motor_python_ausencia_puerta" },
+            { ref: "puesta_marcha_formacion_25h_v2" }
+          ]
         },
         {
           nombre: "Inteligente — + detección de caídas por IA de visión",
           destacada: true,
-          items: [
-            ["Sensor de movimiento por estancia (x4)", 100],
-            ["Sensor de puerta/ventana (x2)", 40],
-            ["Cámara IP con IA de detección de caídas (zonas comunes)", 160],
-            ["Sensor de temperatura interior", 18],
-            ["Cableado y material", 35],
-            ["Motor Python: caídas (IA visión) + ausencia + puerta + temperatura + alertas WhatsApp", 420],
-            ["Puesta en marcha, calibración y formación (3,5 h)", 160]
-          ],
-          total: 933
+          lineas: [
+            { ref: "sensor_movimiento_estancia_x4" },
+            { ref: "sensor_puerta_ventana_x2" },
+            { ref: "camara_ip_deteccion_caidas" },
+            { ref: "sensor_temperatura_interior" },
+            { ref: "material_ia_35" },
+            { ref: "motor_python_caidas_ausencia_temp" },
+            { ref: "puesta_marcha_calibracion_formacion_35h" }
+          ]
         }
       ],
       nota: "Coste adicional sobre el Mini-PC IA Central (E1, desde 590 €, según nivel): 540 €. Ya no se ofrece este modo con equipo propio independiente. No sustituye a la teleasistencia sanitaria oficial."
@@ -430,25 +413,23 @@ const modos = [
         {
           nombre: "Esencial — aviso de llegada por WhatsApp",
           destacada: false,
-          items: [
-            ["Sensor de puerta/ventana (confirmación de entrada)", 20],
-            ["Cableado y material", 15],
-            ["Motor Python: geofencing del móvil del menor + confirmación + WhatsApp a los padres", 260],
-            ["Puesta en marcha y ajuste de perímetro GPS (2 h)", 90]
-          ],
-          total: 385
+          lineas: [
+            { ref: "sensor_puerta_ventana", label: "Sensor de puerta/ventana (confirmación de entrada)" },
+            { ref: "material_ia_15", label: "Cableado y material" },
+            { ref: "motor_python_geofencing_menor" },
+            { ref: "puesta_marcha_ajuste_gps_2h", label: "Puesta en marcha y ajuste de perímetro GPS (2 h)" }
+          ]
         },
         {
           nombre: "Inteligente — + apertura y escena de bienvenida",
           destacada: true,
-          items: [
-            ["Sensor de puerta/ventana", 20],
-            ["2 enchufes/interruptores inteligentes (luz de entrada y salón)", 50],
-            ["Cableado y material", 25],
-            ["Motor Python: geofencing + apertura (cerradura inteligente ya instalada) + escena + WhatsApp", 320],
-            ["Puesta en marcha y formación (3 h)", 130]
-          ],
-          total: 545
+          lineas: [
+            { ref: "sensor_puerta_ventana" },
+            { ref: "enchufes_inteligentes_entrada_salon_x2" },
+            { ref: "material_ia_25", label: "Cableado y material" },
+            { ref: "motor_python_geofencing_apertura_escena" },
+            { ref: "puesta_marcha_formacion_3h_v2" }
+          ]
         }
       ],
       nota: "Coste adicional sobre el Mini-PC IA Central (E1, desde 590 €, según nivel): 385 €. La opción Inteligente asume cerradura inteligente ya instalada (bloque Seguridad y Accesos)."
@@ -475,23 +456,21 @@ const modos = [
         {
           nombre: "Esencial — detección + foto + alerta WhatsApp",
           destacada: false,
-          items: [
-            ["Cámara IP de entrada con visión nocturna", 110],
-            ["Cableado y material", 15],
-            ["Motor Python: detección IA de repartidor/paquete + foto automática + alerta WhatsApp", 195]
-          ],
-          total: 320
+          lineas: [
+            { ref: "camara_ip_entrada_vision_nocturna" },
+            { ref: "material_ia_15", label: "Cableado y material" },
+            { ref: "motor_python_deteccion_paquete_foto" }
+          ]
         },
         {
           nombre: "Inteligente — + histórico de entregas",
           destacada: true,
-          items: [
-            ["Cámara IP de entrada con visión nocturna", 140],
-            ["Cableado y material", 25],
-            ["Motor Python: detección + reconocimiento de mensajería habitual + histórico", 300],
-            ["Dashboard con historial de entregas (fecha, hora, foto)", 110]
-          ],
-          total: 575
+          lineas: [
+            { ref: "camara_ip_entrada_vision_nocturna_v2" },
+            { ref: "material_ia_25", label: "Cableado y material" },
+            { ref: "motor_python_deteccion_reconocimiento_historico" },
+            { ref: "dashboard_historial_entregas" }
+          ]
         }
       ],
       nota: "Coste adicional sobre el Mini-PC IA Central (E1, desde 590 €, según nivel): 320 €. Ya no se ofrece este modo con equipo propio independiente."
@@ -505,11 +484,11 @@ const modos = [
     familia: "seguridad",
     publico: "casa",
     nombre: "Seguridad IA",
-    titular: "Que una cámara no solo grabe: que entienda lo que ocurre",
+    titular: "Sin cuota ni permanencia — la alarma con central cuesta 20-50 €/mes",
     subtitulo: "Detección de personas y vehículos, sin falsas alarmas",
     icono: "ai",
     resumen:
-      "El sistema aprende a distinguir personas y vehículos reales de falsas alarmas (un gato, una sombra, una bolsa moviéndose con el viento). Solo avisa por WhatsApp cuando de verdad importa.",
+      "El sistema aprende a distinguir personas y vehículos reales de falsas alarmas (un gato, una sombra, una bolsa moviéndose con el viento). Solo avisa por WhatsApp cuando de verdad importa — pagas la instalación una vez, sin cuota mensual ni permanencia de 24 meses como las alarmas con central receptora (20-50 €/mes, 240-620 €/año).",
     idealPara: ["Viviendas que quieren dejar de recibir alertas falsas", "Quien ya tiene cámaras y quiere añadirles análisis IA", "Chalets y segundas residencias"],
     extras: ["Reentrenamiento del modelo (ver bono de mantenimiento)", "Ampliación a panel de monitorización a medida (dashboard propio)", "Integración con CCTV cableado ya instalado"],
     tambienInstalaron: [
@@ -528,33 +507,30 @@ const modos = [
           {
             nombre: "Esencial — 2 cámaras",
             destacada: false,
-            items: [
-              ["Mano de obra y configuración del modelo de detección", 320],
-              ["2 cámaras IP compatibles (usan el Mini-PC IA Central, sin equipo propio)", 390],
-              ["Configuración de alertas por WhatsApp (API Meta) y app", 150]
-            ],
-            total: 860
+            lineas: [
+              { ref: "mo_config_deteccion_ia_320" },
+              { ref: "camaras_ip_compatibles_x2" },
+              { ref: "config_alertas_whatsapp_app" }
+            ]
           },
           {
             nombre: "Inteligente — 4 cámaras + zonas personalizadas",
             destacada: true,
-            items: [
-              ["Mano de obra y configuración", 420],
-              ["4 cámaras IP (usan el Mini-PC IA Central, sin equipo propio)", 710],
-              ["Configuración de alertas WhatsApp y zonas de detección personalizadas", 200]
-            ],
-            total: 1330
+            lineas: [
+              { ref: "mo_config_420" },
+              { ref: "camaras_ip_compatibles_x4" },
+              { ref: "config_alertas_zonas_personalizadas" }
+            ]
           },
           {
             nombre: "Completa — 6 cámaras + reconocimiento de personas habituales",
             destacada: false,
-            items: [
-              ["Mano de obra y configuración avanzada", 520],
-              ["6 cámaras IP", 900],
-              ["Servidor con GPU dedicada para reconocimiento facial en tiempo real (el mini-PC central no cubre esta carga)", 950],
-              ["Entrenamiento de reconocimiento de personas habituales y alertas WhatsApp", 350]
-            ],
-            total: 2720
+            lineas: [
+              { ref: "mo_config_avanzada_520" },
+              { ref: "camaras_ip_x6" },
+              { ref: "servidor_gpu_reconocimiento_facial" },
+              { ref: "entrenamiento_reconocimiento_alertas" }
+            ]
           }
         ]
       }
@@ -587,38 +563,35 @@ const modos = [
         {
           nombre: "Esencial — reconocimiento en la puerta principal",
           destacada: false,
-          items: [
-            ["Cámara IP en el acceso con reconocimiento facial", 180],
-            ["Configuración del modelo de reconocimiento (hasta 6 personas)", 260],
-            ["Integración con cerradura/abrepuertas ya instalado", 90],
-            ["Alertas por WhatsApp ante acceso no reconocido (con foto)", 90]
-          ],
-          total: 620
+          lineas: [
+            { ref: "camara_ip_acceso_reconocimiento_facial" },
+            { ref: "config_modelo_reconocimiento_6p" },
+            { ref: "integracion_cerradura_abrepuertas" },
+            { ref: "alertas_whatsapp_acceso_no_reconocido" }
+          ]
         },
         {
           nombre: "Inteligente — + apertura automática de garaje ⭐",
           destacada: true,
-          items: [
-            ["Cámara IP en el acceso con reconocimiento facial", 180],
-            ["Cámara IP en la entrada del garaje con visión nocturna", 220],
-            ["Configuración del modelo de reconocimiento de personas y matrículas (hasta 6)", 480],
-            ["Integración con cerradura y motor de garaje ya instalados", 180],
-            ["Alertas por WhatsApp ante acceso no reconocido (con foto)", 90]
-          ],
-          total: 1150
+          lineas: [
+            { ref: "camara_ip_acceso_reconocimiento_facial" },
+            { ref: "camara_ip_garaje_vision_nocturna" },
+            { ref: "config_modelo_reconocimiento_matriculas_6" },
+            { ref: "integracion_cerradura_motor_garaje" },
+            { ref: "alertas_whatsapp_acceso_no_reconocido" }
+          ]
         },
         {
           nombre: "Completa — + accesos temporales y registro",
           destacada: false,
-          items: [
-            ["Cámara IP en el acceso con reconocimiento facial", 180],
-            ["Cámara IP en la entrada del garaje con visión nocturna", 220],
-            ["Configuración del modelo de reconocimiento de personas y matrículas (ilimitados)", 620],
-            ["Integración con cerradura y motor de garaje ya instalados", 180],
-            ["Accesos temporales programables (repartidores, limpieza, visitas) + histórico", 260],
-            ["Alertas por WhatsApp ante acceso no reconocido (con foto)", 90]
-          ],
-          total: 1550
+          lineas: [
+            { ref: "camara_ip_acceso_reconocimiento_facial" },
+            { ref: "camara_ip_garaje_vision_nocturna" },
+            { ref: "config_modelo_reconocimiento_matriculas_ilimitado" },
+            { ref: "integracion_cerradura_motor_garaje" },
+            { ref: "accesos_temporales_historico" },
+            { ref: "alertas_whatsapp_acceso_no_reconocido" }
+          ]
         }
       ],
       nota: "Coste adicional sobre el Mini-PC IA Central (E1, desde 590 €, según nivel): desde 620 €. Asume cerradura inteligente y/o motor de garaje ya instalados (bloque Seguridad y Accesos)."

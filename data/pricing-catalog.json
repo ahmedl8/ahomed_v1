@@ -9,7 +9,7 @@
       "referencia"
     ],
     "reglaVolumen": "Cuando un mismo dispositivo se instala varias veces en el mismo trabajo, la 1ª unidad lleva las horas de mano de obra completas (incluye desplazamiento/preparación) y las unidades adicionales llevan menos horas — mismo patrón que usan electricistas reales (1ª hora a tarifa completa, resto a tarifa reducida). El precio del dispositivo en sí no varía por volumen.",
-    "fase": "4 de N — completo: los 14 servicios de casa + naves catalogados, sin cambios de precio salvo energia-solar y CCTV/seguridad (fase 2, con evidencia de mercado)"
+    "fase": "5 de N — añadido Mini-PC IA START/PRO y los 11 modos de la Plataforma IA Predictiva"
   },
   "componentes": [
     {
@@ -2296,6 +2296,904 @@
       "area": "seguridad",
       "unidad": "unidad",
       "precio": 140
+    },
+    {
+      "id": "minipc_ia_start",
+      "nombre": "Mini-PC IA (Ryzen 5 7530U o equivalente, 16 GB RAM, 512 GB SSD)",
+      "tipo": "dispositivo",
+      "area": "ia-predictiva",
+      "unidad": "unidad",
+      "precio": 430
+    },
+    {
+      "id": "minipc_ia_pro",
+      "nombre": "Mini-PC IA (Ryzen 7 8845HS o equivalente, 32 GB RAM, 1 TB SSD, NPU ~16 TOPS)",
+      "tipo": "dispositivo",
+      "area": "ia-predictiva",
+      "unidad": "unidad",
+      "precio": 700
+    },
+    {
+      "id": "motor_python_start",
+      "nombre": "Instalación del motor Python + modelos YOLO26 (orquestador de modos)",
+      "tipo": "mano_obra",
+      "area": "ia-predictiva",
+      "unidad": "lote",
+      "precio": 90
+    },
+    {
+      "id": "motor_python_pro",
+      "nombre": "Instalación del motor Python + modelos YOLO26 (orquestador de modos)",
+      "tipo": "mano_obra",
+      "area": "ia-predictiva",
+      "unidad": "lote",
+      "precio": 130
+    },
+    {
+      "id": "dashboard_control_start",
+      "nombre": "Dashboard de control unificado",
+      "tipo": "mano_obra",
+      "area": "ia-predictiva",
+      "unidad": "lote",
+      "precio": 40
+    },
+    {
+      "id": "dashboard_control_pro",
+      "nombre": "Dashboard de control unificado",
+      "tipo": "mano_obra",
+      "area": "ia-predictiva",
+      "unidad": "lote",
+      "precio": 50
+    },
+    {
+      "id": "integracion_whatsapp_api",
+      "nombre": "Integración WhatsApp Business API",
+      "tipo": "mano_obra",
+      "area": "ia-predictiva",
+      "unidad": "lote",
+      "precio": 30
+    },
+    {
+      "id": "ups_proteccion",
+      "nombre": "UPS de protección (evita corrupción de datos ante cortes de luz)",
+      "tipo": "dispositivo",
+      "area": "ia-predictiva",
+      "unidad": "unidad",
+      "precio": 40
+    },
+    {
+      "id": "controlador_riego_wifi_4z_shelly",
+      "nombre": "Controlador de riego WiFi 4 zonas (Shelly o similar)",
+      "tipo": "dispositivo",
+      "area": "ia-predictiva",
+      "unidad": "unidad",
+      "precio": 55
+    },
+    {
+      "id": "sensores_temp_humedad_ext_x2",
+      "nombre": "Sensores de temperatura/humedad exterior (x2)",
+      "tipo": "dispositivo",
+      "area": "ia-predictiva",
+      "unidad": "unidad",
+      "precio": 30
+    },
+    {
+      "id": "material_ia_25",
+      "nombre": "Cableado y material de instalación",
+      "tipo": "material",
+      "area": "ia-predictiva",
+      "unidad": "lote",
+      "precio": 25
+    },
+    {
+      "id": "config_motor_clima_riego",
+      "nombre": "Configuración del motor Python (API clima + lógica de riego)",
+      "tipo": "mano_obra",
+      "area": "ia-predictiva",
+      "unidad": "lote",
+      "precio": 280
+    },
+    {
+      "id": "integracion_app_dashboard_basico",
+      "nombre": "Integración con app móvil y dashboard básico",
+      "tipo": "mano_obra",
+      "area": "ia-predictiva",
+      "unidad": "lote",
+      "precio": 120
+    },
+    {
+      "id": "puesta_marcha_formacion_2h",
+      "nombre": "Puesta en marcha y formación (2 h)",
+      "tipo": "mano_obra",
+      "area": "ia-predictiva",
+      "unidad": "lote",
+      "precio": 90
+    },
+    {
+      "id": "motores_persiana_wifi_x4_shelly",
+      "nombre": "4 motores de persiana WiFi (Shelly 2.5 o equivalente)",
+      "tipo": "dispositivo",
+      "area": "ia-predictiva",
+      "unidad": "unidad",
+      "precio": 220
+    },
+    {
+      "id": "sensores_ext_temp_hum_lluvia",
+      "nombre": "Sensores exterior temperatura/humedad/lluvia",
+      "tipo": "dispositivo",
+      "area": "ia-predictiva",
+      "unidad": "unidad",
+      "precio": 45
+    },
+    {
+      "id": "material_ia_60",
+      "nombre": "Cableado, canal y material",
+      "tipo": "material",
+      "area": "ia-predictiva",
+      "unidad": "lote",
+      "precio": 60
+    },
+    {
+      "id": "motor_python_clima_riego_persianas",
+      "nombre": "Motor Python: lógica climática + riego + persianas + alertas WhatsApp",
+      "tipo": "mano_obra",
+      "area": "ia-predictiva",
+      "unidad": "lote",
+      "precio": 380
+    },
+    {
+      "id": "dashboard_web_personalizado",
+      "nombre": "Dashboard web personalizado (consulta desde móvil)",
+      "tipo": "mano_obra",
+      "area": "ia-predictiva",
+      "unidad": "lote",
+      "precio": 180
+    },
+    {
+      "id": "puesta_marcha_formacion_3h",
+      "nombre": "Puesta en marcha y formación (3 h)",
+      "tipo": "mano_obra",
+      "area": "ia-predictiva",
+      "unidad": "lote",
+      "precio": 130
+    },
+    {
+      "id": "enchufes_inteligentes_wifi_x2",
+      "nombre": "2 enchufes inteligentes WiFi (Shelly Plug)",
+      "tipo": "dispositivo",
+      "area": "ia-predictiva",
+      "unidad": "unidad",
+      "precio": 40
+    },
+    {
+      "id": "tira_led_salon_controlador_wifi",
+      "nombre": "1 tira LED salón con controlador WiFi",
+      "tipo": "dispositivo",
+      "area": "ia-predictiva",
+      "unidad": "unidad",
+      "precio": 55
+    },
+    {
+      "id": "termostato_wifi_inteligente",
+      "nombre": "Termostato WiFi inteligente",
+      "tipo": "dispositivo",
+      "area": "ia-predictiva",
+      "unidad": "unidad",
+      "precio": 75
+    },
+    {
+      "id": "material_ia_20",
+      "nombre": "Cableado y material",
+      "tipo": "material",
+      "area": "ia-predictiva",
+      "unidad": "lote",
+      "precio": 20
+    },
+    {
+      "id": "config_motor_geofencing",
+      "nombre": "Configuración del motor de geofencing (GPS móvil → escenas)",
+      "tipo": "mano_obra",
+      "area": "ia-predictiva",
+      "unidad": "lote",
+      "precio": 240
+    },
+    {
+      "id": "escenas_3_app_control",
+      "nombre": "3 escenas configuradas + app de control",
+      "tipo": "mano_obra",
+      "area": "ia-predictiva",
+      "unidad": "lote",
+      "precio": 100
+    },
+    {
+      "id": "puesta_marcha_ajuste_gps_2h",
+      "nombre": "Puesta en marcha y ajuste de perímetros GPS (2 h)",
+      "tipo": "mano_obra",
+      "area": "ia-predictiva",
+      "unidad": "lote",
+      "precio": 90
+    },
+    {
+      "id": "material_ia_75",
+      "nombre": "Cableado y material",
+      "tipo": "material",
+      "area": "ia-predictiva",
+      "unidad": "lote",
+      "precio": 75
+    },
+    {
+      "id": "config_motor_geofencing_reducido",
+      "nombre": "Configuración del motor de geofencing (GPS móvil → escenas)",
+      "tipo": "mano_obra",
+      "area": "ia-predictiva",
+      "unidad": "lote",
+      "precio": 20
+    },
+    {
+      "id": "escenas_3_presencia_app",
+      "nombre": "3 escenas configuradas + simulación de presencia + app de control",
+      "tipo": "mano_obra",
+      "area": "ia-predictiva",
+      "unidad": "lote",
+      "precio": 240
+    },
+    {
+      "id": "motores_persiana_wifi_x2_dormitorio",
+      "nombre": "2 motores de persiana WiFi (dormitorio principal)",
+      "tipo": "dispositivo",
+      "area": "ia-predictiva",
+      "unidad": "unidad",
+      "precio": 110
+    },
+    {
+      "id": "tira_led_regulable_temp_color",
+      "nombre": "Tira LED regulable (temperatura de color cálido/frío)",
+      "tipo": "dispositivo",
+      "area": "ia-predictiva",
+      "unidad": "unidad",
+      "precio": 65
+    },
+    {
+      "id": "sensor_luminosidad_exterior",
+      "nombre": "Sensor de luminosidad exterior",
+      "tipo": "dispositivo",
+      "area": "ia-predictiva",
+      "unidad": "unidad",
+      "precio": 18
+    },
+    {
+      "id": "config_motor_sueno",
+      "nombre": "Configuración del motor de sueño: horarios + amanecer gradual",
+      "tipo": "mano_obra",
+      "area": "ia-predictiva",
+      "unidad": "lote",
+      "precio": 220
+    },
+    {
+      "id": "integracion_alarma_movil",
+      "nombre": "Integración con alarma del móvil (vía API o IFTTT)",
+      "tipo": "mano_obra",
+      "area": "ia-predictiva",
+      "unidad": "lote",
+      "precio": 90
+    },
+    {
+      "id": "tira_led_regulable_temp_color_v2",
+      "nombre": "Tira LED regulable (temperatura de color cálido/frío)",
+      "tipo": "dispositivo",
+      "area": "ia-predictiva",
+      "unidad": "unidad",
+      "precio": 110
+    },
+    {
+      "id": "sensor_luminosidad_ext_v2",
+      "nombre": "Sensor de luminosidad exterior",
+      "tipo": "dispositivo",
+      "area": "ia-predictiva",
+      "unidad": "unidad",
+      "precio": 65
+    },
+    {
+      "id": "config_motor_sueno_reducido",
+      "nombre": "Configuración del motor de sueño: horarios + amanecer gradual",
+      "tipo": "mano_obra",
+      "area": "ia-predictiva",
+      "unidad": "lote",
+      "precio": 25
+    },
+    {
+      "id": "integracion_alarma_movil_v2",
+      "nombre": "Integración con alarma del móvil (vía API o IFTTT)",
+      "tipo": "mano_obra",
+      "area": "ia-predictiva",
+      "unidad": "lote",
+      "precio": 220
+    },
+    {
+      "id": "sensor_co2_temp_hum_scd40",
+      "nombre": "Sensor CO₂ + temperatura + humedad (SCD40 o equivalente)",
+      "tipo": "dispositivo",
+      "area": "ia-predictiva",
+      "unidad": "unidad",
+      "precio": 45
+    },
+    {
+      "id": "material_ia_15",
+      "nombre": "Cableado y material mínimo",
+      "tipo": "material",
+      "area": "ia-predictiva",
+      "unidad": "lote",
+      "precio": 15
+    },
+    {
+      "id": "motor_python_umbrales_alertas",
+      "nombre": "Motor Python: lectura continua + umbrales + alertas WhatsApp",
+      "tipo": "mano_obra",
+      "area": "ia-predictiva",
+      "unidad": "lote",
+      "precio": 200
+    },
+    {
+      "id": "dashboard_basico_historico_7d",
+      "nombre": "Dashboard básico con histórico 7 días",
+      "tipo": "mano_obra",
+      "area": "ia-predictiva",
+      "unidad": "lote",
+      "precio": 100
+    },
+    {
+      "id": "puesta_marcha_calibracion_15h",
+      "nombre": "Puesta en marcha y calibración (1,5 h)",
+      "tipo": "mano_obra",
+      "area": "ia-predictiva",
+      "unidad": "lote",
+      "precio": 70
+    },
+    {
+      "id": "sensor_co2_voc_multisensor",
+      "nombre": "Sensor CO₂ + VOC + temperatura + humedad (multi-sensor)",
+      "tipo": "dispositivo",
+      "area": "ia-predictiva",
+      "unidad": "unidad",
+      "precio": 85
+    },
+    {
+      "id": "extractor_wifi_x2",
+      "nombre": "Extractor de baño/cocina WiFi inteligente (x2)",
+      "tipo": "dispositivo",
+      "area": "ia-predictiva",
+      "unidad": "unidad",
+      "precio": 80
+    },
+    {
+      "id": "material_ia_40",
+      "nombre": "Cableado y material de instalación",
+      "tipo": "material",
+      "area": "ia-predictiva",
+      "unidad": "lote",
+      "precio": 40
+    },
+    {
+      "id": "motor_python_umbrales_ventilacion",
+      "nombre": "Motor Python: umbrales adaptativos + control de ventilación + histórico",
+      "tipo": "mano_obra",
+      "area": "ia-predictiva",
+      "unidad": "lote",
+      "precio": 280
+    },
+    {
+      "id": "dashboard_tiempo_real_recomendaciones",
+      "nombre": "Dashboard en tiempo real + recomendaciones automáticas de ventilación",
+      "tipo": "mano_obra",
+      "area": "ia-predictiva",
+      "unidad": "lote",
+      "precio": 140
+    },
+    {
+      "id": "alertas_whatsapp_resumen_diario",
+      "nombre": "Alertas personalizadas por WhatsApp (alerta inmediata + resumen diario)",
+      "tipo": "mano_obra",
+      "area": "ia-predictiva",
+      "unidad": "lote",
+      "precio": 80
+    },
+    {
+      "id": "puesta_marcha_calibracion_25h",
+      "nombre": "Puesta en marcha y calibración (2,5 h)",
+      "tipo": "mano_obra",
+      "area": "ia-predictiva",
+      "unidad": "lote",
+      "precio": 120
+    },
+    {
+      "id": "camara_ip_audio_bidireccional",
+      "nombre": "Cámara IP con audio bidireccional",
+      "tipo": "dispositivo",
+      "area": "ia-predictiva",
+      "unidad": "unidad",
+      "precio": 110
+    },
+    {
+      "id": "sensor_nivel_bebedero",
+      "nombre": "Sensor de nivel de bebedero",
+      "tipo": "dispositivo",
+      "area": "ia-predictiva",
+      "unidad": "unidad",
+      "precio": 35
+    },
+    {
+      "id": "motor_python_ladridos_alertas",
+      "nombre": "Motor Python: detección de ladridos prolongados + alertas WhatsApp",
+      "tipo": "mano_obra",
+      "area": "ia-predictiva",
+      "unidad": "lote",
+      "precio": 180
+    },
+    {
+      "id": "puesta_marcha_15h",
+      "nombre": "Puesta en marcha (1,5 h)",
+      "tipo": "mano_obra",
+      "area": "ia-predictiva",
+      "unidad": "lote",
+      "precio": 65
+    },
+    {
+      "id": "camara_ip_audio_vision_nocturna",
+      "nombre": "Cámara IP con audio bidireccional y visión nocturna",
+      "tipo": "dispositivo",
+      "area": "ia-predictiva",
+      "unidad": "unidad",
+      "precio": 140
+    },
+    {
+      "id": "comedero_automatico_conectado",
+      "nombre": "Comedero automático conectado (raciones programadas)",
+      "tipo": "dispositivo",
+      "area": "ia-predictiva",
+      "unidad": "unidad",
+      "precio": 120
+    },
+    {
+      "id": "sensor_temperatura_estancia",
+      "nombre": "Sensor de temperatura de la estancia",
+      "tipo": "dispositivo",
+      "area": "ia-predictiva",
+      "unidad": "unidad",
+      "precio": 20
+    },
+    {
+      "id": "motor_python_comida_temp_ladridos",
+      "nombre": "Motor Python: comida/agua/temperatura + detección de ladridos + alertas WhatsApp",
+      "tipo": "mano_obra",
+      "area": "ia-predictiva",
+      "unidad": "lote",
+      "precio": 280
+    },
+    {
+      "id": "detector_humo_co_conectado",
+      "nombre": "Detector de humo/CO conectado",
+      "tipo": "dispositivo",
+      "area": "ia-predictiva",
+      "unidad": "unidad",
+      "precio": 100,
+      "nota": "Sube de 70€ a 100€ en la revisión de agosto 2026: es lo que cuesta de verdad un detector conectado equivalente (tipo Nest Protect)"
+    },
+    {
+      "id": "motor_python_humo_alerta",
+      "nombre": "Motor Python: lectura continua + alerta WhatsApp inmediata",
+      "tipo": "mano_obra",
+      "area": "ia-predictiva",
+      "unidad": "lote",
+      "precio": 180
+    },
+    {
+      "id": "extractor_cocina_wifi",
+      "nombre": "Extractor de cocina WiFi inteligente",
+      "tipo": "dispositivo",
+      "area": "ia-predictiva",
+      "unidad": "unidad",
+      "precio": 80
+    },
+    {
+      "id": "enchufe_rele_horno_vitro",
+      "nombre": "Enchufe/relé inteligente en horno o vitro",
+      "tipo": "dispositivo",
+      "area": "ia-predictiva",
+      "unidad": "unidad",
+      "precio": 45
+    },
+    {
+      "id": "material_ia_30",
+      "nombre": "Cableado y material",
+      "tipo": "material",
+      "area": "ia-predictiva",
+      "unidad": "lote",
+      "precio": 30
+    },
+    {
+      "id": "motor_python_humo_horno",
+      "nombre": "Motor Python: humo → extractor + alerta; horno encendido al salir → pregunta WhatsApp",
+      "tipo": "mano_obra",
+      "area": "ia-predictiva",
+      "unidad": "lote",
+      "precio": 320
+    },
+    {
+      "id": "puesta_marcha_formacion_25h",
+      "nombre": "Puesta en marcha y formación (2,5 h)",
+      "tipo": "mano_obra",
+      "area": "ia-predictiva",
+      "unidad": "lote",
+      "precio": 120
+    },
+    {
+      "id": "sensor_movimiento_estancia_x3",
+      "nombre": "Sensor de movimiento por estancia (x3)",
+      "tipo": "dispositivo",
+      "area": "ia-predictiva",
+      "unidad": "unidad",
+      "precio": 75
+    },
+    {
+      "id": "sensor_puerta_ventana",
+      "nombre": "Sensor de puerta/ventana (entrada principal)",
+      "tipo": "dispositivo",
+      "area": "ia-predictiva",
+      "unidad": "unidad",
+      "precio": 20
+    },
+    {
+      "id": "motor_python_ausencia_puerta",
+      "nombre": "Motor Python: ausencia prolongada + puerta abierta + alertas WhatsApp a familiares",
+      "tipo": "mano_obra",
+      "area": "ia-predictiva",
+      "unidad": "lote",
+      "precio": 300
+    },
+    {
+      "id": "puesta_marcha_formacion_25h_v2",
+      "nombre": "Puesta en marcha y formación (2,5 h)",
+      "tipo": "mano_obra",
+      "area": "ia-predictiva",
+      "unidad": "lote",
+      "precio": 120
+    },
+    {
+      "id": "sensor_movimiento_estancia_x4",
+      "nombre": "Sensor de movimiento por estancia (x4)",
+      "tipo": "dispositivo",
+      "area": "ia-predictiva",
+      "unidad": "unidad",
+      "precio": 100
+    },
+    {
+      "id": "sensor_puerta_ventana_x2",
+      "nombre": "Sensor de puerta/ventana (x2)",
+      "tipo": "dispositivo",
+      "area": "ia-predictiva",
+      "unidad": "unidad",
+      "precio": 40
+    },
+    {
+      "id": "camara_ip_deteccion_caidas",
+      "nombre": "Cámara IP con IA de detección de caídas (zonas comunes)",
+      "tipo": "dispositivo",
+      "area": "ia-predictiva",
+      "unidad": "unidad",
+      "precio": 160
+    },
+    {
+      "id": "sensor_temperatura_interior",
+      "nombre": "Sensor de temperatura interior",
+      "tipo": "dispositivo",
+      "area": "ia-predictiva",
+      "unidad": "unidad",
+      "precio": 18
+    },
+    {
+      "id": "material_ia_35",
+      "nombre": "Cableado y material",
+      "tipo": "material",
+      "area": "ia-predictiva",
+      "unidad": "lote",
+      "precio": 35
+    },
+    {
+      "id": "motor_python_caidas_ausencia_temp",
+      "nombre": "Motor Python: caídas (IA visión) + ausencia + puerta + temperatura + alertas WhatsApp",
+      "tipo": "mano_obra",
+      "area": "ia-predictiva",
+      "unidad": "lote",
+      "precio": 420
+    },
+    {
+      "id": "puesta_marcha_calibracion_formacion_35h",
+      "nombre": "Puesta en marcha, calibración y formación (3,5 h)",
+      "tipo": "mano_obra",
+      "area": "ia-predictiva",
+      "unidad": "lote",
+      "precio": 160
+    },
+    {
+      "id": "motor_python_geofencing_menor",
+      "nombre": "Motor Python: geofencing del móvil del menor + confirmación + WhatsApp a los padres",
+      "tipo": "mano_obra",
+      "area": "ia-predictiva",
+      "unidad": "lote",
+      "precio": 260
+    },
+    {
+      "id": "enchufes_inteligentes_entrada_salon_x2",
+      "nombre": "2 enchufes/interruptores inteligentes (luz de entrada y salón)",
+      "tipo": "dispositivo",
+      "area": "ia-predictiva",
+      "unidad": "unidad",
+      "precio": 50
+    },
+    {
+      "id": "motor_python_geofencing_apertura_escena",
+      "nombre": "Motor Python: geofencing + apertura (cerradura inteligente ya instalada) + escena + WhatsApp",
+      "tipo": "mano_obra",
+      "area": "ia-predictiva",
+      "unidad": "lote",
+      "precio": 320
+    },
+    {
+      "id": "puesta_marcha_formacion_3h_v2",
+      "nombre": "Puesta en marcha y formación (3 h)",
+      "tipo": "mano_obra",
+      "area": "ia-predictiva",
+      "unidad": "lote",
+      "precio": 130
+    },
+    {
+      "id": "camara_ip_entrada_vision_nocturna",
+      "nombre": "Cámara IP de entrada con visión nocturna",
+      "tipo": "dispositivo",
+      "area": "ia-predictiva",
+      "unidad": "unidad",
+      "precio": 110
+    },
+    {
+      "id": "motor_python_deteccion_paquete_foto",
+      "nombre": "Motor Python: detección IA de repartidor/paquete + foto automática + alerta WhatsApp",
+      "tipo": "mano_obra",
+      "area": "ia-predictiva",
+      "unidad": "lote",
+      "precio": 195
+    },
+    {
+      "id": "camara_ip_entrada_vision_nocturna_v2",
+      "nombre": "Cámara IP de entrada con visión nocturna",
+      "tipo": "dispositivo",
+      "area": "ia-predictiva",
+      "unidad": "unidad",
+      "precio": 140
+    },
+    {
+      "id": "motor_python_deteccion_reconocimiento_historico",
+      "nombre": "Motor Python: detección + reconocimiento de mensajería habitual + histórico",
+      "tipo": "mano_obra",
+      "area": "ia-predictiva",
+      "unidad": "lote",
+      "precio": 300
+    },
+    {
+      "id": "dashboard_historial_entregas",
+      "nombre": "Dashboard con historial de entregas (fecha, hora, foto)",
+      "tipo": "mano_obra",
+      "area": "ia-predictiva",
+      "unidad": "lote",
+      "precio": 110
+    },
+    {
+      "id": "mo_config_deteccion_ia_320",
+      "nombre": "Mano de obra y configuración del modelo de detección",
+      "tipo": "mano_obra",
+      "area": "ia-predictiva",
+      "unidad": "lote",
+      "precio": 320
+    },
+    {
+      "id": "camaras_ip_compatibles_x2",
+      "nombre": "2 cámaras IP compatibles (usan el Mini-PC IA Central, sin equipo propio)",
+      "tipo": "dispositivo",
+      "area": "ia-predictiva",
+      "unidad": "unidad",
+      "precio": 390
+    },
+    {
+      "id": "config_alertas_whatsapp_app",
+      "nombre": "Configuración de alertas por WhatsApp (API Meta) y app",
+      "tipo": "mano_obra",
+      "area": "ia-predictiva",
+      "unidad": "lote",
+      "precio": 150
+    },
+    {
+      "id": "mo_config_420",
+      "nombre": "Mano de obra y configuración",
+      "tipo": "mano_obra",
+      "area": "ia-predictiva",
+      "unidad": "lote",
+      "precio": 420
+    },
+    {
+      "id": "camaras_ip_compatibles_x4",
+      "nombre": "4 cámaras IP (usan el Mini-PC IA Central, sin equipo propio)",
+      "tipo": "dispositivo",
+      "area": "ia-predictiva",
+      "unidad": "unidad",
+      "precio": 710
+    },
+    {
+      "id": "config_alertas_zonas_personalizadas",
+      "nombre": "Configuración de alertas WhatsApp y zonas de detección personalizadas",
+      "tipo": "mano_obra",
+      "area": "ia-predictiva",
+      "unidad": "lote",
+      "precio": 200
+    },
+    {
+      "id": "mo_config_avanzada_520",
+      "nombre": "Mano de obra y configuración avanzada",
+      "tipo": "mano_obra",
+      "area": "ia-predictiva",
+      "unidad": "lote",
+      "precio": 520
+    },
+    {
+      "id": "camaras_ip_x6",
+      "nombre": "6 cámaras IP",
+      "tipo": "dispositivo",
+      "area": "ia-predictiva",
+      "unidad": "unidad",
+      "precio": 900
+    },
+    {
+      "id": "servidor_gpu_reconocimiento_facial",
+      "nombre": "Servidor con GPU dedicada para reconocimiento facial en tiempo real (el mini-PC central no cubre esta carga)",
+      "tipo": "dispositivo",
+      "area": "ia-predictiva",
+      "unidad": "unidad",
+      "precio": 950
+    },
+    {
+      "id": "entrenamiento_reconocimiento_alertas",
+      "nombre": "Entrenamiento de reconocimiento de personas habituales y alertas WhatsApp",
+      "tipo": "mano_obra",
+      "area": "ia-predictiva",
+      "unidad": "lote",
+      "precio": 350
+    },
+    {
+      "id": "camara_ip_acceso_reconocimiento_facial",
+      "nombre": "Cámara IP en el acceso con reconocimiento facial",
+      "tipo": "dispositivo",
+      "area": "ia-predictiva",
+      "unidad": "unidad",
+      "precio": 180
+    },
+    {
+      "id": "config_modelo_reconocimiento_6p",
+      "nombre": "Configuración del modelo de reconocimiento (hasta 6 personas)",
+      "tipo": "mano_obra",
+      "area": "ia-predictiva",
+      "unidad": "lote",
+      "precio": 260
+    },
+    {
+      "id": "integracion_cerradura_abrepuertas",
+      "nombre": "Integración con cerradura/abrepuertas ya instalado",
+      "tipo": "mano_obra",
+      "area": "ia-predictiva",
+      "unidad": "lote",
+      "precio": 90
+    },
+    {
+      "id": "alertas_whatsapp_acceso_no_reconocido",
+      "nombre": "Alertas por WhatsApp ante acceso no reconocido (con foto)",
+      "tipo": "mano_obra",
+      "area": "ia-predictiva",
+      "unidad": "lote",
+      "precio": 90
+    },
+    {
+      "id": "camara_ip_garaje_vision_nocturna",
+      "nombre": "Cámara IP en la entrada del garaje con visión nocturna",
+      "tipo": "dispositivo",
+      "area": "ia-predictiva",
+      "unidad": "unidad",
+      "precio": 220
+    },
+    {
+      "id": "config_modelo_reconocimiento_matriculas_6",
+      "nombre": "Configuración del modelo de reconocimiento de personas y matrículas (hasta 6)",
+      "tipo": "mano_obra",
+      "area": "ia-predictiva",
+      "unidad": "lote",
+      "precio": 480
+    },
+    {
+      "id": "integracion_cerradura_motor_garaje",
+      "nombre": "Integración con cerradura y motor de garaje ya instalados",
+      "tipo": "mano_obra",
+      "area": "ia-predictiva",
+      "unidad": "lote",
+      "precio": 180
+    },
+    {
+      "id": "config_modelo_reconocimiento_matriculas_ilimitado",
+      "nombre": "Configuración del modelo de reconocimiento de personas y matrículas (ilimitados)",
+      "tipo": "mano_obra",
+      "area": "ia-predictiva",
+      "unidad": "lote",
+      "precio": 620
+    },
+    {
+      "id": "accesos_temporales_historico",
+      "nombre": "Accesos temporales programables (repartidores, limpieza, visitas) + histórico",
+      "tipo": "mano_obra",
+      "area": "ia-predictiva",
+      "unidad": "lote",
+      "precio": 260
+    },
+    {
+      "id": "cuadro_electrico_boletin_pack",
+      "nombre": "Cuadro eléctrico nuevo + boletín eléctrico (CIE)",
+      "tipo": "material",
+      "area": "electricidad",
+      "unidad": "lote",
+      "precio": 520,
+      "nota": "Paquete de pack: cuadro + boletín juntos, precio de conjunto (equivalente a cuadro_12_elementos + boletin_cie + mano de obra ya incluida)"
+    },
+    {
+      "id": "config_seguridad_ia_camara_existente",
+      "nombre": "Configuración de Seguridad IA sobre cámara ya instalada en el pack (detección de personas/vehículos, alertas WhatsApp)",
+      "tipo": "mano_obra",
+      "area": "ia-predictiva",
+      "unidad": "lote",
+      "precio": 190
+    },
+    {
+      "id": "iluminacion_led_salon_pasillo_8p",
+      "nombre": "Iluminación LED en salón y pasillo (8 puntos de luz)",
+      "tipo": "dispositivo",
+      "area": "domotica",
+      "unidad": "lote",
+      "precio": 280
+    },
+    {
+      "id": "wifi_mesh_2pt_config",
+      "nombre": "Red WiFi mesh 2 puntos de acceso + configuración",
+      "tipo": "dispositivo",
+      "area": "redes",
+      "unidad": "lote",
+      "precio": 285
+    },
+    {
+      "id": "wifi_mesh_3pt_config",
+      "nombre": "Red WiFi mesh 3 puntos de acceso + configuración",
+      "tipo": "dispositivo",
+      "area": "redes",
+      "unidad": "lote",
+      "precio": 380
+    },
+    {
+      "id": "videoportero_inteligente_pack",
+      "nombre": "Videoportero inteligente (instalación incluida)",
+      "tipo": "dispositivo",
+      "area": "seguridad",
+      "unidad": "unidad",
+      "precio": 300
+    },
+    {
+      "id": "camara_ip_exterior_entrada",
+      "nombre": "Cámara IP exterior (entrada/puerta principal)",
+      "tipo": "dispositivo",
+      "area": "seguridad",
+      "unidad": "unidad",
+      "precio": 280
     }
   ]
 }

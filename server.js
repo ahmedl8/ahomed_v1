@@ -6,7 +6,7 @@ const helmet = require("helmet");
 
 const { translate } = require("./i18n/content");
 const uiStrings = require("./i18n/ui");
-const { resolverServicios } = require("./data/pricing");
+const { resolverServicios, resolverModos, resolverNiveles } = require("./data/pricing");
 
 const {
   services: servicesRaw,
@@ -166,14 +166,18 @@ app.use((req, res, next) => {
   res.locals.icons = icons;
   res.locals.bloques = translate("bloques", bloquesRaw, lang);
   res.locals.services = translate("services", resolverServicios(servicesRaw), lang);
-  res.locals.packs = translate("packs", packsRaw, lang);
+  res.locals.packs = translate("packs", resolverServicios(packsRaw), lang);
   res.locals.ventajas = translate("ventajas", ventajasRaw, lang);
   res.locals.comoFunciona = translate("comoFunciona", comoFuncionaRaw, lang);
   res.locals.escenarios = translate("escenarios", escenariosRaw, lang);
   res.locals.galeria = translate("galeria", galeriaRaw, lang);
-  res.locals.modosIA = translate("modos", modosIARaw, lang);
+  res.locals.modosIA = translate("modos", resolverModos(modosIARaw), lang);
   res.locals.familiasIA = translate("familiasIA", familiasIARaw, lang);
-  res.locals.instalacionBase = translate("instalacionBase", instalacionBaseRaw, lang);
+  res.locals.instalacionBase = translate(
+    "instalacionBase",
+    { ...instalacionBaseRaw, niveles: resolverNiveles(instalacionBaseRaw.niveles) },
+    lang
+  );
   res.locals.seguridadIANaves = translate("seguridadIANaves", seguridadIANavesRaw, lang);
   res.locals.totalModos = modosIARaw.length;
   res.locals.metaDescription = res.locals.empresa.metaDescriptionDefault;

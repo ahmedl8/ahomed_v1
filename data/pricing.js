@@ -97,17 +97,27 @@ function resolverOpciones(opciones) {
   return opciones.map(resolverOpcion);
 }
 
-// Recorre un servicio completo y resuelve .ejemplo.opciones y
-// .ejemplosAdicionales[].opciones en el sitio, dejando el resto del objeto
-// intacto. Devuelve un objeto nuevo (no muta el original) para que
-// data/services.js pueda seguir siendo la fuente de datos "cruda".
+// Recorre un servicio o pack completo y resuelve .opciones (packs),
+// .ejemplo.opciones, .ejemplosAdicionales[].opciones y .ejemplos[].opciones
+// (servicios y modos IA) — los 4 sitios donde services.js e ia-predictiva.js
+// guardan opciones de precio, dejando el resto del objeto intacto. Devuelve
+// un objeto nuevo (no muta el original) para que los ficheros de datos sigan
+// siendo la fuente "cruda".
 function resolverServicio(service) {
   const resuelto = { ...service };
+  if (resuelto.opciones) {
+    resuelto.opciones = resolverOpciones(resuelto.opciones);
+  }
   if (resuelto.ejemplo && resuelto.ejemplo.opciones) {
     resuelto.ejemplo = { ...resuelto.ejemplo, opciones: resolverOpciones(resuelto.ejemplo.opciones) };
   }
   if (resuelto.ejemplosAdicionales) {
     resuelto.ejemplosAdicionales = resuelto.ejemplosAdicionales.map((ej) =>
+      ej.opciones ? { ...ej, opciones: resolverOpciones(ej.opciones) } : ej
+    );
+  }
+  if (resuelto.ejemplos) {
+    resuelto.ejemplos = resuelto.ejemplos.map((ej) =>
       ej.opciones ? { ...ej, opciones: resolverOpciones(ej.opciones) } : ej
     );
   }
@@ -118,6 +128,29 @@ function resolverServicios(services) {
   return services.map(resolverServicio);
 }
 
+// ---- Plataforma IA Predictiva (data/ia-predictiva.js) ----
+// Misma mecánica que resolverServicio/resolverServicios, aplicada a su forma
+// de datos algo distinta: instalacionBase.niveles es un array de opciones
+// "sueltas" (no viven dentro de un ejemplo.opciones), y cada modo reutiliza
+// la misma estructura ejemplo/ejemplos que ya resuelve resolverServicio.
+
+// niveles: array de opciones sueltas (IA START / IA PRO) -> resueltas.
+function resolverNiveles(niveles) {
+  return resolverOpciones(niveles);
+}
+
+// Un modo IA es estructuralmente igual a un servicio en lo que a precios se
+// refiere (ejemplo.opciones o ejemplos[].opciones), así que resolverServicio
+// ya vale tal cual — se reexpone con este nombre para que quede claro en
+// server.js qué se está resolviendo.
+function resolverModo(modo) {
+  return resolverServicio(modo);
+}
+
+function resolverModos(modos) {
+  return modos.map(resolverModo);
+}
+
 module.exports = {
   catalogo,
   getComponente,
@@ -125,5 +158,8 @@ module.exports = {
   resolverOpcion,
   resolverOpciones,
   resolverServicio,
-  resolverServicios
+  resolverServicios,
+  resolverNiveles,
+  resolverModo,
+  resolverModos
 };

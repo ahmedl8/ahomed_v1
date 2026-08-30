@@ -112,7 +112,7 @@ const services = [
             ]
           }
         ],
-        nota: "Si el cuadro eléctrico no tiene capacidad disponible o hay que llevar línea nueva desde el contador, se presupuesta aparte tras la visita técnica."
+        nota: "Si el cuadro eléctrico no tiene capacidad disponible o hay que llevar línea nueva desde el contador, se presupuesta aparte tras la visita técnica. La normativa (ITC-BT-52) exige línea dedicada con magnetotérmico y diferencial propios para el wallbox — van incluidos desde la opción Esencial, no como extra; en presupuestos más baratos del mercado conviene preguntar si de verdad los llevan, porque es lo que protege tu coche y tu instalación."
       }
     ]
   },
@@ -498,7 +498,7 @@ const services = [
             ]
           }
         ],
-        nota: "Instalaciones con vertido de excedentes a red requieren alta como productor ante la compañía eléctrica; se gestiona como parte de la legalización. El número de paneles y orientación óptima se confirma con la visita técnica y el estudio de sombras. Nos encargamos de toda la tramitación — tú no tienes que hacer nada."
+        nota: "Instalaciones con vertido de excedentes a red requieren alta como productor ante la compañía eléctrica; se gestiona como parte de la legalización. El número de paneles y orientación óptima se confirma con la visita técnica y el estudio de sombras. La legalización completa (memoria técnica y, si aplica, alta como productor) va incluida en el precio, no aparte — el sector suele facturarla como partida independiente, entre 400 € y 1.500 € según la instalación, y sin ella no puedes cobrar los excedentes que viertes a la red."
       },
       {
         titulo: "Gestión energética inteligente (tarifa PVPC)",
@@ -549,7 +549,7 @@ const services = [
     publico: "casa",
     nombre: "Seguridad",
     icono: "shield",
-    resumen: "Cámaras, alarmas, videoportero y cerraduras inteligentes. Graba en local, sin cuota mensual — para que además interprete lo que ve y avise por WhatsApp, añade Seguridad IA. Equipo propiedad del cliente desde el primer día.",
+    resumen: "Cámaras, alarmas, videoportero y cerraduras inteligentes. Graba en local, sin cuota mensual — frente a los 20-50 €/mes de una alarma con central receptora, pagas la instalación una vez y el equipo es tuyo. Para que además interprete lo que ve y avise por WhatsApp, añade Seguridad IA.",
     tiempo: "Trabajo rápido",
     desde: 145,
     idealPara: [
@@ -1707,38 +1707,36 @@ const packs = [
       {
         nombre: "Esencial",
         destacada: false,
-        items: [
-          ["Cuadro eléctrico nuevo + boletín eléctrico (CIE)", 520],
-          ["Red WiFi mesh 2 puntos de acceso + configuración", 285],
-          ["Videoportero inteligente (instalación incluida)", 300]
-        ],
-        total: 1105
+        lineas: [
+          { ref: "cuadro_electrico_boletin_pack" },
+          { ref: "wifi_mesh_2pt_config" },
+          { ref: "videoportero_inteligente_pack" }
+        ]
       },
       {
         nombre: "Inteligente — con domótica y LED ⭐",
         destacada: true,
-        items: [
-          ["Cuadro eléctrico nuevo + boletín eléctrico (CIE)", 520],
-          ["Red WiFi mesh 3 puntos de acceso + configuración", 380],
-          ["Videoportero inteligente (instalación incluida)", 300],
-          ["Iluminación LED en salón y pasillo (8 puntos de luz)", 280],
-          ["2 interruptores WiFi para control desde el móvil", 80]
-        ],
-        total: 1560
+        lineas: [
+          { ref: "cuadro_electrico_boletin_pack" },
+          { ref: "wifi_mesh_3pt_config" },
+          { ref: "videoportero_inteligente_pack" },
+          { ref: "iluminacion_led_salon_pasillo_8p" },
+          { ref: "interruptor_wifi", cantidad: 2, label: "2 interruptores WiFi para control desde el móvil", precioOverride: 80 }
+        ]
       },
       {
         nombre: "Completa — con cerradura, cámara y Seguridad IA",
         destacada: false,
-        items: [
-          ["Cuadro eléctrico nuevo + boletín eléctrico (CIE)", 520],
-          ["Red WiFi mesh 3 puntos de acceso + configuración", 380],
-          ["Videoportero inteligente", 300],
-          ["Iluminación LED en salón y pasillo", 280],
-          ["Cerradura inteligente con huella digital y app", 420],
-          ["Cámara IP exterior (entrada/puerta principal)", 280],
-          ["Mini-PC IA START + Seguridad IA sobre la cámara ya instalada (detección de personas/vehículos, alertas WhatsApp)", 780]
-        ],
-        total: 2960
+        lineas: [
+          { ref: "cuadro_electrico_boletin_pack" },
+          { ref: "wifi_mesh_3pt_config" },
+          { ref: "videoportero_inteligente_pack", label: "Videoportero inteligente" },
+          { ref: "iluminacion_led_salon_pasillo_8p", label: "Iluminación LED en salón y pasillo" },
+          { ref: "cerradura_huella_teclado_app", precioOverride: 420 },
+          { ref: "camara_ip_exterior_entrada" },
+          { ref: "minipc_ia_start", label: "Mini-PC IA START", precioOverride: 590 },
+          { ref: "config_seguridad_ia_camara_existente" }
+        ]
       }
     ],
     nota: "Precio orientativo; se ajusta tras la visita técnica gratuita según el estado del cuadro actual y la superficie de la vivienda. La opción Completa incluye ya el Mini-PC IA Central (nivel START) — puede ampliarse después con cualquiera de los otros diez modos de la Plataforma IA Predictiva."
@@ -1758,44 +1756,41 @@ const packs = [
       {
         nombre: "Esencial — 4 cámaras + cerradura + IA",
         destacada: false,
-        items: [
-          ["4 cámaras IP cableadas con visión nocturna", 340],
-          ["Instalación y cableado (4 cámaras)", 380],
-          ["Mini-PC con IA local (detección de personas y vehículos, descarta falsas alarmas)", 480],
-          ["Cerradura inteligente con teclado y app", 290],
-          ["Videoportero inteligente (instalación incluida)", 300],
-          ["Alertas por WhatsApp con imagen del momento", 90]
-        ],
-        total: 1880
+        lineas: [
+          { ref: "camara_ip_poe_exterior", cantidad: 4, label: "4 cámaras IP cableadas con visión nocturna" },
+          { ref: "mo_seguridad_hora", horas: 11.875, label: "Instalación y cableado (4 cámaras)" },
+          { ref: "minipc_ia_start", label: "Mini-PC con IA local (detección de personas y vehículos, descarta falsas alarmas)", precioOverride: 480 },
+          { ref: "cerradura_teclado_app", precioOverride: 290 },
+          { ref: "videoportero_inteligente_pack" },
+          { ref: "notificaciones_whatsapp_alarma", label: "Alertas por WhatsApp con imagen del momento" }
+        ]
       },
       {
         nombre: "Inteligente — con detección de movimiento y alertas IA ⭐",
         destacada: true,
-        items: [
-          ["6 cámaras IP cableadas con visión nocturna", 510],
-          ["Instalación y cableado (6 cámaras)", 540],
-          ["Mini-PC con IA local de mayor potencia (detección de personas y vehículos)", 620],
-          ["Cerradura inteligente con huella digital y app", 420],
-          ["Videoportero inteligente", 300],
-          ["Alertas por WhatsApp con imagen del momento", 120]
-        ],
-        total: 2510
+        lineas: [
+          { ref: "camara_ip_poe_exterior", cantidad: 6, label: "6 cámaras IP cableadas con visión nocturna" },
+          { ref: "mo_seguridad_hora", horas: 16.875, label: "Instalación y cableado (6 cámaras)" },
+          { ref: "minipc_ia_pro", label: "Mini-PC con IA local de mayor potencia (detección de personas y vehículos)", precioOverride: 620 },
+          { ref: "cerradura_huella_teclado_app", precioOverride: 420 },
+          { ref: "videoportero_inteligente_pack", label: "Videoportero inteligente" },
+          { ref: "notificaciones_whatsapp_alarma", label: "Alertas por WhatsApp con imagen del momento", precioOverride: 120 }
+        ]
       },
       {
         nombre: "Completa — con IA avanzada: reanálisis y reconocimiento de vehículos",
         destacada: false,
-        items: [
-          ["6 cámaras IP cableadas con visión nocturna", 510],
-          ["Instalación y cableado (6 cámaras)", 540],
-          ["Mini-PC con IA avanzada (reanálisis automático, descarta falsos positivos antes de avisar)", 780],
-          ["Cerradura inteligente con huella digital y app", 420],
-          ["Videoportero inteligente", 300],
-          ["Alertas WhatsApp con imagen del momento + reconocimiento de vehículos recurrentes", 200]
-        ],
-        total: 2750
+        lineas: [
+          { ref: "camara_ip_poe_exterior", cantidad: 6, label: "6 cámaras IP cableadas con visión nocturna" },
+          { ref: "mo_seguridad_hora", horas: 16.875, label: "Instalación y cableado (6 cámaras)" },
+          { ref: "minipc_ia_pro", label: "Mini-PC con IA avanzada (reanálisis automático, descarta falsos positivos antes de avisar)", precioOverride: 780 },
+          { ref: "cerradura_huella_teclado_app", precioOverride: 420 },
+          { ref: "videoportero_inteligente_pack", label: "Videoportero inteligente" },
+          { ref: "notificaciones_whatsapp_alarma", label: "Alertas WhatsApp con imagen del momento + reconocimiento de vehículos recurrentes", precioOverride: 200 }
+        ]
       }
     ],
-    nota: "Sin cuota mensual ni contrato con central de alarmas. El sistema funciona de forma autónoma en tu propiedad, con IA desde la opción Esencial."
+    nota: "Sin cuota mensual ni contrato con central de alarmas — frente a los 20-50 €/mes (240-620 €/año) de una alarma con central receptora, aquí pagas la instalación una vez y el sistema es tuyo. Funciona de forma autónoma en tu propiedad, con IA desde la opción Esencial."
   },
   {
     nombre: "Pack Hogar con IA",
@@ -1812,33 +1807,30 @@ const packs = [
       {
         nombre: "Esencial — Seguridad IA (2 cámaras)",
         destacada: false,
-        items: [
-          ["Mini-PC IA START — instalación base obligatoria (motor Python + dashboard + WhatsApp)", 590],
-          ["Seguridad IA — 2 cámaras con detección de personas/vehículos y alertas WhatsApp", 860]
-        ],
-        total: 1450
+        lineas: [
+          { ref: "minipc_ia_start", label: "Mini-PC IA START — instalación base obligatoria (motor Python + dashboard + WhatsApp)", precioOverride: 590 },
+          { ref: "mo_config_deteccion_ia_320", label: "Seguridad IA — 2 cámaras con detección de personas/vehículos y alertas WhatsApp", precioOverride: 860 }
+        ]
       },
       {
         nombre: "Inteligente — + Motor Meteorológico y Paquetes ⭐",
         destacada: true,
-        items: [
-          ["Mini-PC IA PRO — instalación base obligatoria (para varios modos a la vez)", 950],
-          ["Seguridad IA — 2 cámaras con detección de personas/vehículos y alertas WhatsApp", 860],
-          ["Motor Meteorológico — riego y persianas con IA climática", 600],
-          ["Gestión de Paquetes — detección, foto y alerta WhatsApp", 320]
-        ],
-        total: 2730
+        lineas: [
+          { ref: "minipc_ia_pro", label: "Mini-PC IA PRO — instalación base obligatoria (para varios modos a la vez)", precioOverride: 950 },
+          { ref: "mo_config_deteccion_ia_320", label: "Seguridad IA — 2 cámaras con detección de personas/vehículos y alertas WhatsApp", precioOverride: 860 },
+          { ref: "config_motor_clima_riego", label: "Motor Meteorológico — riego y persianas con IA climática", precioOverride: 600 },
+          { ref: "motor_python_deteccion_paquete_foto", label: "Gestión de Paquetes — detección, foto y alerta WhatsApp", precioOverride: 320 }
+        ]
       },
       {
         nombre: "Completa — + IA de Sueño y Personas Mayores",
         destacada: false,
-        items: [
-          ["Mini-PC IA PRO — instalación base obligatoria", 950],
-          ["Seguridad IA — 6 cámaras + reconocimiento de personas habituales", 2720],
-          ["IA de Sueño — persianas y luz adaptativa + integración con alarma del móvil", 645],
-          ["Personas Mayores — ausencia prolongada + detección de caídas por IA de visión", 933]
-        ],
-        total: 5248
+        lineas: [
+          { ref: "minipc_ia_pro", label: "Mini-PC IA PRO — instalación base obligatoria", precioOverride: 950 },
+          { ref: "mo_config_avanzada_520", label: "Seguridad IA — 6 cámaras + reconocimiento de personas habituales", precioOverride: 2720 },
+          { ref: "config_motor_sueno", label: "IA de Sueño — persianas y luz adaptativa + integración con alarma del móvil", precioOverride: 645 },
+          { ref: "motor_python_caidas_ausencia_temp", label: "Personas Mayores — ausencia prolongada + detección de caídas por IA de visión", precioOverride: 933 }
+        ]
       }
     ],
     nota: "Precio orientativo; cada modo puede ampliarse o sustituirse por cualquiera de los diez de la Plataforma IA Predictiva sin cambiar el Mini-PC IA Central ya instalado."
@@ -1858,35 +1850,32 @@ const packs = [
       {
         nombre: "Esencial — Casa Presencial + Seguridad IA",
         destacada: false,
-        items: [
-          ["Mini-PC IA START — instalación base obligatoria", 590],
-          ["Casa Presencial — geofencing, 2 escenas y simulación de presencia", 455],
-          ["Seguridad IA — 2 cámaras con detección de personas/vehículos", 860]
-        ],
-        total: 1905
+        lineas: [
+          { ref: "minipc_ia_start", label: "Mini-PC IA START — instalación base obligatoria", precioOverride: 590 },
+          { ref: "config_motor_geofencing", label: "Casa Presencial — geofencing, 2 escenas y simulación de presencia", precioOverride: 455 },
+          { ref: "mo_config_deteccion_ia_320", label: "Seguridad IA — 2 cámaras con detección de personas/vehículos", precioOverride: 860 }
+        ]
       },
       {
         nombre: "Inteligente — + Gestión de Paquetes ⭐",
         destacada: true,
-        items: [
-          ["Mini-PC IA PRO — instalación base obligatoria (3 modos a la vez + varias cámaras en Seguridad IA)", 950],
-          ["Casa Presencial — 3 escenas + simulación de presencia", 595],
-          ["Seguridad IA — 4 cámaras + zonas de detección personalizadas", 1330],
-          ["Gestión de Paquetes — detección, foto y alerta WhatsApp", 320]
-        ],
-        total: 3195
+        lineas: [
+          { ref: "minipc_ia_pro", label: "Mini-PC IA PRO — instalación base obligatoria (3 modos a la vez + varias cámaras en Seguridad IA)", precioOverride: 950 },
+          { ref: "config_motor_geofencing_reducido", label: "Casa Presencial — 3 escenas + simulación de presencia", precioOverride: 595 },
+          { ref: "mo_config_420", label: "Seguridad IA — 4 cámaras + zonas de detección personalizadas", precioOverride: 1330 },
+          { ref: "motor_python_deteccion_paquete_foto", label: "Gestión de Paquetes — detección, foto y alerta WhatsApp", precioOverride: 320 }
+        ]
       },
       {
         nombre: "Completa — + Motor Meteorológico",
         destacada: false,
-        items: [
-          ["Mini-PC IA PRO — instalación base obligatoria", 950],
-          ["Casa Presencial — 3 escenas + simulación de presencia", 595],
-          ["Seguridad IA — 6 cámaras + reconocimiento de personas habituales", 2720],
-          ["Gestión de Paquetes — + histórico de entregas", 575],
-          ["Motor Meteorológico — riego y persianas con IA climática", 1070]
-        ],
-        total: 5910
+        lineas: [
+          { ref: "minipc_ia_pro", label: "Mini-PC IA PRO — instalación base obligatoria", precioOverride: 950 },
+          { ref: "config_motor_geofencing_reducido", label: "Casa Presencial — 3 escenas + simulación de presencia", precioOverride: 595 },
+          { ref: "mo_config_avanzada_520", label: "Seguridad IA — 6 cámaras + reconocimiento de personas habituales", precioOverride: 2720 },
+          { ref: "motor_python_deteccion_reconocimiento_historico", label: "Gestión de Paquetes — + histórico de entregas", precioOverride: 575 },
+          { ref: "motor_python_clima_riego_persianas", label: "Motor Meteorológico — riego y persianas con IA climática", precioOverride: 1070 }
+        ]
       }
     ],
     nota: "Sin cuota mensual ni necesidad de desplazarte para comprobar el estado de la vivienda. Precio orientativo, se ajusta en visita técnica según distancia y accesibilidad."
@@ -1905,40 +1894,37 @@ const packs = [
       {
         nombre: "Esencial — 4 cámaras con detección IA",
         destacada: false,
-        items: [
-          ["4 cámaras IP (perímetro y accesos)", 340],
-          ["Instalación y cableado", 380],
-          ["Mini-PC con IA local (detección de personas y vehículos)", 480],
-          ["Configuración de alertas por WhatsApp con imagen del momento", 150],
-          ["Zonas de detección personalizadas (horario de negocio vs. fuera de horario)", 120]
-        ],
-        total: 1470
+        lineas: [
+          { ref: "camara_ip_poe_exterior", cantidad: 4, label: "4 cámaras IP (perímetro y accesos)" },
+          { ref: "mo_seguridad_hora", horas: 11.875, label: "Instalación y cableado" },
+          { ref: "minipc_ia_start", label: "Mini-PC con IA local (detección de personas y vehículos)", precioOverride: 480 },
+          { ref: "config_alertas_whatsapp_app", label: "Configuración de alertas por WhatsApp con imagen del momento", precioOverride: 150 },
+          { ref: "config_alertas_zonas_personalizadas", label: "Zonas de detección personalizadas (horario de negocio vs. fuera de horario)", precioOverride: 120 }
+        ]
       },
       {
         nombre: "Inteligente — 6 cámaras + dashboard ⭐",
         destacada: true,
-        items: [
-          ["6 cámaras IP (perímetro, accesos y zona de carga)", 510],
-          ["Instalación y cableado (6 cámaras)", 540],
-          ["Mini-PC con IA local de mayor potencia", 680],
-          ["Configuración de alertas por WhatsApp", 150],
-          ["Panel de monitorización a medida (dashboard propio en navegador)", 380],
-          ["Zonas de detección personalizadas y horarios", 150]
-        ],
-        total: 2410
+        lineas: [
+          { ref: "camara_ip_poe_exterior", cantidad: 6, label: "6 cámaras IP (perímetro, accesos y zona de carga)" },
+          { ref: "mo_seguridad_hora", horas: 16.875, label: "Instalación y cableado (6 cámaras)" },
+          { ref: "minipc_ia_pro", label: "Mini-PC con IA local de mayor potencia", precioOverride: 680 },
+          { ref: "config_alertas_whatsapp_app", label: "Configuración de alertas por WhatsApp" },
+          { ref: "dashboard_historial_entregas", label: "Panel de monitorización a medida (dashboard propio en navegador)", precioOverride: 380 },
+          { ref: "config_alertas_zonas_personalizadas", label: "Zonas de detección personalizadas y horarios", precioOverride: 150 }
+        ]
       },
       {
         nombre: "Completa — 8 cámaras + CCTV cableado + IA avanzada",
         destacada: false,
-        items: [
-          ["8 cámaras IP (cobertura total del perímetro)", 680],
-          ["Instalación y cableado (8 cámaras)", 720],
-          ["Mini-PC con IA avanzada (detección de placas, reconocimiento de vehículos recurrentes)", 950],
-          ["Panel de monitorización a medida", 380],
-          ["Alertas WhatsApp por tipo de evento (persona / vehículo / acceso fuera de horario)", 200],
-          ["Integración con sistema de iluminación de seguridad perimetral", 280]
-        ],
-        total: 3210
+        lineas: [
+          { ref: "camara_ip_poe_exterior", cantidad: 8, label: "8 cámaras IP (cobertura total del perímetro)" },
+          { ref: "mo_seguridad_hora", horas: 22.5, label: "Instalación y cableado (8 cámaras)" },
+          { ref: "minipc_ia_pro", label: "Mini-PC con IA avanzada (detección de placas, reconocimiento de vehículos recurrentes)", precioOverride: 950 },
+          { ref: "dashboard_historial_entregas", label: "Panel de monitorización a medida", precioOverride: 380 },
+          { ref: "notificaciones_whatsapp_alarma", label: "Alertas WhatsApp por tipo de evento (persona / vehículo / acceso fuera de horario)", precioOverride: 200 },
+          { ref: "led_brazo_toldo", label: "Integración con sistema de iluminación de seguridad perimetral", precioOverride: 280 }
+        ]
       }
     ],
     nota: "Ampliable con CCTV cableado adicional, integración con acceso de empleados o control de presencia. Sin cuota mensual."

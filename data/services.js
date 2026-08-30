@@ -1766,8 +1766,8 @@ const packs = [
         ]
       },
       {
-        nombre: "Inteligente — con detección de movimiento y alertas IA ⭐",
-        destacada: true,
+        nombre: "Inteligente — con detección de movimiento y alertas IA",
+        destacada: false,
         lineas: [
           { ref: "camara_ip_poe_exterior", cantidad: 6, label: "6 cámaras IP cableadas con visión nocturna" },
           { ref: "mo_seguridad_hora", horas: 16.875, label: "Instalación y cableado (6 cámaras)" },
@@ -1778,8 +1778,8 @@ const packs = [
         ]
       },
       {
-        nombre: "Completa — con IA avanzada: reanálisis y reconocimiento de vehículos",
-        destacada: false,
+        nombre: "Completa — con IA avanzada: reanálisis y reconocimiento de vehículos ⭐",
+        destacada: true,
         lineas: [
           { ref: "camara_ip_poe_exterior", cantidad: 6, label: "6 cámaras IP cableadas con visión nocturna" },
           { ref: "mo_seguridad_hora", horas: 16.875, label: "Instalación y cableado (6 cámaras)" },
@@ -1879,55 +1879,6 @@ const packs = [
       }
     ],
     nota: "Sin cuota mensual ni necesidad de desplazarte para comprobar el estado de la vivienda. Precio orientativo, se ajusta en visita técnica según distancia y accesibilidad."
-  },
-  {
-    nombre: "Pack Seguridad IA para Negocios",
-    slug: "negocio",
-    publico: "negocio",
-    incluyeIA: true,
-    descripcion: "Ideal para naves, almacenes, talleres y locales. IA que descarta falsas alarmas y te avisa por WhatsApp solo cuando hay algo real.",
-    idealPara: "naves, almacenes, talleres y locales",
-    resultado: "Solo recibes un aviso por WhatsApp cuando hay una persona o vehículo fuera de horario — no cada vez que algo se mueve.",
-    imagen: "/img/packs/pack-negocio.jpg",
-    imagenAlt: "Sala de control con monitorización de cámaras y dashboard IA — Pack Seguridad IA para Negocios AHOMED",
-    opciones: [
-      {
-        nombre: "Esencial — 4 cámaras con detección IA",
-        destacada: false,
-        lineas: [
-          { ref: "camara_ip_poe_exterior", cantidad: 4, label: "4 cámaras IP (perímetro y accesos)" },
-          { ref: "mo_seguridad_hora", horas: 11.875, label: "Instalación y cableado" },
-          { ref: "minipc_ia_start", label: "Mini-PC con IA local (detección de personas y vehículos)", precioOverride: 480 },
-          { ref: "config_alertas_whatsapp_app", label: "Configuración de alertas por WhatsApp con imagen del momento", precioOverride: 150 },
-          { ref: "config_alertas_zonas_personalizadas", label: "Zonas de detección personalizadas (horario de negocio vs. fuera de horario)", precioOverride: 120 }
-        ]
-      },
-      {
-        nombre: "Inteligente — 6 cámaras + dashboard ⭐",
-        destacada: true,
-        lineas: [
-          { ref: "camara_ip_poe_exterior", cantidad: 6, label: "6 cámaras IP (perímetro, accesos y zona de carga)" },
-          { ref: "mo_seguridad_hora", horas: 16.875, label: "Instalación y cableado (6 cámaras)" },
-          { ref: "minipc_ia_pro", label: "Mini-PC con IA local de mayor potencia", precioOverride: 680 },
-          { ref: "config_alertas_whatsapp_app", label: "Configuración de alertas por WhatsApp" },
-          { ref: "dashboard_historial_entregas", label: "Panel de monitorización a medida (dashboard propio en navegador)", precioOverride: 380 },
-          { ref: "config_alertas_zonas_personalizadas", label: "Zonas de detección personalizadas y horarios", precioOverride: 150 }
-        ]
-      },
-      {
-        nombre: "Completa — 8 cámaras + CCTV cableado + IA avanzada",
-        destacada: false,
-        lineas: [
-          { ref: "camara_ip_poe_exterior", cantidad: 8, label: "8 cámaras IP (cobertura total del perímetro)" },
-          { ref: "mo_seguridad_hora", horas: 22.5, label: "Instalación y cableado (8 cámaras)" },
-          { ref: "minipc_ia_pro", label: "Mini-PC con IA avanzada (detección de placas, reconocimiento de vehículos recurrentes)", precioOverride: 950 },
-          { ref: "dashboard_historial_entregas", label: "Panel de monitorización a medida", precioOverride: 380 },
-          { ref: "notificaciones_whatsapp_alarma", label: "Alertas WhatsApp por tipo de evento (persona / vehículo / acceso fuera de horario)", precioOverride: 200 },
-          { ref: "led_brazo_toldo", label: "Integración con sistema de iluminación de seguridad perimetral", precioOverride: 280 }
-        ]
-      }
-    ],
-    nota: "Ampliable con CCTV cableado adicional, integración con acceso de empleados o control de presencia. Sin cuota mensual."
   }
 ];
 

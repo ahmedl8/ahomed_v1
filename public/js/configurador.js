@@ -222,7 +222,7 @@
     var necesidadesTexto = necesidades.map(function (n) { return NECESIDAD_LABEL[n] || n; }).join(", ");
 
     var packFijo = null;
-    if (vivienda === "negocio") packFijo = { item: pack("negocio"), href: "/soluciones#negocio" };
+    if (vivienda === "negocio") packFijo = { item: catalogo.seguridadIANaves, href: "/servicios/naves-fincas/seguridad-ia" };
     else if (vivienda === "segunda-residencia") packFijo = { item: pack("alquiler-segunda-residencia-ia"), href: "/soluciones#alquiler-segunda-residencia-ia" };
 
     var mensaje = I18N.mensajeIntro + "\n";

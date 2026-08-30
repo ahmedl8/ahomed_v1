@@ -265,7 +265,7 @@ app.get("/", (req, res) => {
     // de la sección "Vive AHOMED", que sí referencian ese modo.
     modosIATodos: modosIA,
     instalacionBase,
-    packs: packs.filter((p) => p.publico !== "negocio"),
+    packs,
     packsDestacados: PACKS_DESTACADOS_HOME.map((slug) => packs.find((p) => p.slug === slug)).filter(Boolean),
     ventajas,
     comoFunciona,
@@ -321,7 +321,8 @@ app.get("/configurador", (req, res) => {
 // combinación se parece a un pack ya existente, se lo señalamos con el precio
 // de ese pack al lado — así no le montamos a mano algo que ya vendemos
 // empaquetado y más barato. Solo cubre público "casa" por ahora: naves y
-// fincas ya tienen su propio Pack Seguridad IA para Negocios.
+// fincas tienen su propio producto, Seguridad IA para Naves y Fincas
+// (/servicios/naves-fincas/seguridad-ia), fuera de este creador.
 app.get("/crea-tu-instalacion", (req, res) => {
   const { empresa, services, packs, modosIA, instalacionBase, t } = res.locals;
   const serviciosCasa = services.filter((s) => s.publico === "casa");
@@ -452,8 +453,7 @@ app.get("/soluciones", (req, res) => {
   res.render("packs", {
     title: `${t('seo.soluciones.title')} — ${empresa.nombre}`,
     metaDescription: t('seo.soluciones.desc'),
-    packsCasa: packs.filter((p) => p.publico !== "negocio"),
-    packsNegocio: packs.filter((p) => p.publico === "negocio")
+    packsCasa: packs
   });
 });
 

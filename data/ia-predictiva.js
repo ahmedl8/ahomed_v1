@@ -152,7 +152,7 @@ const modos = [
             { ref: "tira_led_salon_controlador_wifi" },
             { ref: "termostato_wifi_inteligente" },
             { ref: "material_ia_75" },
-            { ref: "config_motor_geofencing_reducido" },
+            { ref: "config_motor_geofencing" },
             { ref: "escenas_3_presencia_app" },
             { ref: "puesta_marcha_ajuste_gps_2h", label: "Puesta en marcha y ajuste de perímetros GPS (2 h)" }
           ]

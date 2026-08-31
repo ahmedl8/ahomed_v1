@@ -98,7 +98,7 @@ ahomed-web/
 │   │   └── seguridad-ia-negocio.ejs # Seguridad IA para Naves y Fincas
 │   └── partials/
 │       ├── head.ejs             # Meta tags, Open Graph, canonical, JSON-LD LocalBusiness, GTM (por página)
-│       ├── gtm-body.ejs         # <noscript> de Google Tag Manager, justo tras <body>
+│       ├── gtm-body.ejs         # Vacío a propósito: se retiró el <noscript> de GTM por saltarse el consentimiento (ver comentario en el archivo)
 │       ├── header.ejs           # Navegación + mega-menú por bloques (Para tu Casa / Naves y Fincas) + topbar + menú móvil
 │       ├── footer.ejs           # Footer + botón flotante de WhatsApp
 │       └── option-card.ejs      # Tarjeta de opción de precio reutilizable (con CTA de WhatsApp por opción)

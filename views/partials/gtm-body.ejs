@@ -1,4 +1,9 @@
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5D5WS88L"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+<!-- Google Tag Manager (noscript): eliminado a propósito.
+     El <noscript><iframe src="...ns.html?id=..."> de GTM se ejecuta sin
+     pasar por window.__loadGTM() ni por el consentimiento (ver
+     partials/head.ejs y public/js/cookie-consent.js), así que su sola
+     presencia contradice el "no se carga GTM hasta aceptar" del banner.
+     Como no hay forma de condicionar un <noscript> al consentimiento
+     (que se gestiona con JS/localStorage), se retira en vez de dejarlo
+     inconsistente. Este partial se mantiene vacío para no romper los
+     <%- include('partials/gtm-body') %> ya presentes en las vistas. -->

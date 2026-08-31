@@ -2523,11 +2523,12 @@
     },
     {
       "id": "config_motor_geofencing_reducido",
-      "nombre": "Configuración del motor de geofencing (GPS móvil → escenas)",
+      "nombre": "Configuración del motor de geofencing con simulación de presencia",
       "tipo": "mano_obra",
       "area": "ia-predictiva",
       "unidad": "lote",
-      "precio": 20
+      "precio": 260,
+      "nota": "Corregido en revisión de precios (ago-2026): el dato original tenía este componente a 20€, más barato que la config básica (240€) pese a incluir más lógica (simulación de presencia). Era una inversión de precio entre opciones, no una decisión de negocio."
     },
     {
       "id": "escenas_3_presencia_app",
@@ -3193,6 +3194,242 @@
       "tipo": "dispositivo",
       "area": "seguridad",
       "unidad": "unidad",
+      "precio": 280
+    },
+    {
+      "id": "mo_industrial_seguridad_hora",
+      "nombre": "Mano de obra instalación de seguridad industrial (nave/finca)",
+      "tipo": "mano_obra",
+      "area": "industrial",
+      "unidad": "hora",
+      "precio": 40
+    },
+    {
+      "id": "camara_ip_industrial_exterior",
+      "nombre": "Cámara IP industrial con visión nocturna (perímetro nave/finca)",
+      "tipo": "dispositivo",
+      "area": "industrial",
+      "unidad": "unidad",
+      "precio": 120,
+      "nota": "Gama superior a la residencial: mayor alcance de detección y resistencia a intemperie para perímetros grandes"
+    },
+    {
+      "id": "config_deteccion_ia_industrial_persona_vehiculo",
+      "nombre": "Configuración del modelo de detección IA (persona/vehículo, descarta falsos positivos)",
+      "tipo": "mano_obra",
+      "area": "industrial",
+      "unidad": "lote",
+      "precio": 380
+    },
+    {
+      "id": "config_deteccion_ia_industrial_matricula",
+      "nombre": "Configuración del modelo de detección IA (persona/vehículo/matrícula)",
+      "tipo": "mano_obra",
+      "area": "industrial",
+      "unidad": "lote",
+      "precio": 480
+    },
+    {
+      "id": "notificaciones_whatsapp_alarma_industrial",
+      "nombre": "Notificaciones por WhatsApp ante alarma real",
+      "tipo": "mano_obra",
+      "area": "industrial",
+      "unidad": "lote",
+      "precio": 90
+    },
+    {
+      "id": "material_industrial_seguridad_60",
+      "nombre": "Material y conectorizado",
+      "tipo": "material",
+      "area": "industrial",
+      "unidad": "lote",
+      "precio": 60
+    },
+    {
+      "id": "material_industrial_seguridad_90",
+      "nombre": "Material y conectorizado",
+      "tipo": "material",
+      "area": "industrial",
+      "unidad": "lote",
+      "precio": 90
+    },
+    {
+      "id": "material_industrial_seguridad_100",
+      "nombre": "Material y conectorizado",
+      "tipo": "material",
+      "area": "industrial",
+      "unidad": "lote",
+      "precio": 100
+    },
+    {
+      "id": "camara_termica_perimetral",
+      "nombre": "Cámara térmica para detección perimetral (reduce falsos positivos por fauna o vegetación)",
+      "tipo": "dispositivo",
+      "area": "industrial",
+      "unidad": "unidad",
+      "precio": 1150
+    },
+    {
+      "id": "reanalisis_ia_alarmas",
+      "nombre": "Reanálisis automático de alarmas con IA (descarta falsos positivos antes de avisar)",
+      "tipo": "mano_obra",
+      "area": "industrial",
+      "unidad": "lote",
+      "precio": 380
+    },
+    {
+      "id": "bateria_portatil_2kwh",
+      "nombre": "Batería portátil de emergencia 2 kWh (enchufable, sin instalación fija)",
+      "tipo": "dispositivo",
+      "area": "baterias",
+      "unidad": "unidad",
+      "precio": 890,
+      "nota": "Capacidad para nevera, router, luces y cargar dispositivos durante varias horas de corte; se enchufa a un enchufe normal, no requiere electricista"
+    },
+    {
+      "id": "conmutador_transferencia_automatico",
+      "nombre": "Conmutador de transferencia automático (ATS)",
+      "tipo": "dispositivo",
+      "area": "baterias",
+      "unidad": "unidad",
+      "precio": 320,
+      "nota": "Cambia a batería en menos de 20 ms ante un corte de suministro, sin que lo notes"
+    },
+    {
+      "id": "cuadro_emergencia_circuitos_criticos",
+      "nombre": "Cuadro de circuitos críticos (nevera, router, luces de salón)",
+      "tipo": "material",
+      "area": "baterias",
+      "unidad": "lote",
+      "precio": 450
+    },
+    {
+      "id": "cuadro_emergencia_ampliado",
+      "nombre": "Cuadro de respaldo ampliado (hasta 2/3 de la vivienda)",
+      "tipo": "material",
+      "area": "baterias",
+      "unidad": "lote",
+      "precio": 780
+    },
+    {
+      "id": "bateria_domestica_10kwh",
+      "nombre": "Batería doméstica de litio 10 kWh (modular, ampliable)",
+      "tipo": "dispositivo",
+      "area": "baterias",
+      "unidad": "unidad",
+      "precio": 5800,
+      "nota": "Precio de mercado de batería modular de 10 kWh (rango 5.500-7.000€ como componente adicional)"
+    },
+    {
+      "id": "downlight_led_empotrable",
+      "nombre": "Downlight LED empotrable (sustituye halógeno/fluorescente)",
+      "tipo": "dispositivo",
+      "area": "iluminacion-led",
+      "unidad": "unidad",
+      "precio": 16
+    },
+    {
+      "id": "downlight_led_regulable_wifi",
+      "nombre": "Downlight LED regulable, brillo y temperatura de color por app",
+      "tipo": "dispositivo",
+      "area": "iluminacion-led",
+      "unidad": "unidad",
+      "precio": 34
+    },
+    {
+      "id": "driver_regulacion_wifi_circuito",
+      "nombre": "Módulo de regulación WiFi por circuito (dimmer)",
+      "tipo": "dispositivo",
+      "area": "iluminacion-led",
+      "unidad": "unidad",
+      "precio": 45
+    },
+    {
+      "id": "material_iluminacion_led_20",
+      "nombre": "Material eléctrico",
+      "tipo": "material",
+      "area": "iluminacion-led",
+      "unidad": "lote",
+      "precio": 20
+    },
+    {
+      "id": "material_iluminacion_led_35",
+      "nombre": "Material eléctrico",
+      "tipo": "material",
+      "area": "iluminacion-led",
+      "unidad": "lote",
+      "precio": 35
+    },
+    {
+      "id": "material_iluminacion_led_50",
+      "nombre": "Material eléctrico",
+      "tipo": "material",
+      "area": "iluminacion-led",
+      "unidad": "lote",
+      "precio": 50
+    },
+    {
+      "id": "foco_led_exterior_ip65",
+      "nombre": "Foco LED exterior IP65 (empotrable o de superficie)",
+      "tipo": "dispositivo",
+      "area": "iluminacion-exterior",
+      "unidad": "unidad",
+      "precio": 28
+    },
+    {
+      "id": "foco_led_exterior_wifi_rgb",
+      "nombre": "Foco LED exterior WiFi, regulable y con color (control por app)",
+      "tipo": "dispositivo",
+      "area": "iluminacion-exterior",
+      "unidad": "unidad",
+      "precio": 48
+    },
+    {
+      "id": "detector_presencia_crepuscular",
+      "nombre": "Detector de presencia y crepuscular (enciende solo al anochecer y con movimiento)",
+      "tipo": "dispositivo",
+      "area": "iluminacion-exterior",
+      "unidad": "unidad",
+      "precio": 32
+    },
+    {
+      "id": "material_iluminacion_exterior_30",
+      "nombre": "Material y cableado estanco (IP65)",
+      "tipo": "material",
+      "area": "iluminacion-exterior",
+      "unidad": "lote",
+      "precio": 30
+    },
+    {
+      "id": "material_iluminacion_exterior_45",
+      "nombre": "Material y cableado estanco (IP65)",
+      "tipo": "material",
+      "area": "iluminacion-exterior",
+      "unidad": "lote",
+      "precio": 45
+    },
+    {
+      "id": "material_iluminacion_exterior_60",
+      "nombre": "Material y cableado estanco (IP65)",
+      "tipo": "material",
+      "area": "iluminacion-exterior",
+      "unidad": "lote",
+      "precio": 60
+    },
+    {
+      "id": "dashboard_combinado_multimodo",
+      "nombre": "Panel de monitorización combinado (varios modos en un único dashboard con gráficas)",
+      "tipo": "dispositivo",
+      "area": "ia-predictiva",
+      "unidad": "lote",
+      "precio": 680
+    },
+    {
+      "id": "panel_monitorizacion_basico",
+      "nombre": "Panel de monitorización en el navegador (histórico y estado de un modo)",
+      "tipo": "mano_obra",
+      "area": "ia-predictiva",
+      "unidad": "lote",
       "precio": 280
     }
   ]

@@ -1,10 +1,5 @@
 /* ===========================================================
    AHOMED — Estilos globales
-
-   El sitio sirve /css/style.min.css, NO este fichero. Tras editar
-   style.css, regenera el minificado con: npm run build:css
-   (si no, los cambios no se ven en el navegador — es justo lo que
-   pasó con el desbordamiento del menú "Instalaciones y servicios").
    =========================================================== */
 
 :root {

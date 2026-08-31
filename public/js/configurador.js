@@ -170,6 +170,16 @@
   }
 
   function showStep(n) {
+    // Negocio no tiene "qué te importa" (solo hay una categoría: negocio),
+    // así que saltamos el paso 2 en ambas direcciones y poblamos el paso 3
+    // directamente con NECESIDAD_CATALOGO.negocio en vez de con lo marcado
+    // en un paso 2 que no se ha mostrado.
+    var vivienda = getSelectedRadio("config-vivienda");
+    if (vivienda === "negocio") {
+      if (n === 2) n = currentStep < 2 ? 3 : 1; // avanzando salta a 3, retrocediendo salta a 1
+      if (n === 3) actualizarPaso3(["negocio"]);
+    }
+
     currentStep = n;
     steps.forEach(function (s) {
       s.classList.toggle("is-active", parseInt(s.dataset.step, 10) === n);
@@ -222,8 +232,15 @@
     var necesidadesTexto = necesidades.map(function (n) { return NECESIDAD_LABEL[n] || n; }).join(", ");
 
     var packFijo = null;
-    if (vivienda === "negocio") packFijo = { item: catalogo.seguridadIANaves, href: "/servicios/naves-fincas/seguridad-ia" };
-    else if (vivienda === "segunda-residencia") packFijo = { item: pack("alquiler-segunda-residencia-ia"), href: "/soluciones#alquiler-segunda-residencia-ia" };
+    // Segunda residencia sigue yendo siempre al pack fijo (no tiene paso 3
+    // propio). Negocio solo usa el pack fijo como red de seguridad cuando no
+    // se ha marcado nada en el paso 3 — si se marcó algo, entra en el mismo
+    // motor de coincidencia que el resto (puede salir el pack, un pack a
+    // medida, o Seguridad IA Naves y Fincas como servicio individual).
+    if (vivienda === "segunda-residencia") packFijo = { item: pack("alquiler-segunda-residencia-ia"), href: "/soluciones#alquiler-segunda-residencia-ia" };
+    else if (vivienda === "negocio" && control.servicios.length + control.modos.length === 0) {
+      packFijo = { item: pack("negocio"), href: "/soluciones#negocio" };
+    }
 
     var mensaje = I18N.mensajeIntro + "\n";
     mensaje += I18N.mensajeVivienda + ": " + (VIVIENDA_LABEL[vivienda] || I18N.sinEspecificar) + "\n";
@@ -288,7 +305,10 @@
       var soloTipo = control.raw[0].split(":")[0];
       var soloSlug = control.raw[0].split(":")[1];
       var item = soloTipo === "servicio" ? servicio(soloSlug) : modo(soloSlug);
-      var href = soloTipo === "servicio" ? "/servicios/" + soloSlug : "/servicios/ia-predictiva/" + soloSlug;
+      var href;
+      if (soloTipo === "servicio") href = "/servicios/" + soloSlug;
+      else if (soloSlug === "seguridad-ia-naves-fincas") href = "/servicios/naves-fincas/seguridad-ia";
+      else href = "/servicios/ia-predictiva/" + soloSlug;
       var precioItem = calculo.total;
       card.innerHTML =
         '<span class="wizard-result-eyebrow">' + esc(I18N.servicioRecomendadoEyebrow) + "</span>" +

@@ -152,7 +152,7 @@ const modos = [
             { ref: "tira_led_salon_controlador_wifi" },
             { ref: "termostato_wifi_inteligente" },
             { ref: "material_ia_75" },
-            { ref: "config_motor_geofencing" },
+            { ref: "config_motor_geofencing_reducido" },
             { ref: "escenas_3_presencia_app" },
             { ref: "puesta_marcha_ajuste_gps_2h", label: "Puesta en marcha y ajuste de perímetros GPS (2 h)" }
           ]
@@ -635,4 +635,33 @@ const familiasIA = [
   }
 ];
 
-module.exports = { instalacionBase, modos, familiasIA };
+// Panel de monitorización a medida — no es un modo más de la Plataforma IA
+// Predictiva (no tiene motor de decisión propio), sino un add-on visual que
+// se puede sumar a cualquier combinación de modos ya instalados: un panel
+// en el navegador con histórico, gráficas y estado, en vez de depender solo
+// de los avisos por WhatsApp. Vive como sección dentro de /servicios/ia-predictiva
+// (ver #panel-monitorizacion), no como página de modo independiente.
+const panelMonitorizacion = {
+  nombre: "Panel de monitorización a medida",
+  resumen:
+    "Todos los modos avisan por WhatsApp cuando pasa algo importante. Si además quieres ver el histórico, las gráficas y el estado de todo desde el navegador — sin depender del móvil — se añade un panel de monitorización a medida.",
+  opciones: [
+    {
+      nombre: "Panel sencillo — un modo",
+      destacada: false,
+      lineas: [
+        { ref: "panel_monitorizacion_basico" }
+      ]
+    },
+    {
+      nombre: "Panel combinado — varios modos ⭐",
+      destacada: true,
+      lineas: [
+        { ref: "dashboard_combinado_multimodo", label: "Panel combinado con gráficas y filtros (varios modos en un único dashboard)" }
+      ]
+    }
+  ],
+  nota: "Se añade sobre cualquier combinación de modos ya instalados, sin tocar el Mini-PC IA Central. Precio orientativo; el alcance final depende de qué datos quieras ver y de cuántos modos se combinen."
+};
+
+module.exports = { instalacionBase, modos, familiasIA, panelMonitorizacion };

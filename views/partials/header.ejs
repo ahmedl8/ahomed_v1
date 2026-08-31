@@ -39,11 +39,18 @@
     <nav class="main-nav">
       <a href="<%= homeHref %>" class="<%= currentPath === '/' ? 'active' : '' %>"><%= t('nav.home') %></a>
 
+      <!-- CONFIGURADOR / CREADOR -->
       <div class="nav-dropdown">
         <a href="<%= pathHref('/configurador') %>" class="<%= (currentPath === '/configurador' || currentPath === '/crea-tu-instalacion') ? 'active' : '' %>"><%= t('nav.configurador') %> ▾</a>
         <div class="dropdown-menu">
-          <a href="<%= pathHref('/configurador') %>"><%= t('nav.configurador_asistido') %></a>
-          <a href="<%= pathHref('/crea-tu-instalacion') %>"><%= t('nav.crea_instalacion') %></a>
+          <div class="dropdown-col">
+            <a href="<%= pathHref('/configurador') %>" class="dropdown-col-title"><%= t('nav.configurador') %></a>
+            <span class="dropdown-note"><%= t('nav.configurador_nota') %></span>
+          </div>
+          <div class="dropdown-col">
+            <a href="<%= pathHref('/crea-tu-instalacion') %>" class="dropdown-col-title"><%= t('nav.crea_instalacion') %></a>
+            <span class="dropdown-note"><%= t('nav.crea_instalacion_nota') %></span>
+          </div>
         </div>
       </div>
 
@@ -73,6 +80,9 @@
             <span class="dropdown-group-title"><%= t('nav.instalaciones_servicios') %></span>
             <div class="dropdown-group-cols">
               <% bloques.filter(function(b){ return b.grupo === 'basico'; }).forEach(function(b){ basicosCols(b, 'casa'); }) %>
+              <div class="dropdown-col">
+                <a href="<%= pathHref('/servicios/bloque/mantenimiento') %>" class="dropdown-col-title"><%= t('nav.mantenimiento') %></a>
+              </div>
             </div>
           </div>
 
@@ -84,12 +94,6 @@
                   <%= t('nav.plataforma_ia') %>
                 </a>
               </div>
-            </div>
-          </div>
-
-          <div class="dropdown-group">
-            <div class="dropdown-col">
-              <a href="<%= pathHref('/servicios/bloque/mantenimiento') %>" class="dropdown-col-title"><%= t('nav.mantenimiento') %></a>
             </div>
           </div>
 

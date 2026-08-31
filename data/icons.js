@@ -39,7 +39,9 @@ const icons = {
   ninos:
     '<circle cx="8" cy="6" r="2.3"/><circle cx="16" cy="6" r="2.3"/><path d="M8 9.5c-2.2 0-4 1.7-4 4v3h3l.4 4.5h1.2L9 16.5h-2v-3c0-1.3 1-2.5 2.3-2.7"/><path d="M16 9.5c2.2 0 4 1.7 4 4v3h-3l-.4 4.5h-1.2l.6-7.5h2v-3c0-1.3-1-2.5-2.3-2.7"/>',
   paquete:
-    '<path d="M3 8l9-4 9 4-9 4-9-4z"/><path d="M3 8v8l9 4 9-4V8"/><path d="M12 12v8" opacity=".6"/>'
+    '<path d="M3 8l9-4 9 4-9 4-9-4z"/><path d="M3 8v8l9 4 9-4V8"/><path d="M12 12v8" opacity=".6"/>',
+  light:
+    '<path d="M12 2a7 7 0 0 0-4 12.7c.7.5 1 1.3 1 2.1V18h6v-1.2c0-.8.3-1.6 1-2.1A7 7 0 0 0 12 2z"/><rect x="9.5" y="19" width="5" height="1.6" rx=".8" fill="#fff"/>'
 };
 
 module.exports = icons;

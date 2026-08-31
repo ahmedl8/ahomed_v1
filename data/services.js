@@ -71,7 +71,7 @@ const services = [
       "Punto de recarga para coche eléctrico (desde 995 €)",
       "Iluminación LED (desde 235 €)"
     ],
-    tambienInstalaron: [{ texto: "Iluminación LED", href: "/servicios/electricidad" }, { texto: "Red WiFi mesh", href: "/servicios/redes-informatica" }, { texto: "Domótica básica", href: "/servicios/domotica" }, { texto: "Energía solar (autoconsumo)", href: "/servicios/energia-solar" }],
+    tambienInstalaron: [{ texto: "Iluminación LED", href: "/servicios/iluminacion-led" }, { texto: "Red WiFi mesh", href: "/servicios/redes-informatica" }, { texto: "Domótica básica", href: "/servicios/domotica" }, { texto: "Energía solar (autoconsumo)", href: "/servicios/energia-solar" }],
     ejemplosAdicionales: [
       {
         titulo: "Punto de recarga para coche eléctrico (wallbox)",
@@ -390,6 +390,130 @@ const services = [
     ]
   },
   {
+    slug: "iluminacion-led",
+    bloque: "electricidad-domotica",
+    heroImagen: "/img/hero-bloques/electricidad.jpg",
+    numero: 17,
+    publico: "casa",
+    nombre: "Iluminación LED",
+    icono: "light",
+    resumen: "Sustituye halógenos y fluorescentes por LED de bajo consumo. Desde el cambio directo hasta regulación de brillo y temperatura de color por app.",
+    tiempo: "Trabajo rápido (por estancia)",
+    desde: 313,
+    idealPara: [
+      "Viviendas con halógenos o fluorescentes antiguos (alto consumo, se funden a menudo)",
+      "Cocinas y salones que buscan luz cálida regulable en vez de luz fría fija",
+      "Combinarse con una reforma de pladur o electricidad en la misma visita"
+    ],
+    ejemplo: {
+      titulo: "Iluminación LED de cocina y salón (10 puntos de luz)",
+      cliente: "Vivienda con halógenos antiguos en cocina y salón (10 puntos de luz), sin regulación de brillo ni de color.",
+      imagen: "/img/trabajos/pladur-falso-techo-despues.jpg",
+      imagenAntes: "/img/trabajos/pladur-falso-techo-antes.jpg",
+      opciones: [
+        {
+          nombre: "Esencial — sustitución directa, sin regulación",
+          destacada: false,
+          lineas: [
+            { ref: "mo_electricista_hora", horas: 3.5, label: "Mano de obra (sustitución de 10 puntos de luz)" },
+            { ref: "downlight_led_empotrable", cantidad: 10, label: "10 downlights LED empotrables (sustituyen halógeno)" },
+            { ref: "material_iluminacion_led_20", label: "Material eléctrico" }
+          ]
+        },
+        {
+          nombre: "Inteligente — regulación de brillo y color por app ⭐",
+          destacada: true,
+          lineas: [
+            { ref: "mo_electricista_hora", horas: 4.5, label: "Mano de obra (sustitución + configuración de regulación)" },
+            { ref: "downlight_led_regulable_wifi", cantidad: 10, label: "10 downlights LED regulables (brillo y temperatura de color) por app" },
+            { ref: "driver_regulacion_wifi_circuito", cantidad: 2, label: "Módulos de regulación WiFi (cocina y salón, un circuito cada uno)" },
+            { ref: "material_iluminacion_led_35", label: "Material eléctrico" }
+          ]
+        },
+        {
+          nombre: "Completa — con escenas automáticas",
+          destacada: false,
+          lineas: [
+            { ref: "mo_electricista_hora", horas: 5.5, label: "Mano de obra (sustitución + configuración avanzada de escenas)" },
+            { ref: "downlight_led_regulable_wifi", cantidad: 10, label: "10 downlights LED regulables (brillo y temperatura de color) por app" },
+            { ref: "driver_regulacion_wifi_circuito", cantidad: 2, label: "Módulos de regulación WiFi (cocina y salón)" },
+            { ref: "config_escenas_basica", label: "Configuración de escenas de luz (\"buenas noches\", \"salir de casa\", cena)" },
+            { ref: "material_iluminacion_led_50", label: "Material eléctrico" }
+          ]
+        }
+      ],
+      nota: "El número de puntos de luz y el estado del cableado existente se confirman en la visita técnica. La opción Completa necesita el hub de domótica si además quieres integrarla con persianas o clima en las mismas escenas (no incluido aquí, ver Domótica)."
+    },
+    extras: [
+      "Tira LED regulable (temperatura cálida/fría) por estancia (desde 65 €)",
+      "Iluminación LED integrada en falso techo de pladur (ver Pladur)",
+      "Ampliación a más estancias de la vivienda"
+    ],
+    tambienInstalaron: [{ texto: "Domótica (control por escenas)", href: "/servicios/domotica" }, { texto: "Falso techo de pladur con LED", href: "/servicios/pladur" }, { texto: "Iluminación exterior", href: "/servicios/iluminacion-exterior" }]
+  },
+  {
+    slug: "iluminacion-exterior",
+    bloque: "electricidad-domotica",
+    heroImagen: "/img/hero-bloques/electricidad.jpg",
+    numero: 18,
+    publico: "casa",
+    nombre: "Iluminación exterior",
+    icono: "light",
+    resumen: "Ilumina fachada, jardín, terraza o acceso con LED resistente a la intemperie — con detector de presencia o control por app para que se encienda sola al anochecer.",
+    tiempo: "Trabajo rápido a media jornada según puntos",
+    desde: 388,
+    idealPara: [
+      "Fachadas, porches y accesos sin iluminación o con luces antiguas",
+      "Jardines y terrazas que quieren ambiente nocturno sin cableado a la vista",
+      "Detección de presencia para que la luz se encienda sola al llegar a casa"
+    ],
+    ejemplo: {
+      titulo: "Iluminación exterior de fachada y jardín (6 puntos de luz)",
+      cliente: "Vivienda con fachada y acceso sin iluminación, jardín delantero sin ningún punto de luz.",
+      imagen: "/img/trabajos/riego-despues.jpg",
+      imagenAntes: "/img/trabajos/riego-antes.jpg",
+      opciones: [
+        {
+          nombre: "Esencial — 6 focos, encendido manual",
+          destacada: false,
+          lineas: [
+            { ref: "mo_electricista_hora", horas: 5, label: "Instalación y cableado estanco (6 puntos, hasta 20 m de recorrido)" },
+            { ref: "foco_led_exterior_ip65", cantidad: 6, label: "6 focos LED exteriores IP65" },
+            { ref: "material_iluminacion_exterior_30", label: "Material y cableado estanco" }
+          ]
+        },
+        {
+          nombre: "Inteligente — con detector de presencia y crepuscular ⭐",
+          destacada: true,
+          lineas: [
+            { ref: "mo_electricista_hora", horas: 6, label: "Instalación y cableado estanco (6 puntos)" },
+            { ref: "foco_led_exterior_ip65", cantidad: 6, label: "6 focos LED exteriores IP65" },
+            { ref: "detector_presencia_crepuscular", cantidad: 2, label: "2 detectores de presencia y crepuscular (fachada y jardín)" },
+            { ref: "material_iluminacion_exterior_45", label: "Material y cableado estanco" }
+          ]
+        },
+        {
+          nombre: "Completa — con control por app y escenas de ambiente",
+          destacada: false,
+          lineas: [
+            { ref: "mo_electricista_hora", horas: 7, label: "Instalación, cableado estanco y configuración de escenas" },
+            { ref: "foco_led_exterior_wifi_rgb", cantidad: 6, label: "6 focos LED exteriores WiFi, regulables y con color" },
+            { ref: "detector_presencia_crepuscular", cantidad: 2, label: "2 detectores de presencia y crepuscular (fachada y jardín)" },
+            { ref: "config_escenas_basica", label: "Configuración de escenas (encendido automático al anochecer, ambiente nocturno)" },
+            { ref: "material_iluminacion_exterior_60", label: "Material y cableado estanco" }
+          ]
+        }
+      ],
+      nota: "El número de puntos y la distancia real de cableado se confirman en la visita técnica. Todos los focos y cajas de conexión son de grado IP65, aptos para intemperie. El detector de presencia evita dejar la luz encendida toda la noche sin necesidad."
+    },
+    extras: [
+      "Baliza LED de jardín/senda (consultar según metros)",
+      "Iluminación de piscina (ver Domótica)",
+      "Integración con escenas de domótica interior"
+    ],
+    tambienInstalaron: [{ texto: "Iluminación LED (interior)", href: "/servicios/iluminacion-led" }, { texto: "Riego automático de jardín", href: "/servicios/domotica" }, { texto: "Seguridad (cámaras con visión nocturna)", href: "/servicios/seguridad" }]
+  },
+  {
     slug: "energia-solar",
     bloque: "energia",
     heroImagen: "/img/hero-bloques/energia-solar.jpg",
@@ -452,7 +576,7 @@ const services = [
       "Gestión energética inteligente con tarifa PVPC (desde 590 €)",
       "Revisión y mantenimiento anual (30 €/año)"
     ],
-    tambienInstalaron: [{ texto: "Panel de monitorización a medida", href: "/servicios/ia-predictiva" }, { texto: "Punto de recarga para coche eléctrico", href: "/servicios/electricidad" }, { texto: "Batería portátil adicional", href: "/servicios/energia-solar" }],
+    tambienInstalaron: [{ texto: "Panel de monitorización a medida", href: "/servicios/ia-predictiva#panel-monitorizacion" }, { texto: "Punto de recarga para coche eléctrico", href: "/servicios/electricidad" }, { texto: "Batería y almacenamiento", href: "/servicios/baterias" }],
     ejemplosAdicionales: [
       {
         titulo: "Placas solares en tejado, autoconsumo",
@@ -542,6 +666,72 @@ const services = [
     ]
   },
   {
+    slug: "baterias",
+    bloque: "energia",
+    heroImagen: "/img/hero-bloques/energia-solar.jpg",
+    numero: 16,
+    publico: "casa",
+    nombre: "Batería y almacenamiento",
+    icono: "solar",
+    resumen: "Sigue teniendo nevera, luces y WiFi aunque se vaya la luz. Con placas solares o sin ellas — desde una batería portátil hasta un sistema de respaldo para toda la vivienda.",
+    tiempo: "Media jornada a jornada completa según capacidad",
+    desde: 920,
+    idealPara: [
+      "Viviendas con cortes de luz frecuentes o suministro poco fiable",
+      "Quien ya tiene placas solares y quiere aprovechar el excedente por la noche en vez de perderlo",
+      "Segundas residencias que necesitan seguir teniendo nevera y luces sin un grupo electrógeno ruidoso"
+    ],
+    ejemplo: {
+      titulo: "Batería de respaldo para el hogar (con o sin placas solares)",
+      cliente: "Vivienda con cortes de luz puntuales que quiere seguir teniendo nevera, luces y router aunque se vaya la corriente.",
+      imagen: "/img/trabajos/gestion-energetica-pvpc-despues.jpg",
+      imagenAntes: "/img/trabajos/gestion-energetica-pvpc-antes.jpg",
+      opciones: [
+        {
+          nombre: "Esencial — batería portátil, sin instalación fija",
+          destacada: false,
+          lineas: [
+            { ref: "mo_electricista_hora", horas: 1, label: "Puesta en marcha y explicación de uso" },
+            { ref: "bateria_portatil_2kwh" }
+          ]
+        },
+        {
+          nombre: "Inteligente — batería de pared con respaldo automático ⭐",
+          destacada: true,
+          lineas: [
+            { ref: "mo_solar_hora", horas: 6, label: "Instalación de batería, inversor y conmutador de emergencia" },
+            { ref: "bateria_almacenamiento_5kwh", label: "Batería de litio de pared, 5 kWh" },
+            { ref: "inversor_hibrido_3200w_app", label: "Inversor híbrido con monitorización por app (preparado para placas solares futuras)" },
+            { ref: "conmutador_transferencia_automatico" },
+            { ref: "cuadro_emergencia_circuitos_criticos" },
+            { ref: "material_protecciones_solar_420", label: "Material y protecciones eléctricas" }
+          ]
+        },
+        {
+          nombre: "Completa — 10 kWh con gestión inteligente de carga",
+          destacada: false,
+          lineas: [
+            { ref: "mo_solar_hora", horas: 9, label: "Instalación de batería, inversor y conmutador de emergencia" },
+            { ref: "bateria_domestica_10kwh" },
+            { ref: "inversor_hibrido_3200w_app", label: "Inversor híbrido con monitorización por app" },
+            { ref: "conmutador_transferencia_automatico" },
+            { ref: "cuadro_emergencia_ampliado" },
+            { ref: "integracion_tarifa_pvpc", label: "Integración con tarifa PVPC (carga en horas más baratas)" },
+            { ref: "gestor_carga_dinamico", label: "Gestión inteligente de carga (aprovecha horas valle y excedente solar)" },
+            { ref: "material_protecciones_solar_500", label: "Material y protecciones eléctricas" }
+          ]
+        }
+      ],
+      nota: "La opción Esencial no requiere electricista ni obra: es una batería portátil que se enchufa y ya. Inteligente y Completa respaldan solo los circuitos que elijas (nevera, router, luces básicas en Inteligente; hasta 2/3 de la vivienda en Completa) — el resto de la casa se queda sin luz durante el corte, como con cualquier sistema de respaldo doméstico. Si ya tienes placas solares, el inversor híbrido se integra con tu instalación existente sin tener que cambiarla; si no las tienes, queda preparado para añadirlas más adelante."
+    },
+    extras: [
+      "Batería portátil adicional (desde 890 €)",
+      "Ampliación de capacidad de la batería de pared (consultar según modelo instalado)",
+      "Placas solares en tejado para cargar la batería con energía propia (ver Energía solar, desde 2.830 €)"
+    ],
+    tambienInstalaron: [{ texto: "Energía solar (autoconsumo)", href: "/servicios/energia-solar" }, { texto: "Gestión energética inteligente (tarifa PVPC)", href: "/servicios/energia-solar" }, { texto: "Panel de monitorización a medida", href: "/servicios/ia-predictiva#panel-monitorizacion" }]
+  },
+  {
     slug: "seguridad",
     bloque: "seguridad-accesos",
     heroImagen: "/img/hero-bloques/seguridad.jpg",
@@ -599,7 +789,7 @@ const services = [
       "Cerradura eléctrica con apertura desde el móvil (desde 195 €)",
       "Grabación en mini-PC local (CCTV cableado, desde 840 €)"
     ],
-    tambienInstalaron: [{ texto: "Cerradura inteligente", href: "/servicios/seguridad" }, { texto: "Cámara WiFi adicional", href: "/servicios/seguridad" }, { texto: "Sistema de seguridad completo para chalet", href: "/soluciones" }, { texto: "Seguridad IA (sin falsas alarmas)", href: "/servicios/ia-predictiva/seguridad-ia" }, { texto: "Red WiFi mesh", href: "/servicios/redes-informatica" }, { texto: "Panel de monitorización a medida", href: "/servicios/ia-predictiva" }],
+    tambienInstalaron: [{ texto: "Cerradura inteligente", href: "/servicios/seguridad" }, { texto: "Cámara WiFi adicional", href: "/servicios/seguridad" }, { texto: "Sistema de seguridad completo para chalet", href: "/soluciones" }, { texto: "Seguridad IA (sin falsas alarmas)", href: "/servicios/ia-predictiva/seguridad-ia" }, { texto: "Red WiFi mesh", href: "/servicios/redes-informatica" }, { texto: "Panel de monitorización a medida", href: "/servicios/ia-predictiva#panel-monitorizacion" }],
     ejemplosAdicionales: [
       {
         titulo: "Cerradura inteligente",
@@ -746,7 +936,7 @@ const services = [
       "Copia de seguridad automática",
       "Armario de comunicaciones y rack de red (desde 380 €)"
     ],
-    tambienInstalaron: [{ texto: "Domótica", href: "/servicios/domotica" }, { texto: "Cámaras con IA", href: "/servicios/ia-predictiva/seguridad-ia" }, { texto: "Panel de monitorización a medida", href: "/servicios/ia-predictiva" }],
+    tambienInstalaron: [{ texto: "Domótica", href: "/servicios/domotica" }, { texto: "Cámaras con IA", href: "/servicios/ia-predictiva/seguridad-ia" }, { texto: "Panel de monitorización a medida", href: "/servicios/ia-predictiva#panel-monitorizacion" }],
     ejemplosAdicionales: [
       {
         titulo: "Armario de comunicaciones y rack de red",
@@ -847,7 +1037,7 @@ const services = [
       nota: "Revisión y mantenimiento anual (opcional): 45 €/año — limpieza de filtros, revisión de gas y rendimiento. La opción Completa ajusta sola la temperatura según si hay alguien en casa y la previsión del tiempo, y necesita el Mini-PC IA Central (desde 590 €, no incluido, se comparte con otros modos IA)."
     },
     extras: ["Climatización multisplit para toda la vivienda (desde 2.950 €)", "Control WiFi", "Certificado RITE"],
-    tambienInstalaron: [{ texto: "Domótica (control por escenas)", href: "/servicios/domotica" }, { texto: "Iluminación LED", href: "/servicios/electricidad" }, { texto: "Energía solar (para compensar el consumo)", href: "/servicios/energia-solar" }],
+    tambienInstalaron: [{ texto: "Domótica (control por escenas)", href: "/servicios/domotica" }, { texto: "Iluminación LED", href: "/servicios/iluminacion-led" }, { texto: "Energía solar (para compensar el consumo)", href: "/servicios/energia-solar" }],
     ejemplosAdicionales: [
       {
         titulo: "Climatización multisplit para toda la vivienda",
@@ -888,7 +1078,7 @@ const services = [
             ]
           }
         ],
-        nota: "Precio de referencia para multisplit 3x1 (2 y 4 estancias también disponibles, se ajusta en la visita técnica). La opción Completa ajusta sola la temperatura de cada estancia según ocupación y necesita el Mini-PC IA Central (desde 590 €, no incluido, se comparte con otros modos IA)."
+        nota: "Precio de referencia para multisplit 3x1 (2 y 4 estancias también disponibles, se ajusta en la visita técnica). Inteligente y Completa usan el mismo equipo — el precio no cambia entre ambas; lo que cambia es quién decide: en Inteligente ajustas tú desde el móvil, en Completa la IA lo hace sola según ocupación y solo necesitas confirmar. Completa requiere el Mini-PC IA Central (desde 590 €, no incluido, se comparte con otros modos IA)."
       }
     ]
   },
@@ -1331,7 +1521,7 @@ const services = [
       nota: "El cableado eléctrico dentro del tabique (si hace falta pasar algún punto de luz o enchufe) se presupuesta aparte."
     },
     extras: ["Tabique de pladur, 10 m² (desde 435 €)", "Regulación por app (domótica)"],
-    tambienInstalaron: [{ texto: "Iluminación LED", href: "/servicios/electricidad" }, { texto: "Domótica de escenas", href: "/servicios/domotica" }, { texto: "Pintura de piso completo", href: "/servicios/reparaciones-reformas" }, { texto: "Electricidad (nuevos puntos de luz)", href: "/servicios/electricidad" }],
+    tambienInstalaron: [{ texto: "Iluminación LED", href: "/servicios/iluminacion-led" }, { texto: "Domótica de escenas", href: "/servicios/domotica" }, { texto: "Pintura de piso completo", href: "/servicios/reparaciones-reformas" }, { texto: "Electricidad (nuevos puntos de luz)", href: "/servicios/electricidad" }],
     ejemplosAdicionales: [
       {
         titulo: "Falso techo de pladur con iluminación empotrada (salón, 18 m²)",
@@ -1790,7 +1980,7 @@ const packs = [
         ]
       }
     ],
-    nota: "Sin cuota mensual ni contrato con central de alarmas — frente a los 20-50 €/mes (240-620 €/año) de una alarma con central receptora, aquí pagas la instalación una vez y el sistema es tuyo. Funciona de forma autónoma en tu propiedad, con IA desde la opción Esencial."
+    nota: "Sin cuota mensual ni contrato con central de alarmas — frente a los 20-50 €/mes (240-620 €/año) de una alarma con central receptora, aquí pagas la instalación una vez y el sistema es tuyo. Funciona de forma autónoma en tu propiedad, con IA desde la opción Esencial. Solo 240 € más que Inteligente, Completa descarta falsos positivos antes de avisarte y reconoce vehículos que pasan a menudo."
   },
   {
     nombre: "Pack Hogar con IA",
@@ -1861,7 +2051,7 @@ const packs = [
         destacada: true,
         lineas: [
           { ref: "minipc_ia_pro", label: "Mini-PC IA PRO — instalación base obligatoria (3 modos a la vez + varias cámaras en Seguridad IA)", precioOverride: 950 },
-          { ref: "config_motor_geofencing_reducido", label: "Casa Presencial — 3 escenas + simulación de presencia", precioOverride: 595 },
+          { ref: "config_motor_geofencing_reducido", label: "Casa Presencial — 3 escenas + simulación de presencia", precioOverride: 835 },
           { ref: "mo_config_420", label: "Seguridad IA — 4 cámaras + zonas de detección personalizadas", precioOverride: 1330 },
           { ref: "motor_python_deteccion_paquete_foto", label: "Gestión de Paquetes — detección, foto y alerta WhatsApp", precioOverride: 320 }
         ]
@@ -1871,7 +2061,7 @@ const packs = [
         destacada: false,
         lineas: [
           { ref: "minipc_ia_pro", label: "Mini-PC IA PRO — instalación base obligatoria", precioOverride: 950 },
-          { ref: "config_motor_geofencing_reducido", label: "Casa Presencial — 3 escenas + simulación de presencia", precioOverride: 595 },
+          { ref: "config_motor_geofencing_reducido", label: "Casa Presencial — 3 escenas + simulación de presencia", precioOverride: 835 },
           { ref: "mo_config_avanzada_520", label: "Seguridad IA — 6 cámaras + reconocimiento de personas habituales", precioOverride: 2720 },
           { ref: "motor_python_deteccion_reconocimiento_historico", label: "Gestión de Paquetes — + histórico de entregas", precioOverride: 575 },
           { ref: "motor_python_clima_riego_persianas", label: "Motor Meteorológico — riego y persianas con IA climática", precioOverride: 1070 }
@@ -1879,6 +2069,55 @@ const packs = [
       }
     ],
     nota: "Sin cuota mensual ni necesidad de desplazarte para comprobar el estado de la vivienda. Precio orientativo, se ajusta en visita técnica según distancia y accesibilidad."
+  },
+  {
+    nombre: "Pack Seguridad IA para Negocios",
+    slug: "negocio",
+    publico: "negocio",
+    incluyeIA: true,
+    descripcion: "Ideal para naves, almacenes, talleres y locales. IA que descarta falsas alarmas y te avisa por WhatsApp solo cuando hay algo real.",
+    idealPara: "naves, almacenes, talleres y locales",
+    resultado: "Solo recibes un aviso por WhatsApp cuando hay una persona o vehículo fuera de horario — no cada vez que algo se mueve.",
+    imagen: "/img/packs/pack-negocio.jpg",
+    imagenAlt: "Sala de control con monitorización de cámaras y dashboard IA — Pack Seguridad IA para Negocios AHOMED",
+    opciones: [
+      {
+        nombre: "Esencial — 4 cámaras con detección IA",
+        destacada: false,
+        lineas: [
+          { ref: "camara_ip_poe_exterior", cantidad: 4, label: "4 cámaras IP (perímetro y accesos)" },
+          { ref: "mo_seguridad_hora", horas: 11.875, label: "Instalación y cableado" },
+          { ref: "minipc_ia_start", label: "Mini-PC con IA local (detección de personas y vehículos)", precioOverride: 480 },
+          { ref: "config_alertas_whatsapp_app", label: "Configuración de alertas por WhatsApp con imagen del momento", precioOverride: 150 },
+          { ref: "config_alertas_zonas_personalizadas", label: "Zonas de detección personalizadas (horario de negocio vs. fuera de horario)", precioOverride: 120 }
+        ]
+      },
+      {
+        nombre: "Inteligente — 6 cámaras + dashboard ⭐",
+        destacada: true,
+        lineas: [
+          { ref: "camara_ip_poe_exterior", cantidad: 6, label: "6 cámaras IP (perímetro, accesos y zona de carga)" },
+          { ref: "mo_seguridad_hora", horas: 16.875, label: "Instalación y cableado (6 cámaras)" },
+          { ref: "minipc_ia_pro", label: "Mini-PC con IA local de mayor potencia", precioOverride: 680 },
+          { ref: "config_alertas_whatsapp_app", label: "Configuración de alertas por WhatsApp" },
+          { ref: "dashboard_historial_entregas", label: "Panel de monitorización a medida (dashboard propio en navegador)", precioOverride: 380 },
+          { ref: "config_alertas_zonas_personalizadas", label: "Zonas de detección personalizadas y horarios", precioOverride: 150 }
+        ]
+      },
+      {
+        nombre: "Completa — 8 cámaras + CCTV cableado + IA avanzada",
+        destacada: false,
+        lineas: [
+          { ref: "camara_ip_poe_exterior", cantidad: 8, label: "8 cámaras IP (cobertura total del perímetro)" },
+          { ref: "mo_seguridad_hora", horas: 22.5, label: "Instalación y cableado (8 cámaras)" },
+          { ref: "minipc_ia_pro", label: "Mini-PC con IA avanzada (detección de placas, reconocimiento de vehículos recurrentes)", precioOverride: 950 },
+          { ref: "dashboard_historial_entregas", label: "Panel de monitorización a medida", precioOverride: 380 },
+          { ref: "notificaciones_whatsapp_alarma", label: "Alertas WhatsApp por tipo de evento (persona / vehículo / acceso fuera de horario)", precioOverride: 200 },
+          { ref: "led_brazo_toldo", label: "Integración con sistema de iluminación de seguridad perimetral", precioOverride: 280 }
+        ]
+      }
+    ],
+    nota: "Ampliable con CCTV cableado adicional, integración con acceso de empleados o control de presencia. Sin cuota mensual."
   }
 ];
 

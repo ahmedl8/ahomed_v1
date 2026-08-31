@@ -36,40 +36,37 @@ const seguridadIANaves = {
         {
           nombre: "Esencial — perímetro con 4 cámaras",
           destacada: false,
-          items: [
-            ["Instalación y cableado (4 cámaras, nave de hasta 500 m²)", 450],
-            ["4 cámaras IP con visión nocturna", 480],
-            ["Configuración del modelo de detección IA (persona/vehículo, descarta falsos positivos)", 380],
-            ["Notificaciones por WhatsApp ante alarma real", 90],
-            ["Material y conectorizado", 60]
-          ],
-          total: 1460
+          lineas: [
+            { ref: "mo_industrial_seguridad_hora", horas: 11.25, label: "Instalación y cableado (4 cámaras, nave de hasta 500 m²)" },
+            { ref: "camara_ip_industrial_exterior", cantidad: 4, label: "4 cámaras IP con visión nocturna" },
+            { ref: "config_deteccion_ia_industrial_persona_vehiculo" },
+            { ref: "notificaciones_whatsapp_alarma_industrial" },
+            { ref: "material_industrial_seguridad_60" }
+          ]
         },
         {
-          nombre: "Inteligente — 8 cámaras, cubre accesos y muelles",
+          nombre: "Inteligente — 8 cámaras, cubre accesos y muelles ⭐",
           destacada: true,
-          items: [
-            ["Instalación y cableado (8 cámaras)", 780],
-            ["8 cámaras IP con visión nocturna", 960],
-            ["Configuración del modelo de detección IA (persona/vehículo/matrícula)", 480],
-            ["Notificaciones por WhatsApp ante alarma real", 90],
-            ["Material y conectorizado", 90]
-          ],
-          total: 2400
+          lineas: [
+            { ref: "mo_industrial_seguridad_hora", horas: 19.5, label: "Instalación y cableado (8 cámaras)" },
+            { ref: "camara_ip_industrial_exterior", cantidad: 8, label: "8 cámaras IP con visión nocturna" },
+            { ref: "config_deteccion_ia_industrial_matricula" },
+            { ref: "notificaciones_whatsapp_alarma_industrial" },
+            { ref: "material_industrial_seguridad_90" }
+          ]
         },
         {
           nombre: "Completa — con reanálisis de alarmas por IA",
           destacada: false,
-          items: [
-            ["Instalación y cableado (8 cámaras + 2 térmicas perimetrales)", 950],
-            ["8 cámaras IP con visión nocturna", 960],
-            ["2 cámaras térmicas para detección perimetral (reducen falsos positivos por fauna o vegetación)", 2300],
-            ["Configuración del modelo de detección IA (persona/vehículo/matrícula)", 480],
-            ["Reanálisis automático de alarmas con IA (descarta falsos positivos antes de avisar)", 380],
-            ["Notificaciones por WhatsApp ante alarma real", 90],
-            ["Material y conectorizado", 100]
-          ],
-          total: 5260
+          lineas: [
+            { ref: "mo_industrial_seguridad_hora", horas: 23.75, label: "Instalación y cableado (8 cámaras + 2 térmicas perimetrales)" },
+            { ref: "camara_ip_industrial_exterior", cantidad: 8, label: "8 cámaras IP con visión nocturna" },
+            { ref: "camara_termica_perimetral", cantidad: 2, label: "2 cámaras térmicas para detección perimetral (reducen falsos positivos por fauna o vegetación)" },
+            { ref: "config_deteccion_ia_industrial_matricula" },
+            { ref: "reanalisis_ia_alarmas" },
+            { ref: "notificaciones_whatsapp_alarma_industrial" },
+            { ref: "material_industrial_seguridad_100" }
+          ]
         }
       ]
     }

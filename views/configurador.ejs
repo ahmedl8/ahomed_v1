@@ -219,12 +219,6 @@
       modos: modosIA.map(function(m){
         return { slug: m.slug, nombre: m.nombre, descripcion: m.resumen || m.subtitulo, precioIncremento: m.precioIncremento, esProyecto: !!m.esProyecto };
       }),
-      seguridadIANaves: {
-        slug: seguridadIANaves.slug,
-        nombre: seguridadIANaves.nombre,
-        descripcion: seguridadIANaves.resumen,
-        opciones: (seguridadIANaves.ejemplos[0] ? seguridadIANaves.ejemplos[0].opciones : []).map(function(o){ return { nombre: o.nombre, total: o.total }; })
-      },
       necesidadCatalogo: necesidadCatalogo
     }) %>
   </script>

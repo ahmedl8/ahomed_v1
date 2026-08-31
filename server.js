@@ -6,7 +6,7 @@ const helmet = require("helmet");
 
 const { translate } = require("./i18n/content");
 const uiStrings = require("./i18n/ui");
-const { resolverServicios, resolverModos, resolverNiveles } = require("./data/pricing");
+const { resolverServicio, resolverServicios, resolverModos, resolverNiveles, resolverOpciones } = require("./data/pricing");
 
 const {
   services: servicesRaw,
@@ -19,7 +19,8 @@ const bloquesRaw = require("./data/bloques");
 const {
   instalacionBase: instalacionBaseRaw,
   modos: modosIARaw,
-  familiasIA: familiasIARaw
+  familiasIA: familiasIARaw,
+  panelMonitorizacion: panelMonitorizacionRaw
 } = require("./data/ia-predictiva");
 const { seguridadIANaves: seguridadIANavesRaw } = require("./data/naves-fincas");
 const galeriaRaw = require("./data/galeria");
@@ -178,7 +179,7 @@ app.use((req, res, next) => {
     { ...instalacionBaseRaw, niveles: resolverNiveles(instalacionBaseRaw.niveles) },
     lang
   );
-  res.locals.seguridadIANaves = translate("seguridadIANaves", seguridadIANavesRaw, lang);
+  res.locals.seguridadIANaves = translate("seguridadIANaves", resolverServicio(seguridadIANavesRaw), lang);
   res.locals.totalModos = modosIARaw.length;
   res.locals.metaDescription = res.locals.empresa.metaDescriptionDefault;
   next();
@@ -197,7 +198,10 @@ function fill(template, values) {
   return template.replace(/\{(\w+)\}/g, (m, k) => (Object.prototype.hasOwnProperty.call(values, k) ? values[k] : m));
 }
 
-// ---- Rutas ----// Bloque "¿Qué necesitas?": navegación por necesidad del cliente, no por
+// ---- Rutas ----
+const PACKS_DESTACADOS_HOME = ["chalet-seguro", "piso-nuevo", "hogar-inteligente"];
+
+// Bloque "¿Qué necesitas?": navegación por necesidad del cliente, no por
 // bloque técnico. Cada tarjeta enlaza al servicio/página real más representativo
 // de esa necesidad (no se filtra por varios servicios a la vez).
 const QUE_NECESITAS = [
@@ -256,12 +260,14 @@ app.get("/", (req, res) => {
     services,
     necesitas,
     bloques,
+    seguridadIA: modosIA.find((m) => m.slug === "seguridad-ia"),
     modosIA: modosIA.filter((m) => !m.esProyecto),
     // Lista completa (incluye Seguridad IA, esProyecto: true) para los enlaces
     // de la sección "Vive AHOMED", que sí referencian ese modo.
     modosIATodos: modosIA,
     instalacionBase,
-    packs,
+    packs: packs.filter((p) => p.publico !== "negocio"),
+    packsDestacados: PACKS_DESTACADOS_HOME.map((slug) => packs.find((p) => p.slug === slug)).filter(Boolean),
     ventajas,
     comoFunciona,
     familiasIA,
@@ -291,19 +297,36 @@ const NECESIDAD_CATALOGO = {
   seguridad: { servicios: ["seguridad"], modos: ["seguridad-ia", "acceso-inteligente"] },
   confort: { servicios: ["domotica", "climatizacion"], modos: ["casa-presencial", "ia-sueno", "cocina-inteligente", "acceso-inteligente"] },
   ahorro: { servicios: ["energia-solar"], modos: ["motor-meteorologico", "calidad-aire"] },
-  familia: { servicios: [], modos: ["cuidado-mascotas", "personas-mayores", "modo-ninos", "gestion-paquetes"] }
+  familia: { servicios: [], modos: ["cuidado-mascotas", "personas-mayores", "modo-ninos", "gestion-paquetes"] },
+  // v70: nave/negocio no pasa por "qué te importa" (paso 2) — ver
+  // configurador.js, que salta directo a este grupo cuando vivienda=negocio.
+  negocio: { servicios: ["electricidad-nave", "redes-nave", "fontaneria-nave"], modos: ["seguridad-ia-naves-fincas"] }
 };
 
 app.get("/configurador", (req, res) => {
-  const { empresa, packs, services, modosIA, t } = res.locals;
+  const { empresa, packs, services, modosIA, seguridadIANaves, t } = res.locals;
   const serviciosCasa = services.filter((s) => s.publico === "casa");
+  const serviciosNave = services.filter((s) => s.publico === "negocio" && s.slug !== "mantenimiento-nave");
+  // seguridadIANaves no vive en modosIA (es un producto propio de la vertical
+  // Naves y Fincas, ver data/naves-fincas.js) — se expone al configurador con
+  // la misma forma que un modo, para que el paso 3 y el motor de resultado
+  // puedan tratarlo igual que cualquier otro modo IA.
+  const modosParaNegocio = [
+    {
+      slug: seguridadIANaves.slug,
+      nombre: seguridadIANaves.nombre,
+      resumen: seguridadIANaves.subtitulo,
+      precioIncremento: seguridadIANaves.ejemplos[0].opciones[0].total,
+      esProyecto: false
+    }
+  ];
 
   res.render("configurador", {
     title: `${t('seo.configurador.title')} — ${empresa.nombre}`,
     metaDescription: t('seo.configurador.desc'),
     packs,
-    services: serviciosCasa,
-    modosIA,
+    services: serviciosCasa.concat(serviciosNave),
+    modosIA: modosIA.concat(modosParaNegocio),
     necesidadCatalogo: NECESIDAD_CATALOGO
   });
 });
@@ -316,8 +339,7 @@ app.get("/configurador", (req, res) => {
 // combinación se parece a un pack ya existente, se lo señalamos con el precio
 // de ese pack al lado — así no le montamos a mano algo que ya vendemos
 // empaquetado y más barato. Solo cubre público "casa" por ahora: naves y
-// fincas tienen su propio producto, Seguridad IA para Naves y Fincas
-// (/servicios/naves-fincas/seguridad-ia), fuera de este creador.
+// fincas ya tienen su propio Pack Seguridad IA para Negocios.
 app.get("/crea-tu-instalacion", (req, res) => {
   const { empresa, services, packs, modosIA, instalacionBase, t } = res.locals;
   const serviciosCasa = services.filter((s) => s.publico === "casa");
@@ -406,7 +428,8 @@ app.get("/servicios/ia-predictiva", (req, res) => {
     instalacionBase,
     modos: modosIA,
     familiasIA,
-    packsIA: packs.filter((p) => ["hogar-inteligente", "alquiler-segunda-residencia-ia"].includes(p.slug))
+    packsIA: packs.filter((p) => ["hogar-inteligente", "alquiler-segunda-residencia-ia"].includes(p.slug)),
+    panelMonitorizacion: { ...panelMonitorizacionRaw, opciones: resolverOpciones(panelMonitorizacionRaw.opciones) }
   });
 });
 
@@ -448,7 +471,8 @@ app.get("/soluciones", (req, res) => {
   res.render("packs", {
     title: `${t('seo.soluciones.title')} — ${empresa.nombre}`,
     metaDescription: t('seo.soluciones.desc'),
-    packsCasa: packs
+    packsCasa: packs.filter((p) => p.publico !== "negocio"),
+    packsNegocio: packs.filter((p) => p.publico === "negocio")
   });
 });
 

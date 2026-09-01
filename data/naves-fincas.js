@@ -34,7 +34,7 @@ const seguridadIANaves = {
       imagenAntes: "/img/trabajos/naves-seguridad-ia-antes.jpg",
       opciones: [
         {
-          nombre: "Esencial — perímetro con 4 cámaras",
+          nombre: "Básica — perímetro con 4 cámaras",
           destacada: false,
           lineas: [
             { ref: "mo_industrial_seguridad_hora", horas: 11.25, label: "Instalación y cableado (4 cámaras, nave de hasta 500 m²)" },

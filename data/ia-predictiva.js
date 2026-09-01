@@ -85,7 +85,7 @@ const modos = [
       titulo: "Motor clima + riego + persianas",
       opciones: [
         {
-          nombre: "Esencial — motor clima + riego (4 zonas)",
+          nombre: "Básica — motor clima + riego (4 zonas)",
           destacada: false,
           lineas: [
             { ref: "controlador_riego_wifi_4z_shelly" },
@@ -132,7 +132,7 @@ const modos = [
       titulo: "Geofencing + 3 escenas + simulación de presencia",
       opciones: [
         {
-          nombre: "Esencial — geofencing + 3 escenas (llegada / salida / noche)",
+          nombre: "Básica — geofencing + 3 escenas (llegada / salida / noche)",
           destacada: false,
           lineas: [
             { ref: "enchufes_inteligentes_wifi_x2" },
@@ -180,7 +180,7 @@ const modos = [
       titulo: "Persianas + luz adaptativa + integración con alarma",
       opciones: [
         {
-          nombre: "Esencial — persianas + luz nocturna adaptativa",
+          nombre: "Básica — persianas + luz nocturna adaptativa",
           destacada: false,
           lineas: [
             { ref: "motores_persiana_wifi_x2_dormitorio" },
@@ -228,7 +228,7 @@ const modos = [
       titulo: "Sensor CO₂ + dashboard + alertas automáticas",
       opciones: [
         {
-          nombre: "Esencial — monitorización + alertas WhatsApp",
+          nombre: "Básica — monitorización + alertas WhatsApp",
           destacada: false,
           lineas: [
             { ref: "sensor_co2_temp_hum_scd40" },
@@ -274,7 +274,7 @@ const modos = [
       titulo: "Monitorización + comedero + control de temperatura",
       opciones: [
         {
-          nombre: "Esencial — monitorización + alerta de ladridos",
+          nombre: "Básica — monitorización + alerta de ladridos",
           destacada: false,
           lineas: [
             { ref: "camara_ip_audio_bidireccional" },
@@ -320,7 +320,7 @@ const modos = [
       titulo: "Detección de humo + extractor automático + aviso de horno",
       opciones: [
         {
-          nombre: "Esencial — detección de humo + alerta WhatsApp",
+          nombre: "Básica — detección de humo + alerta WhatsApp",
           destacada: false,
           lineas: [
             { ref: "detector_humo_co_conectado" },
@@ -364,7 +364,7 @@ const modos = [
       titulo: "Ausencia de movimiento + detección de caídas por IA",
       opciones: [
         {
-          nombre: "Esencial — ausencia de movimiento + puerta abierta",
+          nombre: "Básica — ausencia de movimiento + puerta abierta",
           destacada: false,
           lineas: [
             { ref: "sensor_movimiento_estancia_x3" },
@@ -411,7 +411,7 @@ const modos = [
       titulo: "Geofencing + aviso de llegada + escena de bienvenida",
       opciones: [
         {
-          nombre: "Esencial — aviso de llegada por WhatsApp",
+          nombre: "Básica — aviso de llegada por WhatsApp",
           destacada: false,
           lineas: [
             { ref: "sensor_puerta_ventana", label: "Sensor de puerta/ventana (confirmación de entrada)" },
@@ -454,7 +454,7 @@ const modos = [
       titulo: "Detección de paquete + foto automática + alerta WhatsApp",
       opciones: [
         {
-          nombre: "Esencial — detección + foto + alerta WhatsApp",
+          nombre: "Básica — detección + foto + alerta WhatsApp",
           destacada: false,
           lineas: [
             { ref: "camara_ip_entrada_vision_nocturna" },
@@ -505,7 +505,7 @@ const modos = [
         imagenAntes: "/img/trabajos/monitor-ia-antes.jpg",
         opciones: [
           {
-            nombre: "Esencial — 2 cámaras",
+            nombre: "Básica — 2 cámaras",
             destacada: false,
             lineas: [
               { ref: "mo_config_deteccion_ia_320" },
@@ -561,7 +561,7 @@ const modos = [
       titulo: "Acceso a puerta principal + garaje",
       opciones: [
         {
-          nombre: "Esencial — reconocimiento en la puerta principal",
+          nombre: "Básica — reconocimiento en la puerta principal",
           destacada: false,
           lineas: [
             { ref: "camara_ip_acceso_reconocimiento_facial" },

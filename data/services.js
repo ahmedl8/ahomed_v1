@@ -32,7 +32,7 @@ const services = [
       imagenAntes: "/img/trabajos/cuadro-electrico-antes.jpg",
       opciones: [
         {
-          nombre: "Esencial",
+          nombre: "Básica",
           destacada: false,
           lineas: [
             { ref: "mo_electricista_hora", horas: 4 },
@@ -79,7 +79,7 @@ const services = [
         imagen: "/img/trabajos/wallbox-despues.jpg",
         opciones: [
           {
-            nombre: "Esencial — wallbox 7,4 kW, instalación corta (hasta 5 m)",
+            nombre: "Básica — wallbox 7,4 kW, instalación corta (hasta 5 m)",
             destacada: false,
             lineas: [
               { ref: "mo_electricista_hora", horas: 7.4, label: "Mano de obra e instalación (hasta 5 m desde el cuadro)" },
@@ -112,7 +112,7 @@ const services = [
             ]
           }
         ],
-        nota: "Si el cuadro eléctrico no tiene capacidad disponible o hay que llevar línea nueva desde el contador, se presupuesta aparte tras la visita técnica. La normativa (ITC-BT-52) exige línea dedicada con magnetotérmico y diferencial propios para el wallbox — van incluidos desde la opción Esencial, no como extra; en presupuestos más baratos del mercado conviene preguntar si de verdad los llevan, porque es lo que protege tu coche y tu instalación."
+        nota: "Si el cuadro eléctrico no tiene capacidad disponible o hay que llevar línea nueva desde el contador, se presupuesta aparte tras la visita técnica. La normativa (ITC-BT-52) exige línea dedicada con magnetotérmico y diferencial propios para el wallbox — van incluidos desde la opción Básica, no como extra; en presupuestos más baratos del mercado conviene preguntar si de verdad los llevan, porque es lo que protege tu coche y tu instalación."
       }
     ]
   },
@@ -412,7 +412,7 @@ const services = [
       imagenAntes: "/img/trabajos/pladur-falso-techo-antes.jpg",
       opciones: [
         {
-          nombre: "Esencial — sustitución directa, sin regulación",
+          nombre: "Básica — sustitución directa, sin regulación",
           destacada: false,
           lineas: [
             { ref: "mo_electricista_hora", horas: 3.5, label: "Mano de obra (sustitución de 10 puntos de luz)" },
@@ -474,7 +474,7 @@ const services = [
       imagenAntes: "/img/trabajos/riego-antes.jpg",
       opciones: [
         {
-          nombre: "Esencial — 6 focos, encendido manual",
+          nombre: "Básica — 6 focos, encendido manual",
           destacada: false,
           lineas: [
             { ref: "mo_electricista_hora", horas: 5, label: "Instalación y cableado estanco (6 puntos, hasta 20 m de recorrido)" },
@@ -536,7 +536,7 @@ const services = [
       imagenAntes: "/img/trabajos/solar-terraza-antes.jpg",
       opciones: [
         {
-          nombre: "Esencial",
+          nombre: "Básica",
           destacada: false,
           lineas: [
             { ref: "mo_solar_hora", horas: 2.25, label: "Instalación y fijación" },
@@ -585,7 +585,7 @@ const services = [
       imagenAntes: "/img/trabajos/solar-tejado-antes.jpg",
         opciones: [
           {
-            nombre: "Esencial — 4 paneles (1.600 W)",
+            nombre: "Básica — 4 paneles (1.600 W)",
             destacada: false,
             lineas: [
               { ref: "mo_solar_hora", horas: 19.5, label: "Instalación, estructura de tejado y cableado" },
@@ -631,7 +631,7 @@ const services = [
         imagenAntes: "/img/trabajos/gestion-energetica-pvpc-antes.jpg",
         opciones: [
           {
-            nombre: "Esencial — monitorización de consumo",
+            nombre: "Básica — monitorización de consumo",
             destacada: false,
             lineas: [
               { ref: "mo_solar_hora", horas: 5.5, label: "Instalación y configuración" },
@@ -688,7 +688,7 @@ const services = [
       imagenAntes: "/img/trabajos/gestion-energetica-pvpc-antes.jpg",
       opciones: [
         {
-          nombre: "Esencial — batería portátil, sin instalación fija",
+          nombre: "Básica — batería portátil, sin instalación fija",
           destacada: false,
           lineas: [
             { ref: "mo_electricista_hora", horas: 1, label: "Puesta en marcha y explicación de uso" },
@@ -722,7 +722,7 @@ const services = [
           ]
         }
       ],
-      nota: "La opción Esencial no requiere electricista ni obra: es una batería portátil que se enchufa y ya. Inteligente y Completa respaldan solo los circuitos que elijas (nevera, router, luces básicas en Inteligente; hasta 2/3 de la vivienda en Completa) — el resto de la casa se queda sin luz durante el corte, como con cualquier sistema de respaldo doméstico. Si ya tienes placas solares, el inversor híbrido se integra con tu instalación existente sin tener que cambiarla; si no las tienes, queda preparado para añadirlas más adelante."
+      nota: "La opción Básica no requiere electricista ni obra: es una batería portátil que se enchufa y ya. Inteligente y Completa respaldan solo los circuitos que elijas (nevera, router, luces básicas en Inteligente; hasta 2/3 de la vivienda en Completa) — el resto de la casa se queda sin luz durante el corte, como con cualquier sistema de respaldo doméstico. Si ya tienes placas solares, el inversor híbrido se integra con tu instalación existente sin tener que cambiarla; si no las tienes, queda preparado para añadirlas más adelante."
     },
     extras: [
       "Batería portátil adicional (desde 890 €)",
@@ -900,7 +900,7 @@ const services = [
       imagenAntes: "/img/trabajos/rack-comunicaciones-antes.jpg",
       opciones: [
         {
-          nombre: "Esencial",
+          nombre: "Básica",
           destacada: false,
           lineas: [
             { ref: "mo_redes_hora", horas: 1.875, label: "Instalación y configuración" },
@@ -945,7 +945,7 @@ const services = [
       imagenAntes: "/img/trabajos/rack-comunicaciones-antes.jpg",
         opciones: [
           {
-            nombre: "Esencial — armario compacto de superficie",
+            nombre: "Básica — armario compacto de superficie",
             destacada: false,
             lineas: [
               { ref: "mo_redes_hora", horas: 4.375, label: "Instalación de armario y orden de cableado existente" },
@@ -1101,7 +1101,7 @@ const services = [
       imagenAntes: "/img/trabajos/antena-tv-antes.jpg",
       opciones: [
         {
-          nombre: "Esencial — 1 toma de TV",
+          nombre: "Básica — 1 toma de TV",
           destacada: false,
           lineas: [
             { ref: "mo_antenista_hora", horas: 2.1875, label: "Instalación, orientación y configuración" },
@@ -1130,7 +1130,7 @@ const services = [
         imagen: "/img/trabajos/antena-tdt-comunitaria-despues.jpg",
         opciones: [
           {
-            nombre: "Esencial — hasta 8 viviendas",
+            nombre: "Básica — hasta 8 viviendas",
             destacada: false,
             lineas: [
               { ref: "mo_antenista_hora", horas: 10, label: "Mano de obra (instalación en cubierta y revisión de bajantes)" },
@@ -1190,7 +1190,7 @@ const services = [
       imagenAntes: "/img/trabajos/bano-reforma-antes.jpg",
       opciones: [
         {
-          nombre: "Esencial",
+          nombre: "Básica",
           destacada: false,
           lineas: [
             { ref: "mo_reformas_hora", horas: 4.2857, label: "Mano de obra pintura (paredes y techo, aprox. 15 m²)" },
@@ -1244,7 +1244,7 @@ const services = [
       imagenAntes: "/img/trabajos/pintura-reforma-antes.jpg",
         opciones: [
           {
-            nombre: "Esencial — piso de 80 m², un solo color",
+            nombre: "Básica — piso de 80 m², un solo color",
             destacada: false,
             lineas: [
               { ref: "mo_reformas_hora", horas: 22.1429, label: "Mano de obra (paredes y techos, 80 m² aprox.)" },
@@ -1284,7 +1284,7 @@ const services = [
       imagenAntes: "/img/trabajos/bano-reforma-antes.jpg",
         opciones: [
           {
-            nombre: "Esencial — 12 m², azulejo estándar",
+            nombre: "Básica — 12 m², azulejo estándar",
             destacada: false,
             lineas: [
               { ref: "mo_reformas_hora", horas: 15, label: "Mano de obra (retirada de azulejo antiguo + alicatado, 12 m²)" },
@@ -1325,7 +1325,7 @@ const services = [
       imagenAntes: "/img/trabajos/cocina-reforma-antes.jpg",
         opciones: [
           {
-            nombre: "Esencial — módulos bajos y altos (hasta 4 m lineales)",
+            nombre: "Básica — módulos bajos y altos (hasta 4 m lineales)",
             destacada: false,
             lineas: [
               { ref: "mo_reformas_hora", horas: 10, label: "Mano de obra (montaje de muebles bajos y altos)" },
@@ -1365,7 +1365,7 @@ const services = [
       imagenAntes: "/img/trabajos/cocina-reforma-antes.jpg",
         opciones: [
           {
-            nombre: "Esencial — muebles y encimera, sin cambiar distribución",
+            nombre: "Básica — muebles y encimera, sin cambiar distribución",
             destacada: false,
             lineas: [
               { ref: "mo_reformas_hora", horas: 27.8571, label: "Mano de obra (desmontaje, instalación de muebles y encimera)" },
@@ -1401,7 +1401,7 @@ const services = [
             ]
           }
         ],
-        nota: "El cambio de distribución (mover fontanería o electricidad de sitio) requiere visita técnica previa para confirmar la viabilidad según la instalación existente del edificio. La opción Esencial no incluye electrodomésticos ni cambio de distribución — para una reforma completa con nueva distribución, ver las opciones Inteligente y Completa."
+        nota: "El cambio de distribución (mover fontanería o electricidad de sitio) requiere visita técnica previa para confirmar la viabilidad según la instalación existente del edificio. La opción Básica no incluye electrodomésticos ni cambio de distribución — para una reforma completa con nueva distribución, ver las opciones Inteligente y Completa."
       }
     ]
   },
@@ -1431,7 +1431,7 @@ const services = [
       imagenAntes: "/img/trabajos/bano-reforma-antes.jpg",
       opciones: [
         {
-          nombre: "Esencial — grifería",
+          nombre: "Básica — grifería",
           destacada: false,
           lineas: [
             { ref: "mo_fontanero_hora", horas: 2.8125, label: "Mano de obra (cambio de 2 grifos: lavabo y ducha)" },
@@ -1485,7 +1485,7 @@ const services = [
       imagen: "/img/trabajos/pladur-techo-despues.jpg",
       opciones: [
         {
-          nombre: "Esencial — tabique simple, 10 m²",
+          nombre: "Básica — tabique simple, 10 m²",
           destacada: false,
           lineas: [
             { ref: "mo_pladurista_hora", horas: 8.5714, label: "Mano de obra (estructura y placas, 10 m²)" },
@@ -1530,7 +1530,7 @@ const services = [
         imagenAntes: "/img/trabajos/pladur-falso-techo-antes.jpg",
         opciones: [
           {
-            nombre: "Esencial — techo liso",
+            nombre: "Básica — techo liso",
             destacada: false,
             lineas: [
               { ref: "mo_pladurista_hora", horas: 13.5714, label: "Mano de obra (estructura y placas, 18 m²)" },
@@ -1590,7 +1590,7 @@ const services = [
       imagen: "/img/trabajos/mantenimiento-despues.jpg",
       opciones: [
         {
-          nombre: "Esencial — revisión anual",
+          nombre: "Básica — revisión anual",
           destacada: false,
           items: [["1 visita de revisión anual (dispositivos, batería de sensores, actualización de apps)", 90]],
           total: 90,
@@ -1641,7 +1641,7 @@ const services = [
       imagenAntes: "/img/trabajos/cuadro-electrico-antes.jpg",
       opciones: [
         {
-          nombre: "Esencial — hasta 20 kW",
+          nombre: "Básica — hasta 20 kW",
           destacada: false,
           lineas: [
             { ref: "mo_industrial_hora", horas: 8, label: "Mano de obra (aprox. 8 h)" },
@@ -1711,7 +1711,7 @@ const services = [
       imagenAntes: "/img/trabajos/rack-comunicaciones-antes.jpg",
       opciones: [
         {
-          nombre: "Esencial — WiFi industrial (2 puntos de acceso)",
+          nombre: "Básica — WiFi industrial (2 puntos de acceso)",
           destacada: false,
           lineas: [
             { ref: "mo_industrial_hora", horas: 5.5, label: "Instalación y configuración con roaming entre puntos" },
@@ -1777,7 +1777,7 @@ const services = [
       imagenAntes: "/img/trabajos/riego-antes.jpg",
       opciones: [
         {
-          nombre: "Esencial — riego por goteo, 1 sector",
+          nombre: "Básica — riego por goteo, 1 sector",
           destacada: false,
           lineas: [
             { ref: "mo_industrial_hora", horas: 9.5, label: "Mano de obra (zanja, tubería principal y ramales)" },
@@ -1847,7 +1847,7 @@ const services = [
       imagen: "/img/trabajos/mantenimiento-despues.jpg",
       opciones: [
         {
-          nombre: "Esencial — revisión anual",
+          nombre: "Básica — revisión anual",
           destacada: false,
           items: [["1 visita de revisión anual (cuadro eléctrico, cámaras IA, red, batería de sensores)", 180]],
           total: 180,
@@ -1895,7 +1895,7 @@ const packs = [
     imagenAlt: "Cocina con iluminación LED integrada — Pack Piso Nuevo AHOMED",
     opciones: [
       {
-        nombre: "Esencial",
+        nombre: "Básica",
         destacada: false,
         lineas: [
           { ref: "cuadro_electrico_boletin_pack" },
@@ -1944,7 +1944,7 @@ const packs = [
     imagenAlt: "Cámara de seguridad exterior sobre vallado de chalet — Pack Chalet Seguro con IA AHOMED",
     opciones: [
       {
-        nombre: "Esencial — 4 cámaras + cerradura + IA",
+        nombre: "Básica — 4 cámaras + cerradura + IA",
         destacada: false,
         lineas: [
           { ref: "camara_ip_poe_exterior", cantidad: 4, label: "4 cámaras IP cableadas con visión nocturna" },
@@ -1980,7 +1980,7 @@ const packs = [
         ]
       }
     ],
-    nota: "Sin cuota mensual ni contrato con central de alarmas — frente a los 20-50 €/mes (240-620 €/año) de una alarma con central receptora, aquí pagas la instalación una vez y el sistema es tuyo. Funciona de forma autónoma en tu propiedad, con IA desde la opción Esencial. Solo 240 € más que Inteligente, Completa descarta falsos positivos antes de avisarte y reconoce vehículos que pasan a menudo."
+    nota: "Sin cuota mensual ni contrato con central de alarmas — frente a los 20-50 €/mes (240-620 €/año) de una alarma con central receptora, aquí pagas la instalación una vez y el sistema es tuyo. Funciona de forma autónoma en tu propiedad, con IA desde la opción Básica. Solo 240 € más que Inteligente, Completa descarta falsos positivos antes de avisarte y reconoce vehículos que pasan a menudo."
   },
   {
     nombre: "Pack Hogar con IA",
@@ -1995,7 +1995,7 @@ const packs = [
     imagenAlt: "Panel táctil de domótica con luces, clima, persianas y escenas — Pack Hogar con IA AHOMED",
     opciones: [
       {
-        nombre: "Esencial — Seguridad IA (2 cámaras)",
+        nombre: "Básica — Seguridad IA (2 cámaras)",
         destacada: false,
         lineas: [
           { ref: "minipc_ia_start", label: "Mini-PC IA START — instalación base obligatoria (motor Python + dashboard + WhatsApp)", precioOverride: 590 },
@@ -2038,7 +2038,7 @@ const packs = [
     imagenAlt: "Cámara de seguridad en terraza con vistas al mar — Pack Segunda Residencia IA AHOMED",
     opciones: [
       {
-        nombre: "Esencial — Casa Presencial + Seguridad IA",
+        nombre: "Básica — Casa Presencial + Seguridad IA",
         destacada: false,
         lineas: [
           { ref: "minipc_ia_start", label: "Mini-PC IA START — instalación base obligatoria", precioOverride: 590 },
@@ -2082,7 +2082,7 @@ const packs = [
     imagenAlt: "Sala de control con monitorización de cámaras y dashboard IA — Pack Seguridad IA para Negocios AHOMED",
     opciones: [
       {
-        nombre: "Esencial — 4 cámaras con detección IA",
+        nombre: "Básica — 4 cámaras con detección IA",
         destacada: false,
         lineas: [
           { ref: "camara_ip_poe_exterior", cantidad: 4, label: "4 cámaras IP (perímetro y accesos)" },
@@ -2132,7 +2132,7 @@ const ventajas = [
 const comoFunciona = [
   "Me escribes por WhatsApp y me cuentas qué necesitas.",
   "Visito tu vivienda o negocio — la primera visita es gratuita.",
-  "Te preparo opciones claras: Esencial, Inteligente y Completa.",
+  "Te preparo opciones claras: Básica, Inteligente y Completa.",
   "Tú decides. Sin compromiso, sin letra pequeña.",
   "Instalamos y te enseño a usarlo todo."
 ];

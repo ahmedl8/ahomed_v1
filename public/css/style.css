@@ -688,6 +688,7 @@ p { margin: 0; }
 .launch-offer-fine-print { font-size: 0.8rem; color: #b3a382; margin-bottom: 22px; }
 .launch-offer-box .btn-whatsapp { margin-top: 6px; }
 .launch-offer-badge-inline { margin-bottom: 10px; }
+.launch-offer-badge-sub { display: block; font-size: 0.82rem; font-weight: 600; color: #9aa0ac; margin: -6px 0 14px; }
 
 .soluciones-mini-banner {
   display: flex; align-items: center; justify-content: space-between; gap: 24px;

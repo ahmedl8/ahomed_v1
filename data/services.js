@@ -2130,11 +2130,11 @@ const ventajas = [
 ];
 
 const comoFunciona = [
-  "Me escribes por WhatsApp y me cuentas qué necesitas.",
-  "Visito tu vivienda o negocio — la primera visita es gratuita.",
-  "Te preparo opciones claras: Básica, Inteligente y Completa.",
-  "Tú decides. Sin compromiso, sin letra pequeña.",
-  "Instalamos y te enseño a usarlo todo."
+  { label: "Me escribes", texto: "Me escribes por WhatsApp y me cuentas qué necesitas." },
+  { label: "Te visito", texto: "Visito tu vivienda o negocio — la primera visita es gratuita." },
+  { label: "Te preparo opciones", texto: "Te preparo opciones claras: Básica, Inteligente y Completa." },
+  { label: "Tú decides", texto: "Tú decides. Sin compromiso, sin letra pequeña." },
+  { label: "Instalamos", texto: "Instalamos y te enseño a usarlo todo." }
 ];
 
 const empresa = {

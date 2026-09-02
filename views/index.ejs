@@ -11,14 +11,8 @@
   <section class="hero hero-split-section">
     <div class="container hero-split">
       <div class="hero-split-copy">
-        <h1><%= t('home.hero.title') %></h1>
+        <h1><span class="hero-title-line"><%= t('home.hero.title_l1') %></span> <span class="hero-title-line"><%= t('home.hero.title_l2') %></span> <span class="hero-title-line"><%= t('home.hero.title_l3') %></span></h1>
         <p class="hero-sub"><%= tv('home.hero.subtitle', { zona: empresa.zona }) %></p>
-
-        <div class="hero-trust-row">
-          <div class="hero-trust-item"><svg viewBox="0 0 24 24"><path d="M12 1l3 6 6.5.9-4.7 4.6 1.1 6.5L12 15.9 6.1 19l1.1-6.5L2.5 7.9 9 7z"/></svg><%= t('topbar.experience_prefix') %> <%= empresa.anosExperiencia %> <%= t('topbar.experience_suffix') %></div>
-          <div class="hero-trust-item"><svg viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg><%= empresa.zona %></div>
-          <div class="hero-trust-item"><svg viewBox="0 0 24 24"><path d="M12 2l8 3.5v6c0 5.2-3.4 9.8-8 10.5-4.6-.7-8-5.3-8-10.5v-6L12 2z"/></svg><%= t('common.presupuesto_sin_compromiso') %></div>
-        </div>
 
         <div class="hero-ctas">
           <a href="https://wa.me/34<%= empresa.whatsapp %>?text=<%= t('common.whatsapp_text_presupuesto') %>" target="_blank" rel="noopener" class="btn btn-whatsapp btn-lg">
@@ -29,6 +23,12 @@
             <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24 11.4 11.4 0 0 0 3.58.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.4 11.4 0 0 0 .57 3.58 1 1 0 0 1-.25 1.01l-2.2 2.2z"/></svg>
             <%= t('common.llamame') %>
           </a>
+        </div>
+
+        <div class="hero-trust-row">
+          <div class="hero-trust-item"><svg viewBox="0 0 24 24"><path d="M12 1l3 6 6.5.9-4.7 4.6 1.1 6.5L12 15.9 6.1 19l1.1-6.5L2.5 7.9 9 7z"/></svg><%= t('topbar.experience_prefix') %> <%= empresa.anosExperiencia %> <%= t('topbar.experience_suffix') %></div>
+          <div class="hero-trust-item"><svg viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg><%= empresa.zona %></div>
+          <div class="hero-trust-item"><svg viewBox="0 0 24 24"><path d="M12 2l8 3.5v6c0 5.2-3.4 9.8-8 10.5-4.6-.7-8-5.3-8-10.5v-6L12 2z"/></svg><%= t('common.presupuesto_sin_compromiso') %></div>
         </div>
 
         <div class="hero-badges hero-badges-secondary">
@@ -108,10 +108,8 @@
             <div class="configurador-banner-chips">
               <span class="configurador-banner-chip"><%= t('home.profesionales_teaser.chip_reformas') %></span>
               <span class="configurador-banner-chip"><%= t('home.profesionales_teaser.chip_constructoras') %></span>
-              <span class="configurador-banner-chip"><%= t('home.profesionales_teaser.chip_persianas') %></span>
-              <span class="configurador-banner-chip"><%= t('home.profesionales_teaser.chip_cocinas') %></span>
-              <span class="configurador-banner-chip"><%= t('home.profesionales_teaser.chip_climatizacion') %></span>
               <span class="configurador-banner-chip"><%= t('home.profesionales_teaser.chip_interiorismo') %></span>
+              <span class="configurador-banner-chip"><%= t('home.profesionales_teaser.chip_climatizacion') %></span>
             </div>
             <p><%= t('home.profesionales_teaser.body') %></p>
             <a href="/para-profesionales" class="btn btn-primary btn-lg configurador-banner-cta"><%= t('home.profesionales_teaser.cta') %></a>
@@ -308,14 +306,24 @@
         <div class="steps-grid steps-grid-compact">
           <% comoFunciona.forEach(function(paso, i){ %>
             <div class="step-card">
-              <div class="step-number"><%= i + 1 %></div>
-              <p><%= paso %></p>
+              <span class="step-number"><%= String(i + 1).padStart(2, '0') %></span>
+              <div class="step-copy">
+                <p class="step-label"><%= paso.label %></p>
+                <p class="step-desc"><%= paso.texto %></p>
+              </div>
             </div>
           <% }) %>
         </div>
       </div>
     </div>
   </section>
+
+  <!-- PUENTE: DEL PROCESO A LA TECNOLOGÍA QUE LO SOSTIENE -->
+  <div class="section-bridge">
+    <div class="section-bridge-line"></div>
+    <span class="section-bridge-text"><%= t('home.bridge3.text') %></span>
+    <div class="section-bridge-line"></div>
+  </div>
 
   <!-- TECNOLOGÍA AHOMED -->
   <section class="section tech-teaser-section">
@@ -328,8 +336,6 @@
           <span class="tech-teaser-chip"><%= t('home.tech_teaser.chip1') %></span>
           <span class="tech-teaser-chip"><%= t('home.tech_teaser.chip2') %></span>
           <span class="tech-teaser-chip"><%= t('home.tech_teaser.chip3') %></span>
-          <span class="tech-teaser-chip"><%= t('home.tech_teaser.chip4') %></span>
-          <span class="tech-teaser-chip"><%= t('home.tech_teaser.chip5') %></span>
         </div>
         <a href="/tecnologia" class="link-arrow"><%= t('home.tech_teaser.cta') %></a>
       </div>

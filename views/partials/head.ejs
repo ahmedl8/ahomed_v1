@@ -42,7 +42,6 @@ window.__loadGTM = function(){
   "name": "<%= empresa.nombre %>",
   "description": "<%= empresa.metaDescriptionDefault %>",
   "url": "https://<%= empresa.web %>",
-  "logo": "https://<%= empresa.web %>/img/logo.svg",
   "telephone": "+34<%= empresa.whatsapp %>",
   "email": "<%= empresa.email %>",
   "areaServed": {
@@ -57,14 +56,3 @@ window.__loadGTM = function(){
   "priceRange": "€€"
 }
 </script>
-<% if (typeof breadcrumbs !== 'undefined' && breadcrumbs.length > 1) { %>
-<script type="application/ld+json">
-<%- JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": breadcrumbs.map(function(b, i) {
-    return { "@type": "ListItem", "position": i + 1, "name": b.name, "item": b.item };
-  })
-}) %>
-</script>
-<% } %>

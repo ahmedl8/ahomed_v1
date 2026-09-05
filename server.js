@@ -70,16 +70,6 @@ function homeHref(lang) {
   return lang === "es" ? "/" : `/${lang}`;
 }
 
-// Construye la lista de migas de pan para el schema BreadcrumbList. Siempre
-// empieza en Inicio; cada argumento adicional es [nombre, ruta-sin-prefijo].
-function crumbs(res, ...items) {
-  const { t, pathHref, empresa } = res.locals;
-  const base = `https://${empresa.web}`;
-  const list = [{ name: t("nav.home"), item: base + pathHref("/") }];
-  items.forEach(([name, path]) => list.push({ name, item: base + pathHref(path) }));
-  return list;
-}
-
 // Genera un nonce único por petición para el único script inline que tiene
 // la web (el arranque de Google Tag Manager en head.ejs). Así la CSP puede
 // permitir ese script concreto sin recurrir a 'unsafe-inline', que abriría
@@ -337,7 +327,6 @@ app.get("/configurador", (req, res) => {
   res.render("configurador", {
     title: `${t('seo.configurador.title')} — ${empresa.nombre}`,
     metaDescription: t('seo.configurador.desc'),
-    breadcrumbs: crumbs(res, [t('nav.configurador'), '/configurador']),
     packs,
     services: serviciosCasa.concat(serviciosNave),
     modosIA: modosIA.concat(modosParaNegocio),
@@ -361,7 +350,6 @@ app.get("/crea-tu-instalacion", (req, res) => {
   res.render("creador", {
     title: `${t('seo.creador.title')} — ${empresa.nombre}`,
     metaDescription: t('seo.creador.desc'),
-    breadcrumbs: crumbs(res, [t('nav.crea_instalacion'), '/crea-tu-instalacion']),
     serviciosCasa,
     packsCasa,
     modos: modosIA,
@@ -376,7 +364,6 @@ app.get("/tecnologia", (req, res) => {
   res.render("tecnologia", {
     title: `${t('seo.tecnologia.title')} — ${empresa.nombre}`,
     metaDescription: t('seo.tecnologia.desc'),
-    breadcrumbs: crumbs(res, [t('footer.tecnologia'), '/tecnologia']),
     instalacionBase
   });
 });
@@ -389,8 +376,7 @@ app.get("/para-profesionales", (req, res) => {
   const { empresa, t } = res.locals;
   res.render("para-profesionales", {
     title: `${t('seo.profesionales.title')} ${empresa.nombre}`,
-    metaDescription: t('seo.profesionales.desc'),
-    breadcrumbs: crumbs(res, [t('nav.para_profesionales'), '/para-profesionales'])
+    metaDescription: t('seo.profesionales.desc')
   });
 });
 
@@ -399,7 +385,6 @@ app.get("/servicios", (req, res) => {
   res.render("servicios", {
     title: `${t('seo.servicios.title')} — ${empresa.nombre}`,
     metaDescription: t('seo.servicios.desc'),
-    breadcrumbs: crumbs(res, [t('seo.servicios.title'), '/servicios']),
     services,
     bloques,
     modosIA
@@ -418,7 +403,6 @@ app.get("/servicios/bloque/:slug", (req, res, next) => {
   res.render("bloque", {
     title: `${bloque.nombre} — ${empresa.nombre}`,
     metaDescription: `${bloque.resumen} ${fill(t('seo.bloque.desc_suffix'), { zona: empresa.zona })}`,
-    breadcrumbs: crumbs(res, [t('seo.servicios.title'), '/servicios'], [bloque.nombre, '/servicios/bloque/' + bloque.slug]),
     bloque,
     servicios: serviciosDelBloque,
     modosIA: esPlataformaIA ? modosIA : null,
@@ -433,7 +417,6 @@ app.get("/servicios/naves-fincas/seguridad-ia", (req, res) => {
   res.render("services/seguridad-ia-negocio", {
     title: `${seguridadIANaves.nombre} — ${empresa.nombre}`,
     metaDescription: `${seguridadIANaves.resumen} ${fill(t('seo.seguridad_ia_naves.desc_suffix'), { empresa: empresa.nombre, zona: empresa.zona })}`,
-    breadcrumbs: crumbs(res, [t('nav.naves_fincas'), '/servicios/bloque/seguridad-ia-naves-fincas'], [seguridadIANaves.nombre, '/servicios/naves-fincas/seguridad-ia']),
     modo: seguridadIANaves,
     instalacionBase
   });
@@ -445,7 +428,6 @@ app.get("/servicios/ia-predictiva", (req, res) => {
   res.render("services/ia-predictiva", {
     title: `${t('seo.ia_predictiva.title')} — ${empresa.nombre}`,
     metaDescription: t('seo.ia_predictiva.desc'),
-    breadcrumbs: crumbs(res, [t('nav.plataforma_ia'), '/servicios/ia-predictiva']),
     instalacionBase,
     modos: modosIA,
     familiasIA,
@@ -465,7 +447,6 @@ app.get("/servicios/ia-predictiva/:modoSlug", (req, res, next) => {
     metaDescription: modo.esProyecto
       ? `${modo.resumen} ${fill(t('seo.ia_modo.desc_suffix_proyecto'), { empresa: empresa.nombre, zona: empresa.zona })}`
       : `${modo.resumen} ${fill(t('seo.ia_modo.desc_suffix_addon'), { precio: modo.precioIncremento, empresa: empresa.nombre })}`,
-    breadcrumbs: crumbs(res, [t('nav.plataforma_ia'), '/servicios/ia-predictiva'], [modo.nombre, '/servicios/ia-predictiva/' + modo.slug]),
     modo,
     instalacionBase
   });
@@ -483,7 +464,6 @@ app.get("/servicios/:slug", (req, res, next) => {
   res.render("services/detalle", {
     title: `${service.nombre} — ${empresa.nombre}`,
     metaDescription: `${service.resumen} ${fill(t('seo.detalle_servicio.desc_suffix'), { desde: service.desde, zona: empresa.zona })}`,
-    breadcrumbs: crumbs(res, [t('seo.servicios.title'), '/servicios'], [service.nombre, '/servicios/' + service.slug]),
     service,
     bloque: bloqueDe(service.bloque, bloques)
   });
@@ -494,7 +474,6 @@ app.get("/soluciones", (req, res) => {
   res.render("packs", {
     title: `${t('seo.soluciones.title')} — ${empresa.nombre}`,
     metaDescription: t('seo.soluciones.desc'),
-    breadcrumbs: crumbs(res, [t('nav.soluciones'), '/soluciones']),
     packsCasa: packs.filter((p) => p.publico !== "negocio"),
     packsNegocio: packs.filter((p) => p.publico === "negocio")
   });
@@ -514,7 +493,6 @@ app.get("/galeria", (req, res) => {
   res.render("galeria", {
     title: `${t('seo.galeria.title')} — ${empresa.nombre}`,
     metaDescription: t('seo.galeria.desc'),
-    breadcrumbs: crumbs(res, [t('breadcrumb.galeria'), '/galeria']),
     trabajos: galeria
   });
 });
@@ -523,8 +501,7 @@ app.get("/preguntas-frecuentes", (req, res) => {
   const { empresa, t } = res.locals;
   res.render("faq", {
     title: `${t('seo.faq.title')} — ${empresa.nombre}`,
-    metaDescription: t('seo.faq.desc'),
-    breadcrumbs: crumbs(res, [t('nav.faq'), '/preguntas-frecuentes'])
+    metaDescription: t('seo.faq.desc')
   });
 });
 
@@ -532,8 +509,7 @@ app.get("/sobre-mi", (req, res) => {
   const { empresa, t } = res.locals;
   res.render("sobre-mi", {
     title: `${t('seo.sobre_mi.title')} — ${empresa.nombre}`,
-    metaDescription: `${empresa.anosExperiencia} ${t('seo.sobre_mi.desc')}`,
-    breadcrumbs: crumbs(res, [t('footer.sobre_mi'), '/sobre-mi'])
+    metaDescription: `${empresa.anosExperiencia} ${t('seo.sobre_mi.desc')}`
   });
 });
 
@@ -541,8 +517,7 @@ app.get("/contacto", (req, res) => {
   const { empresa, t } = res.locals;
   res.render("contacto", {
     title: `${t('seo.contacto.title')} — ${empresa.nombre}`,
-    metaDescription: `${t('seo.contacto.desc')} ${empresa.zona}.`,
-    breadcrumbs: crumbs(res, [t('nav.contacto'), '/contacto'])
+    metaDescription: `${t('seo.contacto.desc')} ${empresa.zona}.`
   });
 });
 
@@ -550,8 +525,7 @@ app.get("/aviso-legal", (req, res) => {
   const { empresa, t } = res.locals;
   res.render("legal-aviso", {
     title: `${t('seo.aviso_legal.title')} — ${empresa.nombre}`,
-    metaDescription: t('seo.aviso_legal.desc'),
-    breadcrumbs: crumbs(res, [t('footer.aviso_legal'), '/aviso-legal'])
+    metaDescription: t('seo.aviso_legal.desc')
   });
 });
 
@@ -559,8 +533,7 @@ app.get("/privacidad", (req, res) => {
   const { empresa, t } = res.locals;
   res.render("legal-privacidad", {
     title: `${t('seo.privacidad.title')} — ${empresa.nombre}`,
-    metaDescription: t('seo.privacidad.desc'),
-    breadcrumbs: crumbs(res, [t('footer.privacidad'), '/privacidad'])
+    metaDescription: t('seo.privacidad.desc')
   });
 });
 
@@ -568,8 +541,7 @@ app.get("/cookies", (req, res) => {
   const { empresa, t } = res.locals;
   res.render("legal-cookies", {
     title: `${t('seo.cookies.title')} — ${empresa.nombre}`,
-    metaDescription: t('seo.cookies.desc'),
-    breadcrumbs: crumbs(res, [t('footer.cookies'), '/cookies'])
+    metaDescription: t('seo.cookies.desc')
   });
 });
 

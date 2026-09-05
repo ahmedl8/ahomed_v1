@@ -10,7 +10,7 @@
   <section class="page-hero about-hero">
     <div class="container about-hero-inner">
       <div class="about-photo">
-        <img src="/img/ahmed-sobre-mi.jpg" alt="<%= t('sobre_mi.hero.photo_alt') %>" loading="eager" />
+        <img src="/img/ahmed-sobre-mi.jpg" width="283" height="283" alt="<%= t('sobre_mi.hero.photo_alt') %>" loading="eager" />
       </div>
       <div>
         <h1><%= t('sobre_mi.hero.title') %></h1>
@@ -54,6 +54,18 @@
               t('sobre_mi.por_que.item4'),
               t('sobre_mi.por_que.item5'),
               t('sobre_mi.por_que.item6')
+            ].forEach(function(v){ %>
+              <li><%= v %></li>
+            <% }) %>
+          </ul>
+        </div>
+        <div class="about-card">
+          <h3><%= t('sobre_mi.formacion.title') %></h3>
+          <ul class="check-list check-list-lg">
+            <% [
+              t('sobre_mi.formacion.item1'),
+              t('sobre_mi.formacion.item2'),
+              t('sobre_mi.formacion.item3')
             ].forEach(function(v){ %>
               <li><%= v %></li>
             <% }) %>

@@ -189,7 +189,15 @@
       p.classList.toggle("is-active", pn === n);
       p.classList.toggle("is-done", pn < n);
     });
-    if (n === TOTAL_STEPS) renderResultado();
+    if (n === TOTAL_STEPS) {
+      renderResultado();
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: "configurador_completado",
+        vivienda: vivienda,
+        necesidades: getSelectedChecks("config-necesidad").join(",")
+      });
+    }
     wizard.scrollIntoView({ behavior: "smooth", block: "start" });
   }
 

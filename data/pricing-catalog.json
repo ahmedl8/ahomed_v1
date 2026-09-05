@@ -3431,6 +3431,75 @@
       "area": "ia-predictiva",
       "unidad": "lote",
       "precio": 280
+    },
+    {
+      "id": "dispensador_agua_mascotas_conectado",
+      "nombre": "Dispensador de agua automático conectado para mascotas",
+      "tipo": "dispositivo",
+      "area": "ia-predictiva",
+      "unidad": "unidad",
+      "precio": 95,
+      "nota": "Bomba y depósito conectados (Tuya u homólogo), instalado y calibrado — no solo sensor de nivel"
+    },
+    {
+      "id": "motor_python_comida_temp_ladridos_ausencia",
+      "nombre": "Motor Python: comida/agua/temperatura + ladridos prolongados + ausencia alargada + alertas WhatsApp",
+      "tipo": "mano_obra",
+      "area": "ia-predictiva",
+      "unidad": "lote",
+      "precio": 320
+    },
+    {
+      "id": "motor_python_llanto_bebe_ambiente",
+      "nombre": "Motor Python: IA de audio — detección de llanto + ajuste de ambiente + alertas WhatsApp",
+      "tipo": "mano_obra",
+      "area": "ia-predictiva",
+      "unidad": "lote",
+      "precio": 240,
+      "nota": "Aviso y ajuste de ambiente — no es un dispositivo médico ni sustituye la supervisión de un adulto"
+    },
+    {
+      "id": "motor_python_horno_precalentado_geofencing",
+      "nombre": "Motor Python: geofencing de llegada + precalentado de horno + alertas WhatsApp",
+      "tipo": "mano_obra",
+      "area": "ia-predictiva",
+      "unidad": "lote",
+      "precio": 300,
+      "nota": "Requiere horno u olla compatible con relé/enchufe inteligente; solo precalienta antes de la llegada, no cocina sin nadie en casa"
+    },
+    {
+      "id": "sirena_exterior_wifi_ip65",
+      "nombre": "Sirena exterior WiFi, IP65",
+      "tipo": "dispositivo",
+      "area": "seguridad",
+      "unidad": "unidad",
+      "precio": 45
+    },
+    {
+      "id": "motor_python_piscina_inmersion",
+      "nombre": "Motor Python: IA de visión — inmersión prolongada en piscina + sirena + alertas WhatsApp",
+      "tipo": "mano_obra",
+      "area": "ia-predictiva",
+      "unidad": "lote",
+      "precio": 340,
+      "nota": "Aviso rápido adicional — no sustituye la supervisión de un adulto"
+    },
+    {
+      "id": "integracion_cortacesped_wifi_compatible",
+      "nombre": "Integración con robot cortacésped WiFi compatible (API o control local)",
+      "tipo": "mano_obra",
+      "area": "ia-predictiva",
+      "unidad": "lote",
+      "precio": 60,
+      "nota": "El robot cortacésped no está incluido — coste aparte según modelo y superficie (desde ~700€), a confirmar en visita técnica"
+    },
+    {
+      "id": "motor_python_cesped_adaptativo",
+      "nombre": "Motor Python: corte adaptativo según clima y crecimiento real (no por calendario fijo)",
+      "tipo": "mano_obra",
+      "area": "ia-predictiva",
+      "unidad": "lote",
+      "precio": 260
     }
   ]
 }

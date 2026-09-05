@@ -74,15 +74,15 @@ const modos = [
     familia: "confort",
     publico: "casa",
     nombre: "Motor Meteorológico",
-    titular: "Tu jardín decide cuándo necesita agua",
-    subtitulo: "Riego y persianas con IA climática",
+    titular: "Tu jardín ya sabe cuándo tiene sed",
+    subtitulo: "Riego, persianas y corte de césped con IA climática",
     icono: "clima-ia",
     resumen:
-      "El mini-PC consulta la API meteorológica cada hora, anticipa lluvia, viento y temperatura, y actúa sobre el riego y las persianas sin intervención del usuario. Si va a llover en 3 horas, el riego no arranca. Si el viento supera 40 km/h, las persianas suben automáticamente.",
-    idealPara: ["Jardines y terrazas con riego automático", "Viviendas con persianas motorizadas", "Segundas residencias que se visitan poco"],
+      "El mini-PC consulta la API meteorológica cada hora, anticipa lluvia, viento y temperatura, y actúa sobre el riego y las persianas sin intervención del usuario. Si va a llover en 3 horas, el riego no arranca. Si el viento supera 40 km/h, las persianas suben automáticamente. En la opción Completa, la misma IA decide también cuándo debe salir tu robot cortacésped a cortar, según cómo esté creciendo el césped de verdad (estación, lluvia reciente, ritmo de crecimiento) — no por un calendario fijo genérico que corta igual en pleno crecimiento que en sequía.",
+    idealPara: ["Jardines y terrazas con riego automático", "Viviendas con persianas motorizadas", "Segundas residencias que se visitan poco", "Jardines con robot cortacésped WiFi"],
     precioIncremento: 600,
     ejemplo: {
-      titulo: "Motor clima + riego + persianas",
+      titulo: "Motor clima + riego + persianas + corte de césped",
       opciones: [
         {
           nombre: "Básica — motor clima + riego (4 zonas)",
@@ -108,9 +108,24 @@ const modos = [
             { ref: "dashboard_web_personalizado" },
             { ref: "puesta_marcha_formacion_3h" }
           ]
+        },
+        {
+          nombre: "Completa — + corte de césped adaptativo",
+          destacada: false,
+          lineas: [
+            { ref: "controlador_riego_wifi_4z_shelly" },
+            { ref: "motores_persiana_wifi_x4_shelly" },
+            { ref: "sensores_ext_temp_hum_lluvia" },
+            { ref: "integracion_cortacesped_wifi_compatible" },
+            { ref: "material_ia_60" },
+            { ref: "motor_python_clima_riego_persianas" },
+            { ref: "motor_python_cesped_adaptativo" },
+            { ref: "dashboard_web_personalizado" },
+            { ref: "puesta_marcha_formacion_3h" }
+          ]
         }
       ],
-      nota: "Coste adicional sobre el Mini-PC IA Central (E1, desde 590 €, según nivel): 600 €. Ya no se ofrece este modo con equipo propio independiente."
+      nota: "Coste adicional sobre el Mini-PC IA Central (E1, desde 590 €, según nivel): 600 €. Ya no se ofrece este modo con equipo propio independiente. La opción Completa no incluye el robot cortacésped en sí (desde unos 700 € según modelo y superficie, presupuesto aparte tras visita técnica): es la integración y la lógica de corte adaptativo sobre un robot compatible."
     }
   },
   {
@@ -121,7 +136,7 @@ const modos = [
     familia: "seguridad",
     publico: "casa",
     nombre: "Casa Presencial",
-    titular: "Tu casa sabe cuándo llegas",
+    titular: "Llegas a casa, y ya te estaba esperando",
     subtitulo: "Geolocalización y escenas automáticas",
     icono: "geo-casa",
     resumen:
@@ -169,7 +184,7 @@ const modos = [
     familia: "confort",
     publico: "casa",
     nombre: "IA de Sueño",
-    titular: "Tu dormitorio se prepara para que descanses mejor",
+    titular: "Duermes mejor, sin tener que pensarlo",
     subtitulo: "Entorno adaptativo para descanso óptimo",
     icono: "sueno",
     resumen:
@@ -217,7 +232,7 @@ const modos = [
     familia: "confort",
     publico: "casa",
     nombre: "Panel de Calidad del Aire",
-    titular: "Respira un aire que se controla solo",
+    titular: "El aire de tu casa, siempre en su punto",
     subtitulo: "CO₂, VOC y ventilación con IA",
     icono: "aire-calidad",
     resumen:
@@ -263,15 +278,15 @@ const modos = [
     familia: "familia",
     publico: "casa",
     nombre: "Cuidado de Mascotas",
-    titular: "Tu mascota, vigilada aunque no estés",
+    titular: "Aunque no estés, nunca está sola",
     subtitulo: "IA de bienestar animal",
     icono: "mascota",
     resumen:
-      "El sistema vigila el bienestar de la mascota cuando el propietario no está en casa: comprueba si ha comido, el nivel del bebedero, la temperatura del espacio y detecta ladridos prolongados o señales de estrés, con aviso inmediato por WhatsApp.",
+      "El sistema vigila el bienestar de la mascota cuando el propietario no está en casa: comprueba si ha comido, rellena el agua automáticamente, controla la temperatura del espacio y detecta ladridos prolongados o una ausencia del dueño más larga de lo habitual, con aviso inmediato por WhatsApp.",
     idealPara: ["Mascotas que se quedan solas durante la jornada laboral", "Perros con ansiedad por separación", "Quien viaja con frecuencia"],
     precioIncremento: 405,
     ejemplo: {
-      titulo: "Monitorización + comedero + control de temperatura",
+      titulo: "Monitorización + comedero + agua + control de temperatura",
       opciones: [
         {
           nombre: "Básica — monitorización + alerta de ladridos",
@@ -285,15 +300,15 @@ const modos = [
           ]
         },
         {
-          nombre: "Inteligente — + comedero y control de temperatura",
+          nombre: "Inteligente — + comedero, agua automática y ausencia",
           destacada: true,
           lineas: [
             { ref: "camara_ip_audio_vision_nocturna" },
             { ref: "comedero_automatico_conectado" },
-            { ref: "sensor_nivel_bebedero" },
+            { ref: "dispensador_agua_mascotas_conectado" },
             { ref: "sensor_temperatura_estancia" },
             { ref: "material_ia_25", label: "Cableado y material" },
-            { ref: "motor_python_comida_temp_ladridos" },
+            { ref: "motor_python_comida_temp_ladridos_ausencia" },
             { ref: "puesta_marcha_formacion_2h", label: "Puesta en marcha y formación (2 h)" }
           ]
         }
@@ -309,15 +324,15 @@ const modos = [
     familia: "hogar",
     publico: "casa",
     nombre: "Cocina Inteligente",
-    titular: "Que nunca más te preocupe si dejaste algo encendido",
-    subtitulo: "Detección de humo y aviso de horno",
+    titular: "Sales de casa sin dudar si apagaste el horno",
+    subtitulo: "Detección de humo, aviso de horno y precalentado al llegar",
     icono: "cocina-ia",
     resumen:
-      "El sistema vigila la cocina mientras el usuario está fuera de casa: si detecta humo, activa el extractor y avisa por WhatsApp; si el usuario sale de casa con el horno encendido, envía una pregunta directa por WhatsApp para confirmar si debe apagarlo.",
-    idealPara: ["Quien suele olvidar el horno encendido", "Viviendas con extractor conectado", "Familias con niños o mayores en casa"],
+      "El sistema vigila la cocina mientras el usuario está fuera de casa: si detecta humo, activa el extractor y avisa por WhatsApp; si el usuario sale de casa con el horno encendido, envía una pregunta directa por WhatsApp para confirmar si debe apagarlo. En la opción Completa, además, precalienta el horno los últimos minutos antes de que el geofencing detecte que estás llegando — dejas la bandeja lista antes de salir, y entras con el horno ya a temperatura. Por seguridad, el sistema nunca cocina ni mantiene el horno encendido sin nadie en casa: solo precalienta justo antes de tu llegada.",
+    idealPara: ["Quien suele olvidar el horno encendido", "Viviendas con extractor conectado", "Familias con niños o mayores en casa", "Quien quiere encontrar el horno ya caliente al llegar del trabajo"],
     precioIncremento: 385,
     ejemplo: {
-      titulo: "Detección de humo + extractor automático + aviso de horno",
+      titulo: "Detección de humo + extractor automático + aviso de horno + precalentado",
       opciones: [
         {
           nombre: "Básica — detección de humo + alerta WhatsApp",
@@ -340,9 +355,22 @@ const modos = [
             { ref: "motor_python_humo_horno" },
             { ref: "puesta_marcha_formacion_25h" }
           ]
+        },
+        {
+          nombre: "Completa — + horno precalentado al llegar",
+          destacada: false,
+          lineas: [
+            { ref: "detector_humo_co_conectado" },
+            { ref: "extractor_cocina_wifi" },
+            { ref: "enchufe_rele_horno_vitro" },
+            { ref: "material_ia_30" },
+            { ref: "motor_python_humo_horno" },
+            { ref: "motor_python_horno_precalentado_geofencing" },
+            { ref: "puesta_marcha_formacion_25h" }
+          ]
         }
       ],
-      nota: "Coste adicional sobre el Mini-PC IA Central (E1, desde 590 €, según nivel): 385 €. El detector de humo/CO conectado sube de 70 € a 100 € en esta revisión: es lo que cuesta de verdad un detector conectado equivalente (tipo Nest Protect) en 2026."
+      nota: "Coste adicional sobre el Mini-PC IA Central (E1, desde 590 €, según nivel): 385 €. El detector de humo/CO conectado sube de 70 € a 100 € en esta revisión: es lo que cuesta de verdad un detector conectado equivalente (tipo Nest Protect) en 2026. La opción Completa requiere un horno u olla compatible con relé/enchufe inteligente y precalienta antes de tu llegada — nunca cocina ni deja el horno encendido con la casa vacía. Para cocción larga sin nadie en casa, la opción segura es una olla programable/multicocción con enchufe inteligente, diseñada para eso."
     }
   },
   {
@@ -353,7 +381,7 @@ const modos = [
     familia: "familia",
     publico: "casa",
     nombre: "Personas Mayores",
-    titular: "Sin cuota, para siempre — se paga sola en 1-3 años",
+    titular: "Tranquilidad para ti. Independencia para ellos",
     subtitulo: "Teleasistencia inteligente sin cuota",
     icono: "mayores",
     resumen:
@@ -400,15 +428,15 @@ const modos = [
     familia: "familia",
     publico: "casa",
     nombre: "Niños y Bebés",
-    titular: "Sabrás que han llegado bien, sin tener que preguntar",
-    subtitulo: "Llegada del colegio automatizada",
+    titular: "Sabes que llegaron bien, antes de preguntarlo",
+    subtitulo: "Llegada del colegio y vigilancia nocturna de bebés",
     icono: "ninos",
     resumen:
-      "Cuando los hijos llegan a casa desde el colegio, el sistema los reconoce por geolocalización del móvil, abre automáticamente, enciende las luces necesarias, activa la calefacción o el clima, y envía una confirmación inmediata a los padres por WhatsApp.",
-    idealPara: ["Familias con ambos padres trabajando", "Niños que ya vuelven solos del colegio", "Bebés y niños pequeños al cuidado de otra persona en casa", "Quien quiere confirmación automática de llegada"],
+      "Cuando los hijos llegan a casa desde el colegio, el sistema los reconoce por geolocalización del móvil, abre automáticamente, enciende las luces necesarias, activa la calefacción o el clima, y envía una confirmación inmediata a los padres por WhatsApp. Para bebés, añade vigilancia nocturna: cámara y aviso si detecta llanto persistente, sin que los padres tengan que estar pendientes. Es un aviso adicional, no un dispositivo médico ni un sustituto de la supervisión de un adulto.",
+    idealPara: ["Familias con ambos padres trabajando", "Niños que ya vuelven solos del colegio", "Bebés y niños pequeños al cuidado de otra persona en casa", "Quien quiere confirmación automática de llegada", "Padres de bebés que quieren tranquilidad por la noche"],
     precioIncremento: 385,
     ejemplo: {
-      titulo: "Geofencing + aviso de llegada + escena de bienvenida",
+      titulo: "Geofencing + aviso de llegada + escena de bienvenida + noche",
       opciones: [
         {
           nombre: "Básica — aviso de llegada por WhatsApp",
@@ -430,9 +458,23 @@ const modos = [
             { ref: "motor_python_geofencing_apertura_escena" },
             { ref: "puesta_marcha_formacion_3h_v2" }
           ]
+        },
+        {
+          nombre: "Completa — + vigilancia nocturna del bebé",
+          destacada: false,
+          lineas: [
+            { ref: "sensor_puerta_ventana" },
+            { ref: "enchufes_inteligentes_entrada_salon_x2" },
+            { ref: "camara_ip_audio_vision_nocturna" },
+            { ref: "sensor_temperatura_estancia" },
+            { ref: "material_ia_30", label: "Cableado y material" },
+            { ref: "motor_python_geofencing_apertura_escena" },
+            { ref: "motor_python_llanto_bebe_ambiente" },
+            { ref: "puesta_marcha_formacion_3h_v2" }
+          ]
         }
       ],
-      nota: "Coste adicional sobre el Mini-PC IA Central (E1, desde 590 €, según nivel): 385 €. La opción Inteligente asume cerradura inteligente ya instalada (bloque Seguridad y Accesos)."
+      nota: "Coste adicional sobre el Mini-PC IA Central (E1, desde 590 €, según nivel): 385 €. La opción Inteligente asume cerradura inteligente ya instalada (bloque Seguridad y Accesos). La vigilancia nocturna es un aviso adicional para los padres — nunca sustituye la supervisión de un adulto durante la toma o el sueño del bebé."
     }
   },
   {
@@ -443,7 +485,7 @@ const modos = [
     familia: "seguridad",
     publico: "casa",
     nombre: "Gestión de Paquetes",
-    titular: "No te pierdas ni un paquete otra vez",
+    titular: "Aunque no estés, tu paquete no se pierde",
     subtitulo: "Detección de repartidores con IA",
     icono: "paquete",
     resumen:
@@ -484,7 +526,7 @@ const modos = [
     familia: "seguridad",
     publico: "casa",
     nombre: "Seguridad IA",
-    titular: "Sin cuota ni permanencia — la alarma con central cuesta 20-50 €/mes",
+    titular: "Vigilada, aunque tú no estés mirando",
     subtitulo: "Detección de personas y vehículos, sin falsas alarmas",
     icono: "ai",
     resumen:
@@ -550,7 +592,7 @@ const modos = [
     familia: "seguridad",
     publico: "casa",
     nombre: "Acceso Inteligente",
-    titular: "Que la puerta y el garaje reconozcan quién eres, sin llave ni mando",
+    titular: "Da acceso a quien confíes, aunque tú no estés",
     subtitulo: "Reconocimiento de personas y vehículos autorizados",
     icono: "ai",
     resumen:
@@ -596,13 +638,56 @@ const modos = [
       ],
       nota: "Coste adicional sobre el Mini-PC IA Central (E1, desde 590 €, según nivel): desde 620 €. Asume cerradura inteligente y/o motor de garaje ya instalados (bloque Seguridad y Accesos)."
     }
+  },
+  {
+    slug: "seguridad-piscina",
+    imagen: "/img/hero-bloques/seguridad.jpg",
+    numero: 12,
+    familia: "familia",
+    publico: "casa",
+    nombre: "Seguridad en Piscina",
+    titular: "Un aviso en segundos, no en minutos",
+    subtitulo: "Detección de inmersión prolongada por IA",
+    icono: "ai",
+    resumen:
+      "Una cámara vigila la piscina y su IA distingue una zambullida normal de alguien inmóvil bajo el agua o en la superficie más tiempo del habitual — el umbral que usa el sector son unos 10 segundos sin movimiento. En cuanto lo detecta, activa una sirena en el momento y avisa por WhatsApp. Es una capa extra de aviso rápido: nunca sustituye la supervisión directa de un adulto.",
+    idealPara: ["Viviendas con piscina y niños pequeños", "Piscinas sin socorrista", "Segundas residencias con piscina que se usa poco supervisada"],
+    precioIncremento: 605,
+    ejemplo: {
+      titulo: "Cámara + sirena + alertas WhatsApp",
+      opciones: [
+        {
+          nombre: "Básica — 1 cámara + sirena",
+          destacada: false,
+          lineas: [
+            { ref: "camara_ip_poe_exterior" },
+            { ref: "sirena_exterior_wifi_ip65" },
+            { ref: "material_iluminacion_exterior_45", label: "Material y cableado estanco (IP65)" },
+            { ref: "motor_python_piscina_inmersion" },
+            { ref: "puesta_marcha_formacion_2h" }
+          ]
+        },
+        {
+          nombre: "Inteligente — 2 cámaras (mejor cobertura del vaso)",
+          destacada: true,
+          lineas: [
+            { ref: "camara_ip_poe_exterior", cantidad: 2 },
+            { ref: "sirena_exterior_wifi_ip65" },
+            { ref: "material_iluminacion_exterior_60", label: "Material y cableado estanco (IP65)" },
+            { ref: "motor_python_piscina_inmersion" },
+            { ref: "puesta_marcha_formacion_2h" }
+          ]
+        }
+      ],
+      nota: "Coste adicional sobre el Mini-PC IA Central (E1, desde 590 €, según nivel): 605 €. Ya existen otros sistemas de detección de ahogamiento en el mercado (con app y cuota propias) — este se integra en el mismo Cerebro AHOMED, sin suscripción aparte. Es un aviso rápido adicional: nunca sustituye la supervisión directa de un adulto responsable."
+    }
   }
 ];
 
-// Agrupación comercial de los 11 modos en 4 familias (feedback de reestructuración,
+// Agrupación comercial de los 12 modos en 4 familias (feedback de reestructuración,
 // Prioridad 4 — ver /areas/ahomed-web.md). Cada modo declara su familia arriba
 // mediante el campo `familia`, igual que cada servicio declara su `bloque` en
-// services.js. Así 11 modos se presentan como 4 soluciones, no como 11 productos
+// services.js. Así 12 modos se presentan como 4 soluciones, no como 12 productos
 // sueltos que el cliente tiene que estudiar uno a uno.
 const familiasIA = [
   {
@@ -622,7 +707,7 @@ const familiasIA = [
   {
     slug: "familia",
     nombre: "Familia",
-    resumen: "Personas Mayores, Niños y Bebés, y Cuidado de Mascotas.",
+    resumen: "Personas Mayores, Niños y Bebés, Cuidado de Mascotas y Seguridad en Piscina.",
     icono: "mayores",
     imagen: "/img/iconos/necesitas-familia"
   },

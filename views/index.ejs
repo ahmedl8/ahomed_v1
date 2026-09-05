@@ -39,7 +39,7 @@
       </div>
 
       <div class="hero-split-visual">
-        <img src="/img/hero-casa-movil.jpg" alt="<%= t('home.hero.image_alt') %>" class="hero-split-img" />
+        <img src="/img/hero-casa-movil.jpg" alt="<%= t('home.hero.image_alt') %>" class="hero-split-img" width="1536" height="1024" />
       </div>
     </div>
   </section>
@@ -87,7 +87,7 @@
           <div class="configurador-banner-visual">
             <picture>
               <source srcset="/img/marketing/configurador-tu-casa.webp" type="image/webp">
-              <img src="/img/marketing/configurador-tu-casa.jpg" alt="<%= t('home.configurador_banner.image_alt') %>" loading="lazy">
+              <img src="/img/marketing/configurador-tu-casa.jpg" alt="<%= t('home.configurador_banner.image_alt') %>" loading="lazy" width="1600" height="900">
             </picture>
           </div>
         </div>
@@ -118,7 +118,7 @@
           <div class="configurador-banner-visual">
             <picture>
               <source srcset="/img/trabajos/reforma-general-despues.webp" type="image/webp">
-              <img src="/img/trabajos/reforma-general-despues.jpg" alt="<%= t('home.profesionales_teaser.image_alt') %>" loading="lazy">
+              <img src="/img/trabajos/reforma-general-despues.jpg" alt="<%= t('home.profesionales_teaser.image_alt') %>" loading="lazy" width="750" height="1008">
             </picture>
           </div>
         </div>
@@ -151,7 +151,7 @@
         <div class="cerebro-visual-wrap">
           <picture>
             <source srcset="/img/marketing/cerebro-ahomed.webp" type="image/webp">
-            <img src="/img/marketing/cerebro-ahomed.jpg" alt="<%= t('home.exclusivos.cerebro_visual_alt') %>" loading="lazy" class="cerebro-visual-img">
+            <img src="/img/marketing/cerebro-ahomed.jpg" alt="<%= t('home.exclusivos.cerebro_visual_alt') %>" loading="lazy" class="cerebro-visual-img" width="1600" height="899">
           </picture>
         </div>
 
@@ -167,7 +167,7 @@
           <div class="cerebro-hub-icon" aria-hidden="true">
             <picture>
               <source srcset="/img/iconos/minipc-central.webp" type="image/webp">
-              <img src="/img/iconos/minipc-central.png" alt="">
+              <img src="/img/iconos/minipc-central.png" alt="" width="400" height="400">
             </picture>
           </div>
           <div class="cerebro-branches">
@@ -204,7 +204,7 @@
               <source src="<%= seguridadIA.video %>" type="video/mp4">
             </video>
           <% } else { %>
-            <img src="/img/trabajos/monitor-ia-despues.jpg" alt="<%= t('home.ai_highlight.video_alt') %>" loading="lazy">
+            <img src="/img/trabajos/monitor-ia-despues.jpg" alt="<%= t('home.ai_highlight.video_alt') %>" loading="lazy" width="675" height="530">
           <% } %>
         </div>
       </div>
@@ -274,6 +274,27 @@
     </div>
   </section>
 
+  <!-- LO QUE YA PAGAS (comparativa de valor) -->
+  <section class="section section-tight value-compare-section">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow"><%= t('home.value_compare.eyebrow') %></span>
+        <h2><%= t('home.value_compare.title') %></h2>
+        <p><%= t('home.value_compare.subtitle') %></p>
+      </div>
+      <div class="value-compare-grid">
+        <% [1,2,3,4,5].forEach(function(i){ %>
+          <div class="value-compare-card">
+            <h3><%= t('home.value_compare.item' + i + '.title') %></h3>
+            <p class="value-compare-without"><span aria-hidden="true">✕</span> <%= t('home.value_compare.item' + i + '.without') %></p>
+            <p class="value-compare-with"><span aria-hidden="true">✓</span> <%= t('home.value_compare.item' + i + '.with') %></p>
+          </div>
+        <% }) %>
+      </div>
+      <p class="value-compare-footnote"><%= t('home.value_compare.footnote') %></p>
+    </div>
+  </section>
+
   <!-- PACKS -->
   <section class="section section-tight">
     <div class="container">
@@ -290,6 +311,7 @@
     </div>
   </section>
 
+
   <!-- COMO FUNCIONA -->
   <section class="section how-it-works">
     <div class="container">
@@ -300,7 +322,7 @@
         <div class="how-it-works-visual">
           <picture>
             <source srcset="/img/marketing/visita-tecnica.webp" type="image/webp">
-            <img src="/img/marketing/visita-tecnica.jpg" alt="<%= t('home.how_it_works.image_alt') %>" loading="lazy">
+            <img src="/img/marketing/visita-tecnica.jpg" alt="<%= t('home.how_it_works.image_alt') %>" loading="lazy" width="1400" height="787">
           </picture>
         </div>
         <div class="steps-grid steps-grid-compact">
@@ -342,7 +364,7 @@
       <div class="tech-teaser-visual">
         <picture>
           <source srcset="/img/marketing/ia-local-privacidad.webp" type="image/webp">
-          <img src="/img/marketing/ia-local-privacidad.jpg" alt="<%= t('home.tech_teaser.image_alt') %>" loading="lazy" class="tech-teaser-img" />
+          <img src="/img/marketing/ia-local-privacidad.jpg" alt="<%= t('home.tech_teaser.image_alt') %>" loading="lazy" class="tech-teaser-img" width="1600" height="900" />
         </picture>
       </div>
     </div>
@@ -352,7 +374,7 @@
   <section class="section about-teaser-section">
     <div class="container about-teaser-inner">
       <div class="about-teaser-photo">
-        <img src="/img/ahmed-sobre-mi.jpg" alt="<%= t('home.about_teaser.image_alt') %>" loading="lazy" />
+        <img src="/img/ahmed-sobre-mi.jpg" alt="<%= t('home.about_teaser.image_alt') %>" loading="lazy" width="283" height="283" />
       </div>
       <div class="about-teaser-copy">
         <h2><%= t('home.about_teaser.title') %></h2>

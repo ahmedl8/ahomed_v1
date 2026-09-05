@@ -709,6 +709,32 @@ p { margin: 0; }
 .launch-offer-badge-inline { margin-bottom: 10px; }
 .launch-offer-badge-sub { display: block; font-size: 0.82rem; font-weight: 600; color: #9aa0ac; margin: -6px 0 14px; }
 
+.value-compare-section .section-head { margin-bottom: 28px; }
+.value-compare-grid {
+  display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px;
+  margin-bottom: 18px;
+}
+.value-compare-card {
+  background: var(--paper-soft);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 18px 16px;
+}
+.value-compare-card h3 { font-size: 0.95rem; margin: 0 0 10px; color: var(--ink); }
+.value-compare-card p { font-size: 0.82rem; line-height: 1.4; margin: 0 0 8px; }
+.value-compare-card p:last-child { margin-bottom: 0; }
+.value-compare-without { color: var(--gray-600); }
+.value-compare-without span { color: #b5391f; font-weight: 700; }
+.value-compare-with { color: var(--charcoal); font-weight: 500; }
+.value-compare-with span { color: var(--whatsapp-dark); font-weight: 800; }
+.value-compare-footnote { font-size: 0.76rem; color: var(--gray-600); text-align: center; max-width: 720px; margin: 0 auto; }
+@media (max-width: 1024px) {
+  .value-compare-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 560px) {
+  .value-compare-grid { grid-template-columns: 1fr; }
+}
+
 .soluciones-mini-banner {
   display: flex; align-items: center; justify-content: space-between; gap: 24px;
   background: var(--paper-soft);

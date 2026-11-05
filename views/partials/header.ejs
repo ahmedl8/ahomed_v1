@@ -28,7 +28,7 @@
 
   <div class="container navbar">
     <a href="<%= homeHref %>" class="brand">
-      <img src="/img/logo.svg" alt="<%= t('common.logo_alt') %>" class="brand-logo" />
+      <img src="/img/logo.svg" alt="<%= t('common.logo_alt') %>" class="brand-logo" width="1366" height="386" />
     </a>
 
     <input type="checkbox" id="nav-toggle" class="nav-toggle" />
@@ -39,99 +39,17 @@
     <nav class="main-nav">
       <a href="<%= homeHref %>" class="<%= currentPath === '/' ? 'active' : '' %>"><%= t('nav.home') %></a>
 
-      <!-- CONFIGURADOR / CREADOR -->
+      <!-- SERVICIOS -->
       <div class="nav-dropdown">
-        <a href="<%= pathHref('/configurador') %>" class="<%= (currentPath === '/configurador' || currentPath === '/crea-tu-instalacion') ? 'active' : '' %>"><%= t('nav.configurador') %> ▾</a>
-        <div class="dropdown-menu">
-          <div class="dropdown-col">
-            <a href="<%= pathHref('/configurador') %>" class="dropdown-col-title"><%= t('nav.configurador') %></a>
-            <span class="dropdown-note"><%= t('nav.configurador_nota') %></span>
-          </div>
-          <div class="dropdown-col">
-            <a href="<%= pathHref('/crea-tu-instalacion') %>" class="dropdown-col-title"><%= t('nav.crea_instalacion') %></a>
-            <span class="dropdown-note"><%= t('nav.crea_instalacion_nota') %></span>
-          </div>
+        <a href="<%= pathHref('/servicios') %>" class="<%= currentPath.startsWith('/servicios') ? 'active' : '' %>"><%= t('nav.servicios') %> ▾</a>
+        <div class="dropdown-menu dropdown-menu-services">
+          <% services.forEach(function(s){ %>
+            <a href="<%= pathHref('/servicios/' + s.slug) %>" class="<%= currentPath === '/servicios/' + s.slug ? 'active' : '' %>"><%= s.nombre %></a>
+          <% }) %>
+          <a href="<%= pathHref('/servicios') %>" class="dropdown-all-link"><%= t('nav.ver_todos_servicios') %> →</a>
         </div>
       </div>
 
-      <% var basicosCols = function(b, audiencia) {
-           var servs = services.filter(function(s){
-             return s.bloque === b.slug && (s.publico === 'ambos' || s.publico === audiencia);
-           });
-           if (servs.length === 0) return;
-      %>
-        <div class="dropdown-col">
-          <a href="<%= pathHref('/servicios/bloque/' + b.slug) %>" class="dropdown-col-title">
-            <%= b.nombre %>
-          </a>
-          <ul class="dropdown-col-list">
-            <% servs.forEach(function(s){ %>
-              <li><a href="<%= pathHref('/servicios/' + s.slug) %>"><%= s.nombre %></a></li>
-            <% }) %>
-          </ul>
-        </div>
-      <% } %>
-
-      <!-- PARA TU CASA -->
-      <div class="nav-dropdown">
-        <a href="<%= pathHref('/servicios') %>" class="<%= currentPath.startsWith('/servicios') && currentPath !== '/servicios/mantenimiento' && currentPath !== '/servicios/bloque/seguridad-ia-naves-fincas' && !currentPath.startsWith('/servicios/naves-fincas') ? 'active' : '' %>"><%= t('nav.para_tu_casa') %> ▾</a>
-        <div class="dropdown-menu dropdown-menu-mega">
-          <div class="dropdown-group dropdown-group-basico">
-            <span class="dropdown-group-title"><%= t('nav.instalaciones_servicios') %></span>
-            <div class="dropdown-group-cols">
-              <% bloques.filter(function(b){ return b.grupo === 'basico'; }).forEach(function(b){ basicosCols(b, 'casa'); }) %>
-              <div class="dropdown-col">
-                <a href="<%= pathHref('/servicios/bloque/mantenimiento') %>" class="dropdown-col-title"><%= t('nav.mantenimiento') %></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="dropdown-group dropdown-group-exclusivo">
-            <span class="dropdown-group-title"><%= t('nav.con_ia') %> <em><%= t('nav.con_ia_nota') %></em></span>
-            <div class="dropdown-group-cols">
-              <div class="dropdown-col">
-                <a href="<%= pathHref('/servicios/ia-predictiva') %>" class="dropdown-col-title">
-                  <%= t('nav.plataforma_ia') %>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div class="dropdown-group">
-            <a href="<%= pathHref('/soluciones') %>#packs-casa" class="dropdown-col-title"><%= t('nav.ver_soluciones_casa') %></a>
-            <span class="dropdown-note"><%= t('nav.combinaciones_nota') %></span>
-          </div>
-        </div>
-      </div>
-
-      <!-- NAVES Y FINCAS -->
-      <div class="nav-dropdown">
-        <a href="<%= pathHref('/servicios/bloque/seguridad-ia-naves-fincas') %>" class="<%= currentPath === '/servicios/bloque/seguridad-ia-naves-fincas' || currentPath.startsWith('/servicios/naves-fincas') ? 'active' : '' %>"><%= t('nav.naves_fincas') %> ▾</a>
-        <div class="dropdown-menu dropdown-menu-mega">
-          <div class="dropdown-group dropdown-group-basico">
-            <span class="dropdown-group-title"><%= t('nav.instalaciones_servicios') %></span>
-            <div class="dropdown-group-cols">
-              <% bloques.filter(function(b){ return b.grupo === 'basico'; }).forEach(function(b){ basicosCols(b, 'negocio'); }) %>
-            </div>
-          </div>
-
-          <div class="dropdown-group dropdown-group-exclusivo">
-            <span class="dropdown-group-title"><%= t('nav.con_ia') %> <em><%= t('nav.con_ia_nota') %></em></span>
-            <div class="dropdown-group-cols">
-              <div class="dropdown-col">
-                <a href="<%= pathHref('/servicios/naves-fincas/seguridad-ia') %>" class="dropdown-col-title"><%= t('nav.seguridad_ia') %></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="dropdown-group">
-            <a href="<%= pathHref('/soluciones') %>#packs-negocio" class="dropdown-col-title"><%= t('nav.ver_soluciones_negocio') %></a>
-            <span class="dropdown-note"><%= t('nav.combinaciones_nota') %></span>
-          </div>
-        </div>
-      </div>
-
-      <a href="<%= pathHref('/soluciones') %>" class="<%= currentPath === '/soluciones' ? 'active' : '' %>"><%= t('nav.soluciones') %></a>
       <a href="<%= pathHref('/para-profesionales') %>" class="<%= currentPath === '/para-profesionales' ? 'active' : '' %>"><%= t('nav.para_profesionales') %></a>
       <a href="<%= pathHref('/preguntas-frecuentes') %>" class="<%= currentPath === '/preguntas-frecuentes' ? 'active' : '' %>"><%= t('nav.faq') %></a>
       <a href="<%= pathHref('/contacto') %>" class="<%= currentPath === '/contacto' ? 'active' : '' %>"><%= t('nav.contacto') %></a>

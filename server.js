@@ -6,26 +6,15 @@ const helmet = require("helmet");
 
 const { translate } = require("./i18n/content");
 const uiStrings = require("./i18n/ui");
-const { resolverServicio, resolverServicios, resolverModos, resolverNiveles, resolverOpciones } = require("./data/pricing");
+const { resolverServicios } = require("./data/pricing");
 
 const {
   services: servicesRaw,
-  packs: packsRaw,
-  ventajas: ventajasRaw,
   comoFunciona: comoFuncionaRaw,
   empresa: empresaRaw
 } = require("./data/services");
-const bloquesRaw = require("./data/bloques");
-const {
-  instalacionBase: instalacionBaseRaw,
-  modos: modosIARaw,
-  familiasIA: familiasIARaw,
-  panelMonitorizacion: panelMonitorizacionRaw
-} = require("./data/ia-predictiva");
-const { seguridadIANaves: seguridadIANavesRaw } = require("./data/naves-fincas");
 const galeriaRaw = require("./data/galeria");
 const icons = require("./data/icons");
-const escenariosRaw = require("./data/escenarios");
 
 const SUPPORTED_LANGS = ["es", "fr", "en"];
 
@@ -68,6 +57,16 @@ function langHref(currentPathNoPrefix, lang) {
 // se esté) — usada por el logo y el enlace "Inicio" del menú.
 function homeHref(lang) {
   return lang === "es" ? "/" : `/${lang}`;
+}
+
+// Construye la lista de migas de pan para el schema BreadcrumbList. Siempre
+// empieza en Inicio; cada argumento adicional es [nombre, ruta-sin-prefijo].
+function crumbs(res, ...items) {
+  const { t, pathHref, empresa } = res.locals;
+  const base = `https://${empresa.web}`;
+  const list = [{ name: t("nav.home"), item: base + pathHref("/") }];
+  items.forEach(([name, path]) => list.push({ name, item: base + pathHref(path) }));
+  return list;
 }
 
 // Genera un nonce único por petición para el único script inline que tiene
@@ -131,6 +130,10 @@ app.use((req, res, next) => {
 app.use(express.static(path.join(__dirname, "public"), {
   maxAge: "7d",
   etag: true,
+  // Sin esto, /en y /fr (home en otro idioma, req.url reescrito a "/") se
+  // redirigían con 301 a /en/ y /fr/; el logo, el sitemap y el canonical usan
+  // la forma sin barra final.
+  redirect: false,
 }));
 app.use(express.json());
 
@@ -168,32 +171,12 @@ app.use((req, res, next) => {
   res.locals.empresa = translate("empresa", empresaRaw, lang);
   res.locals.currentPath = req.path;
   res.locals.icons = icons;
-  res.locals.bloques = translate("bloques", bloquesRaw, lang);
   res.locals.services = translate("services", resolverServicios(servicesRaw), lang);
-  res.locals.packs = translate("packs", resolverServicios(packsRaw), lang);
-  res.locals.ventajas = translate("ventajas", ventajasRaw, lang);
   res.locals.comoFunciona = translate("comoFunciona", comoFuncionaRaw, lang);
-  res.locals.escenarios = translate("escenarios", escenariosRaw, lang);
   res.locals.galeria = translate("galeria", galeriaRaw, lang);
-  res.locals.modosIA = translate("modos", resolverModos(modosIARaw), lang);
-  res.locals.familiasIA = translate("familiasIA", familiasIARaw, lang);
-  res.locals.instalacionBase = translate(
-    "instalacionBase",
-    { ...instalacionBaseRaw, niveles: resolverNiveles(instalacionBaseRaw.niveles) },
-    lang
-  );
-  res.locals.seguridadIANaves = translate("seguridadIANaves", resolverServicio(seguridadIANavesRaw), lang);
-  res.locals.totalModos = modosIARaw.length;
   res.locals.metaDescription = res.locals.empresa.metaDescriptionDefault;
   next();
 });
-
-// Helper: adjunta el bloque completo (nombre, letra...) a un servicio a partir de su slug
-// Recibe el array de bloques ya traducido de res.locals para que el nombre
-// mostrado coincida con el idioma de la petición.
-function bloqueDe(slug, bloquesArr) {
-  return bloquesArr.find((b) => b.slug === slug) || null;
-}
 
 // Sustituye {placeholders} en las plantillas de meta description traducidas
 // (seo.*.desc_suffix en common.json) por los valores reales (zona, precio...).
@@ -202,297 +185,81 @@ function fill(template, values) {
 }
 
 // ---- Rutas ----
-const PACKS_DESTACADOS_HOME = ["chalet-seguro", "piso-nuevo", "hogar-inteligente"];
-
-// Bloque "¿Qué necesitas?": navegación por necesidad del cliente, no por
-// bloque técnico. Cada tarjeta enlaza al servicio/página real más representativo
-// de esa necesidad (no se filtra por varios servicios a la vez).
-const QUE_NECESITAS = [
-  {
-    icono: "wrench",
-    imagen: "/img/iconos/necesitas-resolver",
-    titulo: "Resolver un problema",
-    subtitulo: "Averías, electricidad, fontanería, climatización",
-    link: "/servicios/electricidad",
-    desde: 100
-  },
-  {
-    icono: "home-wifi",
-    imagen: "/img/iconos/necesitas-mejorar",
-    titulo: "Mejorar tu casa",
-    subtitulo: "Domótica, WiFi, iluminación, escenas",
-    link: "/servicios/domotica",
-    desde: 210
-  },
-  {
-    icono: "shield",
-    imagen: "/img/iconos/necesitas-energia",
-    titulo: "Proteger tu vivienda",
-    subtitulo: "Cámaras, videoportero, cerraduras, Seguridad IA",
-    link: "/servicios/seguridad",
-    desde: 145
-  },
-  {
-    icono: "solar",
-    imagen: "/img/iconos/necesitas-vivienda",
-    titulo: "Ahorrar energía",
-    subtitulo: "Solar, gestión energética",
-    link: "/servicios/energia-solar",
-    desde: 510
-  },
-  {
-    icono: "ai",
-    imagen: "/img/iconos/necesitas-negocio",
-    titulo: "Proteger tu negocio",
-    subtitulo: "Seguridad IA, electricidad y redes industriales",
-    link: "/servicios/naves-fincas/seguridad-ia",
-    desde: null
-  }
-];
-
 app.get("/", (req, res) => {
-  const { services, bloques, packs, modosIA, instalacionBase, ventajas, comoFunciona, familiasIA, escenarios, empresa, t } = res.locals;
-  const necesitas = QUE_NECESITAS.map((item) => ({
-    ...item,
-    titulo: t(`necesitas.${item.icono}.titulo`),
-    subtitulo: t(`necesitas.${item.icono}.subtitulo`)
-  }));
+  const { services, comoFunciona, empresa, t } = res.locals;
   res.render("index", {
     title: `${empresa.nombre} — ${t('seo.home.title')}`,
     metaDescription: t('seo.home.desc'),
     services,
-    necesitas,
-    bloques,
-    seguridadIA: modosIA.find((m) => m.slug === "seguridad-ia"),
-    modosIA: modosIA.filter((m) => !m.esProyecto),
-    // Lista completa (incluye Seguridad IA, esProyecto: true) para los enlaces
-    // de la sección "Vive AHOMED", que sí referencian ese modo.
-    modosIATodos: modosIA,
-    instalacionBase,
-    packs: packs.filter((p) => p.publico !== "negocio"),
-    packsDestacados: PACKS_DESTACADOS_HOME.map((slug) => packs.find((p) => p.slug === slug)).filter(Boolean),
-    ventajas,
-    comoFunciona,
-    familiasIA,
-    escenarios
-  });
-});
-
-// Configurador de vivienda: asistente de 3 pasos (tipo de vivienda, qué
-// quieres mejorar, qué quieres controlar) que recomienda un pack o servicio
-// real del catálogo y prepara el mensaje de WhatsApp. Toda la lógica de
-// recomendación vive en public/js/configurador.js, sobre los datos ya
-// renderizados en la página (sin llamadas al servidor).
-// Ver /areas/ahomed-negocio.md — construcción 3 de 5.
-// Configurador (wizard de 4 preguntas): vivienda → qué te importa (varias
-// opciones a la vez) → qué quieres controlar (servicios/modos reales,
-// filtrados según lo marcado en el paso anterior) → nivel de automatización.
-// El paso 2 filtra qué aparece en el paso 3 para no volcar el catálogo
-// entero de golpe — ver NECESIDAD_CATALOGO más abajo.
-//
-// El resultado (calculado en el navegador, public/js/configurador.js)
-// reutiliza el mismo motor de coincidencia con packs que ya usa el creador
-// (mejorCoincidencia sobre coincideCon.servicios/modos): si lo marcado hace
-// match con un pack existente, se recomienda ese pack; si no pero hay 2+
-// cosas marcadas, se arma un pack a medida sumando en vivo; si hay solo 1,
-// se recomienda ese servicio o modo individual.
-const NECESIDAD_CATALOGO = {
-  seguridad: { servicios: ["seguridad"], modos: ["seguridad-ia", "acceso-inteligente"] },
-  confort: { servicios: ["domotica", "climatizacion"], modos: ["casa-presencial", "ia-sueno", "cocina-inteligente", "acceso-inteligente"] },
-  ahorro: { servicios: ["energia-solar"], modos: ["motor-meteorologico", "calidad-aire"] },
-  familia: { servicios: [], modos: ["cuidado-mascotas", "personas-mayores", "modo-ninos", "gestion-paquetes"] },
-  // v70: nave/negocio no pasa por "qué te importa" (paso 2) — ver
-  // configurador.js, que salta directo a este grupo cuando vivienda=negocio.
-  negocio: { servicios: ["electricidad-nave", "redes-nave", "fontaneria-nave"], modos: ["seguridad-ia-naves-fincas"] }
-};
-
-app.get("/configurador", (req, res) => {
-  const { empresa, packs, services, modosIA, seguridadIANaves, t } = res.locals;
-  const serviciosCasa = services.filter((s) => s.publico === "casa");
-  const serviciosNave = services.filter((s) => s.publico === "negocio" && s.slug !== "mantenimiento-nave");
-  // seguridadIANaves no vive en modosIA (es un producto propio de la vertical
-  // Naves y Fincas, ver data/naves-fincas.js) — se expone al configurador con
-  // la misma forma que un modo, para que el paso 3 y el motor de resultado
-  // puedan tratarlo igual que cualquier otro modo IA.
-  const modosParaNegocio = [
-    {
-      slug: seguridadIANaves.slug,
-      nombre: seguridadIANaves.nombre,
-      resumen: seguridadIANaves.subtitulo,
-      precioIncremento: seguridadIANaves.ejemplos[0].opciones[0].total,
-      esProyecto: false
-    }
-  ];
-
-  res.render("configurador", {
-    title: `${t('seo.configurador.title')} — ${empresa.nombre}`,
-    metaDescription: t('seo.configurador.desc'),
-    packs,
-    services: serviciosCasa.concat(serviciosNave),
-    modosIA: modosIA.concat(modosParaNegocio),
-    necesidadCatalogo: NECESIDAD_CATALOGO
-  });
-});
-
-// Creador de instalación: versión "arma tu combinación" del configurador.
-// A diferencia del wizard de 4 preguntas (que recomienda UN pack o servicio),
-// aquí el cliente marca libremente cualquier servicio Básico y cualquier modo
-// de la Plataforma IA Predictiva, ve el total en vivo (igual que la
-// calculadora de /servicios/ia-predictiva pero para toda la casa) y, si su
-// combinación se parece a un pack ya existente, se lo señalamos con el precio
-// de ese pack al lado — así no le montamos a mano algo que ya vendemos
-// empaquetado y más barato. Solo cubre público "casa" por ahora: naves y
-// fincas ya tienen su propio Pack Seguridad IA para Negocios.
-app.get("/crea-tu-instalacion", (req, res) => {
-  const { empresa, services, packs, modosIA, instalacionBase, t } = res.locals;
-  const serviciosCasa = services.filter((s) => s.publico === "casa");
-  const packsCasa = packs.filter((p) => p.publico === "casa");
-  res.render("creador", {
-    title: `${t('seo.creador.title')} — ${empresa.nombre}`,
-    metaDescription: t('seo.creador.desc'),
-    serviciosCasa,
-    packsCasa,
-    modos: modosIA,
-    instalacionBase
-  });
-});
-
-// Tecnología AHOMED: qué hay detrás del Cerebro AHOMED (motor Python, IA
-// local, WhatsApp Business API, privacidad). Construcción 5 de 5.
-app.get("/tecnologia", (req, res) => {
-  const { empresa, instalacionBase, t } = res.locals;
-  res.render("tecnologia", {
-    title: `${t('seo.tecnologia.title')} — ${empresa.nombre}`,
-    metaDescription: t('seo.tecnologia.desc'),
-    instalacionBase
+    comoFunciona
   });
 });
 
 // AHOMED para Profesionales: página B2B dirigida a reformistas, constructoras,
-// persianeros, electricistas e interioristas. No vende directamente al
-// particular — explica el modelo de colaboración (referidos, packs conjuntos,
-// AHOMED asumiendo la parte tecnológica del proyecto).
+// interioristas y administradores de fincas. No vende directamente al
+// particular — explica cómo AHOMED cubre los oficios sencillos de una obra
+// (electricidad, pintura, pladur, limpieza final...) como colaborador.
 app.get("/para-profesionales", (req, res) => {
   const { empresa, t } = res.locals;
   res.render("para-profesionales", {
     title: `${t('seo.profesionales.title')} ${empresa.nombre}`,
-    metaDescription: t('seo.profesionales.desc')
+    metaDescription: t('seo.profesionales.desc'),
+    breadcrumbs: crumbs(res, [t('nav.para_profesionales'), '/para-profesionales'])
   });
 });
 
 app.get("/servicios", (req, res) => {
-  const { empresa, services, bloques, modosIA, t } = res.locals;
+  const { empresa, services, t } = res.locals;
   res.render("servicios", {
     title: `${t('seo.servicios.title')} — ${empresa.nombre}`,
     metaDescription: t('seo.servicios.desc'),
-    services,
-    bloques,
-    modosIA
+    breadcrumbs: crumbs(res, [t('seo.servicios.title'), '/servicios']),
+    services
   });
-});
-
-// Página de bloque: agrupa los servicios (y, para el bloque E, los modos IA) de esa categoría
-app.get("/servicios/bloque/:slug", (req, res, next) => {
-  const { empresa, services, bloques, modosIA, instalacionBase, t } = res.locals;
-  const bloque = bloqueDe(req.params.slug, bloques);
-  if (!bloque) return next();
-
-  const serviciosDelBloque = services.filter((s) => s.bloque === bloque.slug);
-  const esPlataformaIA = bloque.slug === "ia-predictiva";
-
-  res.render("bloque", {
-    title: `${bloque.nombre} — ${empresa.nombre}`,
-    metaDescription: `${bloque.resumen} ${fill(t('seo.bloque.desc_suffix'), { zona: empresa.zona })}`,
-    bloque,
-    servicios: serviciosDelBloque,
-    modosIA: esPlataformaIA ? modosIA : null,
-    instalacionBase: esPlataformaIA ? instalacionBase : null
-  });
-});
-
-// Seguridad IA para Naves y Fincas — servicio independiente de la Plataforma IA
-// Predictiva residencial (bloque E), a escala perimetral/industrial.
-app.get("/servicios/naves-fincas/seguridad-ia", (req, res) => {
-  const { empresa, seguridadIANaves, instalacionBase, t } = res.locals;
-  res.render("services/seguridad-ia-negocio", {
-    title: `${seguridadIANaves.nombre} — ${empresa.nombre}`,
-    metaDescription: `${seguridadIANaves.resumen} ${fill(t('seo.seguridad_ia_naves.desc_suffix'), { empresa: empresa.nombre, zona: empresa.zona })}`,
-    modo: seguridadIANaves,
-    instalacionBase
-  });
-});
-
-// Plataforma IA Predictiva — página general con instalación base + los 11 modos
-app.get("/servicios/ia-predictiva", (req, res) => {
-  const { empresa, instalacionBase, modosIA, familiasIA, packs, t } = res.locals;
-  res.render("services/ia-predictiva", {
-    title: `${t('seo.ia_predictiva.title')} — ${empresa.nombre}`,
-    metaDescription: t('seo.ia_predictiva.desc'),
-    instalacionBase,
-    modos: modosIA,
-    familiasIA,
-    packsIA: packs.filter((p) => ["hogar-inteligente", "alquiler-segunda-residencia-ia"].includes(p.slug)),
-    panelMonitorizacion: { ...panelMonitorizacionRaw, opciones: resolverOpciones(panelMonitorizacionRaw.opciones) }
-  });
-});
-
-// Ficha de un modo concreto de la Plataforma IA Predictiva
-app.get("/servicios/ia-predictiva/:modoSlug", (req, res, next) => {
-  const { empresa, modosIA, instalacionBase, t } = res.locals;
-  const modo = modosIA.find((m) => m.slug === req.params.modoSlug);
-  if (!modo) return next();
-  const template = modo.esProyecto ? "services/ia-modo-proyecto" : "services/ia-modo";
-  res.render(template, {
-    title: `${modo.nombre} — ${empresa.nombre}`,
-    metaDescription: modo.esProyecto
-      ? `${modo.resumen} ${fill(t('seo.ia_modo.desc_suffix_proyecto'), { empresa: empresa.nombre, zona: empresa.zona })}`
-      : `${modo.resumen} ${fill(t('seo.ia_modo.desc_suffix_addon'), { precio: modo.precioIncremento, empresa: empresa.nombre })}`,
-    modo,
-    instalacionBase
-  });
-});
-
-// La antigua "IA y Monitorización Inteligente" vive ahora dentro de la Plataforma IA Predictiva (modo 10)
-app.get("/servicios/ia-monitorizacion", (req, res) => {
-  res.redirect(301, "/servicios/ia-predictiva/seguridad-ia");
 });
 
 app.get("/servicios/:slug", (req, res, next) => {
-  const { empresa, services, bloques, t } = res.locals;
+  const { empresa, services, t } = res.locals;
   const service = services.find((s) => s.slug === req.params.slug);
   if (!service) return next();
   res.render("services/detalle", {
     title: `${service.nombre} — ${empresa.nombre}`,
     metaDescription: `${service.resumen} ${fill(t('seo.detalle_servicio.desc_suffix'), { desde: service.desde, zona: empresa.zona })}`,
-    service,
-    bloque: bloqueDe(service.bloque, bloques)
+    breadcrumbs: crumbs(res, [t('seo.servicios.title'), '/servicios'], [service.nombre, '/servicios/' + service.slug]),
+    service
   });
 });
 
-app.get("/soluciones", (req, res) => {
-  const { empresa, packs, t } = res.locals;
-  res.render("packs", {
-    title: `${t('seo.soluciones.title')} — ${empresa.nombre}`,
-    metaDescription: t('seo.soluciones.desc'),
-    packsCasa: packs.filter((p) => p.publico !== "negocio"),
-    packsNegocio: packs.filter((p) => p.publico === "negocio")
-  });
+// ---- Redirecciones 301 de URLs retiradas en v91 ----
+// La web pasó de "capa inteligente / IA" a trabajos sencillos (electricidad,
+// pintura, pladur, cámaras, persianas, jardinería y limpieza post-obra). Las
+// URLs antiguas ya indexadas se redirigen a la sección más cercana para no
+// dejar enlaces rotos ni perder el posicionamiento que ya tuvieran.
+const REDIRECTS_301 = [
+  [/^\/servicios\/seguridad$/, "/servicios/camaras-vigilancia"],
+  [/^\/servicios\/reparaciones-reformas$/, "/servicios/pintura"],
+  [/^\/servicios\/(domotica|iluminacion-led|iluminacion-exterior)$/, "/servicios/electricidad"],
+  [/^\/servicios\/(electricidad-nave)$/, "/servicios/electricidad"],
+  [/^\/servicios\/(fontaneria|fontaneria-nave|climatizacion|antenas|redes-informatica|redes-nave|energia-solar|baterias|mantenimiento|mantenimiento-nave)$/, "/servicios"],
+  [/^\/servicios\/(bloque|ia-predictiva|ia-monitorizacion|naves-fincas)(\/.*)?$/, "/servicios"],
+  [/^\/(soluciones|packs|configurador|crea-tu-instalacion|tecnologia)\/?$/, "/servicios"]
+];
+app.use((req, res, next) => {
+  for (const [re, to] of REDIRECTS_301) {
+    if (re.test(req.path)) {
+      const target = res.locals.pathHref(to);
+      return res.redirect(301, target);
+    }
+  }
+  next();
 });
-
-// v44: "/packs" pasó a llamarse "/soluciones" (ver /areas/ahomed-negocio.md,
-// punto 16 del análisis comparativo con Loxone — "pack" suena a paquete
-// comercial, "solución" suena a respuesta a un problema). Redirect 301 por
-// si algún enlace viejo sigue circulando.
-app.get("/packs", (req, res) => {
-  res.redirect(301, "/soluciones");
-});
-
 
 app.get("/galeria", (req, res) => {
   const { empresa, galeria, t } = res.locals;
   res.render("galeria", {
     title: `${t('seo.galeria.title')} — ${empresa.nombre}`,
     metaDescription: t('seo.galeria.desc'),
+    breadcrumbs: crumbs(res, [t('breadcrumb.galeria'), '/galeria']),
     trabajos: galeria
   });
 });
@@ -501,7 +268,8 @@ app.get("/preguntas-frecuentes", (req, res) => {
   const { empresa, t } = res.locals;
   res.render("faq", {
     title: `${t('seo.faq.title')} — ${empresa.nombre}`,
-    metaDescription: t('seo.faq.desc')
+    metaDescription: t('seo.faq.desc'),
+    breadcrumbs: crumbs(res, [t('nav.faq'), '/preguntas-frecuentes'])
   });
 });
 
@@ -509,7 +277,8 @@ app.get("/sobre-mi", (req, res) => {
   const { empresa, t } = res.locals;
   res.render("sobre-mi", {
     title: `${t('seo.sobre_mi.title')} — ${empresa.nombre}`,
-    metaDescription: `${empresa.anosExperiencia} ${t('seo.sobre_mi.desc')}`
+    metaDescription: `${empresa.anosExperiencia} ${t('seo.sobre_mi.desc')}`,
+    breadcrumbs: crumbs(res, [t('footer.sobre_mi'), '/sobre-mi'])
   });
 });
 
@@ -517,7 +286,8 @@ app.get("/contacto", (req, res) => {
   const { empresa, t } = res.locals;
   res.render("contacto", {
     title: `${t('seo.contacto.title')} — ${empresa.nombre}`,
-    metaDescription: `${t('seo.contacto.desc')} ${empresa.zona}.`
+    metaDescription: `${t('seo.contacto.desc')} ${empresa.zona}.`,
+    breadcrumbs: crumbs(res, [t('nav.contacto'), '/contacto'])
   });
 });
 
@@ -525,7 +295,8 @@ app.get("/aviso-legal", (req, res) => {
   const { empresa, t } = res.locals;
   res.render("legal-aviso", {
     title: `${t('seo.aviso_legal.title')} — ${empresa.nombre}`,
-    metaDescription: t('seo.aviso_legal.desc')
+    metaDescription: t('seo.aviso_legal.desc'),
+    breadcrumbs: crumbs(res, [t('footer.aviso_legal'), '/aviso-legal'])
   });
 });
 
@@ -533,7 +304,8 @@ app.get("/privacidad", (req, res) => {
   const { empresa, t } = res.locals;
   res.render("legal-privacidad", {
     title: `${t('seo.privacidad.title')} — ${empresa.nombre}`,
-    metaDescription: t('seo.privacidad.desc')
+    metaDescription: t('seo.privacidad.desc'),
+    breadcrumbs: crumbs(res, [t('footer.privacidad'), '/privacidad'])
   });
 });
 
@@ -541,7 +313,8 @@ app.get("/cookies", (req, res) => {
   const { empresa, t } = res.locals;
   res.render("legal-cookies", {
     title: `${t('seo.cookies.title')} — ${empresa.nombre}`,
-    metaDescription: t('seo.cookies.desc')
+    metaDescription: t('seo.cookies.desc'),
+    breadcrumbs: crumbs(res, [t('footer.cookies'), '/cookies'])
   });
 });
 
@@ -556,13 +329,10 @@ app.get("/robots.txt", (req, res) => {
 app.get("/sitemap.xml", (req, res) => {
   const empresa = empresaRaw;
   const base = `https://${empresa.web}`;
-  const staticUrls = ["/", "/servicios", "/soluciones", "/configurador", "/crea-tu-instalacion", "/tecnologia", "/para-profesionales", "/preguntas-frecuentes", "/sobre-mi", "/contacto", "/aviso-legal", "/privacidad", "/cookies"];
-  const bloqueUrls = bloquesRaw.map((b) => `/servicios/bloque/${b.slug}`);
+  const staticUrls = ["/", "/servicios", "/para-profesionales", "/galeria", "/preguntas-frecuentes", "/sobre-mi", "/contacto", "/aviso-legal", "/privacidad", "/cookies"];
   const servicioUrls = servicesRaw.map((s) => `/servicios/${s.slug}`);
-  const iaPredictivaUrls = ["/servicios/ia-predictiva", ...modosIARaw.map((m) => `/servicios/ia-predictiva/${m.slug}`)];
-  const navesFincasUrls = ["/servicios/naves-fincas/seguridad-ia"];
 
-  const paths = [...staticUrls, ...bloqueUrls, ...servicioUrls, ...iaPredictivaUrls, ...navesFincasUrls];
+  const paths = [...staticUrls, ...servicioUrls];
   // Cada URL se ofrece en los 3 idiomas: español sin prefijo, francés/inglés con /fr y /en
   const urls = [];
   paths.forEach((p) => {

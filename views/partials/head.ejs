@@ -26,7 +26,7 @@ window.__loadGTM = function(){
 <meta property="og:site_name" content="<%= empresa.nombre %>" />
 <meta property="og:title" content="<%= title %>" />
 <meta property="og:description" content="<%= metaDescription %>" />
-<meta property="og:image" content="https://<%= empresa.web %><%= typeof ogImage !== 'undefined' ? ogImage : '/img/hero-tecnico.jpg' %>" />
+<meta property="og:image" content="https://<%= empresa.web %><%= typeof ogImage !== 'undefined' ? ogImage : '/img/hero-trabajos.jpg' %>" />
 <meta property="og:url" content="https://<%= empresa.web %><%= langHref(lang) %>" />
 <meta property="og:locale" content="<%= lang === 'fr' ? 'fr_FR' : (lang === 'en' ? 'en_US' : 'es_ES') %>" />
 <meta name="twitter:card" content="summary_large_image" />
@@ -42,6 +42,7 @@ window.__loadGTM = function(){
   "name": "<%= empresa.nombre %>",
   "description": "<%= empresa.metaDescriptionDefault %>",
   "url": "https://<%= empresa.web %>",
+  "logo": "https://<%= empresa.web %>/img/logo.svg",
   "telephone": "+34<%= empresa.whatsapp %>",
   "email": "<%= empresa.email %>",
   "areaServed": {
@@ -56,3 +57,14 @@ window.__loadGTM = function(){
   "priceRange": "€€"
 }
 </script>
+<% if (typeof breadcrumbs !== 'undefined' && breadcrumbs.length > 1) { %>
+<script type="application/ld+json">
+<%- JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": breadcrumbs.map(function(b, i) {
+    return { "@type": "ListItem", "position": i + 1, "name": b.name, "item": b.item };
+  })
+}) %>
+</script>
+<% } %>

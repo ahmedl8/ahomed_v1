@@ -9,7 +9,7 @@
       "referencia"
     ],
     "reglaVolumen": "Cuando un mismo dispositivo se instala varias veces en el mismo trabajo, la 1ª unidad lleva las horas de mano de obra completas (incluye desplazamiento/preparación) y las unidades adicionales llevan menos horas — mismo patrón que usan electricistas reales (1ª hora a tarifa completa, resto a tarifa reducida). El precio del dispositivo en sí no varía por volumen.",
-    "fase": "5 de N — añadido Mini-PC IA START/PRO y los 11 modos de la Plataforma IA Predictiva"
+    "fase": "v91 — pivote a trabajos sencillos sin IA: electricidad, pintura, pladur, cámaras, persianas, jardinería y limpieza post-obra"
   },
   "componentes": [
     {
@@ -19,23 +19,6 @@
       "area": "electricidad",
       "unidad": "hora",
       "precio": 38
-    },
-    {
-      "id": "mo_domotica_hora",
-      "nombre": "Mano de obra instalador domótica",
-      "tipo": "mano_obra",
-      "area": "domotica",
-      "unidad": "hora",
-      "precio": 30
-    },
-    {
-      "id": "mo_domotica_hora_adicional",
-      "nombre": "Mano de obra instalador domótica — unidad adicional en el mismo trabajo",
-      "tipo": "mano_obra",
-      "area": "domotica",
-      "unidad": "hora",
-      "precio": 30,
-      "nota": "Misma tarifa por hora; lo que baja es el número de horas por unidad a partir de la 2ª (sin desplazamiento ni preparación repetidos) — igual que el modelo real del sector, donde la 1ª hora se cobra completa y el resto a tarifa reducida"
     },
     {
       "id": "cuadro_12_elementos",
@@ -177,111 +160,6 @@
       "precio": 100
     },
     {
-      "id": "interruptor_wifi",
-      "nombre": "Interruptor WiFi",
-      "tipo": "dispositivo",
-      "area": "domotica",
-      "unidad": "unidad",
-      "precio": 30
-    },
-    {
-      "id": "enchufe_inteligente",
-      "nombre": "Enchufe inteligente",
-      "tipo": "dispositivo",
-      "area": "domotica",
-      "unidad": "unidad",
-      "precio": 20
-    },
-    {
-      "id": "hub_domotica",
-      "nombre": "Hub central de domótica",
-      "tipo": "dispositivo",
-      "area": "domotica",
-      "unidad": "unidad",
-      "precio": 90,
-      "nota": "Para escenas y control por voz"
-    },
-    {
-      "id": "hub_domotica_altavoz",
-      "nombre": "Hub central + altavoz de control por voz",
-      "tipo": "dispositivo",
-      "area": "domotica",
-      "unidad": "unidad",
-      "precio": 220
-    },
-    {
-      "id": "termostato_inteligente",
-      "nombre": "Termostato inteligente integrado",
-      "tipo": "dispositivo",
-      "area": "domotica",
-      "unidad": "unidad",
-      "precio": 180
-    },
-    {
-      "id": "config_escenas_basica",
-      "nombre": "Configuración de escenas (\"buenas noches\", \"salir de casa\")",
-      "tipo": "mano_obra",
-      "area": "domotica",
-      "unidad": "lote",
-      "precio": 120
-    },
-    {
-      "id": "config_escenas_avanzada",
-      "nombre": "Configuración de escenas y automatizaciones por horario/presencia",
-      "tipo": "mano_obra",
-      "area": "domotica",
-      "unidad": "lote",
-      "precio": 180
-    },
-    {
-      "id": "material_electrico_domotica_bajo",
-      "nombre": "Material eléctrico",
-      "tipo": "material",
-      "area": "domotica",
-      "unidad": "lote",
-      "precio": 10
-    },
-    {
-      "id": "material_electrico_domotica_medio",
-      "nombre": "Material eléctrico",
-      "tipo": "material",
-      "area": "domotica",
-      "unidad": "lote",
-      "precio": 15
-    },
-    {
-      "id": "material_electrico_domotica_alto",
-      "nombre": "Material eléctrico",
-      "tipo": "material",
-      "area": "domotica",
-      "unidad": "lote",
-      "precio": 20
-    },
-    {
-      "id": "material_domotica_60",
-      "nombre": "Material eléctrico",
-      "tipo": "material",
-      "area": "domotica",
-      "unidad": "lote",
-      "precio": 60
-    },
-    {
-      "id": "material_domotica_70",
-      "nombre": "Material",
-      "tipo": "material",
-      "area": "domotica",
-      "unidad": "lote",
-      "precio": 70
-    },
-    {
-      "id": "material_domotica_90",
-      "nombre": "Material",
-      "tipo": "material",
-      "area": "domotica",
-      "unidad": "lote",
-      "precio": 90
-    },
-    {
       "id": "dispositivo_motor_persiana_mando",
       "nombre": "Motor tubular de persiana (con mando a distancia)",
       "tipo": "dispositivo",
@@ -308,30 +186,6 @@
       "precio": 40
     },
     {
-      "id": "_nota_horas_motor_persiana",
-      "nombre": "REFERENCIA — no es un componente sumable: instalar un motor de persiana lleva 4,5h (1ª unidad) o 2,5h (unidades adicionales en el mismo trabajo, sin desplazamiento repetido) a mo_domotica_hora",
-      "tipo": "referencia",
-      "area": "domotica",
-      "unidad": "-",
-      "precio": 0
-    },
-    {
-      "id": "programador_riego_2v",
-      "nombre": "Programador de riego con 2 electroválvulas",
-      "tipo": "dispositivo",
-      "area": "domotica",
-      "unidad": "unidad",
-      "precio": 180
-    },
-    {
-      "id": "programador_riego_wifi_4v",
-      "nombre": "Programador de riego WiFi con 4 electroválvulas",
-      "tipo": "dispositivo",
-      "area": "domotica",
-      "unidad": "unidad",
-      "precio": 320
-    },
-    {
       "id": "programador_riego_wifi_6v",
       "nombre": "Programador de riego WiFi con 6 electroválvulas",
       "tipo": "dispositivo",
@@ -347,14 +201,6 @@
       "unidad": "unidad",
       "precio": 60,
       "nota": "Evita riego innecesario"
-    },
-    {
-      "id": "sensor_humedad_suelo",
-      "nombre": "Sensor de humedad de suelo",
-      "tipo": "dispositivo",
-      "area": "domotica",
-      "unidad": "unidad",
-      "precio": 90
     },
     {
       "id": "tuberia_material_zanja_bajo",
@@ -381,14 +227,6 @@
       "precio": 260
     },
     {
-      "id": "integracion_domotica_riego",
-      "nombre": "Integración con domótica (escenas y automatizaciones)",
-      "tipo": "mano_obra",
-      "area": "domotica",
-      "unidad": "lote",
-      "precio": 90
-    },
-    {
       "id": "dispositivo_toldo_motor_mando",
       "nombre": "Toldo con motor tubular y mando a distancia",
       "tipo": "dispositivo",
@@ -396,31 +234,6 @@
       "unidad": "unidad",
       "precio": 420,
       "nota": "Toldo 4x3m con motor tubular"
-    },
-    {
-      "id": "dispositivo_toldo_motor_wifi",
-      "nombre": "Toldo con motor tubular WiFi",
-      "tipo": "dispositivo",
-      "area": "domotica",
-      "unidad": "unidad",
-      "precio": 520
-    },
-    {
-      "id": "modulo_control_app_toldo",
-      "nombre": "Módulo de control por app",
-      "tipo": "dispositivo",
-      "area": "domotica",
-      "unidad": "unidad",
-      "precio": 60
-    },
-    {
-      "id": "sensor_viento",
-      "nombre": "Sensor de viento",
-      "tipo": "dispositivo",
-      "area": "domotica",
-      "unidad": "unidad",
-      "precio": 110,
-      "nota": "Cierre automático ante ráfagas fuertes"
     },
     {
       "id": "led_brazo_toldo",
@@ -455,362 +268,12 @@
       "precio": 30
     },
     {
-      "id": "programador_bomba_wifi",
-      "nombre": "Programador WiFi para bomba de filtración",
-      "tipo": "dispositivo",
-      "area": "domotica",
-      "unidad": "unidad",
-      "precio": 220
-    },
-    {
-      "id": "led_piscina_rgb",
-      "nombre": "Foco LED de piscina RGB con control por app",
-      "tipo": "dispositivo",
-      "area": "domotica",
-      "unidad": "unidad",
-      "precio": 180
-    },
-    {
-      "id": "sonda_ph_cloro",
-      "nombre": "Sonda de pH y cloro con monitorización desde el móvil",
-      "tipo": "dispositivo",
-      "area": "domotica",
-      "unidad": "unidad",
-      "precio": 340
-    },
-    {
-      "id": "material_proteccion_electrica_60",
-      "nombre": "Material y protección eléctrica (caja estanca)",
-      "tipo": "material",
-      "area": "domotica",
-      "unidad": "lote",
-      "precio": 60
-    },
-    {
-      "id": "material_proteccion_electrica_70",
-      "nombre": "Material y protección eléctrica",
-      "tipo": "material",
-      "area": "domotica",
-      "unidad": "lote",
-      "precio": 70
-    },
-    {
-      "id": "material_proteccion_electrica_80",
-      "nombre": "Material y protección eléctrica",
-      "tipo": "material",
-      "area": "domotica",
-      "unidad": "lote",
-      "precio": 80
-    },
-    {
-      "id": "mo_solar_hora",
-      "nombre": "Mano de obra instalador fotovoltaico",
-      "tipo": "mano_obra",
-      "area": "energia-solar",
-      "unidad": "hora",
-      "precio": 40,
-      "nota": "Instalación de estructura, cableado DC/AC y puesta en marcha; tarifa de mercado especializada (35-55€/h)"
-    },
-    {
       "id": "mo_seguridad_hora",
       "nombre": "Mano de obra instalador de seguridad",
       "tipo": "mano_obra",
       "area": "seguridad",
       "unidad": "hora",
       "precio": 32
-    },
-    {
-      "id": "panel_solar_400w",
-      "nombre": "Panel solar 400 W",
-      "tipo": "dispositivo",
-      "area": "energia-solar",
-      "unidad": "unidad",
-      "precio": 140
-    },
-    {
-      "id": "microinversor_800w",
-      "nombre": "Microinversor 800 W",
-      "tipo": "dispositivo",
-      "area": "energia-solar",
-      "unidad": "unidad",
-      "precio": 120
-    },
-    {
-      "id": "microinversor_800w_app",
-      "nombre": "Microinversor 800 W con monitorización por app",
-      "tipo": "dispositivo",
-      "area": "energia-solar",
-      "unidad": "unidad",
-      "precio": 150
-    },
-    {
-      "id": "bateria_portatil_1kwh",
-      "nombre": "Batería portátil 1 kWh",
-      "tipo": "dispositivo",
-      "area": "energia-solar",
-      "unidad": "unidad",
-      "precio": 480
-    },
-    {
-      "id": "estructura_fijacion_balcon",
-      "nombre": "Estructura de fijación reforzada (balcón/terraza)",
-      "tipo": "material",
-      "area": "energia-solar",
-      "unidad": "lote",
-      "precio": 45
-    },
-    {
-      "id": "material_solar_balcon_20",
-      "nombre": "Material de fijación",
-      "tipo": "material",
-      "area": "energia-solar",
-      "unidad": "lote",
-      "precio": 20
-    },
-    {
-      "id": "material_solar_balcon_25",
-      "nombre": "Material",
-      "tipo": "material",
-      "area": "energia-solar",
-      "unidad": "lote",
-      "precio": 25
-    },
-    {
-      "id": "panel_solar_400w_tejado",
-      "nombre": "Panel solar 400 W (instalación en tejado)",
-      "tipo": "dispositivo",
-      "area": "energia-solar",
-      "unidad": "unidad",
-      "precio": 165,
-      "nota": "Precio de mercado del panel; ligeramente superior al de balcón por certificación para cubierta"
-    },
-    {
-      "id": "inversor_string_1600w",
-      "nombre": "Inversor 1.600 W (string)",
-      "tipo": "dispositivo",
-      "area": "energia-solar",
-      "unidad": "unidad",
-      "precio": 780,
-      "nota": "Ajustado a precio de mercado real de inversor con instalación en cubierta (rango 480-750€)"
-    },
-    {
-      "id": "inversor_string_2400w_app",
-      "nombre": "Inversor 2.400 W con monitorización por app",
-      "tipo": "dispositivo",
-      "area": "energia-solar",
-      "unidad": "unidad",
-      "precio": 780
-    },
-    {
-      "id": "inversor_hibrido_3200w_app",
-      "nombre": "Inversor híbrido 3.200 W con monitorización por app",
-      "tipo": "dispositivo",
-      "area": "energia-solar",
-      "unidad": "unidad",
-      "precio": 980,
-      "nota": "Inversor híbrido (preparado para batería)"
-    },
-    {
-      "id": "estructura_tejado_4p",
-      "nombre": "Estructura de fijación para tejado (hasta 4 paneles)",
-      "tipo": "material",
-      "area": "energia-solar",
-      "unidad": "lote",
-      "precio": 620,
-      "nota": "Ajustada a coste real de estructura + anclajes de cubierta inclinada (rango de mercado 400-800€ para 4 paneles)"
-    },
-    {
-      "id": "estructura_tejado_6p",
-      "nombre": "Estructura de fijación para tejado (hasta 6 paneles)",
-      "tipo": "material",
-      "area": "energia-solar",
-      "unidad": "lote",
-      "precio": 560
-    },
-    {
-      "id": "estructura_tejado_8p",
-      "nombre": "Estructura de fijación para tejado (hasta 8 paneles)",
-      "tipo": "material",
-      "area": "energia-solar",
-      "unidad": "lote",
-      "precio": 700
-    },
-    {
-      "id": "bateria_almacenamiento_5kwh",
-      "nombre": "Batería de almacenamiento de litio 5 kWh",
-      "tipo": "dispositivo",
-      "area": "energia-solar",
-      "unidad": "unidad",
-      "precio": 3200,
-      "nota": "Ajustada a precio de mercado real de batería 5kWh (rango 3.000-4.500€ como componente adicional)"
-    },
-    {
-      "id": "legalizacion_memoria_tecnica",
-      "nombre": "Legalización: memoria técnica de instalación",
-      "tipo": "tramite",
-      "area": "energia-solar",
-      "unidad": "unidad",
-      "precio": 350
-    },
-    {
-      "id": "legalizacion_alta_productor",
-      "nombre": "Legalización: alta como productor (excedentes a red)",
-      "tipo": "tramite",
-      "area": "energia-solar",
-      "unidad": "unidad",
-      "precio": 480
-    },
-    {
-      "id": "material_protecciones_solar_350",
-      "nombre": "Material y protecciones eléctricas",
-      "tipo": "material",
-      "area": "energia-solar",
-      "unidad": "lote",
-      "precio": 350
-    },
-    {
-      "id": "material_protecciones_solar_420",
-      "nombre": "Material y protecciones eléctricas",
-      "tipo": "material",
-      "area": "energia-solar",
-      "unidad": "lote",
-      "precio": 420
-    },
-    {
-      "id": "material_protecciones_solar_500",
-      "nombre": "Material y protecciones eléctricas",
-      "tipo": "material",
-      "area": "energia-solar",
-      "unidad": "lote",
-      "precio": 500
-    },
-    {
-      "id": "modulo_monitorizacion_consumo",
-      "nombre": "Módulo de monitorización de consumo en cuadro",
-      "tipo": "dispositivo",
-      "area": "energia-solar",
-      "unidad": "unidad",
-      "precio": 280
-    },
-    {
-      "id": "app_consumo_tiempo_real",
-      "nombre": "App con consumo en tiempo real e histórico",
-      "tipo": "dispositivo",
-      "area": "energia-solar",
-      "unidad": "unidad",
-      "precio": 90
-    },
-    {
-      "id": "integracion_tarifa_pvpc",
-      "nombre": "Integración con tarifa PVPC (precio por horas)",
-      "tipo": "mano_obra",
-      "area": "energia-solar",
-      "unidad": "lote",
-      "precio": 260
-    },
-    {
-      "id": "rele_inteligente_electrodomestico",
-      "nombre": "Relés inteligentes para electrodomésticos (lavadora/termo, arranque en horas baratas)",
-      "tipo": "dispositivo",
-      "area": "energia-solar",
-      "unidad": "unidad",
-      "precio": 340
-    },
-    {
-      "id": "videoportero_wifi_bateria",
-      "nombre": "Videoportero WiFi a batería con app",
-      "tipo": "dispositivo",
-      "area": "seguridad",
-      "unidad": "unidad",
-      "precio": 90
-    },
-    {
-      "id": "videoportero_2hilos",
-      "nombre": "Videoportero 2 hilos con cámara y monitor interior",
-      "tipo": "dispositivo",
-      "area": "seguridad",
-      "unidad": "unidad",
-      "precio": 145
-    },
-    {
-      "id": "videoportero_ip_nube",
-      "nombre": "Videoportero IP con grabación en la nube",
-      "tipo": "dispositivo",
-      "area": "seguridad",
-      "unidad": "unidad",
-      "precio": 210
-    },
-    {
-      "id": "modulo_apertura_remota",
-      "nombre": "Módulo de apertura remota",
-      "tipo": "dispositivo",
-      "area": "seguridad",
-      "unidad": "unidad",
-      "precio": 45
-    },
-    {
-      "id": "material_seguridad_10",
-      "nombre": "Material",
-      "tipo": "material",
-      "area": "seguridad",
-      "unidad": "lote",
-      "precio": 10
-    },
-    {
-      "id": "material_seguridad_15",
-      "nombre": "Material",
-      "tipo": "material",
-      "area": "seguridad",
-      "unidad": "lote",
-      "precio": 15
-    },
-    {
-      "id": "material_seguridad_20",
-      "nombre": "Material",
-      "tipo": "material",
-      "area": "seguridad",
-      "unidad": "lote",
-      "precio": 20
-    },
-    {
-      "id": "cerradura_teclado_app",
-      "nombre": "Cerradura inteligente con teclado numérico + app",
-      "tipo": "dispositivo",
-      "area": "seguridad",
-      "unidad": "unidad",
-      "precio": 195
-    },
-    {
-      "id": "cerradura_huella_teclado_app",
-      "nombre": "Cerradura inteligente con huella, teclado y app",
-      "tipo": "dispositivo",
-      "area": "seguridad",
-      "unidad": "unidad",
-      "precio": 310
-    },
-    {
-      "id": "cerradura_huella_teclado_app_nfc",
-      "nombre": "Cerradura inteligente con huella, teclado, app y NFC",
-      "tipo": "dispositivo",
-      "area": "seguridad",
-      "unidad": "unidad",
-      "precio": 380
-    },
-    {
-      "id": "integracion_cerradura_videoportero",
-      "nombre": "Integración cerradura con videoportero (apertura remota)",
-      "tipo": "mano_obra",
-      "area": "seguridad",
-      "unidad": "lote",
-      "precio": 90
-    },
-    {
-      "id": "config_accesos_temporales",
-      "nombre": "Configuración de accesos temporales (códigos de un solo uso)",
-      "tipo": "mano_obra",
-      "area": "seguridad",
-      "unidad": "lote",
-      "precio": 60
     },
     {
       "id": "camara_ip_poe_exterior",
@@ -847,22 +310,6 @@
       "precio": 90
     },
     {
-      "id": "config_deteccion_ia_camara",
-      "nombre": "Configuración de detección IA (persona/vehículo)",
-      "tipo": "mano_obra",
-      "area": "seguridad",
-      "unidad": "lote",
-      "precio": 380
-    },
-    {
-      "id": "notificaciones_whatsapp_alarma",
-      "nombre": "Notificaciones por WhatsApp ante alarma real",
-      "tipo": "mano_obra",
-      "area": "seguridad",
-      "unidad": "lote",
-      "precio": 90
-    },
-    {
       "id": "material_cctv_100",
       "nombre": "Material y conectorizado",
       "tipo": "material",
@@ -886,14 +333,6 @@
       "area": "seguridad",
       "unidad": "lote",
       "precio": 160
-    },
-    {
-      "id": "app_pvpc_aviso_automatizacion",
-      "nombre": "App con aviso de horas más baratas y automatización",
-      "tipo": "dispositivo",
-      "area": "energia-solar",
-      "unidad": "unidad",
-      "precio": 150
     },
     {
       "id": "cableado_estructurado_cctv_4cam",
@@ -921,30 +360,6 @@
       "precio": 340
     },
     {
-      "id": "mo_redes_hora",
-      "nombre": "Mano de obra instalador de redes",
-      "tipo": "mano_obra",
-      "area": "redes",
-      "unidad": "hora",
-      "precio": 32
-    },
-    {
-      "id": "mo_clima_hora",
-      "nombre": "Mano de obra instalador de climatización (RITE)",
-      "tipo": "mano_obra",
-      "area": "climatizacion",
-      "unidad": "hora",
-      "precio": 40
-    },
-    {
-      "id": "mo_antenista_hora",
-      "nombre": "Mano de obra antenista",
-      "tipo": "mano_obra",
-      "area": "antenas",
-      "unidad": "hora",
-      "precio": 32
-    },
-    {
       "id": "mo_reformas_hora",
       "nombre": "Mano de obra oficial de reformas",
       "tipo": "mano_obra",
@@ -953,493 +368,12 @@
       "precio": 28
     },
     {
-      "id": "mo_fontanero_hora",
-      "nombre": "Mano de obra fontanero",
-      "tipo": "mano_obra",
-      "area": "fontaneria",
-      "unidad": "hora",
-      "precio": 32
-    },
-    {
       "id": "mo_pladurista_hora",
       "nombre": "Mano de obra pladurista",
       "tipo": "mano_obra",
       "area": "pladur",
       "unidad": "hora",
       "precio": 28
-    },
-    {
-      "id": "mo_industrial_hora",
-      "nombre": "Mano de obra técnico industrial (nave/finca)",
-      "tipo": "mano_obra",
-      "area": "industrial",
-      "unidad": "hora",
-      "precio": 40,
-      "nota": "Tarifa superior a residencial: trabajo trifásico/industrial, mayor responsabilidad técnica"
-    },
-    {
-      "id": "wifi_mesh_2pt",
-      "nombre": "Sistema WiFi mesh (2 puntos)",
-      "tipo": "dispositivo",
-      "area": "redes",
-      "unidad": "unidad",
-      "precio": 140
-    },
-    {
-      "id": "wifi_mesh_3pt",
-      "nombre": "Sistema WiFi mesh (3 puntos)",
-      "tipo": "dispositivo",
-      "area": "redes",
-      "unidad": "unidad",
-      "precio": 210
-    },
-    {
-      "id": "config_redes_separadas",
-      "nombre": "Configuración de redes separadas (invitados/domótica)",
-      "tipo": "mano_obra",
-      "area": "redes",
-      "unidad": "lote",
-      "precio": 25
-    },
-    {
-      "id": "config_backup_automatico",
-      "nombre": "Configuración de copia de seguridad automática (NAS/nube)",
-      "tipo": "mano_obra",
-      "area": "redes",
-      "unidad": "lote",
-      "precio": 95
-    },
-    {
-      "id": "material_redes_10",
-      "nombre": "Material",
-      "tipo": "material",
-      "area": "redes",
-      "unidad": "lote",
-      "precio": 10
-    },
-    {
-      "id": "material_redes_15",
-      "nombre": "Material",
-      "tipo": "material",
-      "area": "redes",
-      "unidad": "lote",
-      "precio": 15
-    },
-    {
-      "id": "material_redes_20",
-      "nombre": "Material",
-      "tipo": "material",
-      "area": "redes",
-      "unidad": "lote",
-      "precio": 20
-    },
-    {
-      "id": "armario_comunicaciones_superficie",
-      "nombre": "Armario de comunicaciones compacto (superficie)",
-      "tipo": "dispositivo",
-      "area": "redes",
-      "unidad": "unidad",
-      "precio": 110
-    },
-    {
-      "id": "armario_comunicaciones_empotrado",
-      "nombre": "Armario de comunicaciones empotrado con rack",
-      "tipo": "dispositivo",
-      "area": "redes",
-      "unidad": "unidad",
-      "precio": 160
-    },
-    {
-      "id": "switch_8p",
-      "nombre": "Switch de 8 puertos",
-      "tipo": "dispositivo",
-      "area": "redes",
-      "unidad": "unidad",
-      "precio": 45
-    },
-    {
-      "id": "switch_8p_gestionable",
-      "nombre": "Switch gestionable de 8 puertos",
-      "tipo": "dispositivo",
-      "area": "redes",
-      "unidad": "unidad",
-      "precio": 70
-    },
-    {
-      "id": "patch_panel_12p",
-      "nombre": "Patch panel de 12 puertos",
-      "tipo": "dispositivo",
-      "area": "redes",
-      "unidad": "unidad",
-      "precio": 65
-    },
-    {
-      "id": "cable_red_4_tomas",
-      "nombre": "Cable de red y 4 tomas RJ45",
-      "tipo": "material",
-      "area": "redes",
-      "unidad": "lote",
-      "precio": 100
-    },
-    {
-      "id": "cable_red_6_tomas",
-      "nombre": "Cable de red y 6 tomas RJ45",
-      "tipo": "material",
-      "area": "redes",
-      "unidad": "lote",
-      "precio": 140
-    },
-    {
-      "id": "reubicacion_ont_router",
-      "nombre": "Reubicación de ONT y router dentro del rack",
-      "tipo": "mano_obra",
-      "area": "redes",
-      "unidad": "lote",
-      "precio": 55
-    },
-    {
-      "id": "material_rack_25",
-      "nombre": "Material y regletas de conexión",
-      "tipo": "material",
-      "area": "redes",
-      "unidad": "lote",
-      "precio": 25
-    },
-    {
-      "id": "material_rack_30",
-      "nombre": "Material y regletas de conexión",
-      "tipo": "material",
-      "area": "redes",
-      "unidad": "lote",
-      "precio": 30
-    },
-    {
-      "id": "material_rack_35",
-      "nombre": "Material y regletas de conexión",
-      "tipo": "material",
-      "area": "redes",
-      "unidad": "lote",
-      "precio": 35
-    },
-    {
-      "id": "split_1x1_basico",
-      "nombre": "Split 1x1 2.500 frigorías (gama básica)",
-      "tipo": "dispositivo",
-      "area": "climatizacion",
-      "unidad": "unidad",
-      "precio": 380
-    },
-    {
-      "id": "split_1x1_media",
-      "nombre": "Split 1x1 3.000 frigorías (gama media, Daikin/Mitsubishi)",
-      "tipo": "dispositivo",
-      "area": "climatizacion",
-      "unidad": "unidad",
-      "precio": 650
-    },
-    {
-      "id": "split_1x1_alta_wifi",
-      "nombre": "Split 1x1 3.000 frigorías alta eficiencia (A+++) con control WiFi",
-      "tipo": "dispositivo",
-      "area": "climatizacion",
-      "unidad": "unidad",
-      "precio": 850
-    },
-    {
-      "id": "certificado_rite",
-      "nombre": "Certificado RITE",
-      "tipo": "tramite",
-      "area": "climatizacion",
-      "unidad": "unidad",
-      "precio": 60
-    },
-    {
-      "id": "material_clima_40",
-      "nombre": "Material (tubería, soportes, canaleta)",
-      "tipo": "material",
-      "area": "climatizacion",
-      "unidad": "lote",
-      "precio": 40
-    },
-    {
-      "id": "material_clima_45",
-      "nombre": "Material",
-      "tipo": "material",
-      "area": "climatizacion",
-      "unidad": "lote",
-      "precio": 45
-    },
-    {
-      "id": "material_clima_50",
-      "nombre": "Material",
-      "tipo": "material",
-      "area": "climatizacion",
-      "unidad": "lote",
-      "precio": 50
-    },
-    {
-      "id": "unidad_exterior_2x1_basica",
-      "nombre": "Unidad exterior multisplit 2x1 (gama básica)",
-      "tipo": "dispositivo",
-      "area": "climatizacion",
-      "unidad": "unidad",
-      "precio": 780
-    },
-    {
-      "id": "unidad_exterior_3x1_media",
-      "nombre": "Unidad exterior multisplit 3x1 (gama media)",
-      "tipo": "dispositivo",
-      "area": "climatizacion",
-      "unidad": "unidad",
-      "precio": 1180
-    },
-    {
-      "id": "unidad_exterior_4x1_alta",
-      "nombre": "Unidad exterior multisplit 4x1 alta eficiencia (A+++)",
-      "tipo": "dispositivo",
-      "area": "climatizacion",
-      "unidad": "unidad",
-      "precio": 1850
-    },
-    {
-      "id": "unidad_interior_2500fg",
-      "nombre": "Unidad interior 2.500 frigorías",
-      "tipo": "dispositivo",
-      "area": "climatizacion",
-      "unidad": "unidad",
-      "precio": 380
-    },
-    {
-      "id": "unidad_interior_2500_3000fg",
-      "nombre": "Unidad interior 2.500-3.000 frigorías",
-      "tipo": "dispositivo",
-      "area": "climatizacion",
-      "unidad": "unidad",
-      "precio": 440
-    },
-    {
-      "id": "unidad_interior_3000fg_wifi",
-      "nombre": "Unidad interior 3.000 frigorías con control WiFi",
-      "tipo": "dispositivo",
-      "area": "climatizacion",
-      "unidad": "unidad",
-      "precio": 495
-    },
-    {
-      "id": "material_multisplit_160",
-      "nombre": "Material (tubería, soportes, canaleta)",
-      "tipo": "material",
-      "area": "climatizacion",
-      "unidad": "lote",
-      "precio": 160
-    },
-    {
-      "id": "material_multisplit_220",
-      "nombre": "Material",
-      "tipo": "material",
-      "area": "climatizacion",
-      "unidad": "lote",
-      "precio": 220
-    },
-    {
-      "id": "material_multisplit_280",
-      "nombre": "Material",
-      "tipo": "material",
-      "area": "climatizacion",
-      "unidad": "lote",
-      "precio": 280
-    },
-    {
-      "id": "antena_parabolica_60cm",
-      "nombre": "Antena parabólica 60 cm con LNB universal",
-      "tipo": "dispositivo",
-      "area": "antenas",
-      "unidad": "unidad",
-      "precio": 55
-    },
-    {
-      "id": "modulador_uhf_vhf",
-      "nombre": "Modulador UHF/VHF",
-      "tipo": "dispositivo",
-      "area": "antenas",
-      "unidad": "unidad",
-      "precio": 60
-    },
-    {
-      "id": "cableado_3_tomas_tv",
-      "nombre": "Cableado a 3 tomas de TV",
-      "tipo": "material",
-      "area": "antenas",
-      "unidad": "lote",
-      "precio": 70
-    },
-    {
-      "id": "soporte_cableado_antena",
-      "nombre": "Soporte y cableado",
-      "tipo": "material",
-      "area": "antenas",
-      "unidad": "lote",
-      "precio": 25
-    },
-    {
-      "id": "antena_tdt_alta_ganancia",
-      "nombre": "Antena TDT de alta ganancia",
-      "tipo": "dispositivo",
-      "area": "antenas",
-      "unidad": "unidad",
-      "precio": 180
-    },
-    {
-      "id": "antena_satelite_comunitaria",
-      "nombre": "Antena satélite comunitaria (añadida a TDT)",
-      "tipo": "dispositivo",
-      "area": "antenas",
-      "unidad": "unidad",
-      "precio": 240
-    },
-    {
-      "id": "central_amplificadora_multibanda",
-      "nombre": "Central amplificadora multibanda",
-      "tipo": "dispositivo",
-      "area": "antenas",
-      "unidad": "unidad",
-      "precio": 220
-    },
-    {
-      "id": "central_amplificadora_multibanda_potente",
-      "nombre": "Central amplificadora multibanda de mayor potencia",
-      "tipo": "dispositivo",
-      "area": "antenas",
-      "unidad": "unidad",
-      "precio": 320
-    },
-    {
-      "id": "repartidores_refuerzo_intermedio",
-      "nombre": "Repartidores y refuerzo en plantas intermedias",
-      "tipo": "material",
-      "area": "antenas",
-      "unidad": "lote",
-      "precio": 180
-    },
-    {
-      "id": "repartidores_refuerzo_total",
-      "nombre": "Repartidores y refuerzo en todas las plantas",
-      "tipo": "material",
-      "area": "antenas",
-      "unidad": "lote",
-      "precio": 260
-    },
-    {
-      "id": "certificado_instalacion_comunidad",
-      "nombre": "Certificado de instalación para la comunidad",
-      "tipo": "tramite",
-      "area": "antenas",
-      "unidad": "unidad",
-      "precio": 120
-    },
-    {
-      "id": "material_antena_140",
-      "nombre": "Material y conectorizado",
-      "tipo": "material",
-      "area": "antenas",
-      "unidad": "lote",
-      "precio": 140
-    },
-    {
-      "id": "material_antena_180",
-      "nombre": "Material y conectorizado",
-      "tipo": "material",
-      "area": "antenas",
-      "unidad": "lote",
-      "precio": 180
-    },
-    {
-      "id": "material_antena_220",
-      "nombre": "Material y conectorizado",
-      "tipo": "material",
-      "area": "antenas",
-      "unidad": "lote",
-      "precio": 220
-    },
-    {
-      "id": "pintura_plastica_antihumedad",
-      "nombre": "Pintura plástica antihumedad",
-      "tipo": "material",
-      "area": "reformas",
-      "unidad": "lote",
-      "precio": 65
-    },
-    {
-      "id": "azulejo_basico_6m2",
-      "nombre": "Azulejo básico (6 m²)",
-      "tipo": "material",
-      "area": "reformas",
-      "unidad": "lote",
-      "precio": 90
-    },
-    {
-      "id": "azulejo_media_6m2",
-      "nombre": "Azulejo de gama media (6 m²)",
-      "tipo": "material",
-      "area": "reformas",
-      "unidad": "lote",
-      "precio": 130
-    },
-    {
-      "id": "azulejo_alta_6m2",
-      "nombre": "Azulejo de gama alta (6 m²)",
-      "tipo": "material",
-      "area": "reformas",
-      "unidad": "lote",
-      "precio": 190
-    },
-    {
-      "id": "material_agarre_juntas_25",
-      "nombre": "Material de agarre y juntas",
-      "tipo": "material",
-      "area": "reformas",
-      "unidad": "lote",
-      "precio": 25
-    },
-    {
-      "id": "rodapie_ceramico_bano",
-      "nombre": "Rodapié cerámico (baño pequeño)",
-      "tipo": "material",
-      "area": "reformas",
-      "unidad": "lote",
-      "precio": 30
-    },
-    {
-      "id": "sellado_silicona_antimoho_25",
-      "nombre": "Sellado de juntas con silicona antimoho",
-      "tipo": "material",
-      "area": "reformas",
-      "unidad": "lote",
-      "precio": 25
-    },
-    {
-      "id": "impermeabilizacion_ducha",
-      "nombre": "Impermeabilización de zona de ducha (membrana líquida)",
-      "tipo": "material",
-      "area": "reformas",
-      "unidad": "lote",
-      "precio": 85
-    },
-    {
-      "id": "material_reformas_25",
-      "nombre": "Material",
-      "tipo": "material",
-      "area": "reformas",
-      "unidad": "lote",
-      "precio": 25
-    },
-    {
-      "id": "material_reformas_35",
-      "nombre": "Material",
-      "tipo": "material",
-      "area": "reformas",
-      "unidad": "lote",
-      "precio": 35
     },
     {
       "id": "pintura_plastica_lisa_1color",
@@ -1520,310 +454,6 @@
       "area": "reformas",
       "unidad": "lote",
       "precio": 110
-    },
-    {
-      "id": "azulejo_basico_12m2",
-      "nombre": "Azulejo básico (12 m²)",
-      "tipo": "material",
-      "area": "reformas",
-      "unidad": "lote",
-      "precio": 180
-    },
-    {
-      "id": "azulejo_media_12m2",
-      "nombre": "Azulejo de gama media (12 m²)",
-      "tipo": "material",
-      "area": "reformas",
-      "unidad": "lote",
-      "precio": 260
-    },
-    {
-      "id": "azulejo_gran_formato_12m2",
-      "nombre": "Azulejo gran formato, gama alta (12 m²)",
-      "tipo": "material",
-      "area": "reformas",
-      "unidad": "lote",
-      "precio": 420
-    },
-    {
-      "id": "rodapie_ceramico_12m2",
-      "nombre": "Rodapié cerámico",
-      "tipo": "material",
-      "area": "reformas",
-      "unidad": "lote",
-      "precio": 50
-    },
-    {
-      "id": "nivelacion_suelo_previa",
-      "nombre": "Nivelación de suelo antes del alicatado",
-      "tipo": "mano_obra",
-      "area": "reformas",
-      "unidad": "lote",
-      "precio": 150
-    },
-    {
-      "id": "rodapie_perfiles_acabado",
-      "nombre": "Rodapié y perfiles de acabado",
-      "tipo": "material",
-      "area": "reformas",
-      "unidad": "lote",
-      "precio": 80
-    },
-    {
-      "id": "sellado_silicona_antimoho_40",
-      "nombre": "Sellado de juntas con silicona antimoho",
-      "tipo": "material",
-      "area": "reformas",
-      "unidad": "lote",
-      "precio": 40
-    },
-    {
-      "id": "material_alicatado_70",
-      "nombre": "Material de agarre y juntas",
-      "tipo": "material",
-      "area": "reformas",
-      "unidad": "lote",
-      "precio": 70
-    },
-    {
-      "id": "material_alicatado_80",
-      "nombre": "Material",
-      "tipo": "material",
-      "area": "reformas",
-      "unidad": "lote",
-      "precio": 80
-    },
-    {
-      "id": "material_alicatado_100",
-      "nombre": "Material",
-      "tipo": "material",
-      "area": "reformas",
-      "unidad": "lote",
-      "precio": 100
-    },
-    {
-      "id": "material_fijacion_nivelacion",
-      "nombre": "Material de fijación y nivelación",
-      "tipo": "material",
-      "area": "reformas",
-      "unidad": "lote",
-      "precio": 45
-    },
-    {
-      "id": "ajuste_puertas_cajones",
-      "nombre": "Ajuste de puertas y cajones",
-      "tipo": "mano_obra",
-      "area": "reformas",
-      "unidad": "lote",
-      "precio": 70
-    },
-    {
-      "id": "colocacion_encimera",
-      "nombre": "Colocación e instalación de encimera",
-      "tipo": "mano_obra",
-      "area": "reformas",
-      "unidad": "lote",
-      "precio": 130
-    },
-    {
-      "id": "conexion_fregadero",
-      "nombre": "Conexión de fregadero (grifo y desagüe)",
-      "tipo": "mano_obra",
-      "area": "reformas",
-      "unidad": "lote",
-      "precio": 90
-    },
-    {
-      "id": "material_fijacion_sellado",
-      "nombre": "Material de fijación y sellado",
-      "tipo": "material",
-      "area": "reformas",
-      "unidad": "lote",
-      "precio": 60
-    },
-    {
-      "id": "instalacion_placa_horno_electrica",
-      "nombre": "Instalación de placa/horno (conexión eléctrica)",
-      "tipo": "mano_obra",
-      "area": "reformas",
-      "unidad": "lote",
-      "precio": 160
-    },
-    {
-      "id": "instalacion_campana_extractora",
-      "nombre": "Instalación de campana extractora",
-      "tipo": "mano_obra",
-      "area": "reformas",
-      "unidad": "lote",
-      "precio": 110
-    },
-    {
-      "id": "material_fijacion_sellado_70",
-      "nombre": "Material de fijación y sellado",
-      "tipo": "material",
-      "area": "reformas",
-      "unidad": "lote",
-      "precio": 70
-    },
-    {
-      "id": "muebles_cocina_basica_9m2",
-      "nombre": "Muebles de cocina, gama básica (9 m²)",
-      "tipo": "material",
-      "area": "reformas",
-      "unidad": "lote",
-      "precio": 1400
-    },
-    {
-      "id": "muebles_cocina_media_isla_9m2",
-      "nombre": "Muebles de cocina, gama media (9 m²) + isla central",
-      "tipo": "material",
-      "area": "reformas",
-      "unidad": "lote",
-      "precio": 2200
-    },
-    {
-      "id": "muebles_cocina_media_alta_isla_9m2",
-      "nombre": "Muebles de cocina, gama media-alta (9 m²) + isla central",
-      "tipo": "material",
-      "area": "reformas",
-      "unidad": "lote",
-      "precio": 2600
-    },
-    {
-      "id": "encimera_laminada",
-      "nombre": "Encimera laminada",
-      "tipo": "material",
-      "area": "reformas",
-      "unidad": "lote",
-      "precio": 320
-    },
-    {
-      "id": "encimera_cuarzo_compacto",
-      "nombre": "Encimera de cuarzo compacto",
-      "tipo": "material",
-      "area": "reformas",
-      "unidad": "lote",
-      "precio": 620
-    },
-    {
-      "id": "fontaneria_electricidad_adaptacion",
-      "nombre": "Fontanería y electricidad (adaptación de puntos existentes)",
-      "tipo": "mano_obra",
-      "area": "reformas",
-      "unidad": "lote",
-      "precio": 380
-    },
-    {
-      "id": "fontaneria_electricidad_isla",
-      "nombre": "Fontanería y electricidad (nuevos puntos para isla)",
-      "tipo": "mano_obra",
-      "area": "reformas",
-      "unidad": "lote",
-      "precio": 650
-    },
-    {
-      "id": "iluminacion_led_integrada_cocina",
-      "nombre": "Iluminación LED integrada",
-      "tipo": "dispositivo",
-      "area": "reformas",
-      "unidad": "lote",
-      "precio": 220
-    },
-    {
-      "id": "electrodomesticos_integrados_cocina",
-      "nombre": "Electrodomésticos integrados (horno, placa, campana, frigorífico)",
-      "tipo": "dispositivo",
-      "area": "reformas",
-      "unidad": "lote",
-      "precio": 2100
-    },
-    {
-      "id": "material_cocina_120",
-      "nombre": "Material y remates",
-      "tipo": "material",
-      "area": "reformas",
-      "unidad": "lote",
-      "precio": 120
-    },
-    {
-      "id": "material_cocina_180",
-      "nombre": "Material y remates",
-      "tipo": "material",
-      "area": "reformas",
-      "unidad": "lote",
-      "precio": 180
-    },
-    {
-      "id": "material_cocina_200",
-      "nombre": "Material y remates",
-      "tipo": "material",
-      "area": "reformas",
-      "unidad": "lote",
-      "precio": 200
-    },
-    {
-      "id": "grifo_lavabo_monomando",
-      "nombre": "Grifo de lavabo monomando",
-      "tipo": "dispositivo",
-      "area": "fontaneria",
-      "unidad": "unidad",
-      "precio": 45
-    },
-    {
-      "id": "grifo_termostatico_ducha",
-      "nombre": "Grifo termostático de ducha",
-      "tipo": "dispositivo",
-      "area": "fontaneria",
-      "unidad": "unidad",
-      "precio": 85
-    },
-    {
-      "id": "grifo_lavabo_ducha_media",
-      "nombre": "Grifo de lavabo y ducha, gama media",
-      "tipo": "dispositivo",
-      "area": "fontaneria",
-      "unidad": "unidad",
-      "precio": 150
-    },
-    {
-      "id": "inodoro_doble_descarga",
-      "nombre": "Inodoro con cisterna de doble descarga",
-      "tipo": "dispositivo",
-      "area": "fontaneria",
-      "unidad": "unidad",
-      "precio": 180
-    },
-    {
-      "id": "lavabo_pedestal",
-      "nombre": "Lavabo con pedestal o semipedestal",
-      "tipo": "dispositivo",
-      "area": "fontaneria",
-      "unidad": "unidad",
-      "precio": 120
-    },
-    {
-      "id": "material_estanqueidad_10",
-      "nombre": "Material de estanqueidad (teflón, juntas)",
-      "tipo": "material",
-      "area": "fontaneria",
-      "unidad": "lote",
-      "precio": 10
-    },
-    {
-      "id": "material_estanqueidad_20",
-      "nombre": "Material de fijación y estanqueidad",
-      "tipo": "material",
-      "area": "fontaneria",
-      "unidad": "lote",
-      "precio": 20
-    },
-    {
-      "id": "valvulas_sifones_estanqueidad",
-      "nombre": "Válvulas de corte, sifones y material de estanqueidad",
-      "tipo": "material",
-      "area": "fontaneria",
-      "unidad": "lote",
-      "precio": 45
     },
     {
       "id": "placas_pladur_10m2_simple",
@@ -1930,318 +560,6 @@
       "precio": 220
     },
     {
-      "id": "modulo_control_wifi_regulacion",
-      "nombre": "Módulo de control WiFi para regulación por app",
-      "tipo": "dispositivo",
-      "area": "pladur",
-      "unidad": "unidad",
-      "precio": 85
-    },
-    {
-      "id": "cuadro_trifasico_24elementos",
-      "nombre": "Cuadro trifásico 24 elementos + PIAs",
-      "tipo": "material",
-      "area": "industrial",
-      "unidad": "unidad",
-      "precio": 380
-    },
-    {
-      "id": "cuadro_trifasico_36elementos",
-      "nombre": "Cuadro trifásico 36 elementos + PIAs",
-      "tipo": "material",
-      "area": "industrial",
-      "unidad": "unidad",
-      "precio": 520
-    },
-    {
-      "id": "cuadro_trifasico_ampliable",
-      "nombre": "Cuadro trifásico ampliable + PIAs",
-      "tipo": "material",
-      "area": "industrial",
-      "unidad": "unidad",
-      "precio": 720
-    },
-    {
-      "id": "diferencial_trifasico_30ma",
-      "nombre": "Diferencial trifásico 30 mA",
-      "tipo": "material",
-      "area": "industrial",
-      "unidad": "unidad",
-      "precio": 140
-    },
-    {
-      "id": "diferencial_trifasico_superinmunizado",
-      "nombre": "Diferencial trifásico superinmunizado",
-      "tipo": "material",
-      "area": "industrial",
-      "unidad": "unidad",
-      "precio": 210
-    },
-    {
-      "id": "diferencial_trifasico_superinmunizado_x2",
-      "nombre": "Diferencial trifásico superinmunizado (x2, sectorizado)",
-      "tipo": "material",
-      "area": "industrial",
-      "unidad": "unidad",
-      "precio": 380
-    },
-    {
-      "id": "protector_sobretensiones_industrial",
-      "nombre": "Protector de sobretensiones industrial",
-      "tipo": "material",
-      "area": "industrial",
-      "unidad": "unidad",
-      "precio": 180
-    },
-    {
-      "id": "material_industrial_90",
-      "nombre": "Material y cableado (sección industrial)",
-      "tipo": "material",
-      "area": "industrial",
-      "unidad": "lote",
-      "precio": 90
-    },
-    {
-      "id": "material_industrial_140",
-      "nombre": "Material y cableado (sección industrial)",
-      "tipo": "material",
-      "area": "industrial",
-      "unidad": "lote",
-      "precio": 140
-    },
-    {
-      "id": "material_industrial_220",
-      "nombre": "Material y cableado (sección industrial)",
-      "tipo": "material",
-      "area": "industrial",
-      "unidad": "lote",
-      "precio": 220
-    },
-    {
-      "id": "boletin_cie_trifasico",
-      "nombre": "Boletín eléctrico (CIE) para instalación trifásica",
-      "tipo": "tramite",
-      "area": "industrial",
-      "unidad": "unidad",
-      "precio": 320
-    },
-    {
-      "id": "proyecto_electrico_firmado",
-      "nombre": "Proyecto eléctrico firmado (obligatorio a partir de 20 kW)",
-      "tipo": "tramite",
-      "area": "industrial",
-      "unidad": "unidad",
-      "precio": 1390
-    },
-    {
-      "id": "boletin_inspeccion_oca_inicial",
-      "nombre": "Boletín eléctrico (CIE) e inspección OCA inicial",
-      "tipo": "tramite",
-      "area": "industrial",
-      "unidad": "unidad",
-      "precio": 520
-    },
-    {
-      "id": "ap_wifi_industrial_alta_potencia",
-      "nombre": "Punto de acceso WiFi industrial de alta potencia",
-      "tipo": "dispositivo",
-      "area": "industrial",
-      "unidad": "unidad",
-      "precio": 240
-    },
-    {
-      "id": "cableado_cat6_4_tomas_oficina",
-      "nombre": "Cableado estructurado Cat6 a 4 tomas (oficina)",
-      "tipo": "material",
-      "area": "industrial",
-      "unidad": "lote",
-      "precio": 340
-    },
-    {
-      "id": "cableado_cat6_8_tomas",
-      "nombre": "Cableado estructurado Cat6 a 8 tomas",
-      "tipo": "material",
-      "area": "industrial",
-      "unidad": "lote",
-      "precio": 640
-    },
-    {
-      "id": "switch_gestionable_8p_industrial",
-      "nombre": "Switch gestionable de 8 puertos",
-      "tipo": "dispositivo",
-      "area": "industrial",
-      "unidad": "unidad",
-      "precio": 120
-    },
-    {
-      "id": "rack_switch_patch_panel",
-      "nombre": "Armario rack con switch gestionable y patch panel",
-      "tipo": "dispositivo",
-      "area": "industrial",
-      "unidad": "unidad",
-      "precio": 480
-    },
-    {
-      "id": "config_vlan_separadas",
-      "nombre": "Configuración de VLAN (red de gestión separada)",
-      "tipo": "mano_obra",
-      "area": "industrial",
-      "unidad": "lote",
-      "precio": 260
-    },
-    {
-      "id": "material_industrial_redes_90",
-      "nombre": "Material, canalización y fijación en altura",
-      "tipo": "material",
-      "area": "industrial",
-      "unidad": "lote",
-      "precio": 90
-    },
-    {
-      "id": "material_industrial_redes_180",
-      "nombre": "Material, canalización y fijación en altura",
-      "tipo": "material",
-      "area": "industrial",
-      "unidad": "lote",
-      "precio": 180
-    },
-    {
-      "id": "material_industrial_redes_260",
-      "nombre": "Material, canalización y fijación en altura",
-      "tipo": "material",
-      "area": "industrial",
-      "unidad": "lote",
-      "precio": 260
-    },
-    {
-      "id": "tuberia_pe32_200m",
-      "nombre": "Tubería principal PE 32mm (hasta 200 m)",
-      "tipo": "material",
-      "area": "industrial",
-      "unidad": "lote",
-      "precio": 260
-    },
-    {
-      "id": "tuberia_pe32_40_400m",
-      "nombre": "Tubería principal PE 32-40mm (hasta 400 m)",
-      "tipo": "material",
-      "area": "industrial",
-      "unidad": "lote",
-      "precio": 480
-    },
-    {
-      "id": "tuberia_pe40_50_800m",
-      "nombre": "Tubería principal PE 40-50mm (hasta 800 m)",
-      "tipo": "material",
-      "area": "industrial",
-      "unidad": "lote",
-      "precio": 890
-    },
-    {
-      "id": "goteros_ramales_1sector",
-      "nombre": "Goteros y ramales de riego (1 sector)",
-      "tipo": "material",
-      "area": "industrial",
-      "unidad": "lote",
-      "precio": 180
-    },
-    {
-      "id": "goteros_ramales_3sectores",
-      "nombre": "Goteros y ramales de riego (3 sectores)",
-      "tipo": "material",
-      "area": "industrial",
-      "unidad": "lote",
-      "precio": 420
-    },
-    {
-      "id": "goteros_ramales_5sectores",
-      "nombre": "Goteros y ramales de riego (5 sectores)",
-      "tipo": "material",
-      "area": "industrial",
-      "unidad": "lote",
-      "precio": 620
-    },
-    {
-      "id": "programador_riego_electrovalvula_1",
-      "nombre": "Programador de riego con electroválvula",
-      "tipo": "dispositivo",
-      "area": "industrial",
-      "unidad": "unidad",
-      "precio": 140
-    },
-    {
-      "id": "programador_riego_wifi_3v_industrial",
-      "nombre": "Programador de riego WiFi con 3 electroválvulas",
-      "tipo": "dispositivo",
-      "area": "industrial",
-      "unidad": "unidad",
-      "precio": 340
-    },
-    {
-      "id": "programador_riego_wifi_5v_industrial",
-      "nombre": "Programador de riego WiFi con 5 electroválvulas",
-      "tipo": "dispositivo",
-      "area": "industrial",
-      "unidad": "unidad",
-      "precio": 480
-    },
-    {
-      "id": "sensor_lluvia_industrial",
-      "nombre": "Sensor de lluvia",
-      "tipo": "dispositivo",
-      "area": "industrial",
-      "unidad": "unidad",
-      "precio": 90
-    },
-    {
-      "id": "sensor_lluvia_humedad_industrial",
-      "nombre": "Sensor de lluvia y de humedad de suelo",
-      "tipo": "dispositivo",
-      "area": "industrial",
-      "unidad": "unidad",
-      "precio": 180
-    },
-    {
-      "id": "acometida_agua_nueva",
-      "nombre": "Acometida de agua nueva desde captación o pozo",
-      "tipo": "mano_obra",
-      "area": "industrial",
-      "unidad": "lote",
-      "precio": 650
-    },
-    {
-      "id": "material_conexion_estanqueidad_40",
-      "nombre": "Material de conexión y estanqueidad",
-      "tipo": "material",
-      "area": "industrial",
-      "unidad": "lote",
-      "precio": 40
-    },
-    {
-      "id": "material_conexion_estanqueidad_70",
-      "nombre": "Material de conexión y estanqueidad",
-      "tipo": "material",
-      "area": "industrial",
-      "unidad": "lote",
-      "precio": 70
-    },
-    {
-      "id": "material_conexion_estanqueidad_120",
-      "nombre": "Material de conexión y estanqueidad",
-      "tipo": "material",
-      "area": "industrial",
-      "unidad": "lote",
-      "precio": 120
-    },
-    {
-      "id": "interruptor_convencional",
-      "nombre": "Interruptor convencional (empotrado, sin control remoto)",
-      "tipo": "dispositivo",
-      "area": "domotica",
-      "unidad": "unidad",
-      "precio": 8
-    },
-    {
       "id": "enchufe_convencional",
       "nombre": "Enchufe convencional (empotrado, sin control remoto)",
       "tipo": "dispositivo",
@@ -2266,287 +584,6 @@
       "precio": 55
     },
     {
-      "id": "manivela_toldo_manual",
-      "nombre": "Manivela manual para toldo (sin motor)",
-      "tipo": "dispositivo",
-      "area": "domotica",
-      "unidad": "unidad",
-      "precio": 45
-    },
-    {
-      "id": "temporizador_bomba_piscina_mecanico",
-      "nombre": "Temporizador mecánico para bomba de filtración (sin app)",
-      "tipo": "dispositivo",
-      "area": "domotica",
-      "unidad": "unidad",
-      "precio": 35
-    },
-    {
-      "id": "telefonillo_video_basico",
-      "nombre": "Telefonillo con vídeo básico (solo contestador interior, sin app)",
-      "tipo": "dispositivo",
-      "area": "seguridad",
-      "unidad": "unidad",
-      "precio": 65
-    },
-    {
-      "id": "cerradura_teclado_sin_app",
-      "nombre": "Cerradura con teclado numérico (sin conexión, sin app)",
-      "tipo": "dispositivo",
-      "area": "seguridad",
-      "unidad": "unidad",
-      "precio": 140
-    },
-    {
-      "id": "minipc_ia_start",
-      "nombre": "Mini-PC IA (Ryzen 5 7530U o equivalente, 16 GB RAM, 512 GB SSD)",
-      "tipo": "dispositivo",
-      "area": "ia-predictiva",
-      "unidad": "unidad",
-      "precio": 430
-    },
-    {
-      "id": "minipc_ia_pro",
-      "nombre": "Mini-PC IA (Ryzen 7 8845HS o equivalente, 32 GB RAM, 1 TB SSD, NPU ~16 TOPS)",
-      "tipo": "dispositivo",
-      "area": "ia-predictiva",
-      "unidad": "unidad",
-      "precio": 700
-    },
-    {
-      "id": "motor_python_start",
-      "nombre": "Instalación del motor Python + modelos YOLO26 (orquestador de modos)",
-      "tipo": "mano_obra",
-      "area": "ia-predictiva",
-      "unidad": "lote",
-      "precio": 90
-    },
-    {
-      "id": "motor_python_pro",
-      "nombre": "Instalación del motor Python + modelos YOLO26 (orquestador de modos)",
-      "tipo": "mano_obra",
-      "area": "ia-predictiva",
-      "unidad": "lote",
-      "precio": 130
-    },
-    {
-      "id": "dashboard_control_start",
-      "nombre": "Dashboard de control unificado",
-      "tipo": "mano_obra",
-      "area": "ia-predictiva",
-      "unidad": "lote",
-      "precio": 40
-    },
-    {
-      "id": "dashboard_control_pro",
-      "nombre": "Dashboard de control unificado",
-      "tipo": "mano_obra",
-      "area": "ia-predictiva",
-      "unidad": "lote",
-      "precio": 50
-    },
-    {
-      "id": "integracion_whatsapp_api",
-      "nombre": "Integración WhatsApp Business API",
-      "tipo": "mano_obra",
-      "area": "ia-predictiva",
-      "unidad": "lote",
-      "precio": 30
-    },
-    {
-      "id": "ups_proteccion",
-      "nombre": "UPS de protección (evita corrupción de datos ante cortes de luz)",
-      "tipo": "dispositivo",
-      "area": "ia-predictiva",
-      "unidad": "unidad",
-      "precio": 40
-    },
-    {
-      "id": "controlador_riego_wifi_4z_shelly",
-      "nombre": "Controlador de riego WiFi 4 zonas (Shelly o similar)",
-      "tipo": "dispositivo",
-      "area": "ia-predictiva",
-      "unidad": "unidad",
-      "precio": 55
-    },
-    {
-      "id": "sensores_temp_humedad_ext_x2",
-      "nombre": "Sensores de temperatura/humedad exterior (x2)",
-      "tipo": "dispositivo",
-      "area": "ia-predictiva",
-      "unidad": "unidad",
-      "precio": 30
-    },
-    {
-      "id": "material_ia_25",
-      "nombre": "Cableado y material de instalación",
-      "tipo": "material",
-      "area": "ia-predictiva",
-      "unidad": "lote",
-      "precio": 25
-    },
-    {
-      "id": "config_motor_clima_riego",
-      "nombre": "Configuración del motor Python (API clima + lógica de riego)",
-      "tipo": "mano_obra",
-      "area": "ia-predictiva",
-      "unidad": "lote",
-      "precio": 280
-    },
-    {
-      "id": "integracion_app_dashboard_basico",
-      "nombre": "Integración con app móvil y dashboard básico",
-      "tipo": "mano_obra",
-      "area": "ia-predictiva",
-      "unidad": "lote",
-      "precio": 120
-    },
-    {
-      "id": "puesta_marcha_formacion_2h",
-      "nombre": "Puesta en marcha y formación (2 h)",
-      "tipo": "mano_obra",
-      "area": "ia-predictiva",
-      "unidad": "lote",
-      "precio": 90
-    },
-    {
-      "id": "motores_persiana_wifi_x4_shelly",
-      "nombre": "4 motores de persiana WiFi (Shelly 2.5 o equivalente)",
-      "tipo": "dispositivo",
-      "area": "ia-predictiva",
-      "unidad": "unidad",
-      "precio": 220
-    },
-    {
-      "id": "sensores_ext_temp_hum_lluvia",
-      "nombre": "Sensores exterior temperatura/humedad/lluvia",
-      "tipo": "dispositivo",
-      "area": "ia-predictiva",
-      "unidad": "unidad",
-      "precio": 45
-    },
-    {
-      "id": "material_ia_60",
-      "nombre": "Cableado, canal y material",
-      "tipo": "material",
-      "area": "ia-predictiva",
-      "unidad": "lote",
-      "precio": 60
-    },
-    {
-      "id": "motor_python_clima_riego_persianas",
-      "nombre": "Motor Python: lógica climática + riego + persianas + alertas WhatsApp",
-      "tipo": "mano_obra",
-      "area": "ia-predictiva",
-      "unidad": "lote",
-      "precio": 380
-    },
-    {
-      "id": "dashboard_web_personalizado",
-      "nombre": "Dashboard web personalizado (consulta desde móvil)",
-      "tipo": "mano_obra",
-      "area": "ia-predictiva",
-      "unidad": "lote",
-      "precio": 180
-    },
-    {
-      "id": "puesta_marcha_formacion_3h",
-      "nombre": "Puesta en marcha y formación (3 h)",
-      "tipo": "mano_obra",
-      "area": "ia-predictiva",
-      "unidad": "lote",
-      "precio": 130
-    },
-    {
-      "id": "enchufes_inteligentes_wifi_x2",
-      "nombre": "2 enchufes inteligentes WiFi (Shelly Plug)",
-      "tipo": "dispositivo",
-      "area": "ia-predictiva",
-      "unidad": "unidad",
-      "precio": 40
-    },
-    {
-      "id": "tira_led_salon_controlador_wifi",
-      "nombre": "1 tira LED salón con controlador WiFi",
-      "tipo": "dispositivo",
-      "area": "ia-predictiva",
-      "unidad": "unidad",
-      "precio": 55
-    },
-    {
-      "id": "termostato_wifi_inteligente",
-      "nombre": "Termostato WiFi inteligente",
-      "tipo": "dispositivo",
-      "area": "ia-predictiva",
-      "unidad": "unidad",
-      "precio": 75
-    },
-    {
-      "id": "material_ia_20",
-      "nombre": "Cableado y material",
-      "tipo": "material",
-      "area": "ia-predictiva",
-      "unidad": "lote",
-      "precio": 20
-    },
-    {
-      "id": "config_motor_geofencing",
-      "nombre": "Configuración del motor de geofencing (GPS móvil → escenas)",
-      "tipo": "mano_obra",
-      "area": "ia-predictiva",
-      "unidad": "lote",
-      "precio": 240
-    },
-    {
-      "id": "escenas_3_app_control",
-      "nombre": "3 escenas configuradas + app de control",
-      "tipo": "mano_obra",
-      "area": "ia-predictiva",
-      "unidad": "lote",
-      "precio": 100
-    },
-    {
-      "id": "puesta_marcha_ajuste_gps_2h",
-      "nombre": "Puesta en marcha y ajuste de perímetros GPS (2 h)",
-      "tipo": "mano_obra",
-      "area": "ia-predictiva",
-      "unidad": "lote",
-      "precio": 90
-    },
-    {
-      "id": "material_ia_75",
-      "nombre": "Cableado y material",
-      "tipo": "material",
-      "area": "ia-predictiva",
-      "unidad": "lote",
-      "precio": 75
-    },
-    {
-      "id": "config_motor_geofencing_reducido",
-      "nombre": "Configuración del motor de geofencing con simulación de presencia",
-      "tipo": "mano_obra",
-      "area": "ia-predictiva",
-      "unidad": "lote",
-      "precio": 260,
-      "nota": "Corregido en revisión de precios (ago-2026): el dato original tenía este componente a 20€, más barato que la config básica (240€) pese a incluir más lógica (simulación de presencia). Era una inversión de precio entre opciones, no una decisión de negocio."
-    },
-    {
-      "id": "escenas_3_presencia_app",
-      "nombre": "3 escenas configuradas + simulación de presencia + app de control",
-      "tipo": "mano_obra",
-      "area": "ia-predictiva",
-      "unidad": "lote",
-      "precio": 240
-    },
-    {
-      "id": "motores_persiana_wifi_x2_dormitorio",
-      "nombre": "2 motores de persiana WiFi (dormitorio principal)",
-      "tipo": "dispositivo",
-      "area": "ia-predictiva",
-      "unidad": "unidad",
-      "precio": 110
-    },
-    {
       "id": "tira_led_regulable_temp_color",
       "nombre": "Tira LED regulable (temperatura de color cálido/frío)",
       "tipo": "dispositivo",
@@ -2555,794 +592,12 @@
       "precio": 65
     },
     {
-      "id": "sensor_luminosidad_exterior",
-      "nombre": "Sensor de luminosidad exterior",
-      "tipo": "dispositivo",
-      "area": "ia-predictiva",
-      "unidad": "unidad",
-      "precio": 18
-    },
-    {
-      "id": "config_motor_sueno",
-      "nombre": "Configuración del motor de sueño: horarios + amanecer gradual",
-      "tipo": "mano_obra",
-      "area": "ia-predictiva",
-      "unidad": "lote",
-      "precio": 220
-    },
-    {
-      "id": "integracion_alarma_movil",
-      "nombre": "Integración con alarma del móvil (vía API o IFTTT)",
-      "tipo": "mano_obra",
-      "area": "ia-predictiva",
-      "unidad": "lote",
-      "precio": 90
-    },
-    {
-      "id": "tira_led_regulable_temp_color_v2",
-      "nombre": "Tira LED regulable (temperatura de color cálido/frío)",
-      "tipo": "dispositivo",
-      "area": "ia-predictiva",
-      "unidad": "unidad",
-      "precio": 110
-    },
-    {
-      "id": "sensor_luminosidad_ext_v2",
-      "nombre": "Sensor de luminosidad exterior",
-      "tipo": "dispositivo",
-      "area": "ia-predictiva",
-      "unidad": "unidad",
-      "precio": 65
-    },
-    {
-      "id": "config_motor_sueno_reducido",
-      "nombre": "Configuración del motor de sueño: horarios + amanecer gradual",
-      "tipo": "mano_obra",
-      "area": "ia-predictiva",
-      "unidad": "lote",
-      "precio": 25
-    },
-    {
-      "id": "integracion_alarma_movil_v2",
-      "nombre": "Integración con alarma del móvil (vía API o IFTTT)",
-      "tipo": "mano_obra",
-      "area": "ia-predictiva",
-      "unidad": "lote",
-      "precio": 220
-    },
-    {
-      "id": "sensor_co2_temp_hum_scd40",
-      "nombre": "Sensor CO₂ + temperatura + humedad (SCD40 o equivalente)",
-      "tipo": "dispositivo",
-      "area": "ia-predictiva",
-      "unidad": "unidad",
-      "precio": 45
-    },
-    {
-      "id": "material_ia_15",
-      "nombre": "Cableado y material mínimo",
-      "tipo": "material",
-      "area": "ia-predictiva",
-      "unidad": "lote",
-      "precio": 15
-    },
-    {
-      "id": "motor_python_umbrales_alertas",
-      "nombre": "Motor Python: lectura continua + umbrales + alertas WhatsApp",
-      "tipo": "mano_obra",
-      "area": "ia-predictiva",
-      "unidad": "lote",
-      "precio": 200
-    },
-    {
-      "id": "dashboard_basico_historico_7d",
-      "nombre": "Dashboard básico con histórico 7 días",
-      "tipo": "mano_obra",
-      "area": "ia-predictiva",
-      "unidad": "lote",
-      "precio": 100
-    },
-    {
-      "id": "puesta_marcha_calibracion_15h",
-      "nombre": "Puesta en marcha y calibración (1,5 h)",
-      "tipo": "mano_obra",
-      "area": "ia-predictiva",
-      "unidad": "lote",
-      "precio": 70
-    },
-    {
-      "id": "sensor_co2_voc_multisensor",
-      "nombre": "Sensor CO₂ + VOC + temperatura + humedad (multi-sensor)",
-      "tipo": "dispositivo",
-      "area": "ia-predictiva",
-      "unidad": "unidad",
-      "precio": 85
-    },
-    {
-      "id": "extractor_wifi_x2",
-      "nombre": "Extractor de baño/cocina WiFi inteligente (x2)",
-      "tipo": "dispositivo",
-      "area": "ia-predictiva",
-      "unidad": "unidad",
-      "precio": 80
-    },
-    {
-      "id": "material_ia_40",
-      "nombre": "Cableado y material de instalación",
-      "tipo": "material",
-      "area": "ia-predictiva",
-      "unidad": "lote",
-      "precio": 40
-    },
-    {
-      "id": "motor_python_umbrales_ventilacion",
-      "nombre": "Motor Python: umbrales adaptativos + control de ventilación + histórico",
-      "tipo": "mano_obra",
-      "area": "ia-predictiva",
-      "unidad": "lote",
-      "precio": 280
-    },
-    {
-      "id": "dashboard_tiempo_real_recomendaciones",
-      "nombre": "Dashboard en tiempo real + recomendaciones automáticas de ventilación",
-      "tipo": "mano_obra",
-      "area": "ia-predictiva",
-      "unidad": "lote",
-      "precio": 140
-    },
-    {
-      "id": "alertas_whatsapp_resumen_diario",
-      "nombre": "Alertas personalizadas por WhatsApp (alerta inmediata + resumen diario)",
-      "tipo": "mano_obra",
-      "area": "ia-predictiva",
-      "unidad": "lote",
-      "precio": 80
-    },
-    {
-      "id": "puesta_marcha_calibracion_25h",
-      "nombre": "Puesta en marcha y calibración (2,5 h)",
-      "tipo": "mano_obra",
-      "area": "ia-predictiva",
-      "unidad": "lote",
-      "precio": 120
-    },
-    {
-      "id": "camara_ip_audio_bidireccional",
-      "nombre": "Cámara IP con audio bidireccional",
-      "tipo": "dispositivo",
-      "area": "ia-predictiva",
-      "unidad": "unidad",
-      "precio": 110
-    },
-    {
-      "id": "sensor_nivel_bebedero",
-      "nombre": "Sensor de nivel de bebedero",
-      "tipo": "dispositivo",
-      "area": "ia-predictiva",
-      "unidad": "unidad",
-      "precio": 35
-    },
-    {
-      "id": "motor_python_ladridos_alertas",
-      "nombre": "Motor Python: detección de ladridos prolongados + alertas WhatsApp",
-      "tipo": "mano_obra",
-      "area": "ia-predictiva",
-      "unidad": "lote",
-      "precio": 180
-    },
-    {
-      "id": "puesta_marcha_15h",
-      "nombre": "Puesta en marcha (1,5 h)",
-      "tipo": "mano_obra",
-      "area": "ia-predictiva",
-      "unidad": "lote",
-      "precio": 65
-    },
-    {
-      "id": "camara_ip_audio_vision_nocturna",
-      "nombre": "Cámara IP con audio bidireccional y visión nocturna",
-      "tipo": "dispositivo",
-      "area": "ia-predictiva",
-      "unidad": "unidad",
-      "precio": 140
-    },
-    {
-      "id": "comedero_automatico_conectado",
-      "nombre": "Comedero automático conectado (raciones programadas)",
-      "tipo": "dispositivo",
-      "area": "ia-predictiva",
-      "unidad": "unidad",
-      "precio": 120
-    },
-    {
-      "id": "sensor_temperatura_estancia",
-      "nombre": "Sensor de temperatura de la estancia",
-      "tipo": "dispositivo",
-      "area": "ia-predictiva",
-      "unidad": "unidad",
-      "precio": 20
-    },
-    {
-      "id": "motor_python_comida_temp_ladridos",
-      "nombre": "Motor Python: comida/agua/temperatura + detección de ladridos + alertas WhatsApp",
-      "tipo": "mano_obra",
-      "area": "ia-predictiva",
-      "unidad": "lote",
-      "precio": 280
-    },
-    {
-      "id": "detector_humo_co_conectado",
-      "nombre": "Detector de humo/CO conectado",
-      "tipo": "dispositivo",
-      "area": "ia-predictiva",
-      "unidad": "unidad",
-      "precio": 100,
-      "nota": "Sube de 70€ a 100€ en la revisión de agosto 2026: es lo que cuesta de verdad un detector conectado equivalente (tipo Nest Protect)"
-    },
-    {
-      "id": "motor_python_humo_alerta",
-      "nombre": "Motor Python: lectura continua + alerta WhatsApp inmediata",
-      "tipo": "mano_obra",
-      "area": "ia-predictiva",
-      "unidad": "lote",
-      "precio": 180
-    },
-    {
-      "id": "extractor_cocina_wifi",
-      "nombre": "Extractor de cocina WiFi inteligente",
-      "tipo": "dispositivo",
-      "area": "ia-predictiva",
-      "unidad": "unidad",
-      "precio": 80
-    },
-    {
-      "id": "enchufe_rele_horno_vitro",
-      "nombre": "Enchufe/relé inteligente en horno o vitro",
-      "tipo": "dispositivo",
-      "area": "ia-predictiva",
-      "unidad": "unidad",
-      "precio": 45
-    },
-    {
-      "id": "material_ia_30",
-      "nombre": "Cableado y material",
-      "tipo": "material",
-      "area": "ia-predictiva",
-      "unidad": "lote",
-      "precio": 30
-    },
-    {
-      "id": "motor_python_humo_horno",
-      "nombre": "Motor Python: humo → extractor + alerta; horno encendido al salir → pregunta WhatsApp",
-      "tipo": "mano_obra",
-      "area": "ia-predictiva",
-      "unidad": "lote",
-      "precio": 320
-    },
-    {
-      "id": "puesta_marcha_formacion_25h",
-      "nombre": "Puesta en marcha y formación (2,5 h)",
-      "tipo": "mano_obra",
-      "area": "ia-predictiva",
-      "unidad": "lote",
-      "precio": 120
-    },
-    {
-      "id": "sensor_movimiento_estancia_x3",
-      "nombre": "Sensor de movimiento por estancia (x3)",
-      "tipo": "dispositivo",
-      "area": "ia-predictiva",
-      "unidad": "unidad",
-      "precio": 75
-    },
-    {
-      "id": "sensor_puerta_ventana",
-      "nombre": "Sensor de puerta/ventana (entrada principal)",
-      "tipo": "dispositivo",
-      "area": "ia-predictiva",
-      "unidad": "unidad",
-      "precio": 20
-    },
-    {
-      "id": "motor_python_ausencia_puerta",
-      "nombre": "Motor Python: ausencia prolongada + puerta abierta + alertas WhatsApp a familiares",
-      "tipo": "mano_obra",
-      "area": "ia-predictiva",
-      "unidad": "lote",
-      "precio": 300
-    },
-    {
-      "id": "puesta_marcha_formacion_25h_v2",
-      "nombre": "Puesta en marcha y formación (2,5 h)",
-      "tipo": "mano_obra",
-      "area": "ia-predictiva",
-      "unidad": "lote",
-      "precio": 120
-    },
-    {
-      "id": "sensor_movimiento_estancia_x4",
-      "nombre": "Sensor de movimiento por estancia (x4)",
-      "tipo": "dispositivo",
-      "area": "ia-predictiva",
-      "unidad": "unidad",
-      "precio": 100
-    },
-    {
-      "id": "sensor_puerta_ventana_x2",
-      "nombre": "Sensor de puerta/ventana (x2)",
-      "tipo": "dispositivo",
-      "area": "ia-predictiva",
-      "unidad": "unidad",
-      "precio": 40
-    },
-    {
-      "id": "camara_ip_deteccion_caidas",
-      "nombre": "Cámara IP con IA de detección de caídas (zonas comunes)",
-      "tipo": "dispositivo",
-      "area": "ia-predictiva",
-      "unidad": "unidad",
-      "precio": 160
-    },
-    {
-      "id": "sensor_temperatura_interior",
-      "nombre": "Sensor de temperatura interior",
-      "tipo": "dispositivo",
-      "area": "ia-predictiva",
-      "unidad": "unidad",
-      "precio": 18
-    },
-    {
-      "id": "material_ia_35",
-      "nombre": "Cableado y material",
-      "tipo": "material",
-      "area": "ia-predictiva",
-      "unidad": "lote",
-      "precio": 35
-    },
-    {
-      "id": "motor_python_caidas_ausencia_temp",
-      "nombre": "Motor Python: caídas (IA visión) + ausencia + puerta + temperatura + alertas WhatsApp",
-      "tipo": "mano_obra",
-      "area": "ia-predictiva",
-      "unidad": "lote",
-      "precio": 420
-    },
-    {
-      "id": "puesta_marcha_calibracion_formacion_35h",
-      "nombre": "Puesta en marcha, calibración y formación (3,5 h)",
-      "tipo": "mano_obra",
-      "area": "ia-predictiva",
-      "unidad": "lote",
-      "precio": 160
-    },
-    {
-      "id": "motor_python_geofencing_menor",
-      "nombre": "Motor Python: geofencing del móvil del menor + confirmación + WhatsApp a los padres",
-      "tipo": "mano_obra",
-      "area": "ia-predictiva",
-      "unidad": "lote",
-      "precio": 260
-    },
-    {
-      "id": "enchufes_inteligentes_entrada_salon_x2",
-      "nombre": "2 enchufes/interruptores inteligentes (luz de entrada y salón)",
-      "tipo": "dispositivo",
-      "area": "ia-predictiva",
-      "unidad": "unidad",
-      "precio": 50
-    },
-    {
-      "id": "motor_python_geofencing_apertura_escena",
-      "nombre": "Motor Python: geofencing + apertura (cerradura inteligente ya instalada) + escena + WhatsApp",
-      "tipo": "mano_obra",
-      "area": "ia-predictiva",
-      "unidad": "lote",
-      "precio": 320
-    },
-    {
-      "id": "puesta_marcha_formacion_3h_v2",
-      "nombre": "Puesta en marcha y formación (3 h)",
-      "tipo": "mano_obra",
-      "area": "ia-predictiva",
-      "unidad": "lote",
-      "precio": 130
-    },
-    {
-      "id": "camara_ip_entrada_vision_nocturna",
-      "nombre": "Cámara IP de entrada con visión nocturna",
-      "tipo": "dispositivo",
-      "area": "ia-predictiva",
-      "unidad": "unidad",
-      "precio": 110
-    },
-    {
-      "id": "motor_python_deteccion_paquete_foto",
-      "nombre": "Motor Python: detección IA de repartidor/paquete + foto automática + alerta WhatsApp",
-      "tipo": "mano_obra",
-      "area": "ia-predictiva",
-      "unidad": "lote",
-      "precio": 195
-    },
-    {
-      "id": "camara_ip_entrada_vision_nocturna_v2",
-      "nombre": "Cámara IP de entrada con visión nocturna",
-      "tipo": "dispositivo",
-      "area": "ia-predictiva",
-      "unidad": "unidad",
-      "precio": 140
-    },
-    {
-      "id": "motor_python_deteccion_reconocimiento_historico",
-      "nombre": "Motor Python: detección + reconocimiento de mensajería habitual + histórico",
-      "tipo": "mano_obra",
-      "area": "ia-predictiva",
-      "unidad": "lote",
-      "precio": 300
-    },
-    {
-      "id": "dashboard_historial_entregas",
-      "nombre": "Dashboard con historial de entregas (fecha, hora, foto)",
-      "tipo": "mano_obra",
-      "area": "ia-predictiva",
-      "unidad": "lote",
-      "precio": 110
-    },
-    {
-      "id": "mo_config_deteccion_ia_320",
-      "nombre": "Mano de obra y configuración del modelo de detección",
-      "tipo": "mano_obra",
-      "area": "ia-predictiva",
-      "unidad": "lote",
-      "precio": 320
-    },
-    {
-      "id": "camaras_ip_compatibles_x2",
-      "nombre": "2 cámaras IP compatibles (usan el Mini-PC IA Central, sin equipo propio)",
-      "tipo": "dispositivo",
-      "area": "ia-predictiva",
-      "unidad": "unidad",
-      "precio": 390
-    },
-    {
-      "id": "config_alertas_whatsapp_app",
-      "nombre": "Configuración de alertas por WhatsApp (API Meta) y app",
-      "tipo": "mano_obra",
-      "area": "ia-predictiva",
-      "unidad": "lote",
-      "precio": 150
-    },
-    {
-      "id": "mo_config_420",
-      "nombre": "Mano de obra y configuración",
-      "tipo": "mano_obra",
-      "area": "ia-predictiva",
-      "unidad": "lote",
-      "precio": 420
-    },
-    {
-      "id": "camaras_ip_compatibles_x4",
-      "nombre": "4 cámaras IP (usan el Mini-PC IA Central, sin equipo propio)",
-      "tipo": "dispositivo",
-      "area": "ia-predictiva",
-      "unidad": "unidad",
-      "precio": 710
-    },
-    {
-      "id": "config_alertas_zonas_personalizadas",
-      "nombre": "Configuración de alertas WhatsApp y zonas de detección personalizadas",
-      "tipo": "mano_obra",
-      "area": "ia-predictiva",
-      "unidad": "lote",
-      "precio": 200
-    },
-    {
-      "id": "mo_config_avanzada_520",
-      "nombre": "Mano de obra y configuración avanzada",
-      "tipo": "mano_obra",
-      "area": "ia-predictiva",
-      "unidad": "lote",
-      "precio": 520
-    },
-    {
-      "id": "camaras_ip_x6",
-      "nombre": "6 cámaras IP",
-      "tipo": "dispositivo",
-      "area": "ia-predictiva",
-      "unidad": "unidad",
-      "precio": 900
-    },
-    {
-      "id": "servidor_gpu_reconocimiento_facial",
-      "nombre": "Servidor con GPU dedicada para reconocimiento facial en tiempo real (el mini-PC central no cubre esta carga)",
-      "tipo": "dispositivo",
-      "area": "ia-predictiva",
-      "unidad": "unidad",
-      "precio": 950
-    },
-    {
-      "id": "entrenamiento_reconocimiento_alertas",
-      "nombre": "Entrenamiento de reconocimiento de personas habituales y alertas WhatsApp",
-      "tipo": "mano_obra",
-      "area": "ia-predictiva",
-      "unidad": "lote",
-      "precio": 350
-    },
-    {
-      "id": "camara_ip_acceso_reconocimiento_facial",
-      "nombre": "Cámara IP en el acceso con reconocimiento facial",
-      "tipo": "dispositivo",
-      "area": "ia-predictiva",
-      "unidad": "unidad",
-      "precio": 180
-    },
-    {
-      "id": "config_modelo_reconocimiento_6p",
-      "nombre": "Configuración del modelo de reconocimiento (hasta 6 personas)",
-      "tipo": "mano_obra",
-      "area": "ia-predictiva",
-      "unidad": "lote",
-      "precio": 260
-    },
-    {
-      "id": "integracion_cerradura_abrepuertas",
-      "nombre": "Integración con cerradura/abrepuertas ya instalado",
-      "tipo": "mano_obra",
-      "area": "ia-predictiva",
-      "unidad": "lote",
-      "precio": 90
-    },
-    {
-      "id": "alertas_whatsapp_acceso_no_reconocido",
-      "nombre": "Alertas por WhatsApp ante acceso no reconocido (con foto)",
-      "tipo": "mano_obra",
-      "area": "ia-predictiva",
-      "unidad": "lote",
-      "precio": 90
-    },
-    {
-      "id": "camara_ip_garaje_vision_nocturna",
-      "nombre": "Cámara IP en la entrada del garaje con visión nocturna",
-      "tipo": "dispositivo",
-      "area": "ia-predictiva",
-      "unidad": "unidad",
-      "precio": 220
-    },
-    {
-      "id": "config_modelo_reconocimiento_matriculas_6",
-      "nombre": "Configuración del modelo de reconocimiento de personas y matrículas (hasta 6)",
-      "tipo": "mano_obra",
-      "area": "ia-predictiva",
-      "unidad": "lote",
-      "precio": 480
-    },
-    {
-      "id": "integracion_cerradura_motor_garaje",
-      "nombre": "Integración con cerradura y motor de garaje ya instalados",
-      "tipo": "mano_obra",
-      "area": "ia-predictiva",
-      "unidad": "lote",
-      "precio": 180
-    },
-    {
-      "id": "config_modelo_reconocimiento_matriculas_ilimitado",
-      "nombre": "Configuración del modelo de reconocimiento de personas y matrículas (ilimitados)",
-      "tipo": "mano_obra",
-      "area": "ia-predictiva",
-      "unidad": "lote",
-      "precio": 620
-    },
-    {
-      "id": "accesos_temporales_historico",
-      "nombre": "Accesos temporales programables (repartidores, limpieza, visitas) + histórico",
-      "tipo": "mano_obra",
-      "area": "ia-predictiva",
-      "unidad": "lote",
-      "precio": 260
-    },
-    {
-      "id": "cuadro_electrico_boletin_pack",
-      "nombre": "Cuadro eléctrico nuevo + boletín eléctrico (CIE)",
-      "tipo": "material",
-      "area": "electricidad",
-      "unidad": "lote",
-      "precio": 520,
-      "nota": "Paquete de pack: cuadro + boletín juntos, precio de conjunto (equivalente a cuadro_12_elementos + boletin_cie + mano de obra ya incluida)"
-    },
-    {
-      "id": "config_seguridad_ia_camara_existente",
-      "nombre": "Configuración de Seguridad IA sobre cámara ya instalada en el pack (detección de personas/vehículos, alertas WhatsApp)",
-      "tipo": "mano_obra",
-      "area": "ia-predictiva",
-      "unidad": "lote",
-      "precio": 190
-    },
-    {
-      "id": "iluminacion_led_salon_pasillo_8p",
-      "nombre": "Iluminación LED en salón y pasillo (8 puntos de luz)",
-      "tipo": "dispositivo",
-      "area": "domotica",
-      "unidad": "lote",
-      "precio": 280
-    },
-    {
-      "id": "wifi_mesh_2pt_config",
-      "nombre": "Red WiFi mesh 2 puntos de acceso + configuración",
-      "tipo": "dispositivo",
-      "area": "redes",
-      "unidad": "lote",
-      "precio": 285
-    },
-    {
-      "id": "wifi_mesh_3pt_config",
-      "nombre": "Red WiFi mesh 3 puntos de acceso + configuración",
-      "tipo": "dispositivo",
-      "area": "redes",
-      "unidad": "lote",
-      "precio": 380
-    },
-    {
-      "id": "videoportero_inteligente_pack",
-      "nombre": "Videoportero inteligente (instalación incluida)",
-      "tipo": "dispositivo",
-      "area": "seguridad",
-      "unidad": "unidad",
-      "precio": 300
-    },
-    {
-      "id": "camara_ip_exterior_entrada",
-      "nombre": "Cámara IP exterior (entrada/puerta principal)",
-      "tipo": "dispositivo",
-      "area": "seguridad",
-      "unidad": "unidad",
-      "precio": 280
-    },
-    {
-      "id": "mo_industrial_seguridad_hora",
-      "nombre": "Mano de obra instalación de seguridad industrial (nave/finca)",
-      "tipo": "mano_obra",
-      "area": "industrial",
-      "unidad": "hora",
-      "precio": 40
-    },
-    {
-      "id": "camara_ip_industrial_exterior",
-      "nombre": "Cámara IP industrial con visión nocturna (perímetro nave/finca)",
-      "tipo": "dispositivo",
-      "area": "industrial",
-      "unidad": "unidad",
-      "precio": 120,
-      "nota": "Gama superior a la residencial: mayor alcance de detección y resistencia a intemperie para perímetros grandes"
-    },
-    {
-      "id": "config_deteccion_ia_industrial_persona_vehiculo",
-      "nombre": "Configuración del modelo de detección IA (persona/vehículo, descarta falsos positivos)",
-      "tipo": "mano_obra",
-      "area": "industrial",
-      "unidad": "lote",
-      "precio": 380
-    },
-    {
-      "id": "config_deteccion_ia_industrial_matricula",
-      "nombre": "Configuración del modelo de detección IA (persona/vehículo/matrícula)",
-      "tipo": "mano_obra",
-      "area": "industrial",
-      "unidad": "lote",
-      "precio": 480
-    },
-    {
-      "id": "notificaciones_whatsapp_alarma_industrial",
-      "nombre": "Notificaciones por WhatsApp ante alarma real",
-      "tipo": "mano_obra",
-      "area": "industrial",
-      "unidad": "lote",
-      "precio": 90
-    },
-    {
-      "id": "material_industrial_seguridad_60",
-      "nombre": "Material y conectorizado",
-      "tipo": "material",
-      "area": "industrial",
-      "unidad": "lote",
-      "precio": 60
-    },
-    {
-      "id": "material_industrial_seguridad_90",
-      "nombre": "Material y conectorizado",
-      "tipo": "material",
-      "area": "industrial",
-      "unidad": "lote",
-      "precio": 90
-    },
-    {
-      "id": "material_industrial_seguridad_100",
-      "nombre": "Material y conectorizado",
-      "tipo": "material",
-      "area": "industrial",
-      "unidad": "lote",
-      "precio": 100
-    },
-    {
-      "id": "camara_termica_perimetral",
-      "nombre": "Cámara térmica para detección perimetral (reduce falsos positivos por fauna o vegetación)",
-      "tipo": "dispositivo",
-      "area": "industrial",
-      "unidad": "unidad",
-      "precio": 1150
-    },
-    {
-      "id": "reanalisis_ia_alarmas",
-      "nombre": "Reanálisis automático de alarmas con IA (descarta falsos positivos antes de avisar)",
-      "tipo": "mano_obra",
-      "area": "industrial",
-      "unidad": "lote",
-      "precio": 380
-    },
-    {
-      "id": "bateria_portatil_2kwh",
-      "nombre": "Batería portátil de emergencia 2 kWh (enchufable, sin instalación fija)",
-      "tipo": "dispositivo",
-      "area": "baterias",
-      "unidad": "unidad",
-      "precio": 890,
-      "nota": "Capacidad para nevera, router, luces y cargar dispositivos durante varias horas de corte; se enchufa a un enchufe normal, no requiere electricista"
-    },
-    {
-      "id": "conmutador_transferencia_automatico",
-      "nombre": "Conmutador de transferencia automático (ATS)",
-      "tipo": "dispositivo",
-      "area": "baterias",
-      "unidad": "unidad",
-      "precio": 320,
-      "nota": "Cambia a batería en menos de 20 ms ante un corte de suministro, sin que lo notes"
-    },
-    {
-      "id": "cuadro_emergencia_circuitos_criticos",
-      "nombre": "Cuadro de circuitos críticos (nevera, router, luces de salón)",
-      "tipo": "material",
-      "area": "baterias",
-      "unidad": "lote",
-      "precio": 450
-    },
-    {
-      "id": "cuadro_emergencia_ampliado",
-      "nombre": "Cuadro de respaldo ampliado (hasta 2/3 de la vivienda)",
-      "tipo": "material",
-      "area": "baterias",
-      "unidad": "lote",
-      "precio": 780
-    },
-    {
-      "id": "bateria_domestica_10kwh",
-      "nombre": "Batería doméstica de litio 10 kWh (modular, ampliable)",
-      "tipo": "dispositivo",
-      "area": "baterias",
-      "unidad": "unidad",
-      "precio": 5800,
-      "nota": "Precio de mercado de batería modular de 10 kWh (rango 5.500-7.000€ como componente adicional)"
-    },
-    {
       "id": "downlight_led_empotrable",
       "nombre": "Downlight LED empotrable (sustituye halógeno/fluorescente)",
       "tipo": "dispositivo",
       "area": "iluminacion-led",
       "unidad": "unidad",
       "precio": 16
-    },
-    {
-      "id": "downlight_led_regulable_wifi",
-      "nombre": "Downlight LED regulable, brillo y temperatura de color por app",
-      "tipo": "dispositivo",
-      "area": "iluminacion-led",
-      "unidad": "unidad",
-      "precio": 34
-    },
-    {
-      "id": "driver_regulacion_wifi_circuito",
-      "nombre": "Módulo de regulación WiFi por circuito (dimmer)",
-      "tipo": "dispositivo",
-      "area": "iluminacion-led",
-      "unidad": "unidad",
-      "precio": 45
     },
     {
       "id": "material_iluminacion_led_20",
@@ -3369,137 +624,247 @@
       "precio": 50
     },
     {
-      "id": "foco_led_exterior_ip65",
-      "nombre": "Foco LED exterior IP65 (empotrable o de superficie)",
-      "tipo": "dispositivo",
-      "area": "iluminacion-exterior",
-      "unidad": "unidad",
-      "precio": 28
+      "id": "mo_limpieza_hora",
+      "nombre": "Mano de obra limpieza (operario)",
+      "tipo": "mano_obra",
+      "area": "limpieza",
+      "unidad": "hora",
+      "precio": 22,
+      "nota": "Estimación: mercado España 2026, limpieza profesional 15–25 €/h (habitissimo, sept. 2026). Verificar con costes reales."
     },
     {
-      "id": "foco_led_exterior_wifi_rgb",
-      "nombre": "Foco LED exterior WiFi, regulable y con color (control por app)",
-      "tipo": "dispositivo",
-      "area": "iluminacion-exterior",
-      "unidad": "unidad",
-      "precio": 48
+      "id": "mo_jardinero_hora",
+      "nombre": "Mano de obra jardinero",
+      "tipo": "mano_obra",
+      "area": "jardineria",
+      "unidad": "hora",
+      "precio": 28,
+      "nota": "Estimación: jardinero 20–35 €/h, media 25 €/h (habitissimo, sept. 2026). Verificar con costes reales."
     },
     {
-      "id": "detector_presencia_crepuscular",
-      "nombre": "Detector de presencia y crepuscular (enciende solo al anochecer y con movimiento)",
-      "tipo": "dispositivo",
-      "area": "iluminacion-exterior",
-      "unidad": "unidad",
+      "id": "mo_persianas_hora",
+      "nombre": "Mano de obra instalador de persianas",
+      "tipo": "mano_obra",
+      "area": "persianas",
+      "unidad": "hora",
       "precio": 32
     },
     {
-      "id": "material_iluminacion_exterior_30",
-      "nombre": "Material y cableado estanco (IP65)",
+      "id": "material_limpieza_30",
+      "nombre": "Productos y utensilios de limpieza",
       "tipo": "material",
-      "area": "iluminacion-exterior",
+      "area": "limpieza",
       "unidad": "lote",
       "precio": 30
     },
     {
-      "id": "material_iluminacion_exterior_45",
-      "nombre": "Material y cableado estanco (IP65)",
+      "id": "material_limpieza_45",
+      "nombre": "Productos y utensilios de limpieza",
       "tipo": "material",
-      "area": "iluminacion-exterior",
+      "area": "limpieza",
       "unidad": "lote",
       "precio": 45
     },
     {
-      "id": "material_iluminacion_exterior_60",
-      "nombre": "Material y cableado estanco (IP65)",
+      "id": "material_limpieza_60",
+      "nombre": "Productos y utensilios de limpieza",
       "tipo": "material",
-      "area": "iluminacion-exterior",
+      "area": "limpieza",
       "unidad": "lote",
       "precio": 60
     },
     {
-      "id": "dashboard_combinado_multimodo",
-      "nombre": "Panel de monitorización combinado (varios modos en un único dashboard con gráficas)",
-      "tipo": "dispositivo",
-      "area": "ia-predictiva",
+      "id": "limpieza_cristales_marcos",
+      "nombre": "Cristales, marcos y persianas (restos de pintura, cemento y silicona)",
+      "tipo": "material",
+      "area": "limpieza",
       "unidad": "lote",
-      "precio": 680
+      "precio": 90
     },
     {
-      "id": "panel_monitorizacion_basico",
-      "nombre": "Panel de monitorización en el navegador (histórico y estado de un modo)",
-      "tipo": "mano_obra",
-      "area": "ia-predictiva",
+      "id": "limpieza_cristales_marcos_amplia",
+      "nombre": "Cristales, marcos y persianas (vivienda grande)",
+      "tipo": "material",
+      "area": "limpieza",
       "unidad": "lote",
-      "precio": 280
+      "precio": 140
     },
     {
-      "id": "dispensador_agua_mascotas_conectado",
-      "nombre": "Dispensador de agua automático conectado para mascotas",
+      "id": "tratamiento_suelo_postobra",
+      "nombre": "Tratamiento de suelos: retirada de restos de cemento/pintura y abrillantado",
+      "tipo": "material",
+      "area": "limpieza",
+      "unidad": "lote",
+      "precio": 150
+    },
+    {
+      "id": "tratamiento_suelo_postobra_amplio",
+      "nombre": "Tratamiento de suelos: retirada de restos de cemento/pintura y abrillantado (vivienda grande)",
+      "tipo": "material",
+      "area": "limpieza",
+      "unidad": "lote",
+      "precio": 230
+    },
+    {
+      "id": "retirada_restos_obra_fino",
+      "nombre": "Recogida y retirada de escombro fino y embalajes",
+      "tipo": "material",
+      "area": "limpieza",
+      "unidad": "lote",
+      "precio": 60
+    },
+    {
+      "id": "limpieza_terraza_exterior",
+      "nombre": "Limpieza de terraza y zonas exteriores",
+      "tipo": "material",
+      "area": "limpieza",
+      "unidad": "lote",
+      "precio": 70
+    },
+    {
+      "id": "retirada_restos_jardin",
+      "nombre": "Retirada de restos vegetales a punto limpio",
+      "tipo": "material",
+      "area": "jardineria",
+      "unidad": "lote",
+      "precio": 35
+    },
+    {
+      "id": "maquinaria_combustible_jardin",
+      "nombre": "Maquinaria, combustible y desgaste",
+      "tipo": "material",
+      "area": "jardineria",
+      "unidad": "lote",
+      "precio": 20
+    },
+    {
+      "id": "abonado_cesped_200m2",
+      "nombre": "Abonado del césped (hasta 200 m²)",
+      "tipo": "material",
+      "area": "jardineria",
+      "unidad": "lote",
+      "precio": 110
+    },
+    {
+      "id": "tratamiento_plagas_jardin",
+      "nombre": "Tratamiento fitosanitario de plagas y hongos",
+      "tipo": "material",
+      "area": "jardineria",
+      "unidad": "lote",
+      "precio": 90,
+      "nota": "Habitissimo sept. 2026: 80–100 € en jardines pequeños"
+    },
+    {
+      "id": "programador_riego_4v",
+      "nombre": "Programador de riego con 4 electroválvulas",
       "tipo": "dispositivo",
-      "area": "ia-predictiva",
+      "area": "jardineria",
       "unidad": "unidad",
-      "precio": 95,
-      "nota": "Bomba y depósito conectados (Tuya u homólogo), instalado y calibrado — no solo sensor de nivel"
+      "precio": 240
     },
     {
-      "id": "motor_python_comida_temp_ladridos_ausencia",
-      "nombre": "Motor Python: comida/agua/temperatura + ladridos prolongados + ausencia alargada + alertas WhatsApp",
-      "tipo": "mano_obra",
-      "area": "ia-predictiva",
-      "unidad": "lote",
-      "precio": 320
+      "id": "mando_multicanal_persianas",
+      "nombre": "Mando a distancia multicanal (controla varias persianas)",
+      "tipo": "dispositivo",
+      "area": "persianas",
+      "unidad": "unidad",
+      "precio": 35
     },
     {
-      "id": "motor_python_llanto_bebe_ambiente",
-      "nombre": "Motor Python: IA de audio — detección de llanto + ajuste de ambiente + alertas WhatsApp",
-      "tipo": "mano_obra",
-      "area": "ia-predictiva",
-      "unidad": "lote",
-      "precio": 240,
-      "nota": "Aviso y ajuste de ambiente — no es un dispositivo médico ni sustituye la supervisión de un adulto"
-    },
-    {
-      "id": "motor_python_horno_precalentado_geofencing",
-      "nombre": "Motor Python: geofencing de llegada + precalentado de horno + alertas WhatsApp",
-      "tipo": "mano_obra",
-      "area": "ia-predictiva",
-      "unidad": "lote",
-      "precio": 300,
-      "nota": "Requiere horno u olla compatible con relé/enchufe inteligente; solo precalienta antes de la llegada, no cocina sin nadie en casa"
-    },
-    {
-      "id": "sirena_exterior_wifi_ip65",
-      "nombre": "Sirena exterior WiFi, IP65",
+      "id": "camara_wifi_exterior",
+      "nombre": "Cámara WiFi exterior con visión nocturna",
       "tipo": "dispositivo",
       "area": "seguridad",
+      "unidad": "unidad",
+      "precio": 70
+    },
+    {
+      "id": "tarjeta_microsd_128",
+      "nombre": "Tarjeta microSD de 128 GB para grabación",
+      "tipo": "dispositivo",
+      "area": "seguridad",
+      "unidad": "unidad",
+      "precio": 18
+    },
+    {
+      "id": "sai_respaldo_cctv",
+      "nombre": "SAI / batería de respaldo (la grabación sigue si se va la luz)",
+      "tipo": "dispositivo",
+      "area": "seguridad",
+      "unidad": "unidad",
+      "precio": 120
+    },
+    {
+      "id": "cartel_disuasorio_camaras",
+      "nombre": "Carteles de zona videovigilada (normativa)",
+      "tipo": "material",
+      "area": "seguridad",
+      "unidad": "lote",
+      "precio": 10
+    },
+    {
+      "id": "material_camaras_wifi_20",
+      "nombre": "Material de fijación y pequeño cableado",
+      "tipo": "material",
+      "area": "seguridad",
+      "unidad": "lote",
+      "precio": 20
+    },
+    {
+      "id": "regulador_led_pared",
+      "nombre": "Regulador de intensidad de pared para LED",
+      "tipo": "dispositivo",
+      "area": "pladur",
       "unidad": "unidad",
       "precio": 45
     },
     {
-      "id": "motor_python_piscina_inmersion",
-      "nombre": "Motor Python: IA de visión — inmersión prolongada en piscina + sirena + alertas WhatsApp",
-      "tipo": "mano_obra",
-      "area": "ia-predictiva",
+      "id": "pintura_plastica_estancia_blanca",
+      "nombre": "Pintura plástica lisa blanca (una estancia)",
+      "tipo": "material",
+      "area": "pintura",
       "unidad": "lote",
-      "precio": 340,
-      "nota": "Aviso rápido adicional — no sustituye la supervisión de un adulto"
+      "precio": 85
     },
     {
-      "id": "integracion_cortacesped_wifi_compatible",
-      "nombre": "Integración con robot cortacésped WiFi compatible (API o control local)",
-      "tipo": "mano_obra",
-      "area": "ia-predictiva",
+      "id": "pintura_plastica_estancia_lavable_color",
+      "nombre": "Pintura plástica lavable de calidad, en el color que elijas (una estancia)",
+      "tipo": "material",
+      "area": "pintura",
       "unidad": "lote",
-      "precio": 60,
-      "nota": "El robot cortacésped no está incluido — coste aparte según modelo y superficie (desde ~700€), a confirmar en visita técnica"
+      "precio": 120
     },
     {
-      "id": "motor_python_cesped_adaptativo",
-      "nombre": "Motor Python: corte adaptativo según clima y crecimiento real (no por calendario fijo)",
-      "tipo": "mano_obra",
-      "area": "ia-predictiva",
+      "id": "alisado_gotele_estancia",
+      "nombre": "Pasta de alisado y lijado para eliminar el gotelé (una estancia)",
+      "tipo": "material",
+      "area": "pintura",
       "unidad": "lote",
-      "precio": 260
+      "precio": 110
+    },
+    {
+      "id": "material_pintura_40",
+      "nombre": "Material (cinta, plásticos, masilla)",
+      "tipo": "material",
+      "area": "pintura",
+      "unidad": "lote",
+      "precio": 40
+    },
+    {
+      "id": "material_pintura_60",
+      "nombre": "Material (cinta, plásticos, masilla)",
+      "tipo": "material",
+      "area": "pintura",
+      "unidad": "lote",
+      "precio": 60
+    },
+    {
+      "id": "toldo_brazos_4x3_manual",
+      "nombre": "Toldo de brazos extensibles 4 x 3 m (manual)",
+      "tipo": "dispositivo",
+      "area": "persianas",
+      "unidad": "unidad",
+      "precio": 380
     }
   ]
 }

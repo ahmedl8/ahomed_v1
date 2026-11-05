@@ -1,6 +1,6 @@
 // Motor de precios por componentes — AHOMED
 //
-// Qué hace: cada "opción" de un servicio (Esencial/Inteligente/Completa) ya
+// Qué hace: cada "opción" de un servicio (Básica/Estándar/Completa) ya
 // no lleva su lista de items y su total escritos a mano. En su lugar,
 // declara una lista de LÍNEAS que referencian componentes de
 // data/pricing-catalog.json, y esta función las expande a la forma
@@ -97,17 +97,15 @@ function resolverOpciones(opciones) {
   return opciones.map(resolverOpcion);
 }
 
-// Recorre un servicio o pack completo y resuelve .opciones (packs),
-// .ejemplo.opciones, .ejemplosAdicionales[].opciones y .ejemplos[].opciones
-// (servicios y modos IA) — los 4 sitios donde services.js e ia-predictiva.js
-// guardan opciones de precio, dejando el resto del objeto intacto. Devuelve
-// un objeto nuevo (no muta el original) para que los ficheros de datos sigan
-// siendo la fuente "cruda".
+// Recorre un servicio completo y resuelve .ejemplo.opciones y
+// .ejemplosAdicionales[].opciones (los dos sitios donde data/services.js guarda
+// opciones de precio), dejando el resto del objeto intacto. Devuelve un objeto
+// nuevo (no muta el original) para que el fichero de datos siga siendo la
+// fuente "cruda". Si el servicio no declara "desde", se calcula como el precio
+// más bajo de las opciones Básica de sus ejemplos de pago único (los que van
+// en €/mes u otra unidad no se mezclan con los de importe cerrado).
 function resolverServicio(service) {
   const resuelto = { ...service };
-  if (resuelto.opciones) {
-    resuelto.opciones = resolverOpciones(resuelto.opciones);
-  }
   if (resuelto.ejemplo && resuelto.ejemplo.opciones) {
     resuelto.ejemplo = { ...resuelto.ejemplo, opciones: resolverOpciones(resuelto.ejemplo.opciones) };
   }
@@ -116,39 +114,18 @@ function resolverServicio(service) {
       ej.opciones ? { ...ej, opciones: resolverOpciones(ej.opciones) } : ej
     );
   }
-  if (resuelto.ejemplos) {
-    resuelto.ejemplos = resuelto.ejemplos.map((ej) =>
-      ej.opciones ? { ...ej, opciones: resolverOpciones(ej.opciones) } : ej
-    );
+  if (resuelto.desde == null) {
+    const ejemplos = [resuelto.ejemplo].concat(resuelto.ejemplosAdicionales || []).filter(Boolean);
+    const basicas = ejemplos
+      .filter((ej) => ej.opciones && ej.opciones.length && !ej.opciones[0].totalUnidad)
+      .map((ej) => ej.opciones[0].total);
+    if (basicas.length) resuelto.desde = Math.min(...basicas);
   }
   return resuelto;
 }
 
 function resolverServicios(services) {
   return services.map(resolverServicio);
-}
-
-// ---- Plataforma IA Predictiva (data/ia-predictiva.js) ----
-// Misma mecánica que resolverServicio/resolverServicios, aplicada a su forma
-// de datos algo distinta: instalacionBase.niveles es un array de opciones
-// "sueltas" (no viven dentro de un ejemplo.opciones), y cada modo reutiliza
-// la misma estructura ejemplo/ejemplos que ya resuelve resolverServicio.
-
-// niveles: array de opciones sueltas (IA START / IA PRO) -> resueltas.
-function resolverNiveles(niveles) {
-  return resolverOpciones(niveles);
-}
-
-// Un modo IA es estructuralmente igual a un servicio en lo que a precios se
-// refiere (ejemplo.opciones o ejemplos[].opciones), así que resolverServicio
-// ya vale tal cual — se reexpone con este nombre para que quede claro en
-// server.js qué se está resolviendo.
-function resolverModo(modo) {
-  return resolverServicio(modo);
-}
-
-function resolverModos(modos) {
-  return modos.map(resolverModo);
 }
 
 module.exports = {
@@ -158,8 +135,5 @@ module.exports = {
   resolverOpcion,
   resolverOpciones,
   resolverServicio,
-  resolverServicios,
-  resolverNiveles,
-  resolverModo,
-  resolverModos
+  resolverServicios
 };

@@ -6,6 +6,7 @@
 <body>
   <%- include('partials/gtm-body') %>
   <%- include('partials/header') %>
+  <% var waIcon = '<svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12.001 2C6.478 2 2 6.478 2 12c0 1.85.502 3.657 1.454 5.235L2 22l4.897-1.415A9.955 9.955 0 0 0 12.001 22C17.523 22 22 17.523 22 12S17.523 2 12.001 2z"/></svg>'; %>
 
   <!-- HERO -->
   <section class="hero hero-split-section">
@@ -16,7 +17,7 @@
 
         <div class="hero-ctas">
           <a href="https://wa.me/34<%= empresa.whatsapp %>?text=<%= t('common.whatsapp_text_presupuesto') %>" target="_blank" rel="noopener" class="btn btn-whatsapp btn-lg">
-            <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12.001 2C6.478 2 2 6.478 2 12c0 1.85.502 3.657 1.454 5.235L2 22l4.897-1.415A9.955 9.955 0 0 0 12.001 22C17.523 22 22 17.523 22 12S17.523 2 12.001 2z"/></svg>
+            <%- waIcon %>
             <%= t('common.hablar_whatsapp') %>
           </a>
           <a href="tel:+34<%= empresa.whatsapp %>" class="btn btn-outline-light btn-lg">
@@ -39,278 +40,59 @@
       </div>
 
       <div class="hero-split-visual">
-        <img src="/img/hero-casa-movil.jpg" alt="<%= t('home.hero.image_alt') %>" class="hero-split-img" />
+        <img src="/img/hero-trabajos.jpg" alt="<%= t('home.hero.image_alt') %>" class="hero-split-img" width="1536" height="1024" />
       </div>
     </div>
   </section>
 
-  <!-- ¿QUÉ NECESITAS? -->
-  <section class="section section-tight necesitas-section">
+  <!-- QUÉ HACEMOS: los 7 servicios -->
+  <section class="section section-tight" id="servicios">
     <div class="container">
       <div class="section-head">
-        <h2><%= t('home.necesitas.title') %></h2>
+        <span class="eyebrow"><%= t('home.services.eyebrow') %></span>
+        <h2><%= t('home.services.title') %></h2>
+        <p><%= t('home.services.subtitle') %></p>
       </div>
-      <div class="services-grid services-grid-full necesitas-grid">
-        <% necesitas.forEach(function(n){ %>
-          <a href="<%= n.link %>" class="service-card necesitas-card">
-            <div class="service-icon service-icon-img">
-              <picture>
-                <source srcset="<%= n.imagen %>.webp" type="image/webp">
-                <img src="<%= n.imagen %>.png" alt="<%= n.titulo %>" loading="lazy">
-              </picture>
+      <div class="services-grid home-services-grid">
+        <% services.forEach(function(s){ %>
+          <a href="<%= pathHref('/servicios/' + s.slug) %>" class="service-card service-card-photo">
+            <div class="service-card-media">
+              <img src="<%= s.cardImagen %>" alt="<%= s.nombre %>" loading="lazy" width="400" height="300">
             </div>
-            <h3><%= n.titulo %></h3>
-            <p><%= n.subtitulo %></p>
-            <% if (n.desde) { %>
-              <span class="link-arrow"><%= t('common.desde') %> <%= fmt(n.desde) %> € →</span>
-            <% } else { %>
-              <span class="link-arrow"><%= t('common.ver_mas') %> →</span>
-            <% } %>
+            <div class="service-card-body">
+              <h3><%= s.nombre %></h3>
+              <p><%= s.resumen %></p>
+              <div class="service-card-footer">
+                <span class="price-tag"><%= t('common.desde') %> <%= fmt(s.desde) %> €</span>
+                <span class="link-arrow"><%= t('common.ver_detalle') %> →</span>
+              </div>
+            </div>
           </a>
         <% }) %>
       </div>
+      <p class="services-all-link"><a href="<%= pathHref('/servicios') %>" class="link-arrow"><%= t('home.services.cta_all') %> →</a></p>
     </div>
   </section>
 
-  <!-- CONFIGURADOR DE VIVIENDA -->
-  <section class="section section-tight">
-    <div class="container">
-      <div class="configurador-banner">
-        <div class="configurador-banner-inner">
-          <div class="configurador-banner-copy">
-            <span class="eyebrow"><%= t('home.configurador_banner.eyebrow') %></span>
-            <h2><%= t('home.configurador_banner.title') %></h2>
-            <p><%= t('home.configurador_banner.body') %></p>
-            <a href="/configurador" class="btn btn-primary btn-lg configurador-banner-cta"><%= t('home.configurador_banner.cta') %></a>
-            <p class="creador-alt-link"><%= t('home.configurador_banner.alt_text') %> <a href="/crea-tu-instalacion"><%= t('home.configurador_banner.alt_cta') %></a></p>
-          </div>
-          <div class="configurador-banner-visual">
-            <picture>
-              <source srcset="/img/marketing/configurador-tu-casa.webp" type="image/webp">
-              <img src="/img/marketing/configurador-tu-casa.jpg" alt="<%= t('home.configurador_banner.image_alt') %>" loading="lazy">
-            </picture>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PARA PROFESIONALES (justo después del Configurador: segunda vía de entrada más destacada, antes de entrar en la IA) -->
-  <section class="section section-tight">
-    <div class="container">
-      <div class="configurador-banner configurador-banner-dark">
-        <div class="configurador-banner-inner">
-          <div class="configurador-banner-copy">
-            <span class="launch-offer-badge launch-offer-badge-inline"><%= t('home.profesionales_teaser.badge') %></span>
-            <span class="launch-offer-badge-sub"><%= t('home.profesionales_teaser.badge_sub') %></span>
-            <span class="eyebrow"><%= t('home.profesionales_teaser.eyebrow') %></span>
-            <h2><%= t('home.profesionales_teaser.title') %></h2>
-            <div class="configurador-banner-chips">
-              <span class="configurador-banner-chip"><%= t('home.profesionales_teaser.chip_reformas') %></span>
-              <span class="configurador-banner-chip"><%= t('home.profesionales_teaser.chip_constructoras') %></span>
-              <span class="configurador-banner-chip"><%= t('home.profesionales_teaser.chip_interiorismo') %></span>
-              <span class="configurador-banner-chip"><%= t('home.profesionales_teaser.chip_climatizacion') %></span>
-            </div>
-            <p><%= t('home.profesionales_teaser.body') %></p>
-            <a href="/para-profesionales" class="btn btn-primary btn-lg configurador-banner-cta"><%= t('home.profesionales_teaser.cta') %></a>
-            <p class="banner-objection-note"><%- t('home.profesionales_teaser.objection') %></p>
-          </div>
-          <div class="configurador-banner-visual">
-            <picture>
-              <source srcset="/img/trabajos/reforma-general-despues.webp" type="image/webp">
-              <img src="/img/trabajos/reforma-general-despues.jpg" alt="<%= t('home.profesionales_teaser.image_alt') %>" loading="lazy">
-            </picture>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PUENTE VISUAL ENTRE BÁSICOS Y EXCLUSIVOS -->
-  <div class="section-bridge">
-    <div class="section-bridge-line"></div>
-    <span class="section-bridge-text"><%= t('home.bridge.text') %></span>
-    <div class="section-bridge-line"></div>
-  </div>
-
-  <!-- EXCLUSIVOS · CON IA -->
-  <section class="section section-exclusivos">
-    <div class="container">
-      <div class="section-head section-head-exclusivos">
-        <span class="eyebrow"><%= t('home.exclusivos.eyebrow') %></span>
-        <h2><%= t('home.exclusivos.title') %></h2>
-        <p><%= tv('home.exclusivos.body', { totalModos: totalModos }) %></p>
-      </div>
-
-      <div class="cerebro-diagram">
-        <div class="cerebro-intro">
-          <span class="cerebro-marca cerebro-marca-lg"><%= instalacionBase.marca %></span>
-          <span class="cerebro-tagline"><%= instalacionBase.tagline %></span>
-        </div>
-
-        <div class="cerebro-visual-wrap">
-          <picture>
-            <source srcset="/img/marketing/cerebro-ahomed.webp" type="image/webp">
-            <img src="/img/marketing/cerebro-ahomed.jpg" alt="<%= t('home.exclusivos.cerebro_visual_alt') %>" loading="lazy" class="cerebro-visual-img">
-          </picture>
-        </div>
-
-        <p class="cerebro-hardware-note"><%- tv('home.exclusivos.hardware_note', { precio: fmt(instalacionBase.niveles[0].total) }) %></p>
-
-        <div class="cerebro-diagram-visual">
-          <svg class="cerebro-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
-            <path class="cerebro-line" d="M50,50 Q38,36 25,24"/>
-            <path class="cerebro-line" d="M50,50 Q62,36 75,24"/>
-            <path class="cerebro-line" d="M50,50 Q38,64 25,76"/>
-            <path class="cerebro-line" d="M50,50 Q62,64 75,76"/>
-          </svg>
-          <div class="cerebro-hub-icon" aria-hidden="true">
-            <picture>
-              <source srcset="/img/iconos/minipc-central.webp" type="image/webp">
-              <img src="/img/iconos/minipc-central.png" alt="">
-            </picture>
-          </div>
-          <div class="cerebro-branches">
-            <% familiasIA.forEach(function(familia){ %>
-              <a href="/servicios/ia-predictiva#familia-<%= familia.slug %>" class="cerebro-branch">
-                <div class="service-icon service-icon-img">
-                  <picture>
-                    <source srcset="<%= familia.imagen %>.webp" type="image/webp">
-                    <img src="<%= familia.imagen %>.png" alt="<%= familia.nombre %>" loading="lazy">
-                  </picture>
-                </div>
-                <h4><%= familia.nombre %></h4>
-                <p><%= familia.resumen %></p>
-              </a>
-            <% }) %>
-          </div>
-        </div>
-      </div>
-
-      <div class="ai-highlight-inner">
-        <div class="ai-highlight-copy">
-          <h3><%= t('home.ai_highlight.title') %></h3>
-          <p><%= seguridadIA.resumen %></p>
-          <ul class="check-list">
-            <li><%= t('home.ai_highlight.ideal_para_prefix') %> <%= seguridadIA.idealPara.join(', ') %></li>
-            <li><%= t('home.ai_highlight.feature1') %></li>
-            <li><%= t('home.ai_highlight.feature2') %></li>
-          </ul>
-          <a href="/servicios/ia-predictiva/seguridad-ia" class="btn btn-primary"><%= t('home.ai_highlight.cta') %></a>
-        </div>
-        <div class="ai-highlight-visual">
-          <% if (seguridadIA.video) { %>
-            <video class="modo-video" controls preload="none" poster="/img/trabajos/monitor-ia-despues.jpg">
-              <source src="<%= seguridadIA.video %>" type="video/mp4">
-            </video>
-          <% } else { %>
-            <img src="/img/trabajos/monitor-ia-despues.jpg" alt="<%= t('home.ai_highlight.video_alt') %>" loading="lazy">
-          <% } %>
-        </div>
-      </div>
-
-      <a href="/servicios/ia-predictiva" class="btn btn-outline ia-modos-cta"><%= tv('home.exclusivos.modos_cta', { totalModos: totalModos }) %></a>
-    </div>
-  </section>
-
-  <!-- PUENTE: DE LA PLATAFORMA A VERLA EN ACCIÓN -->
-  <div class="section-bridge">
-    <div class="section-bridge-line"></div>
-    <span class="section-bridge-text"><%= t('home.bridge2.text') %></span>
-    <div class="section-bridge-line"></div>
-  </div>
-
-  <!-- VIVE AHOMED · ESCENARIOS INTERACTIVOS -->
-  <section class="section vive-section">
-    <div class="container">
-      <div class="section-head">
-        <span class="eyebrow"><%= t('home.vive.eyebrow') %></span>
-        <h2><%= t('home.vive.title') %></h2>
-        <p><%= t('home.vive.body') %></p>
-      </div>
-
-      <div class="escenario-tabs" role="tablist">
-        <% escenarios.forEach(function(e, i){ %>
-          <button type="button" class="escenario-tab<%= i === 0 ? ' is-active' : '' %>" data-escenario="<%= e.slug %>">
-            <svg viewBox="0 0 24 24"><%- icons[e.icono] %></svg>
-            <%= e.nombre %>
-          </button>
-        <% }) %>
-      </div>
-
-      <div class="escenario-panels<%= escenarios.some(function(e){ return e.media; }) ? ' escenario-panels-media' : '' %>">
-        <% escenarios.forEach(function(e, i){ %>
-          <div class="escenario-panel<%= i === 0 ? ' is-active' : '' %><%= e.media ? ' has-media' : '' %>" data-escenario-panel="<%= e.slug %>">
-            <% if (e.media) { %>
-              <div class="escenario-media">
-                <video class="escenario-video" controls preload="none" poster="<%= e.media.poster %>" playsinline>
-                  <source src="<%= e.media.src %>" type="video/mp4">
-                </video>
-              </div>
-            <% } %>
-            <div class="escenario-body">
-              <p class="escenario-momento"><strong><%= e.nombre %>.</strong> <%= e.momento %>.</p>
-              <div class="escenario-acciones">
-                <% e.acciones.forEach(function(a){ %>
-                  <div class="escenario-accion">
-                    <span class="escenario-accion-icon"><svg viewBox="0 0 24 24"><%- icons[a.icono] %></svg></span>
-                    <span><%= a.texto %></span>
-                  </div>
-                <% }) %>
-              </div>
-              <p class="escenario-explicacion"><%= e.explicacion %></p>
-              <div class="escenario-links">
-                <% e.modos.forEach(function(slug){ var m = modosIATodos.find(function(x){ return x.slug === slug; }); if (!m) return; %>
-                  <a href="/servicios/ia-predictiva/<%= m.slug %>" class="escenario-link"><%= m.nombre %> →</a>
-                <% }) %>
-                <% if (e.packSugerido) { %>
-                  <a href="/soluciones#<%= e.packSugerido %>" class="escenario-link"><%= t('home.escenario.ver_solucion') %></a>
-                <% } %>
-              </div>
-            </div>
-          </div>
-        <% }) %>
-      </div>
-    </div>
-  </section>
-
-  <!-- LO QUE YA PAGAS (comparativa de valor) -->
+  <!-- TRES OPCIONES, PRECIO CLARO -->
   <section class="section section-tight value-compare-section">
     <div class="container">
       <div class="section-head">
-        <span class="eyebrow"><%= t('home.value_compare.eyebrow') %></span>
-        <h2><%= t('home.value_compare.title') %></h2>
-        <p><%= t('home.value_compare.subtitle') %></p>
+        <span class="eyebrow"><%= t('home.options.eyebrow') %></span>
+        <h2><%= t('home.options.title') %></h2>
+        <p><%= t('home.options.subtitle') %></p>
       </div>
-      <div class="value-compare-grid">
-        <% [1,2,3,4,5].forEach(function(i){ %>
+      <div class="value-compare-grid options-trio">
+        <% [1,2,3].forEach(function(i){ %>
           <div class="value-compare-card">
-            <h3><%= t('home.value_compare.item' + i + '.title') %></h3>
-            <p class="value-compare-without"><span aria-hidden="true">✕</span> <%= t('home.value_compare.item' + i + '.without') %></p>
-            <p class="value-compare-with"><span aria-hidden="true">✓</span> <%= t('home.value_compare.item' + i + '.with') %></p>
+            <h3><%= t('home.options.item' + i + '.title') %></h3>
+            <p class="value-compare-with"><%= t('home.options.item' + i + '.body') %></p>
           </div>
         <% }) %>
       </div>
-      <p class="value-compare-footnote"><%= t('home.value_compare.footnote') %></p>
+      <p class="value-compare-footnote"><%= t('home.options.footnote') %></p>
     </div>
   </section>
-
-  <!-- PACKS -->
-  <section class="section section-tight">
-    <div class="container">
-      <% var pisoNuevoPack = packsDestacados.find(function(p){ return p.slug === 'piso-nuevo'; });
-         var chaletSeguroPack = packsDestacados.find(function(p){ return p.slug === 'chalet-seguro'; });
-         var hogarIAPack = packsDestacados.find(function(p){ return p.slug === 'hogar-inteligente'; }); %>
-      <a href="/soluciones" class="soluciones-mini-banner">
-        <div>
-          <span class="eyebrow"><%= t('home.packs_banner.eyebrow') %></span>
-          <h3><%= tv('home.packs_banner.title', { pack1: pisoNuevoPack.nombre, pack2: chaletSeguroPack.nombre, pack3: hogarIAPack.nombre }) %></h3>
-        </div>
-        <span class="btn btn-outline"><%= t('home.packs_banner.cta') %></span>
-      </a>
-    </div>
-  </section>
-
 
   <!-- COMO FUNCIONA -->
   <section class="section how-it-works">
@@ -322,7 +104,7 @@
         <div class="how-it-works-visual">
           <picture>
             <source srcset="/img/marketing/visita-tecnica.webp" type="image/webp">
-            <img src="/img/marketing/visita-tecnica.jpg" alt="<%= t('home.how_it_works.image_alt') %>" loading="lazy">
+            <img src="/img/marketing/visita-tecnica.jpg" alt="<%= t('home.how_it_works.image_alt') %>" loading="lazy" width="1400" height="787">
           </picture>
         </div>
         <div class="steps-grid steps-grid-compact">
@@ -340,32 +122,31 @@
     </div>
   </section>
 
-  <!-- PUENTE: DEL PROCESO A LA TECNOLOGÍA QUE LO SOSTIENE -->
-  <div class="section-bridge">
-    <div class="section-bridge-line"></div>
-    <span class="section-bridge-text"><%= t('home.bridge3.text') %></span>
-    <div class="section-bridge-line"></div>
-  </div>
-
-  <!-- TECNOLOGÍA AHOMED -->
-  <section class="section tech-teaser-section">
-    <div class="container tech-teaser-inner">
-      <div class="tech-teaser-copy">
-        <span class="eyebrow"><%= t('home.tech_teaser.eyebrow') %></span>
-        <h2><%= t('home.tech_teaser.title') %></h2>
-        <p><%= t('home.tech_teaser.body') %></p>
-        <div class="tech-teaser-list">
-          <span class="tech-teaser-chip"><%= t('home.tech_teaser.chip1') %></span>
-          <span class="tech-teaser-chip"><%= t('home.tech_teaser.chip2') %></span>
-          <span class="tech-teaser-chip"><%= t('home.tech_teaser.chip3') %></span>
+  <!-- PARA PROFESIONALES -->
+  <section class="section section-tight">
+    <div class="container">
+      <div class="configurador-banner configurador-banner-dark">
+        <div class="configurador-banner-inner">
+          <div class="configurador-banner-copy">
+            <span class="eyebrow"><%= t('home.profesionales_teaser.eyebrow') %></span>
+            <h2><%= t('home.profesionales_teaser.title') %></h2>
+            <div class="configurador-banner-chips">
+              <span class="configurador-banner-chip"><%= t('home.profesionales_teaser.chip_reformas') %></span>
+              <span class="configurador-banner-chip"><%= t('home.profesionales_teaser.chip_constructoras') %></span>
+              <span class="configurador-banner-chip"><%= t('home.profesionales_teaser.chip_interiorismo') %></span>
+              <span class="configurador-banner-chip"><%= t('home.profesionales_teaser.chip_fincas') %></span>
+            </div>
+            <p><%= t('home.profesionales_teaser.body') %></p>
+            <a href="<%= pathHref('/para-profesionales') %>" class="btn btn-primary btn-lg configurador-banner-cta"><%= t('home.profesionales_teaser.cta') %></a>
+            <p class="banner-objection-note"><%- t('home.profesionales_teaser.objection') %></p>
+          </div>
+          <div class="configurador-banner-visual">
+            <picture>
+              <source srcset="/img/trabajos/reforma-general-despues.webp" type="image/webp">
+              <img src="/img/trabajos/reforma-general-despues.jpg" alt="<%= t('home.profesionales_teaser.image_alt') %>" loading="lazy" width="750" height="1008">
+            </picture>
+          </div>
         </div>
-        <a href="/tecnologia" class="link-arrow"><%= t('home.tech_teaser.cta') %></a>
-      </div>
-      <div class="tech-teaser-visual">
-        <picture>
-          <source srcset="/img/marketing/ia-local-privacidad.webp" type="image/webp">
-          <img src="/img/marketing/ia-local-privacidad.jpg" alt="<%= t('home.tech_teaser.image_alt') %>" loading="lazy" class="tech-teaser-img" />
-        </picture>
       </div>
     </div>
   </section>
@@ -374,12 +155,12 @@
   <section class="section about-teaser-section">
     <div class="container about-teaser-inner">
       <div class="about-teaser-photo">
-        <img src="/img/ahmed-sobre-mi.jpg" alt="<%= t('home.about_teaser.image_alt') %>" loading="lazy" />
+        <img src="/img/ahmed-sobre-mi.jpg" alt="<%= t('home.about_teaser.image_alt') %>" loading="lazy" width="283" height="283" />
       </div>
       <div class="about-teaser-copy">
         <h2><%= t('home.about_teaser.title') %></h2>
         <p><%= tv('home.about_teaser.body', { anos: empresa.anosExperiencia }) %></p>
-        <a href="/sobre-mi" class="link-arrow"><%= t('home.about_teaser.cta') %></a>
+        <a href="<%= pathHref('/sobre-mi') %>" class="link-arrow"><%= t('home.about_teaser.cta') %></a>
       </div>
     </div>
   </section>
@@ -390,13 +171,12 @@
       <h2><%= t('home.final_cta.title') %></h2>
       <p><%= t('home.final_cta.subtitle') %></p>
       <a href="https://wa.me/34<%= empresa.whatsapp %>?text=<%= t('common.whatsapp_text_presupuesto') %>" target="_blank" rel="noopener" class="btn btn-whatsapp btn-lg">
-        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12.001 2C6.478 2 2 6.478 2 12c0 1.85.502 3.657 1.454 5.235L2 22l4.897-1.415A9.955 9.955 0 0 0 12.001 22C17.523 22 22 17.523 22 12S17.523 2 12.001 2z"/></svg>
+        <%- waIcon %>
         <%= empresa.whatsappDisplay %>
       </a>
     </div>
   </section>
 
   <%- include('partials/footer') %>
-  <script src="/js/escenarios.js" defer></script>
 </body>
 </html>

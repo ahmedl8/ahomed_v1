@@ -1756,7 +1756,10 @@ p { margin: 0; }
     flex-direction: column;
     align-items: stretch;
     text-align: left;
+    gap: 14px;
   }
+  /* en columna, flex-basis 420px pasaba a ser la ALTURA: el banner ocupaba media pantalla */
+  .cookie-banner-text { flex: 0 0 auto; }
   .cookie-banner-actions {
     justify-content: stretch;
   }
@@ -1764,4 +1767,42 @@ p { margin: 0; }
     flex: 1;
     justify-content: center;
   }
+}
+
+/* ---------- v91: servicios con foto, desplegable simple, tres opciones ---------- */
+.home-services-grid { grid-template-columns: repeat(4, 1fr); }
+/* 7 servicios en escritorio: 4 arriba y 3 centradas debajo */
+@media (min-width: 1101px) {
+  .home-services-grid { grid-template-columns: repeat(8, 1fr); }
+  .home-services-grid > .service-card { grid-column: span 2; }
+  .home-services-grid > .service-card:nth-child(5) { grid-column: 2 / span 2; }
+}
+.service-card-photo { padding: 0; overflow: hidden; gap: 0; background: #fff; }
+.service-card-media { aspect-ratio: 4 / 3; overflow: hidden; background: var(--paper-soft); }
+.service-card-media img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.25s ease; }
+.service-card-photo:hover .service-card-media img { transform: scale(1.04); }
+.service-card-body { display: flex; flex-direction: column; gap: 8px; padding: 18px 18px 16px; flex-grow: 1; }
+.service-card-body h3 { font-size: 1.08rem; }
+.services-all-link { text-align: center; margin: 28px 0 0; }
+
+.dropdown-menu-services { display: flex; flex-direction: column; grid-template-columns: none; width: 270px; padding: 8px; gap: 0; }
+.dropdown-menu-services a { white-space: nowrap; }
+.dropdown-menu-services a.active { background: var(--paper-soft); font-weight: 700; }
+.dropdown-menu-services .dropdown-all-link { margin-top: 6px; padding-top: 12px; border-top: 1px dashed var(--line); font-weight: 800; color: var(--ink); }
+
+.options-trio { grid-template-columns: repeat(3, 1fr); max-width: 980px; margin-left: auto; margin-right: auto; }
+.options-trio .value-compare-card { padding: 22px 20px; }
+.options-trio .value-compare-card h3 { font-size: 1.1rem; margin-bottom: 8px; }
+.options-trio .value-compare-card p { font-size: 0.92rem; line-height: 1.5; }
+
+@media (max-width: 1100px) {
+  .home-services-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 860px) {
+  .home-services-grid { grid-template-columns: repeat(2, 1fr); }
+  .options-trio { grid-template-columns: 1fr; }
+  .dropdown-menu-services { width: 100%; }
+}
+@media (max-width: 520px) {
+  .home-services-grid { grid-template-columns: 1fr; }
 }

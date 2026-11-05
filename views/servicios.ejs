@@ -10,201 +10,28 @@
   <section class="page-hero">
     <div class="container">
       <h1><%= t('nav.servicios') %></h1>
-      <% var nDisplay = (lang === 'es') ? (function(w){ return w.charAt(0).toUpperCase() + w.slice(1); })((["", "un", "dos", "tres", "cuatro", "cinco", "seis", "siete", "ocho", "nueve", "diez"][bloques.length] || String(bloques.length))) : String(bloques.length); %>
-      <p><%= tv('servicios.hero.subtitle', { n: nDisplay }) %></p>
+      <p><%= t('servicios.hero.subtitle') %></p>
     </div>
   </section>
 
-  <section class="section section-tight">
+  <section class="section">
     <div class="container">
-      <div class="bloques-grid-wrap">
-        <div class="bloques-grid-group">
-          <span class="bloques-grid-label"><%= t('servicios.nav.basicos') %></span>
-          <div class="bloques-grid">
-            <% bloques.filter(function(b){ return b.grupo === 'basico'; }).forEach(function(b){ %>
-              <a href="#bloque-<%= b.slug %>" class="bloque-chip">
-                <span><%= b.nombre %></span>
-              </a>
-            <% }) %>
-          </div>
-        </div>
-        <div class="bloques-grid-group">
-          <span class="bloques-grid-label bloques-grid-label-ia"><%= t('servicios.nav.exclusivos_ia') %></span>
-          <div class="bloques-grid">
-            <% bloques.filter(function(b){ return b.grupo === 'exclusivo' && b.publico !== 'negocio'; }).forEach(function(b){ %>
-              <a href="#bloque-<%= b.slug %>" class="bloque-chip bloque-chip-ia">
-                <span><%= b.nombre %></span>
-              </a>
-            <% }) %>
-          </div>
-        </div>
-        <div class="bloques-grid-group">
-          <span class="bloques-grid-label"><%= t('servicios.nav.transversal') %></span>
-          <div class="bloques-grid">
-            <% bloques.filter(function(b){ return b.grupo === 'general'; }).forEach(function(b){ %>
-              <a href="#bloque-<%= b.slug %>" class="bloque-chip">
-                <span><%= b.nombre %></span>
-              </a>
-            <% }) %>
-          </div>
-        </div>
-        <div class="bloques-grid-group">
-          <span class="bloques-grid-label"><%= t('servicios.nav.negocio') %></span>
-          <div class="bloques-grid">
-            <a href="#grupo-naves-fincas" class="bloque-chip">
-              <span><%= t('servicios.nav.naves_fincas') %></span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section-group-header" id="grupo-basicos">
-    <div class="container">
-      <span class="section-group-eyebrow"><%= t('servicios.basicos.eyebrow') %></span>
-      <h2 class="section-group-title"><%= t('servicios.basicos.title') %></h2>
-      <p class="section-group-desc"><%= t('servicios.basicos.desc') %></p>
-    </div>
-  </section>
-
-  <% bloques.filter(function(b){ return b.grupo === 'basico'; }).forEach(function(b){ %>
-    <section class="section" id="bloque-<%= b.slug %>">
-      <div class="container">
-        <div class="bloque-header">
-          <div>
-            <h2><%= b.nombre %></h2>
-            <p><%= b.resumen %></p>
-          </div>
-        </div>
-
-        <div class="services-grid services-grid-full">
-          <% services.filter(function(s){ return s.bloque === b.slug && s.publico !== 'negocio'; }).forEach(function(s){ %>
-            <a href="/servicios/<%= s.slug %>" class="service-card">
-              <h3><%= s.numero %>. <%= s.nombre %></h3>
-              <p><%= s.resumen %></p>
-              <div class="service-meta">
-                <span class="meta-chip"><%= s.tiempo %></span>
-              </div>
-              <div class="service-card-footer">
-                <span class="price-tag"><%= t('common.desde') %> <%= fmt(s.desde) %> €<%= s.desdeUnidad || '' %></span>
-                <span class="link-arrow"><%= t('common.ver_detalle') %> →</span>
-              </div>
-            </a>
-          <% }) %>
-        </div>
-      </div>
-    </section>
-  <% }) %>
-
-  <section class="section-group-header section-group-header-ia" id="grupo-exclusivos">
-    <div class="container">
-      <span class="section-group-eyebrow"><%= t('servicios.exclusivos.eyebrow') %></span>
-      <h2 class="section-group-title"><%= t('servicios.exclusivos.title') %></h2>
-      <p class="section-group-desc"><%= t('servicios.exclusivos.desc') %></p>
-    </div>
-  </section>
-
-  <% bloques.filter(function(b){ return b.grupo === 'exclusivo' && b.publico !== 'negocio'; }).forEach(function(b){ %>
-    <section class="section <%= b.slug === 'ia-predictiva' ? 'section-alt' : '' %>" id="bloque-<%= b.slug %>">
-      <div class="container">
-        <div class="bloque-header">
-          <div>
-            <h2><%= b.nombre %></h2>
-            <p><%= b.resumen %></p>
-          </div>
-        </div>
-
-        <div class="services-grid services-grid-full">
-          <% services.filter(function(s){ return s.bloque === b.slug; }).forEach(function(s){ %>
-            <a href="/servicios/<%= s.slug %>" class="service-card">
-              <h3><%= s.numero %>. <%= s.nombre %></h3>
-              <p><%= s.resumen %></p>
-              <div class="service-meta">
-                <span class="meta-chip"><%= s.tiempo %></span>
-              </div>
-              <div class="service-card-footer">
-                <span class="price-tag"><%= t('common.desde') %> <%= fmt(s.desde) %> €<%= s.desdeUnidad || '' %></span>
-                <span class="link-arrow"><%= t('common.ver_detalle') %> →</span>
-              </div>
-            </a>
-          <% }) %>
-
-          <% if (b.slug === 'ia-predictiva') { %>
-            <% modosIA.forEach(function(m){ %>
-              <a href="/servicios/ia-predictiva/<%= m.slug %>" class="service-card service-card-ia-modo<%= m.esProyecto ? ' service-card-ai' : '' %>">
-                <% if (m.esProyecto) { %><div class="service-badge"><%= t('servicios.badge.exclusivo') %></div><% } %>
-                <% if (m.titular) { %><p class="card-titular"><%= m.titular %></p><% } %>
-                <h3><%= m.numero %>. <%= m.nombre %></h3>
-                <p><%= m.esProyecto ? m.subtitulo : m.resumen %></p>
-                <div class="service-card-footer">
-                  <span class="price-tag"><%= m.esProyecto ? t('servicios.precio.proyecto_medida') : tv('servicios.precio.sobre_base', { precio: fmt(m.precioIncremento) }) %></span>
-                  <span class="link-arrow"><%= t('common.ver_detalle') %> →</span>
-                </div>
-              </a>
-            <% }) %>
-          <% } %>
-        </div>
-
-        <% if (b.slug === 'ia-predictiva') { %>
-          <a href="/servicios/ia-predictiva" class="bloque-cta-link"><%= t('servicios.ia_predictiva.ver_plataforma') %></a>
-        <% } %>
-      </div>
-    </section>
-  <% }) %>
-
-  <section class="section-group-header section-group-header-neutral" id="grupo-mantenimiento">
-    <div class="container">
-      <span class="section-group-eyebrow"><%= t('servicios.mantenimiento.eyebrow') %></span>
-      <h2 class="section-group-title"><%= t('nav.mantenimiento') %></h2>
-      <p class="section-group-desc"><%= t('servicios.mantenimiento.desc') %></p>
-    </div>
-  </section>
-
-  <% bloques.filter(function(b){ return b.slug === 'mantenimiento'; }).forEach(function(b){ %>
-    <section class="section" id="bloque-<%= b.slug %>">
-      <div class="container">
-        <div class="services-grid services-grid-full">
-          <% services.filter(function(s){ return s.bloque === b.slug && s.publico !== 'negocio'; }).forEach(function(s){ %>
-            <a href="/servicios/<%= s.slug %>" class="service-card">
-              <h3><%= s.nombre %></h3>
-              <p><%= s.resumen %></p>
-              <div class="service-meta">
-                <span class="meta-chip"><%= s.tiempo %></span>
-              </div>
-              <div class="service-card-footer">
-                <span class="price-tag"><%= t('common.desde') %> <%= fmt(s.desde) %> €<%= s.desdeUnidad || '' %></span>
-                <span class="link-arrow"><%= t('common.ver_detalle') %> →</span>
-              </div>
-            </a>
-          <% }) %>
-        </div>
-      </div>
-    </section>
-  <% }) %>
-
-  <section class="section-group-header section-group-header-neutral" id="grupo-naves-fincas">
-    <div class="container">
-      <span class="section-group-eyebrow"><%= t('servicios.nav.naves_fincas') %></span>
-      <h2 class="section-group-title"><%= t('servicios.nav.negocio') %></h2>
-      <p class="section-group-desc"><%= t('servicios.naves_fincas.desc') %></p>
-    </div>
-  </section>
-
-  <section class="section" id="bloque-naves-fincas-basicos">
-    <div class="container">
-      <h2 class="sub-heading"><%= t('nav.instalaciones_servicios') %></h2>
-      <div class="services-grid services-grid-full">
-        <% services.filter(function(s){ return s.publico === 'negocio'; }).forEach(function(s){ %>
-          <a href="/servicios/<%= s.slug %>" class="service-card">
-            <h3><%= s.nombre %></h3>
-            <p><%= s.resumen %></p>
-            <div class="service-meta">
-              <span class="meta-chip"><%= s.tiempo %></span>
+      <div class="services-grid home-services-grid">
+        <% services.forEach(function(s){ %>
+          <a href="<%= pathHref('/servicios/' + s.slug) %>" class="service-card service-card-photo">
+            <div class="service-card-media">
+              <img src="<%= s.cardImagen %>" alt="<%= s.nombre %>" loading="lazy" width="400" height="300">
             </div>
-            <div class="service-card-footer">
-              <span class="price-tag"><%= t('common.desde') %> <%= fmt(s.desde) %> €<%= s.desdeUnidad || '' %></span>
-              <span class="link-arrow"><%= t('common.ver_detalle') %> →</span>
+            <div class="service-card-body">
+              <h3><%= s.numero %>. <%= s.nombre %></h3>
+              <p><%= s.resumen %></p>
+              <div class="service-meta">
+                <span class="meta-chip"><%= s.tiempo %></span>
+              </div>
+              <div class="service-card-footer">
+                <span class="price-tag"><%= t('common.desde') %> <%= fmt(s.desde) %> €</span>
+                <span class="link-arrow"><%= t('common.ver_detalle') %> →</span>
+              </div>
             </div>
           </a>
         <% }) %>
@@ -212,31 +39,10 @@
     </div>
   </section>
 
-  <% if (typeof seguridadIANaves !== 'undefined' && seguridadIANaves) { %>
-    <section class="section section-alt" id="bloque-seguridad-ia-naves-fincas">
-      <div class="container">
-        <h2 class="sub-heading"><%= t('servicios.naves_fincas.con_ia') %></h2>
-        <div class="services-grid services-grid-full">
-          <a href="/servicios/naves-fincas/seguridad-ia" class="service-card service-card-ia-modo service-card-ai">
-            <div class="service-badge"><%= t('servicios.badge.exclusivo') %></div>
-            <p class="card-titular"><%= seguridadIANaves.titular %></p>
-            <h3><%= seguridadIANaves.nombre %></h3>
-            <p><%= seguridadIANaves.subtitulo %></p>
-            <div class="service-card-footer">
-              <span class="price-tag"><%= t('servicios.precio.proyecto_medida') %></span>
-              <span class="link-arrow"><%= t('common.ver_detalle') %> →</span>
-            </div>
-          </a>
-        </div>
-        <a href="/soluciones#packs-negocio" class="bloque-cta-link"><%= t('nav.ver_soluciones_negocio') %></a>
-      </div>
-    </section>
-  <% } %>
-
   <section class="section final-cta">
     <div class="container final-cta-inner">
       <h2><%= t('servicios.final_cta.title') %></h2>
-      <p><%- t('servicios.final_cta.body') %></p>
+      <p><%- tv('servicios.final_cta.body', { profesionales: pathHref('/para-profesionales') }) %></p>
       <a href="https://wa.me/34<%= empresa.whatsapp %>?text=<%= t('servicios.final_cta.whatsapp_text') %>" target="_blank" rel="noopener" class="btn btn-whatsapp btn-lg"><%= t('servicios.final_cta.cta') %></a>
     </div>
   </section>

@@ -15,21 +15,12 @@
     <div class="container service-hero-inner">
       <div class="service-hero-icon"><svg viewBox="0 0 24 24"><%- icons[service.icono] %></svg></div>
       <div>
-        <% if (bloque) { %>
-          <nav class="breadcrumb" aria-label="<%= t('detalle_servicio.breadcrumb.aria') %>">
-            <a href="/servicios"><%= t('nav.servicios') %></a> ›
-            <a href="/servicios/bloque/<%= bloque.slug %>"><%= bloque.nombre %></a>
-          </nav>
-        <% } %>
+        <nav class="breadcrumb" aria-label="<%= t('detalle_servicio.breadcrumb.aria') %>">
+          <a href="<%= pathHref('/servicios') %>"><%= t('nav.servicios') %></a>
+        </nav>
         <span class="eyebrow"><%= tv('detalle_servicio.eyebrow', { numero: service.numero }) %></span>
         <h1><%= service.nombre %></h1>
         <p><%= service.resumen %></p>
-        <% if (service.versionAlternativa) { %>
-          <p class="service-version-alt">
-            <%= service.publico === 'negocio' ? t('detalle_servicio.version_alt.pregunta_vivienda') : t('detalle_servicio.version_alt.pregunta_nave') %>
-            <a href="/servicios/<%= service.versionAlternativa %>"><%= service.publico === 'negocio' ? t('detalle_servicio.version_alt.link_casa') : t('detalle_servicio.version_alt.link_naves') %></a>
-          </p>
-        <% } %>
         <div class="service-meta">
           <span class="meta-chip"><%= service.tiempo %></span>
           <span class="meta-chip meta-chip-price"><%= tv('detalle_servicio.desde_precio', { precio: fmt(service.desde), unidad: service.desdeUnidad || '' }) %></span>
@@ -79,7 +70,7 @@
           <ul class="dot-list dot-list-links">
             <% service.tambienInstalaron.forEach(function(item){ %>
               <% if (item.href) { %>
-                <li><a href="<%= item.href %>"><%= item.texto %></a></li>
+                <li><a href="<%= pathHref(item.href) %>"><%= item.texto %></a></li>
               <% } else { %>
                 <li><%= item.texto %></li>
               <% } %>

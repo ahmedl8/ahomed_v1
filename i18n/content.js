@@ -10,7 +10,7 @@ const fs = require("fs");
 const path = require("path");
 
 const NON_TRANSLATABLE_KEYS = new Set([
-  "slug", "icono", "imagen", "imagenAntes", "imagenDespues", "heroImagen", "video", "src", "poster",
+  "slug", "icono", "imagen", "imagenAntes", "imagenDespues", "heroImagen", "cardImagen", "video", "src", "poster",
   "href", "bloque", "grupo", "publico", "tipo", "versionAlternativa", "letra",
   "numero", "precio", "precioIncremento", "desde", "total", "destacada", "esProyecto",
   "whatsapp", "web", "email", "packSugerido", "modos", "media", "colorAcento",

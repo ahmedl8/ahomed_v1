@@ -2,29 +2,21 @@
   <div class="container footer-grid">
     <div class="footer-brand">
       <div class="brand">
-        <img src="/img/logo-white.svg" alt="AHOMED" class="brand-logo brand-logo-footer" />
+        <img src="/img/logo-white.svg" alt="AHOMED" class="brand-logo brand-logo-footer" width="1366" height="386" />
       </div>
       <p class="footer-tag"><%= t('footer.tag') %></p>
     </div>
 
     <div class="footer-col">
       <h4><%= t('footer.servicios') %></h4>
-      <a href="<%= pathHref('/servicios/electricidad') %>"><%= t('footer.electricidad') %></a>
-      <a href="<%= pathHref('/servicios/domotica') %>"><%= t('footer.domotica') %></a>
-      <a href="<%= pathHref('/servicios/seguridad') %>"><%= t('footer.seguridad') %></a>
-      <a href="<%= pathHref('/servicios/ia-predictiva') %>"><%= t('footer.plataforma_ia') %></a>
-      <a href="<%= pathHref('/servicios/energia-solar') %>"><%= t('footer.energia_solar') %></a>
-      <a href="<%= pathHref('/servicios/mantenimiento') %>"><%= t('footer.mantenimiento') %></a>
-      <a href="<%= pathHref('/servicios') %>"><%= t('footer.ver_todos') %></a>
+      <% services.forEach(function(s){ %>
+        <a href="<%= pathHref('/servicios/' + s.slug) %>"><%= s.nombre %></a>
+      <% }) %>
     </div>
 
     <div class="footer-col">
       <h4><%= t('footer.empresa') %></h4>
-      <a href="<%= pathHref('/configurador') %>"><%= t('footer.configurador') %></a>
-      <a href="<%= pathHref('/crea-tu-instalacion') %>"><%= t('footer.crea_instalacion') %></a>
-      <a href="<%= pathHref('/tecnologia') %>"><%= t('footer.tecnologia') %></a>
       <a href="<%= pathHref('/sobre-mi') %>"><%= t('footer.sobre_mi') %></a>
-      <a href="<%= pathHref('/soluciones') %>"><%= t('footer.soluciones') %></a>
       <a href="<%= pathHref('/para-profesionales') %>"><%= t('footer.para_profesionales') %></a>
       <a href="<%= pathHref('/preguntas-frecuentes') %>"><%= t('footer.faq') %></a>
       <a href="<%= pathHref('/contacto') %>"><%= t('footer.contacto') %></a>

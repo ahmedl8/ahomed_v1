@@ -8,7 +8,7 @@
   <%- include('partials/header') %>
 
   <section class="page-hero page-hero-photo">
-    <img src="/img/hero-tecnico.jpg" alt="<%= t('profesionales.hero.image_alt') %>" class="page-hero-bg" loading="eager" />
+    <img src="/img/hero-bloques/reparaciones-reformas.jpg" width="1536" height="1024" alt="<%= t('profesionales.hero.image_alt') %>" class="page-hero-bg" loading="eager" />
     <div class="page-hero-overlay"></div>
     <div class="container page-hero-content">
       <span class="eyebrow"><%= t('profesionales.hero.eyebrow') %></span>
@@ -18,20 +18,6 @@
         <a href="https://wa.me/34<%= empresa.whatsapp %>?text=<%= t('profesionales.whatsapp_text') %>" target="_blank" rel="noopener" class="btn btn-whatsapp btn-lg">
           <%= t('common.hablar_whatsapp') %>
         </a>
-        <a href="/pdf/ahomed-para-profesionales.pdf" target="_blank" rel="noopener" class="btn btn-outline-light btn-lg"><%= t('profesionales.hero.cta_pdf') %></a>
-      </div>
-    </div>
-  </section>
-
-  <!-- OFERTA DE LANZAMIENTO -->
-  <section class="section launch-offer">
-    <div class="container">
-      <div class="launch-offer-box">
-        <span class="launch-offer-badge"><%= t('profesionales.launch.badge') %></span>
-        <h2><%= t('profesionales.launch.title') %></h2>
-        <p><%- t('profesionales.launch.body') %></p>
-        <p class="launch-offer-fine-print"><%= t('profesionales.launch.fine_print') %></p>
-        <a href="https://wa.me/34<%= empresa.whatsapp %>?text=<%= t('profesionales.launch.whatsapp_text') %>" target="_blank" rel="noopener" class="btn btn-whatsapp btn-lg"><%= t('profesionales.launch.cta') %></a>
       </div>
     </div>
   </section>
@@ -45,12 +31,12 @@
       </div>
       <div class="services-grid services-grid-full">
         <div class="service-card">
-          <div class="service-icon"><svg viewBox="0 0 24 24"><%- icons.shield %></svg></div>
+          <div class="service-icon"><svg viewBox="0 0 24 24"><%- icons.wrench %></svg></div>
           <h3><%= t('profesionales.why.card1.title') %></h3>
           <p><%= t('profesionales.why.card1.body') %></p>
         </div>
         <div class="service-card">
-          <div class="service-icon"><svg viewBox="0 0 24 24"><%- icons.ai %></svg></div>
+          <div class="service-icon"><svg viewBox="0 0 24 24"><%- icons.shield %></svg></div>
           <h3><%= t('profesionales.why.card2.title') %></h3>
           <p><%= t('profesionales.why.card2.body') %></p>
         </div>
@@ -87,19 +73,16 @@
     </div>
   </section>
 
-  <!-- QUÉ APORTA AHOMED -->
+  <!-- QUÉ CUBRE AHOMED -->
   <section class="section">
     <div class="container two-col">
       <div>
         <h2 class="sub-heading"><%= t('profesionales.aporta.title') %></h2>
         <p><%= t('profesionales.aporta.body') %></p>
         <ul class="dot-list dot-list-cols">
-          <li><%= t('profesionales.aporta.li1') %></li>
-          <li><%= t('profesionales.aporta.li2') %></li>
-          <li><%= t('profesionales.aporta.li3') %></li>
-          <li><%= t('profesionales.aporta.li4') %></li>
-          <li><%= t('profesionales.aporta.li5') %></li>
-          <li><%= t('profesionales.aporta.li6') %></li>
+          <% services.forEach(function(s){ %>
+            <li><a href="<%= pathHref('/servicios/' + s.slug) %>"><%= s.nombre %></a></li>
+          <% }) %>
         </ul>
       </div>
 
@@ -107,8 +90,8 @@
         <div class="about-card">
           <h3><%= t('profesionales.aporta.side_title') %></h3>
           <ul class="check-list check-list-lg">
-            <% ["profesionales.aporta.tipo1","profesionales.aporta.tipo2","profesionales.aporta.tipo3","profesionales.aporta.tipo4","profesionales.aporta.tipo5","profesionales.aporta.tipo6","profesionales.aporta.tipo7","profesionales.aporta.tipo8"].forEach(function(k){ %>
-              <li><%= t(k) %></li>
+            <% [1,2,3,4,5,6].forEach(function(i){ %>
+              <li><%= t('profesionales.aporta.tipo' + i) %></li>
             <% }) %>
           </ul>
         </div>
@@ -116,59 +99,20 @@
     </div>
   </section>
 
-  <!-- PACK PARA CONSTRUCTORES -->
-  <section class="section section-alt">
-    <div class="container">
-      <div class="section-head">
-        <h2><%= t('profesionales.niveles.title') %></h2>
-        <p class="section-group-desc"><%= t('profesionales.niveles.body') %></p>
-      </div>
-      <div class="services-grid services-grid-full">
-        <div class="about-card">
-          <h3><%= t('profesionales.niveles.item1.title') %></h3>
-          <p><%= t('profesionales.niveles.item1.body') %></p>
-        </div>
-        <div class="about-card">
-          <h3><%= t('profesionales.niveles.item2.title') %></h3>
-          <p><%= t('profesionales.niveles.item2.body') %></p>
-        </div>
-        <div class="about-card">
-          <h3><%= t('profesionales.niveles.item3.title') %></h3>
-          <p><%= t('profesionales.niveles.item3.body') %></p>
-        </div>
-        <div class="about-card">
-          <h3><%= t('profesionales.niveles.item4.title') %></h3>
-          <p><%= t('profesionales.niveles.item4.body') %></p>
-        </div>
-      </div>
-      <p class="pack-note-bottom" style="text-align:center; margin-top: 28px;"><%- t('profesionales.niveles.note') %></p>
-    </div>
-  </section>
-
   <!-- PROYECTO PILOTO -->
-  <section class="section">
+  <section class="section section-alt">
     <div class="container">
       <div class="section-head">
         <h2><%= t('profesionales.piloto.title') %></h2>
         <p class="section-group-desc"><%= t('profesionales.piloto.body') %></p>
       </div>
       <div class="services-grid services-grid-full">
-        <div class="service-card">
-          <h3><%= t('profesionales.piloto.item1.title') %></h3>
-          <p><%= t('profesionales.piloto.item1.body') %></p>
-        </div>
-        <div class="service-card">
-          <h3><%= t('profesionales.piloto.item2.title') %></h3>
-          <p><%= t('profesionales.piloto.item2.body') %></p>
-        </div>
-        <div class="service-card">
-          <h3><%= t('profesionales.piloto.item3.title') %></h3>
-          <p><%= t('profesionales.piloto.item3.body') %></p>
-        </div>
-        <div class="service-card">
-          <h3><%= t('profesionales.piloto.item4.title') %></h3>
-          <p><%= t('profesionales.piloto.item4.body') %></p>
-        </div>
+        <% [1,2,3,4].forEach(function(i){ %>
+          <div class="service-card">
+            <h3><%= t('profesionales.piloto.item' + i + '.title') %></h3>
+            <p><%= t('profesionales.piloto.item' + i + '.body') %></p>
+          </div>
+        <% }) %>
       </div>
     </div>
   </section>

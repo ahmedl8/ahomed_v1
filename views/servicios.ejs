@@ -14,30 +14,55 @@
     </div>
   </section>
 
-  <section class="section">
+  <section class="family-nav-wrap">
     <div class="container">
-      <div class="services-grid home-services-grid">
-        <% services.forEach(function(s){ %>
-          <a href="<%= pathHref('/servicios/' + s.slug) %>" class="service-card service-card-photo">
-            <div class="service-card-media">
-              <img src="<%= s.cardImagen %>" alt="<%= s.nombre %>" loading="lazy" width="400" height="300">
-            </div>
-            <div class="service-card-body">
-              <h3><%= s.numero %>. <%= s.nombre %></h3>
-              <p><%= s.resumen %></p>
-              <div class="service-meta">
-                <span class="meta-chip"><%= s.tiempo %></span>
-              </div>
-              <div class="service-card-footer">
-                <span class="price-tag"><%= t('common.desde') %> <%= fmt(s.desde) %> €</span>
-                <span class="link-arrow"><%= t('common.ver_detalle') %> →</span>
-              </div>
-            </div>
-          </a>
+      <nav class="family-nav" aria-label="<%= t('servicios.familias.nav_aria') %>">
+        <% familias.forEach(function(f){ %>
+          <a href="#<%= f.slug %>" class="family-nav-chip"><span class="family-nav-num"><%= String(f.numero).padStart(2, '0') %></span><%= f.nombre %></a>
         <% }) %>
-      </div>
+      </nav>
     </div>
   </section>
+
+  <% familias.forEach(function(f){ %>
+    <section class="section section-tight family-section" id="<%= f.slug %>">
+      <div class="container">
+        <div class="family-section-head">
+          <span class="family-section-num"><%= String(f.numero).padStart(2, '0') %></span>
+          <div>
+            <h2><%= f.nombre %></h2>
+            <p><%= f.lema %></p>
+          </div>
+        </div>
+        <div class="services-grid family-services-grid">
+          <% f.items.forEach(function(s){ %>
+            <a href="<%= pathHref('/servicios/' + s.slug) %>" class="service-card service-card-photo">
+              <% if (s.cardImagen) { %>
+                <div class="service-card-media">
+                  <img src="<%= s.cardImagen %>" alt="<%= s.nombre %>" loading="lazy" width="400" height="300">
+                </div>
+              <% } else { %>
+                <div class="service-card-media service-card-media-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><%- icons[s.icono] %></svg>
+                </div>
+              <% } %>
+              <div class="service-card-body">
+                <h3><%= s.nombre %></h3>
+                <p><%= s.resumen %></p>
+                <div class="service-meta">
+                  <span class="meta-chip"><%= s.tiempo %></span>
+                </div>
+                <div class="service-card-footer">
+                  <span class="price-tag"><%= t('common.desde') %> <%= fmt(s.desde) %> €<%= s.desdeUnidad || '' %></span>
+                  <span class="link-arrow"><%= t('common.ver_detalle') %> →</span>
+                </div>
+              </div>
+            </a>
+          <% }) %>
+        </div>
+      </div>
+    </section>
+  <% }) %>
 
   <section class="section final-cta">
     <div class="container final-cta-inner">

@@ -10,9 +10,18 @@ const { resolverServicios } = require("./data/pricing");
 
 const {
   services: servicesRaw,
+  familias: familiasRaw,
   comoFunciona: comoFuncionaRaw,
   empresa: empresaRaw
 } = require("./data/services");
+
+// Cada servicio debe pertenecer a una familia declarada (si no, no se vería
+// en la portada, en /servicios ni en el menú).
+servicesRaw.forEach((s) => {
+  if (!familiasRaw.some((f) => f.slug === s.familia)) {
+    console.warn(`[AHOMED] El servicio "${s.slug}" tiene familia desconocida: ${s.familia}`);
+  }
+});
 const galeriaRaw = require("./data/galeria");
 const icons = require("./data/icons");
 
@@ -171,7 +180,11 @@ app.use((req, res, next) => {
   res.locals.empresa = translate("empresa", empresaRaw, lang);
   res.locals.currentPath = req.path;
   res.locals.icons = icons;
-  res.locals.services = translate("services", resolverServicios(servicesRaw), lang);
+  res.locals.services = translate("services", resolverServicios(servicesRaw), lang).sort((a, b) => a.numero - b.numero);
+  // Familias con sus servicios ya resueltos y traducidos; las vacías no se muestran.
+  res.locals.familias = translate("familias", familiasRaw, lang)
+    .map((f) => Object.assign({}, f, { items: res.locals.services.filter((sv) => sv.familia === f.slug).sort((a, b) => a.numero - b.numero) }))
+    .filter((f) => f.items.length);
   res.locals.comoFunciona = translate("comoFunciona", comoFuncionaRaw, lang);
   res.locals.galeria = translate("galeria", galeriaRaw, lang);
   res.locals.metaDescription = res.locals.empresa.metaDescriptionDefault;
@@ -222,9 +235,11 @@ app.get("/servicios/:slug", (req, res, next) => {
   const { empresa, services, t } = res.locals;
   const service = services.find((s) => s.slug === req.params.slug);
   if (!service) return next();
+  const familia = res.locals.familias.find((f) => f.slug === service.familia);
   res.render("services/detalle", {
+    familia,
     title: `${service.nombre} — ${empresa.nombre}`,
-    metaDescription: `${service.resumen} ${fill(t('seo.detalle_servicio.desc_suffix'), { desde: service.desde, zona: empresa.zona })}`,
+    metaDescription: `${service.resumen} ${fill(t('seo.detalle_servicio.desc_suffix'), { desde: service.desde, unidad: service.desdeUnidad || "", zona: empresa.zona })}`,
     breadcrumbs: crumbs(res, [t('seo.servicios.title'), '/servicios'], [service.nombre, '/servicios/' + service.slug]),
     service
   });
@@ -232,15 +247,19 @@ app.get("/servicios/:slug", (req, res, next) => {
 
 // ---- Redirecciones 301 de URLs retiradas en v91 ----
 // La web pasó de "capa inteligente / IA" a trabajos sencillos (electricidad,
-// pintura, pladur, cámaras, persianas, jardinería y limpieza post-obra). Las
+// fontanería, reformas, pintura, pladur, cámaras, persianas, jardinería,
+// mantenimiento de chalets y limpieza post-obra). Las
 // URLs antiguas ya indexadas se redirigen a la sección más cercana para no
 // dejar enlaces rotos ni perder el posicionamiento que ya tuvieran.
 const REDIRECTS_301 = [
   [/^\/servicios\/seguridad$/, "/servicios/camaras-vigilancia"],
-  [/^\/servicios\/reparaciones-reformas$/, "/servicios/pintura"],
+  [/^\/servicios\/reparaciones-reformas$/, "/servicios/reformas-parciales"],
+  [/^\/servicios\/(reformas|reforma|reformas-integrales)$/, "/servicios/reforma-integral"],
+  [/^\/servicios\/(fontaneria-nave)$/, "/servicios/fontaneria"],
+  [/^\/servicios\/(mantenimiento|chalets|mantenimiento-viviendas)$/, "/servicios/mantenimiento-chalets"],
   [/^\/servicios\/(domotica|iluminacion-led|iluminacion-exterior)$/, "/servicios/electricidad"],
   [/^\/servicios\/(electricidad-nave)$/, "/servicios/electricidad"],
-  [/^\/servicios\/(fontaneria|fontaneria-nave|climatizacion|antenas|redes-informatica|redes-nave|energia-solar|baterias|mantenimiento|mantenimiento-nave)$/, "/servicios"],
+  [/^\/servicios\/(climatizacion|antenas|redes-informatica|redes-nave|energia-solar|baterias|mantenimiento-nave)$/, "/servicios"],
   [/^\/servicios\/(bloque|ia-predictiva|ia-monitorizacion|naves-fincas)(\/.*)?$/, "/servicios"],
   [/^\/(soluciones|packs|configurador|crea-tu-instalacion|tecnologia)\/?$/, "/servicios"]
 ];

@@ -45,7 +45,7 @@
     </div>
   </section>
 
-  <!-- QUÉ HACEMOS: los 7 servicios -->
+  <!-- QUÉ HACEMOS: cuatro familias de servicios -->
   <section class="section section-tight" id="servicios">
     <div class="container">
       <div class="section-head">
@@ -53,21 +53,30 @@
         <h2><%= t('home.services.title') %></h2>
         <p><%= t('home.services.subtitle') %></p>
       </div>
-      <div class="services-grid home-services-grid">
-        <% services.forEach(function(s){ %>
-          <a href="<%= pathHref('/servicios/' + s.slug) %>" class="service-card service-card-photo">
-            <div class="service-card-media">
-              <img src="<%= s.cardImagen %>" alt="<%= s.nombre %>" loading="lazy" width="400" height="300">
+      <div class="family-grid">
+        <% familias.forEach(function(f){ %>
+          <article class="family-card">
+            <a class="family-card-media" href="<%= pathHref('/servicios#' + f.slug) %>" tabindex="-1" aria-hidden="true">
+              <img src="<%= f.imagen %>" alt="" loading="lazy" width="580" height="326">
+              <span class="family-card-number"><%= String(f.numero).padStart(2, '0') %></span>
+            </a>
+            <div class="family-card-body">
+              <h3><a href="<%= pathHref('/servicios#' + f.slug) %>"><%= f.nombre %></a></h3>
+              <p class="family-card-lema"><%= f.lema %></p>
+              <ul class="family-service-list">
+                <% f.items.forEach(function(s){ %>
+                  <li>
+                    <a href="<%= pathHref('/servicios/' + s.slug) %>">
+                      <span class="family-service-icon"><svg viewBox="0 0 24 24"><%- icons[s.icono] %></svg></span>
+                      <span class="family-service-name"><%= s.nombre %></span>
+                      <span class="family-service-price"><%= t('common.desde') %> <%= fmt(s.desde) %> €<%= s.desdeUnidad || '' %></span>
+                    </a>
+                  </li>
+                <% }) %>
+              </ul>
+              <a class="family-card-more" href="<%= pathHref('/servicios#' + f.slug) %>"><%= t('servicios.familias.ver') %> →</a>
             </div>
-            <div class="service-card-body">
-              <h3><%= s.nombre %></h3>
-              <p><%= s.resumen %></p>
-              <div class="service-card-footer">
-                <span class="price-tag"><%= t('common.desde') %> <%= fmt(s.desde) %> €</span>
-                <span class="link-arrow"><%= t('common.ver_detalle') %> →</span>
-              </div>
-            </div>
-          </a>
+          </article>
         <% }) %>
       </div>
       <p class="services-all-link"><a href="<%= pathHref('/servicios') %>" class="link-arrow"><%= t('home.services.cta_all') %> →</a></p>

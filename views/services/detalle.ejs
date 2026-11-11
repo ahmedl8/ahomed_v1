@@ -18,7 +18,9 @@
         <nav class="breadcrumb" aria-label="<%= t('detalle_servicio.breadcrumb.aria') %>">
           <a href="<%= pathHref('/servicios') %>"><%= t('nav.servicios') %></a>
         </nav>
-        <span class="eyebrow"><%= tv('detalle_servicio.eyebrow', { numero: service.numero }) %></span>
+        <% if (familia) { %>
+          <a class="eyebrow eyebrow-link" href="<%= pathHref('/servicios#' + familia.slug) %>"><%= familia.nombre %></a>
+        <% } %>
         <h1><%= service.nombre %></h1>
         <p><%= service.resumen %></p>
         <div class="service-meta">

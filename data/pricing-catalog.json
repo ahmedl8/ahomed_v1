@@ -9,7 +9,7 @@
       "referencia"
     ],
     "reglaVolumen": "Cuando un mismo dispositivo se instala varias veces en el mismo trabajo, la 1ª unidad lleva las horas de mano de obra completas (incluye desplazamiento/preparación) y las unidades adicionales llevan menos horas — mismo patrón que usan electricistas reales (1ª hora a tarifa completa, resto a tarifa reducida). El precio del dispositivo en sí no varía por volumen.",
-    "fase": "v91 — pivote a trabajos sencillos sin IA: electricidad, pintura, pladur, cámaras, persianas, jardinería y limpieza post-obra"
+    "fase": "v93 — añade fontanería, reformas parciales, reforma integral y mantenimiento de chalets (precios estimados tras estudio de mercado de Madrid, nov-2026)"
   },
   "componentes": [
     {
@@ -865,6 +865,886 @@
       "area": "persianas",
       "unidad": "unidad",
       "precio": 380
+    },
+    {
+      "id": "mo_fontanero_hora",
+      "nombre": "Mano de obra fontanero",
+      "tipo": "mano_obra",
+      "area": "fontaneria",
+      "unidad": "hora",
+      "precio": 34
+    },
+    {
+      "id": "mo_albanil_hora",
+      "nombre": "Mano de obra oficial de albañilería y alicatado",
+      "tipo": "mano_obra",
+      "area": "reformas",
+      "unidad": "hora",
+      "precio": 30
+    },
+    {
+      "id": "mo_mantenimiento_hora",
+      "nombre": "Mano de obra mantenimiento de viviendas",
+      "tipo": "mano_obra",
+      "area": "mantenimiento",
+      "unidad": "hora",
+      "precio": 26
+    },
+    {
+      "id": "grifo_lavabo_monomando",
+      "nombre": "Grifo monomando de lavabo",
+      "tipo": "material",
+      "area": "fontaneria",
+      "unidad": "unidad",
+      "precio": 48
+    },
+    {
+      "id": "grifo_ducha_monomando",
+      "nombre": "Grifo monomando de ducha",
+      "tipo": "material",
+      "area": "fontaneria",
+      "unidad": "unidad",
+      "precio": 70
+    },
+    {
+      "id": "grifo_ducha_termostatico",
+      "nombre": "Grifo termostático de ducha",
+      "tipo": "material",
+      "area": "fontaneria",
+      "unidad": "unidad",
+      "precio": 125
+    },
+    {
+      "id": "latiguillos_flexibles",
+      "nombre": "Latiguillos flexibles (par)",
+      "tipo": "material",
+      "area": "fontaneria",
+      "unidad": "unidad",
+      "precio": 12
+    },
+    {
+      "id": "llave_corte_angular",
+      "nombre": "Llave de corte angular",
+      "tipo": "material",
+      "area": "fontaneria",
+      "unidad": "unidad",
+      "precio": 14
+    },
+    {
+      "id": "inodoro_estandar",
+      "nombre": "Inodoro con cisterna (gama estándar)",
+      "tipo": "material",
+      "area": "fontaneria",
+      "unidad": "unidad",
+      "precio": 150
+    },
+    {
+      "id": "mecanismo_cisterna",
+      "nombre": "Mecanismo de descarga de cisterna",
+      "tipo": "material",
+      "area": "fontaneria",
+      "unidad": "unidad",
+      "precio": 28
+    },
+    {
+      "id": "sifon_valvula_desague",
+      "nombre": "Sifón y válvula de desagüe",
+      "tipo": "material",
+      "area": "fontaneria",
+      "unidad": "unidad",
+      "precio": 18
+    },
+    {
+      "id": "kit_conexion_electrodomestico",
+      "nombre": "Kit de conexión de electrodoméstico (toma y manguitos)",
+      "tipo": "material",
+      "area": "fontaneria",
+      "unidad": "lote",
+      "precio": 14
+    },
+    {
+      "id": "material_punto_agua_desague",
+      "nombre": "Tubería, accesorios y desagüe para un nuevo punto",
+      "tipo": "material",
+      "area": "fontaneria",
+      "unidad": "unidad",
+      "precio": 45
+    },
+    {
+      "id": "llave_paso_general",
+      "nombre": "Llave de paso general",
+      "tipo": "material",
+      "area": "fontaneria",
+      "unidad": "unidad",
+      "precio": 28
+    },
+    {
+      "id": "termo_50l",
+      "nombre": "Termo eléctrico de 50 L",
+      "tipo": "dispositivo",
+      "area": "fontaneria",
+      "unidad": "unidad",
+      "precio": 155
+    },
+    {
+      "id": "termo_80l",
+      "nombre": "Termo eléctrico de 80 L",
+      "tipo": "dispositivo",
+      "area": "fontaneria",
+      "unidad": "unidad",
+      "precio": 195
+    },
+    {
+      "id": "termo_100l",
+      "nombre": "Termo eléctrico de 100 L",
+      "tipo": "dispositivo",
+      "area": "fontaneria",
+      "unidad": "unidad",
+      "precio": 235
+    },
+    {
+      "id": "kit_instalacion_termo",
+      "nombre": "Kit de instalación (flexibles, válvula de seguridad y soporte)",
+      "tipo": "material",
+      "area": "fontaneria",
+      "unidad": "lote",
+      "precio": 28
+    },
+    {
+      "id": "retirada_termo_antiguo",
+      "nombre": "Retirada y gestión del termo antiguo",
+      "tipo": "material",
+      "area": "fontaneria",
+      "unidad": "lote",
+      "precio": 25
+    },
+    {
+      "id": "maquinaria_desatasco",
+      "nombre": "Maquinaria de desatasco (máquina de cable o hidrolimpiadora)",
+      "tipo": "material",
+      "area": "fontaneria",
+      "unidad": "lote",
+      "precio": 35
+    },
+    {
+      "id": "material_fontaneria_varios",
+      "nombre": "Material auxiliar (juntas, teflón y pequeño material)",
+      "tipo": "material",
+      "area": "fontaneria",
+      "unidad": "lote",
+      "precio": 12
+    },
+    {
+      "id": "bano_retirada_banera",
+      "nombre": "Retirada de bañera y escombros",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 160
+    },
+    {
+      "id": "bano_demolicion_5m2",
+      "nombre": "Demolición de alicatados y suelo, y retirada de escombros (baño de 5 m²)",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 520
+    },
+    {
+      "id": "bano_ceramica_media_28m2",
+      "nombre": "Cerámica y porcelánico de gama media (28 m² de suelo y paredes)",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 420
+    },
+    {
+      "id": "bano_porcelanico_gran_formato_28m2",
+      "nombre": "Porcelánico de gran formato (28 m² de suelo y paredes)",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 760
+    },
+    {
+      "id": "bano_adhesivo_rejuntado_basico",
+      "nombre": "Adhesivo, rejuntado y material de albañilería",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 110
+    },
+    {
+      "id": "bano_adhesivo_rejuntado",
+      "nombre": "Adhesivo, rejuntado y material de albañilería",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 130
+    },
+    {
+      "id": "plato_ducha_resina",
+      "nombre": "Plato de ducha de resina y válvula",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "unidad",
+      "precio": 190
+    },
+    {
+      "id": "plato_ducha_gran_formato",
+      "nombre": "Plato de ducha de resina de gran formato y válvula",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "unidad",
+      "precio": 320
+    },
+    {
+      "id": "mampara_ducha_cristal",
+      "nombre": "Mampara de ducha de cristal templado",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "unidad",
+      "precio": 210
+    },
+    {
+      "id": "mampara_walkin",
+      "nombre": "Mampara fija de ducha tipo walk-in",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "unidad",
+      "precio": 340
+    },
+    {
+      "id": "sanitarios_bano_media",
+      "nombre": "Sanitarios gama media (inodoro, lavabo y mueble de baño)",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 430
+    },
+    {
+      "id": "sanitarios_bano_alta",
+      "nombre": "Sanitarios gama alta (inodoro suspendido, lavabo y mueble suspendido)",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 890
+    },
+    {
+      "id": "bano_material_fontaneria",
+      "nombre": "Tubería multicapa, desagües y accesorios (baño completo)",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 150
+    },
+    {
+      "id": "bano_material_electrico",
+      "nombre": "Material eléctrico (línea, mecanismos estancos y punto de luz)",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 95
+    },
+    {
+      "id": "bano_iluminacion_espejo_led",
+      "nombre": "Iluminación LED con espejo y toallero eléctrico",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 260
+    },
+    {
+      "id": "pintura_techo_remates",
+      "nombre": "Pintura de techo y remates",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 80
+    },
+    {
+      "id": "coordinacion_limpieza_bano",
+      "nombre": "Coordinación de la obra y limpieza final",
+      "tipo": "mano_obra",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 220
+    },
+    {
+      "id": "cocina_desmontaje_retirada",
+      "nombre": "Desmontaje de la cocina antigua y retirada de escombros",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 380
+    },
+    {
+      "id": "cocina_muebles_basica",
+      "nombre": "Muebles de cocina de melamina (módulos bajos y altos, unos 6 m lineales)",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 2400
+    },
+    {
+      "id": "cocina_muebles_media",
+      "nombre": "Muebles de cocina de gama media (módulos bajos y altos, unos 6 m lineales)",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 3600
+    },
+    {
+      "id": "cocina_muebles_alta",
+      "nombre": "Muebles de cocina de gama alta (cierre amortiguado y frente lacado mate)",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 5400
+    },
+    {
+      "id": "cocina_encimera_laminada",
+      "nombre": "Encimera de laminado (6 m lineales)",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 330
+    },
+    {
+      "id": "cocina_encimera_premium",
+      "nombre": "Encimera de laminado premium o compacto (6 m lineales)",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 560
+    },
+    {
+      "id": "cocina_encimera_cuarzo",
+      "nombre": "Encimera de cuarzo (6 m lineales)",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 1250
+    },
+    {
+      "id": "cocina_fregadero_basico",
+      "nombre": "Fregadero de acero y grifo de cocina",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 170
+    },
+    {
+      "id": "cocina_fregadero_medio",
+      "nombre": "Fregadero de seno y medio y grifo extraíble",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 340
+    },
+    {
+      "id": "cocina_fregadero_premium",
+      "nombre": "Fregadero de composite y grifo extraíble de diseño",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 520
+    },
+    {
+      "id": "cocina_revestimiento_suelo",
+      "nombre": "Porcelánico de suelo y frente de cocina (22 m²)",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 520
+    },
+    {
+      "id": "cocina_adhesivo_rejuntado",
+      "nombre": "Adhesivo, rejuntado y material de albañilería",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 100
+    },
+    {
+      "id": "cocina_material_fontaneria",
+      "nombre": "Tubería y accesorios para fregadero, lavavajillas y lavadora",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 90
+    },
+    {
+      "id": "cocina_material_electrico",
+      "nombre": "Material eléctrico (circuitos de horno, placa y electrodomésticos)",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 160
+    },
+    {
+      "id": "cocina_pintura",
+      "nombre": "Pintura de paredes y techo de la cocina",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 220
+    },
+    {
+      "id": "cocina_pack_electrodomesticos",
+      "nombre": "Pack de electrodomésticos básico (horno, placa de inducción y campana)",
+      "tipo": "dispositivo",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 1050
+    },
+    {
+      "id": "cocina_iluminacion_led",
+      "nombre": "Iluminación LED bajo muebles altos",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 180
+    },
+    {
+      "id": "coordinacion_limpieza_cocina",
+      "nombre": "Coordinación de la obra y limpieza final",
+      "tipo": "mano_obra",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 260
+    },
+    {
+      "id": "suelo_retirada_40m2",
+      "nombre": "Retirada del suelo antiguo y preparación de la base (40 m²)",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 360
+    },
+    {
+      "id": "suelo_retirada_pesada_40m2",
+      "nombre": "Demolición del suelo cerámico y preparación de la base (40 m²)",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 560
+    },
+    {
+      "id": "suelo_laminado_40m2",
+      "nombre": "Suelo laminado AC4 con base aislante (40 m²)",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 520
+    },
+    {
+      "id": "suelo_vinilico_40m2",
+      "nombre": "Suelo vinílico click (40 m²)",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 880
+    },
+    {
+      "id": "suelo_porcelanico_madera_40m2",
+      "nombre": "Porcelánico imitación madera (40 m²) con adhesivo y rejuntado",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 1560
+    },
+    {
+      "id": "rodapie_lacado_36ml",
+      "nombre": "Rodapiés lacados (unos 36 m lineales)",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 220
+    },
+    {
+      "id": "rodapie_porcelanico_36ml",
+      "nombre": "Rodapiés de porcelánico (unos 36 m lineales)",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 260
+    },
+    {
+      "id": "int_trabajos_previos",
+      "nombre": "Protección de zonas comunes, replanteo y trabajos previos",
+      "tipo": "mano_obra",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 380
+    },
+    {
+      "id": "int_demolicion_basica",
+      "nombre": "Demoliciones, retirada de escombros y contenedores (80 m²)",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 2900
+    },
+    {
+      "id": "int_demolicion_media",
+      "nombre": "Demoliciones, retirada de escombros y contenedores (80 m², incluye redistribución)",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 3300
+    },
+    {
+      "id": "int_demolicion_alta",
+      "nombre": "Demoliciones, retirada de escombros y contenedores (80 m², redistribución completa)",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 3400
+    },
+    {
+      "id": "int_albanileria_basica",
+      "nombre": "Albañilería y tabiquería (mano de obra y materiales, 80 m²)",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 4200
+    },
+    {
+      "id": "int_albanileria_media",
+      "nombre": "Albañilería, tabiquería y recrecidos (mano de obra y materiales, 80 m²)",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 5400
+    },
+    {
+      "id": "int_albanileria_alta",
+      "nombre": "Albañilería, tabiquería, recrecidos y alisado de paredes (80 m²)",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 6600
+    },
+    {
+      "id": "int_electricidad_basica",
+      "nombre": "Instalación eléctrica nueva (cuadro, líneas y mecanismos, 80 m²)",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 4200
+    },
+    {
+      "id": "int_electricidad_media",
+      "nombre": "Instalación eléctrica nueva con más puntos de luz y enchufes (80 m²)",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 4800
+    },
+    {
+      "id": "int_electricidad_alta",
+      "nombre": "Instalación eléctrica nueva con iluminación LED integrada (80 m²)",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 5600
+    },
+    {
+      "id": "int_fontaneria_basica",
+      "nombre": "Fontanería nueva (cocina, baño y puntos de agua, 80 m²)",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 2500
+    },
+    {
+      "id": "int_fontaneria_media",
+      "nombre": "Fontanería nueva con redes de agua fría y caliente renovadas (80 m²)",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 3000
+    },
+    {
+      "id": "int_fontaneria_alta",
+      "nombre": "Fontanería nueva con redes renovadas y puntos adicionales (80 m²)",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 3400
+    },
+    {
+      "id": "int_pladur_basico",
+      "nombre": "Falsos techos y trasdosados de pladur en zonas de paso",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 1200
+    },
+    {
+      "id": "int_pladur_medio",
+      "nombre": "Falsos techos y trasdosados de pladur (salón, pasillo y baños)",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 1700
+    },
+    {
+      "id": "int_pladur_alto",
+      "nombre": "Falsos techos con iluminación indirecta y trasdosados de pladur",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 2600
+    },
+    {
+      "id": "int_suelo_laminado",
+      "nombre": "Suelo laminado AC4 con rodapíes (80 m²)",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 3100
+    },
+    {
+      "id": "int_suelo_porcelanico",
+      "nombre": "Suelo porcelánico imitación madera con rodapíes (80 m²)",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 6600
+    },
+    {
+      "id": "int_suelo_parquet",
+      "nombre": "Parquet multicapa de roble con rodapíes (80 m²)",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 7600
+    },
+    {
+      "id": "int_pintura_basica",
+      "nombre": "Pintura completa de paredes y techos (80 m²)",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 1900
+    },
+    {
+      "id": "int_pintura_media",
+      "nombre": "Pintura completa de paredes y techos, con alisado de gotelé (80 m²)",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 2600
+    },
+    {
+      "id": "int_pintura_alta",
+      "nombre": "Pintura completa lavable de gama alta, con alisado de gotelé (80 m²)",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 3200
+    },
+    {
+      "id": "int_puertas_basicas",
+      "nombre": "6 puertas interiores de gama básica con herrajes",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 1700
+    },
+    {
+      "id": "int_puertas_medias",
+      "nombre": "6 puertas interiores lacadas con herrajes",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 2800
+    },
+    {
+      "id": "int_puertas_altas",
+      "nombre": "6 puertas interiores de diseño con herrajes y cerraduras de cierre suave",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 3600
+    },
+    {
+      "id": "int_bano_basico",
+      "nombre": "Baño completo de gama básica (5 m², con alicatado, sanitarios y fontanería)",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 3100
+    },
+    {
+      "id": "int_bano_medio",
+      "nombre": "Baño completo de gama media (5 m², con alicatado, sanitarios y fontanería)",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 4500
+    },
+    {
+      "id": "int_bano_alto",
+      "nombre": "Baño completo de gama alta (5 m², con ducha walk-in y mueble suspendido)",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 6600
+    },
+    {
+      "id": "int_cocina_basica",
+      "nombre": "Cocina de gama básica (muebles, encimera y fregadero, sin obra de albañilería)",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 3900
+    },
+    {
+      "id": "int_cocina_media",
+      "nombre": "Cocina completa de gama media (muebles, encimera, revestimientos e instalaciones)",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 7600
+    },
+    {
+      "id": "int_cocina_alta",
+      "nombre": "Cocina completa de gama alta (muebles, encimera de cuarzo, revestimientos e instalaciones)",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 11500
+    },
+    {
+      "id": "int_coordinacion_basica",
+      "nombre": "Coordinación de gremios, dirección de obra y limpieza final",
+      "tipo": "mano_obra",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 2500
+    },
+    {
+      "id": "int_coordinacion_media",
+      "nombre": "Coordinación de gremios, dirección de obra y limpieza final",
+      "tipo": "mano_obra",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 3400
+    },
+    {
+      "id": "int_coordinacion_alta",
+      "nombre": "Coordinación de gremios, dirección de obra y limpieza final",
+      "tipo": "mano_obra",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 4400
+    },
+    {
+      "id": "piso50_pintura",
+      "nombre": "Pintura completa de paredes y techos (50 m²)",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 1250
+    },
+    {
+      "id": "piso50_suelo_laminado",
+      "nombre": "Suelo laminado AC4 con rodapíes (50 m²)",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 1950
+    },
+    {
+      "id": "piso50_suelo_vinilico",
+      "nombre": "Suelo vinílico click con rodapíes (50 m²)",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 2450
+    },
+    {
+      "id": "piso50_iluminacion_led",
+      "nombre": "Iluminación LED y mecanismos nuevos (50 m²)",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 420
+    },
+    {
+      "id": "piso50_instalacion_electrica",
+      "nombre": "Instalación eléctrica nueva (cuadro, líneas y mecanismos, 50 m²)",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 3100
+    },
+    {
+      "id": "piso50_sanitarios_griferia",
+      "nombre": "Sanitarios básicos y grifería nuevos",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 380
+    },
+    {
+      "id": "piso50_cocina_renovada",
+      "nombre": "Cocina renovada (muebles, encimera y fregadero, sin obra de albañilería)",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 3900
+    },
+    {
+      "id": "piso50_bano_reformado",
+      "nombre": "Baño reformado de gama básica (alicatado, sanitarios y fontanería)",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 3100
+    },
+    {
+      "id": "piso50_limpieza_final",
+      "nombre": "Limpieza final de obra",
+      "tipo": "material",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 240
+    },
+    {
+      "id": "piso50_coordinacion",
+      "nombre": "Coordinación de gremios y limpieza final",
+      "tipo": "mano_obra",
+      "area": "reformas",
+      "unidad": "lote",
+      "precio": 420
+    },
+    {
+      "id": "desplazamiento_visita",
+      "nombre": "Desplazamiento a la vivienda (por visita)",
+      "tipo": "material",
+      "area": "mantenimiento",
+      "unidad": "unidad",
+      "precio": 15
+    },
+    {
+      "id": "piscina_control_mensual",
+      "nombre": "Control y tratamiento del agua de la piscina (cuota mensual)",
+      "tipo": "material",
+      "area": "mantenimiento",
+      "unidad": "lote",
+      "precio": 55
+    },
+    {
+      "id": "piscina_puesta_a_punto",
+      "nombre": "Puesta a punto de la piscina de temporada (limpieza del vaso, filtro y tratamiento inicial)",
+      "tipo": "material",
+      "area": "mantenimiento",
+      "unidad": "lote",
+      "precio": 290
     }
   ]
 }

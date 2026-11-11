@@ -43,8 +43,11 @@
       <div class="nav-dropdown">
         <a href="<%= pathHref('/servicios') %>" class="<%= currentPath.startsWith('/servicios') ? 'active' : '' %>"><%= t('nav.servicios') %> ▾</a>
         <div class="dropdown-menu dropdown-menu-services">
-          <% services.forEach(function(s){ %>
-            <a href="<%= pathHref('/servicios/' + s.slug) %>" class="<%= currentPath === '/servicios/' + s.slug ? 'active' : '' %>"><%= s.nombre %></a>
+          <% familias.forEach(function(f){ %>
+            <a href="<%= pathHref('/servicios#' + f.slug) %>" class="dropdown-group"><%= f.nombre %></a>
+            <% f.items.forEach(function(s){ %>
+              <a href="<%= pathHref('/servicios/' + s.slug) %>" class="dropdown-item<%= currentPath === '/servicios/' + s.slug ? ' active' : '' %>"><%= s.nombre %></a>
+            <% }) %>
           <% }) %>
           <a href="<%= pathHref('/servicios') %>" class="dropdown-all-link"><%= t('nav.ver_todos_servicios') %> →</a>
         </div>

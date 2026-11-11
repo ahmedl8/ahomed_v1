@@ -28,15 +28,7 @@
 
         <h2 class="sub-heading"><%= t('sobre_mi.areas.title') %></h2>
         <ul class="dot-list dot-list-cols">
-          <% [
-            t('sobre_mi.areas.item1'),
-            t('sobre_mi.areas.item2'),
-            t('sobre_mi.areas.item3'),
-            t('sobre_mi.areas.item4'),
-            t('sobre_mi.areas.item5'),
-            t('sobre_mi.areas.item6'),
-            t('sobre_mi.areas.item7')
-          ].forEach(function(v){ %>
+          <% [1, 8, 9, 10, 2, 3, 4, 5, 6, 11, 7].map(function(n){ return t('sobre_mi.areas.item' + n); }).forEach(function(v){ %>
             <li><%= v %></li>
           <% }) %>
         </ul>

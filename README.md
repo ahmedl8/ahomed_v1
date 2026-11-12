@@ -39,7 +39,7 @@ npm run dev    # con recarga (nodemon)
 - `data/pricing-catalog.json` — catálogo de componentes con precio (material, mano de obra por hora, dispositivos). Los servicios los referencian por `ref`.
 - `data/pricing.js` — motor que convierte las líneas de cada opción en `{items, total}` y calcula el "desde" de cada servicio.
 - `data/galeria.js` — `/galeria` se genera sola con los pares antes/después de los servicios.
-- `data/icons.js` — iconos SVG.
+- `data/icons.js` — iconos SVG de trazo (Lucide, licencia ISC), todos con el mismo peso y tamaño óptico; el color se define con `color` en el CSS del contenedor, no con `fill`. Para añadir uno: copia su contenido de lucide.dev dentro de un `<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">`.
 - `locales/<es|en|fr>/common.json` — textos de interfaz (mismas claves en los 3 idiomas).
 - `locales/<en|fr>/content.json` — traducciones de los textos de `data/*` (clave = ruta del dato; si falta, se muestra el español).
 
@@ -89,6 +89,7 @@ Las URLs antiguas (bloques, IA predictiva, configurador, packs, domótica, segur
 - CSP explícita con nonce por petición; cualquier script inline nuevo necesita `nonce="<%= cspNonce %>"`.
 - `express.static` va con `redirect: false` para que `/en` y `/fr` (portada) no redirijan a `/en/` y `/fr/`.
 - Medición: Google Tag Manager `GTM-5D5WS88L` con GA4 `G-EXZRJ12XRG`. Cada botón "Elegir esta opción por WhatsApp" empuja el evento `seleccion_opcion_precio` al `dataLayer` (`public/js/main.js`); falta el trigger + etiqueta GA4 en GTM para verlo en informes.
+- Portada: las 4 familias se reparten en dos columnas (`.family-col`, familias 01+03 y 02+04) para que no queden huecos; en móvil se ordenan 01-04 con `.family-order-N`.
 - `.two-col > *`, `.options-stack > *` llevan `min-width:0` para evitar desborde horizontal en móvil.
 - Sin testimonios ni cifras de clientes (todavía no hay reseñas reales), sin formulario de contacto (WhatsApp es suficiente) y sin enlaces a redes sociales inventados.
 

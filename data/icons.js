@@ -1,63 +1,37 @@
-// Paths SVG (viewBox 0 0 24 24) por clave de icono, usados en tarjetas de servicio.
+// Iconos SVG (viewBox 0 0 24 24) por clave, usados en tarjetas de servicio, fichas y portada.
+// Son iconos de trazo de Lucide (https://lucide.dev, licencia ISC): mismo peso y tamaño óptico en todos.
+// El color se define con `color` en el CSS del contenedor (stroke="currentColor"); no usan `fill`.
 const icons = {
+  bolt:
+    '<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></g>',
   droplet:
-    '<path d="M12 2c-5.33 4.55-8 8.48-8 11.8 0 4.98 3.8 8.2 8 8.2s8-3.22 8-8.2c0-3.32-2.67-7.25-8-11.8z"/>',
+    '<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></g>',
   build:
-    '<path d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"/>',
-  key:
-    '<path d="M12.65 10C11.83 7.67 9.61 6 7 6c-3.31 0-6 2.69-6 6s2.69 6 6 6c2.61 0 4.83-1.67 5.65-4H17v4h4v-4h2v-4H12.65zM7 14c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/>',
-  bolt: '<path d="M11 21h-1l1-7H7.5c-.58 0-.57-.32-.38-.66.19-.34.05-.08.07-.12C8.48 10.94 10.42 7.54 13 3h1l-1 7h3.5c.49 0 .56.33.47.51l-.07.15C12.96 17.55 11 21 11 21z"/>',
+    '<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 12-8.373 8.373a1 1 0 1 1-3-3L12 9"/> <path d="m18 15 4-4"/> <path d="m21.5 11.5-1.914-1.914A2 2 0 0 1 19 8.172V7l-2.26-2.26a6 6 0 0 0-4.202-1.756L9 2.96l.92.82A6.18 6.18 0 0 1 12 8.4V10l2 2h1.172a2 2 0 0 1 1.414.586L18.5 14.5"/></g>',
   "home-wifi":
-    '<path d="M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3z"/><path d="M12 8.5a4 4 0 0 0-2.83 1.17l.94.94a2.6 2.6 0 0 1 3.78 0l.94-.94A4 4 0 0 0 12 8.5z" fill="#fff" opacity="0"/>',
-  solar:
-    '<path d="M12 3v2M12 19v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M3 12h2M19 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/><circle cx="12" cy="12" r="4.5"/>',
-  shield:
-    '<path d="M12 2l8 3.5v6c0 5.2-3.4 9.8-8 10.5-4.6-.7-8-5.3-8-10.5v-6L12 2z"/>',
-  network:
-    '<path d="M12 2C6.5 2 2 6.5 2 12h2c0-4.4 3.6-8 8-8s8 3.6 8 8h2c0-5.5-4.5-10-10-10z" opacity=".35"/><path d="M12 6a6 6 0 0 0-6 6h2a4 4 0 0 1 4-4 4 4 0 0 1 4 4h2a6 6 0 0 0-6-6z" opacity=".65"/><circle cx="12" cy="16" r="2.4"/>',
-  climate:
-    '<path d="M3 9h18v2H3zM3 13h18v2H3z"/><circle cx="7" cy="18" r="1.4"/><circle cx="12" cy="18" r="1.4"/><circle cx="17" cy="18" r="1.4"/>',
-  antenna:
-    '<path d="M12 2l7 4.5-1 1.7L12 5 6 8.2l-1-1.7L12 2z"/><path d="M12 8v13M8 21h8"/>',
-  wrench:
-    '<path d="M22 6.5a4.5 4.5 0 0 1-6.02 4.24L8.4 18.32a2 2 0 1 1-2.83-2.83l7.58-7.58A4.5 4.5 0 0 1 19 2.5l-3.2 3.2 1.5 1.5L20.5 4a4.48 4.48 0 0 1 1.5 2.5z"/>',
-  plumbing:
-    '<path d="M7 3h10v4a5 5 0 0 1-3 4.58V15a2 2 0 0 0 2 2h2v2h-2a4 4 0 0 1-4-4v-3.42A5 5 0 0 1 7 7V3z"/><circle cx="7" cy="19" r="2"/>',
-  pladur:
-    '<path d="M3 6h18v3H3zM3 15h18v3H3z"/><path d="M6 9v6M18 9v6M12 9v6"/>',
-  maintenance:
-    '<path d="M12 3l1.7 3.5L17.5 7l-2.6 2.9.6 3.9L12 12l-3.5 1.8.6-3.9L6.5 7l3.8-.5L12 3z"/><path d="M6 15l-2 6 3-1 1 3 2-6"/><path d="M18 15l2 6-3-1-1 3-2-6"/>',
-  ai: '<path d="M9 2h6l1 3h3v3l-3 1v6l3 1v3h-3l-1 3H9l-1-3H5v-3l3-1V9L5 8V5h3l1-3z"/><circle cx="12" cy="12" r="2.2" fill="#fff"/>',
-  "clima-ia":
-    '<path d="M12 3v2M12 19v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M3 12h2M19 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/><circle cx="12" cy="12" r="3.5"/><path d="M2 20h4M9 20h4M16 20h4" opacity=".6"/>',
-  "geo-casa":
-    '<path d="M12 3L3 10h2v9h5v-6h4v6h5v-9h2L12 3z"/><circle cx="12" cy="10.5" r="1.6" fill="#fff"/>',
-  sueno:
-    '<path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 1 0 10.5 10.5z"/><path d="M15 3l.6 1.4L17 5l-1.4.6L15 7l-.6-1.4L13 5l1.4-.6L15 3z"/>',
-  "aire-calidad":
-    '<path d="M4 8h11a3 3 0 1 0-2.6-4.5"/><path d="M4 16h13a3 3 0 1 1-2.6 4.5"/><path d="M4 12h16"/>',
-  mascota:
-    '<circle cx="7" cy="8" r="2"/><circle cx="17" cy="8" r="2"/><circle cx="4" cy="13" r="1.8"/><circle cx="20" cy="13" r="1.8"/><path d="M12 11c-3 0-5.5 2.2-5.5 5 0 2.2 2 4 5.5 4s5.5-1.8 5.5-4c0-2.8-2.5-5-5.5-5z"/>',
-  "cocina-ia":
-    '<path d="M6 3v6a2 2 0 0 0 2 2v10M10 3v8M14 3c0 3-2 3-2 6v9" fill="none"/><path d="M18 3s2 2 2 6-2 5-2 5v8" fill="none"/>',
-  mayores:
-    '<circle cx="12" cy="6" r="3"/><path d="M12 10c-3.5 0-6 2-6 5v1h4l.5 6h3l.5-6h4v-1c0-3-2.5-5-6-5z"/><path d="M17 12l3 2-1.5 2.5" fill="none"/>',
-  ninos:
-    '<circle cx="8" cy="6" r="2.3"/><circle cx="16" cy="6" r="2.3"/><path d="M8 9.5c-2.2 0-4 1.7-4 4v3h3l.4 4.5h1.2L9 16.5h-2v-3c0-1.3 1-2.5 2.3-2.7"/><path d="M16 9.5c2.2 0 4 1.7 4 4v3h-3l-.4 4.5h-1.2l.6-7.5h2v-3c0-1.3-1-2.5-2.3-2.7"/>',
-  paquete:
-    '<path d="M3 8l9-4 9 4-9 4-9-4z"/><path d="M3 8v8l9 4 9-4V8"/><path d="M12 12v8" opacity=".6"/>',
-  light:
-    '<path d="M12 2a7 7 0 0 0-4 12.7c.7.5 1 1.3 1 2.1V18h6v-1.2c0-.8.3-1.6 1-2.1A7 7 0 0 0 12 2z"/><rect x="9.5" y="19" width="5" height="1.6" rx=".8" fill="#fff"/>',
+    '<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/> <path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></g>',
+  key:
+    '<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.586 17.414A2 2 0 0 0 2 18.828V21a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h1a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h.172a2 2 0 0 0 1.414-.586l.814-.814a6.5 6.5 0 1 0-4-4z"/> <circle cx="16.5" cy="7.5" r=".5" fill="currentColor"/></g>',
   paint:
-    '<path d="M18 4V3c0-.55-.45-1-1-1H5c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1h12c.55 0 1-.45 1-1V6h1v4H9v11c0 .55.45 1 1 1h2c.55 0 1-.45 1-1v-9h8V4h-3z"/>',
+    '<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="6" x="2" y="2" rx="2"/> <path d="M10 16v-2a2 2 0 0 1 2-2h8a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/> <rect width="4" height="6" x="8" y="16" rx="1"/></g>',
+  pladur:
+    '<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/> <path d="M12 9v6"/> <path d="M16 15v6"/> <path d="M16 3v6"/> <path d="M3 15h18"/> <path d="M3 9h18"/> <path d="M8 15v6"/> <path d="M8 3v6"/></g>',
   camera:
-    '<path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/>',
+    '<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16.75 12h3.632a1 1 0 0 1 .894 1.447l-2.034 4.069a1 1 0 0 1-1.708.134l-2.124-2.97"/> <path d="M17.106 9.053a1 1 0 0 1 .447 1.341l-3.106 6.211a1 1 0 0 1-1.342.447L3.61 12.3a2.92 2.92 0 0 1-1.3-3.91L3.69 5.6a2.92 2.92 0 0 1 3.92-1.3z"/> <path d="M2 19h3.76a2 2 0 0 0 1.8-1.1L9 15"/> <path d="M2 21v-4"/> <path d="M7 9h.01"/></g>',
   blinds:
-    '<path d="M3 3h18v3H3zM3 7h18v2H3zM3 10h18v2H3zM3 13h18v2H3z"/><path d="M11 16h2v3.5a1 1 0 1 1-2 0z"/>',
+    '<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h18"/> <path d="M20 7H8"/> <path d="M20 11H8"/> <path d="M10 19h10"/> <path d="M8 15h12"/> <path d="M4 3v14"/> <circle cx="4" cy="19" r="2"/></g>',
   leaf:
-    '<path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z"/>',
+    '<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 20h10"/> <path d="M10 20c5.5-2.5.8-6.4 3-10"/> <path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z"/> <path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z"/></g>',
   sparkles:
-    '<path d="M19 9l1.25-2.75L23 5l-2.75-1.25L19 1l-1.25 2.75L15 5l2.75 1.25L19 9zm-7.5.5L9 4 6.5 9.5 1 12l5.5 2.5L9 20l2.5-5.5L17 12l-5.5-2.5zM19 15l-1.25 2.75L15 19l2.75 1.25L19 23l1.25-2.75L23 19l-2.75-1.25L19 15z"/>',
+    '<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/> <path d="M20 3v4"/> <path d="M22 5h-4"/> <path d="M4 17v2"/> <path d="M5 18H3"/></g>',
+  wrench:
+    '<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></g>',
+  shield:
+    '<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/> <path d="m9 12 2 2 4-4"/></g>',
+  pin:
+    '<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/> <circle cx="12" cy="10" r="3"/></g>',
+  award:
+    '<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526"/> <circle cx="12" cy="8" r="6"/></g>',
 };
 
 module.exports = icons;

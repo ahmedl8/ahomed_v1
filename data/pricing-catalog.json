@@ -1745,6 +1745,14 @@
       "area": "mantenimiento",
       "unidad": "lote",
       "precio": 290
+    },
+    {
+      "id": "gg_margen_reformas",
+      "nombre": "Gastos generales y margen de empresa (desplazamientos, herramienta, gestión y garantía)",
+      "tipo": "referencia",
+      "area": "reformas",
+      "unidad": "porcentaje",
+      "precio": 15
     }
   ]
 }

@@ -105,22 +105,7 @@
                   <h2 class="sub-heading"><%= tv('detalle_servicio.ejemplo_real.title', { titulo: ex.titulo }) %></h2>
                   <% if (ex.cliente) { %><p class="example-client"><%= ex.cliente %></p><% } %>
 
-                  <% if (ex.imagen && ex.imagenAntes) { %>
-                    <div class="pack-photo-pair">
-                      <div class="pack-photo-wrap">
-                        <span class="photo-label"><%= t('detalle_servicio.antes') %></span>
-                        <img src="<%= ex.imagenAntes %>" alt="<%= tv('detalle_servicio.antes_alt', { titulo: ex.titulo }) %>" loading="lazy">
-                      </div>
-                      <div class="pack-photo-wrap">
-                        <span class="photo-label photo-label-after"><%= t('detalle_servicio.despues') %></span>
-                        <img src="<%= ex.imagen %>" alt="<%= tv('detalle_servicio.despues_alt', { titulo: ex.titulo }) %>" loading="lazy">
-                      </div>
-                    </div>
-                  <% } else if (ex.imagen) { %>
-                    <div class="pack-photo-single">
-                      <img src="<%= ex.imagen %>" alt="<%= ex.titulo %>" loading="lazy">
-                    </div>
-                  <% } %>
+                  <%- include('../partials/example-photos', { ex: ex, t: t, tv: tv, empresa: empresa }) %>
 
                   <div class="options-stack">
                     <% ex.opciones.forEach(function(op){ %>
@@ -139,22 +124,7 @@
           <h2 class="sub-heading"><%= tv('detalle_servicio.ejemplo_real.title', { titulo: service.ejemplo.titulo }) %></h2>
           <% if (service.ejemplo.cliente) { %><p class="example-client"><%= service.ejemplo.cliente %></p><% } %>
 
-          <% if (service.ejemplo.imagen && service.ejemplo.imagenAntes) { %>
-            <div class="pack-photo-pair">
-              <div class="pack-photo-wrap">
-                <span class="photo-label"><%= t('detalle_servicio.antes') %></span>
-                <img src="<%= service.ejemplo.imagenAntes %>" alt="<%= tv('detalle_servicio.antes_alt', { titulo: service.ejemplo.titulo }) %>" loading="lazy">
-              </div>
-              <div class="pack-photo-wrap">
-                <span class="photo-label photo-label-after"><%= t('detalle_servicio.despues') %></span>
-                <img src="<%= service.ejemplo.imagen %>" alt="<%= tv('detalle_servicio.despues_alt', { titulo: service.ejemplo.titulo }) %>" loading="lazy">
-              </div>
-            </div>
-          <% } else if (service.ejemplo.imagen) { %>
-            <div class="pack-photo-single">
-              <img src="<%= service.ejemplo.imagen %>" alt="<%= service.ejemplo.titulo %>" loading="lazy">
-            </div>
-          <% } %>
+          <%- include('../partials/example-photos', { ex: service.ejemplo, t: t, tv: tv, empresa: empresa }) %>
 
           <div class="options-stack">
             <% service.ejemplo.opciones.forEach(function(op){ %>
@@ -171,6 +141,12 @@
       </div>
     </div>
   </section>
+
+  <% if (service.slug === 'reformas-parciales' || service.slug === 'reforma-integral') { %>
+    <%- include('../partials/reforma-cta', { t: t, empresa: empresa, pathHref: pathHref, services: services, conEnlaces: false }) %>
+  <% } %>
+
+  <%- include('../partials/garantia-colaboradores', { t: t, tv: tv, empresa: empresa, icons: icons, pathHref: pathHref }) %>
 
   <section class="section final-cta">
     <div class="container final-cta-inner">

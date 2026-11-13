@@ -22,10 +22,24 @@
   <section class="section">
     <div class="container legal-content">
 
-      <!-- TODO: sustituir por los datos fiscales definitivos (nombre completo/razón social, NIF/CIF, domicilio fiscal) en cuanto se formalice el alta como autónomo o sociedad. -->
-      <span class="legal-pending"><%- tv('legal.aviso.pending', { email: empresa.email }) %></span>
+      <% if (!titularCompleto) { %>
+        <%# Datos del titular pendientes: se rellenan en data/titular.js (ver README). %>
+        <span class="legal-pending"><%- tv('legal.aviso.pending', { email: empresa.email }) %></span>
+      <% } %>
 
       <h2 class="sub-heading"><%= t('legal.aviso.s1.title') %></h2>
+      <% if (titularCompleto) { %>
+      <p><%- tv('legal.aviso.s1.body_completo', {
+            titular: titular.nombreCompleto,
+            nif: titular.nif,
+            domicilio: titular.domicilio,
+            nombre: empresa.nombre,
+            zona: empresa.zona,
+            email: empresa.email,
+            whatsapp: empresa.whatsapp,
+            whatsappDisplay: empresa.whatsappDisplay
+          }) %></p>
+      <% } else { %>
       <p><%- tv('legal.aviso.s1.body', {
             nombre: empresa.nombre,
             zona: empresa.zona,
@@ -33,6 +47,7 @@
             whatsapp: empresa.whatsapp,
             whatsappDisplay: empresa.whatsappDisplay
           }) %></p>
+      <% } %>
 
       <h2 class="sub-heading"><%= t('legal.aviso.s2.title') %></h2>
       <p><%- tv('legal.aviso.s2.body', { web: empresa.web, nombre: empresa.nombre }) %></p>

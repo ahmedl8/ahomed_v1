@@ -15,6 +15,9 @@
 //   { ref: "cuadro_12_elementos", label: "Cuadro eléctrico 12 elementos (reforzado)" }
 //                                                              -> usa el precio del componente pero
 //                                                                 muestra un nombre distinto en la ficha
+//   { ref: "gg_margen_reformas", porcentaje: 15 }             -> porcentaje sobre la suma de las líneas
+//                                                                 anteriores de la misma opción (gastos
+//                                                                 generales y margen), redondeado a 10 €
 //
 // El resultado de resolverOpcion() es exactamente lo que antes se escribía
 // a mano: { nombre, destacada, items: [[nombre, precio], ...], total }.
@@ -31,10 +34,16 @@ function getComponente(id) {
   return c;
 }
 
-// Resuelve una línea a [nombreMostrado, precioLinea]
-function resolverLinea(linea) {
+// Resuelve una línea a [nombreMostrado, precioLinea]. "subtotal" es la suma de
+// las líneas anteriores de la misma opción (solo lo usan las líneas con
+// "porcentaje").
+function resolverLinea(linea, subtotal = 0) {
   const comp = getComponente(linea.ref);
   const nombre = linea.label || comp.nombre;
+
+  if (linea.porcentaje != null) {
+    return [nombre, Math.round((subtotal * linea.porcentaje) / 100 / 10) * 10];
+  }
 
   if (linea.precioOverride != null) {
     // Caso puntual: la ficha original fusiona dos componentes en una sola
@@ -80,8 +89,13 @@ function resolverOpcion(opcion) {
   if (!opcion.lineas) {
     return opcion;
   }
-  const items = opcion.lineas.map(resolverLinea);
-  const total = items.reduce((sum, [, precio]) => sum + precio, 0);
+  const items = [];
+  let total = 0;
+  opcion.lineas.forEach((linea) => {
+    const item = resolverLinea(linea, total);
+    items.push(item);
+    total += item[1];
+  });
   const resultado = {
     nombre: opcion.nombre,
     destacada: !!opcion.destacada,

@@ -1,0 +1,20 @@
+<%# Fotos del ejemplo (antes/después o imagen única) + aviso de que son ilustrativas. Parámetros: ex, t, tv, empresa %>
+<% if (ex.imagen) { %>
+  <% if (ex.imagenAntes) { %>
+    <div class="pack-photo-pair">
+      <div class="pack-photo-wrap">
+        <span class="photo-label"><%= t('detalle_servicio.antes') %></span>
+        <img src="<%= ex.imagenAntes %>" alt="<%= tv('detalle_servicio.antes_alt', { titulo: ex.titulo }) %>" loading="lazy">
+      </div>
+      <div class="pack-photo-wrap">
+        <span class="photo-label photo-label-after"><%= t('detalle_servicio.despues') %></span>
+        <img src="<%= ex.imagen %>" alt="<%= tv('detalle_servicio.despues_alt', { titulo: ex.titulo }) %>" loading="lazy">
+      </div>
+    </div>
+  <% } else { %>
+    <div class="pack-photo-single">
+      <img src="<%= ex.imagen %>" alt="<%= ex.titulo %> (<%= t('detalle_servicio.imagen_ilustrativa_alt') %>)" loading="lazy">
+    </div>
+  <% } %>
+  <p class="photo-disclaimer"><%= tv('detalle_servicio.imagenes_ilustrativas', { nombre: empresa.nombre }) %></p>
+<% } %>

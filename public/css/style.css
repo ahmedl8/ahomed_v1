@@ -1045,11 +1045,12 @@ p { margin: 0; }
 }
 .pack-photo-single img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .photo-label {
-  position: absolute; top: 10px; left: 10px;
-  background: rgba(18,20,26,0.75); color: #fff;
-  font-size: 0.76rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em;
-  padding: 5px 10px; border-radius: 999px;
+  position: absolute; top: 10px; left: 10px; max-width: calc(100% - 20px);
+  background: rgba(18,20,26,0.78); color: #fff;
+  font-size: 0.76rem; font-weight: 700; line-height: 1.3; letter-spacing: 0.01em;
+  padding: 5px 11px; border-radius: 14px;
 }
+.photo-disclaimer { font-size: 0.82rem; color: var(--gray-500); font-style: italic; text-align: center; max-width: 780px; margin: -22px auto 28px; }
 .photo-label-after { background: var(--whatsapp-dark); }
 
 .pack-option-cta { width: 100%; justify-content: center; margin-top: 18px; }
@@ -1866,3 +1867,34 @@ p { margin: 0; }
 .options-stack > *, .example-panel > * { min-width: 0; }
 .option-card { max-width: 100%; }
 .option-card .btn { max-width: 100%; white-space: normal; text-align: center; }
+
+
+/* Qué recibes con cada trabajo (garantía + coordinación) */
+.recibes-section { background: var(--paper-soft); }
+.recibes-section .section-head { margin-bottom: 26px; }
+.recibes-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.recibes-card { display: flex; gap: 16px; align-items: flex-start; background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px; min-width: 0; }
+.recibes-icon { flex: 0 0 auto; width: 48px; height: 48px; border-radius: 12px; background: var(--paper-soft); color: var(--ink); display: inline-flex; align-items: center; justify-content: center; }
+.recibes-icon svg { width: 26px; height: 26px; }
+.recibes-card h3 { font-size: 1.05rem; margin: 0 0 6px; }
+.recibes-card p { margin: 0; color: var(--gray-600); line-height: 1.55; font-size: 0.95rem; }
+.recibes-more { margin: 18px 0 0; text-align: center; font-weight: 700; }
+@media (max-width: 760px) { .recibes-grid { grid-template-columns: 1fr; } .recibes-card { padding: 18px; } }
+
+/* Bloque de reformas (portada y fichas de reformas) */
+.reform-cta { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 36px; align-items: stretch; background: var(--paper-soft); border: 1px solid var(--line); border-radius: 20px; padding: 40px; }
+.reform-cta-main { min-width: 0; }
+.reform-cta-main h2 { font-size: 2rem; margin: 6px 0 12px; }
+.reform-cta-main > p { color: var(--gray-600); font-size: 1.05rem; line-height: 1.55; margin: 0 0 18px; }
+.reform-cta-list, .reform-cta-panel ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.reform-cta-list li, .reform-cta-panel li { display: flex; gap: 10px; align-items: flex-start; line-height: 1.4; }
+.reform-cta-list svg, .reform-cta-panel li svg { flex: 0 0 auto; width: 20px; height: 20px; margin-top: 1px; color: #1a8f4a; }
+.reform-cta-list li { font-weight: 600; }
+.reform-cta-actions { display: flex; flex-wrap: wrap; gap: 14px 22px; align-items: center; margin-top: 24px; }
+.reform-cta-actions .btn { white-space: normal; text-align: center; }
+.reform-cta-links { display: flex; flex-wrap: wrap; gap: 8px 22px; margin: 16px 0 0; }
+.reform-cta-link { font-weight: 700; color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+.reform-cta-panel { background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; min-width: 0; align-self: center; }
+.reform-cta-panel h3 { font-size: 1.05rem; margin: 0 0 14px; }
+.reform-cta-panel p { margin: 16px 0 0; color: var(--gray-600); font-size: 0.92rem; line-height: 1.5; }
+@media (max-width: 860px) { .reform-cta { grid-template-columns: 1fr; padding: 26px 20px; gap: 24px; } .reform-cta-main h2 { font-size: 1.6rem; } .reform-cta-panel { padding: 20px; } }

@@ -792,7 +792,7 @@ const services = [
   {
     slug: "limpieza-post-obra",
     familia: "reformas",
-    cardImagen: "/img/trabajos/reforma-general-despues.jpg",
+    cardImagen: "/img/trabajos/limpieza-obra-despues.jpg",
     numero: 7,
     nombre: "Limpieza después de obra",
     icono: "sparkles",
@@ -1315,13 +1315,13 @@ const services = [
   {
     slug: "reforma-integral",
     familia: "reformas",
-    cardImagen: "/img/trabajos/pladur-techo-despues.jpg",
+    cardImagen: "/img/trabajos/reforma-general-despues.jpg",
     numero: 3,
     nombre: "Reforma integral",
     icono: "home-wifi",
     resumen: "Reforma completa de pisos y viviendas: demolición, albañilería, instalaciones nuevas, suelos, cocina, baño y pintura. Coordinamos los gremios con un único interlocutor y un presupuesto desglosado.",
     tiempo: "De unas semanas a unos meses",
-    desde: 395,
+    desde: 454,
     desdeUnidad: "/m²",
     idealPara: [
       "Pisos antiguos que hay que renovar de arriba abajo",
@@ -1334,7 +1334,7 @@ const services = [
       cliente: "Piso de unos 80 m² con cocina y un baño, reformado de principio a fin con los gremios coordinados, plazos acordados por escrito y limpieza final.",
       opciones: [
         {
-          nombre: "Básica — renovación esencial (unos 395 €/m²)",
+          nombre: "Básica — renovación esencial (unos 454 €/m²)",
           destacada: false,
           lineas: [
             { ref: "int_trabajos_previos" },
@@ -1352,7 +1352,7 @@ const services = [
           ]
         },
         {
-          nombre: "Estándar — con redistribución y gama media (unos 576 €/m²)",
+          nombre: "Estándar — con redistribución y gama media (unos 662 €/m²)",
           destacada: true,
           lineas: [
             { ref: "int_trabajos_previos" },
@@ -1370,7 +1370,7 @@ const services = [
           ]
         },
         {
-          nombre: "Completa — gama alta y acabados superiores (unos 736 €/m²)",
+          nombre: "Completa — gama alta y acabados superiores (unos 846 €/m²)",
           destacada: false,
           lineas: [
             { ref: "int_trabajos_previos" },
@@ -1521,6 +1521,19 @@ const services = [
   }
 ];
 
+// Reformas (parciales e integral): cada opción termina con una línea de gastos
+// generales y margen de empresa (15 % sobre las partidas anteriores). Está
+// aquí y no repetida en cada opción para que el porcentaje se cambie en un solo
+// sitio (y en data/pricing-catalog.json: "gg_margen_reformas").
+const GG_REFORMAS = { ref: "gg_margen_reformas", porcentaje: 15 };
+services
+  .filter((s) => s.slug === "reformas-parciales" || s.slug === "reforma-integral")
+  .forEach((s) => {
+    [s.ejemplo].concat(s.ejemplosAdicionales || []).forEach((ej) => {
+      ej.opciones.forEach((op) => op.lineas.push(GG_REFORMAS));
+    });
+  });
+
 // Cuatro familias de servicios (v92): el cliente piensa en lo que necesita
 // —reparar, renovar, proteger y mantener—, no en oficios sueltos. Cada servicio
 // declara su `familia`; la portada, /servicios y el menú se montan solos a
@@ -1579,6 +1592,8 @@ const empresa = {
   web: "ahomed.com",
   email: "info@ahomed.com",
   anosExperiencia: "10 años",
+  // Meses de garantía de ejecución que se indican en la web (FAQ y fichas de servicio).
+  garantiaMeses: 12,
   metaDescriptionDefault:
     "AHOMED — Electricidad, fontanería, reformas, pintura, pladur, cámaras de vigilancia, persianas, jardinería y mantenimiento de chalets en Madrid y alrededores. Presupuesto con tres opciones claras. Primera visita gratuita."
 };

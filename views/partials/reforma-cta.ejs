@@ -1,0 +1,39 @@
+<%# Bloque de reformas: visita técnica + qué enviar por WhatsApp (sin formulario).
+    Parámetros: t, empresa, pathHref, services, conEnlaces (true en portada) %>
+<% var waReforma = 'https://wa.me/34' + empresa.whatsapp + '?text=' + encodeURIComponent(t('common.whatsapp_reforma_text')); %>
+<% var checkSvg = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>'; %>
+<section class="section section-tight reform-cta-section">
+  <div class="container">
+    <div class="reform-cta">
+      <div class="reform-cta-main">
+        <span class="eyebrow"><%= t('reforma_cta.eyebrow') %></span>
+        <h2><%= t('reforma_cta.title') %></h2>
+        <p><%= t('reforma_cta.body') %></p>
+        <ul class="reform-cta-list">
+          <% [1, 2, 3, 4].forEach(function(n){ %>
+          <li><%- checkSvg %><span><%= t('reforma_cta.li' + n) %></span></li>
+          <% }) %>
+        </ul>
+        <div class="reform-cta-actions">
+          <a href="<%= waReforma %>" target="_blank" rel="noopener" class="btn btn-whatsapp"><%= t('reforma_cta.cta') %></a>
+        </div>
+        <% if (conEnlaces) { %>
+        <p class="reform-cta-links">
+          <% ['reformas-parciales', 'reforma-integral'].forEach(function(slug){ var sv = services.find(function(x){ return x.slug === slug; }); if (!sv) { return; } %>
+          <a href="<%= pathHref('/servicios/' + slug) %>" class="reform-cta-link"><%= sv.nombre %> →</a>
+          <% }) %>
+        </p>
+        <% } %>
+      </div>
+      <aside class="reform-cta-panel">
+        <h3><%= t('reforma_cta.panel.title') %></h3>
+        <ul>
+          <% [1, 2, 3, 4, 5].forEach(function(n){ %>
+          <li><%- checkSvg %><span><%= t('reforma_cta.panel.i' + n) %></span></li>
+          <% }) %>
+        </ul>
+        <p><%= t('reforma_cta.panel.note') %></p>
+      </aside>
+    </div>
+  </div>
+</section>

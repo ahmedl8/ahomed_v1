@@ -22,11 +22,17 @@
   <section class="section">
     <div class="container legal-content">
 
-      <!-- TODO: sustituir por los datos fiscales definitivos del responsable del tratamiento en cuanto se formalice el alta como autónomo o sociedad. -->
-      <span class="legal-pending"><%- tv('legal.privacidad.pending', { email: empresa.email }) %></span>
+      <% if (!titularCompleto) { %>
+        <%# Datos del titular pendientes: se rellenan en data/titular.js (ver README). %>
+        <span class="legal-pending"><%- tv('legal.privacidad.pending', { email: empresa.email }) %></span>
+      <% } %>
 
       <h2 class="sub-heading"><%= t('legal.privacidad.s1.title') %></h2>
+      <% if (titularCompleto) { %>
+      <p><%- tv('legal.privacidad.s1.body_completo', { titular: titular.nombreCompleto, nif: titular.nif, domicilio: titular.domicilio, nombre: empresa.nombre, zona: empresa.zona, email: empresa.email }) %></p>
+      <% } else { %>
       <p><%- tv('legal.privacidad.s1.body', { nombre: empresa.nombre, zona: empresa.zona, email: empresa.email }) %></p>
+      <% } %>
 
       <h2 class="sub-heading"><%= t('legal.privacidad.s2.title') %></h2>
       <p><%= t('legal.privacidad.s2.body1') %></p>

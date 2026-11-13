@@ -1,0 +1,23 @@
+<%# Qué recibe el cliente: garantía por escrito y quién ejecuta el trabajo. Parámetros: t, tv, empresa, icons, pathHref %>
+<section class="section recibes-section">
+  <div class="container">
+    <div class="section-head"><h2><%= t('detalle_servicio.recibes.title') %></h2></div>
+    <div class="recibes-grid">
+      <article class="recibes-card">
+        <span class="recibes-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><%- icons.shield %></svg></span>
+        <div>
+          <h3><%= t('detalle_servicio.recibes.garantia.title') %></h3>
+          <p><%= tv('detalle_servicio.recibes.garantia.body', { meses: empresa.garantiaMeses }) %></p>
+        </div>
+      </article>
+      <article class="recibes-card">
+        <span class="recibes-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><%- icons.wrench %></svg></span>
+        <div>
+          <h3><%= t('detalle_servicio.recibes.colab.title') %></h3>
+          <p><%= tv('detalle_servicio.recibes.colab.body', { nombre: empresa.nombre }) %></p>
+        </div>
+      </article>
+    </div>
+    <p class="recibes-more"><a href="<%= pathHref('/preguntas-frecuentes') %>"><%= t('detalle_servicio.recibes.faq_link') %> →</a></p>
+  </div>
+</section>

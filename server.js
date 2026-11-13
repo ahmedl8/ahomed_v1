@@ -22,6 +22,12 @@ servicesRaw.forEach((s) => {
     console.warn(`[AHOMED] El servicio "${s.slug}" tiene familia desconocida: ${s.familia}`);
   }
 });
+const titular = require("./data/titular");
+const titularFaltan = titular.CAMPOS_OBLIGATORIOS.filter((c) => !String(titular[c] || "").trim());
+if (titularFaltan.length) {
+  console.warn(`[AHOMED] Datos legales del titular incompletos (${titularFaltan.join(", ")}): rellénalos en data/titular.js antes de publicar. Aviso legal y privacidad muestran mientras tanto el aviso de datos pendientes.`);
+}
+const escapeHtml = (v) => String(v == null ? "" : v).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 const galeriaRaw = require("./data/galeria");
 const icons = require("./data/icons");
 
@@ -178,6 +184,13 @@ app.use((req, res, next) => {
   res.locals.supportedLangs = SUPPORTED_LANGS;
 
   res.locals.empresa = translate("empresa", empresaRaw, lang);
+  // Titular legal: valores ya escapados para usarlos en textos con HTML.
+  res.locals.titularCompleto = titularFaltan.length === 0;
+  res.locals.titular = {
+    nombreCompleto: escapeHtml(titular.nombreCompleto),
+    nif: escapeHtml(titular.nif),
+    domicilio: escapeHtml(titular.domicilio)
+  };
   res.locals.currentPath = req.path;
   res.locals.icons = icons;
   res.locals.services = translate("services", resolverServicios(servicesRaw), lang).sort((a, b) => a.numero - b.numero);

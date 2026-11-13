@@ -5,13 +5,13 @@
   <script type="application/ld+json">
   <%- (function(){
     var qs = [];
-    for (var i = 1; i <= 11; i++) {
+    for (var i = 1; i <= 12; i++) {
       qs.push({
         "@type": "Question",
         "name": t('faq.q' + i + '.q'),
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": (i === 4 ? empresa.zona + '.' : t('faq.q' + i + '.a')).replace(/<[^>]*>/g, '')
+          "text": (i === 4 ? empresa.zona + '.' : tv('faq.q' + i + '.a', { meses: empresa.garantiaMeses })).replace(/<[^>]*>/g, '')
         }
       });
     }
@@ -37,10 +37,10 @@
   <section class="section">
     <div class="container">
       <div class="faq-list">
-        <% for (var i = 1; i <= 11; i++) { %>
+        <% for (var i = 1; i <= 12; i++) { %>
           <details class="faq-item">
             <summary><%= t('faq.q' + i + '.q') %></summary>
-            <p><%= i === 4 ? empresa.zona + '.' : t('faq.q' + i + '.a') %></p>
+            <p><%= i === 4 ? empresa.zona + '.' : tv('faq.q' + i + '.a', { meses: empresa.garantiaMeses }) %></p>
           </details>
         <% } %>
       </div>

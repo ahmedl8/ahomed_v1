@@ -28,6 +28,7 @@
       <a href="mailto:<%= empresa.email %>"><%= empresa.email %></a>
       <span><%= empresa.zona %></span>
       <span><%= empresa.web %></span>
+      <% if (empresa.googlePerfil) { %><a href="<%= empresa.googlePerfil %>" target="_blank" rel="noopener"><%= t('footer.google_perfil') %></a><% } %>
     </div>
   </div>
 

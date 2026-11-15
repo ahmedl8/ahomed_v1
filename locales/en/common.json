@@ -344,5 +344,8 @@
   "visita.form.nota": "WhatsApp will open with your message ready to send. We'll call you back as soon as we can.",
   "visita.form.vacio": "Please tell us briefly what you need.",
   "visita.form.prefijo": "Hi, I'd like to request a free technical visit. This is what I need:",
-  "visita.form.prefijo_servicio": "Hi, I'd like to request a free technical visit for {servicio}. This is what I need:"
+  "visita.form.prefijo_servicio": "Hi, I'd like to request a free technical visit for {servicio}. This is what I need:",
+  "footer.google_perfil": "Our Google profile",
+  "contacto.google.label": "Google",
+  "contacto.google.text": "View our Google profile"
 }

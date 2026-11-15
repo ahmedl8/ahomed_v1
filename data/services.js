@@ -1600,7 +1600,9 @@ const empresa = {
   whatsapp: "671176482",
   whatsappDisplay: "671 176 482",
   web: "ahomed.com",
-  email: "info@ahomed.com",
+  email: "ahmed.elyousfi.hajri@gmail.com",
+  // Enlace a la ficha de AHOMED en Google (Perfil de Empresa), desde «Compartir perfil».
+  googlePerfil: "https://share.google/6EMmustaVm5HwSFWx",
   anosExperiencia: "10 años",
   // Meses de garantía de ejecución que se indican en la web (FAQ y fichas de servicio).
   garantiaMeses: 12,

@@ -114,3 +114,8 @@ Las URLs antiguas (bloques, IA predictiva, configurador, packs, domótica, segur
 2. Confirmar con costes reales los importes internos (sobre todo reforma integral y mantenimiento de chalets), el 15 % de margen y el IVA con tu gestor, para tener tarifas listas en las visitas.
 3. Añadir reseñas reales de Google Business cuando existan.
 4. Crear en GTM los activadores para `clic_llamada`, `clic_whatsapp_visita` y `enviar_necesidad_whatsapp`.
+
+## Ficha de Google (Perfil de Empresa)
+
+- El enlace a la ficha está en `data/services.js` → `empresa.googlePerfil` (de «Compartir perfil»). Si cambia, se actualiza solo ahí.
+- Se usa en el JSON-LD de todas las páginas (`hasMap` y `sameAs`), en el pie de página y en `/contacto`. Si se deja vacío, desaparece de los tres sitios.

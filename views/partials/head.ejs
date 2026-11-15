@@ -53,7 +53,9 @@ window.__loadGTM = function(){
     "@type": "PostalAddress",
     "addressRegion": "Madrid",
     "addressCountry": "ES"
-  }
+  }<% if (empresa.googlePerfil) { %>,
+  "hasMap": "<%= empresa.googlePerfil %>",
+  "sameAs": ["<%= empresa.googlePerfil %>"]<% } %>
 }
 </script>
 <% if (typeof breadcrumbs !== 'undefined' && breadcrumbs.length > 1) { %>

@@ -167,6 +167,30 @@ app.locals.fmt = (n) => {
   return out;
 };
 
+// v96: la web NO muestra precios ni las opciones Básica/Estándar/Completa.
+// El precio se da siempre en persona, tras la visita técnica gratuita. Los
+// importes y las opciones siguen en data/ como referencia interna, pero antes
+// de llegar a las vistas se quitan: de cada ejemplo solo se conserva el
+// escenario, las fotos y la lista «qué suele incluir» (sin importes).
+const LINEA_INTERNA = /gastos generales|margen|general expenses|overhead|frais g[ée]n[ée]raux/i;
+function ejemploPublico(ex) {
+  const copia = Object.assign({}, ex);
+  const ops = ex.opciones || [];
+  const ref = ops.find((o) => o.destacada) || ops[1] || ops[0];
+  copia.incluye = ((ref && ref.items) || []).map((i) => i[0]).filter((l) => l && !LINEA_INTERNA.test(l));
+  delete copia.opciones;
+  delete copia.nota;
+  return copia;
+}
+function servicioPublico(sv) {
+  const copia = Object.assign({}, sv);
+  delete copia.desde;
+  delete copia.desdeUnidad;
+  if (copia.ejemplo) copia.ejemplo = ejemploPublico(copia.ejemplo);
+  if (copia.ejemplosAdicionales) copia.ejemplosAdicionales = copia.ejemplosAdicionales.map(ejemploPublico);
+  return copia;
+}
+
 // Datos disponibles en todas las vistas — traducidos según res.locals.lang
 // (fijado por el middleware de prefijo de arriba). El español no pasa por
 // translate() (devuelve el dato tal cual); francés e inglés aplican el
@@ -193,7 +217,7 @@ app.use((req, res, next) => {
   };
   res.locals.currentPath = req.path;
   res.locals.icons = icons;
-  res.locals.services = translate("services", resolverServicios(servicesRaw), lang).sort((a, b) => a.numero - b.numero);
+  res.locals.services = translate("services", resolverServicios(servicesRaw), lang).map(servicioPublico).sort((a, b) => a.numero - b.numero);
   // Familias con sus servicios ya resueltos y traducidos; las vacías no se muestran.
   res.locals.familias = translate("familias", familiasRaw, lang)
     .map((f) => Object.assign({}, f, { items: res.locals.services.filter((sv) => sv.familia === f.slug).sort((a, b) => a.numero - b.numero) }))
@@ -252,7 +276,7 @@ app.get("/servicios/:slug", (req, res, next) => {
   res.render("services/detalle", {
     familia,
     title: `${service.nombre} — ${empresa.nombre}`,
-    metaDescription: `${service.resumen} ${fill(t('seo.detalle_servicio.desc_suffix'), { desde: service.desde, unidad: service.desdeUnidad || "", zona: empresa.zona })}`,
+    metaDescription: `${service.resumen} ${fill(t('seo.detalle_servicio.desc_suffix'), { zona: empresa.zona })}`,
     breadcrumbs: crumbs(res, [t('seo.servicios.title'), '/servicios'], [service.nombre, '/servicios/' + service.slug]),
     service
   });

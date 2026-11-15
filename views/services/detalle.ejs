@@ -9,7 +9,7 @@
 
   <section class="service-hero<%= service.heroImagen ? ' service-hero-photo' : '' %>">
     <% if (service.heroImagen) { %>
-      <img class="service-hero-bg" src="<%= service.heroImagen %>" alt="" loading="eager">
+      <img class="service-hero-bg" src="<%= service.heroImagen %>" alt="" loading="eager"<% if (service.heroPosicion) { %> style="object-position: <%= service.heroPosicion %>"<% } %>>
       <div class="service-hero-overlay"></div>
     <% } %>
     <div class="container service-hero-inner">
@@ -25,7 +25,7 @@
         <p><%= service.resumen %></p>
         <div class="service-meta">
           <span class="meta-chip"><%= service.tiempo %></span>
-          <span class="meta-chip meta-chip-price"><%= tv('detalle_servicio.desde_precio', { precio: fmt(service.desde), unidad: service.desdeUnidad || '' }) %></span>
+          <span class="meta-chip meta-chip-free"><%= t('detalle_servicio.visita_gratis') %></span>
         </div>
       </div>
     </div>
@@ -40,9 +40,14 @@
             <p class="urgent-callout-title"><%= service.avisoUrgente.titulo %></p>
             <p class="urgent-callout-texto"><%= service.avisoUrgente.texto %></p>
           </div>
-          <a href="https://wa.me/34<%= empresa.whatsapp %>?text=<%= encodeURIComponent(service.avisoUrgente.mensajeWhatsapp) %>" target="_blank" rel="noopener" class="btn btn-whatsapp urgent-callout-cta">
-            <%= service.avisoUrgente.ctaTexto %>
-          </a>
+          <div class="urgent-callout-actions">
+            <a href="tel:+34<%= empresa.whatsapp %>" class="btn btn-primary urgent-callout-cta" data-gtm-event="clic_llamada" data-lugar="urgente" data-servicio="<%= service.nombre %>">
+              <%= tv('visita.llamar', { tel: empresa.whatsappDisplay }) %>
+            </a>
+            <a href="https://wa.me/34<%= empresa.whatsapp %>?text=<%= encodeURIComponent(service.avisoUrgente.mensajeWhatsapp) %>" target="_blank" rel="noopener" class="btn btn-whatsapp urgent-callout-cta" data-gtm-event="clic_whatsapp_visita" data-lugar="urgente" data-servicio="<%= service.nombre %>">
+              <%= service.avisoUrgente.ctaTexto %>
+            </a>
+          </div>
         </div>
       </div>
     </section>
@@ -80,9 +85,16 @@
           </ul>
         <% } %>
 
-        <a href="https://wa.me/34<%= empresa.whatsapp %>?text=<%= encodeURIComponent(tv('detalle_servicio.whatsapp_presupuesto', { servicio: service.nombre.toLowerCase() })) %>" target="_blank" rel="noopener" class="btn btn-whatsapp btn-lg cta-block">
-          <%= t('detalle_servicio.cta_presupuesto') %>
-        </a>
+        <div class="cta-pair">
+          <a href="tel:+34<%= empresa.whatsapp %>" class="btn btn-primary btn-lg" data-gtm-event="clic_llamada" data-lugar="ficha" data-servicio="<%= service.nombre %>">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24 11.4 11.4 0 0 0 3.58.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.4 11.4 0 0 0 .57 3.58 1 1 0 0 1-.25 1.01l-2.2 2.2z"/></svg>
+            <%= tv('visita.llamar', { tel: empresa.whatsappDisplay }) %>
+          </a>
+          <a href="https://wa.me/34<%= empresa.whatsapp %>?text=<%= encodeURIComponent(tv('detalle_servicio.whatsapp_presupuesto', { servicio: service.nombre.toLowerCase() })) %>" target="_blank" rel="noopener" class="btn btn-whatsapp btn-lg" data-gtm-event="clic_whatsapp_visita" data-lugar="ficha" data-servicio="<%= service.nombre %>">
+            <%= t('detalle_servicio.cta_presupuesto') %>
+          </a>
+        </div>
+        <p class="cta-pair-note"><%= t('visita.nota') %></p>
       </div>
 
       <% var allExamples = [service.ejemplo].concat(service.ejemplosAdicionales || []); %>
@@ -107,15 +119,7 @@
 
                   <%- include('../partials/example-photos', { ex: ex, t: t, tv: tv, empresa: empresa }) %>
 
-                  <div class="options-stack">
-                    <% ex.opciones.forEach(function(op){ %>
-                      <%- include('../partials/option-card', { op: op, fmt: fmt, serviceNombre: service.nombre, empresa: empresa }) %>
-                    <% }) %>
-                  </div>
-
-                  <% if (ex.nota) { %>
-                    <p class="example-note"><%= ex.nota %></p>
-                  <% } %>
+                  <%- include('../partials/example-includes', { ex: ex, t: t }) %>
                 </div>
               <% }) %>
             </div>
@@ -126,18 +130,10 @@
 
           <%- include('../partials/example-photos', { ex: service.ejemplo, t: t, tv: tv, empresa: empresa }) %>
 
-          <div class="options-stack">
-            <% service.ejemplo.opciones.forEach(function(op){ %>
-              <%- include('../partials/option-card', { op: op, fmt: fmt, serviceNombre: service.nombre, empresa: empresa }) %>
-            <% }) %>
-          </div>
-
-          <% if (service.ejemplo.nota) { %>
-            <p class="example-note"><%= service.ejemplo.nota %></p>
-          <% } %>
+          <%- include('../partials/example-includes', { ex: service.ejemplo, t: t }) %>
         <% } %>
 
-        <p class="orientative-note"><%= t('detalle_servicio.nota_orientativa') %></p>
+        <p class="orientative-note"><%= t('detalle_servicio.nota_visita') %></p>
       </div>
     </div>
   </section>
@@ -152,9 +148,15 @@
     <div class="container final-cta-inner">
       <h2><%= tv('detalle_servicio.cta_final.title', { servicio: service.nombre.toLowerCase() }) %></h2>
       <p><%= t('detalle_servicio.cta_final.subtitle') %></p>
-      <a href="https://wa.me/34<%= empresa.whatsapp %>?text=<%= encodeURIComponent(tv('detalle_servicio.whatsapp_presupuesto', { servicio: service.nombre.toLowerCase() })) %>" target="_blank" rel="noopener" class="btn btn-whatsapp btn-lg">
-        <%= empresa.whatsappDisplay %>
-      </a>
+      <div class="final-cta-actions">
+        <a href="tel:+34<%= empresa.whatsapp %>" class="btn btn-light btn-lg" data-gtm-event="clic_llamada" data-lugar="final" data-servicio="<%= service.nombre %>">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24 11.4 11.4 0 0 0 3.58.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.4 11.4 0 0 0 .57 3.58 1 1 0 0 1-.25 1.01l-2.2 2.2z"/></svg>
+          <%= tv('visita.llamar', { tel: empresa.whatsappDisplay }) %>
+        </a>
+        <a href="https://wa.me/34<%= empresa.whatsapp %>?text=<%= encodeURIComponent(tv('detalle_servicio.whatsapp_presupuesto', { servicio: service.nombre.toLowerCase() })) %>" target="_blank" rel="noopener" class="btn btn-whatsapp btn-lg" data-gtm-event="clic_whatsapp_visita" data-lugar="final" data-servicio="<%= service.nombre %>">
+          <%= t('visita.whatsapp') %>
+        </a>
+      </div>
     </div>
   </section>
 

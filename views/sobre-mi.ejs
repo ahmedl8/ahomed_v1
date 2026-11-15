@@ -43,7 +43,7 @@
               t('sobre_mi.por_que.item2'),
               t('sobre_mi.por_que.item3'),
               t('sobre_mi.por_que.item4'),
-              t('sobre_mi.por_que.item5'),
+              tv('sobre_mi.por_que.item5', { meses: empresa.garantiaMeses }),
               t('sobre_mi.por_que.item6')
             ].forEach(function(v){ %>
               <li><%= v %></li>
@@ -65,7 +65,8 @@
         <div class="about-card">
           <h3><%= t('sobre_mi.zona.title') %></h3>
           <p><%= empresa.zona %></p>
-          <a href="https://wa.me/34<%= empresa.whatsapp %>" target="_blank" rel="noopener" class="btn btn-whatsapp cta-block">WhatsApp <%= empresa.whatsappDisplay %></a>
+          <%- include('partials/cta-llamar', { empresa: empresa, tv: tv, cls: 'btn-primary cta-block', lugar: 'sobre-mi' }) %>
+          <a href="https://wa.me/34<%= empresa.whatsapp %>" target="_blank" rel="noopener" class="btn btn-whatsapp cta-block" data-gtm-event="clic_whatsapp_visita" data-lugar="sobre-mi">WhatsApp <%= empresa.whatsappDisplay %></a>
         </div>
       </div>
     </div>

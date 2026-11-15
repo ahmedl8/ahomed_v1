@@ -407,7 +407,6 @@ p { margin: 0; }
 
 .service-card-footer { display: flex; align-items: center; justify-content: space-between; margin-top: 8px; padding-top: 14px; border-top: 1px dashed var(--line); }
 .price-tag { font-weight: 600; font-size: 0.82rem; color: var(--gray-500); }
-.price-tag-lg { font-size: 1.3rem; font-weight: 800; color: var(--ink); }
 .link-arrow { font-size: 0.92rem; font-weight: 800; color: var(--ink); }
 
 .service-card-ai { background: linear-gradient(160deg, var(--ink), #23262d); border-color: var(--ink); color: #fff; }
@@ -727,7 +726,6 @@ p { margin: 0; }
 .value-compare-without span { color: #b5391f; font-weight: 700; }
 .value-compare-with { color: var(--charcoal); font-weight: 500; }
 .value-compare-with span { color: var(--whatsapp-dark); font-weight: 800; }
-.value-compare-footnote { font-size: 0.76rem; color: var(--gray-600); text-align: center; max-width: 720px; margin: 0 auto; }
 @media (max-width: 1024px) {
   .value-compare-grid { grid-template-columns: repeat(2, 1fr); }
 }
@@ -868,54 +866,9 @@ p { margin: 0; }
 .ia-example-block { margin-bottom: 56px; }
 .ia-example-block:last-of-type { margin-bottom: 0; }
 
-.options-stack { display: grid; gap: 18px; }
-.options-stack-3 { grid-template-columns: repeat(3, 1fr); }
 
-.option-card {
-  background: #fff;
-  border: 1.5px solid var(--line);
-  border-radius: var(--radius-sm);
-  padding: 20px;
-  position: relative;
-}
-.option-card-featured { border-color: var(--ink); box-shadow: var(--shadow); }
-.option-card-solo { max-width: 480px; }
-.option-star {
-  position: absolute; top: -12px; left: 16px;
-  background: var(--ink); color: #fff;
-  font-size: 0.76rem; font-weight: 800;
-  padding: 4px 10px; border-radius: 999px;
-}
-.option-star-neutral { background: var(--gray-500); }
-.option-card-desc { font-size: 0.85rem; color: var(--gray-600); margin: 8px 0 14px; }
-.options-stack-2 { grid-template-columns: repeat(2, 1fr); }
 @media (max-width: 720px) {
-  .options-stack-2 { grid-template-columns: 1fr; }
-}
-.option-card h3 { font-size: 1.02rem; margin-bottom: 12px; }
-.option-total-headline { font-size: 1.5rem; font-weight: 800; color: var(--ink); margin: 0 0 14px; }
-.option-breakdown { margin-bottom: 4px; }
-.option-breakdown summary {
-  cursor: pointer;
-  font-size: 0.84rem;
-  font-weight: 700;
-  color: var(--gray-600);
-  padding: 6px 0;
-  list-style: none;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-.option-breakdown summary::-webkit-details-marker { display: none; }
-.option-breakdown summary::before { content: "▸"; font-size: 0.75rem; transition: transform 0.15s ease; }
-.option-breakdown[open] summary::before { transform: rotate(90deg); }
-.option-breakdown summary:hover { color: var(--ink); }
-.option-breakdown .option-table { margin-top: 10px; }
-.option-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
-.option-table td { padding: 7px 0; border-bottom: 1px dashed var(--line); color: var(--charcoal); vertical-align: top; }
-.option-price { text-align: right; font-weight: 700; white-space: nowrap; padding-left: 10px; }
-.option-table tfoot td { border-bottom: none; border-top: 2px solid var(--ink); padding-top: 10px; font-weight: 800; }
-.option-total { font-size: 1.05rem; }
+  }
 
 /* ---------- Calculadora de la Plataforma IA ---------- */
 .calc-niveles {
@@ -1054,14 +1007,12 @@ p { margin: 0; }
 .photo-label-after { background: var(--whatsapp-dark); }
 
 .pack-option-cta { width: 100%; justify-content: center; margin-top: 18px; }
-.option-card-cta { width: 100%; justify-content: center; margin-top: 18px; }
 .pack-note-bottom { font-size: 0.85rem; color: var(--gray-500); font-style: italic; margin-top: 24px; text-align: center; }
 
 @media (max-width: 640px) {
   .pack-photo-pair { grid-template-columns: 1fr; }
 }
 
-.example-note { font-size: 0.85rem; color: var(--gray-500); font-style: italic; margin-top: 18px; }
 
 .ia-modo-info-box {
   background: var(--paper-soft);
@@ -1253,8 +1204,7 @@ p { margin: 0; }
   .steps-grid { grid-template-columns: 1fr; }
   .ai-highlight-inner { grid-template-columns: 1fr; }
   .two-col { grid-template-columns: 1fr; }
-  .options-stack-3 { grid-template-columns: 1fr; }
-  .contact-grid { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; }
   .hero-inner { grid-template-columns: 1fr; text-align: center; }
   .hero-sub { margin-left: auto; margin-right: auto; }
   .hero-banner-img { max-height: 260px; }
@@ -1784,14 +1734,9 @@ p { margin: 0; }
 .dropdown-menu-services a.active { background: var(--paper-soft); font-weight: 700; }
 .dropdown-menu-services .dropdown-all-link { margin-top: 6px; padding-top: 12px; border-top: 1px dashed var(--line); font-weight: 800; color: var(--ink); }
 
-.options-trio { grid-template-columns: repeat(3, 1fr); max-width: 980px; margin-left: auto; margin-right: auto; }
-.options-trio .value-compare-card { padding: 22px 20px; }
-.options-trio .value-compare-card h3 { font-size: 1.1rem; margin-bottom: 8px; }
-.options-trio .value-compare-card p { font-size: 0.92rem; line-height: 1.5; }
 
 @media (max-width: 860px) {
-  .options-trio { grid-template-columns: 1fr; }
-  .dropdown-menu-services { width: 100%; }
+    .dropdown-menu-services { width: 100%; }
 }
 
 /* ---------- v92: servicios agrupados en cuatro familias ---------- */
@@ -1816,7 +1761,6 @@ p { margin: 0; }
 .family-service-icon { display: flex; align-items: center; justify-content: center; flex-shrink: 0; width: 44px; height: 44px; border-radius: 12px; background: var(--paper-soft); }
 .family-service-icon svg { width: 26px; height: 26px; color: var(--ink); }
 .family-service-name { flex: 1; }
-.family-service-price { font-size: 0.9rem; font-weight: 700; color: var(--accent); white-space: nowrap; }
 
 /* /servicios: chips de acceso y una sección por familia */
 .family-nav-wrap { padding: 26px 0 0; }
@@ -1864,9 +1808,7 @@ p { margin: 0; }
 .two-col > * { min-width: 0; }
 /* Portada: las tarjetas de familia no se estiran a la altura de la más larga */
 @media (min-width: 861px) { .family-col { display: flex; flex-direction: column; gap: 28px; min-width: 0; } }
-.options-stack > *, .example-panel > * { min-width: 0; }
-.option-card { max-width: 100%; }
-.option-card .btn { max-width: 100%; white-space: normal; text-align: center; }
+.example-panel > * { min-width: 0; }
 
 
 /* Qué recibes con cada trabajo (garantía + coordinación) */
@@ -1892,9 +1834,72 @@ p { margin: 0; }
 .reform-cta-list li { font-weight: 600; }
 .reform-cta-actions { display: flex; flex-wrap: wrap; gap: 14px 22px; align-items: center; margin-top: 24px; }
 .reform-cta-actions .btn { white-space: normal; text-align: center; }
-.reform-cta-links { display: flex; flex-wrap: wrap; gap: 8px 22px; margin: 16px 0 0; }
+.reform-cta-links { display: flex; flex-wrap: wrap; gap: 8px 22px; margin: 24px 0 0; }
 .reform-cta-link { font-weight: 700; color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
 .reform-cta-panel { background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; min-width: 0; align-self: center; }
 .reform-cta-panel h3 { font-size: 1.05rem; margin: 0 0 14px; }
 .reform-cta-panel p { margin: 16px 0 0; color: var(--gray-600); font-size: 0.92rem; line-height: 1.5; }
 @media (max-width: 860px) { .reform-cta { grid-template-columns: 1fr; padding: 26px 20px; gap: 24px; } .reform-cta-main h2 { font-size: 1.6rem; } .reform-cta-panel { padding: 20px; } }
+
+.footer-images-note { margin: 12px 0 0; font-size: 0.78rem; line-height: 1.5; color: #7a8089; }
+
+/* ---------- v96: sin precios — visita gratuita, llamada y WhatsApp ---------- */
+.btn svg { width: 20px; height: 20px; fill: currentColor; flex-shrink: 0; }
+.btn-light { background: #fff; color: var(--ink); }
+.btn-light:hover { background: #f1f2f4; box-shadow: var(--shadow-lg); }
+.price-tag { display: inline-flex; align-items: center; gap: 6px; font-weight: 700; font-size: 0.82rem; color: var(--whatsapp-dark); }
+.price-tag::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--whatsapp); }
+.family-service-arrow { color: var(--gray-500); font-weight: 700; }
+.family-service-list a:hover .family-service-arrow { color: var(--ink); }
+.service-hero .meta-chip-free { background: var(--whatsapp); color: #fff; }
+
+.final-cta-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; }
+.final-cta-actions .btn { white-space: normal; text-align: center; justify-content: center; }
+.hero-ctas .btn-outline-light svg, .final-cta-actions .btn svg { width: 20px; height: 20px; }
+
+.cta-pair { display: grid; grid-template-columns: repeat(auto-fit, minmax(235px, 1fr)); gap: 12px; margin-top: 24px; }
+.cta-pair .btn { justify-content: center; white-space: nowrap; text-align: center; padding-left: 16px; padding-right: 16px; }
+.cta-pair .btn-whatsapp { white-space: normal; }
+.cta-pair-note { margin: 10px 0 0; font-size: 0.85rem; color: var(--gray-500); }
+
+.urgent-callout-actions { display: flex; gap: 10px; flex-shrink: 0; flex-wrap: wrap; }
+@media (max-width: 720px) { .urgent-callout-actions { width: 100%; } .urgent-callout-actions .btn { flex: 1 1 100%; justify-content: center; white-space: normal; } }
+
+.visita-cta-section { background: var(--paper-soft); }
+.visita-card {
+  display: grid; grid-template-columns: 1.3fr 1fr; gap: 40px; align-items: center;
+  background: #fff; border: 1px solid var(--line); border-radius: 22px; padding: 40px 44px;
+  box-shadow: var(--shadow);
+}
+.visita-copy h2 { font-size: 2rem; margin: 6px 0 12px; }
+.visita-copy p { color: var(--gray-600); margin: 0 0 18px; font-size: 1.02rem; }
+.visita-points { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px 22px; }
+.visita-points li { position: relative; padding-left: 26px; font-weight: 700; font-size: 0.92rem; color: var(--ink); }
+.visita-points li::before {
+  content: ""; position: absolute; left: 0; top: 2px; width: 18px; height: 18px; border-radius: 50%;
+  background: var(--whatsapp) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M20 6 9 17l-5-5' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/12px no-repeat;
+}
+.visita-actions { display: grid; gap: 12px; }
+.visita-actions .btn { justify-content: center; white-space: normal; text-align: center; }
+.visita-note { margin: 2px 0 0; text-align: center; font-size: 0.82rem; color: var(--gray-500); }
+@media (max-width: 900px) { .visita-card { grid-template-columns: 1fr; padding: 28px 22px; gap: 24px; } .visita-copy h2 { font-size: 1.6rem; } }
+
+.example-includes { margin-top: 18px; border: 1px solid var(--line); border-radius: var(--radius); padding: 4px 18px; background: #fff; }
+.example-includes summary {
+  cursor: pointer; list-style: none; padding: 12px 0; font-weight: 700; color: var(--ink);
+  display: flex; align-items: center; gap: 8px;
+}
+.example-includes summary::-webkit-details-marker { display: none; }
+.example-includes summary::before { content: "▸"; font-size: 0.8rem; transition: transform 0.15s ease; }
+.example-includes[open] summary::before { transform: rotate(90deg); }
+.example-includes .check-list { margin: 0 0 14px; }
+
+.call-float {
+  position: fixed; bottom: 92px; right: 24px; z-index: 80;
+  width: 58px; height: 58px; border-radius: 50%;
+  background: var(--ink); display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 8px 24px rgba(18, 20, 26, 0.35); transition: transform 0.15s ease;
+}
+.call-float:hover { transform: scale(1.08); }
+.call-float svg { width: 26px; height: 26px; fill: #fff; }
+@media (max-width: 560px) { .call-float { right: 16px; bottom: 84px; } .whatsapp-float { right: 16px; bottom: 16px; } }

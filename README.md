@@ -2,7 +2,7 @@
 
 Web de AHOMED, "Trabajos para tu casa, bien hechos" (Madrid y alrededores), construida en **Node.js + Express + EJS**, en español, inglés (`/en`) y francés (`/fr`).
 
-Desde la v91 (agrupada en familias en la v92 y ampliada con fontanería, reformas y mantenimiento de chalets en la v93) la web ofrece **solo trabajos sencillos, sin capa de IA ni automatización**. WhatsApp se usa únicamente como canal de contacto (botón y mensaje prellenado), no hay mensajes automáticos.
+Desde la v91 (agrupada en familias en la v92 y ampliada con fontanería, reformas y mantenimiento de chalets en la v93) la web ofrece **solo trabajos sencillos, sin capa de IA ni automatización**. El contacto es solo por teléfono y WhatsApp (botones de llamada y mensaje prellenado), sin formulario y sin mensajes automáticos.
 
 ## Servicios (11, en 4 familias)
 
@@ -11,17 +11,17 @@ Los servicios se presentan agrupados por lo que necesita el cliente (reparar, re
 | Familia | Servicios |
 |---|---|
 | 01 Instalaciones y reparaciones | Electricidad · Fontanería (grifos, sanitarios, fugas, desatascos, puntos de agua y termos eléctricos; sin gas, calderas ni climatización) |
-| 02 Reformas y acabados | Reforma integral (€/m²) · Reformas parciales (baño, cocina, suelo, piso para vender o alquilar) · Pintura · Pladur · Limpieza después de obra |
-| 03 Seguridad y confort | Cámaras de vigilancia (sin cuota) · Motorización de persianas (y toldos) |
-| 04 Exterior y mantenimiento | Jardinería · Mantenimiento de chalets (planes en €/mes y puesta a punto de segunda residencia) |
+| 02 Reformas y acabados | Reformas parciales (baño, cocina, suelo, piso para vender o alquilar) · Reforma integral · Pintura · Pladur |
+| 03 Mantenimiento y exterior (slug `exterior`) | Jardinería · Mantenimiento de chalets · Limpieza después de obra |
+| 04 Seguridad y confort | Cámaras de vigilancia (sin cuota) · Motorización de persianas (y toldos) |
 
-Fontanería y Mantenimiento de chalets no tienen fotos propias: sus tarjetas usan un panel con icono (`.service-card-media-icon`) en vez de imagen. Para mostrar "desde" con unidad (p. ej. `454 €/m²`, `67 €/mes`) se usa `desde` + `desdeUnidad` en la ficha.
+Las tarjetas y cabeceras usan fotos propias de la v96 (`public/img/trabajos/*-card.jpg`, `hero-bloques/`); la posición del encuadre de cada cabecera se ajusta con `heroPosicion` en `data/services.js`.
 
 **Añadir un servicio nuevo**: crea su ficha en `services` de `data/services.js` con su `familia`, su `numero` (orden) y su `icono` (`data/icons.js`), añade las partidas que necesite a `data/pricing-catalog.json`, sus textos en `locales/<en|fr>/content.json` y, si antes redirigía, quita su entrada de `REDIRECTS_301` en `server.js`. Aparece solo en portada, `/servicios`, menú, footer y sitemap. Una familia sin servicios no se muestra. Al arrancar, el servidor avisa por consola si algún servicio tiene una familia que no existe.
 
-Cada servicio tiene su página (`/servicios/<slug>`) con "ideal para", un ejemplo de presupuesto con tres opciones (**Básica / Estándar / Completa**), extras habituales, enlaces a servicios relacionados y botón de WhatsApp por opción.
+Cada servicio tiene su página (`/servicios/<slug>`) con "ideal para", un ejemplo de trabajo (escenario, fotos ilustrativas y lista "qué suele incluir", **sin importes**), extras habituales, enlaces a servicios relacionados y botones de **llamada y WhatsApp** para pedir la visita técnica gratuita.
 
-**Los precios son estimaciones orientativas de mercado** (estudio de precios de Madrid, nov-2026), no tarifas confirmadas: revisarlos en `data/pricing-catalog.json` antes de publicar. Puntos a decidir: si los importes llevan IVA (la web no lo indica), y la reforma integral (395 / 576 / 736 €/m²), que queda por debajo de las fuentes de Madrid.
+**v96 — la web no muestra precios ni opciones.** Ni "desde X €", ni Básica/Estándar/Completa, ni IVA, ni `priceRange` en el JSON-LD: el cliente llama o escribe, se hace la **visita técnica gratuita** y el precio se da en persona. `server.js` quita `desde`, `desdeUnidad`, `opciones` y `nota` de cada servicio antes de llegar a las vistas (`servicioPublico`), de modo que un precio no puede aparecer por descuido. Los importes de `data/pricing-catalog.json`, las opciones de cada ejemplo y el motor `data/pricing.js` se **conservan solo como referencia interna** para preparar presupuestos; si algún día se quieren mostrar, hay que reactivar el parcial de opciones (ya eliminado) y revisar IVA y márgenes.
 
 ## Requisitos y arranque
 
@@ -49,10 +49,10 @@ Para cambiar WhatsApp, email, zona o los meses de garantía (`garantiaMeses`), e
 
 `data/titular.js` es el único sitio donde se escriben el nombre completo, el NIF y el domicilio del titular. Mientras falte alguno, el aviso legal y la política de privacidad muestran el aviso de "datos pendientes" y el servidor lo avisa en consola al arrancar. Cuando están los tres, las páginas muestran la identificación completa en ES/EN/FR y el aviso desaparece. Revisa el texto final con tu gestor o asesor.
 
-### Precios, IVA y márgenes
+### Precios internos (no se muestran)
 
-- Todos los importes se muestran **sin IVA** (textos `footer.disclaimer`, `home.options.footnote` y `detalle_servicio.nota_orientativa` en los 3 idiomas). Si decides mostrarlos con IVA, cambia esos tres textos y recalcula el catálogo.
-- Reformas parciales y reforma integral terminan cada opción con una línea de **gastos generales y margen de empresa (15 %)**, calculada sobre las líneas anteriores (`GG_REFORMAS` en `data/services.js`, componente `gg_margen_reformas` en el catálogo; el motor admite líneas con `porcentaje`). Los "€/m²" de reforma integral en los nombres de las opciones están escritos a mano (454/662/846): actualízalos si cambias el porcentaje o las partidas.
+- Los importes son estimaciones de mercado (estudio nov-2026) para uso interno: revisarlos con costes reales antes de usarlos en un presupuesto.
+- Reformas parciales y reforma integral terminan cada opción interna con una línea de **gastos generales y margen de empresa (15 %)** (`GG_REFORMAS` en `data/services.js`); nunca se muestra en la web (el sanitizador filtra esa línea).
 
 ### Textos de ejemplos, garantía y coordinación
 
@@ -75,7 +75,7 @@ Las fotos están en `public/img/` (`trabajos/<nombre>-antes.jpg` / `-despues.jpg
 │   ├── index.ejs, servicios.ejs, para-profesionales.ejs, sobre-mi.ejs, contacto.ejs
 │   ├── faq.ejs, galeria.ejs, legal-*.ejs, 404.ejs
 │   ├── services/detalle.ejs
-│   └── partials/          # head, header, footer, option-card, cookie-banner, gtm-body
+│   └── partials/          # head, header, footer, cta-visita, cta-llamar, example-includes, example-photos, cookie-banner, gtm-body
 └── public/                # css (style.css + style.min.css), js, img
 ```
 
@@ -83,8 +83,8 @@ Las fotos están en `public/img/` (`trabajos/<nombre>-antes.jpg` / `-despues.jpg
 
 | Ruta | Contenido |
 |---|---|
-| `/` | Portada: cuatro familias de servicios, tres opciones, cómo funciona, profesionales, quién hace el trabajo |
-| `/servicios` | Los servicios agrupados por familia (anclas `#instalaciones`, `#reformas`, `#seguridad-confort`, `#exterior`) |
+| `/` | Portada: cuatro familias de servicios, bloque de visita gratuita (llamada/WhatsApp), cómo funciona, profesionales, quién hace el trabajo |
+| `/servicios` | Los servicios agrupados por familia (anclas `#instalaciones`, `#reformas`, `#exterior`, `#seguridad-confort`) |
 | `/servicios/<slug>` | electricidad, fontaneria, reforma-integral, reformas-parciales, pintura, pladur, limpieza-post-obra, camaras-vigilancia, motorizacion-persianas, jardineria, mantenimiento-chalets |
 | `/para-profesionales` | Colaboración con reformas, constructoras, interiorismo y fincas |
 | `/galeria` | Recreaciones antes/después (fuera del menú) |
@@ -97,20 +97,20 @@ Las URLs antiguas (bloques, IA predictiva, configurador, packs, domótica, segur
 
 ## Notas técnicas
 
-- Precios con formato `1.680 €` mediante `app.locals.fmt` (sin depender de `Intl`).
+- `app.locals.fmt` (formato de importes) sigue disponible pero ya no lo usa ninguna vista.
 - Cada página define su `metaDescription` y hereda Open Graph, canonical y hreflang desde `partials/head.ejs`. La imagen por defecto para compartir es `/img/hero-trabajos.jpg`.
 - Todos los enlaces internos usan `pathHref(...)` para conservar el idioma.
 - CSS: la web sirve `public/css/style.min.css`. Edita `style.css` y regenera con `npx clean-css-cli -o public/css/style.min.css public/css/style.css`.
 - CSP explícita con nonce por petición; cualquier script inline nuevo necesita `nonce="<%= cspNonce %>"`.
 - `express.static` va con `redirect: false` para que `/en` y `/fr` (portada) no redirijan a `/en/` y `/fr/`.
-- Medición: Google Tag Manager `GTM-5D5WS88L` con GA4 `G-EXZRJ12XRG`. Cada botón "Elegir esta opción por WhatsApp" empuja el evento `seleccion_opcion_precio` al `dataLayer` (`public/js/main.js`); falta el trigger + etiqueta GA4 en GTM para verlo en informes.
+- Medición: Google Tag Manager `GTM-5D5WS88L` con GA4 `G-EXZRJ12XRG`. Cada botón con `data-gtm-event` empuja al `dataLayer` el evento `clic_llamada` o `clic_whatsapp_visita` con `lugar` (home, ficha, final, flotante…) y `servicio` (`public/js/main.js`); falta crear en GTM los activadores/etiquetas para esos dos eventos. El botón flotante de llamada (`.call-float`) está en todas las páginas.
 - Portada: las 4 familias se reparten en dos columnas (`.family-col`, familias 01+03 y 02+04) para que no queden huecos; en móvil se ordenan 01-04 con `.family-order-N`.
-- `.two-col > *`, `.options-stack > *` llevan `min-width:0` para evitar desborde horizontal en móvil.
+- `.two-col > *` y `.example-panel > *` llevan `min-width:0` para evitar desborde horizontal en móvil.
 - Sin testimonios ni cifras de clientes (todavía no hay reseñas reales), sin formulario de contacto (WhatsApp es suficiente) y sin enlaces a redes sociales inventados.
 
 ## Próximos pasos sugeridos
 
 1. Sustituir las recreaciones por fotos reales en cuanto haya 2-3 trabajos documentados.
-2. Confirmar los precios orientativos con costes reales (sobre todo reforma integral y mantenimiento de chalets), el 15 % de margen y el tratamiento del IVA con tu gestor.
+2. Confirmar con costes reales los importes internos (sobre todo reforma integral y mantenimiento de chalets), el 15 % de margen y el IVA con tu gestor, para tener tarifas listas en las visitas.
 3. Añadir reseñas reales de Google Business cuando existan.
-4. Crear en GTM el trigger/etiqueta para `seleccion_opcion_precio`.
+4. Crear en GTM los activadores para `clic_llamada` y `clic_whatsapp_visita`.

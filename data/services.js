@@ -30,7 +30,7 @@ const services = [
     ],
     avisoUrgente: {
       titulo: "¿Te has quedado sin luz ahora mismo?",
-      texto: "Diagnóstico de avería eléctrica a domicilio desde 100 €. Vamos el mismo día, sin esperar a comparar presupuestos.",
+      texto: "Diagnóstico de avería eléctrica a domicilio. Vamos el mismo día: llámanos y te decimos cuándo llegamos.",
       ctaTexto: "Pedir diagnóstico urgente",
       mensajeWhatsapp: "Hola, tengo una avería eléctrica y necesito un diagnóstico urgente."
     },
@@ -77,8 +77,8 @@ const services = [
       ]
     },
     extras: [
-      "Punto de recarga para coche eléctrico (desde 996 €)",
-      "Cambio de iluminación a LED (desde 313 €)",
+      "Punto de recarga para coche eléctrico",
+      "Cambio de iluminación a LED",
       "Boletín eléctrico (CIE) con tramitación e inspección"
     ],
     tambienInstalaron: [
@@ -372,7 +372,7 @@ const services = [
       nota: "El cableado eléctrico dentro del tabique (si hace falta pasar algún punto de luz o enchufe) se presupuesta aparte."
     },
     extras: [
-      "Tabique de pladur, 10 m² (desde 435 €)",
+      "Tabique de pladur a medida",
       "Falso techo con iluminación LED integrada",
       "Pintura del tabique o techo en la misma visita"
     ],
@@ -433,7 +433,7 @@ const services = [
     familia: "seguridad-confort",
     heroImagen: "/img/hero-bloques/seguridad.jpg",
     cardImagen: "/img/trabajos/camara-exterior-despues.jpg",
-    numero: 8,
+    numero: 10,
     nombre: "Cámaras de vigilancia",
     icono: "camera",
     resumen: "Cámaras con visión nocturna y grabación en tu propio equipo, para viviendas, chalets y locales. Ves las imágenes desde el móvil, sin cuota mensual: pagas la instalación una vez y el equipo es tuyo.",
@@ -549,7 +549,7 @@ const services = [
     slug: "motorizacion-persianas",
     familia: "seguridad-confort",
     cardImagen: "/img/trabajos/persianas-despues.jpg",
-    numero: 9,
+    numero: 11,
     nombre: "Motorización de persianas",
     icono: "blinds",
     resumen: "Convierte tus persianas de cinta o manivela en persianas con motor: se suben y bajan con un botón, con mando a distancia o desde el móvil. También toldos.",
@@ -651,8 +651,10 @@ const services = [
   {
     slug: "jardineria",
     familia: "exterior",
-    cardImagen: "/img/trabajos/jardin-cesped.jpg",
-    numero: 10,
+    heroImagen: "/img/hero-bloques/jardineria.jpg",
+    heroPosicion: "50% 45%",
+    cardImagen: "/img/trabajos/jardineria-card.jpg",
+    numero: 7,
     nombre: "Jardinería",
     icono: "leaf",
     resumen: "Corte de césped, poda de setos y árboles pequeños, limpieza y abonado, y riego automático. En visitas sueltas o con mantenimiento mensual, para chalets, adosados y comunidades.",
@@ -791,9 +793,11 @@ const services = [
   // ───────────────────────── 7. LIMPIEZA POST-OBRA ─────────────────────────
   {
     slug: "limpieza-post-obra",
-    familia: "reformas",
-    cardImagen: "/img/trabajos/limpieza-obra-despues.jpg",
-    numero: 7,
+    familia: "exterior",
+    heroImagen: "/img/hero-bloques/limpieza-post-obra.jpg",
+    heroPosicion: "50% 30%",
+    cardImagen: "/img/trabajos/limpieza-card.jpg",
+    numero: 9,
     nombre: "Limpieza después de obra",
     icono: "sparkles",
     resumen: "Limpieza a fondo al terminar una reforma: polvo fino, restos de pintura, cemento y silicona en suelos, cristales y marcos, para entregar la vivienda lista para entrar a vivir.",
@@ -895,10 +899,13 @@ const services = [
   {
     slug: "fontaneria",
     familia: "instalaciones",
+    heroImagen: "/img/hero-bloques/fontaneria.jpg",
+    heroPosicion: "50% 35%",
+    cardImagen: "/img/trabajos/fontaneria-card.jpg",
     numero: 2,
     nombre: "Fontanería",
     icono: "droplet",
-    resumen: "Grifos, sanitarios, fugas, desatascos, puntos de agua y desagüe, y termos eléctricos. Visita, diagnóstico y precio antes de empezar.",
+    resumen: "Grifos, sanitarios, fugas, desatascos, puntos de agua y desagüe, y termos eléctricos. Visita, diagnóstico y presupuesto antes de empezar.",
     tiempo: "De una hora a una jornada",
     idealPara: [
       "Un grifo que gotea, una cisterna que pierde o un desagüe lento",
@@ -1072,8 +1079,8 @@ const services = [
     slug: "reformas-parciales",
     familia: "reformas",
     heroImagen: "/img/hero-bloques/reparaciones-reformas.jpg",
-    cardImagen: "/img/hero-bloques/reparaciones-reformas.jpg",
-    numero: 4,
+    cardImagen: "/img/trabajos/reformas-parciales-card.jpg",
+    numero: 3,
     nombre: "Reformas parciales",
     icono: "build",
     resumen: "Reforma de baños y cocinas, renovación de suelos y pisos para vender o alquilar. Un solo contacto, presupuesto desglosado y los gremios coordinados.",
@@ -1161,7 +1168,7 @@ const services = [
     ejemplosAdicionales: [
       {
         titulo: "Reforma de cocina",
-        cliente: "Cocina de unos 10 m², con los gremios coordinados y la limpieza final incluida. Los electrodomésticos solo van incluidos en la opción Completa.",
+        cliente: "Cocina de unos 10 m², con los gremios coordinados y la limpieza final incluida. Los electrodomésticos van aparte, si los necesitas.",
         opciones: [
           {
             nombre: "Básica — muebles y encimera nuevos, sin obra",
@@ -1315,8 +1322,8 @@ const services = [
   {
     slug: "reforma-integral",
     familia: "reformas",
-    cardImagen: "/img/trabajos/reforma-general-despues.jpg",
-    numero: 3,
+    cardImagen: "/img/trabajos/reforma-integral-card.jpg",
+    numero: 4,
     nombre: "Reforma integral",
     icono: "home-wifi",
     resumen: "Reforma completa de pisos y viviendas: demolición, albañilería, instalaciones nuevas, suelos, cocina, baño y pintura. Coordinamos los gremios con un único interlocutor y un presupuesto desglosado.",
@@ -1407,7 +1414,10 @@ const services = [
   {
     slug: "mantenimiento-chalets",
     familia: "exterior",
-    numero: 11,
+    heroImagen: "/img/hero-bloques/mantenimiento-chalets.jpg",
+    heroPosicion: "50% 30%",
+    cardImagen: "/img/trabajos/chalets-card.jpg",
+    numero: 8,
     nombre: "Mantenimiento de chalets",
     icono: "key",
     resumen: "Mantenimiento periódico de chalets, adosados y segundas residencias: revisión de instalaciones, jardín, piscina y pequeñas reparaciones, con fotos del estado de la casa tras cada visita.",
@@ -1553,32 +1563,32 @@ const familias = [
     slug: "reformas",
     numero: 2,
     icono: "paint",
-    imagen: "/img/trabajos/pladur-techo-despues.jpg",
+    imagen: "/img/trabajos/familia-reformas.jpg",
     nombre: "Reformas y acabados",
     lema: "Renovar espacios y mejorar la vivienda."
   },
   {
-    slug: "seguridad-confort",
+    slug: "exterior",
     numero: 3,
+    icono: "leaf",
+    imagen: "/img/trabajos/familia-exterior.jpg",
+    nombre: "Mantenimiento y exterior",
+    lema: "Mantener la casa, sus exteriores y la obra terminada en perfecto estado."
+  },
+  {
+    slug: "seguridad-confort",
+    numero: 4,
     icono: "camera",
     imagen: "/img/trabajos/camara-exterior-despues.jpg",
     nombre: "Seguridad y confort",
     lema: "Proteger la vivienda y hacerla más cómoda."
-  },
-  {
-    slug: "exterior",
-    numero: 4,
-    icono: "leaf",
-    imagen: "/img/trabajos/jardin-exterior.jpg",
-    nombre: "Exterior y mantenimiento",
-    lema: "Mantener la casa y sus exteriores en perfecto estado."
   }
 ];
 
 const comoFunciona = [
-  { label: "Me escribes", texto: "Me escribes por WhatsApp y me cuentas qué necesitas." },
-  { label: "Te visito", texto: "Visito tu vivienda o negocio — la primera visita es gratuita." },
-  { label: "Te preparo opciones", texto: "Te preparo opciones claras: Básica, Estándar y Completa." },
+  { label: "Me llamas", texto: "Me llamas o me escribes por WhatsApp y me cuentas qué necesitas." },
+  { label: "Te visito", texto: "Visito tu vivienda o negocio, veo el trabajo y tomo medidas — la primera visita es gratuita." },
+  { label: "Hablamos en persona", texto: "Te explico las opciones y vemos el presupuesto en persona, sin prisas." },
   { label: "Tú decides", texto: "Tú decides. Sin compromiso, sin letra pequeña." },
   { label: "Lo hacemos", texto: "Hacemos el trabajo, lo dejamos limpio y te lo explico." }
 ];
@@ -1595,7 +1605,7 @@ const empresa = {
   // Meses de garantía de ejecución que se indican en la web (FAQ y fichas de servicio).
   garantiaMeses: 12,
   metaDescriptionDefault:
-    "AHOMED — Electricidad, fontanería, reformas, pintura, pladur, cámaras de vigilancia, persianas, jardinería y mantenimiento de chalets en Madrid y alrededores. Presupuesto con tres opciones claras. Primera visita gratuita."
+    "AHOMED — Electricidad, fontanería, reformas, pintura, pladur, cámaras de vigilancia, persianas, jardinería y mantenimiento de chalets en Madrid y alrededores. Primera visita técnica gratuita y sin compromiso."
 };
 
 module.exports = { services, familias, comoFunciona, empresa };

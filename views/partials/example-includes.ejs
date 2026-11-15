@@ -1,0 +1,9 @@
+<%# Lista «qué suele incluir» de un ejemplo, sin importes. Locals: ex, t %>
+<% if (ex.incluye && ex.incluye.length) { %>
+  <details class="example-includes"<%= ex.incluye.length <= 6 ? ' open' : '' %>>
+    <summary><%= t('detalle_servicio.incluye.title') %></summary>
+    <ul class="check-list">
+      <% ex.incluye.forEach(function(l){ %><li><%= l %></li><% }) %>
+    </ul>
+  </details>
+<% } %>

@@ -325,8 +325,8 @@
   "common.whatsapp_reforma_text": "Hola, quiero pedir una visita técnica para una reforma.\n\nTipo de reforma: \nLocalidad: \nMetros aproximados: \nEstancias afectadas: \n\nTe envío fotografías del estado actual.",
   "footer.imagenes_ilustrativas": "Las imágenes de trabajos y servicios son ilustrativas, creadas con inteligencia artificial, y no corresponden necesariamente a trabajos ejecutados por {nombre}.",
   "visita.eyebrow": "Visita técnica gratuita",
-  "visita.title": "Cuéntanos qué necesitas y vamos a verlo",
-  "visita.subtitle": "Llámanos o escríbenos por WhatsApp. Vamos a tu casa o negocio, vemos el trabajo y te explicamos las opciones. El presupuesto lo hablamos en persona, sin compromiso.",
+  "visita.title": "Cuéntanos qué necesitas y te llamamos",
+  "visita.subtitle": "Escríbenos en pocas líneas qué necesitas y te llamamos para concretar la visita técnica gratuita. El presupuesto lo hablamos en persona, sin compromiso.",
   "visita.point1": "Primera visita gratuita",
   "visita.point2": "Sin compromiso",
   "visita.point3": "Presupuesto detallado, por escrito",
@@ -336,5 +336,13 @@
   "visita.nota": "Atendemos por teléfono y WhatsApp. Te respondemos lo antes posible.",
   "detalle_servicio.visita_gratis": "Visita técnica gratuita",
   "detalle_servicio.nota_visita": "Ejemplo ilustrativo del tipo de trabajo. El alcance exacto, los materiales y los plazos de tu caso se concretan en la visita técnica gratuita.",
-  "detalle_servicio.incluye.title": "Qué suele incluir este trabajo"
+  "detalle_servicio.incluye.title": "Qué suele incluir este trabajo",
+  "visita.form.label": "¿Qué necesitas?",
+  "visita.form.placeholder": "Ej.: se me va la luz en la cocina, quiero reformar el baño, tengo una fuga de agua…",
+  "visita.form.enviar": "Enviar por WhatsApp",
+  "visita.form.o_llamar": "o llámanos al {tel}",
+  "visita.form.nota": "Se abrirá WhatsApp con tu mensaje listo para enviar. Te llamamos lo antes posible.",
+  "visita.form.vacio": "Cuéntanos brevemente qué necesitas.",
+  "visita.form.prefijo": "Hola, quiero pedir una visita técnica gratuita. Esto es lo que necesito:",
+  "visita.form.prefijo_servicio": "Hola, quiero pedir una visita técnica gratuita para {servicio}. Esto es lo que necesito:"
 }

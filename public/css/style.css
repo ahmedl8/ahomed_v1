@@ -1879,9 +1879,25 @@ p { margin: 0; }
   content: ""; position: absolute; left: 0; top: 2px; width: 18px; height: 18px; border-radius: 50%;
   background: var(--whatsapp) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M20 6 9 17l-5-5' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/12px no-repeat;
 }
-.visita-actions { display: grid; gap: 12px; }
-.visita-actions .btn { justify-content: center; white-space: normal; text-align: center; }
-.visita-note { margin: 2px 0 0; text-align: center; font-size: 0.82rem; color: var(--gray-500); }
+.visita-form { display: grid; gap: 12px; min-width: 0; }
+.visita-form label { font-weight: 700; color: var(--ink); font-size: 0.95rem; }
+.visita-form textarea {
+  width: 100%; min-height: 118px; resize: vertical; box-sizing: border-box;
+  font: inherit; font-size: 1rem; color: var(--ink); background: var(--paper-soft);
+  border: 1.5px solid var(--line); border-radius: 14px; padding: 14px 16px;
+}
+.visita-form textarea::placeholder { color: var(--gray-500); }
+.visita-form textarea:focus { outline: none; border-color: var(--ink); background: #fff; box-shadow: 0 0 0 3px rgba(18, 20, 26, 0.1); }
+.visita-form textarea.is-invalid { border-color: #c0392b; background: #fff; }
+.visita-form .btn { justify-content: center; white-space: normal; text-align: center; width: 100%; }
+.visita-nota { margin: 0; text-align: center; font-size: 0.82rem; color: var(--gray-500); }
+.visita-call {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  font-weight: 700; color: var(--ink); text-decoration: none; padding: 12px 16px;
+  border: 1.5px solid var(--line); border-radius: 999px; background: #fff;
+}
+.visita-call:hover { border-color: var(--ink); }
+.visita-call svg { width: 18px; height: 18px; fill: currentColor; }
 @media (max-width: 900px) { .visita-card { grid-template-columns: 1fr; padding: 28px 22px; gap: 24px; } .visita-copy h2 { font-size: 1.6rem; } }
 
 .example-includes { margin-top: 18px; border: 1px solid var(--line); border-radius: var(--radius); padding: 4px 18px; background: #fff; }

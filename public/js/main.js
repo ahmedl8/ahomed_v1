@@ -112,3 +112,39 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+
+// «Cuéntanos qué necesitas y te llamamos»: el cliente escribe su necesidad y, al
+// enviar, se abre WhatsApp con el mensaje ya redactado (no se envía nada a ningún
+// servidor ni de forma automática: el cliente pulsa «enviar» en WhatsApp).
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll("form[data-wa-form]").forEach(function (form) {
+    var campo = form.querySelector("textarea");
+    if (!campo) { return; }
+    campo.addEventListener("input", function () {
+      campo.classList.remove("is-invalid");
+      campo.setCustomValidity("");
+    });
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var texto = campo.value.trim();
+      if (!texto) {
+        campo.classList.add("is-invalid");
+        campo.setCustomValidity(campo.getAttribute("data-vacio") || "");
+        campo.reportValidity();
+        campo.focus();
+        return;
+      }
+      var mensaje = (form.getAttribute("data-wa-prefijo") || "") + "\n\n" + texto;
+      var url = "https://wa.me/" + form.getAttribute("data-wa-numero") + "?text=" + encodeURIComponent(mensaje);
+      // Se avisa a GTM del envío, sin incluir lo que el cliente ha escrito.
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: "enviar_necesidad_whatsapp",
+        lugar: form.getAttribute("data-lugar") || "",
+        servicio: form.getAttribute("data-servicio") || ""
+      });
+      var ventana = window.open(url, "_blank", "noopener");
+      if (!ventana) { window.location.href = url; }
+    });
+  });
+});

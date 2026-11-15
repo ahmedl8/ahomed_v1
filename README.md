@@ -2,7 +2,7 @@
 
 Web de AHOMED, "Trabajos para tu casa, bien hechos" (Madrid y alrededores), construida en **Node.js + Express + EJS**, en español, inglés (`/en`) y francés (`/fr`).
 
-Desde la v91 (agrupada en familias en la v92 y ampliada con fontanería, reformas y mantenimiento de chalets en la v93) la web ofrece **solo trabajos sencillos, sin capa de IA ni automatización**. El contacto es solo por teléfono y WhatsApp (botones de llamada y mensaje prellenado), sin formulario y sin mensajes automáticos.
+Desde la v91 (agrupada en familias en la v92 y ampliada con fontanería, reformas y mantenimiento de chalets en la v93) la web ofrece **solo trabajos sencillos, sin capa de IA ni automatización**. El contacto es solo por teléfono y WhatsApp (botones de llamada y mensaje prellenado), sin formulario con envío a servidor y sin mensajes automáticos. El bloque «Cuéntanos qué necesitas y te llamamos» (`partials/cta-visita.ejs`, en portada, fichas de servicio y contacto) tiene un campo de texto: al enviar, `public/js/main.js` abre WhatsApp con el mensaje ya redactado y el cliente lo envía él mismo; no se guarda nada en el servidor.
 
 ## Servicios (11, en 4 familias)
 
@@ -103,7 +103,7 @@ Las URLs antiguas (bloques, IA predictiva, configurador, packs, domótica, segur
 - CSS: la web sirve `public/css/style.min.css`. Edita `style.css` y regenera con `npx clean-css-cli -o public/css/style.min.css public/css/style.css`.
 - CSP explícita con nonce por petición; cualquier script inline nuevo necesita `nonce="<%= cspNonce %>"`.
 - `express.static` va con `redirect: false` para que `/en` y `/fr` (portada) no redirijan a `/en/` y `/fr/`.
-- Medición: Google Tag Manager `GTM-5D5WS88L` con GA4 `G-EXZRJ12XRG`. Cada botón con `data-gtm-event` empuja al `dataLayer` el evento `clic_llamada` o `clic_whatsapp_visita` con `lugar` (home, ficha, final, flotante…) y `servicio` (`public/js/main.js`); falta crear en GTM los activadores/etiquetas para esos dos eventos. El botón flotante de llamada (`.call-float`) está en todas las páginas.
+- Medición: Google Tag Manager `GTM-5D5WS88L` con GA4 `G-EXZRJ12XRG`. Cada botón con `data-gtm-event` (y el envío del campo de texto, evento `enviar_necesidad_whatsapp`, sin el contenido escrito) empuja al `dataLayer` el evento `clic_llamada` o `clic_whatsapp_visita` con `lugar` (home, ficha, final, flotante…) y `servicio` (`public/js/main.js`); falta crear en GTM los activadores/etiquetas para esos eventos. El botón flotante de llamada (`.call-float`) está en todas las páginas.
 - Portada: las 4 familias se reparten en dos columnas (`.family-col`, familias 01+03 y 02+04) para que no queden huecos; en móvil se ordenan 01-04 con `.family-order-N`.
 - `.two-col > *` y `.example-panel > *` llevan `min-width:0` para evitar desborde horizontal en móvil.
 - Sin testimonios ni cifras de clientes (todavía no hay reseñas reales), sin formulario de contacto (WhatsApp es suficiente) y sin enlaces a redes sociales inventados.
@@ -113,4 +113,4 @@ Las URLs antiguas (bloques, IA predictiva, configurador, packs, domótica, segur
 1. Sustituir las recreaciones por fotos reales en cuanto haya 2-3 trabajos documentados.
 2. Confirmar con costes reales los importes internos (sobre todo reforma integral y mantenimiento de chalets), el 15 % de margen y el IVA con tu gestor, para tener tarifas listas en las visitas.
 3. Añadir reseñas reales de Google Business cuando existan.
-4. Crear en GTM los activadores para `clic_llamada` y `clic_whatsapp_visita`.
+4. Crear en GTM los activadores para `clic_llamada`, `clic_whatsapp_visita` y `enviar_necesidad_whatsapp`.

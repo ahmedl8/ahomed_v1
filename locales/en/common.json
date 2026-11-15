@@ -325,8 +325,8 @@
   "common.whatsapp_reforma_text": "Hello, I would like to request a technical visit for a renovation.\n\nType of renovation: \nTown: \nApproximate m²: \nRooms affected: \n\nI will send photos of the current condition.",
   "footer.imagenes_ilustrativas": "Images of work and services are illustrative, created with artificial intelligence, and do not necessarily correspond to work carried out by {nombre}.",
   "visita.eyebrow": "Free technical visit",
-  "visita.title": "Tell us what you need and we'll come and see it",
-  "visita.subtitle": "Call us or message us on WhatsApp. We come to your home or business, look at the job and explain your options. We go through the quote in person, with no obligation.",
+  "visita.title": "Tell us what you need and we'll call you",
+  "visita.subtitle": "Write a few lines about what you need and we'll call you to arrange the free technical visit. We go through the quote in person, with no obligation.",
   "visita.point1": "Free first visit",
   "visita.point2": "No obligation",
   "visita.point3": "Detailed written quote",
@@ -336,5 +336,13 @@
   "visita.nota": "We answer by phone and WhatsApp. We reply as soon as we can.",
   "detalle_servicio.visita_gratis": "Free technical visit",
   "detalle_servicio.nota_visita": "Illustrative example of this type of job. The exact scope, materials and timeframe for your case are agreed during the free technical visit.",
-  "detalle_servicio.incluye.title": "What this job usually includes"
+  "detalle_servicio.incluye.title": "What this job usually includes",
+  "visita.form.label": "What do you need?",
+  "visita.form.placeholder": "E.g. the power keeps tripping in the kitchen, I want to renovate the bathroom, I have a water leak…",
+  "visita.form.enviar": "Send via WhatsApp",
+  "visita.form.o_llamar": "or call us on {tel}",
+  "visita.form.nota": "WhatsApp will open with your message ready to send. We'll call you back as soon as we can.",
+  "visita.form.vacio": "Please tell us briefly what you need.",
+  "visita.form.prefijo": "Hi, I'd like to request a free technical visit. This is what I need:",
+  "visita.form.prefijo_servicio": "Hi, I'd like to request a free technical visit for {servicio}. This is what I need:"
 }

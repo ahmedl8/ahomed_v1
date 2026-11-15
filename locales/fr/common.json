@@ -325,8 +325,8 @@
   "common.whatsapp_reforma_text": "Bonjour, je souhaite demander une visite technique pour une rénovation.\n\nType de rénovation : \nCommune : \nSurface approximative : \nPièces concernées : \n\nJe vous envoie des photos de l’état actuel.",
   "footer.imagenes_ilustrativas": "Les images de travaux et de services sont illustratives, créées avec l’intelligence artificielle, et ne correspondent pas nécessairement à des travaux réalisés par {nombre}.",
   "visita.eyebrow": "Visite technique gratuite",
-  "visita.title": "Dites-nous ce dont vous avez besoin et nous venons voir",
-  "visita.subtitle": "Appelez-nous ou écrivez-nous sur WhatsApp. Nous venons chez vous ou dans votre commerce, nous regardons les travaux et nous vous expliquons les options. Nous voyons le devis ensemble, sur place, sans engagement.",
+  "visita.title": "Dites-nous ce dont vous avez besoin et nous vous rappelons",
+  "visita.subtitle": "Écrivez-nous en quelques lignes ce dont vous avez besoin et nous vous appelons pour fixer la visite technique gratuite. Nous voyons le devis ensemble, sur place, sans engagement.",
   "visita.point1": "Première visite gratuite",
   "visita.point2": "Sans engagement",
   "visita.point3": "Devis détaillé, par écrit",
@@ -336,5 +336,13 @@
   "visita.nota": "Nous répondons par téléphone et WhatsApp. Nous vous répondons dès que possible.",
   "detalle_servicio.visita_gratis": "Visite technique gratuite",
   "detalle_servicio.nota_visita": "Exemple illustratif de ce type de travaux. L'étendue exacte, les matériaux et les délais de votre cas sont définis lors de la visite technique gratuite.",
-  "detalle_servicio.incluye.title": "Ce que comprend généralement ce travail"
+  "detalle_servicio.incluye.title": "Ce que comprend généralement ce travail",
+  "visita.form.label": "De quoi avez-vous besoin ?",
+  "visita.form.placeholder": "Ex. : le courant saute dans la cuisine, je veux rénover la salle de bain, j'ai une fuite d'eau…",
+  "visita.form.enviar": "Envoyer par WhatsApp",
+  "visita.form.o_llamar": "ou appelez-nous au {tel}",
+  "visita.form.nota": "WhatsApp s'ouvrira avec votre message prêt à envoyer. Nous vous rappelons dès que possible.",
+  "visita.form.vacio": "Dites-nous brièvement ce dont vous avez besoin.",
+  "visita.form.prefijo": "Bonjour, je voudrais demander une visite technique gratuite. Voici ce dont j'ai besoin :",
+  "visita.form.prefijo_servicio": "Bonjour, je voudrais demander une visite technique gratuite pour {servicio}. Voici ce dont j'ai besoin :"
 }

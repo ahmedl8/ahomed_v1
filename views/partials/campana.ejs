@@ -1,0 +1,11 @@
+<%# Banner de campaña estacional (solo portada). Se activa/desactiva en data/services.js → empresa.campana. Parámetros: t, empresa, icons %>
+<aside class="campana-bar" aria-label="<%= t('campana.invierno.title') %>">
+  <div class="container campana-inner">
+    <span class="campana-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><%- icons.leaf %></svg></span>
+    <p class="campana-text">
+      <strong><%= t('campana.invierno.title') %> <span class="campana-lema"><%= t('campana.invierno.lema') %></span></strong>
+      <span class="campana-sub"><%= t('campana.invierno.texto') %></span>
+    </p>
+    <a class="campana-btn" href="https://wa.me/34<%= empresa.whatsapp %>?text=<%= encodeURIComponent(t('campana.invierno.whatsapp_text')) %>" target="_blank" rel="noopener" data-gtm-event="clic_whatsapp_visita" data-lugar="campana-invierno"><%= t('campana.invierno.cta') %></a>
+  </div>
+</aside>

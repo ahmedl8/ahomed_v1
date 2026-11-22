@@ -208,6 +208,9 @@ app.use((req, res, next) => {
   res.locals.supportedLangs = SUPPORTED_LANGS;
 
   res.locals.empresa = translate("empresa", empresaRaw, lang);
+  // Campaña estacional de portada: activa mientras empresa.campana.activa sea true y no se pase la fecha `hasta`.
+  const campana = empresaRaw.campana || {};
+  res.locals.campanaActiva = Boolean(campana.activa) && (!campana.hasta || new Date().toISOString().slice(0, 10) <= campana.hasta);
   // Titular legal: valores ya escapados para usarlos en textos con HTML.
   res.locals.titularCompleto = titularFaltan.length === 0;
   res.locals.titular = {

@@ -1,6 +1,8 @@
 # AHOMED — Sitio web
 
-Web de AHOMED, "Trabajos para tu casa, bien hechos" (Madrid y alrededores), construida en **Node.js + Express + EJS**, en español, inglés (`/en`) y francés (`/fr`).
+Web de AHOMED, "Una llamada. Todo resuelto." (Madrid y alrededores), construida en **Node.js + Express + EJS**, en español, inglés (`/en`) y francés (`/fr`).
+
+**v100 (consolidación, sin rediseño):** mensaje permanente unificado con el flyer («Una llamada. Todo resuelto.» + subtítulo + oferta «Visita técnica gratuita. Presupuesto claro y sin compromiso.»); cuatro argumentos únicos (un solo interlocutor, visita técnica gratuita, presupuesto claro, precio justo sin sustos); CTAs unificados («Solicitar visita gratuita», «Pedir presupuesto», «Llamar ahora», «Contactar por WhatsApp»); **sin garantía comercial por escrito** (solo la garantía legal y la del fabricante de equipos y materiales, y los derechos del consumidor); cámaras «sin cuota de vigilancia»; y campaña estacional de portada separada y apagable (ver «Campaña estacional»).
 
 Desde la v91 (agrupada en familias en la v92 y ampliada con fontanería, reformas y mantenimiento de chalets en la v93) la web ofrece **solo trabajos sencillos, sin capa de IA ni automatización**. El contacto es solo por teléfono y WhatsApp (botones de llamada y mensaje prellenado), sin formulario con envío a servidor y sin mensajes automáticos. El bloque «Cuéntanos qué necesitas y te llamamos» (`partials/cta-visita.ejs`, en portada, fichas de servicio y contacto) tiene un campo de texto: al enviar, `public/js/main.js` abre WhatsApp con el mensaje ya redactado y el cliente lo envía él mismo; no se guarda nada en el servidor.
 
@@ -43,7 +45,11 @@ npm run dev    # con recarga (nodemon)
 - `locales/<es|en|fr>/common.json` — textos de interfaz (mismas claves en los 3 idiomas).
 - `locales/<en|fr>/content.json` — traducciones de los textos de `data/*` (clave = ruta del dato; si falta, se muestra el español).
 
-Para cambiar WhatsApp, email, zona o los meses de garantía (`garantiaMeses`), edita `empresa` en `data/services.js`.
+Para cambiar WhatsApp, email, zona o la campaña estacional, edita `empresa` en `data/services.js`.
+
+### Campaña estacional (portada)
+
+El banner «¿Reforma o jardín esta primavera? Planifícalo este invierno» (`partials/campana.ejs`, solo en portada, texto en `campana.invierno.*` de `common.json`) se controla con `empresa.campana` en `data/services.js`: `{ activa: true, hasta: "2027-03-20" }`. Se muestra mientras `activa` sea `true` y la fecha de hoy no pase de `hasta`; para quitarlo antes, `activa: false`. Para otra campaña (p. ej. otoño), cambia los textos `campana.invierno.*` o añade otro grupo de claves y el partial. El mensaje permanente de la portada no cambia. Eventos GTM: `clic_whatsapp_visita` con `lugar = campana-invierno`.
 
 ### Datos legales (OBLIGATORIO antes de publicar)
 
@@ -54,10 +60,10 @@ Para cambiar WhatsApp, email, zona o los meses de garantía (`garantiaMeses`), e
 - Los importes son estimaciones de mercado (estudio nov-2026) para uso interno: revisarlos con costes reales antes de usarlos en un presupuesto.
 - Reformas parciales y reforma integral terminan cada opción interna con una línea de **gastos generales y margen de empresa (15 %)** (`GG_REFORMAS` en `data/services.js`); nunca se muestra en la web (el sanitizador filtra esa línea).
 
-### Textos de ejemplos, garantía y coordinación
+### Textos de ejemplos, presupuesto y coordinación
 
 - Las imágenes de los ejemplos son ilustrativas y así se rotulan (`partials/example-photos.ejs`, claves `detalle_servicio.antes/despues/imagenes_ilustrativas`). Cuando haya fotos propias, sustitúyelas y cambia el rótulo.
-- Garantía y quién ejecuta el trabajo: `partials/garantia-colaboradores.ejs` (todas las fichas) y FAQ 6 y 12. El plazo sale de `empresa.garantiaMeses` (12 meses por defecto: confírmalo).
+- Presupuesto claro y quién ejecuta el trabajo: `partials/recibes-colaboradores.ejs` (todas las fichas) y FAQ 6 y 12. No se ofrece garantía comercial por escrito: la FAQ 6 solo remite a la garantía legal y la del fabricante y a los derechos del consumidor. Si algún día se ofrece una garantía propia, habría que reintroducirla con un texto revisado por el gestor.
 - Bloque de reformas con solicitud guiada por WhatsApp (sin formulario): `partials/reforma-cta.ejs`, en portada y en las fichas de reformas parciales e integral.
 
 ### Imágenes
@@ -75,7 +81,7 @@ Las fotos están en `public/img/` (`trabajos/<nombre>-antes.jpg` / `-despues.jpg
 │   ├── index.ejs, servicios.ejs, para-profesionales.ejs, sobre-mi.ejs, contacto.ejs
 │   ├── faq.ejs, galeria.ejs, legal-*.ejs, 404.ejs
 │   ├── services/detalle.ejs
-│   └── partials/          # head, header, footer, cta-visita, cta-llamar, example-includes, example-photos, cookie-banner, gtm-body
+│   └── partials/          # head, header, footer, campana, recibes-colaboradores, cta-visita, cta-llamar, example-includes, example-photos, cookie-banner, gtm-body
 └── public/                # css (style.css + style.min.css), js, img
 ```
 

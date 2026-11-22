@@ -11,7 +11,7 @@
         "name": t('faq.q' + i + '.q'),
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": (i === 4 ? empresa.zona + '.' : tv('faq.q' + i + '.a', { meses: empresa.garantiaMeses })).replace(/<[^>]*>/g, '')
+          "text": (i === 4 ? empresa.zona + '.' : t('faq.q' + i + '.a')).replace(/<[^>]*>/g, '')
         }
       });
     }
@@ -40,7 +40,7 @@
         <% for (var i = 1; i <= 12; i++) { %>
           <details class="faq-item">
             <summary><%= t('faq.q' + i + '.q') %></summary>
-            <p><%= i === 4 ? empresa.zona + '.' : tv('faq.q' + i + '.a', { meses: empresa.garantiaMeses }) %></p>
+            <p><%= i === 4 ? empresa.zona + '.' : t('faq.q' + i + '.a') %></p>
           </details>
         <% } %>
       </div>

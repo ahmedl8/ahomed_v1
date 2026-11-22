@@ -436,7 +436,7 @@ const services = [
     numero: 10,
     nombre: "Cámaras de vigilancia",
     icono: "camera",
-    resumen: "Cámaras con visión nocturna y grabación en tu propio equipo, para viviendas, chalets y locales. Ves las imágenes desde el móvil, sin cuota mensual: pagas la instalación una vez y el equipo es tuyo.",
+    resumen: "Cámaras con visión nocturna y grabación en tu propio equipo, para viviendas, chalets y locales. Ves las imágenes desde el móvil, sin cuota de vigilancia: pagas la instalación y el equipo es tuyo.",
     tiempo: "Una jornada",
     idealPara: [
       "Chalets, locales y comunidades",
@@ -446,7 +446,7 @@ const services = [
     ],
     ejemplo: {
       titulo: "Videovigilancia con cámaras cableadas",
-      cliente: "Cámaras PoE cableadas (más fiables que las WiFi) con grabación local, sin cuota mensual.",
+      cliente: "Cámaras PoE cableadas (más fiables que las WiFi) con grabación local, sin cuota de vigilancia.",
       imagen: "/img/trabajos/camara-exterior-despues.jpg",
       imagenAntes: "/img/trabajos/camara-exterior-antes.jpg",
       opciones: [
@@ -1595,7 +1595,7 @@ const comoFunciona = [
 
 const empresa = {
   nombre: "AHOMED",
-  eslogan: "Trabajos para tu casa, bien hechos",
+  eslogan: "Una llamada. Todo resuelto.",
   zona: "Madrid y alrededores",
   whatsapp: "671176482",
   whatsappDisplay: "671 176 482",
@@ -1604,8 +1604,10 @@ const empresa = {
   // Enlace a la ficha de AHOMED en Google (Perfil de Empresa), desde «Compartir perfil».
   googlePerfil: "https://share.google/6EMmustaVm5HwSFWx",
   anosExperiencia: "10 años",
-  // Meses de garantía de ejecución que se indican en la web (FAQ y fichas de servicio).
-  garantiaMeses: 12,
+  // Campaña estacional de portada (se separa del mensaje permanente de la marca).
+  // Se muestra mientras `activa` sea true y la fecha de hoy no pase de `hasta` (AAAA-MM-DD);
+  // para apagarla antes basta con poner activa: false.
+  campana: { activa: true, hasta: "2027-03-20" },
   metaDescriptionDefault:
     "AHOMED — Electricidad, fontanería, reformas, pintura, pladur, cámaras de vigilancia, persianas, jardinería y mantenimiento de chalets en Madrid y alrededores. Primera visita técnica gratuita y sin compromiso."
 };

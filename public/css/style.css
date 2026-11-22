@@ -348,6 +348,9 @@ p { margin: 0; }
 .hero-banner-below .hero-ctas { justify-content: center; }
 
 .hero-sub { font-size: 1.1rem; color: #c7cbd1; max-width: 520px; margin-bottom: 28px; }
+.hero-split-copy .hero-sub { margin-bottom: 14px; }
+.hero-split-copy .hero-sub-2 { font-size: 1.02rem; color: #aeb3bb; }
+.hero-offer { display: inline-block; margin: 6px 0 24px; padding: 8px 14px; border-left: 3px solid #7dd3fc; background: rgba(125,211,252,0.08); font-weight: 700; font-size: 1rem; color: #fff; border-radius: 0 var(--radius-sm) var(--radius-sm) 0; }
 
 .hero-badges { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 32px; }
 .hero-badge {
@@ -1919,3 +1922,20 @@ p { margin: 0; }
 .call-float:hover { transform: scale(1.08); }
 .call-float svg { width: 26px; height: 26px; fill: #fff; }
 @media (max-width: 560px) { .call-float { right: 16px; bottom: 84px; } .whatsapp-float { right: 16px; bottom: 16px; } }
+
+/* ---------- Campaña estacional (portada; se enciende en data/services.js → empresa.campana) ---------- */
+.campana-bar { background: var(--accent); color: #fff; }
+.campana-inner { display: flex; align-items: center; gap: 14px; padding-top: 10px; padding-bottom: 10px; }
+.campana-icon { display: inline-flex; flex-shrink: 0; }
+.campana-icon svg { width: 22px; height: 22px; }
+.campana-text { margin: 0; flex: 1; min-width: 0; font-size: 0.95rem; line-height: 1.35; }
+.campana-text strong { font-weight: 800; }
+.campana-lema { font-weight: 800; }
+.campana-sub { display: block; font-size: 0.85rem; opacity: 0.92; }
+.campana-btn { flex-shrink: 0; background: #fff; color: var(--ink); font-weight: 700; font-size: 0.88rem; padding: 9px 16px; border-radius: 999px; text-decoration: none; white-space: nowrap; }
+.campana-btn:hover { background: #eaf1ff; }
+@media (max-width: 640px) {
+  .campana-inner { flex-wrap: wrap; gap: 8px 12px; }
+  .campana-text { flex-basis: calc(100% - 40px); }
+  .campana-btn { margin-left: 34px; }
+}

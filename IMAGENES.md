@@ -17,23 +17,12 @@ media en Madrid, acabado impecable, sin personas, sin texto, sin logotipos ni ma
 Mientras sean imágenes de IA se mantiene el aviso «imágenes ilustrativas».
 
 ## Estado por servicio (slug)
-| Servicio | Estado |
-|---|---|
-| `banos`, `cocinas`, `suelos-revestimientos`, `armarios-carpinteria`, `ventanas-cerramientos` | **Completos** (3 fotos cada uno) |
-| `fontaneria`, `limpieza-post-obra`, `reformas-parciales`, `reforma-integral` | **Completos** (v103: 3 fotos, tarjeta y cabecera) |
-| `electricidad` | Faltan las 3 (cabecera retirada; la tarjeta usa el cuadro eléctrico) |
-| `pladur` | Faltan las 3 (cabecera retirada) |
-| `jardineria` | Faltan las 3 (tarjeta y cabecera provisionales) |
-| `mantenimiento-chalets` | Faltan las 3 (tarjeta provisional, sin cabecera) |
-| `pintura`, `camaras-vigilancia`, `motorizacion-persianas` | Faltan las 3 (ya tienen tarjeta y cabecera provisionales) |
+**Los 16 servicios están completos** (3 fotos cada uno, con tarjeta y cabecera): `electricidad`, `fontaneria`,
+`reformas-parciales`, `reforma-integral`, `banos`, `cocinas`, `suelos-revestimientos`, `armarios-carpinteria`,
+`pintura`, `pladur`, `jardineria`, `mantenimiento-chalets`, `limpieza-post-obra`, `camaras-vigilancia`,
+`motorizacion-persianas` y `ventanas-cerramientos` (v107).
 
-Desde la v103 `data/services.js` busca primero la foto que deja el importador (`trabajos/<slug>-card.jpg`,
+`data/services.js` busca primero la foto que deja el importador (`trabajos/<slug>-card.jpg`,
 `hero-bloques/<slug>.jpg`) y, si no existe, usa la foto provisional de siempre; no hay que tocar código al
-importar un servicio nuevo.
-
-Sugerencias de contenido (básica → premium) para los que faltan:
-- Electricidad: cuadro ordenado → iluminación empotrada en salón → iluminación de diseño con mecanismos modernos.
-- Pladur: falso techo liso → foseado con LED perimetral → techo con downlights y tabique con hornacina.
-- Pintura: salón en blanco → tono cálido con pared de acento → acabados decorativos.
-- Jardinería y chalets: jardín cuidado de chalet adosado → con riego y setos perfilados → con zona de estar y piscina; sin personas.
-- Cámaras y persianas: cámara en fachada / persiana motorizada en salón → app con varias cámaras / persianas y toldo → instalación integrada en una vivienda de diseño.
+importar un servicio nuevo o al sustituir una foto. El encuadre vertical de cada cabecera se ajusta con
+`heroPosicion` (p. ej. `"50% 45%"`) en la ficha del servicio, porque la franja de la cabecera es muy apaisada.

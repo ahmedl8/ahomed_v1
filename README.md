@@ -1,6 +1,14 @@
 # AHOMED — Sitio web
 
-**v103 (fotos):** fotos propias (3 por servicio) para fontanería, limpieza después de obra, reformas parciales y reforma integral, con su tarjeta y su cabecera; la cabecera de reformas parciales deja de ser el antes/después y reforma integral estrena cabecera. `data/services.js` ya busca por nombre las fotos del importador en todos los servicios (con la foto provisional como respaldo). Faltan las fotos de 7 servicios: ver `IMAGENES.md`.
+**v107 (fotos):** fotos propias (3 por servicio) para motorización de persianas, cámaras de vigilancia y pintura, con su tarjeta y su cabecera. Con esto **los 16 servicios tienen ya todas sus fotos**; no queda ningún prompt pendiente (ver `IMAGENES.md`).
+
+**v106 (fotos):** fotos propias (3 por servicio) para mantenimiento de chalets, con su tarjeta y su cabecera (encuadre de la cabecera ajustado a `50% 45%`).
+
+**v105 (fotos):** fotos propias (3 por servicio) para jardinería, con su tarjeta y su cabecera.
+
+**v104 (fotos):** fotos propias (3 por servicio) para electricidad y pladur, con su tarjeta y su cabecera (las cabeceras anteriores siguen retiradas en `_imagenes-retiradas/`).
+
+**v103 (fotos):** fotos propias (3 por servicio) para fontanería, limpieza después de obra, reformas parciales y reforma integral, con su tarjeta y su cabecera; la cabecera de reformas parciales deja de ser el antes/después y reforma integral estrena cabecera. `data/services.js` ya busca por nombre las fotos del importador en todos los servicios (con la foto provisional como respaldo). 
 
 **v102:** cinco servicios nuevos (baños, cocinas, suelos y revestimientos, armarios/vestidores/carpintería interior, ventanas y cerramientos; ahora 16 servicios), cada uno con 3 fotos (básica, recomendada, premium) y traducciones EN/FR. Importador de fotos: `tools/importar_fotos.py`.
 
@@ -74,7 +82,7 @@ El banner «¿Reforma o jardín esta primavera? Planifícalo este invierno» (`p
 
 ### Imágenes
 
-Las fotos están en `public/img/` (`trabajos/<nombre>-antes.jpg` / `-despues.jpg`, `hero-bloques/`, `hero-trabajos.jpg`). El servidor sirve `.webp` automáticamente si existe junto al `.jpg`/`.png`. Las imágenes de `/galeria` son recreaciones, no fotos de trabajos ya ejecutados (la página lo dice y no está enlazada en menú ni footer). Faltan fotos propias para jardinería, persianas, limpieza, fontanería y mantenimiento de chalets en alta resolución; por eso esos servicios no tienen foto grande en la cabecera (fontanería y mantenimiento de chalets usan un panel con icono en la tarjeta).
+Las fotos están en `public/img/` (`trabajos/<nombre>-antes.jpg` / `-despues.jpg`, `hero-bloques/`, `hero-trabajos.jpg`). El servidor sirve `.webp` automáticamente si existe junto al `.jpg`/`.png`. Las imágenes de `/galeria` son recreaciones, no fotos de trabajos ya ejecutados (la página lo dice y no está enlazada en menú ni footer). Desde la v107 los 16 servicios tienen sus 3 fotos (básica, recomendada, premium) con tarjeta y cabecera: ver `IMAGENES.md`.
 
 ## Estructura
 

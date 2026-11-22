@@ -1939,3 +1939,11 @@ p { margin: 0; }
   .campana-text { flex-basis: calc(100% - 40px); }
   .campana-btn { margin-left: 34px; }
 }
+
+/* Ideas / sugerencias por servicio (fotos en public/img/ideas/<slug>-N.jpg) */
+.ideas-section { background: var(--paper-soft); }
+.ideas-intro { color: var(--gray-500); margin: 6px 0 22px; max-width: 720px; }
+.ideas-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+.idea-card { margin: 0; border-radius: 12px; overflow: hidden; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,0.08); aspect-ratio: 16 / 9; }
+.idea-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.ideas-section .photo-disclaimer { margin: 18px auto 0; }

@@ -1,21 +1,27 @@
 # AHOMED — Sitio web
 
+**v103 (fotos):** fotos propias (3 por servicio) para fontanería, limpieza después de obra, reformas parciales y reforma integral, con su tarjeta y su cabecera; la cabecera de reformas parciales deja de ser el antes/después y reforma integral estrena cabecera. `data/services.js` ya busca por nombre las fotos del importador en todos los servicios (con la foto provisional como respaldo). Faltan las fotos de 7 servicios: ver `IMAGENES.md`.
+
+**v102:** cinco servicios nuevos (baños, cocinas, suelos y revestimientos, armarios/vestidores/carpintería interior, ventanas y cerramientos; ahora 16 servicios), cada uno con 3 fotos (básica, recomendada, premium) y traducciones EN/FR. Importador de fotos: `tools/importar_fotos.py`.
+
+**v101 (fotos):** sin imágenes de personas trabajando (retiradas a `_imagenes-retiradas/`); portada con tríptico de trabajos terminados; las fotos se colocan por nombre de archivo y hay un bloque «Ideas» por servicio. Ver `IMAGENES.md`.
+
 Web de AHOMED, "Una llamada. Todo resuelto." (Madrid y alrededores), construida en **Node.js + Express + EJS**, en español, inglés (`/en`) y francés (`/fr`).
 
 **v100 (consolidación, sin rediseño):** mensaje permanente unificado con el flyer («Una llamada. Todo resuelto.» + subtítulo + oferta «Visita técnica gratuita. Presupuesto claro y sin compromiso.»); cuatro argumentos únicos (un solo interlocutor, visita técnica gratuita, presupuesto claro, precio justo sin sustos); CTAs unificados («Solicitar visita gratuita», «Pedir presupuesto», «Llamar ahora», «Contactar por WhatsApp»); **sin garantía comercial por escrito** (solo la garantía legal y la del fabricante de equipos y materiales, y los derechos del consumidor); cámaras «sin cuota de vigilancia»; y campaña estacional de portada separada y apagable (ver «Campaña estacional»).
 
 Desde la v91 (agrupada en familias en la v92 y ampliada con fontanería, reformas y mantenimiento de chalets en la v93) la web ofrece **solo trabajos sencillos, sin capa de IA ni automatización**. El contacto es solo por teléfono y WhatsApp (botones de llamada y mensaje prellenado), sin formulario con envío a servidor y sin mensajes automáticos. El bloque «Cuéntanos qué necesitas y te llamamos» (`partials/cta-visita.ejs`, en portada, fichas de servicio y contacto) tiene un campo de texto: al enviar, `public/js/main.js` abre WhatsApp con el mensaje ya redactado y el cliente lo envía él mismo; no se guarda nada en el servidor.
 
-## Servicios (11, en 4 familias)
+## Servicios (16, en 4 familias)
 
 Los servicios se presentan agrupados por lo que necesita el cliente (reparar, renovar, proteger y mantener) en la portada, en `/servicios` y en el menú. El orden dentro de cada familia lo marca el campo `numero` de cada servicio.
 
 | Familia | Servicios |
 |---|---|
 | 01 Instalaciones y reparaciones | Electricidad · Fontanería (grifos, sanitarios, fugas, desatascos, puntos de agua y termos eléctricos; sin gas, calderas ni climatización) |
-| 02 Reformas y acabados | Reformas parciales (baño, cocina, suelo, piso para vender o alquilar) · Reforma integral · Pintura · Pladur |
+| 02 Reformas y acabados | Reformas parciales (baño, cocina, suelo, piso para vender o alquilar) · Reforma integral · Baños · Cocinas · Suelos y revestimientos · Armarios, vestidores y carpintería interior · Pintura · Pladur |
 | 03 Mantenimiento y exterior (slug `exterior`) | Jardinería · Mantenimiento de chalets · Limpieza después de obra |
-| 04 Seguridad y confort | Cámaras de vigilancia (sin cuota) · Motorización de persianas (y toldos) |
+| 04 Seguridad y confort | Cámaras de vigilancia (sin cuota) · Motorización de persianas (y toldos) · Ventanas y cerramientos |
 
 Las tarjetas y cabeceras usan fotos propias de la v96 (`public/img/trabajos/*-card.jpg`, `hero-bloques/`); la posición del encuadre de cada cabecera se ajusta con `heroPosicion` en `data/services.js`.
 

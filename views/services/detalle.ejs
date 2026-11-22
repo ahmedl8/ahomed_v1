@@ -138,6 +138,23 @@
     </div>
   </section>
 
+  <% if (service.ideas && service.ideas.length) { %>
+    <section class="section ideas-section">
+      <div class="container">
+        <h2 class="sub-heading"><%= tv('detalle_servicio.ideas_title', { servicio: service.nombre.toLowerCase() }) %></h2>
+        <p class="ideas-intro"><%= t('detalle_servicio.ideas_intro') %></p>
+        <div class="ideas-grid">
+          <% service.ideas.forEach(function(src, i){ %>
+            <figure class="idea-card">
+              <img src="<%= src %>" alt="<%= tv('detalle_servicio.ideas_alt', { servicio: service.nombre, n: i + 1 }) %>" loading="lazy" width="600" height="400">
+            </figure>
+          <% }) %>
+        </div>
+        <p class="photo-disclaimer"><%= tv('detalle_servicio.imagenes_ilustrativas', { nombre: empresa.nombre }) %></p>
+      </div>
+    </section>
+  <% } %>
+
   <% if (service.slug === 'reformas-parciales' || service.slug === 'reforma-integral') { %>
     <%- include('../partials/reforma-cta', { t: t, empresa: empresa, pathHref: pathHref, services: services, conEnlaces: false }) %>
   <% } %>

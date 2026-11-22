@@ -177,7 +177,9 @@ function ejemploPublico(ex) {
   const copia = Object.assign({}, ex);
   const ops = ex.opciones || [];
   const ref = ops.find((o) => o.destacada) || ops[1] || ops[0];
-  copia.incluye = ((ref && ref.items) || []).map((i) => i[0]).filter((l) => l && !LINEA_INTERNA.test(l));
+  copia.incluye = ops.length
+    ? ((ref && ref.items) || []).map((i) => i[0]).filter((l) => l && !LINEA_INTERNA.test(l))
+    : (ex.incluye || []); // servicios sin opciones internas: lista escrita a mano
   delete copia.opciones;
   delete copia.nota;
   return copia;

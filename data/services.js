@@ -9,13 +9,21 @@
 // ejemplo tiene tres opciones (Básica, Estándar, Completa) definidas por líneas
 // que referencian componentes del catálogo (ver data/pricing.js).
 
+const fs = require("fs");
+const path = require("path");
+
+// Devuelve la primera foto de la lista que exista en public/ (o undefined si no hay ninguna).
+// Así, para cambiar una foto basta con copiar el archivo con el nombre indicado en
+// IMAGENES.md y reiniciar el servidor; si no existe, se usa la siguiente o se muestra el icono.
+const foto = (...rutas) => rutas.find((r) => fs.existsSync(path.join(__dirname, "..", "public", r)));
+
 const services = [
   // ───────────────────────── 1. ELECTRICIDAD ─────────────────────────
   {
     slug: "electricidad",
     familia: "instalaciones",
-    heroImagen: "/img/hero-bloques/electricidad.jpg",
-    cardImagen: "/img/trabajos/cuadro-electrico-despues.jpg",
+    heroImagen: foto("/img/hero-bloques/electricidad.jpg"),
+    cardImagen: foto("/img/trabajos/electricidad-card.jpg", "/img/trabajos/cuadro-electrico-despues.jpg"),
     numero: 1,
     nombre: "Electricidad",
     icono: "bolt",
@@ -209,9 +217,9 @@ const services = [
   {
     slug: "pintura",
     familia: "reformas",
-    heroImagen: "/img/hero-bloques/reparaciones-reformas.jpg",
-    cardImagen: "/img/trabajos/pintura-reforma-despues.jpg",
-    numero: 5,
+    heroImagen: foto("/img/hero-bloques/pintura.jpg", "/img/hero-bloques/reparaciones-reformas.jpg"),
+    cardImagen: foto("/img/trabajos/pintura-card.jpg", "/img/trabajos/pintura-reforma-despues.jpg"),
+    numero: 9,
     nombre: "Pintura",
     icono: "paint",
     resumen: "Pintura de pisos, chalets y locales: paredes y techos, reparación de grietas, eliminación de gotelé y acabados lavables. Se entrega limpio, con los muebles protegidos.",
@@ -316,9 +324,9 @@ const services = [
   {
     slug: "pladur",
     familia: "reformas",
-    heroImagen: "/img/hero-bloques/pladur.jpg",
-    cardImagen: "/img/trabajos/pladur-falso-techo-despues.jpg",
-    numero: 6,
+    heroImagen: foto("/img/hero-bloques/pladur.jpg"),
+    cardImagen: foto("/img/trabajos/pladur-card.jpg", "/img/trabajos/pladur-falso-techo-despues.jpg"),
+    numero: 10,
     nombre: "Pladur",
     icono: "pladur",
     resumen: "Tabiques, falsos techos y trasdosados de pladur, con aislamiento acústico si lo necesitas y con la iluminación integrada en el mismo trabajo.",
@@ -431,9 +439,9 @@ const services = [
   {
     slug: "camaras-vigilancia",
     familia: "seguridad-confort",
-    heroImagen: "/img/hero-bloques/seguridad.jpg",
-    cardImagen: "/img/trabajos/camara-exterior-despues.jpg",
-    numero: 10,
+    heroImagen: foto("/img/hero-bloques/camaras-vigilancia.jpg", "/img/hero-bloques/seguridad.jpg"),
+    cardImagen: foto("/img/trabajos/camaras-vigilancia-card.jpg", "/img/trabajos/camara-exterior-despues.jpg"),
+    numero: 14,
     nombre: "Cámaras de vigilancia",
     icono: "camera",
     resumen: "Cámaras con visión nocturna y grabación en tu propio equipo, para viviendas, chalets y locales. Ves las imágenes desde el móvil, sin cuota de vigilancia: pagas la instalación y el equipo es tuyo.",
@@ -548,8 +556,9 @@ const services = [
   {
     slug: "motorizacion-persianas",
     familia: "seguridad-confort",
-    cardImagen: "/img/trabajos/persianas-despues.jpg",
-    numero: 11,
+    heroImagen: foto("/img/hero-bloques/motorizacion-persianas.jpg"),
+    cardImagen: foto("/img/trabajos/motorizacion-persianas-card.jpg", "/img/trabajos/persianas-despues.jpg"),
+    numero: 15,
     nombre: "Motorización de persianas",
     icono: "blinds",
     resumen: "Convierte tus persianas de cinta o manivela en persianas con motor: se suben y bajan con un botón, con mando a distancia o desde el móvil. También toldos.",
@@ -651,10 +660,10 @@ const services = [
   {
     slug: "jardineria",
     familia: "exterior",
-    heroImagen: "/img/hero-bloques/jardineria.jpg",
+    heroImagen: foto("/img/hero-bloques/jardineria.jpg"),
     heroPosicion: "50% 45%",
-    cardImagen: "/img/trabajos/jardineria-card.jpg",
-    numero: 7,
+    cardImagen: foto("/img/trabajos/jardineria-card.jpg", "/img/trabajos/jardin-exterior.jpg"),
+    numero: 11,
     nombre: "Jardinería",
     icono: "leaf",
     resumen: "Corte de césped, poda de setos y árboles pequeños, limpieza y abonado, y riego automático. En visitas sueltas o con mantenimiento mensual, para chalets, adosados y comunidades.",
@@ -794,10 +803,10 @@ const services = [
   {
     slug: "limpieza-post-obra",
     familia: "exterior",
-    heroImagen: "/img/hero-bloques/limpieza-post-obra.jpg",
+    heroImagen: foto("/img/hero-bloques/limpieza-post-obra.jpg"),
     heroPosicion: "50% 30%",
-    cardImagen: "/img/trabajos/limpieza-card.jpg",
-    numero: 9,
+    cardImagen: foto("/img/trabajos/limpieza-post-obra-card.jpg", "/img/trabajos/limpieza-card.jpg"),
+    numero: 13,
     nombre: "Limpieza después de obra",
     icono: "sparkles",
     resumen: "Limpieza a fondo al terminar una reforma: polvo fino, restos de pintura, cemento y silicona en suelos, cristales y marcos, para entregar la vivienda lista para entrar a vivir.",
@@ -899,9 +908,9 @@ const services = [
   {
     slug: "fontaneria",
     familia: "instalaciones",
-    heroImagen: "/img/hero-bloques/fontaneria.jpg",
+    heroImagen: foto("/img/hero-bloques/fontaneria.jpg"),
     heroPosicion: "50% 35%",
-    cardImagen: "/img/trabajos/fontaneria-card.jpg",
+    cardImagen: foto("/img/trabajos/fontaneria-card.jpg"),
     numero: 2,
     nombre: "Fontanería",
     icono: "droplet",
@@ -1078,8 +1087,8 @@ const services = [
   {
     slug: "reformas-parciales",
     familia: "reformas",
-    heroImagen: "/img/hero-bloques/reparaciones-reformas.jpg",
-    cardImagen: "/img/trabajos/reformas-parciales-card.jpg",
+    heroImagen: foto("/img/hero-bloques/reformas-parciales.jpg", "/img/hero-bloques/reparaciones-reformas.jpg"),
+    cardImagen: foto("/img/trabajos/reformas-parciales-card.jpg"),
     numero: 3,
     nombre: "Reformas parciales",
     icono: "build",
@@ -1322,7 +1331,8 @@ const services = [
   {
     slug: "reforma-integral",
     familia: "reformas",
-    cardImagen: "/img/trabajos/reforma-integral-card.jpg",
+    heroImagen: foto("/img/hero-bloques/reforma-integral.jpg"),
+    cardImagen: foto("/img/trabajos/reforma-integral-card.jpg", "/img/trabajos/reforma-general-despues.jpg"),
     numero: 4,
     nombre: "Reforma integral",
     icono: "home-wifi",
@@ -1414,10 +1424,10 @@ const services = [
   {
     slug: "mantenimiento-chalets",
     familia: "exterior",
-    heroImagen: "/img/hero-bloques/mantenimiento-chalets.jpg",
+    heroImagen: foto("/img/hero-bloques/mantenimiento-chalets.jpg"),
     heroPosicion: "50% 30%",
-    cardImagen: "/img/trabajos/chalets-card.jpg",
-    numero: 8,
+    cardImagen: foto("/img/trabajos/mantenimiento-chalets-card.jpg", "/img/trabajos/chalets-card.jpg", "/img/trabajos/toldo-despues.jpg"),
+    numero: 12,
     nombre: "Mantenimiento de chalets",
     icono: "key",
     resumen: "Mantenimiento periódico de chalets, adosados y segundas residencias: revisión de instalaciones, jardín, piscina y pequeñas reparaciones, con fotos del estado de la casa tras cada visita.",
@@ -1528,6 +1538,213 @@ const services = [
         nota: "Precio orientativo para un chalet o adosado de tamaño medio; si la piscina está en mal estado o hay que reparar algo, se valora aparte tras la revisión."
       }
     ]
+  },
+
+  // ───────────────────────── BANOS ─────────────────────────
+  {
+    slug: "banos",
+    familia: "reformas",
+    heroImagen: foto("/img/hero-bloques/banos.jpg"),
+    cardImagen: foto("/img/trabajos/banos-card.jpg"),
+    numero: 5,
+    nombre: "Baños",
+    icono: "shower",
+    resumen: "Reforma de baños completa o parcial: ducha o plato nuevo, alicatado, sanitarios, mueble de lavabo e iluminación, con los gremios coordinados y la limpieza final.",
+    tiempo: "De una a dos semanas",
+    idealPara: [
+      "Cambiar la bañera por un plato de ducha",
+      "Un baño antiguo que quieres renovar de arriba abajo",
+      "Un baño más cómodo y seguro para personas mayores",
+      "Dar un aire nuevo con mueble, grifería e iluminación sin una obra grande"
+    ],
+    ejemplo: {
+      titulo: "Reforma de baño (unos 5 m²)",
+      cliente: "Baño que se quiere renovar, desde un acabado sencillo hasta uno de diseño.",
+      incluye: [
+      "Retirada de sanitarios y escombros",
+      "Fontanería y desagües nuevos",
+      "Alicatado de paredes y suelo",
+      "Plato de ducha o ducha de obra con mampara",
+      "Sanitarios, grifería y mueble de lavabo",
+      "Iluminación y espejo",
+      "Limpieza final de obra"
+    ]
+    },
+    extras: [
+      "Ducha de obra con desagüe lineal",
+      "Mueble de lavabo a medida",
+      "Espejo con iluminación LED"
+    ],
+    tambienInstalaron: [
+      { texto: "Fontanería (grifos, sanitarios y desagües)", href: "/servicios/fontaneria" },
+      { texto: "Electricidad (iluminación y enchufes)", href: "/servicios/electricidad" },
+      { texto: "Limpieza después de obra", href: "/servicios/limpieza-post-obra" }
+    ]
+  },
+
+  // ───────────────────────── COCINAS ─────────────────────────
+  {
+    slug: "cocinas",
+    familia: "reformas",
+    heroImagen: foto("/img/hero-bloques/cocinas.jpg"),
+    cardImagen: foto("/img/trabajos/cocinas-card.jpg"),
+    numero: 6,
+    nombre: "Cocinas",
+    icono: "cooker",
+    resumen: "Cocinas nuevas o renovadas: muebles, encimera, fregadero, campana y electrodomésticos, con la instalación de agua y electricidad y los gremios coordinados.",
+    tiempo: "De una a tres semanas",
+    idealPara: [
+      "Una cocina antigua que quieres renovar entera",
+      "Cambiar solo muebles y encimera aprovechando la instalación",
+      "Abrir la cocina al salón y ganar espacio",
+      "Pisos que se van a vender o alquilar y necesitan una cocina al día"
+    ],
+    ejemplo: {
+      titulo: "Reforma de cocina",
+      cliente: "Cocina que se quiere renovar, desde un acabado sencillo hasta una cocina de diseño con isla.",
+      incluye: [
+      "Desmontaje de la cocina anterior y retirada de escombros",
+      "Instalación de agua y electricidad adaptada al nuevo diseño",
+      "Alicatado o revestimiento del frente",
+      "Muebles, encimera y fregadero",
+      "Campana, placa y horno",
+      "Iluminación bajo muebles y de techo",
+      "Limpieza final de obra"
+    ]
+    },
+    extras: [
+      "Isla o península con zona de barra",
+      "Iluminación LED bajo los muebles",
+      "Conexión de gas por un instalador autorizado"
+    ],
+    tambienInstalaron: [
+      { texto: "Electricidad (iluminación y enchufes)", href: "/servicios/electricidad" },
+      { texto: "Suelos y revestimientos", href: "/servicios/suelos-revestimientos" },
+      { texto: "Limpieza después de obra", href: "/servicios/limpieza-post-obra" }
+    ]
+  },
+
+  // ───────────────────────── SUELOS-REVESTIMIENTOS ─────────────────────────
+  {
+    slug: "suelos-revestimientos",
+    familia: "reformas",
+    heroImagen: foto("/img/hero-bloques/suelos-revestimientos.jpg"),
+    cardImagen: foto("/img/trabajos/suelos-revestimientos-card.jpg"),
+    numero: 7,
+    nombre: "Suelos y revestimientos",
+    icono: "parquet",
+    resumen: "Suelo laminado, vinílico o cerámico, rodapiés y revestimiento de paredes para renovar una estancia o toda la vivienda.",
+    tiempo: "De uno a cuatro días",
+    idealPara: [
+      "Renovar el suelo de toda la vivienda",
+      "Cambiar un suelo viejo o desgastado antes de vender o alquilar",
+      "Darle carácter a una pared con un revestimiento",
+      "Cocinas, baños y recibidores que necesitan un suelo resistente"
+    ],
+    ejemplo: {
+      titulo: "Suelo laminado en salón y pasillo",
+      cliente: "Vivienda en la que se quiere cambiar el suelo, con o sin retirada del anterior.",
+      incluye: [
+      "Retirada del suelo anterior, si procede",
+      "Preparación y nivelado de la base",
+      "Colocación del suelo elegido",
+      "Rodapiés y remates",
+      "Limpieza final de obra"
+    ]
+    },
+    extras: [
+      "Cerámica y porcelánico de gran formato",
+      "Revestimiento decorativo de paredes",
+      "Rodapiés a juego con el suelo"
+    ],
+    tambienInstalaron: [
+      { texto: "Pintura", href: "/servicios/pintura" },
+      { texto: "Armarios, vestidores y carpintería interior", href: "/servicios/armarios-carpinteria" },
+      { texto: "Limpieza después de obra", href: "/servicios/limpieza-post-obra" }
+    ]
+  },
+
+  // ───────────────────────── ARMARIOS-CARPINTERIA ─────────────────────────
+  {
+    slug: "armarios-carpinteria",
+    familia: "reformas",
+    heroImagen: foto("/img/hero-bloques/armarios-carpinteria.jpg"),
+    cardImagen: foto("/img/trabajos/armarios-carpinteria-card.jpg"),
+    numero: 8,
+    nombre: "Armarios, vestidores y carpintería interior",
+    icono: "wardrobe",
+    resumen: "Armarios empotrados, vestidores, puertas interiores y carpintería a medida, con el interior organizado como lo necesitas.",
+    tiempo: "De unos días a dos semanas",
+    idealPara: [
+      "Armarios empotrados en dormitorios",
+      "Un vestidor con cajones, zapateros e iluminación",
+      "Cambiar las puertas interiores de la vivienda",
+      "Aprovechar huecos, rincones y espacios difíciles"
+    ],
+    ejemplo: {
+      titulo: "Armario empotrado de dormitorio",
+      cliente: "Dormitorio con un armario a medida, desde un interior sencillo hasta un vestidor con cajones e iluminación.",
+      incluye: [
+      "Toma de medidas en la visita técnica",
+      "Frentes y puertas del armario",
+      "Interior con baldas, barra y cajones",
+      "Herrajes y tiradores",
+      "Montaje y ajuste en la vivienda",
+      "Limpieza final de obra"
+    ]
+    },
+    extras: [
+      "Iluminación LED en el interior",
+      "Cajones de cristal, zapateros y pantaloneros extraíbles",
+      "Puertas interiores a juego"
+    ],
+    tambienInstalaron: [
+      { texto: "Pintura", href: "/servicios/pintura" },
+      { texto: "Pladur (trasdosados y huecos para armarios)", href: "/servicios/pladur" },
+      { texto: "Suelos y revestimientos", href: "/servicios/suelos-revestimientos" }
+    ]
+  },
+
+  // ───────────────────────── VENTANAS-CERRAMIENTOS ─────────────────────────
+  {
+    slug: "ventanas-cerramientos",
+    familia: "seguridad-confort",
+    heroImagen: foto("/img/hero-bloques/ventanas-cerramientos.jpg"),
+    cardImagen: foto("/img/trabajos/ventanas-cerramientos-card.jpg"),
+    numero: 16,
+    nombre: "Ventanas y cerramientos",
+    icono: "window",
+    resumen: "Ventanas de PVC o aluminio, puertas correderas de balcón y cerramientos de terraza, con más aislamiento térmico y acústico y el remate de obra incluido.",
+    tiempo: "De uno a dos días, tras la fabricación a medida",
+    idealPara: [
+      "Ventanas viejas que dejan pasar frío, calor o ruido",
+      "Cambiar la carpintería de toda la vivienda",
+      "Cerrar una terraza o un balcón para ganar espacio",
+      "Cubrir una terraza con una pérgola de lamas"
+    ],
+    ejemplo: {
+      titulo: "Cambio de ventanas del salón",
+      cliente: "Vivienda en la que se cambian las ventanas por otras con mejor aislamiento, de PVC o de aluminio.",
+      incluye: [
+      "Medición en la visita técnica",
+      "Ventanas o correderas a medida",
+      "Desmontaje de la carpintería anterior",
+      "Instalación y sellado",
+      "Remate de albañilería y pintura de los huecos",
+      "Limpieza final de obra"
+    ]
+    },
+    extras: [
+      "Persiana motorizada integrada",
+      "Cristal de seguridad o de mayor aislamiento acústico",
+      "Pérgola de lamas o cerramiento de terraza",
+      "Orientación sobre los permisos de la comunidad y el ayuntamiento"
+    ],
+    tambienInstalaron: [
+      { texto: "Motorización de persianas", href: "/servicios/motorizacion-persianas" },
+      { texto: "Pintura", href: "/servicios/pintura" },
+      { texto: "Limpieza después de obra", href: "/servicios/limpieza-post-obra" }
+    ]
   }
 ];
 
@@ -1563,7 +1780,7 @@ const familias = [
     slug: "reformas",
     numero: 2,
     icono: "paint",
-    imagen: "/img/trabajos/familia-reformas.jpg",
+    imagen: foto("/img/trabajos/familia-reformas.jpg", "/img/trabajos/reforma-general-despues.jpg"),
     nombre: "Reformas y acabados",
     lema: "Renovar espacios y mejorar la vivienda."
   },
@@ -1571,7 +1788,7 @@ const familias = [
     slug: "exterior",
     numero: 3,
     icono: "leaf",
-    imagen: "/img/trabajos/familia-exterior.jpg",
+    imagen: foto("/img/trabajos/familia-exterior.jpg", "/img/trabajos/toldo-despues.jpg"),
     nombre: "Mantenimiento y exterior",
     lema: "Mantener la casa, sus exteriores y la obra terminada en perfecto estado."
   },
@@ -1609,7 +1826,17 @@ const empresa = {
   // para apagarla antes basta con poner activa: false.
   campana: { activa: true, hasta: "2027-03-20" },
   metaDescriptionDefault:
-    "AHOMED — Electricidad, fontanería, reformas, pintura, pladur, cámaras de vigilancia, persianas, jardinería y mantenimiento de chalets en Madrid y alrededores. Primera visita técnica gratuita y sin compromiso."
+    "AHOMED — Electricidad, fontanería, reformas, baños, cocinas, suelos, armarios, ventanas, pintura, pladur, cámaras de vigilancia, persianas, jardinería y mantenimiento de chalets en Madrid y alrededores. Primera visita técnica gratuita y sin compromiso."
 };
+
+// Fotos de ideas/sugerencias por servicio: se recogen solas desde public/img/ideas/<slug>-1.jpg … -6.jpg.
+// Si un servicio no tiene ninguna, su ficha no muestra el bloque «Ideas».
+services.forEach((sv) => {
+  sv.ideas = [];
+  for (let i = 1; i <= 6; i++) {
+    const r = foto(`/img/ideas/${sv.slug}-${i}.jpg`);
+    if (r) sv.ideas.push(r);
+  }
+});
 
 module.exports = { services, familias, comoFunciona, empresa };
